@@ -1,0 +1,8 @@
+# 秘密情報
+.env
+
+# Node.js
+node_modules/
+
+# ログ
+*.log
