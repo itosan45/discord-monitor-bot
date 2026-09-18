@@ -51,14 +51,32 @@ def cer(truth, hyp):
     return levenshtein(t, h) / len(t)
 
 
-def read_order(results):
-    """認識結果を（おおまかな）行順に並べて連結する。"""
-    items = []
+def read_order(results, row_tol=25):
+    """認識結果を行単位にまとめ直す。
+
+    EasyOCRは1行の中でも空白で区切られた塊を別々の枠として返すため、
+    中心Y座標が近いものを同じ行として横に連結し直す。
+    """
+    boxes = []
     for box, text, conf in results:
-        ys = [p[1] for p in box]
-        xs = [p[0] for p in box]
-        items.append((sum(ys) / 4, sum(xs) / 4, text, conf))
-    items.sort(key=lambda r: (round(r[0] / 25), r[1]))
+        cy = sum(p[1] for p in box) / 4
+        cx = sum(p[0] for p in box) / 4
+        boxes.append((cy, cx, text, conf))
+    boxes.sort(key=lambda r: r[0])
+
+    rows = []
+    for cy, cx, text, conf in boxes:
+        if rows and abs(cy - rows[-1][0]) <= row_tol:
+            rows[-1][1].append((cx, text, conf))
+        else:
+            rows.append((cy, [(cx, text, conf)]))
+
+    items = []
+    for cy, parts in rows:
+        parts.sort(key=lambda r: r[0])
+        text = " ".join(t for _, t, _ in parts)
+        conf = sum(c for _, _, c in parts) / len(parts)
+        items.append((cy, parts[0][0], text, conf))
     return items
 
 
