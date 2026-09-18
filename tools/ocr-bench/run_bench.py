@@ -102,6 +102,11 @@ def main():
     ap.add_argument("--image", help="単体で評価する画像")
     ap.add_argument("--truth", help="正解テキストファイル（1行1テキスト）")
     ap.add_argument("--langs", default="ja,en")
+    ap.add_argument("--canvas", type=int, default=2560,
+                    help="EasyOCRが内部で縮小する長辺のpx。既定2560。"
+                         "高解像度の写真で小さい文字を拾いたいときは上げる")
+    ap.add_argument("--mag", type=float, default=1.0,
+                    help="検出前の拡大率。小さい文字に効く")
     ap.add_argument("--out", default=os.path.join(HERE, "results.json"))
     args = ap.parse_args()
 
@@ -126,7 +131,8 @@ def main():
     for job in jobs:
         path = os.path.join(base, job["file"]) if base else job["file"]
         t0 = time.time()
-        res = reader.readtext(path)
+        res = reader.readtext(path, canvas_size=args.canvas,
+                              mag_ratio=args.mag)
         dt = time.time() - t0
         items = read_order(res)
         hyp_text = "\n".join(t for _, _, t, _ in items)
@@ -134,6 +140,7 @@ def main():
         row = dict(file=os.path.basename(path), sample=job["sample"],
                    sample_desc=job["sample_desc"], condition=job["condition"],
                    condition_desc=job["condition_desc"], seconds=round(dt, 2),
+                   canvas=args.canvas, mag=args.mag,
                    boxes=len(items),
                    mean_conf=round(sum(confs) / len(confs), 3) if confs else 0.0,
                    text=hyp_text)
