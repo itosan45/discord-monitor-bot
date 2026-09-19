@@ -30,6 +30,27 @@ BAD_FILENAME_CHARS = re.compile(r'[\\/:*?"<>|\r\n\t]')
 # 元号 -> 西暦の開始年
 ERAS = {"令和": 2018, "平成": 1988, "昭和": 1925, "R": 2018, "H": 1988, "S": 1925}
 
+# OCRが数字と取り違えやすい文字。日付を読むときだけ数字に戻す。
+# 実測で「令和8年」が「令和呂年」になる例が出たため。
+DIGIT_LOOKALIKE = str.maketrans({
+    "O": "0", "o": "0", "〇": "0", "○": "0", "D": "0", "Q": "0",
+    "l": "1", "I": "1", "|": "1", "i": "1", "元": "1",
+    "Z": "2", "己": "2", "乙": "2",
+    "Ｅ": "3",
+    "A": "4",
+    "S": "5", "s": "5",
+    "G": "6", "b": "6",
+    "T": "7",
+    "B": "8", "呂": "8",
+    "g": "9", "q": "9",
+})
+# 日付の数字部分として許す文字（あとで数字に直す）
+D = r"[0-9OoDQ〇○lIi|元Z己乙ＥASsGbTB呂gq]"
+
+# この語が直前にある日付は発行日ではない。支払期限を発行日と取り違えないため。
+NOT_ISSUE_DATE = re.compile(
+    r"(期限|支払|振込|振替|納期|納入|有効|締切|締め切|完了|着工|予定|until|due)")
+
 
 # ---------------------------------------------------------------- 文字列処理
 
@@ -72,26 +93,57 @@ def similarity(a, b):
 
 # ---------------------------------------------------------------- 項目の抽出
 
-def extract_date(text):
-    """本文から日付を1つ取り出す。和暦・西暦の主な書き方に対応する。"""
+def _to_int(s):
+    """OCRが取り違えた文字を数字に戻して整数にする。戻せなければNone。"""
+    s = s.translate(DIGIT_LOOKALIKE)
+    return int(s) if s.isdigit() else None
+
+
+def find_dates(text):
+    """本文に出てくる日付を全部拾う。(位置, 日付, 発行日らしさ) を返す。"""
     t = normalize(text)
-    # 令和6年4月1日 / R6.4.1
-    m = re.search(r"(令和|平成|昭和|R|H|S)\s*(\d{1,2})\s*[年\.\-/]\s*"
-                  r"(\d{1,2})\s*[月\.\-/]\s*(\d{1,2})", t)
-    if m:
-        era, y, mo, d = m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))
+    found = []
+
+    # 令和6年4月1日 / R6.4.1 / 令和元年…
+    for m in re.finditer(r"(令和|平成|昭和|R|H|S)\s*(%s{1,2})\s*[年\.\-/]\s*"
+                         r"(%s{1,2})\s*[月\.\-/]\s*(%s{1,2})" % (D, D, D), t):
+        y, mo, dd = _to_int(m.group(2)), _to_int(m.group(3)), _to_int(m.group(4))
+        if None in (y, mo, dd):
+            continue
         try:
-            return date(ERAS[era] + y, mo, d)
+            found.append((m.start(), date(ERAS[m.group(1)] + y, mo, dd)))
         except ValueError:
             pass
+
     # 2026年4月1日 / 2026/4/1 / 2026-04-01
-    m = re.search(r"(20\d{2})\s*[年\.\-/]\s*(\d{1,2})\s*[月\.\-/]\s*(\d{1,2})", t)
-    if m:
+    # 年の4桁も誤読されうる（2026 -> 2O26）ので、桁だけ拾って後で範囲を見る。
+    for m in re.finditer(r"(%s{4})\s*[年\.\-/]\s*(%s{1,2})\s*"
+                         r"[月\.\-/]\s*(%s{1,2})" % (D, D, D), t):
+        y, mo, dd = _to_int(m.group(1)), _to_int(m.group(2)), _to_int(m.group(3))
+        if None in (y, mo, dd) or not (1900 <= y <= 2099):
+            continue
         try:
-            return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            found.append((m.start(), date(y, mo, dd)))
         except ValueError:
             pass
-    return None
+
+    out = []
+    for pos, d in sorted(found):
+        # 直前の語が「支払期限」などなら発行日ではない
+        context = t[max(0, pos - 14):pos]
+        out.append((pos, d, NOT_ISSUE_DATE.search(context) is None))
+    return out
+
+
+def extract_date(text):
+    """発行日を1つ取り出す。支払期限などのラベルが付いた日付は後回しにする。"""
+    dates = find_dates(text)
+    if not dates:
+        return None
+    for _, d, is_issue in dates:
+        if is_issue:
+            return d
+    return dates[0][1]
 
 
 def extract_doctype(lines, doctypes, threshold):
@@ -135,17 +187,35 @@ def best_window_similarity(haystack, needle):
     return best
 
 
-def extract_party(lines, parties, aliases, threshold):
+# 宛先を示す敬称。この語がある行の会社名は「差出人」ではない。
+ADDRESSEE_MARK = re.compile(r"(御中|様|殿|宛|行$)")
+
+
+def extract_party(lines, parties, aliases, threshold, role="issuer"):
     """取引先を一覧との照合で決める。
 
     OCRの誤読を許容するため、行そのものと隣接2行の連結を候補にして
     一覧の各社名と曖昧一致させる。
+
+    請求書には差出人と宛先の両方に会社名が載る。どちらも取引先一覧に
+    入っていることがあるため、敬称（御中・様・殿）の有無で役割を判定し、
+    role で指定された側だけを候補にする。
+    role="issuer"    … 差出人（書類を発行した側）。既定
+    role="addressee" … 宛先
+    role="any"       … 区別しない
     """
     cands = []
     for i, line in enumerate(lines):
-        cands.append((i, normalize(line)))
+        n1 = normalize(line)
+        cands.append((i, n1, bool(ADDRESSEE_MARK.search(n1))))
         if i + 1 < len(lines):
-            cands.append((i, normalize(line + lines[i + 1])))
+            n2 = normalize(line + lines[i + 1])
+            cands.append((i, n2, bool(ADDRESSEE_MARK.search(n2))))
+
+    if role == "issuer":
+        cands = [c for c in cands if not c[2]]
+    elif role == "addressee":
+        cands = [c for c in cands if c[2]]
 
     best = (None, 0.0, "")
     for canonical in parties:
@@ -154,7 +224,7 @@ def extract_party(lines, parties, aliases, threshold):
             nn = strip_corp(normalize(name))
             if not nn:
                 continue
-            for idx, cand in cands:
+            for idx, cand, _ in cands:
                 c = strip_corp(cand)
                 if not c:
                     continue
@@ -179,12 +249,16 @@ def render_pages(path, dpi, max_pages):
     if ext in PDF_EXT:
         import pypdfium2 as pdfium
         doc = pdfium.PdfDocument(path)
-        out = []
-        for i in range(min(len(doc), max_pages)):
-            page = doc[i]
-            pil = page.render(scale=dpi / 72).to_pil()
-            out.append(np.asarray(pil.convert("RGB")))
-        return out
+        try:
+            out = []
+            for i in range(min(len(doc), max_pages)):
+                page = doc[i]
+                pil = page.render(scale=dpi / 72).to_pil()
+                out.append(np.asarray(pil.convert("RGB")))
+                page.close()
+            return out
+        finally:
+            doc.close()
     return [np.asarray(Image.open(path).convert("RGB"))]
 
 
@@ -239,6 +313,7 @@ DEFAULT_CONFIG = {
     "unknown_party": "取引先不明",
     "unknown_doctype": "書類",
     "party_threshold": 0.62,
+    "party_role": "issuer",
     "doctype_threshold": 0.70,
     "review_dir": "_要確認",
     "doctypes": {},
@@ -267,7 +342,7 @@ def process(path, reader, cfg, dpi, max_pages):
     d = extract_date(text)
     doctype, dt_score = extract_doctype(lines, cfg["doctypes"], cfg["doctype_threshold"])
     party, p_score, p_raw = extract_party(lines, cfg["parties"], cfg["party_aliases"],
-                                          cfg["party_threshold"])
+                                          cfg["party_threshold"], cfg["party_role"])
 
     fields = dict(
         date=d.strftime(cfg["date_format"]) if d else cfg["unknown_date"],
