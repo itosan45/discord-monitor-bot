@@ -3,15 +3,32 @@
 <head>
 <meta charset="utf-8">
 <title>関ヶ原乱舞 SEKIGAHARA RANBU</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <style>
 html,body{margin:0;height:100%;background:#000;overflow:hidden}
 #wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#000}
-canvas{width:min(100vw,177.7778vh);height:min(56.25vw,100vh);display:block;background:#000}
+canvas{width:min(100vw,177.7778vh);height:min(56.25vw,100vh);display:block;background:#000;touch-action:none}
+@supports (height:100dvh){canvas{width:min(100vw,177.7778dvh);height:min(56.25vw,100dvh)}}
+html,body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;overscroll-behavior:none}
+#touch{position:fixed;inset:0;pointer-events:none;display:none;z-index:5;touch-action:none}
+#touch>*{touch-action:none;-webkit-tap-highlight-color:transparent}
+#zone{position:absolute;left:0;bottom:0;width:46%;height:80%;pointer-events:auto}
+#base{position:absolute;width:128px;height:128px;border-radius:50%;border:3px solid rgba(255,255,255,.38);background:rgba(255,255,255,.09);pointer-events:none}
+#knob{position:absolute;left:34px;top:34px;width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.4);border:2px solid rgba(255,255,255,.7)}
+.btn{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font:bold 20px sans-serif;border:3px solid rgba(255,255,255,.6);background:rgba(20,20,30,.5);pointer-events:auto;text-shadow:0 1px 3px #000}
+.btn.on{background:rgba(255,200,80,.55)}
+#bZ{right:26px;bottom:34px;width:112px;height:112px;font-size:26px;background:rgba(180,30,30,.55)}
+#bX{right:158px;bottom:30px;width:84px;height:84px}
+#bC{right:60px;bottom:164px;width:84px;height:84px;background:rgba(40,90,190,.55)}
+#bP{right:12px;top:78px;width:46px;height:46px;font-size:16px;border-width:2px}
+#rot{display:none;position:fixed;inset:0;z-index:9;background:#000;color:#fff;align-items:center;justify-content:center;text-align:center;font:bold 20px sans-serif;line-height:1.8}
+@media (orientation:portrait){body.touch #rot{display:flex}}
 </style>
 </head>
 <body>
 <div id="wrap"><canvas id="c" width="1280" height="720"></canvas></div>
+<div id="touch"><div id="base"><div id="knob"></div></div><div id="zone"></div><div class="btn" id="bZ">攻撃</div><div class="btn" id="bX">跳躍</div><div class="btn" id="bC">必殺</div><div class="btn" id="bP">II</div></div>
+<div id="rot"><div>📱↻<br>端末を横向きにしてください<br><small>Rotate your device to landscape</small></div></div>
 <script>
 'use strict';
 /* ===== 関ヶ原乱舞 / SEKIGAHARA RANBU — 単一HTML。絵・建物・効果音はすべてコード生成。
@@ -87,7 +104,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},src:nul
 const keys={},pressed={};
 addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Space'].includes(e.code))e.preventDefault();if(!keys[e.code])pressed[e.code]=true;keys[e.code]=true;AU.init();if(e.code==='KeyM'){AU.muted=!AU.muted;}});
 addEventListener('keyup',e=>{keys[e.code]=false;});
-addEventListener('pointerdown',()=>{AU.init();pressed.Enter=true;});
+
 addEventListener('blur',()=>{for(const k in keys)keys[k]=false;});
 function ctlKeys(){const k=keys,p=pressed;return{l:k.ArrowLeft||k.KeyA,r:k.ArrowRight||k.KeyD,u:k.ArrowUp||k.KeyW,d:k.ArrowDown||k.KeyS,atkP:p.KeyZ||p.KeyJ||p.Space,jumpP:p.KeyX||p.KeyK,spcP:p.KeyC||p.KeyL};}
 const anyKey=()=>Object.keys(pressed).some(k=>pressed[k]);
@@ -694,7 +711,7 @@ function drawHUD(){
  txt(T.name,116,32,26,'#fff','left','#000',4);txt(T.en,118,52,11,'#e8c35a','left',null,0,'Arial');
  p.hpLag=p.hpLag==null?p.hp:p.hpLag;p.hpLag+=(p.hp-p.hpLag)*0.06;if(p.hpLag<p.hp)p.hpLag=p.hp;
  bar(118,62,250,14,p.hp,p.maxhp,p.hp<p.maxhp*0.3?'#ff5a3a':'#7fe05a',p.hp<p.maxhp*0.3?'#a02010':'#2a8a1a',p.hpLag);
- bar(118,82,190,8,p.ki,100,p.ki>=T.cost?'#7fd0ff':'#3a70c0','#1a3a80');if(p.ki>=T.cost&&G.t%40<26)txt('必殺 [C]',318,87,12,'#9fe0ff','left','#000',3);
+ bar(118,82,190,8,p.ki,100,p.ki>=T.cost?'#7fd0ff':'#3a70c0','#1a3a80');if(p.ki>=T.cost&&G.t%40<26)txt(TOUCH?'必殺OK':'必殺 [C]',318,87,12,'#9fe0ff','left','#000',3);
  txt('残 '+(G.demo?'∞':G.lives),374,32,18,'#ffd',"left",'#000',4);ctx.restore();
  // score / stage
  const S=STG[G.stage];txt('SCORE',W-210,24,13,'#e8c35a','left','#000',3,'Arial');txt(String(G.score).padStart(8,'0'),W-210,48,28,'#fff','left','#000',4,'Arial Black,Impact,sans-serif');
@@ -721,24 +738,24 @@ function drawOverlays(){
   if(v.t<30&&!v.small){ctx.fillStyle=`rgba(255,255,255,${0.5-v.t*0.017})`;ctx.fillRect(0,0,W,H);}}}
  if(G.flashT>0){ctx.fillStyle=`rgba(255,255,255,${G.flashT/16})`;ctx.fillRect(0,0,W,H);G.flashT--;}
  if(G.state==='clear'){const t=G.stateT;ctx.fillStyle='rgba(0,0,0,0.55)';ctx.fillRect(0,180,W,300);txt('STAGE CLEAR',W/2,250,76,'#ffe070','center','#400',9,'Arial Black,Impact,sans-serif');txt(STG[G.stage].jp+'　'+STG[G.stage].title+'　突破',W/2,320,28,'#fff','center','#000',4);
-  if(!G.demo){txt('クリアボーナス  '+(G.bonus+2000),W/2,380,26,'#fff','center','#000',4);txt(G.stage<2?'Z / ENTER：次の幕へ':'Z / ENTER：エンディングへ',W/2,430,22,'#ffd','center','#000',4);}}
+  if(!G.demo){txt('クリアボーナス  '+(G.bonus+2000),W/2,380,26,'#fff','center','#000',4);txt(TOUCH?'タップで続ける':G.stage<2?'Z / ENTER：次の幕へ':'Z / ENTER：エンディングへ',W/2,430,22,'#ffd','center','#000',4);}}
  if(G.state==='over'){ctx.fillStyle='rgba(0,0,0,0.65)';ctx.fillRect(0,0,W,H);txt('GAME OVER',W/2,300,96,'#c02020','center','#000',10,'Arial Black,Impact,sans-serif');txt('無念… 天下の趨勢は東軍へ',W/2,390,28,'#ddd','center','#000',4);}
- if(G.pause){ctx.fillStyle='rgba(0,0,0,0.6)';ctx.fillRect(0,0,W,H);txt('PAUSE',W/2,320,80,'#fff','center','#000',8,'Arial Black,Impact,sans-serif');txt('P で再開',W/2,390,26,'#ddd','center');}
+ if(G.pause){ctx.fillStyle='rgba(0,0,0,0.6)';ctx.fillRect(0,0,W,H);txt('PAUSE',W/2,320,80,'#fff','center','#000',8,'Arial Black,Impact,sans-serif');txt(TOUCH?'II ボタンで再開':'P で再開',W/2,390,26,'#ddd','center');}
 }
 function drawTitleOverlay(){
  const t=G.titleT||0;
  if(t<330){const a=t<30?t/30:t>290?1-(t-290)/40:1;ctx.globalAlpha=a;const g=ctx.createLinearGradient(0,120,0,420);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(.3,'rgba(0,0,0,0.7)');g.addColorStop(.7,'rgba(0,0,0,0.7)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,120,W,300);
   txt('関ヶ原乱舞',W/2,235,128,'#f4f0e0','center','#7a1010',14);txt('SEKIGAHARA RANBU',W/2,326,34,'#e8c35a','center','#000',5,'Arial Black,Impact,sans-serif');txt('天下分け目の大合戦　真田幸村・上杉景勝・石田三成',W/2,376,24,'#fff','center','#000',4);ctx.globalAlpha=1;}
- if(G.mode==='demo'){ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,H-70,W,40);if(G.t%80<52)txt('PRESS ENTER / ANY KEY — START',W/2,H-50,26,'#ffe070','center','#000',5,'Arial Black,Impact,sans-serif');txt('DEMO PLAY',W-24,H-100,18,'#fff','right','#000',4,'Arial');
-  txt('移動:←↑↓→  攻撃:Z  跳躍:X  必殺:C  一時停止:P  消音:M',W/2,H-16,15,'#ddd','center','#000',3);}
- if(!AU.on&&!AU.muted&&AU.ac===null||AU.ac&&AU.ac.state!=='running'&&!AU.muted){if(G.t%90<60)txt('♪ いずれかのキーを押すと音が出ます',W/2,H-100,18,'#fff','center','#000',4);}
+ if(G.mode==='demo'){ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,H-70,W,40);if(G.t%80<52)txt(TOUCH?'TAP TO START — 画面をタップ':'PRESS ENTER / ANY KEY — START',W/2,H-50,26,'#ffe070','center','#000',5,'Arial Black,Impact,sans-serif');txt('DEMO PLAY',W-24,H-100,18,'#fff','right','#000',4,'Arial');
+  if(!TOUCH)txt('移動:←↑↓→  攻撃:Z  跳躍:X  必殺:C  一時停止:P  消音:M',W/2,H-16,15,'#ddd','center','#000',3);}
+ if(!AU.on&&!AU.muted&&AU.ac===null||AU.ac&&AU.ac.state!=='running'&&!AU.muted){if(G.t%90<60)txt(TOUCH?'♪ タップすると音が出ます':'♪ いずれかのキーを押すと音が出ます',W/2,H-100,18,'#fff','center','#000',4);}
 }
 
 /* ===================== SELECT / END ===================== */
 const SEL_ORDER=['yuki','kage','mitsu'];let selDummies=null;
 function drawSelect(){
  const A=ART;drawBG(G.camx,G.t);ctx.fillStyle='rgba(8,6,16,0.62)';ctx.fillRect(0,0,W,H);
- txt('武将を選べ',W/2,62,52,'#f4f0e0','center','#7a1010',8);txt('CHOOSE YOUR WARRIOR　←→ 選択　Z / ENTER 決定',W/2,108,18,'#e8c35a','center','#000',3,'Arial');
+ txt('武将を選べ',W/2,62,52,'#f4f0e0','center','#7a1010',8);txt(TOUCH?'CHOOSE YOUR WARRIOR　タップで選択 → もう一度タップで決定':'CHOOSE YOUR WARRIOR　←→ 選択　Z / ENTER 決定',W/2,108,18,'#e8c35a','center','#000',3,'Arial');
  if(!selDummies)selDummies=SEL_ORDER.map(k=>mk(k,0,0,0));
  SEL_ORDER.forEach((k,i)=>{const T=TY[k],x=60+i*400,y=140,cw=360,ch=520,on=G.sel===i;
   ctx.save();ctx.fillStyle=on?'rgba(40,30,60,0.92)':'rgba(15,12,22,0.8)';ctx.fillRect(x,y,cw,ch);ctx.strokeStyle=on?'#ffe070':'#6a5a40';ctx.lineWidth=on?5:2;ctx.strokeRect(x,y,cw,ch);
@@ -751,7 +768,7 @@ function drawSelect(){
 }
 function drawEnd(){
  G.stateT++;const t=G.stateT;drawBG(G.camx+t*0.4,G.t);ctx.fillStyle='rgba(10,0,10,0.7)';ctx.fillRect(0,0,W,H);
- const lines=['関ヶ原の戦い、ここに決す','','慶長五年九月十五日　午の刻','','霧は晴れ、鬨の声は天を衝いた','','',G.curCh?TY[G.curCh].name+' は 戦場を駆け抜けた':'','','— 完 —','','SEKIGAHARA RANBU','Thank you for playing','',`SCORE  ${String(G.score).padStart(8,'0')}`,'','Z / ENTER でタイトルへ'];
+ const lines=['関ヶ原の戦い、ここに決す','','慶長五年九月十五日　午の刻','','霧は晴れ、鬨の声は天を衝いた','','',G.curCh?TY[G.curCh].name+' は 戦場を駆け抜けた':'','','— 完 —','','SEKIGAHARA RANBU','Thank you for playing','',`SCORE  ${String(G.score).padStart(8,'0')}`,'',TOUCH?'タップでタイトルへ':'Z / ENTER でタイトルへ'];
  lines.forEach((s,i)=>{const y=H+60+i*54-t*1.1;if(y>-40&&y<H+40)txt(s,W/2,y,i===0||i===9?52:i===11?44:30,'#f4f0e0','center','#000',5);});
  if(t>60*3&&anyKey()||t>60*34){startDemo(0);}
 }
@@ -779,7 +796,7 @@ function stepGame(){
  updWorld();updParts();
 }
 function frame(){
- G.t++;AU.tick();
+ G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'?'block':'none';
  try{
  if(G.mode==='demo'||G.mode==='play'){
   if(G.mode==='demo'){G.titleT=(G.titleT||0)+1;if(anyKey()&&G.t>5){if(pressed.KeyM){}else{G.mode='select';G.sel=0;AU.sfx('ok');AU.bgm(0);G.camx=0;}}}
@@ -798,6 +815,31 @@ function frame(){
 }
 let acc=0,last=performance.now();
 function loop(now){acc+=Math.min(100,now-last);last=now;while(acc>=1000/60){frame();acc-=1000/60;}requestAnimationFrame(loop);}
+/* ===================== TOUCH (Android) ===================== */
+const TOUCH=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+const tc=document.getElementById('touch'),zone=document.getElementById('zone'),base=document.getElementById('base'),knob=document.getElementById('knob');
+if(TOUCH)document.body.classList.add('touch');
+function setKey(c,v){if(v&&!keys[c])pressed[c]=true;keys[c]=v;}
+let fsTried=false;
+function goFull(){if(!TOUCH||fsTried)return;fsTried=true;const d=document.documentElement;try{const f=d.requestFullscreen||d.webkitRequestFullscreen;const r=f&&f.call(d);if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}catch(e){}}
+function resetBase(){base.style.left=Math.round(innerWidth*0.08)+'px';base.style.top=Math.round(innerHeight-170)+'px';knob.style.left='34px';knob.style.top='34px';}
+resetBase();addEventListener('resize',resetBase);
+let sid=null,ox=0,oy=0;
+function stickMove(e){let dx=e.clientX-ox,dy=e.clientY-oy;const d=Math.hypot(dx,dy),m=52;if(d>m){dx*=m/d;dy*=m/d;}knob.style.left=(34+dx)+'px';knob.style.top=(34+dy)+'px';
+ setKey('ArrowLeft',dx<-16);setKey('ArrowRight',dx>16);setKey('ArrowUp',dy<-20);setKey('ArrowDown',dy>20);}
+function stickEnd(e){if(e.pointerId!==sid)return;sid=null;['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].forEach(k=>setKey(k,false));resetBase();}
+zone.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();goFull();if(G.state!=='run')pressed.Enter=true;sid=e.pointerId;try{zone.setPointerCapture(e.pointerId);}catch(_){}ox=e.clientX;oy=e.clientY;base.style.left=(ox-64)+'px';base.style.top=(oy-64)+'px';stickMove(e);});
+zone.addEventListener('pointermove',e=>{if(e.pointerId===sid)stickMove(e);});
+zone.addEventListener('pointerup',stickEnd);zone.addEventListener('pointercancel',stickEnd);
+for(const [id,code] of [['bZ','KeyZ'],['bX','KeyX'],['bC','KeyC'],['bP','KeyP']]){const el=document.getElementById(id);
+ el.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();goFull();try{el.setPointerCapture(e.pointerId);}catch(_){}setKey(code,true);el.classList.add('on');});
+ const up=()=>{setKey(code,false);el.classList.remove('on');};el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);}
+cv.addEventListener('pointerdown',e=>{AU.init();goFull();const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;
+ if(G.mode==='select'){const i=Math.floor((x-60)/400);if(i>=0&&i<3&&x>=60&&x<=1260){if(G.sel===i)pressed.Enter=true;else{G.sel=i;AU.sfx('ui');}}}
+ else pressed.Enter=true;});
+addEventListener('pointerup',()=>AU.init());addEventListener('touchend',()=>AU.init());
+addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&G.mode==='play'&&G.state==='run')G.pause=true;});
 VIG=mkVig();ART=buildArt(0);startDemo(0);try{AU.init();}catch(e){}
 window.__G=G;
 requestAnimationFrame(loop);
