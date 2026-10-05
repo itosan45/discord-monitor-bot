@@ -979,6 +979,10 @@ function drawSprite(f){const S=SPR[f.T.type];if(!S||!S.ready)return false;const 
  ctx.scale(f.face*f.sc,f.sc);ctx.translate(lx,0);if(rot)ctx.rotate(rot);ctx.scale(sx,sy);
  if(f.state==='spc'&&!G.lowq){ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,-90,5,0,-90,130);g.addColorStop(0,`rgba(${f.T.trail},0.42)`);g.addColorStop(1,`rgba(${f.T.trail},0)`);ctx.fillStyle=g;ctx.fillRect(-140,-230,280,260);ctx.globalCompositeOperation='source-over';}
  const img=fl?sprWhite(S):S.img,ga=ctx.globalAlpha;
+ if(f.state==='walk'&&!f.T.boss){const hp=A0[5]+A0[3]*0.56,w=f.wp||0,sw=Math.sin(w),lift=Math.max(0,Math.cos(w))*3;
+  ctx.save();ctx.beginPath();ctx.rect(-400,-600,800,600+hp+8);ctx.clip();ctx.drawImage(img,A0[0],A0[1],A0[2],A0[3],A0[4],A0[5],A0[2],A0[3]);ctx.restore();
+  ctx.save();ctx.beginPath();ctx.rect(-400,hp,800,600);ctx.clip();ctx.translate(0,hp);ctx.rotate(sw*0.2);ctx.translate(sw*2,-hp-lift);ctx.drawImage(img,A0[0],A0[1],A0[2],A0[3],A0[4],A0[5],A0[2],A0[3]);ctx.restore();
+ }else
  ctx.drawImage(img,A0[0],A0[1],A0[2],A0[3],A0[4],A0[5],A0[2],A0[3]);
  if(A1&&A1!==A0&&fr>0.02&&!fl&&!sp.hard){ctx.globalAlpha=ga*fr*0.85;ctx.drawImage(img,A1[0],A1[1],A1[2],A1[3],A1[4],A1[5],A1[2],A1[3]);ctx.globalAlpha=ga;}
  ctx.restore();return true;}
