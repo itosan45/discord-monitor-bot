@@ -336,8 +336,12 @@ function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 function startStage(si,ch,demo,keep){
  G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
+ else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja'];
+  const more=nb.map((w,i)=>({gap:w.gap+60,en:w.en.concat([[ex[(i+si)%ex.length],40+i*20,i%2?1:-1]])}));
+  const more2=nb.slice().reverse().map((w,i)=>({gap:w.gap+120,en:w.en.concat([[ex[(i+si+2)%ex.length],30,1],[ex[(i+si+3)%ex.length],70,-1]])}));
+  ws=nb.concat(more,more2,bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
- G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.items=[];G.proj=[];G.parts=[];G.props=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=(STG[si].time||TIME_LIMIT)*60;G.over=null;G.partner=null;
+ G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.items=[];G.proj=[];G.parts=[];G.props=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.5));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  if(!demo&&G.partnerType){const q=mk(G.partnerType,90,590,0);q.isPartner=true;q.dm=1.3;q.inv=60;G.partner=q;G.fighters.push(q);}
  for(let i=1;i<G.waves.length;i++){const bx=G.waves[i].x-540+rnd(-60,60);G.props.push({isProp:true,team:2,x:bx,y:rnd(520,630),z:0,hp:3,shk:0,k:i%2?'barrel':'crate',drop:i===G.waves.length-1?'sake':null});}
