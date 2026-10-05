@@ -987,7 +987,11 @@ function drawSprite(f){const S=SPR[f.T.type];if(!S||!S.ready)return false;const 
  if(A1&&A1!==A0&&fr>0.02&&!fl&&!sp.hard){ctx.globalAlpha=ga*fr*0.85;ctx.drawImage(img,A1[0],A1[1],A1[2],A1[3],A1[4],A1[5],A1[2],A1[3]);ctx.globalAlpha=ga;}
  ctx.restore();return true;}
 function drawFighter(f){
- if(f.T.type&&SPR[f.T.type]&&drawSprite(f))return;
+ if(f.T.type&&SPR[f.T.type]&&!f.wpn&&drawSprite(f))return;
+ const boost=f.wpn&&SPR[f.T.type]&&!f.T.boss,sc0=f.sc;if(boost)f.sc=sc0*1.22;
+ try{drawFighterP(f);}finally{f.sc=sc0;}
+}
+function drawFighterP(f){
  const T=f.T,fl=f.flash>0&&(f.flash&2),K=fl?WHITE:T.col,sc=f.sc,o=getPose(f);
  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));
  if(f.state==='dead'&&f.team===1&&f.st>26&&(f.st&2))ctx.globalAlpha=0.35;
