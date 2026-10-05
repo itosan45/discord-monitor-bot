@@ -167,7 +167,7 @@ function buildArt(si){
  // decor
  const far=[],near=[];let x=-100;while(x<7000){const k=r();far.push({t:k<.28?'pine':k<.5?'nobori':k<.7?'jin':k<.7+(S.castle||0.1)?'castle':'pine',x,s:0.7+r()*0.6,v:Math.floor(r()*4)});x+=120+r()*230;}
  x=300;while(x<9000){const k=r();near.push({t:k<.22?'nobori':k<.4?'fence':k<.55?'stake':k<.68?'jin':k<.68+(S.fires||0.12)?'fire':'hay',x,s:0.9+r()*0.3,v:Math.floor(r()*4)});x+=260+r()*420;}
- A.far=far;A.near=near;A.fg=[];x=0;while(x<9000){A.fg.push({x,t:r()<.6?'grass':'arrow',s:0.7+r()});x+=180+r()*300;}
+ A.far=far;A.near=near;A.fg=[];x=0;while(x<26000){A.fg.push({x,t:r()<.6?'grass':'arrow',s:0.7+r()});x+=180+r()*300;}
  return A;
 }
 function mkVig(){const c=mkc(W,H),x=c.getContext('2d'),g=x.createRadialGradient(W/2,H/2,H*0.35,W/2,H/2,H*1.0);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,0.55)');x.fillStyle=g;x.fillRect(0,0,W,H);return c;}
@@ -336,12 +336,14 @@ function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 function startStage(si,ch,demo,keep){
  G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
- else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja'];
-  const more=nb.map((w,i)=>({gap:w.gap+60,en:w.en.concat([[ex[(i+si)%ex.length],40+i*20,i%2?1:-1]])}));
-  const more2=nb.slice().reverse().map((w,i)=>({gap:w.gap+120,en:w.en.concat([[ex[(i+si+2)%ex.length],30,1],[ex[(i+si+3)%ex.length],70,-1]])}));
-  ws=nb.concat(more,more2,bs);}
+ else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja','archer'];const N=22,out=[];
+  for(let i=0;i<N;i++){const base=nb[i%nb.length],lap=Math.floor(i/nb.length),en=base.en.map(e=>[e[0],e[1]+rndi(0,40),e[2]]);
+   const add=1+lap+(i%3===2?1:0);for(let k=0;k<add;k++){const ty=ex[(i+k+si)%ex.length];en.push([ty,120+k*90+rndi(0,50),(i+k)%2?1:-1]);}
+   if(i%7===6)en.push(['samurai',60,1],['samurai',160,-1]);
+   out.push({gap:i===0?620:950+(i%3)*140,en});}
+  ws=out.concat(bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
- G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.items=[];G.proj=[];G.parts=[];G.props=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.5));G.over=null;G.partner=null;
+ G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.items=[];G.proj=[];G.parts=[];G.props=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.7));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  if(!demo&&G.partnerType){const q=mk(G.partnerType,90,590,0);q.isPartner=true;q.dm=1.3;q.inv=60;G.partner=q;G.fighters.push(q);}
  for(let i=1;i<G.waves.length;i++){const bx=G.waves[i].x-540+rnd(-60,60);G.props.push({isProp:true,team:2,x:bx,y:rnd(520,630),z:0,hp:3,shk:0,k:i%2?'barrel':'crate',drop:i===G.waves.length-1?'sake':null});}
@@ -600,6 +602,7 @@ function updWorld(){
    if(!alive&&!G.sq.length&&!G.boss){G.waveOn=false;G.wi++;if(G.wi<G.waves.length){G.camMax=G.waves[G.wi].x;G.goT=1;}}}
  }
  G.runT++;
+ if(!G.demo&&G.state==='run'&&!G.waveOn&&G.wi>0&&G.wi<G.waves.length-1&&G.runT%230===0){const al=G.fighters.filter(e=>e.team===1&&e.hp>0).length;if(al<2)spawnEn(pick(['sword','spear','gun','archer','sword']),Math.random()<0.6?1:-1);}
  if(G.state==='run'&&!G.demo){G.time--;if(G.time>0&&G.time%60===0){const sc=Math.ceil(G.time/60);if(sc<=10)AU.sfx('tick2');else if(sc<=30)AU.sfx('tick');}if(G.time<=0){G.time=0;G.state='continue';G.over='time';G.stateT=0;AU.sfx('warn');}}
  for(const f of G.fighters){if(f.team===0)updPlayer(f,f===p?c:partnerCtl(f));else updEnemy(f);}
  // separation
