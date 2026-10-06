@@ -73,7 +73,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
     this.load();
    }catch(e){this.ac=null;return;}
   }
-  if(this.ac.state==='suspended')this.ac.resume().catch(()=>{});
+  if(this.ac.state==='suspended'&&!this.hidden&&!document.hidden)this.ac.resume().catch(()=>{});
  },
  get on(){return !!this.ac&&this.ac.state==='running'&&!this.muted;},
  async dec(s){const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return await this.ac.decodeAudioData(u.buffer);},
@@ -599,7 +599,8 @@ function startAuto(ch,si){AU.init();AU.stopIntro&&AU.stopIntro();G.newUnlock=fal
 
 /* ===================== TITLE SCREEN ===================== */
 const TMENU=['はじめる','デモプレイ（全編自動）'];
-function startTitle(){G.auto=false;G.mode='title';G.ttlT=0;G.ttlSel=G.ttlSel||0;G.emb2=[];G.ttlIdle=0;AU.bgm(4);}
+const PZM=['再開する','タイトルに戻る'],PZY=[380,480];
+function startTitle(){G.pause=false;G.auto=false;G.mode='title';G.ttlT=0;G.ttlSel=G.ttlSel||0;G.emb2=[];G.ttlIdle=0;AU.bgm(4);}
 function stepTitle(){G.ttlT++;const n=TMENU.length;
  if(pressed.ArrowUp||pressed.KeyW){G.ttlSel=(G.ttlSel+n-1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
  if(pressed.ArrowDown||pressed.KeyS){G.ttlSel=(G.ttlSel+1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
@@ -1719,7 +1720,7 @@ function drawOverlays(){drawKachi();drawUlt();
   if(G.credits>0){txt('CONTINUE?',W/2,255,84,'#ffe070','center','#430',10,'Arial Black,Impact,sans-serif');txt(String(cd),W/2,395,180,cd<=3?'#ff5a4a':'#fff','center','#000',12,'Arial Black,Impact,sans-serif');txt('CREDIT '+G.credits,W/2,502,30,'#9fd8ff','center','#000',4,'Arial');if(t>40&&G.t%60<40)txt(TOUCH?'画面をタップで続ける':'Z / ENTER で続ける',W/2,560,28,'#fff','center','#000',5);}
   else txt('GAME OVER',W/2,340,100,'#c02020','center','#000',10,'Arial Black,Impact,sans-serif');}
  if(G.state==='over'){ctx.fillStyle='rgba(0,0,0,0.65)';ctx.fillRect(0,0,W,H);txt('GAME OVER',W/2,300,96,'#c02020','center','#000',10,'Arial Black,Impact,sans-serif');txt('無念… 天下の趨勢は東軍へ',W/2,390,28,'#ddd','center','#000',4);}
- if(G.pause){ctx.fillStyle='rgba(0,0,0,0.6)';ctx.fillRect(0,0,W,H);txt('PAUSE',W/2,320,80,'#fff','center','#000',8,'Arial Black,Impact,sans-serif');txt(TOUCH?'II ボタンで再開':'P で再開',W/2,390,26,'#ddd','center');}
+ if(G.pause){ctx.fillStyle='rgba(0,0,0,0.8)';ctx.fillRect(0,0,W,H);txt('一時停止',W/2,250,72,'#f4f0e0','center','#7a1010',8);PZM.forEach((it,i)=>{const on=(G.pzSel||0)===i,y=PZY[i];ctx.save();ctx.fillStyle=on?'rgba(120,30,20,0.92)':'rgba(20,14,30,0.85)';ctx.fillRect(W/2-170,y-32,340,64);ctx.strokeStyle=on?'#ffe070':'#8a7a50';ctx.lineWidth=on?4:2;ctx.strokeRect(W/2-170,y-32,340,64);ctx.restore();txt(it,W/2,y+1,30,on?'#fff':'#ccc','center','#000',5);});txt(TOUCH?'タップで選択':'↑↓ 選択　Z / ENTER 決定　P：再開',W/2,620,20,'#bbb','center','#000',3);}
 }
 function drawTitleOverlay(){
  const t=G.titleT||0;
@@ -1815,11 +1816,13 @@ function sprAllReady(){for(const k in SPR){const S=SPR[k];if(!S.ready&&!S.failed
 let _loadT=0;
 function frame(){
  if(!sprAllReady()){_loadT++;ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);txt('読み込み中'+'.'.repeat(1+(_loadT>>4)%3),W/2,H/2,34,'#e8c35a','center','#000',4);txt('SEKIGAHARA RANBU',W/2,H/2-60,20,'#8a7a58','center','#000',3,'Arial');return;}
- G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'&&!G.auto?'block':'none';autoUI();
+ G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'&&!G.auto&&!G.pause?'block':'none';autoUI();
  try{
  if(G.mode==='demo'||G.mode==='play'){
   if(G.mode==='demo'){G.titleT=(G.titleT||0)+1;if(anyKey()&&G.t>5&&!pressed.KeyM){startTitle();AU.sfx('ok');}else if(G.titleT>60*45){G.demoNext=(G.demoI+1);startTitle();}}
-  else if(pressed.KeyP||pressed.Escape)G.pause=!G.pause;
+  else if(pressed.KeyP||pressed.Escape){G.pause=!G.pause;G.pzSel=0;}
+  else if(G.pause){if(pressed.ArrowUp||pressed.ArrowDown||pressed.KeyW||pressed.KeyS){G.pzSel=(G.pzSel||0)^1;AU.sfx('ui');}
+   if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');if((G.pzSel||0)===0)G.pause=false;else{G.pause=false;G.pzSel=0;startTitle();}}}
   if(!G.pause){stepGame();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='play';r++)stepGame();}
   if(G.mode==='demo'||G.mode==='play'){renderWorld();drawHUD();drawOverlays();if(G.mode==='demo')drawTitleOverlay();}
  }else if(G.mode==='select'){
@@ -1879,13 +1882,17 @@ for(const [id,code] of [['bZ','KeyZ'],['bX','KeyX'],['bC','KeyC'],['bG','KeyV'],
  const up=()=>{setKey(code,false);el.classList.remove('on');};el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);}
 cv.addEventListener('pointerdown',e=>{AU.init();const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;
  if(G.mode==='title'){const yy=(e.clientY-r.top)/r.height*H,i=titleHit(yy);if(i>=0){G.ttlSel=i;pressed.Enter=true;}return;}
+ if(G.mode==='play'&&G.pause&&!G.auto){const yy=(e.clientY-r.top)/r.height*H;for(let i=0;i<PZM.length;i++)if(Math.abs(yy-PZY[i])<=34&&Math.abs(x-W/2)<=172){G.pzSel=i;pressed.Enter=true;}return;}
  if(G.mode==='select'&&x>=24&&x<=144&&(e.clientY-r.top)/r.height*H>=118&&(e.clientY-r.top)/r.height*H<=158){pressed.Escape=true;return;}
  if(G.mode==='select'){const sl=selSlots(),g=cardGeom(sl.length),i=Math.floor((x-g.x0)/(g.w+g.gap));if(i>=0&&i<sl.length&&(x-g.x0)-i*(g.w+g.gap)<=g.w){if(G.sel===i&&G.selTap===i+'_'+(G.selStep||0))pressed.Enter=true;else{G.sel=i;G.selTap=i+'_'+(G.selStep||0);AU.sfx('ui');}}}
  else if(G.mode==='story'&&x>W-300&&(e.clientY-r.top)/r.height*H<90)pressed.KeyS=true;
  else pressed.Enter=true;});
 addEventListener('pointerup',()=>AU.init());addEventListener('touchend',()=>AU.init());
 addEventListener('contextmenu',e=>e.preventDefault());
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&G.mode==='play'&&G.state==='run')G.pause=true;});
+function _bgOff(){AU.hidden=true;try{if(AU.ac&&AU.ac.state==='running')AU.ac.suspend();}catch(_){}}
+function _bgOn(){AU.hidden=false;try{if(AU.ac&&AU.ac.state==='suspended')AU.ac.resume().catch(()=>{});}catch(_){}}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(G.mode==='play'&&G.state==='run'&&!G.auto){G.pause=true;G.pzSel=0;}_bgOff();}else _bgOn();});
+addEventListener('pagehide',_bgOff);addEventListener('blur',()=>{if(document.hidden)_bgOff();});addEventListener('pageshow',()=>{if(!document.hidden)_bgOn();});
 try{G.unlocked=localStorage.getItem('sekigahara_unlock')==='1';}catch(e){}
 {const fb=document.getElementById('fsb');fb.addEventListener('pointerdown',e=>{e.stopPropagation();});fb.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();AU.init();if(isFull())toggleFull();else tryFull();});
  document.getElementById('fsOpen').addEventListener('click',e=>{e.stopPropagation();document.getElementById('fsh').style.display='none';try{window.open(ART_URL,'_blank');}catch(_){location.href=ART_URL;}});
