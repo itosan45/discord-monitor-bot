@@ -55,7 +55,8 @@ const mkc=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;
 
 /* ===================== AUDIO ===================== */
 const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[],lastSc:0,src:null,srcG:null,cur:-1,want:0,loaded:false,
- init(){
+ unlockIOS(){if(this._ios)return;this._ios=1;try{const a=document.createElement('audio');a.setAttribute('playsinline','');a.loop=true;a.src='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';a.volume=0.01;const pr=a.play();if(pr&&pr.catch)pr.catch(()=>{this._ios=0;});if(navigator.audioSession)navigator.audioSession.type='playback';}catch(e){}},
+ init(){this.unlockIOS();
   if(!this.ac){
    try{const AC=window.AudioContext||window.webkitAudioContext;this.ac=new AC();
     const comp=this.ac.createDynamicsCompressor();comp.threshold.value=-12;comp.ratio.value=5;
@@ -70,7 +71,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  get on(){return !!this.ac&&this.ac.state==='running'&&!this.muted;},
  async dec(s){const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return await this.ac.decodeAudioData(u.buffer);},
  async load(){if(this.loaded)return;this.loaded=true;
-  try{for(let i=0;i<DATA.bgm.length;i++)this.bgmBuf[i]=await this.dec(DATA.bgm[i]);}catch(e){console.warn('bgm decode',e);}
+  try{const order=[this.want,4,...DATA.bgm.map((_,i)=>i)];for(const i of order){if(i<0||i>=DATA.bgm.length||this.bgmBuf[i])continue;this.bgmBuf[i]=await this.dec(DATA.bgm[i]);if(this.want>=0&&!this.bgmBuf[this.want]&&DATA.bgm[this.want])this.bgmBuf[this.want]=await this.dec(DATA.bgm[this.want]);}}catch(e){console.warn('bgm decode',e);}
   try{for(const k in DATA.vo)this.voBuf[k]=await this.dec(DATA.vo[k]);}catch(e){console.warn('vo decode',e);}
   try{for(let i=0;i<(DATA.sc||[]).length;i++)this.scBuf[i]=await this.dec(DATA.sc[i]);}catch(e){console.warn('sc decode',e);}
   try{this.dvBuf={};for(const c in (DATA.dv||{})){this.dvBuf[c]=[];for(const s of DATA.dv[c])this.dvBuf[c].push(await this.dec(s));}}catch(e){console.warn('dv decode',e);}
@@ -537,7 +538,12 @@ const OPN=[
  {bg:1,d:330,hero:1,big:['もしも　あの男が','関ヶ原にいたならば'],sm:['父・昌幸の命を受け、赤備えは中山道を駆けた']},
  {bg:-1,d:250,red:['歴史は　塗り替えられる']},
 ];
-function startOpening(){G.mode='opening';G.opT=0;}
+function startOpening(){G.mode='opening';G.opT=0;AU.bgm(4);}
+function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(4);startOpening();}}
+function drawGate(){const t=G.gateT||0;ctx.fillStyle='#050307';ctx.fillRect(0,0,W,H);const bi=BGIMG[0];if(bi&&bi.complete&&bi.naturalWidth){ctx.globalAlpha=0.35;drawBGimg(bi,t*0.3);ctx.globalAlpha=1;}
+ txt('関ヶ原乱舞',W/2,H/2-70,88,'#f3e3b0','center','#3a0a06',10);txt('— もしも真田幸村が関ヶ原にいたら —',W/2,H/2+10,26,'#e8c35a','center','#000',4);
+ if((t>>5)&1||t<20)txt(TOUCH?'画面をタップして開始':'クリック／キーを押して開始',W/2,H/2+110,34,'#fff','center','#000',5);
+ txt('♪ 音が出ます（スマホは音量・マナーモードをご確認ください）',W/2,H/2+165,20,'rgba(255,255,255,0.75)','center','#000',3);}
 function stepOpening(){G.opT++;let T=0;for(const c of OPN)T+=c.d;if(G.opT>T||(G.opT>20&&anyKey())){startDemo(0);}}
 function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i].d;i++;}if(i>=OPN.length)return;const c=OPN[i],k=t/c.d,fa=Math.min(1,t/30,(c.d-t)/30);
  ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
@@ -1548,6 +1554,7 @@ function frame(){
   if(G.mode==='select'){ctx.drawImage(VIG,0,0);}
  }else if(G.mode==='end'){drawEnd();ctx.drawImage(VIG,0,0);}
  else if(G.mode==='story'){stepStory();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='story';r++)stepStory();if(G.mode==='story'){drawStory();ctx.drawImage(VIG,0,0);}}
+ else if(G.mode==='gate'){stepGate();if(G.mode==='gate')drawGate();}
  else if(G.mode==='opening'){stepOpening();if(G.mode==='opening')drawOpening();}
  }catch(err){console.error('frame error',err);window.__err=(window.__err||[]);window.__err.push(String(err&&err.stack||err));}
  for(const k in pressed)delete pressed[k];
@@ -1596,7 +1603,7 @@ addEventListener('pointerup',()=>AU.init());addEventListener('touchend',()=>AU.i
 addEventListener('contextmenu',e=>e.preventDefault());
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&G.mode==='play'&&G.state==='run')G.pause=true;});
 try{G.unlocked=localStorage.getItem('sekigahara_unlock')==='1';}catch(e){}
-VIG=mkVig();ART=buildArt(0);startDemo(0);startOpening();try{AU.init();}catch(e){}
+VIG=mkVig();ART=buildArt(0);startDemo(0);G.mode='gate';G.gateT=0;try{AU.init();}catch(e){}
 window.__G=G;
 requestAnimationFrame(loop);
 </script>
