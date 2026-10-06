@@ -1,7 +1,7 @@
 {
   "framework": null,
   "installCommand": "echo skip",
-  "buildCommand": "mkdir -p web && cp index.html web/ && cp -r gfx web/",
+  "buildCommand": "mkdir -p web && cp index.html manifest.webmanifest web/ && cp -r gfx web/",
   "outputDirectory": "web",
   "headers": [
     { "source": "/gfx/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }

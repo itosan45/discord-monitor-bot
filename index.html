@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<link rel="manifest" href="manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="関ヶ原乱舞"><link rel="apple-touch-icon" href="gfx/icon-192.png"><meta name="theme-color" content="#000000">
 <title>関ヶ原乱舞 SEKIGAHARA RANBU</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <style>
@@ -33,14 +34,14 @@ html,body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;o
 #auto.st{bottom:auto;top:10px;right:10px;left:auto;transform:none}
 #auto .lab{opacity:.75;margin-left:4px}
 #fsb{position:fixed;top:6px;left:6px;z-index:9;font:bold 15px sans-serif;color:#fff;background:rgba(120,30,20,.85);border:1px solid rgba(232,195,90,.8);border-radius:8px;padding:7px 12px;cursor:pointer;display:none}
-#fsh{position:fixed;inset:0;z-index:10;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.82);color:#fff;font:bold 17px sans-serif;text-align:center;line-height:1.7;padding:20px}
+#fsh{position:fixed;inset:0;z-index:10;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.82);color:#fff;font:bold 17px sans-serif;text-align:center;line-height:1.7;padding:20px}
 #fsh button{font:bold 17px sans-serif;margin:10px 6px 0;padding:10px 18px;border-radius:8px;border:1px solid #e8c35a;background:#9a2416;color:#fff}
 #rot{display:none;position:fixed;inset:0;z-index:9;background:#000;color:#fff;align-items:center;justify-content:center;text-align:center;font:bold 20px sans-serif;line-height:1.8}
 @media (orientation:portrait){body.touch #rot{display:flex}}
 </style>
 </head>
 <body>
-<div id="auto"></div><button id="fsb">⛶ 全画面</button><div id="fsh"><div>この画面の中では全画面にできませんでした。<br>Chromeで開くと、全画面で大きく遊べます。<br><button id="fsOpen">Chromeで開く</button><button id="fsClose">閉じる</button></div></div><div id="wrap"><canvas id="c" width="1280" height="720"></canvas></div>
+<div id="auto"></div><button id="fsb">⛶ 全画面</button><div id="fsh"><div id="fshT"></div><button id="fsOpen">新しいタブで開く</button><button id="fsClose">閉じる</button></div><div id="wrap"><canvas id="c" width="1280" height="720"></canvas></div>
 <div id="touch"><div id="base"><div id="knob"></div></div><div id="zone"></div><div class="btn" id="bZ">攻撃</div><div class="btn" id="bX">跳躍</div><div class="btn" id="bC">必殺</div><div class="btn" id="bG">防御</div><div class="btn" id="bP">II</div><div class="btn" id="bF">⛶</div></div>
 <div id="rot"><div>📱↻<br>端末を横向きにしてください<br><small>Rotate your device to landscape</small></div></div>
 <script>
@@ -572,7 +573,7 @@ const OPN=[
  {bg:-1,d:360,red:['歴史は　塗り替えられる']},
 ];
 function startOpening(){G.mode='opening';G.opT=0;AU.bgm(8);}
-function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);if(!isFull()){const d=document.documentElement,f=d.requestFullscreen||d.webkitRequestFullscreen;try{const r=f&&f.call(d,{navigationUI:'hide'});if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}catch(e){}}startOpening();}}
+function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);startOpening();}}
 function drawGate(){const t=G.gateT||0;ctx.fillStyle='#050307';ctx.fillRect(0,0,W,H);const bi=BGIMG[0];if(bi&&bi.complete&&bi.naturalWidth){ctx.globalAlpha=0.35;drawBGimg(bi,t*0.3);ctx.globalAlpha=1;}
  txt('関ヶ原乱舞',W/2,H/2-70,88,'#f3e3b0','center','#3a0a06',10);txt('— もしも真田幸村が関ヶ原にいたら —',W/2,H/2+10,26,'#e8c35a','center','#000',4);
  if((t>>5)&1||t<20)txt(TOUCH?'画面をタップして開始':'クリック／キーを押して開始',W/2,H/2+110,34,'#fff','center','#000',5);
@@ -1828,7 +1829,8 @@ const tc=document.getElementById('touch'),zone=document.getElementById('zone'),b
 if(TOUCH)document.body.classList.add('touch');
 function setKey(c,v){if(v&&!keys[c])pressed[c]=true;keys[c]=v;}
 let fsTried=false;
-function goFull(){if(!TOUCH||fsTried)return;fsTried=true;const d=document.documentElement;try{const f=d.requestFullscreen||d.webkitRequestFullscreen;const r=f&&f.call(d);if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}catch(e){}}
+addEventListener('touchend',()=>{if(!fsTried)goFull();},{passive:true});addEventListener('click',()=>{if(!fsTried)goFull();});
+function goFull(){if(!TOUCH||fsTried||isFull()||window.matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches)return;fsTried=true;const d=document.documentElement;try{const f=d.requestFullscreen||d.webkitRequestFullscreen;const r=f&&f.call(d);if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}catch(e){}}
 let BU=84,bx0=0,by0=0;
 function layout(){const w=innerWidth,h=innerHeight,cw=Math.min(w,h*16/9),m=(w-cw)/2,u=Math.round(Math.max(52,Math.min(92,h*0.17)));BU=u;tc.style.setProperty('--u',u+'px');
  const side=Math.max(10,Math.min(m-u*0.1,m)),inM=m>=u*2.3;
@@ -1843,9 +1845,9 @@ function layout(){const w=innerWidth,h=innerHeight,cw=Math.min(w,h*16/9),m=(w-cw
  bx0=inM?Math.max(8,m/2-u*0.8):w*0.05;by0=h-u*1.9-pad;resetBase();}
 function resetBase(){const bs=Math.round(BU*1.5);base.style.width=base.style.height=bs+'px';knob.style.width=knob.style.height=Math.round(bs*0.47)+'px';base.style.left=Math.round(bx0)+'px';base.style.top=Math.round(by0)+'px';knob.style.left=Math.round(bs*0.265)+'px';knob.style.top=Math.round(bs*0.265)+'px';}
 function isFull(){return document.fullscreenElement||document.webkitFullscreenElement;}
-const ART_URL='https://claude.ai/artifact/T5vab6bdgVJP9mHGHQPJjy';
+const ART_URL='https://sekigahara-ranbu.vercel.app/';
 function tryFull(){const d=document.documentElement,f=d.requestFullscreen||d.webkitRequestFullscreen;let ok=false;
- const fail=()=>{if(!isFull())document.getElementById('fsh').style.display='flex';};
+ const fail=()=>{if(isFull())return;const ios=/iPhone|iPad|iPod/.test(navigator.userAgent),inFrame=window.top!==window;document.getElementById('fshT').innerHTML=inFrame?'この画面の中では全画面にできません。<br>新しいタブで開くと全画面で遊べます。':ios?'iPhoneのSafariは全画面に対応していません。<br>共有ボタン（□↑）→「ホーム画面に追加」で追加して、<br>ホーム画面のアイコンから起動すると全画面で遊べます。':'全画面にできませんでした。<br>Chromeのメニュー（︙）→「ホーム画面に追加」で追加して、<br>ホーム画面のアイコンから起動すると全画面で遊べます。';document.getElementById('fsOpen').style.display=inFrame?'inline-block':'none';document.getElementById('fsh').style.display='flex';};
  if(!f){fail();return;}
  try{const r=f.call(d,{navigationUI:'hide'});if(r&&r.then)r.then(()=>{ok=true;try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(fail);else setTimeout(fail,400);}catch(e){fail();}}
 function toggleFull(){const d=document.documentElement;try{if(isFull())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else{const f=d.requestFullscreen||d.webkitRequestFullscreen;const r=f&&f.call(d,{navigationUI:'hide'});if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}}catch(e){}}
@@ -1854,14 +1856,14 @@ let sid=null,ox=0,oy=0;
 function stickMove(e){let dx=e.clientX-ox,dy=e.clientY-oy;const bs=BU*1.5,d=Math.hypot(dx,dy),m=bs*0.4;if(d>m){dx*=m/d;dy*=m/d;}knob.style.left=(bs*0.265+dx)+'px';knob.style.top=(bs*0.265+dy)+'px';
  setKey('ArrowLeft',dx<-16);setKey('ArrowRight',dx>16);setKey('ArrowUp',dy<-20);setKey('ArrowDown',dy>20);}
 function stickEnd(e){if(e.pointerId!==sid)return;sid=null;['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].forEach(k=>setKey(k,false));resetBase();}
-zone.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();goFull();if(G.state!=='run')pressed.Enter=true;sid=e.pointerId;try{zone.setPointerCapture(e.pointerId);}catch(_){}ox=e.clientX;oy=e.clientY;base.style.left=(ox-BU*0.75)+'px';base.style.top=(oy-BU*0.75)+'px';stickMove(e);});
+zone.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();if(G.state!=='run')pressed.Enter=true;sid=e.pointerId;try{zone.setPointerCapture(e.pointerId);}catch(_){}ox=e.clientX;oy=e.clientY;base.style.left=(ox-BU*0.75)+'px';base.style.top=(oy-BU*0.75)+'px';stickMove(e);});
 zone.addEventListener('pointermove',e=>{if(e.pointerId===sid)stickMove(e);});
 zone.addEventListener('pointerup',stickEnd);zone.addEventListener('pointercancel',stickEnd);
 document.getElementById('bF').addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();toggleFull();});
 for(const [id,code] of [['bZ','KeyZ'],['bX','KeyX'],['bC','KeyC'],['bG','KeyV'],['bP','KeyP']]){const el=document.getElementById(id);
- el.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();goFull();try{el.setPointerCapture(e.pointerId);}catch(_){}setKey(code,true);el.classList.add('on');});
+ el.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();try{el.setPointerCapture(e.pointerId);}catch(_){}setKey(code,true);el.classList.add('on');});
  const up=()=>{setKey(code,false);el.classList.remove('on');};el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);}
-cv.addEventListener('pointerdown',e=>{AU.init();goFull();const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;
+cv.addEventListener('pointerdown',e=>{AU.init();const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;
  if(G.mode==='title'){const yy=(e.clientY-r.top)/r.height*H,i=titleHit(yy);if(i>=0){G.ttlSel=i;pressed.Enter=true;}return;}
  if(G.mode==='select'){const sl=selSlots(),g=cardGeom(sl.length),i=Math.floor((x-g.x0)/(g.w+g.gap));if(i>=0&&i<sl.length&&(x-g.x0)-i*(g.w+g.gap)<=g.w){if(G.sel===i)pressed.Enter=true;else{G.sel=i;AU.sfx('ui');}}}
  else if(G.mode==='story'&&x>W-300&&(e.clientY-r.top)/r.height*H<90)pressed.KeyS=true;
@@ -1870,7 +1872,7 @@ addEventListener('pointerup',()=>AU.init());addEventListener('touchend',()=>AU.i
 addEventListener('contextmenu',e=>e.preventDefault());
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&G.mode==='play'&&G.state==='run')G.pause=true;});
 try{G.unlocked=localStorage.getItem('sekigahara_unlock')==='1';}catch(e){}
-{const fb=document.getElementById('fsb');fb.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();if(isFull())toggleFull();else tryFull();});
+{const fb=document.getElementById('fsb');fb.addEventListener('pointerdown',e=>{e.stopPropagation();});fb.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();AU.init();if(isFull())toggleFull();else tryFull();});
  document.getElementById('fsOpen').addEventListener('click',e=>{e.stopPropagation();document.getElementById('fsh').style.display='none';try{window.open(ART_URL,'_blank');}catch(_){location.href=ART_URL;}});
  document.getElementById('fsClose').addEventListener('click',e=>{e.stopPropagation();document.getElementById('fsh').style.display='none';});
  for(const id of ['fsh']){document.getElementById(id).addEventListener('pointerdown',e=>e.stopPropagation());}
