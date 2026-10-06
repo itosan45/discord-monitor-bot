@@ -30,12 +30,15 @@ html,body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;o
 #auto .big{font-size:16px;padding:8px 16px;background:#9a2416}
 #auto.st{bottom:auto;top:10px;right:10px;left:auto;transform:none}
 #auto .lab{opacity:.75;margin-left:4px}
+#fsb{position:fixed;top:6px;left:6px;z-index:9;font:bold 15px sans-serif;color:#fff;background:rgba(120,30,20,.85);border:1px solid rgba(232,195,90,.8);border-radius:8px;padding:7px 12px;cursor:pointer;display:none}
+#fsh{position:fixed;inset:0;z-index:10;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.82);color:#fff;font:bold 17px sans-serif;text-align:center;line-height:1.7;padding:20px}
+#fsh button{font:bold 17px sans-serif;margin:10px 6px 0;padding:10px 18px;border-radius:8px;border:1px solid #e8c35a;background:#9a2416;color:#fff}
 #rot{display:none;position:fixed;inset:0;z-index:9;background:#000;color:#fff;align-items:center;justify-content:center;text-align:center;font:bold 20px sans-serif;line-height:1.8}
 @media (orientation:portrait){body.touch #rot{display:flex}}
 </style>
 </head>
 <body>
-<div id="auto"></div><div id="wrap"><canvas id="c" width="1280" height="720"></canvas></div>
+<div id="auto"></div><button id="fsb">⛶ 全画面</button><div id="fsh"><div>この画面の中では全画面にできませんでした。<br>Chromeで開くと、全画面で大きく遊べます。<br><button id="fsOpen">Chromeで開く</button><button id="fsClose">閉じる</button></div></div><div id="wrap"><canvas id="c" width="1280" height="720"></canvas></div>
 <div id="touch"><div id="base"><div id="knob"></div></div><div id="zone"></div><div class="btn" id="bZ">攻撃</div><div class="btn" id="bX">跳躍</div><div class="btn" id="bC">必殺</div><div class="btn" id="bG">防御</div><div class="btn" id="bP">II</div><div class="btn" id="bF">⛶</div></div>
 <div id="rot"><div>📱↻<br>端末を横向きにしてください<br><small>Rotate your device to landscape</small></div></div>
 <script>
@@ -536,28 +539,30 @@ function drawStory(){const S=G.story;if(!S)return;const bb=S.bg!=null&&BGIMG[S.b
  if(done&&(G.t&32))txt('▼',W-110,H-50,26,'#ffd36a','center','#000',3);
  if(!G.auto)txt(TOUCH?'SKIP ▶▶（右上をタップ）':'S: スキップ　Z/Enter: 次へ',W-30,30,18,'rgba(255,255,255,0.7)','right','#000',3);}
 // ===== OPENING（タイトル前のあらすじ） =====
+const YKB=new Image();YKB.src='gfx/yk_bust.webp';
+function drawBust(x,y,sz,a){if(!(YKB.complete&&YKB.naturalWidth))return false;ctx.save();ctx.globalAlpha=a;ctx.drawImage(YKB,x,y,sz,sz);ctx.restore();return true;}
 const OPN=[
- {bg:0,d:230,big:['慶長五年　九月十五日'],sm:['美濃国　関ヶ原']},
- {bg:0,d:260,big:['東西十五万の軍勢が激突した','天下分け目の大戦'],sm:[]},
- {bg:3,d:330,big:['だが　その戦場に','あの男の姿はなかった'],sm:['真田左衛門佐信繁——後に「幸村」と呼ばれる男は','信濃・上田城で徳川秀忠の大軍を足止めし','関ヶ原の決戦に、間に合うことはなかった']},
- {bg:5,d:300,big:['戦は半日で決着し','徳川の世が始まる'],sm:['——それが、本当の歴史']},
- {bg:-1,d:170,red:['もしも——']},
- {bg:1,d:330,hero:1,big:['もしも　あの男が','関ヶ原にいたならば'],sm:['父・昌幸の命を受け、赤備えは中山道を駆けた']},
- {bg:-1,d:250,red:['歴史は　塗り替えられる']},
+ {bg:0,d:360,big:['慶長五年　九月十五日'],sm:['美濃国　関ヶ原']},
+ {bg:0,d:420,big:['東西十五万の軍勢が激突した','天下分け目の大戦'],sm:[]},
+ {bg:3,d:600,big:['だが　その戦場に','あの男の姿はなかった'],sm:['真田左衛門佐信繁——後に「幸村」と呼ばれる男は','信濃・上田城で徳川秀忠の大軍を足止めし','関ヶ原の決戦に、間に合うことはなかった']},
+ {bg:5,d:480,big:['戦は半日で決着し','徳川の世が始まる'],sm:['——それが、本当の歴史']},
+ {bg:-1,d:240,red:['もしも——']},
+ {bg:1,d:560,hero:1,big:['もしも　あの男が','関ヶ原にいたならば'],sm:['父・昌幸の命を受け、赤備えは中山道を駆けた']},
+ {bg:-1,d:360,red:['歴史は　塗り替えられる']},
 ];
 function startOpening(){G.mode='opening';G.opT=0;AU.bgm(8);}
-function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);startOpening();}}
+function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);if(!isFull()){const d=document.documentElement,f=d.requestFullscreen||d.webkitRequestFullscreen;try{const r=f&&f.call(d,{navigationUI:'hide'});if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}catch(e){}}startOpening();}}
 function drawGate(){const t=G.gateT||0;ctx.fillStyle='#050307';ctx.fillRect(0,0,W,H);const bi=BGIMG[0];if(bi&&bi.complete&&bi.naturalWidth){ctx.globalAlpha=0.35;drawBGimg(bi,t*0.3);ctx.globalAlpha=1;}
  txt('関ヶ原乱舞',W/2,H/2-70,88,'#f3e3b0','center','#3a0a06',10);txt('— もしも真田幸村が関ヶ原にいたら —',W/2,H/2+10,26,'#e8c35a','center','#000',4);
  if((t>>5)&1||t<20)txt(TOUCH?'画面をタップして開始':'クリック／キーを押して開始',W/2,H/2+110,34,'#fff','center','#000',5);
  txt('♪ 音が出ます（スマホは音量・マナーモードをご確認ください）',W/2,H/2+165,20,'rgba(255,255,255,0.75)','center','#000',3);}
-function stepOpening(){G.opT++;let T=0;for(const c of OPN)T+=c.d;if(G.opT>T||(G.opT>20&&anyKey())){startDemo(0);}}
-function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i].d;i++;}if(i>=OPN.length)return;const c=OPN[i],k=t/c.d,fa=Math.min(1,t/30,(c.d-t)/30);
+function stepOpening(){G.opT++;let T=0;for(const c of OPN)T+=c.d;if(G.opT>T||(G.opT>20&&anyKey())){startTitle();}}
+function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i].d;i++;}if(i>=OPN.length)return;const c=OPN[i],k=t/c.d,fa=Math.min(1,t/45,(c.d-t)/40);
  ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
  if(c.bg>=0){const bi=BGIMG[c.bg];ctx.globalAlpha=fa*0.75;if(bi&&bi.complete&&bi.naturalWidth){ctx.save();const z=1.05+k*0.06;ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-W/2,-H/2);drawBGimg(bi,400+k*260);ctx.restore();}ctx.globalAlpha=1;
   const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(0,0,0,0.55)');g.addColorStop(0.5,'rgba(0,0,0,0.25)');g.addColorStop(1,'rgba(0,0,0,0.75)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);}
- if(c.hero){const S=SPR.yuki;ctx.save();ctx.globalAlpha=fa;ctx.globalCompositeOperation='lighter';const rg=ctx.createRadialGradient(330,420,20,330,420,330);rg.addColorStop(0,'rgba(255,60,30,0.45)');rg.addColorStop(1,'rgba(255,60,30,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);ctx.restore();
-  ctx.save();ctx.globalAlpha=fa;drawPort('yuki',330+k*20,660,2.2,1,false);ctx.restore();}
+ if(c.hero){const S=SPR.yuki;ctx.save();ctx.globalAlpha=fa;ctx.globalCompositeOperation='lighter';const rg=ctx.createRadialGradient(330,400,20,330,400,380);rg.addColorStop(0,'rgba(255,60,30,0.45)');rg.addColorStop(1,'rgba(255,60,30,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);ctx.restore();
+  {const z=600+k*40;if(!drawBust(40-k*20,H-z+20,z,fa)){ctx.save();ctx.globalAlpha=fa;drawPort('yuki',330+k*20,660,2.2,1,false);ctx.restore();}}}
  ctx.globalAlpha=fa;const cx=c.hero?820:W/2;
  if(c.red){const s=1+k*0.08;ctx.save();ctx.translate(W/2,H/2);ctx.scale(s,s);c.red.forEach((l,j)=>txt(l,0,(j-(c.red.length-1)/2)*80,64,'#ff3b2a','center','#000',8));ctx.restore();}
  if(c.big){const y0=(c.sm&&c.sm.length?H/2-90:H/2)-(c.big.length-1)*34;c.big.forEach((l,j)=>txt(l,cx,y0+j*72,c.hero?48:52,'#f6f0de','center','#000',7));
@@ -567,6 +572,41 @@ function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i
 
 function startAuto(ch,si){AU.init();AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.score=0;G.lives=99;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;if(G.autoPk===undefined)G.autoPk='kage';if(G.autoPk===ch)G.autoPk=ch==='yuki'?'kage':'yuki';G.partnerType=G.autoPk||null;G.curCh=ch;G.mode='play';startStage(si,ch,false);G.auto=true;G.lives=99;
  if(si===0)startStory('pro',()=>startStory('s0'));else startStory('s'+si);autoUI(true);}
+
+/* ===================== TITLE SCREEN ===================== */
+const TMENU=['はじめる','デモプレイ（全編自動）'];
+function startTitle(){G.auto=false;G.mode='title';G.ttlT=0;G.ttlSel=G.ttlSel||0;G.emb2=[];G.ttlIdle=0;AU.bgm(4);}
+function stepTitle(){G.ttlT++;const n=TMENU.length;
+ if(pressed.ArrowUp||pressed.KeyW){G.ttlSel=(G.ttlSel+n-1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
+ if(pressed.ArrowDown||pressed.KeyS){G.ttlSel=(G.ttlSel+1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
+ G.ttlIdle=(G.ttlIdle||0)+1;
+ if(G.ttlT>40&&(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ)){AU.sfx('ok');G.ttlIdle=0;
+  if(G.ttlSel===0){G.mode='select';G.sel=0;G.selStep=0;AU.bgm(4);G.camx=0;}else{startAuto('yuki',0);}return;}
+ if(G.ttlIdle>60*28){G.ttlIdle=0;const i=G.demoNext||0;G.demoNext=(i+1)%DEMO_PLAN.length;startDemo(i);}}
+function titleHit(y){for(let i=0;i<TMENU.length;i++){const yy=505+i*58;if(Math.abs(y-yy)<26)return i;}return -1;}
+function drawTitle(){const t=G.ttlT;
+ const bi=BGIMG[5];ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
+ if(bi&&bi.complete&&bi.naturalWidth){ctx.save();const z=1.08;ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-W/2,-H/2);drawBGimg(bi,t*0.25);ctx.restore();}
+ let g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(10,0,0,0.55)');g.addColorStop(0.55,'rgba(20,0,0,0.35)');g.addColorStop(1,'rgba(0,0,0,0.85)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ // rival shadow (家康) and hero
+ ctx.save();ctx.globalAlpha=Math.min(0.55,t/120);drawPort('boss3',1040,700,2.0,-1,true);ctx.restore();
+ ctx.save();ctx.globalCompositeOperation='lighter';const pu=0.75+0.25*Math.sin(t*0.05);const rg=ctx.createRadialGradient(300,420,30,300,420,360);rg.addColorStop(0,`rgba(255,70,30,${0.5*pu})`);rg.addColorStop(1,'rgba(255,40,20,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);ctx.restore();
+ if(!drawBust(-20-Math.max(0,40-t)*3,H-660,680,Math.min(1,t/50))){ctx.save();ctx.globalAlpha=Math.min(1,t/50);drawPort('yuki',300+Math.max(0,40-t)*2,720,2.45,1,false);ctx.restore();}
+ // embers
+ G.emb2=G.emb2||[];if(G.emb2.length<70)G.emb2.push({x:Math.random()*W,y:H+10,vx:Math.random()*0.8-0.2,vy:-(0.6+Math.random()*1.6),s:1+Math.random()*2.5,l:0});
+ ctx.save();ctx.globalCompositeOperation='lighter';for(const e of G.emb2){e.x+=e.vx+Math.sin((e.l++)*0.05)*0.3;e.y+=e.vy;ctx.fillStyle=`rgba(255,${120+Math.floor(e.s*30)},40,${Math.max(0,0.8-e.l/500)})`;ctx.fillRect(e.x,e.y,e.s,e.s);}ctx.restore();G.emb2=G.emb2.filter(e=>e.y>-10&&e.l<500);
+ // logo: red brush band + gold calligraphy
+ const la=Math.min(1,Math.max(0,(t-10)/30)),ls=1+Math.max(0,1-(t-10)/18)*0.6;
+ ctx.save();ctx.globalAlpha=la;ctx.fillStyle='rgba(150,14,10,0.78)';ctx.beginPath();ctx.moveTo(470,150);ctx.quadraticCurveTo(840,118,1250,140);ctx.lineTo(1235,272);ctx.quadraticCurveTo(860,292,490,262);ctx.closePath();ctx.fill();
+ ctx.translate(860,206);ctx.scale(ls,ls);ctx.font=`bold 138px ${FJ}`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineWidth=14;ctx.strokeStyle='#1a0402';ctx.strokeText('関ヶ原乱舞',0,0);
+ const lg=ctx.createLinearGradient(0,-70,0,70);lg.addColorStop(0,'#fff6d0');lg.addColorStop(0.45,'#f2c95a');lg.addColorStop(0.55,'#c8902a');lg.addColorStop(1,'#fff0b0');ctx.fillStyle=lg;ctx.shadowColor='rgba(255,170,60,0.8)';ctx.shadowBlur=24;ctx.fillText('関ヶ原乱舞',0,0);ctx.restore();
+ if(t>35){ctx.globalAlpha=Math.min(1,(t-35)/30);txt('SEKIGAHARA RANBU',860,318,34,'#e8c35a','center','#000',5,'Arial Black,Impact,sans-serif');txt('— もしも真田幸村が関ヶ原にいたら —',860,368,28,'#fff1d6','center','#000',5);ctx.globalAlpha=1;}
+ // menu
+ if(t>60){TMENU.forEach((m,i)=>{const y=505+i*58,on=G.ttlSel===i;if(on){ctx.fillStyle='rgba(160,20,12,0.75)';ctx.fillRect(640,y-24,440,48);ctx.fillStyle='#e8c35a';ctx.fillRect(640,y-24,6,48);}
+  txt((on?'▶ ':'　')+m,860,y,on?34:28,on?'#fff':'#c9b892','center','#000',5);});
+  if(G.t%70<46)txt(TOUCH?'タップで決定':'↑↓で選択　Z / Enter で決定',860,630,20,'#ffe070','center','#000',4);}
+ drawTitleOverlay();}
+
 function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DEMO_PLAN.length;const d=DEMO_PLAN[G.demoI];G.curCh=d.ch;startStage(d.st,d.ch,true);G.score=0;G.lives=99;G.titleT=0;AU.bgm(4);}
 
 /* ---------- spawn ---------- */
@@ -886,7 +926,7 @@ function updWorld(){
    if(G.demo){startDemo(G.demoI+1);}
    else if(G.stage<STG.length-1){startStage(G.stage+1,G.curCh,false,{hp:p.hp,ki:p.ki});if(!G.noStory)startStory('s'+G.stage);}
    else{G.newUnlock=!G.unlocked;G.unlocked=true;try{localStorage.setItem('sekigahara_unlock','1');}catch(e){}AU.bgm(4);const fin=()=>{G.mode='end';G.stateT=0;};if(G.noStory)fin();else startStory('end',fin);}}}
- else if(G.state==='over'){G.stateT++;if(G.stateT>260||(G.stateT>40&&anyKey())){startDemo(0);G.mode='demo';}}
+ else if(G.state==='over'){G.stateT++;if(G.stateT>260||(G.stateT>40&&anyKey())){startTitle();}}
  // ambient
  if(G.demo){G.demoT++;if(G.demoT>60*260&&G.state==='run'){startDemo(G.demoI+1);}}
 }
@@ -1460,11 +1500,11 @@ function drawOverlays(){drawKachi();
 }
 function drawTitleOverlay(){
  const t=G.titleT||0;
- if(t<330){const a=t<30?t/30:t>290?1-(t-290)/40:1;ctx.globalAlpha=a;const g=ctx.createLinearGradient(0,120,0,420);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(.3,'rgba(0,0,0,0.7)');g.addColorStop(.7,'rgba(0,0,0,0.7)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,120,W,300);
+ if(false){const a=t<30?t/30:t>290?1-(t-290)/40:1;ctx.globalAlpha=a;const g=ctx.createLinearGradient(0,120,0,420);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(.3,'rgba(0,0,0,0.7)');g.addColorStop(.7,'rgba(0,0,0,0.7)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,120,W,300);
   txt('関ヶ原乱舞',W/2,235,128,'#f4f0e0','center','#7a1010',14);txt('SEKIGAHARA RANBU',W/2,326,34,'#e8c35a','center','#000',5,'Arial Black,Impact,sans-serif');txt('天下分け目の大合戦　真田幸村・上杉景勝・石田三成',W/2,376,24,'#fff','center','#000',4);ctx.globalAlpha=1;}
  if(G.mode==='demo'){ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,H-70,W,40);if(G.t%80<52)txt(TOUCH?'TAP TO START — 画面をタップ':'PRESS ENTER / ANY KEY — START',W/2,H-50,26,'#ffe070','center','#000',5,'Arial Black,Impact,sans-serif');txt('DEMO PLAY',W-24,H-100,18,'#fff','right','#000',4,'Arial');
-  if(!TOUCH)txt('移動:←↑↓→  攻撃:Z  跳躍:X  必殺:C  防御:V(押す間)  回避:防御中に←→  つかみ:敵に押し込む 武器:上で攻撃  メガクラッシュ:Z+X  一時停止:P  消音:M  流血:B',W/2,H-28,15,'#ddd','center','#000',3);}
- txt('音声: VOICEVOX:青山龍星 / Open JTalk (HTS Voice NITECH-JP-ATR503-M001, CC BY 3.0) / VOICEVOX:玄野武宏 / VOICEVOX:白上虎太郎 ／ 効果音: 効果音ラボ ／ 楽器音源: FluidR3_GM (CC BY 3.0)',W/2,H-9,11,'#bbb','center','#000',3);
+  if(false)txt('移動:←↑↓→  攻撃:Z  跳躍:X  必殺:C  防御:V(押す間)  回避:防御中に←→  つかみ:敵に押し込む 武器:上で攻撃  メガクラッシュ:Z+X  一時停止:P  消音:M  流血:B',W/2,H-28,15,'#ddd','center','#000',3);}
+ if(G.mode==='title')txt('音声: VOICEVOX:青山龍星 / Open JTalk (HTS Voice NITECH-JP-ATR503-M001, CC BY 3.0) / VOICEVOX:玄野武宏 / VOICEVOX:白上虎太郎 ／ 効果音: 効果音ラボ ／ 楽器音源: FluidR3_GM (CC BY 3.0)',W/2,H-9,11,'#bbb','center','#000',3);
  if(!AU.on&&!AU.muted&&AU.ac===null||AU.ac&&AU.ac.state!=='running'&&!AU.muted){if(G.t%90<60)txt(TOUCH?'♪ タップすると音が出ます':'♪ いずれかのキーを押すと音が出ます',W/2,H-100,18,'#fff','center','#000',4);}
 }
 
@@ -1504,12 +1544,12 @@ function drawEnd(){
  G.stateT++;const t=G.stateT;drawBG(G.camx+t*0.4,G.t);ctx.fillStyle='rgba(10,0,10,0.7)';ctx.fillRect(0,0,W,H);
  const lines=['関ヶ原の戦い、ここに決す','','慶長五年九月十五日　午の刻','','霧は晴れ、鬨の声は天を衝いた','','',G.curCh?TY[G.curCh].name+' は 戦場を駆け抜けた':'','','— 完 —','','SEKIGAHARA RANBU','Thank you for playing','',`SCORE  ${String(G.score).padStart(8,'0')}`,`コンティニュー ${G.conts} 回`,'',G.newUnlock?'★ 隠し武将が解放されました ★':'',G.newUnlock?'織田信長　武田信玄　宮本武蔵':'',TOUCH?'タップでタイトルへ':'Z / ENTER でタイトルへ'];
  lines.forEach((s,i)=>{const y=H+60+i*54-t*1.1;if(y>-40&&y<H+40)txt(s,W/2,y,i===0||i===9?52:i===11?44:30,'#f4f0e0','center','#000',5);});
- if(t>60*3&&anyKey()||t>60*34){startDemo(0);}
+ if(t>60*3&&anyKey()||t>60*34){startTitle();}
 }
 
 /* ===================== AUTO PLAY (デモプレイ) ===================== */
 const autoEl=document.getElementById('auto');let _autoKey='';
-function autoUI(force){const m=G.mode,want=G.auto&&(m==='play'||m==='story'||m==='end')?'bar':(m==='demo'||m==='opening')?'start':'none';const key=want+'|'+(G.autoSpd||1)+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk;if(!force&&key===_autoKey)return;_autoKey=key;
+function autoUI(force){const m=G.mode,want=G.auto&&(m==='play'||m==='story'||m==='end')?'bar':'none';const key=want+'|'+(G.autoSpd||1)+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk;if(!force&&key===_autoKey)return;_autoKey=key;
  if(want==='none'){autoEl.style.display='none';return;}autoEl.style.display='flex';autoEl.innerHTML='';
  const B=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();fn();_autoKey='';});autoEl.appendChild(b);return b;};
  const L=t=>{const s=document.createElement('span');s.className='lab';s.textContent=t;autoEl.appendChild(s);};
@@ -1521,7 +1561,7 @@ function autoUI(force){const m=G.mode,want=G.auto&&(m==='play'||m==='story'||m==
  L('幕');for(let i=0;i<STG.length;i++)B(String(i+1),()=>startAuto(G.curCh,i),i===G.stage?'sel':'');
  L('速度');for(const v of [1,2,4])B('×'+v,()=>{G.autoSpd=v;},(G.autoSpd||1)===v?'sel':'');
  B('会話とばす',()=>{if(G.mode==='story')endStory();});
- B('■ 終了',()=>{G.auto=false;startDemo(0);});}
+ B('■ 終了',()=>{G.auto=false;startTitle();});}
 /* ===================== MAIN ===================== */
 function renderWorld(){
  const sh=G.shake>0.5?G.shake:0;ctx.save();if(sh)ctx.translate(rnd(-sh,sh)*0.6,rnd(-sh,sh)*0.5);
@@ -1552,18 +1592,19 @@ function frame(){
  G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'&&!G.auto?'block':'none';autoUI();
  try{
  if(G.mode==='demo'||G.mode==='play'){
-  if(G.mode==='demo'){G.titleT=(G.titleT||0)+1;if(anyKey()&&G.t>5){if(pressed.KeyM){}else{G.mode='select';G.sel=0;G.selStep=0;AU.sfx('ok');AU.bgm(4);G.camx=0;}}}
+  if(G.mode==='demo'){G.titleT=(G.titleT||0)+1;if(anyKey()&&G.t>5&&!pressed.KeyM){startTitle();AU.sfx('ok');}else if(G.titleT>60*45){G.demoNext=(G.demoI+1);startTitle();}}
   else if(pressed.KeyP||pressed.Escape)G.pause=!G.pause;
   if(!G.pause){stepGame();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='play';r++)stepGame();}
   if(G.mode==='demo'||G.mode==='play'){renderWorld();drawHUD();drawOverlays();if(G.mode==='demo')drawTitleOverlay();}
  }else if(G.mode==='select'){
   G.camx+=0.5;const nsl=selSlots().length;if(pressed.ArrowLeft||pressed.KeyA){G.sel=(G.sel+nsl-1)%nsl;AU.sfx('ui');}if(pressed.ArrowRight||pressed.KeyD){G.sel=(G.sel+1)%nsl;AU.sfx('ui');}
   if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');if((G.selStep||0)===0){G.heroPick=heroList()[G.sel];G.selStep=1;G.sel=0;}else{startGame(G.heroPick,partnerOpts()[G.sel]);}}
-  else if(pressed.Escape){if(G.selStep===1){G.selStep=0;G.sel=Math.max(0,heroList().indexOf(G.heroPick));}else startDemo(0);}
+  else if(pressed.Escape){if(G.selStep===1){G.selStep=0;G.sel=Math.max(0,heroList().indexOf(G.heroPick));}else startTitle();}
   else drawSelect();
   if(G.mode==='select'){ctx.drawImage(VIG,0,0);}
  }else if(G.mode==='end'){drawEnd();ctx.drawImage(VIG,0,0);}
  else if(G.mode==='story'){stepStory();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='story';r++)stepStory();if(G.mode==='story'){drawStory();ctx.drawImage(VIG,0,0);}}
+ else if(G.mode==='title'){stepTitle();if(G.mode==='title'){drawTitle();ctx.drawImage(VIG,0,0);}}
  else if(G.mode==='gate'){stepGate();if(G.mode==='gate')drawGate();}
  else if(G.mode==='opening'){stepOpening();if(G.mode==='opening')drawOpening();}
  }catch(err){console.error('frame error',err);window.__err=(window.__err||[]);window.__err.push(String(err&&err.stack||err));}
@@ -1592,6 +1633,11 @@ function layout(){const w=innerWidth,h=innerHeight,cw=Math.min(w,h*16/9),m=(w-cw
  bx0=inM?Math.max(8,m/2-u*0.8):w*0.05;by0=h-u*1.9-pad;resetBase();}
 function resetBase(){const bs=Math.round(BU*1.5);base.style.width=base.style.height=bs+'px';knob.style.width=knob.style.height=Math.round(bs*0.47)+'px';base.style.left=Math.round(bx0)+'px';base.style.top=Math.round(by0)+'px';knob.style.left=Math.round(bs*0.265)+'px';knob.style.top=Math.round(bs*0.265)+'px';}
 function isFull(){return document.fullscreenElement||document.webkitFullscreenElement;}
+const ART_URL='https://claude.ai/artifact/T5vab6bdgVJP9mHGHQPJjy';
+function tryFull(){const d=document.documentElement,f=d.requestFullscreen||d.webkitRequestFullscreen;let ok=false;
+ const fail=()=>{if(!isFull())document.getElementById('fsh').style.display='flex';};
+ if(!f){fail();return;}
+ try{const r=f.call(d,{navigationUI:'hide'});if(r&&r.then)r.then(()=>{ok=true;try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(fail);else setTimeout(fail,400);}catch(e){fail();}}
 function toggleFull(){const d=document.documentElement;try{if(isFull())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else{const f=d.requestFullscreen||d.webkitRequestFullscreen;const r=f&&f.call(d,{navigationUI:'hide'});if(r&&r.then)r.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{});}catch(e){}}).catch(()=>{});}}catch(e){}}
 layout();addEventListener('resize',layout);addEventListener('orientationchange',()=>setTimeout(layout,200));
 let sid=null,ox=0,oy=0;
@@ -1606,6 +1652,7 @@ for(const [id,code] of [['bZ','KeyZ'],['bX','KeyX'],['bC','KeyC'],['bG','KeyV'],
  el.addEventListener('pointerdown',e=>{e.preventDefault();AU.init();goFull();try{el.setPointerCapture(e.pointerId);}catch(_){}setKey(code,true);el.classList.add('on');});
  const up=()=>{setKey(code,false);el.classList.remove('on');};el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);}
 cv.addEventListener('pointerdown',e=>{AU.init();goFull();const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;
+ if(G.mode==='title'){const yy=(e.clientY-r.top)/r.height*H,i=titleHit(yy);if(i>=0){G.ttlSel=i;pressed.Enter=true;}return;}
  if(G.mode==='select'){const sl=selSlots(),g=cardGeom(sl.length),i=Math.floor((x-g.x0)/(g.w+g.gap));if(i>=0&&i<sl.length&&(x-g.x0)-i*(g.w+g.gap)<=g.w){if(G.sel===i)pressed.Enter=true;else{G.sel=i;AU.sfx('ui');}}}
  else if(G.mode==='story'&&x>W-300&&(e.clientY-r.top)/r.height*H<90)pressed.KeyS=true;
  else pressed.Enter=true;});
@@ -1613,6 +1660,11 @@ addEventListener('pointerup',()=>AU.init());addEventListener('touchend',()=>AU.i
 addEventListener('contextmenu',e=>e.preventDefault());
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&G.mode==='play'&&G.state==='run')G.pause=true;});
 try{G.unlocked=localStorage.getItem('sekigahara_unlock')==='1';}catch(e){}
+{const fb=document.getElementById('fsb');fb.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();if(isFull())toggleFull();else tryFull();});
+ document.getElementById('fsOpen').addEventListener('click',e=>{e.stopPropagation();document.getElementById('fsh').style.display='none';try{window.open(ART_URL,'_blank');}catch(_){location.href=ART_URL;}});
+ document.getElementById('fsClose').addEventListener('click',e=>{e.stopPropagation();document.getElementById('fsh').style.display='none';});
+ for(const id of ['fsh']){document.getElementById(id).addEventListener('pointerdown',e=>e.stopPropagation());}
+ setInterval(()=>{fb.style.display=(isFull()||(TOUCH&&G.mode==='play'&&!G.auto))?'none':'block';fb.textContent=isFull()?'⛶ 戻す':'⛶ 全画面';},500);}
 VIG=mkVig();ART=buildArt(0);startDemo(0);G.mode='gate';G.gateT=0;try{AU.init();}catch(e){}
 window.__G=G;
 requestAnimationFrame(loop);
