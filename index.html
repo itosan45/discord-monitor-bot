@@ -1184,6 +1184,7 @@ function drawTitleOverlay(){
 }
 
 /* ===================== SELECT / END ===================== */
+const FORMAL={yuki:['真田左衛門佐信繁','さなだ さえもんのすけ のぶしげ'],kage:['上杉中納言景勝','うえすぎ ちゅうなごん かげかつ'],mitsu:['石田治部少輔三成','いしだ じぶのしょう みつなり'],nobu:['織田上総介信長','おだ かずさのすけ のぶなが'],shin:['武田大膳大夫晴信','たけだ だいぜんのだいぶ はるのぶ'],musashi:['新免武蔵守藤原玄信','しんめん むさしのかみ ふじわらの はるのぶ']};
 const SEL_ORDER=['yuki','kage','mitsu'],HIDDEN=['nobu','shin','musashi'];let selDummies=null;
 const selD={};
 function heroList(){return SEL_ORDER.concat(G.unlocked?HIDDEN:[]);}
@@ -1195,8 +1196,9 @@ function drawSelect(){
  const step=G.selStep||0,slots=selSlots(),n=slots.length,geo=cardGeom(n),cp=n>3;
  txt(step===0?'武将を選べ':'パートナーを選べ',W/2,56,52,'#f4f0e0','center','#7a1010',8);
  txt(TOUCH?'タップで選択 → もう一度タップで決定':(step===0?'←→ 選択　Z / ENTER 決定':'←→ 選択　Z / ENTER 決定　ESC：戻る'),W/2,100,18,'#e8c35a','center','#000',3);
+ if(step===0){const k=slots[G.sel],F=k&&FORMAL[k];if(F){txt(F[0],W/2,136,30,'#fff3d0','center','#5a0a0a',6);txt(F[1],W/2,160,13,'#e8c35a','center','#000',3);}}
  if(step===1)txt('CPUのパートナーを連れると、敵が強くなります（体力×1.5・攻撃力×1.2・増援あり）',W/2,128,17,'#ffb070','center','#000',3);
- slots.forEach((k,i)=>{const x=geo.x0+i*(geo.w+geo.gap),y=146,cw=geo.w,ch=512,on=G.sel===i;
+ slots.forEach((k,i)=>{const x=geo.x0+i*(geo.w+geo.gap),y=174,cw=geo.w,ch=504,on=G.sel===i;
   ctx.save();ctx.fillStyle=on?'rgba(40,30,60,0.92)':'rgba(15,12,22,0.8)';ctx.fillRect(x,y,cw,ch);ctx.strokeStyle=on?'#ffe070':(HIDDEN.includes(k)?'#a07ad8':'#6a5a40');ctx.lineWidth=on?5:2;ctx.strokeRect(x,y,cw,ch);ctx.restore();
   if(!k){txt('ソロ',x+cw/2,y+210,cp?56:84,on?'#fff':'#bbb','center','#000',6);txt('ひとりで戦う',x+cw/2,y+290,cp?20:30,'#ddd','center','#000',4);txt('通常の難易度',x+cw/2,y+340,cp?15:22,'#e8c35a','center','#000',4);return;}
   const T=TY[k],hid=HIDDEN.includes(k);
