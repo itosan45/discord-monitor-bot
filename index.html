@@ -530,7 +530,7 @@ const HL={
  shin:{proG:'風林火山の旗、今ひとたび掲げん。',s0:'疾きこと風の如く！',s1:'動かざること山の如し……だが貴様は、迷いすぎじゃ。',s2:'侵掠すること火の如し！',s3:'上田は武田の旧領。真田は、我が家臣の家よ。',s4:'知りがたきこと陰の如し。夜はわしの領分じゃ。',s5:'家康……三方ヶ原の続きといこうか。',end:'人は城、人は石垣……見事な戦であった。'},
  musashi:{proG:'腕試しには、ちょうどいい戦だ。',s0:'でかい図体だな。斬りがいがある。',s1:'山の上でふんぞり返ってる奴から斬る。',s2:'数で来い。まとめて相手してやる。',s3:'城攻めか。悪くない。',s4:'夜の斬り合いは、目より耳よ。',s5:'天下人だろうが、斬れば斬れる。',end:'……次は、誰と戦えばいい？'}};
 HL.mitsu.pro=HL.mitsu.proG;
-const PORT={'福島正則':'boss9','小早川秀秋':'boss4','黒田長政':'boss8','徳川秀忠':'boss5','最上義光':'boss2','井伊直政':'boss1','本多忠勝':'boss7','徳川家康':'boss3','石田三成':'mitsu'};
+const PORT={'真田昌幸':'masayuki','福島正則':'boss9','小早川秀秋':'boss4','黒田長政':'boss8','徳川秀忠':'boss5','最上義光':'boss2','井伊直政':'boss1','本多忠勝':'boss7','徳川家康':'boss3','石田三成':'mitsu'};
 function storyLines(key){const h=G.curCh,y=h==='yuki';let k=key;if(key==='pro'&&!y)k='proG';const out=[];
  for(let [s,t] of SCN[k]){
   if(s[0]==='!'){if(!y)continue;s=s.slice(1);}
@@ -567,7 +567,7 @@ function drawStory(){const S=G.story;if(!S)return;const bb=S.bg!=null&&BGIMG[S.b
 // ===== OPENING（タイトル前のあらすじ） =====
 const FACE={},STAND={},FALL={};for(const k of ['yuki','kage','mitsu','nobu','shin','musashi']){FACE[k]=new Image();FACE[k].src='gfx/face_'+k+'.webp';STAND[k]=new Image();STAND[k].src='gfx/stand_'+k+'.webp';FALL[k]=new Image();FALL[k].src='gfx/fall_'+k+'.webp';}
 const imgOK=im=>im&&im.complete&&im.naturalWidth>0;
-const YKB=new Image();YKB.src='gfx/yk_bust.webp';const PIMG={boss3:new Image()};PIMG.boss3.src='gfx/ieyasu_bust.webp';for(const b of ['boss1','boss2','boss4','boss5','boss7','boss8','boss9']){PIMG[b]=new Image();PIMG[b].src='gfx/port_'+b+'.webp';}
+const YKB=new Image();YKB.src='gfx/yk_bust.webp';const PIMG={boss3:new Image()};PIMG.boss3.src='gfx/ieyasu_bust.webp';for(const b of ['boss1','boss2','boss4','boss5','boss7','boss8','boss9','masayuki']){PIMG[b]=new Image();PIMG[b].src='gfx/port_'+b+'.webp';}
 function drawBust(x,y,sz,a){if(!(YKB.complete&&YKB.naturalWidth))return false;ctx.save();ctx.globalAlpha=a;ctx.drawImage(YKB,x,y,sz,sz);ctx.restore();return true;}
 const OPN=[
  {bg:0,d:360,big:['慶長五年　九月十五日'],sm:['美濃国　関ヶ原']},
