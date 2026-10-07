@@ -33,6 +33,10 @@ node game/tests/tmeta.js            # 全画像に位置データがあるか �
 node game/tests/tbo.js              # ボス戦が最後まで進むか
 node game/tests/tht.js              # チュートリアル
 node game/tests/tand2.js            # スマホ(Pixel 7 横)で攻撃・騎馬
+node game/tests/tki.js              # 必殺ゲージ(必殺技では増えない/通常攻撃・被弾で増える)
+node game/tests/tcharge.js          # 溜め攻撃が武器ごとに変わるか
+node game/tests/tkusari.js          # 鎖鎌(回転・貫通投げ・引き寄せ)
+node game/tests/tiai.js             # 居合
 # 5) コミットしてプッシュ → Vercel に production デプロイ
 ```
 - テストは `npm i playwright` 済みの環境、または `PLAYWRIGHT=/path/to/playwright node ...` で実行。
@@ -63,6 +67,9 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 描画: `drawSprite`(キャラ絵)、武器を持った時は手ぶら版に切替(`UMAP`、全武将。足りない動きは `UGEN` の代用表で補う)。鎖鎌の長押し回転・貫通投げ・引き寄せは `kusariCtl`
 - 画面: タイトル `drawTitle`、キャラ選択 `drawSelect`、チュートリアル `HT_STEPS`、一時停止メニュー `PZM`、ストーリー `SCN`
 - ジャンプ力: `p.vz=T.jump*1.2`(TY 各武将の `jump` 値 × 1.2)
+- 溜め攻撃(長押し→離す)は武器ごとに変わる: `chargeKind()` で判定。刀(景勝・信長・武蔵の持ち武器/長剣/妖刀)=居合 `startIai`/`iaiStep`/`drawIai`、槍=突進(従来の `startCharge`)、薙刀=回転斬り、斧・棍棒=地割れ、鉄砲=溜め撃ち、弓=三本矢、鉄扇=疾風、軍配=号令(`startCk`/`chargeStep`)。鎖鎌だけは `kusariCtl` で別処理
+- 必殺ゲージ: 必殺技・奥義のダメージでは増えない(`hurt()` 内)。被弾でも増える(ダメージ×0.8)
+- 注意: ゲーム内時計 `G.t` は `frame()` で進む。テストで `stepGame()` だけ回すときは `G.t++` も自分で進めること
 
 ## 6. 残っている作業
 1. **手ぶら版の絵**: 幸村以外(景勝・三成・信長・信玄・武蔵)。届いたら mku.py で作成し、`UMAP` に追加すると「武器を拾った時に武器が二重に見える」問題が消える。
