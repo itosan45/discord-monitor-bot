@@ -1,6 +1,6 @@
 // 居合い: 刀の武将(景勝・信長・武蔵)で溜めて離すと、横一筋の線→線上の敵をまとめて斬る
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
-const OUT=process.env.OUTDIR||'.';
+const OUT=process.env.OUTDIR||require('os').tmpdir();
 (async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:1280,height:720}})).newPage();const er=[];p.on('pageerror',e=>er.push(e.message));
 await p.goto('http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
 const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;window.dropItem=()=>{};const res={},imgs=[];

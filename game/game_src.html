@@ -1471,6 +1471,9 @@ function drawIcon(key,x,y,ang,len,fl,gf){gf=gf??0.13;const I=SPR.items;if(!I||!I
  ctx.save();ctx.translate(x,y);ctx.rotate(ang-ax);ctx.scale(s,s);ctx.drawImage(fl?sprWhite(I):I.img,qx,qy,w,h,-px,-py,w,h);ctx.restore();return true;}
 function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
+ let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
+  if(f.kspin>0&&(f.state==='idle'||f.state==='walk')&&K.a.kspin){S=K;sp={arr:K.a.kspin,pos:(f.t/4)%K.a.kspin.length,loop:true,hard:true};kart='spin';}
+  else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
  const A0=arr[i0],A1=sp.loop?arr[(i0+1)%n]:arr[Math.min(n-1,i0+1)];if(!A0)return false;
  const fl=(f.flash>0&&(f.flash&2))||((f.chg||0)>=CHG&&(G.t&4)),moving=(f.state==='atk'&&f.cur&&(f.cur&&(f.cur.base||f.cur))===f.T.dash)||f.state==='dodge'||f.state==='mega'||(f.state==='spc'&&f.st<20);
@@ -1502,7 +1505,7 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
  const atkSt=f.state==='atk'||f.state==='jatk'||f.state==='spc'||f.state==='throw'||f.state==='mega';
  if(A1&&A1!==A0&&fr>0.02&&!fl&&!sp.hard&&!atkSt&&!G.lowq){ctx.globalAlpha=ga*fr*0.85;ctx.drawImage(img,A1[0],A1[1],A1[2],A1[3],A1[4],A1[5],A1[2]*(A1[6]||1),A1[3]*(A1[6]||1));ctx.globalAlpha=ga;}
  if(f.T.shield&&f.shieldOn!==false&&f.state!=='down'&&f.state!=='dead'){ctx.save();ctx.translate(30,-118);ctx.rotate(f.state==='atk'?0.35:0.05);const sg=ctx.createLinearGradient(-20,0,20,0);sg.addColorStop(0,fl?'#fff':'#5a3a1e');sg.addColorStop(0.5,fl?'#fff':'#8a5a2e');sg.addColorStop(1,fl?'#fff':'#4a2e16');ctx.fillStyle=sg;ctx.fillRect(-18,-50,36,100);ctx.strokeStyle='#1a0e06';ctx.lineWidth=3;ctx.strokeRect(-18,-50,36,100);ctx.fillStyle='#2a1a0c';for(const yy of[-30,0,30])ctx.fillRect(-18,yy-2,36,4);ctx.beginPath();ctx.arc(0,-12,9,0,TAU);ctx.fillStyle='#e8e0c8';ctx.fill();ctx.restore();}
- const hideW=UMAP[f.T.type+'_u']&&S===SPR[f.T.type];if(f.wpn&&f.team===0&&!hideW){const d=f.cur,wk=WPN[f.wpn.k];let wa=-1.05,hx=20,hy=-106;const kickP=d&&(d.pz==='kick'||d.pz==='tackle'),HA=S.hand&&S.hand[kickP?'idle':arr._an],ha=HA&&HA[kickP?0:i0],hk=!!ha;if(ha){hx=ha[0];hy=ha[1];}
+ const hideW=UMAP[f.T.type+'_u']&&S===SPR[f.T.type]&&kart!=='throw';if(f.wpn&&f.team===0&&!hideW){const d=f.cur,wk=WPN[f.wpn.k];let wa=-1.05,hx=20,hy=-106;const kickP=d&&(d.pz==='kick'||d.pz==='tackle'),HA=S.hand&&S.hand[kickP?'idle':arr._an],ha=HA&&HA[kickP?0:i0],hk=!!ha;if(ha){hx=ha[0];hy=ha[1];}
   if(f.state==='walk')wa=-1.05+Math.sin(f.wp||0)*0.08;
   else if(f.state==='guard')wa=-1.6;
   else if(f.state==='hurt'||f.state==='down'||f.state==='dead'||f.state==='getup')wa=0.7;
@@ -1513,7 +1516,7 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
   else if(f.state==='mega'||f.state==='throw')wa=f.st*0.5;
   if(f.wpn.k==='kusari'&&(f.state==='atk'||f.state==='jatk')&&d&&!kickP&&d.pz!=='shoot'){const hs=d.hs||4,he=d.he||hs+4,dur=d.dur||he+10,s0=Math.max(0,hs-5);let e=f.st<s0?0:f.st<=he?(f.st-s0)/Math.max(1,he-s0):Math.max(0,1-(f.st-he)/Math.max(1,dur-he));e=Math.sin(e*Math.PI/2);
    const L=d.kth?(d.reach||0)/(f.sc||1)*(f.st<=he?e:1):Math.max(70,((d.rng||60)+20)/(f.sc||1))*e,ang=f.state==='jatk'?0.5:-0.06,tx=hx+Math.cos(ang)*L,ty=hy+Math.sin(ang)*L,sag=(1-e)*18+6;
-   drawKama(hx,hy,-1.4,fl);
+   if(!kart)drawKama(hx,hy,-1.4,fl);
    if(L>8){ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo((hx+tx)/2,(hy+ty)/2+sag,tx,ty);ctx.strokeStyle=fl?'#fff':'#1e1e24';ctx.lineWidth=4.4;ctx.setLineDash([5,3]);ctx.stroke();ctx.strokeStyle=fl?'#fff':'#c4cad2';ctx.lineWidth=1.8;ctx.lineDashOffset=2;ctx.stroke();ctx.restore();
     ctx.save();ctx.translate(tx,ty);{const g=ctx.createRadialGradient(-2,-2,1,0,0,8);g.addColorStop(0,fl?'#fff':'#9aa2ac');g.addColorStop(1,fl?'#fff':'#2a2c32');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,7,0,TAU);ctx.fill();ctx.strokeStyle='#111';ctx.lineWidth=1.2;ctx.stroke();}if(!G.lowq&&e>0.4){ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(220,235,255,0.5)';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-28*e,0);ctx.lineTo(-6,0);ctx.stroke();}ctx.restore();}}
   else if(f.wpn.k==='kusari'&&f.kspin>0){drawKama(hx,hy,-1.2,fl);const an=G.t*0.42,cx=hx-6,cy=hy-58,tx=cx+Math.cos(an)*58,ty=cy+Math.sin(an)*16;
@@ -1524,7 +1527,7 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
  if(f.wpn&&!G.lowq&&f.team===0&&!hideW){const wk=WPN[f.wpn.k],tip=wk.tip||100,pul=0.5+0.5*Math.sin(G.t*0.2);
   ctx.globalCompositeOperation='lighter';
   const g2=ctx.createRadialGradient(0,-80,10,0,-80,95);g2.addColorStop(0,`rgba(255,170,90,${0.16+pul*0.1})`);g2.addColorStop(1,'rgba(255,170,90,0)');ctx.fillStyle=g2;ctx.fillRect(-110,-190,220,200);
-  if(f.state==='atk'&&f.cur&&f.cur.hs!==undefined&&wk.draw!=='teppo'){const d=f.cur,k=clamp((f.st-d.hs+4)/Math.max(6,(d.he-d.hs)+8),0,1);
+  if(f.state==='atk'&&f.cur&&f.cur.hs!==undefined&&wk.draw!=='teppo'&&!f.cur.kth){const d=f.cur,k=clamp((f.st-d.hs+4)/Math.max(6,(d.he-d.hs)+8),0,1);
    if(k>0&&k<1){const R=tip*0.78,a0=-0.85+k*1.25;ctx.lineCap='round';
     for(const [lw,al,col] of [[16,0.22*(1-k),'255,150,60'],[7,0.7*(1-k),'255,235,190']]){ctx.strokeStyle=`rgba(${col},${al})`;ctx.lineWidth=lw;ctx.beginPath();ctx.arc(-18,-62,R,a0-0.75,a0+0.2);ctx.stroke();}}}
   ctx.globalCompositeOperation='source-over';}

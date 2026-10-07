@@ -6,3 +6,7 @@ node_modules/
 
 # ログ
 *.log
+
+# テストの確認画像
+/*.png
+/*.jpg

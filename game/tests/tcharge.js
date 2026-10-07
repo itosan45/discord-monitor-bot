@@ -1,6 +1,6 @@
 // 溜め攻撃が武器ごとに変わるか(居合・回転斬り・地割れ・溜め撃ち・三本矢・疾風・号令・突撃)
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
-const OUT=process.env.OUTDIR||'.';
+const OUT=process.env.OUTDIR||require('os').tmpdir();
 (async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:1280,height:720}})).newPage();const er=[];p.on('pageerror',e=>er.push(e.message));
 await p.goto('http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
 const C=[['kage',''],['yuki',''],['yuki','naginata'],['shin',''],['mitsu',''],['yuki','ono'],['yuki','teppo'],['yuki','yumi'],['nobu','odachi'],['musashi','konbou']];
