@@ -11,7 +11,7 @@
 | 場所 | 中身 |
 |---|---|
 | `index.html` | **完成品**(自動生成。直接編集しない) |
-| `gfx/` | 完成品が読む画像・音楽(atlas_*.webp=キャラ絵、bg_*.webp=背景、bgm_thunder.mp3=第一幕BGM) |
+| `gfx/` | 完成品が読む画像・音楽(`atlas_*.webp`=キャラ絵、`bg_*.webp`=背景、`bgm_thunder.mp3`=第一幕BGM) |
 | `game/game_src.html` | **ゲーム本体のソース**(JavaScript 1ファイル、約2000行)。直すのは基本ここ |
 | `game/build.py` | ソース+データ → `index.html` を組み立てる |
 | `game/data/audio.json` | 効果音・声・BGM(base64)。音を差し替えない限り触らない |
