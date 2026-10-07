@@ -278,6 +278,7 @@ function drawBGimg(img,cam){const off=((cam*0.35)%2560+2560)%2560;
  for(let k=0;k<3;k++){const n=base+k,x=k*1280-ox,flip=n%2===1;ctx.save();if(flip){ctx.translate(x+1280,0);ctx.scale(-1,1);ctx.drawImage(img,0,0);}else ctx.drawImage(img,x,0);ctx.restore();}
  const g=ctx.createLinearGradient(0,470,0,720);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,0.28)');ctx.fillStyle=g;ctx.fillRect(0,470,W,250);}
 function drawBG(cam,t){
+ if(G.howto){ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);const g=ctx.createRadialGradient(W/2,600,20,W/2,600,520);g.addColorStop(0,'rgba(120,100,80,0.35)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,300,W,H-300);ctx.fillStyle='rgba(255,240,200,0.05)';ctx.beginPath();ctx.ellipse(W/2,590,520,70,0,0,TAU);ctx.fill();return;}
  const A=ART,S=A.S,bi=BGIMG[G.stage];
  if(bi&&bi.complete&&bi.naturalWidth){drawBGimg(bi,cam);return;}
  ctx.drawImage(A.sky,0,0);
@@ -605,7 +606,7 @@ const PZM=['再開する','タイトルに戻る'],PZY=[380,480];
 const DIFF=[{n:'やさしい',d:'敵の体力・攻撃が弱め　残機5',hp:0.75,dm:0.6,lives:5,col:'#8fe08f'},{n:'ふつう',d:'標準の難しさ　残機3',hp:1,dm:1,lives:3,col:'#ffe070'},{n:'むずかしい',d:'敵が強く、残機2',hp:1.35,dm:1.4,lives:2,col:'#ff7a5a'}],DFY=[300,410,520];
 function diffNow(){return DIFF[G.diff??1];}
 function stepDiff(){const n=DIFF.length;G.camx+=0.5;if(pressed.ArrowUp||pressed.KeyW){G.diffSel=(G.diffSel+n-1)%n;AU.sfx('ui');}if(pressed.ArrowDown||pressed.KeyS){G.diffSel=(G.diffSel+1)%n;AU.sfx('ui');}
- if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');G.diff=G.diffSel;G.mode='select';G.sel=0;G.selStep=0;G.selTap=null;return;}
+ if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');G.diff=G.diffSel;startHowto(()=>{G.mode='select';G.sel=0;G.selStep=0;G.selTap=null;G.camx=0;AU.bgm(4);});return;}
  if(pressed.Escape){startTitle();return;}
  drawBG(G.camx,G.t);ctx.fillStyle='rgba(8,6,16,0.62)';ctx.fillRect(0,0,W,H);txt('難易度を選べ',W/2,120,52,'#f4f0e0','center','#7a1010',8);txt(TOUCH?'タップで決定':'↑↓ 選択　Z / ENTER 決定　ESC：戻る',W/2,170,18,'#e8c35a','center','#000',3);
  DIFF.forEach((it,i)=>{const on=G.diffSel===i,y=DFY[i];ctx.save();ctx.fillStyle=on?'rgba(110,26,18,0.92)':'rgba(15,12,22,0.82)';ctx.fillRect(W/2-260,y-44,520,88);ctx.strokeStyle=on?'#ffe070':'#6a5a40';ctx.lineWidth=on?5:2;ctx.strokeRect(W/2-260,y-44,520,88);ctx.restore();txt(it.n,W/2,y-10,40,on?it.col:'#bbb','center','#000',6);txt(it.d,W/2,y+26,16,on?'#f4e8c0':'#999','center','#000',3);});
@@ -1011,7 +1012,7 @@ function updProj(){
 function updWorld(){
  const p=G.player;
  // controls
- let c;if(G.demo||G.auto)c=demoCtl(p);else c=ctlKeys();
+ let c;if(G.howto)c=G.htc||{};else if(G.demo||G.auto)c=demoCtl(p);else c=ctlKeys();
  // wave logic
  if(G.state==='run'){
   if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];
@@ -1790,6 +1791,49 @@ function drawEnd(){
  if(t>60*3&&anyKey()||t>60*34){startTitle();}
 }
 
+/* ===================== HOW TO PLAY (操作説明) ===================== */
+const HT_BTN=[['atk','攻撃','Z'],['jump','跳躍','X'],['spc','必殺','C'],['gd','防御','V']];
+function htDummy(x,y,ty){const e=mk(ty||'sword',x,y,1);e.entered=true;e.face=-1;e.maxhp=e.hp=600;e.cool=9999;G.fighters.push(e);return e;}
+function htReset(px){G.fighters=G.fighters.filter(f=>f===G.player);G.proj=[];G.decals=[];G.parts=[];G.items=[];G.props=[];const p=G.player;p.x=px||420;p.y=585;p.z=0;p.vz=0;p.face=1;p.state='idle';p.st=0;p.cur=null;p.chg=0;p.wpn=null;p.inv=0;p.hp=p.maxhp;p.ki=0;p.gt=null;}
+const HT_STEPS=[
+ {cap:'移動',sub:'方向キー（左のスティック）で8方向に移動',dur:150,btn:t=>['dir'],setup(){htReset(560);},ctl(t){return{r:t<45,u:t>=45&&t<75,l:t>=75&&t<120,d:t>=120&&t<145};}},
+ {cap:'攻撃',sub:'攻撃ボタンを連打すると連続技',dur:130,setup(){htReset(420);htDummy(560,585);htDummy(600,570);},btn:t=>[t%12<6&&t>5&&t<70?'atk':''],ctl(t){return{atkP:[6,18,30,44,58].includes(t)};}},
+ {cap:'ジャンプ　／　ジャンプ攻撃',sub:'跳躍ボタンでジャンプ、空中で攻撃ボタン',dur:140,setup(){htReset(420);htDummy(590,585);},btn:t=>[(t>=8&&t<16)||(t>=70&&t<78)?'jump':'',(t>=24&&t<32)||(t>=84&&t<92)?'atk':''],ctl(t){return{jumpP:t===8||t===70,atkP:t===24||t===84,r:t>=70&&t<100};}},
+ {cap:'ダッシュ攻撃',sub:'走りながら攻撃ボタンで突進攻撃',dur:110,setup(){htReset(260);htDummy(720,585);htDummy(770,575);},btn:t=>['dir',t>=30&&t<40?'atk':''],ctl(t){return{r:t<34,atkP:t===30};}},
+ {cap:'溜め攻撃',sub:'攻撃ボタンを長押し → 点滅したら離すと突進して薙ぎ払い',dur:140,setup(){htReset(300);htDummy(620,585);htDummy(680,575);htDummy(740,590);},btn:t=>[t>=5&&t<58?'atk':''],ctl(t){return{atkP:t===5,atkH:t>=5&&t<58};}},
+ {cap:'防御',sub:'防御ボタンを押している間、前からの攻撃を防ぐ',dur:150,setup(){htReset(520);const e=htDummy(610,585);e.cool=10;},btn:t=>[t>=5?'gd':''],ctl(t){for(const e of G.fighters)if(e.team===1&&e.cool>40)e.cool=40;return{gd:t>=5};}},
+ {cap:'武器を拾う',sub:'落ちている武器の上で攻撃ボタン。拾った武器で戦える（使うと壊れる）',dur:170,setup(){htReset(380);G.player.grabCd=9999;G.items.push({x:470,y:585,k:'w_odachi',t:0});htDummy(720,585);},btn:t=>[t<20||(t>=50&&t<66)?'dir':'',(t>=26&&t<34)||(t>=80&&t<88)||(t>=100&&t<108)||(t>=120&&t<128)?'atk':''],ctl(t){const p=G.player;p.grabCd=9999;return{r:t<20||(t>=50&&t<66),atkP:t===26||t===80||t===100||t===120};}},
+ {cap:'つかみ・投げ',sub:'敵に向かって押し込むとつかむ。攻撃でひざ蹴り、方向＋攻撃で投げ',dur:160,setup(){htReset(470);const e=htDummy(540,585);},btn:t=>['dir',(t>=40&&t<46)||(t>=52&&t<58)||(t>=70&&t<76)?'atk':''],ctl(t){return{r:t<34||(t>=68&&t<72),l:false,atkP:t===40||t===52||t===70};}},
+ {cap:'必殺技',sub:'ゲージが1本以上たまったら必殺ボタン。2本でさらに強い技',dur:150,setup(){htReset(420);G.player.ki=100;htDummy(600,585);htDummy(660,575);},btn:t=>[t>=10&&t<20?'spc':''],ctl(t){return{spcP:t===10};}},
+ {cap:'奥義',sub:'ゲージが3本たまると、武将ごとの奥義で味方の軍勢が援護',dur:330,setup(){htReset(420);G.player.ki=300;htDummy(640,585);htDummy(720,575);htDummy(800,590);},btn:t=>[t>=10&&t<20?'spc':''],ctl(t){return{spcP:t===10};}},
+ {cap:'同時押し',sub:'攻撃＋跳躍の同時押しで周囲を吹き飛ばす（体力を少し使う）',dur:120,setup(){htReset(560);htDummy(470,585);htDummy(650,580);},btn:t=>t>=10&&t<20?['atk','jump']:[],ctl(t){return{atkP:t===10,jumpP:t===10};}},
+];
+function startHowto(next){G.htNext=next;G.htSaveP=G.partnerType;G.partnerType=null;G.noStoryHT=G.noStory;
+ startStage(0,G.heroPick||'yuki',false);G.partner=null;G.banner=null;G.state='howto';G.waves=[{x:999999,en:[]}];G.camx=0;G.camMax=0;G.items=[];G.props=[];
+ G.mode='howto';G.howto=true;G.ht={i:-1,t:0};htNext();AU.bgm(4);}
+function htNext(){const H=G.ht;H.i++;H.t=0;if(H.i>=HT_STEPS.length){endHowto();return;}G.ult=null;G.cut=null;G.hitstop=0;HT_STEPS[H.i].setup();}
+function endHowto(){G.howto=false;G.ult=null;G.cut=null;G.partnerType=G.htSaveP;G.fighters=[];G.mode='title';const n=G.htNext;G.htNext=null;if(n)n();else startTitle();}
+function stepHowto(){const H=G.ht,S=HT_STEPS[H.i];
+ if(H.t>20&&anyKey()){AU.sfx('ok');endHowto();return;}
+ G.htc=S.ctl(H.t)||{};const p=G.player;p.hp=p.maxhp;
+ if(!G.ult&&S.cap!=='防御')for(const e of G.fighters)if(e.team===1){e.cool=Math.max(e.cool,60);if(e.hp<200)e.hp=e.maxhp;}
+ stepGame();G.camx=0;H.t++;
+ if(H.t>=S.dur&&!G.ult)htNext();
+ if(G.mode!=='howto')return;
+ renderWorld();drawOverlays();
+ drawHowtoUI(S,H.t);}
+function drawHowtoUI(S,t){
+ // header
+ ctx.save();ctx.fillStyle='rgba(0,0,0,0.55)';ctx.fillRect(0,0,W,108);ctx.restore();
+ txt('操作説明',110,34,22,'#e8c35a','left','#000',3);txt((G.ht.i+1)+' / '+HT_STEPS.length,W-40,34,18,'#bba','right','#000',3);
+ txt(S.cap,W/2,44,40,'#f4f0e0','center','#7a1010',7);txt(S.sub,W/2,86,19,'#f4e8c0','center','#000',4);
+ // button panel
+ const on=S.btn?S.btn(t):[],y=H-74;ctx.save();ctx.fillStyle='rgba(0,0,0,0.55)';ctx.fillRect(0,y-52,W,126);ctx.restore();
+ {const cx=200,cy=y+8,lit=on.includes('dir');ctx.save();ctx.globalAlpha=lit?1:0.55;for(const [dx,dy] of [[0,-1],[1,0],[0,1],[-1,0]]){ctx.fillStyle=lit?'#ffe070':'#556';ctx.beginPath();ctx.moveTo(cx+dx*44,cy+dy*44);ctx.lineTo(cx+dx*22-dy*14,cy+dy*22+dx*14);ctx.lineTo(cx+dx*22+dy*14,cy+dy*22-dx*14);ctx.closePath();ctx.fill();}ctx.restore();circ(cx,cy,16,lit?'#ffe070':'#334','#889',2);txt('移動',cx,cy+56,15,'#ddd','center','#000',3);}
+ HT_BTN.forEach(([k,lb,key],i)=>{const x=520+i*170,lit=on.includes(k);ctx.save();if(lit){ctx.shadowColor='#ffcc40';ctx.shadowBlur=26;}circ(x,y+6,36,lit?'#c0301c':'#2a2236',lit?'#ffe070':'#8a7a50',lit?4:2);ctx.restore();txt(lb,x,y+6,22,lit?'#fff':'#bbb','center','#000',4);if(!TOUCH)txt(key+' キー',x,y+58,14,'#aaa','center','#000',3);});
+ if(G.t%70<48)txt(TOUCH?'画面タップでスキップ':'何かキーを押すとスキップ',W-30,y-36,16,'#ffe070','right','#000',3);
+}
+
 /* ===================== AUTO PLAY (デモプレイ) ===================== */
 const autoEl=document.getElementById('auto');let _autoKey='';
 function autoUI(force){const m=G.mode,want=G.auto&&(m==='play'||m==='story'||m==='end')?'bar':'none';const key=want+'|'+(G.autoSpd||1)+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk;if(!force&&key===_autoKey)return;_autoKey=key;
@@ -1843,6 +1887,7 @@ function frame(){
    if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');if((G.pzSel||0)===0)G.pause=false;else{G.pause=false;G.pzSel=0;startTitle();}}}
   if(!G.pause){stepGame();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='play';r++)stepGame();}
   if(G.mode==='demo'||G.mode==='play'){renderWorld();drawHUD();drawOverlays();if(G.mode==='demo')drawTitleOverlay();}
+ }else if(G.mode==='howto'){stepHowto();ctx.drawImage(VIG,0,0);
  }else if(G.mode==='diff'){stepDiff();ctx.drawImage(VIG,0,0);
  }else if(G.mode==='select'){
   G.camx+=0.5;const nsl=selSlots().length;if(pressed.ArrowLeft||pressed.KeyA){G.sel=(G.sel+nsl-1)%nsl;AU.sfx('ui');}if(pressed.ArrowRight||pressed.KeyD){G.sel=(G.sel+1)%nsl;AU.sfx('ui');}
