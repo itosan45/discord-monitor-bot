@@ -801,7 +801,7 @@ const JUYU=['猿飛佐助','霧隠才蔵','三好清海入道','三好伊三入�
 const _tint={};
 function redS(key){const id='red|'+key;if(_tint[id])return _tint[id];const S=SPR[key];if(!S||!S.ready)return null;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);try{const D=x.getImageData(0,0,c.width,c.height),d=D.data;for(let i=0;i<d.length;i+=4){if(!d[i+3])continue;const r=d[i],g=d[i+1],b=d[i+2],L=(r+g+b)/3,s=b-r;if(s>8&&b>=g&&L<175){d[i]=Math.min(255,L*1.25+s*2.2+18);d[i+1]=L*0.45;d[i+2]=L*0.4;}}x.putImageData(D,0,0);}catch(e){return null;}return _tint[id]={img:c,a:S.a,ready:true};}
 // 勝鬨: 味方の足軽が周りに集まって拳(刀)を突き上げる。真田の時だけ赤備え+六文銭の旗
-function kgunInit(){const p=G.player;G.kgun=[];const red=G.curCh==='yuki';for(let i=0;i<10;i++){const side=i%2?1:-1,k=i>>1,key=i%3===1?'spear':'sword';const cx=clamp(p.x,G.camx+380,G.camx+W-380),tx=cx+side*(120+k*58+rnd(-12,12)),ty=clamp(p.y-70+((k*41+i*13)%130),YMIN,YMAX);G.kgun.push({kg:1,key,red,x:G.camx+(side>0?W+70+k*45:-70-k*45),y:ty,tx,ty,face:-side,t:(i*7)|0,z:0,ph:(i*3)%5,mv:true,up:false});}}
+function kgunInit(){const p=G.player;G.kgun=[];const red=G.curCh==='yuki';for(let i=0;i<10;i++){const side=i%2?1:-1,k=i>>1,key=i%3===1?'spear':'sword';const cx=clamp(p.x,G.camx+380,G.camx+W-380),tx=cx+side*(120+k*58+rnd(-12,12)),ty=Math.max(YMIN,p.y-22-((k*37+i*11)%80));G.kgun.push({kg:1,key,red,x:G.camx+(side>0?W+70+k*45:-70-k*45),y:ty,tx,ty,face:-side,t:(i*7)|0,z:0,ph:(i*3)%5,mv:true,up:false});}}
 function kgunStep(kt){if(!G.kgun)return;const p=G.player;for(const e of G.kgun){e.t++;const dx=e.tx-e.x,dy=e.ty-e.y,d=Math.hypot(dx,dy);if(d>4){const v=Math.min(d,7);e.x+=dx/d*v;e.y+=dy/d*v;e.mv=true;e.face=sgn(dx)||e.face;}else{e.mv=false;e.face=sgn(p.x-e.x)||e.face;}
  const b=[180,214,250].find(s=>kt>=s+e.ph&&kt<s+e.ph+16);e.z=b!==undefined?Math.sin((kt-b-e.ph)/16*Math.PI)*24:0;e.up=!e.mv&&((kt>=180+e.ph&&kt<204)||(kt>=214+e.ph&&kt<238)||kt>=250+e.ph);}}
 function drawKgun(e){let S=SPR[e.key];if(!S||!S.ready)return;if(e.red){const R=redS(e.key);if(R)S=R;}const A=S.a,sc=(TY[e.key]&&TY[e.key].sc)||1;let q,rot=0;
@@ -1522,6 +1522,8 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kret&&!f.cur.pulled&&f.st>f.cur.he+6){S=K;sp={arr:K.a.kret,pos:Math.min(0.999,(f.st-f.cur.he-6)/Math.max(1,f.cur.dur-f.cur.he-6))*K.a.kret.length,loop:false,hard:true};kart='throw';}
   else if(f.state==='atk'&&f.cur&&!f.cur.kth&&!f.cur.chg&&K.a.kslash){S=K;sp={arr:K.a.kslash,pos:Math.min(0.999,f.st/Math.max(1,f.cur.dur))*K.a.kslash.length,loop:false,hard:true};kart='slash';}
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
+ // 勝鬨: 主人公が拳を突き上げる(えい!=kt180/214、おー!=kt250)
+ if(G.state==='bossdown'&&!G.demo&&f===G.player&&G.stateT>=170){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.stateT,i=t<180?0:t<196?1:t<214?2:t<230?1:t<250?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
  const A0=arr[i0],A1=sp.loop?arr[(i0+1)%n]:arr[Math.min(n-1,i0+1)];if(!A0)return false;
