@@ -1625,14 +1625,16 @@ function updMount(p,c){
   if(c.spcP&&p.ki>=60){p.ki-=60;p.state='mspc';p.st=0;p.inv=999;AU.sfx('roar');}
   else if(c.atkP){p.state='matk';p.st=0;p.cur=MATK;p.hit=new Set();AU.sfx('slash');}}
  p.x=clamp(p.x,G.camx+60,G.camx+W-60);p.y=clamp(p.y,YMIN,YMAX);}
+// 騎乗時の乗り手の位置補正(脚の長い絵は腰の切り位置を下げる)
+const MRIDE={musashi:{hip:112,dy:6,sc:0.98}};
 function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)return false;
  const run=f.state==='walk',rear=f.state==='mspc'?Math.sin(Math.min(1,f.st/16)*Math.PI)*0.35:0;
  if(rear){ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y));ctx.rotate(-rear*f.face);ctx.translate(-Math.round(f.x-G.camx),-Math.round(f.y));}
  drawMounted(f,S,run,(bob)=>{const H=SPR[f.T.type];if(!H||!H.ready)return;const A=H.a;let arr=A.idle,pos=Math.floor(f.t/14)%arr.length;
    if(f.state==='matk'){arr=A.a3||A.a1;pos=Math.min(arr.length-1,Math.floor(f.st/f.cur.dur*arr.length));}
    else if(f.state==='hurt')arr=A.hit,pos=0;
-   const q=arr[pos];if(!q)return;const sd=S.a.saddle||[-7,-142],HIP=86;
-   ctx.save();ctx.translate(sd[0]+4,sd[1]+bob*0.2);ctx.scale(1.08,1.08);ctx.translate(0,HIP);ctx.beginPath();ctx.rect(-300,-500,600,500-HIP+10);ctx.clip();
+   const q=arr[pos];if(!q)return;const sd=S.a.saddle||[-7,-142],MR=MRIDE[f.T.type]||{},HIP=MR.hip||86;
+   ctx.save();ctx.translate(sd[0]+4,sd[1]+bob*0.2+(MR.dy||0));ctx.scale(MR.sc||1.08,MR.sc||1.08);ctx.translate(0,HIP);ctx.beginPath();ctx.rect(-300,-500,600,500-HIP+10);ctx.clip();
    const fl=f.flash>0&&(f.flash&2);ctx.drawImage(fl?sprWhite(H):H.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();});
  if(rear)ctx.restore();
  if(f.state==='matk'&&f.st>=f.cur.hs-2&&f.st<=f.cur.he+3&&!G.lowq){const k=(f.st-f.cur.hs+2)/(f.cur.he-f.cur.hs+5);ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y));ctx.scale(f.face,1);ctx.globalCompositeOperation='lighter';
@@ -1756,7 +1758,7 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
  const x=q.x-G.camx,y=q.y-q.z;ctx.save();ctx.translate(x,y);
  if(q.k==='arrow'){ctx.scale(q.face,1);line(-22,0,18,0,2.5,'#d8c8a0');poly([[18,-4],[28,0],[18,4]],'#ddd');poly([[-22,0],[-28,-4],[-18,0]],'#c33');poly([[-22,0],[-28,4],[-18,0]],'#c33');}
  else if(q.k==='bullet'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);const g=ctx.createLinearGradient(-30,0,8,0);g.addColorStop(0,'rgba(255,200,100,0)');g.addColorStop(1,q.team===0?'rgba(220,170,255,1)':'rgba(255,220,130,1)');ctx.fillStyle=g;ctx.fillRect(-30,-3,38,6);circ(8,0,5,'#fff');}
- else if(q.k==='horse'){ctx.scale(q.face,1);drawHorse(G.t*0.55,G.t);}
+ else if(q.k==='horse'){const S=SPR.mount_blue;if(S&&S.ready){ctx.translate(-x,-y);drawMounted({T:{},x:q.x,y:q.y,z:0,face:q.face,sc:1,t:G.t+((q.x|0)%7),state:'walk',flash:0},S,true);}else{ctx.scale(q.face,1);drawHorse(G.t*0.55,G.t);}}
  else if(q.k==='shuriken'){ctx.rotate(G.t*0.5);ctx.fillStyle='#cfd6de';for(let i=0;i<4;i++){ctx.rotate(Math.PI/2);poly([[0,0],[14,-3],[16,0],[14,3]],'#cfd6de',OUT,1);}circ(0,0,2,'#222');}
  else if(q.k==='wave'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);const c=q.team===0?'160,220,255':'255,210,130';const g=ctx.createRadialGradient(0,0,4,0,0,60);g.addColorStop(0,`rgba(${c},0.9)`);g.addColorStop(1,`rgba(${c},0)`);ctx.fillStyle=g;ctx.save();ctx.scale(0.5,1);ctx.beginPath();ctx.arc(0,-18,60,0,TAU);ctx.fill();ctx.restore();ctx.strokeStyle=`rgba(255,255,255,0.9)`;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-6,0);ctx.quadraticCurveTo(14,-34,-2,-62);ctx.stroke();}
  else if(q.k==='fall'){if(q.wait>0||q.z>0){ctx.restore();ctx.save();const gy=q.y,gx=q.x-G.camx;ctx.strokeStyle=q.team===0?'rgba(200,150,255,0.7)':'rgba(255,60,40,0.75)';ctx.lineWidth=2.5;ctx.beginPath();ctx.ellipse(gx,gy,q.w,q.w*0.4,0,0,TAU);ctx.stroke();ctx.globalAlpha=0.18+0.1*Math.sin(G.t*0.4);ctx.fillStyle=ctx.strokeStyle;ctx.fill();ctx.globalAlpha=1;
