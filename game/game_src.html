@@ -387,7 +387,7 @@ TY.boss7.atk=[{pz:'thrust',dur:44,hs:20,he:26,rng:265,dmg:14,kb:6,dep:40,sfx:'th
 TY.boss3.atk.push({pz:'raise',k:'volley',dur:70,hs:26,he:27,rng:0,dmg:0,sfx:'roar'});TY.boss3.far=[2,1,3,4,2];
 for(const k in TY)if(TY[k].boss)for(const d of TY[k].atk){d.hs+=6;d.he+=6;d.dur+=10;d.dmg=Math.round(d.dmg*0.65);}
 for(const k in TY){const T=TY[k];if(!T.boss&&!T.cost&&T.atk)for(const d of T.atk)if(d.dmg)d.dmg=Math.max(3,Math.round(d.dmg*0.6));}
-const WPN={odachi:{n:'長剣',draw:'odachi',tip:140,dm:1.7,rng:38,uses:26},naginata:{n:'薙刀',draw:'naginata',tip:150,dm:1.4,rng:60,uses:30},teppo:{n:'火縄銃',draw:'teppo',tip:78,uses:10},yoto:{n:'妖刀',draw:'odachi',tip:128,dm:2.1,rng:30,uses:18,s:'斬るたびに体力を吸う'},ono:{n:'斧',draw:'odachi',tip:118,dm:2.2,rng:18,uses:16,heavy:true,s:'一撃で吹き飛ばす'},konbou:{n:'棍棒',draw:'odachi',tip:108,dm:1.6,rng:20,uses:32,blunt:true},takeyari:{n:'竹槍',draw:'naginata',tip:180,dm:1.15,rng:78,uses:36},kusari:{n:'鎖鎌',draw:'naginata',tip:118,isc:0.6,dm:1.35,rng:96,uses:28,s:'遠くまで届く'},yumi:{n:'弓矢',draw:'teppo',tip:120,uses:14,bow:true}};
+const WPN={odachi:{n:'長剣',draw:'odachi',tip:140,dm:1.7,rng:38,uses:26},naginata:{n:'薙刀',draw:'naginata',tip:150,dm:1.4,rng:60,uses:30},teppo:{n:'火縄銃',draw:'teppo',tip:78,uses:10},yoto:{n:'妖刀',draw:'odachi',tip:128,dm:2.1,rng:30,uses:18,s:'斬るたびに体力を吸う'},ono:{n:'斧',draw:'odachi',tip:118,dm:2.2,rng:18,uses:16,heavy:true,s:'一撃で吹き飛ばす'},konbou:{n:'棍棒',draw:'odachi',tip:108,dm:1.6,rng:20,uses:32,blunt:true},takeyari:{n:'竹槍',draw:'naginata',tip:180,dm:1.15,rng:78,uses:36},kusari:{n:'鎖鎌',draw:'naginata',tip:118,isc:0.6,dm:1.35,rng:30,uses:28,s:'長押しで分銅回し・離して投げ'},yumi:{n:'弓矢',draw:'teppo',tip:120,uses:14,bow:true}};
 const ITEMS={onigiri:{n:'おにぎり',s:'HP回復',c:'#b8f5a8'},hyorou:{n:'兵糧',s:'HP大回復',c:'#ffe29a'},sake:{n:'酒',s:'必殺ゲージ回復',c:'#9fd8ff'},w_odachi:{n:'長剣',s:'攻撃ボタンで拾う',c:'#ffb070'},sushi:{n:'寿司',s:'HP回復',c:'#b8f5a8'},manju:{n:'饅頭',s:'HP・必殺回復',c:'#ffd8a8'},w_yoto:{n:'妖刀',s:'攻撃ボタンで拾う',c:'#ff8aa0'},w_ono:{n:'斧',s:'攻撃ボタンで拾う',c:'#ffb070'},w_konbou:{n:'棍棒',s:'攻撃ボタンで拾う',c:'#ffb070'},w_takeyari:{n:'竹槍',s:'攻撃ボタンで拾う',c:'#ffb070'},w_kusari:{n:'鎖鎌',s:'攻撃ボタンで拾う',c:'#ffb070'},w_yumi:{n:'弓矢',s:'攻撃ボタンで拾う',c:'#ffb070'},w_naginata:{n:'薙刀',s:'攻撃ボタンで拾う',c:'#ffb070'},w_teppo:{n:'火縄銃',s:'攻撃ボタンで拾う',c:'#ffb070'}};
 
 /* ===================== LEVEL ===================== */
@@ -923,6 +923,7 @@ function updPlayer(p,c){
  if(p.mount){updMount(p,c);return;}
  p.t++;p.st++;if(p.inv>0&&p.inv<900)p.inv--;if(p.flash>0)p.flash--;const T=p.T;airFix(p);
  if(c.atkP)p.aT=G.t;if(c.jumpP){p.jT=G.t;p.jS=p.t;}
+ if(p.kspin&&(c.atkH===undefined||!p.wpn||p.wpn.k!=='kusari'))p.kspin=0;
  if(p.wpn&&p.wpn.k==='kusari'&&c.atkH!==undefined&&!p.isPartner){kusariCtl(p,c);if((p.grabCd||0)>0)p.grabCd--;}
  else if(c.atkH!==undefined&&!p.isPartner){const free=p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.cur&&!p.cur.chg&&p.st>(p.cur.he||8));
   if(c.atkH){if(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&!(p.cur&&p.cur.chg))||p.state==='jump'){p.chg=(p.chg||0)+1;if(p.chg>10&&p.chg<CHG&&p.chg%4===0)PT({x:p.x+rnd(-50,50),y:p.y,z:rnd(20,140),vx:(p.x-(p.x+rnd(-50,50)))*0.02,vz:-0.6,life:14,sz:rnd(2,4),col:'#ffe6a0',k:'spark'});if(p.chg===CHG){AU.sfx('ui');ring(p.x,p.y,70,'rgba(255,240,180,0.9)',14);}}else if(p.state==='hurt'||p.state==='down'||p.state==='dead')p.chg=0;}
@@ -1489,8 +1490,11 @@ function drawIcon(key,x,y,ang,len,fl,gf){gf=gf??0.13;const I=SPR.items;if(!I||!I
 function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
-  if(f.kspin>0&&(f.state==='idle'||f.state==='walk')&&K.a.kspin){S=K;sp={arr:K.a.kspin,pos:(f.t/4)%K.a.kspin.length,loop:true,hard:true};kart='spin';}
+  if(f.kspin>0&&f.state==='walk'&&K.a.kwalk){S=K;sp={arr:K.a.kwalk,pos:(f.t/4)%K.a.kwalk.length,loop:true,hard:true};kart='spin';}
+  else if(f.kspin>0&&(f.state==='idle'||f.state==='walk')&&K.a.kspin){S=K;sp={arr:K.a.kspin,pos:(f.t/4)%K.a.kspin.length,loop:true,hard:true};kart='spin';}
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kpull&&f.cur.pulled&&f.st>f.cur.he){S=K;sp={arr:K.a.kpull,pos:Math.min(0.999,(f.st-f.cur.he)/Math.max(1,f.cur.dur-f.cur.he))*K.a.kpull.length,loop:false,hard:true};kart='throw';}
+  else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kret&&!f.cur.pulled&&f.st>f.cur.he+6){S=K;sp={arr:K.a.kret,pos:Math.min(0.999,(f.st-f.cur.he-6)/Math.max(1,f.cur.dur-f.cur.he-6))*K.a.kret.length,loop:false,hard:true};kart='throw';}
+  else if(f.state==='atk'&&f.cur&&!f.cur.kth&&!f.cur.chg&&K.a.kslash){S=K;sp={arr:K.a.kslash,pos:Math.min(0.999,f.st/Math.max(1,f.cur.dur))*K.a.kslash.length,loop:false,hard:true};kart='slash';}
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
