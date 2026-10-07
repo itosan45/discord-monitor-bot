@@ -89,7 +89,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
   try{this.clBuf=[];for(const x of (DATA.clang||[]))this.clBuf.push(await this.dec(x));}catch(e){console.warn('clang decode',e);}
   try{this.sxBuf={};for(const k in (DATA.sx||{})){this.sxBuf[k]=[];for(const x of DATA.sx[k])this.sxBuf[k].push(await this.dec(x));}}catch(e){console.warn('sx decode',e);}
   try{this.kcBuf={};for(const k in (DATA.kc||{}))this.kcBuf[k]=await this.dec(DATA.kc[k]);}catch(e){console.warn('kc decode',e);}
-  try{this.ivBuf={};for(const k in (DATA.iv||{}))this.ivBuf[k]=await this.dec(DATA.iv[k]);}catch(e){console.warn('iv decode',e);}},
+  try{this.ivBuf={};for(const k in (DATA.iv||{}))this.ivBuf[k]=await this.dec(DATA.iv[k]);}catch(e){console.warn('iv decode',e);}try{this.svBuf={};for(const k in (DATA.sv||{}))this.svBuf[k]=await this.dec(DATA.sv[k]);this.kdBuf=[];for(const x of (DATA.kd||[]))this.kdBuf.push(await this.dec(x));this.shBuf=[];for(const x of (DATA.sh||[]))this.shBuf.push(await this.dec(x));}catch(e){console.warn('gemini voice decode',e);}},
  dcat(t){const ty=t.T.type,ai=t.T.ai;if(t.T.boss)return'boss';if(ty==='ninja')return'ninja';if(ty==='archer'||ty==='horsearcher')return'archer';if(ty==='gun')return'gun';if(ai==='rider'||ty==='samurai'||t.T.horse)return'rider';return'foot';},
  scream(t){const boss=!!(t&&t.T&&t.T.boss);
   if(this.on&&this.dvBuf&&t&&t.T){const c=this.dcat(t);let pool=(this.dvBuf[c]&&this.dvBuf[c].length?this.dvBuf[c]:(this.dvBuf.foot||[]));if(c!=='boss'&&c!=='foot'&&Math.random()<0.4)pool=pool.concat(this.dvBuf.foot||[]);
@@ -107,6 +107,10 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  stopSrc(){if(this.src){const s=this.src,g=this.srcG,t=this.ac.currentTime;try{g.gain.cancelScheduledValues(t);g.gain.setValueAtTime(g.gain.value,t);g.gain.linearRampToValueAtTime(0,t+0.6);s.stop(t+0.65);}catch(e){}this.src=null;this.cur=-1;}},
  intro(k){if(!this.on||!this.ivBuf||!this.ivBuf[k])return;if(this.ivSrc){try{this.ivSrc.stop();}catch(e){}}const s=this.ac.createBufferSource();s.buffer=this.ivBuf[k];const g=this.ac.createGain();g.gain.value=1.3;s.connect(g);g.connect(this.mg);s.start();this.ivSrc=s;},
  stopIntro(){if(this.ivSrc){try{this.ivSrc.stop();}catch(e){}this.ivSrc=null;}},
+ vplay(b,v){if(!this.on||!b)return false;const s=this.ac.createBufferSource();s.buffer=b;const g=this.ac.createGain();g.gain.value=v||1.4;s.connect(g);g.connect(this.mg);s.start();return true;},
+ spv(k){return this.vplay(this.svBuf&&this.svBuf[k],1.5);},
+ kachi(){const P=this.kdBuf;return !!(P&&P.length)&&this.vplay(P[Math.floor(Math.random()*P.length)],1.5);},
+ shingari(i){return this.vplay(this.shBuf&&this.shBuf[i],1.5);},
  voice(k){if(!this.on||!this.voBuf[k])return;const s=this.ac.createBufferSource();s.buffer=this.voBuf[k];const g=this.ac.createGain();g.gain.value=1.6;s.connect(g);g.connect(this.mg);s.start();},
  tone(f,d,type,v,f2,dl){if(!this.on)return;const ac=this.ac,t=ac.currentTime+(dl||0),o=ac.createOscillator(),g=ac.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(Math.max(1,f2),t+d);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(v,t+0.006);g.gain.exponentialRampToValueAtTime(0.0001,t+d);o.connect(g);g.connect(this.mg);o.start(t);o.stop(t+d+0.03);},
  noise(d,v,ft,f1,f2,q,dl){if(!this.on)return;const ac=this.ac,t=ac.currentTime+(dl||0),s=ac.createBufferSource();s.buffer=this.nb;s.loop=true;const fl=ac.createBiquadFilter();fl.type=ft||'bandpass';fl.frequency.setValueAtTime(f1,t);if(f2)fl.frequency.exponentialRampToValueAtTime(f2,t+d);fl.Q.value=q||1;const g=ac.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.0001,t+d);s.connect(fl);fl.connect(g);g.connect(this.mg);s.start(t);s.stop(t+d+0.03);},
@@ -815,7 +819,7 @@ function drawTroops(u){if(!u.tr)return;const rgb=UTINT[u.p.T.type]||'255,200,150
   drawGhost(T,r.anim,fi,r.x,r.y,r.face,r.sc,al*0.85);
   if(r.name&&r.t<40)txt(r.name,r.x-G.camx,r.y-205,18,`rgb(${rgb})`,'center','#000',4);}}
 function spLevel(p){return Math.min(p.isPartner?2:3,Math.floor(p.ki/100));}
-function startUlt(p){p.ki-=300;p.state='ult';p.st=0;p.inv=999;p.hit.clear();p.cur=null;G.ult={t:0,p,tr:[]};G.cut=null;AU.sfx('don');AU.sfx('roar');G.flashT=10;AU.kiai&&AU.kiai(p,true);}
+function startUlt(p){p.ki-=300;p.state='ult';p.st=0;p.inv=999;p.hit.clear();p.cur=null;G.ult={t:0,p,tr:[]};G.cut=null;AU.sfx('don');AU.sfx('roar');G.flashT=10;if(!(AU.spv&&AU.spv(p.type)))AU.kiai&&AU.kiai(p,true);}
 function updUlt(){const u=G.ult,p=u.p;u.t++;p.t++;
  const foes=()=>G.fighters.filter(e=>e.team===1&&e.hp>0&&e.x>G.camx-40&&e.x<G.camx+W+40);
  if(u.t===48){AU.sfx('spc2');G.shake=10;}
@@ -835,7 +839,7 @@ function drawUlt(){const u=G.ult;if(!u)return;const t=u.t,p=u.p,nm=ULT[p.T.type]
  if(u.sl){ctx.save();ctx.globalCompositeOperation='lighter';for(const sl of u.sl){sl.t++;if(sl.t>12)continue;const a=1-sl.t/12;ctx.strokeStyle=`rgba(255,240,210,${a})`;ctx.lineWidth=10*a+2;ctx.beginPath();const cx=sl.x-G.camx,cy=sl.y-90;ctx.moveTo(cx-Math.cos(sl.a)*260,cy-Math.sin(sl.a)*260);ctx.lineTo(cx+Math.cos(sl.a)*260,cy+Math.sin(sl.a)*260);ctx.stroke();}ctx.restore();}
  if(t>=104&&t<120){ctx.fillStyle=`rgba(255,240,220,${(120-t)/16*0.8})`;ctx.fillRect(0,0,W,H);txt('斬！',W/2,H/2,180,'#b0100a','center','#fff',12);}}
 
-function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.cut={t:0,name:p.T.spcName+(p.spLv===2?'・極':''),sub:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv};if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
+function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.cut={t:0,name:p.T.spcName+(p.spLv===2?'・極':''),sub:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv};if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');AU.spv&&AU.spv(p.type);setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
 const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36}};
 function updSpc(p){
  const st=p.st,k=p.type;p.inv=Math.max(p.inv,3);
@@ -1123,7 +1127,7 @@ function updWorld(){
  if(G.goT>0)G.goT++;if(G.goT>300)G.goT=0;
  if(G.waveOn||G.state!=='run')G.goT=0;
  // state flow
- if(G.state==='bossdown'){G.stateT++;const kt=G.stateT;if(!G.demo){const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);if(!AU.kc('ei',1,1.5))AU.crowd('ei');}if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);if(!AU.kc('oo',1,1.6))AU.crowd('oo');G.shake=12;}}if(G.stateT>(G.demo?170:345)){G.state='clear';G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');else AU.fanfare();G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
+ if(G.state==='bossdown'){G.stateT++;const kt=G.stateT;if(!G.demo){const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===176)G.kdOK=AU.kachi();if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);if(!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');}if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);if(!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');G.shake=12;}}if(G.stateT>(G.demo?170:345)){G.state='clear';G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');else AU.fanfare();G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
  else if(G.state==='clear'){G.stateT++;const lim=G.demo?260:330;if(G.stateT>lim||(!G.demo&&G.stateT>60&&anyKey())){
    if(G.demo){startDemo(G.demoI+1);}
    else if(G.stage<STG.length-1){startStage(G.stage+1,G.curCh,false,{hp:p.hp,ki:p.ki});if(!G.noStory)startStory('s'+G.stage);}
@@ -1914,12 +1918,12 @@ function tryCover(t,own,dmg){const q=G.partner,p=G.player;
 function rearCheck(){const q=G.partner,p=G.player;if(!q||G.demo||G.auto||G.howto||G.rear||G.rearUsed||q.fallen)return;
  if(q.hp<=0||q.state==='dead'||q.hp>q.maxhp*0.2)return;
  const near=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&Math.abs(e.x-q.x)<520).length;if(near<3)return;
- G.rearUsed=true;G.rear={t:0,q,ph:'call',ax:q.x,ay:q.y};q.inv=9999;q.rear=true;say(q,'わしはもう駄目じゃ……\nお主は先へ行け！ここは任せよ！',220);AU.sfx('roar');G.slow=0;}
+ G.rearUsed=true;G.rear={t:0,q,ph:'call',ax:q.x,ay:q.y};q.inv=9999;q.rear=true;say(q,'わしはもう駄目じゃ……\nお主は先へ行け！ここは任せよ！',220);AU.sfx('roar');AU.shingari&&AU.shingari(0);G.slow=0;}
 function rearStep(){const R=G.rear;if(!R)return;const q=R.q,p=G.player;R.t++;
  if(R.ph==='call'){q.inv=9999;q.hp=Math.max(q.hp,1);q.x+=(R.ax-q.x)*0.3;q.y+=(R.ay-q.y)*0.3;
   const far=Math.abs(p.x-q.x)>480;if((R.t>90&&far)||R.t>480){R.ph='blast';R.t=0;}}
  else if(R.ph==='blast'){
-  if(R.t===1){say(q,'',1);G.flashT=Math.max(G.flashT||0,30);G.shake=26;AU.sfx('boom');AU.sfx('roar');
+  if(R.t===1){say(q,'ここは通さぬ……行けぇ！',60);AU.shingari&&AU.shingari(1);G.flashT=Math.max(G.flashT||0,30);G.shake=26;AU.sfx('boom');AU.sfx('roar');
    for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.state==='dead')continue;if(Math.abs(e.x-q.x)>700)continue;
     if(e.T.boss){e.hp=Math.max(1,e.hp-e.maxhp*0.25);e.flash=10;e.showBar=200;}else{q.hit&&q.hit.delete(e);hurt(e,q,{pz:'swing',dmg:9999,kb:10,launch:true,unblock:true});}}
    q.hp=0;q.state='dead';q.st=0;q.fallen=true;q.inv=0;q.rear=false;q.gone=true;G.partnerFell=true;
