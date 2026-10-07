@@ -108,7 +108,7 @@ def descrap(c):
 DEMAG={('musashi','spc')}
 CUTS={('yuki','a1',0):[(304,175,340,256)]}
 SRCA={}
-KFIX={('kage','kspin'):1.12,('mitsu','kspin'):0.85,('nobu','kspin'):1.19,('shin','kspin'):1.23,('musashi','kspin'):1.27,('shin','a4'):0.76,('shin','a1'):1.08,('yuki','a2'):0.86,('yuki','spc'):0.68,('mitsu','gstart'):0.68,('mitsu','guard'):0.68,('mitsu','ghit'):0.68,('mitsu','gend'):0.68,('mitsu','dodgeF'):0.72,('mitsu','dodgeB'):0.72,('nobu','dodgeF'):0.94,('nobu','dodgeB'):0.94,('nobu','a1'):0.9,('nobu','a4'):0.9,('kage','a4'):0.9,('yuki','dash'):0.84,('mitsu','jatk'):0.74,('mitsu','dash'):1.28,('nobu','jatk'):1.35,('kage','jatk'):1.2,('shin','a3'):0.85,('shin','jatk'):1.08}
+KFIX={('kage','kthrow'):1.13,('kage','kspin'):1.12,('mitsu','kspin'):0.85,('nobu','kspin'):1.19,('shin','kspin'):1.23,('musashi','kspin'):1.27,('shin','a4'):0.76,('shin','a1'):1.08,('yuki','a2'):0.86,('yuki','spc'):0.68,('mitsu','gstart'):0.68,('mitsu','guard'):0.68,('mitsu','ghit'):0.68,('mitsu','gend'):0.68,('mitsu','dodgeF'):0.72,('mitsu','dodgeB'):0.72,('nobu','dodgeF'):0.94,('nobu','dodgeB'):0.94,('nobu','a1'):0.9,('nobu','a4'):0.9,('kage','a4'):0.9,('yuki','dash'):0.84,('mitsu','jatk'):0.74,('mitsu','dash'):1.28,('nobu','jatk'):1.35,('kage','jatk'):1.2,('shin','a3'):0.85,('shin','jatk'):1.08}
 REMAP={'yuki':{
  'a1':[('a1',0),('a1',1),('dash',2),('dash',2),('a1',1)],
  'a4':[('a4',0),('a4',0),('a1',0),('a3',0),('a3',0),('a3',1),('a3',5)],
