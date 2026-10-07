@@ -432,7 +432,7 @@ function startStage(si,ch,demo,keep){
  G.banner={t:0,jp:STG[si].jp,title:STG[si].title,en:STG[si].en};
  AU.bgm(STG[si].bgm);G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
 }
-function startGame(ch,pk){G.auto=false;AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.mode='play';G.score=0;G.lives=3;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;G.partnerType=pk||null;G.curCh=ch;startStage(0,ch,false);if(!G.noStory)startStory('pro',()=>startStory('s0'));}
+function startGame(ch,pk){G.auto=false;AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.mode='play';G.score=0;G.lives=diffNow().lives;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;G.partnerType=pk||null;G.curCh=ch;startStage(0,ch,false);if(!G.noStory)startStory('pro',()=>startStory('s0'));}
 // ===== STORY: もしも真田幸村が関ヶ原にいたら =====
 // ['h',史実] ['t',分岐] ['n',語り] [話者,台詞]  '@'=操作武将（幸村のみ） '@@'=幸村以外の操作武将の一言  '!話者'=幸村プレイ時のみ
 const SHORT={yuki:'幸村',kage:'景勝',mitsu:'三成',nobu:'信長',shin:'信玄',musashi:'武蔵'};
@@ -602,13 +602,21 @@ function startAuto(ch,si){AU.init();AU.stopIntro&&AU.stopIntro();G.newUnlock=fal
 /* ===================== TITLE SCREEN ===================== */
 const TMENU=['はじめる','デモプレイ（全編自動）'];
 const PZM=['再開する','タイトルに戻る'],PZY=[380,480];
+const DIFF=[{n:'やさしい',d:'敵の体力・攻撃が弱め　残機5',hp:0.75,dm:0.6,lives:5,col:'#8fe08f'},{n:'ふつう',d:'標準の難しさ　残機3',hp:1,dm:1,lives:3,col:'#ffe070'},{n:'むずかしい',d:'敵が強く、残機2',hp:1.35,dm:1.4,lives:2,col:'#ff7a5a'}],DFY=[300,410,520];
+function diffNow(){return DIFF[G.diff??1];}
+function stepDiff(){const n=DIFF.length;G.camx+=0.5;if(pressed.ArrowUp||pressed.KeyW){G.diffSel=(G.diffSel+n-1)%n;AU.sfx('ui');}if(pressed.ArrowDown||pressed.KeyS){G.diffSel=(G.diffSel+1)%n;AU.sfx('ui');}
+ if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');G.diff=G.diffSel;G.mode='select';G.sel=0;G.selStep=0;G.selTap=null;return;}
+ if(pressed.Escape){startTitle();return;}
+ drawBG(G.camx,G.t);ctx.fillStyle='rgba(8,6,16,0.62)';ctx.fillRect(0,0,W,H);txt('難易度を選べ',W/2,120,52,'#f4f0e0','center','#7a1010',8);txt(TOUCH?'タップで決定':'↑↓ 選択　Z / ENTER 決定　ESC：戻る',W/2,170,18,'#e8c35a','center','#000',3);
+ DIFF.forEach((it,i)=>{const on=G.diffSel===i,y=DFY[i];ctx.save();ctx.fillStyle=on?'rgba(110,26,18,0.92)':'rgba(15,12,22,0.82)';ctx.fillRect(W/2-260,y-44,520,88);ctx.strokeStyle=on?'#ffe070':'#6a5a40';ctx.lineWidth=on?5:2;ctx.strokeRect(W/2-260,y-44,520,88);ctx.restore();txt(it.n,W/2,y-10,40,on?it.col:'#bbb','center','#000',6);txt(it.d,W/2,y+26,16,on?'#f4e8c0':'#999','center','#000',3);});
+ {const bx=24,by=118,bw=120,bh=40;ctx.save();ctx.fillStyle='rgba(20,14,30,0.85)';ctx.fillRect(bx,by,bw,bh);ctx.strokeStyle='#a08a50';ctx.lineWidth=2;ctx.strokeRect(bx,by,bw,bh);ctx.restore();txt('◀ 戻る',bx+bw/2,by+bh/2+1,18,'#f4e8c0','center','#000',3);}}
 function startTitle(){G.pause=false;G.auto=false;G.mode='title';G.ttlT=0;G.ttlSel=G.ttlSel||0;G.emb2=[];G.ttlIdle=0;AU.bgm(4);}
 function stepTitle(){G.ttlT++;const n=TMENU.length;
  if(pressed.ArrowUp||pressed.KeyW){G.ttlSel=(G.ttlSel+n-1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
  if(pressed.ArrowDown||pressed.KeyS){G.ttlSel=(G.ttlSel+1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
  G.ttlIdle=(G.ttlIdle||0)+1;
  if(G.ttlT>40&&(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ)){AU.sfx('ok');G.ttlIdle=0;
-  if(G.ttlSel===0){G.mode='select';G.sel=0;G.selStep=0;G.selTap=null;AU.bgm(4);G.camx=0;}else{startAuto('yuki',0);}return;}
+  if(G.ttlSel===0){G.mode='diff';G.diffSel=G.diff??1;AU.bgm(4);G.camx=0;}else{startAuto('yuki',0);}return;}
  if(G.ttlIdle>60*28){G.ttlIdle=0;const i=G.demoNext||0;G.demoNext=(i+1)%DEMO_PLAN.length;startDemo(i);}}
 function titleHit(y){for(let i=0;i<TMENU.length;i++){const yy=505+i*58;if(Math.abs(y-yy)<26)return i;}return -1;}
 function drawTitle(){const t=G.ttlT;
@@ -639,7 +647,7 @@ function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DE
 /* ---------- spawn ---------- */
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
  if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(3);G.shake=14;}
- if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
+ if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=true;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  G.fighters.push(e);return e;}
 
@@ -656,7 +664,7 @@ function hurt(t,a,d){
  if(t.guarding&&!d.unblock){const front=a.x===undefined||sgn(a.x-t.x)===t.face;if(front){t.flash=4;AU.sfx('block');popup('防',t.x,t.y,t.z+190,'#9fe0ff',26);for(let i=0;i<8;i++)PT({x:t.x+t.face*40,y:t.y,z:t.z+90+rnd(-20,20),vx:t.face*rnd(1,5),vz:rnd(-1,4),life:rnd(8,16),sz:rnd(2,4),col:'#fff6c0',k:'spark'});G.hitstop=Math.max(G.hitstop,4);if(!t.ctr){t.ctr=true;setTimeout(()=>{if(t.hp>0&&t.state==='atk'&&t.cur&&t.cur.k==='guard'){t.ctr=false;t.guarding=false;startEAtk(t,0);t.st=Math.max(0,t.cur.hs-6);}else t.ctr=false;},250);}return;}}
  if(t.isProp){t.hp-=1+(d.dmg>12?1:0);t.shk=8;AU.sfx('hit');burst(t.x,t.y,40,6,'#c9a','4');G.hitstop=Math.max(G.hitstop,3);if(t.hp<=0)breakProp(t);return;}
  if(own.state==='spc'&&own.spLv===2)dmg*=1.6;
- if(t.team===0&&G.demo)dmg*=0.15;if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;
+ if(t.team===0&&G.demo)dmg*=0.15;if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
  let mh=false;if(t.mount){mh=true;t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
  t.hp-=dmg;t.flash=8;t.showBar=160;if(t.team===1){G.lastEn=t;G.lastT=220;}
  if(own.team===0&&t.team===1){own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*2.5);addHit();}
@@ -1058,7 +1066,7 @@ function addScore(n){G.score+=n;if(G.demo)return;while(G.score>=G.nextLife){G.li
 function nearestAlly(e){let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==0||f.hp<=0||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}
 function partnerCtl(f){return demoCtl(f,true);}
 function partnerRevive(q){q.hp=Math.round(q.maxhp*0.5);q.state='idle';q.st=0;q.z=0;q.vz=0;q.dying=false;q.pooled=false;q.x=clamp(G.player.x-90,G.camx+40,G.camx+W-40);q.y=G.player.y+20;q.inv=150;popup('味方が復帰！',q.x,q.y,120,'#9f9',24);AU.sfx('pick');}
-function doContinue(){G.credits--;G.conts++;G.lives=3;const p=G.player;respawn(p);if(G.over==='time')G.time=180*60;else G.time=Math.max(G.time,120*60);if(G.partner&&G.partner.state==='dead')partnerRevive(G.partner);G.state='run';G.stateT=0;AU.sfx('ok');AU.bgm(G.boss?3:STG[G.stage].bgm);}
+function doContinue(){G.credits--;G.conts++;G.lives=diffNow().lives;const p=G.player;respawn(p);if(G.over==='time')G.time=180*60;else G.time=Math.max(G.time,120*60);if(G.partner&&G.partner.state==='dead')partnerRevive(G.partner);G.state='run';G.stateT=0;AU.sfx('ok');AU.bgm(G.boss?3:STG[G.stage].bgm);}
 function contStep(){G.stateT++;
  if(G.credits<=0){if(G.stateT>70){G.state='over';G.stateT=0;}return;}
  if(G.stateT>40&&(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ)){doContinue();return;}
@@ -1835,10 +1843,11 @@ function frame(){
    if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');if((G.pzSel||0)===0)G.pause=false;else{G.pause=false;G.pzSel=0;startTitle();}}}
   if(!G.pause){stepGame();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='play';r++)stepGame();}
   if(G.mode==='demo'||G.mode==='play'){renderWorld();drawHUD();drawOverlays();if(G.mode==='demo')drawTitleOverlay();}
+ }else if(G.mode==='diff'){stepDiff();ctx.drawImage(VIG,0,0);
  }else if(G.mode==='select'){
   G.camx+=0.5;const nsl=selSlots().length;if(pressed.ArrowLeft||pressed.KeyA){G.sel=(G.sel+nsl-1)%nsl;AU.sfx('ui');}if(pressed.ArrowRight||pressed.KeyD){G.sel=(G.sel+1)%nsl;AU.sfx('ui');}
   if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');if((G.selStep||0)===0){G.heroPick=heroList()[G.sel];G.selStep=1;G.sel=0;G.selTap=null;}else{startGame(G.heroPick,partnerOpts()[G.sel]);}}
-  else if(pressed.Escape){G.selTap=null;if(G.selStep===1){G.selStep=0;G.sel=Math.max(0,heroList().indexOf(G.heroPick));}else startTitle();}
+  else if(pressed.Escape){G.selTap=null;if(G.selStep===1){G.selStep=0;G.sel=Math.max(0,heroList().indexOf(G.heroPick));}else{G.mode='diff';G.diffSel=G.diff??1;}}
   if(G.mode==='select'){drawSelect();ctx.drawImage(VIG,0,0);}
  }else if(G.mode==='end'){drawEnd();ctx.drawImage(VIG,0,0);}
  else if(G.mode==='story'){stepStory();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='story';r++)stepStory();if(G.mode==='story'){drawStory();ctx.drawImage(VIG,0,0);}}
@@ -1893,6 +1902,7 @@ for(const [id,code] of [['bZ','KeyZ'],['bX','KeyX'],['bC','KeyC'],['bG','KeyV'],
 cv.addEventListener('pointerdown',e=>{AU.init();const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;
  if(G.mode==='title'){const yy=(e.clientY-r.top)/r.height*H,i=titleHit(yy);if(i>=0){G.ttlSel=i;pressed.Enter=true;}return;}
  if(G.mode==='play'&&G.pause&&!G.auto){const yy=(e.clientY-r.top)/r.height*H;for(let i=0;i<PZM.length;i++)if(Math.abs(yy-PZY[i])<=34&&Math.abs(x-W/2)<=172){G.pzSel=i;pressed.Enter=true;}return;}
+ if(G.mode==='diff'){const yy=(e.clientY-r.top)/r.height*H;if(x>=24&&x<=144&&yy>=118&&yy<=158){pressed.Escape=true;return;}for(let i=0;i<DIFF.length;i++)if(Math.abs(yy-DFY[i])<=46&&Math.abs(x-W/2)<=262){G.diffSel=i;pressed.Enter=true;}return;}
  if(G.mode==='select'&&x>=24&&x<=144&&(e.clientY-r.top)/r.height*H>=118&&(e.clientY-r.top)/r.height*H<=158){pressed.Escape=true;return;}
  if(G.mode==='select'){const sl=selSlots(),g=cardGeom(sl.length),i=Math.floor((x-g.x0)/(g.w+g.gap));if(i>=0&&i<sl.length&&(x-g.x0)-i*(g.w+g.gap)<=g.w){if(G.sel===i&&G.selTap===i+'_'+(G.selStep||0))pressed.Enter=true;else{G.sel=i;G.selTap=i+'_'+(G.selStep||0);AU.sfx('ui');}}}
  else if(G.mode==='story'&&x>W-300&&(e.clientY-r.top)/r.height*H<90)pressed.KeyS=true;
