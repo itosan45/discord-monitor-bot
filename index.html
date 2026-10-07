@@ -865,7 +865,7 @@ function updPlayer(p,c){
    if(c.gd&&!p.isPartner){p.state='guard';p.st=0;p.gst=0;break;}
    if(mx&&mx===p.face&&!(p.grabCd>0)){const e=G.fighters.find(e=>e.team===1&&e.hp>0&&!e.T.boss&&!e.T.horse&&e.T.ai!=='rider'&&(e.state==='idle'||e.state==='walk'||e.state==='hurt')&&e.entered&&Math.abs(e.x-p.x)<48&&Math.abs(e.y-p.y)<14&&sgn(e.x-p.x)===p.face&&(e.z||0)<4);
     if(e){p.pushT=(p.pushT||0)+1;if(p.pushT>6){startGrab(p,e);break;}}else p.pushT=0;}else p.pushT=0;
-   if(c.jumpP){p.state='jump';p.st=0;p.vz=T.jump;p.vx=mx*T.spd*0.9;AU.sfx('jump');}
+   if(c.jumpP){p.state='jump';p.st=0;p.vz=T.jump*1.12;p.vx=mx*T.spd*0.9;AU.sfx('jump');}
    else if(c.atkP&&p.run>16&&T.dash&&mx){p.face=mx;p.state='atk';p.combo=99;p.cur=atkDef(p,T.dash,false);p.st=0;p.hit.clear();p.buf=false;p.run=0;}
    else if(c.atkP){if(mx)p.face=mx;startPAtk(p,0);}
    else if(c.spcP&&p.ki>=T.cost)startSpecial(p);
