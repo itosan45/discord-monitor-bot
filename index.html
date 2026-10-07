@@ -667,7 +667,7 @@ function hurt(t,a,d){
  if(t.team===0&&G.demo)dmg*=0.15;if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
  let mh=false;if(t.mount){mh=true;t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
  t.hp-=dmg;t.flash=8;t.showBar=160;if(t.team===1){G.lastEn=t;G.lastT=220;}
- if(own.team===0&&t.team===1){own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*2.5);addHit();}
+ if(own.team===0&&t.team===1){own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*1.1);addHit();}
  const hx=t.x-dir*10,hy=t.y,hz=t.z+55+rnd(-10,15);
  if(t.team===1)bloodSpray(hx,hy,hz,dir,d.launch?24:12,d.launch?1.5:1);else bloodSpray(hx,hy,hz,dir,5,0.7);if(d.launch&&t.team===1)addDecal(t.x+dir*rnd(10,40),t.y+rnd(-4,6),rnd(7,13),0.6);
  PT({x:hx,y:hy,z:hz,life:7,k:'star',sz:d.launch?46:30,col:'#fff'});burst(hx,hy,hz,d.launch?14:8,t.team===0?'#ff8a6a':'#ffe9a0',d.launch?9:6);
@@ -884,7 +884,7 @@ function updPlayer(p,c){
    const mx0=(c.r?1:0)-(c.l?1:0);if(c.atkP){p.kbuf=true;p.kdir=mx0;}const mx=p.kdir||0;
    if(p.kbuf&&p.kneeT<=0){p.kbuf=false;p.kdir=0;
     if(mx===-p.face||p.knee>=2){throwE(p,e,mx===-p.face?-p.face:p.face);break;}
-    p.knee++;p.kneeT=13;const dmg=7*(p.dm||1);e.hp-=dmg;e.flash=8;e.showBar=160;G.lastEn=e;G.lastT=220;p.ki=Math.min(KMAX,p.ki+10);addHit();
+    p.knee++;p.kneeT=13;const dmg=7*(p.dm||1);e.hp-=dmg;e.flash=8;e.showBar=160;G.lastEn=e;G.lastT=220;p.ki=Math.min(KMAX,p.ki+5);addHit();
     bloodSpray(e.x,e.y,e.z+60,p.face,8,0.8);PT({x:e.x-p.face*8,y:e.y,z:62,life:7,k:'star',sz:34,col:'#fff'});popup(String(Math.round(dmg)),e.x,e.y,100,'#ffe27a',20);AU.sfx('hitH');G.hitstop=Math.max(G.hitstop,5);G.shake=Math.max(G.shake,4);
     if(e.hp<=0){e.hp=1;throwE(p,e,p.face);}
     break;}
@@ -1077,9 +1077,9 @@ function dropItem(x,y,force){let k=force;if(!k){const r=Math.random();k=r<0.22?'
 function pickup(p,it){
  if(it.k==='onigiri'){p.hp=Math.min(p.maxhp,p.hp+30);popup('HP +30',it.x,it.y,70,'#9f9',24);}
  else if(it.k==='hyorou'){p.hp=Math.min(p.maxhp,p.hp+70);popup('HP +70',it.x,it.y,70,'#ffe29a',26);}
- else if(it.k==='sake'){p.ki=Math.min(KMAX,p.ki+150);p.hp=Math.min(p.maxhp,p.hp+10);popup('必殺ゲージ +150',it.x,it.y,70,'#8cf',22);}
+ else if(it.k==='sake'){p.ki=Math.min(KMAX,p.ki+100);p.hp=Math.min(p.maxhp,p.hp+10);popup('必殺ゲージ +150',it.x,it.y,70,'#8cf',22);}
  else if(it.k==='sushi'){p.hp=Math.min(p.maxhp,p.hp+45);popup('HP +45',it.x,it.y,70,'#9f9',24);}
- else if(it.k==='manju'){p.hp=Math.min(p.maxhp,p.hp+20);p.ki=Math.min(KMAX,p.ki+60);popup('HP +20  必殺 +60',it.x,it.y,70,'#ffd8a8',22);}
+ else if(it.k==='manju'){p.hp=Math.min(p.maxhp,p.hp+20);p.ki=Math.min(KMAX,p.ki+40);popup('HP +20  必殺 +60',it.x,it.y,70,'#ffd8a8',22);}
  else{const k=it.k.slice(2);p.wpn={k,uses:WPN[k].uses};popup(WPN[k].n+' 入手！'+(WPN[k].s?'　'+WPN[k].s:''),it.x,it.y,80,'#ffb070',26);}
 }
 function useWpn(f){f.wpn.uses--;if(f.wpn.uses<=0){popup(WPN[f.wpn.k].n+'が壊れた',f.x,f.y,110,'#ccc',22);f.wpn=null;}}
@@ -1488,7 +1488,7 @@ function checkClash(){for(const f of G.fighters){if(f.team!==0||f.state!=='atk'|
   f.clashT=G.t+24;f.hit.add(e);e.hit.add(f);f.st=Math.max(f.st,(d.he||0)+1);f.x-=f.face*16;e.x-=e.face*(e.T.boss?8:20);
   if(e.T.boss){e.st=Math.max(e.st,c.he+1);e.cool=Math.max(e.cool,24);}else{e.state='idle';e.st=0;e.cur=null;e.cool=Math.max(e.cool,45);}
   const mx=(f.x+e.x)/2,my=(f.y+e.y)/2;for(let i=0;i<22;i++)PT({x:mx,y:my,z:95+rnd(-15,15),vx:rnd(-6,6),vz:rnd(-1,6),g:0.25,life:rndi(10,22),sz:rnd(2,4),col:i%3?'#fff4c0':'#ffc040',k:'spark'});PT({x:mx,y:my,z:95,life:9,k:'star',sz:70,col:'#fff'});ring(mx,my,70,'rgba(255,240,200,0.9)',14);
-  AU.clang(mx);G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,6);popup('キィン！',mx,my,190,'#fff6c8',30);f.ki=Math.min(KMAX,(f.ki||0)+25);break;}}}
+  AU.clang(mx);G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,6);popup('キィン！',mx,my,190,'#fff6c8',30);f.ki=Math.min(KMAX,(f.ki||0)+15);break;}}}
 function updSteeds(){if(!G.steeds)return;const p=G.player;
  for(let i=G.steeds.length-1;i>=0;i--){const h=G.steeds[i];h.t++;
   if(h.t<40){h.x+=h.face*(40-h.t)*0.12;}else if(h.t%120<30){h.x+=h.face*0.6;}
