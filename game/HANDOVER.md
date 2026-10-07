@@ -66,6 +66,7 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 相方: `partnerCtl`、かばう `tryCover`、殿(しんがり)`rearCheck`/`rearStep`
 - 描画: `drawSprite`(キャラ絵)、武器を持った時は手ぶら版に切替(`UMAP`、全武将。足りない動きは `UGEN` の代用表で補う)。鎖鎌の長押し回転・貫通投げ・引き寄せは `kusariCtl`
 - 画面: タイトル `drawTitle`、キャラ選択 `drawSelect`、チュートリアル `HT_STEPS`、一時停止メニュー `PZM`、ストーリー `SCN`
+- 主人公6人は `sc:1.08`(足軽より少し大きく見せるため)
 - ジャンプ力: `p.vz=T.jump*1.2`(TY 各武将の `jump` 値 × 1.2)
 - 溜め攻撃(長押し→離す)は武器ごとに変わる: `chargeKind()` で判定。刀(景勝・信長・武蔵の持ち武器/長剣/妖刀)=居合 `startIai`/`iaiStep`/`drawIai`、槍=突進(従来の `startCharge`)、薙刀=回転斬り、斧・棍棒=地割れ、鉄砲=溜め撃ち、弓=三本矢、鉄扇=疾風、軍配=号令(`startCk`/`chargeStep`)。鎖鎌だけは `kusariCtl` で別処理
 - 必殺ゲージ: 必殺技・奥義のダメージでは増えない(`hurt()` 内)。被弾でも増える(ダメージ×0.8)
