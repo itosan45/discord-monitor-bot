@@ -109,14 +109,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  stopIntro(){if(this.ivSrc){try{this.ivSrc.stop();}catch(e){}this.ivSrc=null;}},
  vplay(b,v){if(!this.on||!b)return false;const s=this.ac.createBufferSource();s.buffer=b;const g=this.ac.createGain();g.gain.value=v||1.4;s.connect(g);g.connect(this.mg);s.start();return true;},
  spv(k){return this.vplay(this.svBuf&&this.svBuf[k],1.5);},
- kachi(){const P=this.kdBuf;if(!this.on||!P||!P.length)return false;const ac=this.ac,t0=ac.currentTime;
-  // 軍勢の勝ちどき: 同じ声を高さ・間合い・左右をずらして重ねる(先頭は大将の声)
-  const N=G.lowq?7:12;for(let i=0;i<N;i++){const s=ac.createBufferSource();s.buffer=P[i%P.length];const lead=i===0;
-   s.playbackRate.value=lead?1:rnd(0.8,1.16);if(s.detune)s.detune.value=lead?0:rnd(-35,35);const g=ac.createGain();g.gain.value=lead?0.9:rnd(0.18,0.32);
-   const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=lead?9000:rnd(1800,4200);s.connect(f);f.connect(g);
-   const pn=ac.createStereoPanner?ac.createStereoPanner():null;if(pn){pn.pan.value=lead?0:rnd(-0.85,0.85);g.connect(pn);pn.connect(this.mg);}else g.connect(this.mg);
-   s.start(t0+(lead?0:rnd(0.02,0.16)));}
-  return true;},
+ kachi(){const P=this.kdBuf;return !!(P&&P.length)&&this.vplay(P[Math.floor(Math.random()*P.length)],1.3);},
  shingari(i){return this.vplay(this.shBuf&&this.shBuf[i],1.5);},
  voice(k){if(!this.on||!this.voBuf[k])return;const s=this.ac.createBufferSource();s.buffer=this.voBuf[k];const g=this.ac.createGain();g.gain.value=1.6;s.connect(g);g.connect(this.mg);s.start();},
  tone(f,d,type,v,f2,dl){if(!this.on)return;const ac=this.ac,t=ac.currentTime+(dl||0),o=ac.createOscillator(),g=ac.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(Math.max(1,f2),t+d);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(v,t+0.006);g.gain.exponentialRampToValueAtTime(0.0001,t+d);o.connect(g);g.connect(this.mg);o.start(t);o.stop(t+d+0.03);},
