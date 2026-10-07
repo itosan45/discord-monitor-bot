@@ -799,6 +799,16 @@ const ULT={yuki:['奥義・真田十勇士','六文銭の旗の下に、集え�
 const UTINT={yuki:'255,70,40',kage:'140,200,255',mitsu:'200,140,255',nobu:'255,190,90',shin:'255,110,40',musashi:'230,240,255'};
 const JUYU=['猿飛佐助','霧隠才蔵','三好清海入道','三好伊三入道','穴山小助','海野六郎','根津甚八','望月六郎','筧十蔵','由利鎌之助'];
 const _tint={};
+function redS(key){const id='red|'+key;if(_tint[id])return _tint[id];const S=SPR[key];if(!S||!S.ready)return null;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);try{const D=x.getImageData(0,0,c.width,c.height),d=D.data;for(let i=0;i<d.length;i+=4){if(!d[i+3])continue;const r=d[i],g=d[i+1],b=d[i+2],L=(r+g+b)/3,s=b-r;if(s>8&&b>=g&&L<175){d[i]=Math.min(255,L*1.25+s*2.2+18);d[i+1]=L*0.45;d[i+2]=L*0.4;}}x.putImageData(D,0,0);}catch(e){return null;}return _tint[id]={img:c,a:S.a,ready:true};}
+// 勝鬨: 味方の足軽が周りに集まって拳(刀)を突き上げる。真田の時だけ赤備え+六文銭の旗
+function kgunInit(){const p=G.player;G.kgun=[];const red=G.curCh==='yuki';for(let i=0;i<10;i++){const side=i%2?1:-1,k=i>>1,key=i%3===1?'spear':'sword';const cx=clamp(p.x,G.camx+380,G.camx+W-380),tx=cx+side*(120+k*58+rnd(-12,12)),ty=clamp(p.y-70+((k*41+i*13)%130),YMIN,YMAX);G.kgun.push({kg:1,key,red,x:G.camx+(side>0?W+70+k*45:-70-k*45),y:ty,tx,ty,face:-side,t:(i*7)|0,z:0,ph:(i*3)%5,mv:true,up:false});}}
+function kgunStep(kt){if(!G.kgun)return;const p=G.player;for(const e of G.kgun){e.t++;const dx=e.tx-e.x,dy=e.ty-e.y,d=Math.hypot(dx,dy);if(d>4){const v=Math.min(d,7);e.x+=dx/d*v;e.y+=dy/d*v;e.mv=true;e.face=sgn(dx)||e.face;}else{e.mv=false;e.face=sgn(p.x-e.x)||e.face;}
+ const b=[180,214,250].find(s=>kt>=s+e.ph&&kt<s+e.ph+16);e.z=b!==undefined?Math.sin((kt-b-e.ph)/16*Math.PI)*24:0;e.up=!e.mv&&((kt>=180+e.ph&&kt<204)||(kt>=214+e.ph&&kt<238)||kt>=250+e.ph);}}
+function drawKgun(e){let S=SPR[e.key];if(!S||!S.ready)return;if(e.red){const R=redS(e.key);if(R)S=R;}const A=S.a,sc=(TY[e.key]&&TY[e.key].sc)||1;let q,rot=0;
+ if(e.up){if(e.key==='sword'&&A.a1)q=A.a1[1];else{q=A.idle[0];rot=-0.22;}}else if(e.mv)q=A.walk[Math.floor(e.t/4)%A.walk.length];else q=A.idle[Math.floor(e.t/9)%A.idle.length];if(!q)return;
+ ctx.save();ctx.translate(Math.round(e.x-G.camx),Math.round(e.y-e.z));ctx.scale(e.face*sc,sc);ctx.rotate(rot);
+ if(e.red){const by=e.mv?-Math.abs(Math.sin(e.t*0.4))*3:0;ctx.fillStyle='#3a2a18';ctx.fillRect(-30,-222+by,3,110);const wv=Math.sin(e.t*0.12)*2;ctx.fillStyle='#b3151a';ctx.beginPath();ctx.moveTo(-28,-220+by);ctx.lineTo(-58+wv,-220+by);ctx.lineTo(-58+wv*1.4,-152+by);ctx.lineTo(-28,-152+by);ctx.closePath();ctx.fill();ctx.fillStyle='#111';for(let r=0;r<3;r++)for(let c=0;c<2;c++){ctx.beginPath();ctx.arc(-50+c*13+wv*(0.6+r*0.25),-206+r*20+by,5,0,TAU);ctx.fill();}ctx.fillStyle='#b3151a';for(let r=0;r<3;r++)for(let c=0;c<2;c++)ctx.fillRect(-51.5+c*13+wv*(0.6+r*0.25),-207.5+r*20+by,3,3);}
+ ctx.drawImage(S.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();}
 function tintS(key,rgb){const id=key+'|'+rgb;if(_tint[id])return _tint[id];const S=SPR[key];if(!S||!S.ready)return null;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);x.globalCompositeOperation='source-atop';x.fillStyle=`rgba(${rgb},0.62)`;x.fillRect(0,0,c.width,c.height);return _tint[id]={img:c,a:S.a,ready:true};}
 function drawGhost(T,anim,fi,x,y,face,sc,al){if(!T)return;const arr=T.a[anim]||T.a.idle,q=arr[((fi%arr.length)+arr.length)%arr.length];if(!q)return;ctx.save();ctx.globalAlpha=al;ctx.globalCompositeOperation='lighter';ctx.translate(Math.round(x-G.camx),Math.round(y));ctx.scale(face*sc,sc);ctx.drawImage(T.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();ctx.save();ctx.globalAlpha=al*0.55;ctx.translate(Math.round(x-G.camx),Math.round(y));ctx.scale(face*sc,sc);ctx.drawImage(T.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();}
 function ultSpawn(u){const p=u.p,k=p.T.type,L=G.camx,R=G.camx+W,tr=u.tr=[];
@@ -1139,7 +1149,7 @@ function updWorld(){
  if(G.goT>0)G.goT++;if(G.goT>300)G.goT=0;
  if(G.waveOn||G.state!=='run')G.goT=0;
  // state flow
- if(G.state==='bossdown'){G.stateT++;const kt=G.stateT;if(!G.demo){const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===176)G.kdOK=AU.kachi();if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);if(!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');}if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);if(!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');G.shake=12;}}if(G.stateT>(G.demo?170:345)){G.state='clear';G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');else AU.fanfare();G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
+ if(G.state==='bossdown'){G.stateT++;const kt=G.stateT;if(!G.demo){if(kt===60)kgunInit();kgunStep(kt);const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===176)G.kdOK=AU.kachi();if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);if(!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');}if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);if(!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');G.shake=12;}}if(G.stateT>(G.demo?170:345)){G.state='clear';G.kgun=null;G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');else AU.fanfare();G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
  else if(G.state==='clear'){G.stateT++;const lim=G.demo?260:330;if(G.stateT>lim||(!G.demo&&G.stateT>60&&anyKey())){
    if(G.demo){startDemo(G.demoI+1);}
    else if(G.stage<STG.length-1){startStage(G.stage+1,G.curCh,false,{hp:p.hp,ki:p.ki});if(!G.noStory)startStory('s'+G.stage);}
@@ -2019,14 +2029,14 @@ function autoUI(force){const m=G.mode,want=G.auto&&(m==='play'||m==='story'||m==
 function renderWorld(){
  const sh=G.shake>0.5?G.shake:0;ctx.save();if(sh)ctx.translate(rnd(-sh,sh)*0.6,rnd(-sh,sh)*0.5);
  drawBG(G.camx,G.t);drawDecals();
- const list=[];for(const f of G.fighters)list.push(f);for(const p of G.props)list.push(p);for(const i of G.items)list.push(i);for(const q of G.proj)if(q.k!=='fall')list.push(q);
+ const list=[];for(const f of G.fighters)list.push(f);for(const p of G.props)list.push(p);for(const i of G.items)list.push(i);for(const q of G.proj)if(q.k!=='fall')list.push(q);if(G.kgun&&G.state==='bossdown')for(const k of G.kgun)list.push(k);
  // soft contact shadows
   for(const e of list){if(!G.lowq||e.k==='wave'||e.k==='horse'||e.gone)continue;const z=e.z||0,w=(e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300));ctx.fillStyle='rgba(0,0,0,0.38)';ctx.beginPath();ctx.ellipse(e.x-G.camx,e.y+3,w,w*0.27,0,0,TAU);ctx.fill();}
  if(!G.lowq)for(const e of list){if(e.k==='wave'||e.k==='horse'||e.gone)continue;const z=e.z||0,w=(e.T&&e.T.horse&&e.state==='walk'?66:e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300)),al=0.55*(1-Math.min(0.6,z/260));ctx.save();ctx.translate(e.x-G.camx,e.y+3);ctx.scale(1,0.27);const sg=ctx.createRadialGradient(0,0,0,0,0,w);sg.addColorStop(0,`rgba(0,0,0,${al})`);sg.addColorStop(0.6,`rgba(0,0,0,${al*0.55})`);sg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(0,0,w,0,TAU);ctx.fill();ctx.restore();}
  for(const q of G.proj)if(q.k==='fall')drawProj(q);
  drawHazards();drawSteeds();
  list.sort((a,b)=>a.y-b.y);
- for(const e of list){if(e.T)drawFighter(e);else if(e.isProp)drawProp(e);else if(e.hit)drawProj(e);else drawItem(e);}
+ for(const e of list){if(e.kg)drawKgun(e);else if(e.T)drawFighter(e);else if(e.isProp)drawProp(e);else if(e.hit)drawProj(e);else drawItem(e);}
  for(const q of G.proj)if(q.k==='fall'&&q.wait<=0)drawProj(q);
  for(const f of G.fighters)drawTrail(f);drawWarn();
  drawParts();drawIai();if(G.partner&&G.partner.state!=='dead'){const q=G.partner;txt('▼味方',q.x-G.camx,q.y-q.z-186,13,'#9f9','center','#000',3);}drawFG(G.camx,G.t);drawWeather();
