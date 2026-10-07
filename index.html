@@ -671,7 +671,8 @@ function hurt(t,a,d){
  if(t.team===0&&G.demo)dmg*=0.15;if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
  let mh=false;if(t.mount){mh=true;t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
  t.hp-=dmg;t.flash=8;t.showBar=160;if(t.team===1){G.lastEn=t;G.lastT=220;}
- if(own.team===0&&t.team===1){own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*1.1);addHit();}
+ if(own.team===0&&t.team===1){if(!(own.state==='spc'||own.state==='ult'||a.sp||G.ult))own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*1.1);addHit();}
+ if(t.team===0&&own.team===1&&!G.demo)t.ki=Math.min(KMAX,(t.ki||0)+dmg*0.8);
  const hx=t.x-dir*10,hy=t.y,hz=t.z+55+rnd(-10,15);
  if(t.team===1)bloodSpray(hx,hy,hz,dir,d.launch?24:12,d.launch?1.5:1);else bloodSpray(hx,hy,hz,dir,5,0.7);if(d.launch&&t.team===1)addDecal(t.x+dir*rnd(10,40),t.y+rnd(-4,6),rnd(7,13),0.6);
  PT({x:hx,y:hy,z:hz,life:7,k:'star',sz:d.launch?46:30,col:'#fff'});burst(hx,hy,hz,d.launch?14:8,t.team===0?'#ff8a6a':'#ffe9a0',d.launch?9:6);
@@ -716,7 +717,7 @@ function strike(a,d){
   hurt(t,a,d);
  }
 }
-function addProj(o){const p=Object.assign({x:0,y:0,z:50,vx:0,vz:0,team:1,dmg:7,w:22,life:120,k:'arrow',hit:new Set(),face:1,launch:false,kb:3},o);G.proj.push(p);return p;}
+function addProj(o){const p=Object.assign({x:0,y:0,z:50,vx:0,vz:0,team:1,dmg:7,w:22,life:120,k:'arrow',hit:new Set(),face:1,launch:false,kb:3},o);if(o.owner&&(o.owner.state==='spc'||o.owner.state==='ult'))p.sp=true;G.proj.push(p);return p;}
 function fireProj(f,d){
  const dir=f.face;
  if(d.proj==='arrow')addProj({x:f.x+dir*40,y:f.y,z:f.z+75,vx:dir*9,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:20});
@@ -865,7 +866,7 @@ function updPlayer(p,c){
    if(c.gd&&!p.isPartner){p.state='guard';p.st=0;p.gst=0;break;}
    if(mx&&mx===p.face&&!(p.grabCd>0)){const e=G.fighters.find(e=>e.team===1&&e.hp>0&&!e.T.boss&&!e.T.horse&&e.T.ai!=='rider'&&(e.state==='idle'||e.state==='walk'||e.state==='hurt')&&e.entered&&Math.abs(e.x-p.x)<48&&Math.abs(e.y-p.y)<14&&sgn(e.x-p.x)===p.face&&(e.z||0)<4);
     if(e){p.pushT=(p.pushT||0)+1;if(p.pushT>6){startGrab(p,e);break;}}else p.pushT=0;}else p.pushT=0;
-   if(c.jumpP){p.state='jump';p.st=0;p.vz=T.jump*1.12;p.vx=mx*T.spd*0.9;AU.sfx('jump');}
+   if(c.jumpP){p.state='jump';p.st=0;p.vz=T.jump*1.2;p.vx=mx*T.spd*0.9;AU.sfx('jump');}
    else if(c.atkP&&p.run>16&&T.dash&&mx){p.face=mx;p.state='atk';p.combo=99;p.cur=atkDef(p,T.dash,false);p.st=0;p.hit.clear();p.buf=false;p.run=0;}
    else if(c.atkP){if(mx)p.face=mx;startPAtk(p,0);}
    else if(c.spcP&&p.ki>=T.cost)startSpecial(p);

@@ -62,7 +62,7 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 相方: `partnerCtl`、かばう `tryCover`、殿(しんがり)`rearCheck`/`rearStep`
 - 描画: `drawSprite`(キャラ絵)、武器を持った時は手ぶら版に切替(`UMAP`、現在は幸村のみ)
 - 画面: タイトル `drawTitle`、キャラ選択 `drawSelect`、チュートリアル `HT_STEPS`、一時停止メニュー `PZM`、ストーリー `SCN`
-- ジャンプ力: `p.vz=T.jump*1.12`(TY 各武将の `jump` 値 × 1.12)
+- ジャンプ力: `p.vz=T.jump*1.2`(TY 各武将の `jump` 値 × 1.2)
 
 ## 6. 残っている作業
 1. **手ぶら版の絵**: 幸村以外(景勝・三成・信長・信玄・武蔵)。届いたら mku.py で作成し、`UMAP` に追加すると「武器を拾った時に武器が二重に見える」問題が消える。
