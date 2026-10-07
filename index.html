@@ -582,7 +582,7 @@ const OPN=[
 function startOpening(){G.mode='opening';G.opT=0;AU.bgm(8);}
 function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);startOpening();}}
 function drawGate(){const t=G.gateT||0;ctx.fillStyle='#050307';ctx.fillRect(0,0,W,H);const bi=BGIMG[0];if(bi&&bi.complete&&bi.naturalWidth){ctx.globalAlpha=0.35;drawBGimg(bi,t*0.3);ctx.globalAlpha=1;}
- txt('関ヶ原乱舞',W/2,H/2-70,88,'#f3e3b0','center','#3a0a06',10);txt('— もしも真田幸村が関ヶ原にいたら —',W/2,H/2+10,26,'#e8c35a','center','#000',4);
+ txt('関ヶ原乱舞',W/2,H/2-70,88,'#f3e3b0','center','#3a0a06',10);txt('— 天下分け目、もう一つの関ヶ原 —',W/2,H/2+10,26,'#e8c35a','center','#000',4);
  if((t>>5)&1||t<20)txt(TOUCH?'画面をタップして開始':'クリック／キーを押して開始',W/2,H/2+110,34,'#fff','center','#000',5);
  txt('♪ 音が出ます（スマホは音量・マナーモードをご確認ください）',W/2,H/2+165,20,'rgba(255,255,255,0.75)','center','#000',3);}
 function stepOpening(){G.opT++;let T=0;for(const c of OPN)T+=c.d;if(G.opT>T||(G.opT>20&&anyKey())){startTitle();}}
@@ -638,7 +638,7 @@ function drawTitle(){const t=G.ttlT;
  ctx.save();ctx.globalAlpha=la;ctx.fillStyle='rgba(150,14,10,0.78)';ctx.beginPath();ctx.moveTo(470,150);ctx.quadraticCurveTo(840,118,1250,140);ctx.lineTo(1235,272);ctx.quadraticCurveTo(860,292,490,262);ctx.closePath();ctx.fill();
  ctx.translate(860,206);ctx.scale(ls,ls);ctx.font=`bold 138px ${FJ}`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineWidth=14;ctx.strokeStyle='#1a0402';ctx.strokeText('関ヶ原乱舞',0,0);
  const lg=ctx.createLinearGradient(0,-70,0,70);lg.addColorStop(0,'#fff6d0');lg.addColorStop(0.45,'#f2c95a');lg.addColorStop(0.55,'#c8902a');lg.addColorStop(1,'#fff0b0');ctx.fillStyle=lg;ctx.shadowColor='rgba(255,170,60,0.8)';ctx.shadowBlur=24;ctx.fillText('関ヶ原乱舞',0,0);ctx.restore();
- if(t>35){ctx.globalAlpha=Math.min(1,(t-35)/30);txt('SEKIGAHARA RANBU',860,318,34,'#e8c35a','center','#000',5,'Arial Black,Impact,sans-serif');txt('— もしも真田幸村が関ヶ原にいたら —',860,368,28,'#fff1d6','center','#000',5);ctx.globalAlpha=1;}
+ if(t>35){ctx.globalAlpha=Math.min(1,(t-35)/30);txt('SEKIGAHARA RANBU',860,318,34,'#e8c35a','center','#000',5,'Arial Black,Impact,sans-serif');txt('— 天下分け目、もう一つの関ヶ原 —',860,368,28,'#fff1d6','center','#000',5);ctx.globalAlpha=1;}
  // menu
  if(t>60){TMENU.forEach((m,i)=>{const y=505+i*58,on=G.ttlSel===i;if(on){ctx.fillStyle='rgba(160,20,12,0.75)';ctx.fillRect(640,y-24,440,48);ctx.fillStyle='#e8c35a';ctx.fillRect(640,y-24,6,48);}
   txt((on?'▶ ':'　')+m,860,y,on?34:28,on?'#fff':'#c9b892','center','#000',5);});
