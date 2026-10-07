@@ -908,7 +908,7 @@ function kusariCtl(p,c){
   if(st===cu.hs){AU.sfx('slash');const hits=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&!e.isProp&&sgn(e.x-p.x)===p.face&&Math.abs(e.x-p.x)<440&&Math.abs(e.y-p.y)<36&&e.z<100).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x));
    for(const e of hits)hurt(e,{x:p.x,face:p.face,owner:p,hit:null,team:0},{dmg:11,kb:1});
    const far=hits[hits.length-1];cu.reach=far?Math.abs(far.x-p.x):440;
-   if(far&&far.hp>0&&!(far.T&&far.T.boss)&&far.state!=='dead'){p.kpull=far;popup('手繰り寄せ！',far.x,far.y,far.z+150,'#ffe0a0',22);}
+   if(far&&far.hp>0&&!(far.T&&far.T.boss)&&far.state!=='dead'){p.kpull=far;cu.pulled=true;popup('手繰り寄せ！',far.x,far.y,far.z+150,'#ffe0a0',22);}
    if(hits.length>1)popup(hits.length+'人貫通',p.x+p.face*120,p.y,190,'#fff6c8',22);if(p.wpn)useWpn(p);G.shake=Math.max(G.shake,4);}
   if(st>cu.he){const e=p.kpull;if(e&&e.hp>0&&e.state!=='dead'){const tx=p.x+p.face*70;e.x+=(tx-e.x)*0.22;e.y+=(p.y-e.y)*0.22;e.z=Math.max(0,e.z*0.8);e.state='hurt';e.st=0;e.cur=null;cu.reach=Math.max(30,Math.abs(e.x-p.x));if(Math.abs(e.x-tx)<6)p.kpull=null;}else{p.kpull=null;cu.reach*=0.8;}}
   return;}
@@ -1490,6 +1490,7 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
   if(f.kspin>0&&(f.state==='idle'||f.state==='walk')&&K.a.kspin){S=K;sp={arr:K.a.kspin,pos:(f.t/4)%K.a.kspin.length,loop:true,hard:true};kart='spin';}
+  else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kpull&&f.cur.pulled&&f.st>f.cur.he){S=K;sp={arr:K.a.kpull,pos:Math.min(0.999,(f.st-f.cur.he)/Math.max(1,f.cur.dur-f.cur.he))*K.a.kpull.length,loop:false,hard:true};kart='throw';}
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
