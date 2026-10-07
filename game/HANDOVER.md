@@ -37,6 +37,7 @@ node game/tests/tki.js              # 必殺ゲージ(必殺技では増えな�
 node game/tests/tcharge.js          # 溜め攻撃が武器ごとに変わるか
 node game/tests/tkusari.js          # 鎖鎌(回転・貫通投げ・引き寄せ)
 node game/tests/tiai.js             # 居合
+node game/tests/tdecap.js           # 会心で首が飛ぶ(流血オン/オフ)
 # 5) コミットしてプッシュ → Vercel に production デプロイ
 ```
 - テストは `npm i playwright` 済みの環境、または `PLAYWRIGHT=/path/to/playwright node ...` で実行。
@@ -69,6 +70,7 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 主人公6人は `sc:1.08`(足軽より少し大きく見せるため)
 - ジャンプ力: `p.vz=T.jump*1.2`(TY 各武将の `jump` 値 × 1.2)
 - 溜め攻撃(長押し→離す)は武器ごとに変わる: `chargeKind()` で判定。刀(景勝・信長・武蔵の持ち武器/長剣/妖刀)=居合 `startIai`/`iaiStep`/`drawIai`、槍=突進(従来の `startCharge`)、薙刀=回転斬り、斧・棍棒=地割れ、鉄砲=溜め撃ち、弓=三本矢、鉄扇=疾風、軍配=号令(`startCk`/`chargeStep`)。鎖鎌だけは `kusariCtl` で別処理。鎖鎌の回転中は各武将の `kspin` 絵、投げは `kthrow` 絵(現在は幸村のみ。他の武将は手ぶら版+手描きの鎌)。元絵は `<武将>_鎖鎌_分銅旋回_4コマ` / `<武将>_鎖鎌_分銅投擲_6コマ`
+- 会心(クリティカル): `hurt()` 内で判定(通常7%、溜め攻撃・居合30%、ダメージ1.6倍、「会心!」表示)。会心で倒すと `decap()` で首が飛ぶ(流血オフ `G.blood=false` なら笠・兜だけ)。頭の範囲は `headRect()` が絵の上部から自動で探す。ボス・騎馬は対象外
 - 必殺ゲージ: 必殺技・奥義のダメージでは増えない(`hurt()` 内)。被弾でも増える(ダメージ×0.8)
 - 注意: ゲーム内時計 `G.t` は `frame()` で進む。テストで `stepGame()` だけ回すときは `G.t++` も自分で進めること
 

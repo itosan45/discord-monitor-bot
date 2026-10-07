@@ -10,3 +10,4 @@ node_modules/
 # テストの確認画像
 /*.png
 /*.jpg
+__pycache__/
