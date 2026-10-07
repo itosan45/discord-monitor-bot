@@ -2,7 +2,7 @@
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:1280,height:720}})).newPage();const er=[];p.on('pageerror',e=>er.push(e.message));
 await p.goto('http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
-const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;const o={};
+const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;window.dropItem=()=>{};const o={};
  for(const h of['yuki','kage','mitsu','nobu','shin','musashi']){G.noStory=true;startGame(h,null);for(let i=0;i<10;i++)stepGame();const pl=G.player;
   const foes=()=>{G.fighters=G.fighters.filter(f=>f.team===0);for(let i=0;i<5;i++){const e=mk('spear',pl.x+50+i*25,pl.y,1);e.entered=true;e.hp=e.maxhp=9999;e.cool=9999;e.face=-1;G.fighters.push(e);}};
   foes();window.ctlKeys=()=>({});

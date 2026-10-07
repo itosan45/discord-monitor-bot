@@ -60,7 +60,7 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 敵: `updEnemy`、`spawnEn`、ボス技 `bossTech`
 - 被弾: `hurt()`、ガード、`knock()`
 - 相方: `partnerCtl`、かばう `tryCover`、殿(しんがり)`rearCheck`/`rearStep`
-- 描画: `drawSprite`(キャラ絵)、武器を持った時は手ぶら版に切替(`UMAP`、現在は幸村のみ)
+- 描画: `drawSprite`(キャラ絵)、武器を持った時は手ぶら版に切替(`UMAP`、全武将。足りない動きは `UGEN` の代用表で補う)。鎖鎌の長押し回転・貫通投げ・引き寄せは `kusariCtl`
 - 画面: タイトル `drawTitle`、キャラ選択 `drawSelect`、チュートリアル `HT_STEPS`、一時停止メニュー `PZM`、ストーリー `SCN`
 - ジャンプ力: `p.vz=T.jump*1.2`(TY 各武将の `jump` 値 × 1.2)
 
