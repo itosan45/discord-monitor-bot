@@ -11,11 +11,11 @@ d['iv']={H[k]:mp3('meet_%s.wav'%k) for k in H}
 d['sv']={H[k]:mp3('special_%s.wav'%k) for k in H}
 d['ki']=[mp3('kiai_%d.wav'%i) for i in range(1,7)]
 def army(n):
-    # 勝ちどきを軍勢の声に: 高さだけ変えて(長さは同じ)、ほぼ同時に重ねる。ずれは最大30ms
+    # 勝ちどきを軍勢の声に(30人分): 高さだけ変えて(長さは同じ)、ほぼ同時に重ねる。ずれは最大30ms
     import random;random.seed(n)
-    F=[1.0,0.84,0.9,0.95,1.06,1.12,0.87,0.98,1.03,0.92,1.09,0.8];ins=[];fl=[];m=len(F)
+    F=[1.0]+[round(random.uniform(0.78,1.2),3) for _ in range(29)];ins=[];fl=[];m=len(F)  # 30人分
     for i,f in enumerate(F):
-        ins+=['-i',os.path.join(V,n)];dl=0 if i==0 else random.randint(0,30);pan=0 if i==0 else random.uniform(-0.8,0.8);v=1.0 if i==0 else random.uniform(0.3,0.5)
+        ins+=['-i',os.path.join(V,n)];dl=0 if i==0 else random.randint(0,30);pan=0 if i==0 else random.uniform(-0.8,0.8);v=0.8 if i==0 else random.uniform(0.14,0.26)
         fl.append(f"[{i}:a]aformat=channel_layouts=mono,asetrate={int(24000*f)},aresample=24000,atempo={1/f:.4f},adelay={dl},volume={v:.2f},pan=stereo|c0={(1-max(0,pan)):.2f}*c0|c1={(1+min(0,pan)):.2f}*c0[a{i}]")
     fl.append(''.join(f'[a{i}]' for i in range(m))+f'amix=inputs={m}:normalize=0,alimiter=limit=0.9[o]')
     out=subprocess.run(['ffmpeg','-v','error',*ins,'-filter_complex',';'.join(fl),'-map','[o]','-ar','24000','-b:a','96k','-f','mp3','-'],capture_output=True,check=True).stdout
