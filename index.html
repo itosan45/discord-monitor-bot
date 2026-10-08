@@ -616,10 +616,10 @@ function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i
 
 function startAuto(ch,si){AU.init();AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.score=0;G.lives=99;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;if(G.autoPk===undefined)G.autoPk='kage';if(G.autoPk===ch)G.autoPk=ch==='yuki'?'kage':'yuki';G.partnerType=G.autoPk||null;G.curCh=ch;G.mode='play';startStage(si,ch,false);G.auto=true;G.lives=99;
  setDemoMount(demoView.mounted);
- if(demoView.motion==='walk')prepareWalkPreview();else if(si===0)startStory('pro',()=>startStory('s0'));else startStory('s'+si);if(demoView.paused)demoView.steps=1;autoUI(true);}
+ if(demoView.motion!=='auto')prepareWalkPreview();else if(si===0)startStory('pro',()=>startStory('s0'));else startStory('s'+si);if(demoView.paused)demoView.steps=1;autoUI(true);}
 
 /* ===================== TITLE SCREEN ===================== */
-const TMENU=['はじめる','デモプレイ（全編自動）'];
+const TMENU=['はじめる','ステージデモ（全編自動）','一体デバッグ'];
 const PZM=['再開する','タイトルに戻る'],PZY=[380,480];
 const DIFF=[{n:'やさしい',d:'敵の体力・攻撃が弱め　残機5',hp:0.75,dm:0.6,lives:5,col:'#8fe08f'},{n:'ふつう',d:'標準の難しさ　残機3',hp:1,dm:1,lives:3,col:'#ffe070'},{n:'むずかしい',d:'敵が強く、残機2',hp:1.35,dm:1.4,lives:2,col:'#ff7a5a'}],DFY=[300,410,520];
 function diffNow(){return DIFF[G.diff??1];}
@@ -635,7 +635,7 @@ function stepTitle(){G.ttlT++;const n=TMENU.length;
  if(pressed.ArrowDown||pressed.KeyS){G.ttlSel=(G.ttlSel+1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
  G.ttlIdle=(G.ttlIdle||0)+1;
  if(G.ttlT>40&&(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ)){AU.sfx('ok');G.ttlIdle=0;
-  if(G.ttlSel===0){G.mode='diff';G.diffSel=G.diff??1;AU.bgm(4);G.camx=0;}else{startAuto('yuki',0);}return;}
+  if(G.ttlSel===0){G.mode='diff';G.diffSel=G.diff??1;AU.bgm(4);G.camx=0;}else if(G.ttlSel===2){setInspectionMode(true);}else{demoView.motion='auto';startAuto('yuki',0);}return;}
  if(G.ttlIdle>60*28){G.ttlIdle=0;const i=G.demoNext||0;G.demoNext=(i+1)%DEMO_PLAN.length;startDemo(i);}}
 function titleHit(y){for(let i=0;i<TMENU.length;i++){const yy=505+i*58;if(Math.abs(y-yy)<26)return i;}return -1;}
 function drawTitle(){const t=G.ttlT;
@@ -1204,7 +1204,7 @@ function updParts(){
 
 /* ---------- score / 1UP / continue / partner ---------- */
 function addScore(n){G.score+=n;if(G.demo)return;while(G.score>=G.nextLife){G.lives=Math.min(9,G.lives+1);G.nextLife+=G.nextLife<10000?5000:10000;G.oneUp=150;AU.sfx('clear');}}
-function nearestAlly(e){if(G.rear&&G.rear.ph==='call'&&e.team===1)return G.rear.q;let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==0||f.hp<=0||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}
+function nearestAlly(e){if(G.auto&&demoView.motion!=='auto'&&e.debugEnemy){const d=mk('yuki',e.x+e.face*180,e.y,0);d.inv=999;return d;}if(G.rear&&G.rear.ph==='call'&&e.team===1)return G.rear.q;let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==0||f.hp<=0||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}
 function partnerCtl(f){return demoCtl(f,!f.rear);}
 function partnerRevive(q){q.hp=Math.round(q.maxhp*0.5);q.state='idle';q.st=0;q.z=0;q.vz=0;q.dying=false;q.pooled=false;q.x=clamp(G.player.x-90,G.camx+40,G.camx+W-40);q.y=G.player.y+20;q.inv=150;popup('味方が復帰！',q.x,q.y,120,'#9f9',24);AU.sfx('pick');}
 function doContinue(){G.credits--;G.conts++;G.lives=diffNow().lives;const p=G.player;respawn(p);if(G.over==='time')G.time=180*60;else G.time=Math.max(G.time,120*60);if(G.partner&&G.partner.state==='dead')partnerRevive(G.partner);G.state='run';G.stateT=0;AU.sfx('ok');AU.bgm(G.boss?3:STG[G.stage].bgm);}
@@ -2103,10 +2103,31 @@ function drawHowtoUI(S,t){
 
 /* ===================== AUTO PLAY (デモプレイ) ===================== */
 const autoEl=document.getElementById('auto');let _autoKey='';
-const demoView={paused:false,steps:0,credit:0,settings:false,mounted:false,motion:'auto'};
+const demoView={paused:false,steps:0,credit:0,settings:false,mounted:false,motion:'auto',actor:null,weapon:'',facing:1,debugRest:0};
 // Repeat the real movement update without combat interrupting a gait inspection.
-function prepareWalkPreview(){const p=G.player;G.mode='play';G.state='run';G.fighters=[p];G.partner=null;G.boss=null;G.sq=[];G.proj=[];G.items=[];G.props=[];G.parts=[];G.steeds=[];G.banner=null;G.vo=null;G.cut=null;G.ult=null;G.hitstop=0;G.slow=0;G.camx=0;p.x=640;p.y=570;p.z=0;p.state='idle';p.st=0;p.cur=null;p.face=1;p.inv=0;p.flash=0;p.wp=0;}
-function stepWalkPreview(){const p=G.player;if(p.x>=830)p.face=-1;else if(p.x<=450)p.face=1;updPlayer(p,p.face===1?{r:true}:{l:true});updParts();}
+function prepareWalkPreview(){let p=G.player;if(demoView.actor&&TY[demoView.actor]&&demoView.actor!==p.T.type){p=mk(demoView.actor,640,570,0);G.player=p;}const hero=SEL_ORDER.concat(HIDDEN).includes(p.T.type);p.debugEnemy=!hero;if(!hero)p.mount=null;else{p.wpn=demoView.weapon?{k:demoView.weapon,uses:99999}:null;setDemoMount(demoView.mounted);}demoView.debugRest=0;G.mode='play';G.state='run';G.fighters=[p];G.partner=null;G.boss=null;G.sq=[];G.proj=[];G.items=[];G.props=[];G.parts=[];G.steeds=[];G.banner=null;G.vo=null;G.cut=null;G.ult=null;G.hitstop=0;G.slow=0;G.camx=0;p.x=640;p.y=570;p.z=0;p.state='idle';p.st=0;p.cur=null;p.face=demoView.facing||1;p.inv=0;p.flash=0;p.wp=0;}
+function stepWalkPreview(){const p=G.player,a=demoView.motion;
+ if(a==='walk'){if(p.x>=830)p.face=-1;else if(p.x<=450)p.face=1;if(p.debugEnemy){p.t++;p.st++;p.state='walk';p.x+=p.face*p.T.spd;p.wp+=p.T.spd*0.08;}else updPlayer(p,p.face===1?{r:true}:{l:true});}
+ else if(a==='idle'){p.state='idle';p.t++;p.st++;}
+ else if(a==='spin'){updPlayer(p,{atkH:true});}
+ else if(a==='throw'){const cycle=(demoView.debugRest++)%100;updPlayer(p,{atkH:cycle<35});}
+ else{if((p.state==='idle'||p.state==='walk')&&demoView.debugRest++>=18){demoView.debugRest=0;p.x=640;p.y=570;p.z=0;p.face=demoView.facing||1;p.ki=300;
+   if(a.startsWith('atk')){const i=Number(a.slice(3));if(p.mount)updPlayer(p,{atkP:true});else if(p.debugEnemy)startEAtk(p,i);else startPAtk(p,i);}
+   else if(a==='special')updPlayer(p,{spcP:true});else if(a==='jump')updPlayer(p,{jumpP:true});else if(a==='charge')startCharge(p);}
+  else if(p.debugEnemy){p.t++;p.st++;if(p.state==='atk')updAtk(p);}else updPlayer(p,{});}
+ keepFighterOnScreen(p);p.y=clamp(p.y,YMIN,YMAX);G.fighters=[p];G.items=[];G.steeds=[];G.proj=[];G.shake=0;G.hitstop=0;updParts();}
+function setInspectionMode(debug){demoView.motion=debug?'walk':'auto';demoView.actor=null;demoView.settings=true;startAuto(SEL_ORDER.concat(HIDDEN).includes(G.curCh)?G.curCh:'yuki',G.stage);}
+function debugUI(B,L,playback){
+ const S=(label,items,value,change)=>{const e=document.createElement('select');e.setAttribute('aria-label',label);for(const [v,t] of items){const o=document.createElement('option');o.value=v;o.textContent=t;o.selected=String(v)===String(value);e.appendChild(o);}e.addEventListener('pointerdown',e=>e.stopPropagation());e.addEventListener('change',()=>{change(e.value);_autoKey='';});autoEl.appendChild(e);return e;};
+ S('確認モード',[['debug','一体デバッグ'],['stage','全編デモ']],'debug',v=>setInspectionMode(v==='debug'));
+ const p=G.player,hero=!p.debugEnemy;S('確認するキャラ',Object.keys(TY).map(k=>[k,k==='spear'?'足軽（槍）':k==='sword'?'足軽（刀）':TY[k].name||k]),p.T.type,v=>{demoView.actor=v;demoView.motion='walk';prepareWalkPreview();});
+ const actions=[['idle','待機'],['walk','歩行'],...p.T.atk.map((d,i)=>['atk'+i,'攻撃'+(i+1)+(d.anim?' '+d.anim:'')])];
+ if(hero){actions.push(['special','必殺']);if(!p.mount)actions.push(['jump','跳躍'],['charge','溜め']);if(demoView.weapon==='kusari'&&!p.mount)actions.push(['spin','分銅旋回'],['throw','分銅投擲']);}
+ S('確認する動作',actions,demoView.motion,v=>{demoView.motion=v;prepareWalkPreview();});
+ const weapon=S('確認する武器',hero?[['','主武器'],...Object.keys(WPN).map(k=>[k,WPN[k].n])]:[['','固有装備']],hero?demoView.weapon:'',v=>{demoView.weapon=v;prepareWalkPreview();});weapon.disabled=!hero;
+ const mount=S('馬の有無',hero?[['0','馬なし'],['1','馬あり']]:[['0',p.T.horse?'固有騎乗':'徒歩']],hero&&demoView.mounted?'1':'0',v=>{demoView.mounted=v==='1';if(['spin','throw','charge','jump'].includes(demoView.motion))demoView.motion='walk';prepareWalkPreview();});mount.disabled=!hero;
+ S('向き',[['1','右'],['-1','左']],demoView.facing,v=>{demoView.facing=Number(v);prepareWalkPreview();});playback();B('■ 終了',()=>{G.auto=false;startTitle();});}
+
 let walkPreviewBooted=false;
 function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(q.get('preview')!=='walk')return;const hero=SEL_ORDER.includes(q.get('hero'))?q.get('hero'):'musashi';demoView.motion='walk';demoView.mounted=q.get('mount')==='1';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
 function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
@@ -2116,7 +2137,7 @@ function demoViewTick(){
  const speed=Math.min(1,G.autoSpd||1);demoView.credit+=speed;
  if(demoView.credit<1)return false;demoView.credit-=1;return true;
 }
-function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const key=want+'|'+m+'|'+(G.autoSpd||1)+'|'+demoView.paused+'|'+demoView.settings+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk+'|'+demoView.motion;if(!force&&key===_autoKey)return;_autoKey=key;
+function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const key=want+'|'+m+'|'+(G.autoSpd||1)+'|'+demoView.paused+'|'+demoView.settings+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk+'|'+demoView.motion+'|'+demoView.actor+'|'+demoView.weapon+'|'+demoView.mounted;if(!force&&key===_autoKey)return;_autoKey=key;
  if(want==='none'){autoEl.style.display='none';return;}autoEl.style.display='flex';autoEl.innerHTML='';
  const B=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();fn();_autoKey='';});autoEl.appendChild(b);return b;};
  const L=t=>{const s=document.createElement('span');s.className='lab';s.textContent=t;autoEl.appendChild(s);};
@@ -2124,7 +2145,8 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
   B(demoView.paused?'▶ 再開':'Ⅱ 停止',()=>{demoView.paused=!demoView.paused;demoView.steps=0;});
   B('1コマ',()=>{demoView.paused=true;demoView.steps++;});};
  if(m==='demo'){playback();B('■ 終了',()=>startTitle());return;}
- if(!demoView.settings){playback();if(m==='story')B('会話とばす',()=>endStory());B('武将・幕',()=>{demoView.settings=true;});B('■ 終了',()=>{G.auto=false;startTitle();});return;}
+ if(demoView.motion!=='auto'){debugUI(B,L,playback);return;}
+ if(!demoView.settings){playback();if(m==='story')B('会話とばす',()=>endStory());B('武将・幕',()=>{demoView.settings=true;});B('一体デバッグ',()=>setInspectionMode(true));B('■ 終了',()=>{G.auto=false;startTitle();});return;}
  autoEl.className=want==='start'?'st':'';if(want==='start'){B('▶ デモプレイ（全編自動）',()=>startAuto('yuki',0),'big');return;}
  const sel=document.createElement('select');for(const h of SEL_ORDER.concat(HIDDEN)){const o=document.createElement('option');o.value=h;o.textContent=TY[h].name;if(h===G.curCh)o.selected=true;sel.appendChild(o);}
  sel.addEventListener('pointerdown',e=>e.stopPropagation());sel.addEventListener('change',()=>{startAuto(sel.value,G.stage);_autoKey='';});autoEl.appendChild(sel);
@@ -2133,7 +2155,7 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
  L('幕');const stage=document.createElement('select');stage.setAttribute('aria-label','幕');for(let i=0;i<STG.length;i++){const o=document.createElement('option');o.value=i;o.textContent=String(i+1);o.selected=i===G.stage;stage.appendChild(o);}stage.addEventListener('pointerdown',e=>e.stopPropagation());stage.addEventListener('change',()=>startAuto(G.curCh,Number(stage.value)));autoEl.appendChild(stage);
  playback();
  L('馬');const horse=document.createElement('select');horse.setAttribute('aria-label','馬の有無');for(const [v,label] of [['0','なし'],['1','あり']]){const o=document.createElement('option');o.value=v;o.textContent=label;o.selected=(v==='1')===demoView.mounted;horse.appendChild(o);}horse.addEventListener('pointerdown',e=>e.stopPropagation());horse.addEventListener('change',()=>{setDemoMount(horse.value==='1');_autoKey='';});autoEl.appendChild(horse);
- L('動作');const motion=document.createElement('select');motion.setAttribute('aria-label','確認する動作');for(const [v,label] of [['auto','自動'],['walk','歩行']]){const o=document.createElement('option');o.value=v;o.textContent=label;o.selected=v===demoView.motion;motion.appendChild(o);}motion.addEventListener('pointerdown',e=>e.stopPropagation());motion.addEventListener('change',()=>{demoView.motion=motion.value;startAuto(G.curCh,G.stage);_autoKey='';});autoEl.appendChild(motion);
+ B('一体デバッグ',()=>setInspectionMode(true));
  if(m==='story')B('会話とばす',()=>endStory());
  B('閉じる',()=>{demoView.settings=false;});}
 /* ===================== MAIN ===================== */
@@ -2155,7 +2177,7 @@ function renderWorld(){
  ctx.fillStyle=STG[G.stage].tint;ctx.fillRect(0,0,W,H);ctx.drawImage(VIG,0,0);postFX();
 }
 function stepGame(){
- if(G.auto&&demoView.motion==='walk'){stepWalkPreview();return;}
+ if(G.auto&&demoView.motion!=='auto'){stepWalkPreview();return;}
  if(G.state==='continue'){contStep();updParts();return;}
  if(G.ult){if(G.hitstop>0)G.hitstop--;else updUlt();updParts();return;}
  if(G.hitstop>0){G.hitstop--;updParts();return;}

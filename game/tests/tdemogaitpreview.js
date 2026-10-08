@@ -16,8 +16,8 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
   demoView.steps=1;if(demoViewTick())stepGame();if(f.x===x||demoViewTick())bad.push('step did not advance exactly once');
   demoView.settings=true;autoUI(true);return{bad,keys:keys.size,faces:[...faces],mode:G.mode};
  });
- if(!result.bad.length){await p.getByLabel('確認する動作').selectOption('auto');await p.waitForTimeout(100);if(!await p.evaluate(()=>demoView.motion==='auto'&&G.mode==='story'))result.bad.push('auto did not restore story');await p.getByLabel('確認する動作').selectOption('walk');await p.waitForTimeout(100);if(!await p.evaluate(()=>G.mode==='play'&&G.fighters.length===1))result.bad.push('walk control did not restore preview');}
+ await p.evaluate(()=>{window.requestAnimationFrame=window.__qaRAF;requestAnimationFrame(loop);});if(!result.bad.length){await p.getByLabel('確認モード').selectOption('stage');await p.waitForTimeout(100);if(!await p.evaluate(()=>demoView.motion==='auto'&&G.mode==='story'))result.bad.push('auto did not restore story');await p.getByRole('button',{name:'一体デバッグ',exact:true}).click();await p.waitForTimeout(100);if(!await p.evaluate(()=>G.mode==='play'&&G.fighters.length===1))result.bad.push('walk control did not restore preview');}
  await p.evaluate(()=>{if(window.__qaRAF)window.requestAnimationFrame=window.__qaRAF;ctx=MCTX;ctx.setTransform(RS,0,0,RS,0,0);renderWorld();drawHUD();});
- const out=process.env.OUT||path.join(require('os').tmpdir(),'sekigahara-gait-preview');fs.mkdirSync(out,{recursive:true});await p.screenshot({path:path.join(out,'android-walk-preview.png')});
+ const out=process.env.OUT||path.join(require('os').tmpdir(),'sekigahara-gait-preview');fs.mkdirSync(out,{recursive:true});await p.reload();await p.waitForFunction(()=>sprAllReady()&&G.auto&&demoView.motion==='walk');await p.screenshot({path:path.join(out,'android-walk-preview.png')});
  result.pageErrors=errors;fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));await b.close();if(result.bad.length||errors.length)process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1;});
