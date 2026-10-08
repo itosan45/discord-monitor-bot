@@ -18,7 +18,11 @@ class AtlasDelivery(unittest.TestCase):
         for hero in ['yuki', 'kage', 'mitsu', 'nobu', 'shin', 'musashi']:
             self.assertNotIn('mountatk_' + hero, data['spr'])
             self.assertNotIn('mountatk2_' + hero, data['spr'])
-            self.assertIn('mountwalk4_' + hero, data['spr'])
+            self.assertIn(('mountwalk5_' if hero == 'mitsu' else 'mountwalk4_') + hero, data['spr'])
+            if hero == 'mitsu':
+                self.assertNotIn('mountwalk4_mitsu', data['spr'])
+                self.assertEqual(len(data['sm']['mountwalk5_mitsu']['all']), 4)
+                self.assertEqual(len(data['sm']['mountwalk5_mitsu']['handAll']), 4)
             current = 'mountbody3_' + hero
             self.assertIn(current, data['spr'])
             self.assertIn(current, data['sm'])

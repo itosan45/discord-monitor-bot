@@ -1739,7 +1739,7 @@ function drawMountedKusari(f,hx,hy,fl){drawKama(hx,hy,-1.2,fl);const spinning=f.
  if(spinning){const a=G.t*0.42;cx=hx-6;cy=hy-48;tx=cx+Math.cos(a)*58;ty=cy+Math.sin(a)*16;}
  else{const hs=d.hs,he=d.he,s0=Math.max(0,hs-5),e=f.st<s0?0:f.st<=he?Math.sin(clamp((f.st-s0)/(he-s0),0,1)*Math.PI/2):1;tx=d.reach>0?hx+(d.reach/scale-hx)*e:hx;ty=d.reach>0?hy+(-70/scale-hy)*e:hy;cx=(hx+tx)/2;cy=(hy+ty)/2+12;}
  ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo(cx,cy,tx,ty);ctx.setLineDash([4,2.5]);ctx.strokeStyle=fl?'#fff':'#26262c';ctx.lineWidth=4;ctx.stroke();ctx.lineDashOffset=2;ctx.strokeStyle=fl?'#fff':'#bfc5ce';ctx.lineWidth=1.5;ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=fl?'#fff':'#89909b';ctx.beginPath();ctx.arc(tx,ty,7,0,TAU);ctx.fill();ctx.strokeStyle=fl?'#fff':'#20242a';ctx.lineWidth=1;ctx.stroke();ctx.restore();}
-function drawWholeMounted(f){const W=SPR['mountwalk4_'+f.T.type],walking=f.state==='walk'&&W&&W.ready,B=walking?W:SPR['mountbody3_'+f.T.type];if(!B||!B.ready)return false;
+function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk4_'+f.T.type],walking=f.state==='walk'&&W&&W.ready,B=walking?W:SPR['mountbody3_'+f.T.type];if(!B||!B.ready)return false;
  const attacking=f.state==='matk'||f.state==='mspc',dur=f.state==='mspc'?40:f.cur&&f.cur.dur||24,t=clamp(f.st,0,dur)*24/dur,times=[0,6,10,16,22],seq=[0,2,3,4,0];
  let phase=0;if(attacking)while(phase<4&&t>=times[phase+1])phase++;
  const i=attacking?seq[phase]:walking?Math.floor(((f.wp||0)/TAU*B.a.all.length)%B.a.all.length):0,q=B.a.all[i],hand=B.a.handAll[i],fl=f.flash>0&&(f.flash&2);

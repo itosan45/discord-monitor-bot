@@ -22,6 +22,8 @@ for hero in ('yuki','kage','mitsu','nobu','shin','musashi'):
 for hero in ('yuki','kage','mitsu','nobu','shin','musashi'):
     if all(k in data['spr'] for k in ('mountbody3_'+hero,'mountwalk4_'+hero)):
         data['spr'].pop('mountatk2_'+hero,None)
+    if 'mountwalk5_'+hero in data['spr']:
+        data['spr'].pop('mountwalk4_'+hero,None)
 data['sm']=json.load(open(os.path.join(H,'sprites','sprmeta.json')));data['hands']=json.load(open(os.path.join(H,'sprites','hands.json')))
 miss=sorted(set(data['spr'])-set(data['sm']))
 if miss:raise SystemExit('sprmeta.json に位置データが無い画像があります: %s'%miss)
