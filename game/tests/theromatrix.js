@@ -25,7 +25,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
      if(t%4&&t!==dur-1)continue;
      ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,1280,720);drawn=[];sourceBad=[];calls=[];drawFighter(f);samples++;
      if(sourceBad.length)bad.push({hero,weapon,mode,t,sourceBad});
-     if(mode==='mountatk'&&f.state==='matk'){const key='mountatk2_'+hero,seq=SPR[key]?.a[weapon||'default'];if(!seq||!calls.some(q=>q.s===key&&q.y===seq[0][1]))bad.push({hero,weapon,mode,t,wrongMountedSheet:drawn});}
+     if(mode==='mountatk'&&f.state==='matk'){const key=SPR['mountfull3_'+hero]?.ready?'mountfull3_'+hero:'mountatk2_'+hero,seq=SPR[key]?.a[weapon||'default'];if(!seq||!calls.some(q=>q.s===key&&q.y===seq[0][1]))bad.push({hero,weapon,mode,t,wrongMountedSheet:drawn});}
      if(mode==='jump'&&f.state==='jatk'&&weapon&&!drawn.includes(hero+'_u'))bad.push({hero,weapon,mode,t,wrongJumpWeaponSheet:drawn});
      if(weapon&&weapon!=='kusari'&&(mode.startsWith('a')||mode==='dash'||mode==='charge')&&f.state==='atk'&&!drawn.includes(hero+'_u'))bad.push({hero,weapon,mode,t,wrongPickupBody:drawn});
      const top=ctx.getImageData(0,0,1280,1).data,bottom=ctx.getImageData(0,719,1280,1).data,left=ctx.getImageData(0,0,1,720).data,right=ctx.getImageData(1279,0,1,720).data;

@@ -614,6 +614,7 @@ function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i
  if(G.opT>20)txt(TOUCH?'タップでスキップ':'PRESS ANY KEY',W-30,H-28,18,'rgba(255,255,255,0.55)','right','#000',3);}
 
 function startAuto(ch,si){AU.init();AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.score=0;G.lives=99;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;if(G.autoPk===undefined)G.autoPk='kage';if(G.autoPk===ch)G.autoPk=ch==='yuki'?'kage':'yuki';G.partnerType=G.autoPk||null;G.curCh=ch;G.mode='play';startStage(si,ch,false);G.auto=true;G.lives=99;
+ setDemoMount(demoView.mounted);
  if(si===0)startStory('pro',()=>startStory('s0'));else startStory('s'+si);if(demoView.paused)demoView.steps=1;autoUI(true);}
 
 /* ===================== TITLE SCREEN ===================== */
@@ -1033,7 +1034,7 @@ function atkers(){let n=0;for(const e of G.fighters)if(e.team===1&&e.state==='at
 function fighterScreenMargin(f){
  if(f.T.boss)return bossScreenMargin(f);
  let S=SPR[f.T.spr||f.T.type];
- if(f.mount)S=SPR['mountatk2_'+f.T.type]||S;
+ if(f.mount)S=SPR['mountfull3_'+f.T.type]||SPR['mountbody3_'+f.T.type]||SPR['mountatk2_'+f.T.type]||S;
  let extent=70;
  if(S&&S.ready){if(S.screenExtent===undefined){let w=0;for(const arr of Object.values(S.a))if(Array.isArray(arr))for(const q of arr)if(Array.isArray(q)&&q.length>=6)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));S.screenExtent=w;}extent=S.screenExtent;}
  if(f.wpn&&f.wpn.k!=='kusari'){const w=WPN[f.wpn.k];if(w)extent=Math.max(extent,(w.tip||100)*1.15+72);}
@@ -1652,6 +1653,10 @@ function drawMounted(f,S,runO,riderFn){
 
 /* ===================== 騎乗（敵の馬を奪う） ===================== */
 const MCOL={yuki:'red',nobu:'red',shin:'red',kage:'blue',mitsu:'purple',musashi:'iron'};
+function setDemoMount(on){const p=G.player;if(!p)return;demoView.mounted=!!on;
+ if(on){p.mount={hp:6,max:6,col:MCOL[p.T.type]||'iron'};p.state='idle';p.st=0;p.cur=null;p.z=0;}
+ else if(p.mount)dropMount(p,-p.face,false);
+ keepFighterOnScreen(p);if(demoView.paused)demoView.steps=1;}
 const MATK={pz:'swing',dur:24,hs:7,he:13,rng:165,dmg:15,kb:6,launch:true,sfx:'slash'};
 function addSteed(x,y,face){if(!G.steeds)G.steeds=[];if(G.steeds.length>=2)return;G.steeds.push({x,y,face,t:0});}
 
@@ -1701,7 +1706,27 @@ function updMount(p,c){
 function mountedAttackProfile(f){if(!f.wpn)return'default';const w=WPN[f.wpn.k];if(f.wpn.k==='kusari')return'kusari';if(w&&w.bow)return'bow';if(w&&w.draw==='teppo')return'gun';if(w&&(w.heavy||w.blunt))return'heavy';if(w&&w.draw==='naginata')return'polearm';return'blade';}
 // 騎乗時の乗り手の位置補正(脚の長い絵は腰の切り位置を下げる)
 const MRIDE={musashi:{hip:112,dy:6,sc:0.98}};
+// Whole seated riders: one body frame contains the horse, thighs, shins and stirrups.
+// Never substitute a cropped standing body when this dedicated artwork is ready.
+function drawWholeMounted(f){const B=SPR['mountbody3_'+f.T.type];if(!B||!B.ready)return false;
+ const attacking=f.state==='matk',dur=f.cur&&f.cur.dur||24,t=clamp(f.st,0,dur),times=[0,6,10,16,22],seq=[0,2,3,4,0];
+ let phase=0;if(attacking)while(phase<4&&t>=times[phase+1])phase++;
+ const i=attacking?seq[phase]:f.state==='walk'?Math.floor(f.t/6)%2:0,q=B.a.all[i],hand=B.a.handAll[i],fl=f.flash>0&&(f.flash&2);
+ const C=SPR['mountfull3_'+f.T.type],kind=f.wpn?f.wpn.k:'default',full=attacking&&C&&C.ready&&C.a[kind],fq=full&&full[phase];
+ ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(f.face*f.sc,f.sc);
+ if(fq){ctx.drawImage(fl?sprWhite(C):C.img,fq[0],fq[1],fq[2],fq[3],fq[4],fq[5],fq[2]*(fq[6]||1),fq[3]*(fq[6]||1));ctx.restore();return true;}
+ ctx.drawImage(fl?sprWhite(B):B.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));
+ const wk=f.wpn?WPN[f.wpn.k]:{draw:f.T.wp,tip:f.T.tip,heavy:f.T.wp==='gunbai'},hx=hand[0],hy=hand[1];
+ let wa=attacking?[0.72,-0.15,0.72,0.9,0.72][phase]:0.72;
+ if(wk.bow||wk.draw==='teppo')wa=attacking?0.55:0.72;
+ if(f.wpn&&f.wpn.k==='kusari'){
+  drawKama(hx,hy,wa,fl);const k=attacking?[0,0.2,1,0.6,0][phase]:0,L=35+125*k,tx=hx+Math.cos(0.55)*L,ty=hy+Math.sin(0.55)*L;
+  ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo((hx+tx)/2,(hy+ty)/2+18,tx,ty);ctx.strokeStyle=fl?'#fff':'#28282e';ctx.lineWidth=4;ctx.stroke();ctx.strokeStyle=fl?'#fff':'#bfc5ce';ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle=fl?'#fff':'#89909b';ctx.beginPath();ctx.arc(tx,ty,7,0,TAU);ctx.fill();ctx.restore();
+ }else if(!f.wpn||!drawIcon('w_'+f.wpn.k,hx,hy,wa,(wk.tip||90)*1.15*(wk.isc||1),fl,wk.bow?0.5:0.13))drawWeapon(f,{hf:[hx,hy],hb:[hx-12,hy+6],wa,hold:true,bow:wk.bow?0.5:0},fl?WHITE:f.T.col,wk.bow?'bow':wk.draw);
+ if(!f.wpn&&f.T.dual)drawWeapon(f,{hf:[hx+28,hy-8],wa:wa+0.2,hold:true},fl?WHITE:f.T.col,'sword');
+ ctx.restore();return true;}
 function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)return false;
+ if(drawWholeMounted(f))return true;
  if(f.state==='matk'){
   const V=SPR['mountatk2_'+f.T.type],A=V&&V.ready?V:SPR['mountatk_'+f.T.type],kind=A===V?(f.wpn?f.wpn.k:'default'):mountedAttackProfile(f),seq=A&&A.ready&&A.a[kind];
   if(seq&&seq.length){const dur=f.cur&&f.cur.dur||24,t=clamp(f.st,0,dur),times=[0,6,10,14,22,24];let a=0;while(a<4&&t>times[a+1])a++;const b=Math.min(4,a+1),mix=a===b?0:clamp((t-times[a])/(times[a+1]-times[a]),0,1),q0=seq[a],q1=seq[b];
@@ -2076,7 +2101,7 @@ function drawHowtoUI(S,t){
 
 /* ===================== AUTO PLAY (デモプレイ) ===================== */
 const autoEl=document.getElementById('auto');let _autoKey='';
-const demoView={paused:false,steps:0,credit:0,settings:false};
+const demoView={paused:false,steps:0,credit:0,settings:false,mounted:false};
 function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
 function demoViewTick(){
  if(!demoViewActive()){demoView.paused=false;demoView.steps=0;demoView.credit=0;return true;}
@@ -2100,6 +2125,7 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
  ps.addEventListener('pointerdown',e=>e.stopPropagation());ps.addEventListener('change',()=>{G.autoPk=ps.value||null;startAuto(G.curCh,G.stage);_autoKey='';});autoEl.appendChild(ps);
  L('幕');const stage=document.createElement('select');stage.setAttribute('aria-label','幕');for(let i=0;i<STG.length;i++){const o=document.createElement('option');o.value=i;o.textContent=String(i+1);o.selected=i===G.stage;stage.appendChild(o);}stage.addEventListener('pointerdown',e=>e.stopPropagation());stage.addEventListener('change',()=>startAuto(G.curCh,Number(stage.value)));autoEl.appendChild(stage);
  playback();
+ L('馬');const horse=document.createElement('select');horse.setAttribute('aria-label','馬の有無');for(const [v,label] of [['0','なし'],['1','あり']]){const o=document.createElement('option');o.value=v;o.textContent=label;o.selected=(v==='1')===demoView.mounted;horse.appendChild(o);}horse.addEventListener('pointerdown',e=>e.stopPropagation());horse.addEventListener('change',()=>{setDemoMount(horse.value==='1');_autoKey='';});autoEl.appendChild(horse);
  if(m==='story')B('会話とばす',()=>endStory());
  B('閉じる',()=>{demoView.settings=false;});}
 /* ===================== MAIN ===================== */
