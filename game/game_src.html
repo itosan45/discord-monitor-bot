@@ -2100,9 +2100,8 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
  ps.addEventListener('pointerdown',e=>e.stopPropagation());ps.addEventListener('change',()=>{G.autoPk=ps.value||null;startAuto(G.curCh,G.stage);_autoKey='';});autoEl.appendChild(ps);
  L('幕');const stage=document.createElement('select');stage.setAttribute('aria-label','幕');for(let i=0;i<STG.length;i++){const o=document.createElement('option');o.value=i;o.textContent=String(i+1);o.selected=i===G.stage;stage.appendChild(o);}stage.addEventListener('pointerdown',e=>e.stopPropagation());stage.addEventListener('change',()=>startAuto(G.curCh,Number(stage.value)));autoEl.appendChild(stage);
  playback();
- B('会話とばす',()=>{if(G.mode==='story')endStory();});
- B('設定を閉じる',()=>{demoView.settings=false;});
- B('■ 終了',()=>{G.auto=false;startTitle();});}
+ if(m==='story')B('会話とばす',()=>endStory());
+ B('閉じる',()=>{demoView.settings=false;});}
 /* ===================== MAIN ===================== */
 function renderWorld(){
  const sh=G.shake>0.5?G.shake:0;ctx.save();if(sh)ctx.translate(rnd(-sh,sh)*0.6,rnd(-sh,sh)*0.5);
