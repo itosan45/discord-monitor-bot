@@ -3,6 +3,7 @@ from PIL import Image
 from scipy import ndimage as ndi
 SRC=os.path.join(os.path.dirname(os.path.abspath(__file__)),'../../assets/sprites/')
 HERO={'yuki':'真田幸村','kage':'上杉景勝','mitsu':'石田三成','nobu':'織田信長','shin':'武田信玄','musashi':'宮本武蔵'}
+BRAVE={'nezu':'根津甚八'}
 ANIM=[('idle','待機_4'),('walk','歩き_6'),('jump','ジャンプ_4'),('hit','被弾_2'),('down','ダウン_4'),('getup','起き上がり_4'),('dead','やられ_4'),('jatk','ジャンプ攻撃_4'),
  ('a1','通常1_5'),('a2','通常2_5'),('a3','通常3_%d'),('a4','通常4_%d'),('a5','通常5_7'),('dash','ダッシュ_5'),('spc','必殺_8'),('gstart','ガード構え_2'),('guard','ガード維持_4'),('ghit','ガード受け止め_2'),('gend','ガード解除_2'),('dodgeB','後退回避_4'),('dodgeF','前方回避_5'),('kspin','鎖鎌_分銅旋回_4'),('kthrow','鎖鎌_分銅投擲_6'),('kpull','鎖鎌_手繰り寄せ_6'),('kret','鎖鎌_回収_6'),('kslash','鎖鎌_鎌斬撃_6'),('kwalk','鎖鎌_移動旋回_8'),('kachi','勝鬨_4')]
 import glob,os
@@ -10,7 +11,8 @@ BOSS={'boss1':'井伊直政','boss2':'最上義光','boss3':'徳川家康','boss
 ANIMB=[('idle','待機_4'),('walk','歩き_6'),('hit','被弾_2'),('a1','通常攻撃_6'),('big','大技_8'),('dash','突進_6'),('dead','やられ_7')]
 ENEMY={'spear':'敵_足軽槍','sword':'敵_足軽刀','archer':'敵_弓足軽','gun':'敵_鉄砲足軽','ninja':'敵_忍者'}
 ANIME=[('idle','待機_4'),('walk','歩き_8'),('a1','攻撃_6'),('hit','被弾_2'),('down','ダウン_4'),('getup','起き上がり_4'),('dead','やられ_4')]
-NAME=dict(HERO);NAME.update(BOSS);NAME.update(ENEMY)
+ANIMR=[('idle','待機_4'),('walk','低姿勢歩き_8'),('a1','武器別攻撃_6'),('hit','被弾_2'),('down','ダウン_4'),('getup','起き上がり_4'),('dead','やられ_4')]
+NAME=dict(HERO);NAME.update(BOSS);NAME.update(ENEMY);NAME.update(BRAVE)
 def find(h,key):
     cand=[os.path.basename(f) for f in glob.glob(SRC+NAME[h]+'_*')]
     pre=NAME[h]+'_'+'_'.join(key.split('_')[:-1])+'_'
@@ -128,12 +130,12 @@ def strip_k(h,an):
     return max(0.7,min(2.2,k))
 def build(h,Hg=190,q=52):
     frames={};names=[]
-    for an,key in (ANIMB if h in BOSS else ANIME if h in ENEMY else ANIM):
+    for an,key in (ANIMB if h in BOSS else ANIME if h in ENEMY else ANIMR if h in BRAVE else ANIM):
         f=find(h,key)
         if not f:continue
         import re;n=int(re.search(r'_(\d+)コマ',f).group(1));im=Image.open(SRC+f)
         a=keyim(im);cw=im.size[0]//n
-        if h in HERO or h in ENEMY:cells,CW=split_strip(a,n);cells=[descrap(feather(c)) for c in cells]
+        if h in HERO or h in ENEMY or h in BRAVE:cells,CW=split_strip(a,n);cells=[descrap(feather(c)) for c in cells]
         else:
             cells=[clean(a[:,i*cw:(i+1)*cw]) for i in range(n)];CW=cw
         for (mh,ma,mi),boxes in CUTS.items():
@@ -165,7 +167,7 @@ def build(h,Hg=190,q=52):
     items=[]
     for an,cells in frames.items():
         kk0=strip_k(h,an) if h in HERO else 1.0
-        if h in HERO or h in ENEMY:
+        if h in HERO or h in ENEMY or h in BRAVE:
             gs=max(np.where(c[...,3]>40)[0].max() for c in cells if (c[...,3]>40).any())+1
         else:
             gs=ground
@@ -200,6 +202,6 @@ def build(h,Hg=190,q=52):
 if __name__=='__main__':
     allm=json.load(open('sprmeta.json')) if os.path.exists('sprmeta.json') else {};tot=0
     only=sys.argv[1:]
-    for h in [x for x in list(HERO)+list(BOSS)+list(ENEMY) if not only or x in only]:
+    for h in [x for x in list(HERO)+list(BOSS)+list(ENEMY)+list(BRAVE) if not only or x in only]:
         at,meta,by=build(h,Hg=(176 if h in ENEMY else 190));open(f'atlas_{h}.webp','wb').write(by);at.save(f'atlas_{h}.png');allm[h]=meta;tot+=len(by);print(h,at.size,len(by)//1024,'KB',{k:len(v) for k,v in meta.items()})
     json.dump(allm,open('sprmeta.json','w'));print('total',tot//1024,'KB')
