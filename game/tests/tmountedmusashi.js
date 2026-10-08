@@ -12,7 +12,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
     f.state='idle';f.st=0;f.x=640;f.z=0;f.cur=null;if(mode==='attack')updPlayer(f,{atkP:true});
     for(let t=0;t<24;t++){
      if(mode!=='attack'||t)updPlayer(f,mode==='walk'?{r:true}:{});G.t++;drawn=[];ctx.clearRect(0,0,1280,720);drawFighter(f);
-     if(!drawn.includes(mode==='attack'&&f.state==='matk'?'mountfull3_musashi':mode==='walk'?'mountwalk4_musashi':'mountbody3_musashi'))bad.push({wrongSheet:drawn,weapon,mode,t});
+     if(!drawn.includes(mode==='attack'&&f.state==='matk'?'mountfull3_musashi':mode==='walk'?'mountwalk5_musashi':'mountbody3_musashi'))bad.push({wrongSheet:drawn,weapon,mode,t});
      if(drawn.includes('musashi')||drawn.includes('musashi_u'))bad.push({standingBodyUsed:true,mode,weapon,t});
      const ink=(x,y,w,h)=>{const a=ctx.getImageData(x,y,w,h).data;for(let j=3;j<a.length;j+=4)if(a[j]>8)return true;return false;};
      if(ink(0,0,1280,1)||ink(0,719,1280,1)||ink(0,0,1,720)||ink(1279,0,1,720))bad.push({edge:true,weapon,mode,t,y});

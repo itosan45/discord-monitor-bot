@@ -9,9 +9,9 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
   if(typeof prepareWalkPreview!=='function')return{bad:['walk preview missing']};
   window.__qaRAF=window.requestAnimationFrame;window.requestAnimationFrame=()=>0;AU.muted=true;const bad=[],keys=new Set(),faces=new Set(),f=G.player;
   if(!G.auto||G.mode!=='play'||demoView.motion!=='walk'||!f.mount||f.T.type!=='musashi')bad.push('query did not enter the mounted Musashi scene');
-  const native=ctx.drawImage.bind(ctx);ctx.drawImage=function(im,...q){if(im===SPR.mountwalk4_musashi.img)keys.add(q[0]);return native(im,...q);};
+  const native=ctx.drawImage.bind(ctx);ctx.drawImage=function(im,...q){if(im===SPR.mountwalk5_musashi.img)keys.add(q[0]);return native(im,...q);};
   for(let i=0;i<600;i++){stepGame();G.t++;if(i<64){ctx.clearRect(0,0,1280,720);drawFighter(f);}faces.add(f.face);if(G.fighters.length!==1||G.proj.length||G.items.length||G.steeds.length)bad.push('scene gained actors');if(f.x<440||f.x>840||f.state!=='walk')bad.push('walk left bounds or stopped');}
-  ctx.drawImage=native;if(keys.size!==8||faces.size!==2)bad.push({keys:keys.size,faces:faces.size});
+  ctx.drawImage=native;if(keys.size!==4||faces.size!==2)bad.push({keys:keys.size,faces:faces.size});
   demoView.paused=true;const x=f.x;for(let i=0;i<10;i++)if(demoViewTick())stepGame();if(f.x!==x)bad.push('pause moved');
   demoView.steps=1;if(demoViewTick())stepGame();if(f.x===x||demoViewTick())bad.push('step did not advance exactly once');
   demoView.settings=true;autoUI(true);return{bad,keys:keys.size,faces:[...faces],mode:G.mode};

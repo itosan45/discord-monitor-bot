@@ -8,12 +8,12 @@ const f=mk(hero,640,y,0);f.mount={hp:6,max:6,col:'iron'};f.wpn=weapon?{k:weapon,
 for(const mode of ['idle','walk','attack','special']){f.x=640;f.state='idle';f.st=0;f.cur=null;f.ki=300;if(mode==='attack')updPlayer(f,{atkP:true});if(mode==='special')updPlayer(f,{spcP:true});
 const N=mode==='walk'?64:mode==='special'?40:24;for(let t=0;t<N;t++){
 keys=[];coords=[];ctx.clearRect(0,0,1280,720);drawFighter(f);
-const walkKey=(hero==='mitsu'?'mountwalk5_':'mountwalk4_')+hero;const expected=f.state==='walk'?walkKey:(f.state==='matk'||f.state==='mspc')&&hero==='musashi'?'mountfull3_musashi':'mountbody3_'+hero;
+const walkKey='mountwalk5_'+hero;const expected=f.state==='walk'?walkKey:(f.state==='matk'||f.state==='mspc')&&hero==='musashi'?'mountfull3_musashi':'mountbody3_'+hero;
 if(!keys.includes(expected)||keys.includes(hero)||keys.includes(hero+'_u'))bad.push({hero,weapon,mode,t,keys,expected});
 for(const [k,c] of coords){if(k===walkKey)walk.add(c);if(k==='mountbody3_'+hero||k==='mountfull3_'+hero)attack.add(c);}
 if(!weapon&&face===1&&y===570&&low&&t===12&&mode!=='special'){renderWorld();shots.push({name:hero+'-'+mode,png:cv.toDataURL().split(',')[1]});}
 updPlayer(f,mode==='walk'?(face===1?{r:true}:{l:true}):{});G.t++;
 }}
-if(walk.size!==(hero==='mitsu'?4:8))bad.push({hero,weapon,walk:walk.size});if(attack.size<4)bad.push({hero,weapon,attack:attack.size});cases.push({hero,weapon,face,y,low});}
+if(walk.size!==4)bad.push({hero,weapon,walk:walk.size});if(attack.size<4)bad.push({hero,weapon,attack:attack.size});cases.push({hero,weapon,face,y,low});}
 ctx.drawImage=native;return{cases:cases.length,bad:bad.slice(0,30),shots};});const out=process.env.OUT||'C:/Users/user/Desktop/output/sekigahara-new-20261006/qa/mounted-all-v4/runtime';fs.mkdirSync(out,{recursive:true});for(const s of r.shots)fs.writeFileSync(path.join(out,s.name+'.png'),Buffer.from(s.png,'base64'));delete r.shots;fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify({r,errors},null,2));console.log(JSON.stringify({r,errors}));if(r.bad.length||errors.length)process.exitCode=1;
 }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
