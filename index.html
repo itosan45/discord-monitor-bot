@@ -27,7 +27,7 @@ html,body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;o
 .btn{border-width:2px;background:rgba(20,20,30,.34);border-color:rgba(255,255,255,.5)}
 #bP,#bF{border-width:2px;font-size:calc(var(--u)*.3);opacity:.7}
 #base{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
-#auto{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);z-index:8;display:none;gap:4px;align-items:center;flex-wrap:nowrap;justify-content:center;font:bold 12px sans-serif;white-space:nowrap;color:#fff;background:rgba(10,8,14,.72);border:1px solid rgba(232,195,90,.6);border-radius:10px;padding:4px 8px;max-width:98vw;opacity:.85}
+#auto{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);z-index:8;display:none;gap:4px;align-items:center;flex-wrap:wrap;justify-content:center;font:bold 12px sans-serif;white-space:nowrap;color:#fff;background:rgba(10,8,14,.72);border:1px solid rgba(232,195,90,.6);border-radius:10px;padding:4px 8px;max-width:98vw;opacity:.85}
 #auto button,#auto select{font:bold 12px sans-serif;color:#fff;background:rgba(60,40,30,.9);border:1px solid rgba(232,195,90,.7);border-radius:6px;padding:4px 7px;cursor:pointer}
 #auto button.sel{background:#b8401e}
 #auto .big{font-size:16px;padding:8px 16px;background:#9a2416}
@@ -2061,17 +2061,29 @@ function drawHowtoUI(S,t){
 
 /* ===================== AUTO PLAY (デモプレイ) ===================== */
 const autoEl=document.getElementById('auto');let _autoKey='';
-function autoUI(force){const m=G.mode,want=G.auto&&(m==='play'||m==='story'||m==='end')?'bar':'none';const key=want+'|'+(G.autoSpd||1)+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk;if(!force&&key===_autoKey)return;_autoKey=key;
+const demoView={paused:false,steps:0,credit:0};
+function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
+function demoViewTick(){
+ if(!demoViewActive()){demoView.paused=false;demoView.steps=0;demoView.credit=0;return true;}
+ if(demoView.paused){if(demoView.steps>0){demoView.steps--;return true;}return false;}
+ const speed=Math.min(1,G.autoSpd||1);demoView.credit+=speed;
+ if(demoView.credit<1)return false;demoView.credit-=1;return true;
+}
+function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const key=want+'|'+m+'|'+(G.autoSpd||1)+'|'+demoView.paused+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk;if(!force&&key===_autoKey)return;_autoKey=key;
  if(want==='none'){autoEl.style.display='none';return;}autoEl.style.display='flex';autoEl.innerHTML='';
  const B=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();fn();_autoKey='';});autoEl.appendChild(b);return b;};
  const L=t=>{const s=document.createElement('span');s.className='lab';s.textContent=t;autoEl.appendChild(s);};
+ const playback=()=>{L('速度');for(const v of (m==='demo'?[0.25,0.5,1]:[0.25,0.5,1,2,4]))B('×'+v,()=>{G.autoSpd=v;demoView.credit=0;},(G.autoSpd||1)===v?'sel':'');
+  B(demoView.paused?'▶ 再開':'Ⅱ 停止',()=>{demoView.paused=!demoView.paused;demoView.steps=0;});
+  B('1コマ',()=>{demoView.paused=true;demoView.steps++;});};
+ if(m==='demo'){playback();B('■ 終了',()=>startTitle());return;}
  autoEl.className=want==='start'?'st':'';if(want==='start'){B('▶ デモプレイ（全編自動）',()=>startAuto('yuki',0),'big');return;}
  const sel=document.createElement('select');for(const h of SEL_ORDER.concat(HIDDEN)){const o=document.createElement('option');o.value=h;o.textContent=TY[h].name;if(h===G.curCh)o.selected=true;sel.appendChild(o);}
  sel.addEventListener('pointerdown',e=>e.stopPropagation());sel.addEventListener('change',()=>{startAuto(sel.value,G.stage);_autoKey='';});autoEl.appendChild(sel);
  L('相方');const ps=document.createElement('select');for(const h of [''].concat(SEL_ORDER.concat(HIDDEN).filter(k=>k!==G.curCh))){const o=document.createElement('option');o.value=h;o.textContent=h?TY[h].name:'なし（1人）';if(h===(G.autoPk||''))o.selected=true;ps.appendChild(o);}
  ps.addEventListener('pointerdown',e=>e.stopPropagation());ps.addEventListener('change',()=>{G.autoPk=ps.value||null;startAuto(G.curCh,G.stage);_autoKey='';});autoEl.appendChild(ps);
  L('幕');for(let i=0;i<STG.length;i++)B(String(i+1),()=>startAuto(G.curCh,i),i===G.stage?'sel':'');
- L('速度');for(const v of [1,2,4])B('×'+v,()=>{G.autoSpd=v;},(G.autoSpd||1)===v?'sel':'');
+ playback();
  B('会話とばす',()=>{if(G.mode==='story')endStory();});
  B('■ 終了',()=>{G.auto=false;startTitle();});}
 /* ===================== MAIN ===================== */
@@ -2111,7 +2123,7 @@ function frame(){ctx.setTransform(RS,0,0,RS,0,0);if(G.lowq)ctx.imageSmoothingQua
   else if(pressed.KeyP||pressed.Escape){G.pause=!G.pause;G.pzSel=0;}
   else if(G.pause){if(pressed.ArrowUp||pressed.ArrowDown||pressed.KeyW||pressed.KeyS){G.pzSel=(G.pzSel||0)^1;AU.sfx('ui');}
    if(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ){AU.sfx('ok');if((G.pzSel||0)===0)G.pause=false;else{G.pause=false;G.pzSel=0;startTitle();}}}
-  if(!G.pause){stepGame();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='play';r++)stepGame();}
+  if(!G.pause){stepGame();if(G.auto&&!demoView.paused)for(let r=1;r<(G.autoSpd||1)&&G.mode==='play';r++)stepGame();}
   if(G.mode==='demo'||G.mode==='play'){renderWorld();drawHUD();drawOverlays();if(G.mode==='demo')drawTitleOverlay();}
  }else if(G.mode==='howto'){stepHowto();ctx.drawImage(VIG,0,0);
  }else if(G.mode==='diff'){stepDiff();ctx.drawImage(VIG,0,0);
@@ -2121,7 +2133,7 @@ function frame(){ctx.setTransform(RS,0,0,RS,0,0);if(G.lowq)ctx.imageSmoothingQua
   else if(pressed.Escape){G.selTap=null;if(G.selStep===1){G.selStep=0;G.sel=Math.max(0,heroList().indexOf(G.heroPick));}else{G.mode='diff';G.diffSel=G.diff??1;}}
   if(G.mode==='select'){drawSelect();ctx.drawImage(VIG,0,0);}
  }else if(G.mode==='end'){drawEnd();ctx.drawImage(VIG,0,0);}
- else if(G.mode==='story'){stepStory();if(G.auto)for(let r=1;r<(G.autoSpd||1)&&G.mode==='story';r++)stepStory();if(G.mode==='story'){drawStory();ctx.drawImage(VIG,0,0);}}
+ else if(G.mode==='story'){stepStory();if(G.auto&&!demoView.paused)for(let r=1;r<(G.autoSpd||1)&&G.mode==='story';r++)stepStory();if(G.mode==='story'){drawStory();ctx.drawImage(VIG,0,0);}}
  else if(G.mode==='title'){stepTitle();if(G.mode==='title'){drawTitle();ctx.drawImage(VIG,0,0);}}
  else if(G.mode==='gate'){stepGate();if(G.mode==='gate')drawGate();}
  else if(G.mode==='opening'){stepOpening();if(G.mode==='opening')drawOpening();}
@@ -2131,7 +2143,8 @@ function frame(){ctx.setTransform(RS,0,0,RS,0,0);if(G.lowq)ctx.imageSmoothingQua
 let acc=0,last=performance.now();
 let _fe=16,_slow=0;function loop(now){const dt=now-last;_fe+=(Math.min(100,dt)-_fe)*0.08;if(!G.lowq&&_fe>23){_slow++;if(_slow>20){G.lowq=true;if(TOUCH)setLowRes(true);}}else _slow=0;acc+=Math.min(100,dt);last=now;
  let n=Math.floor(acc/(1000/60));if(n>3){n=3;acc=3*1000/60;}
- for(let i=0;i<n;i++){ctx=i<n-1?DCTX:MCTX;try{frame();}finally{ctx=MCTX;}acc-=1000/60;}requestAnimationFrame(loop);}
+ autoUI();
+ for(let i=0;i<n;i++){if(demoViewTick()){ctx=demoViewActive()?MCTX:(i<n-1?DCTX:MCTX);try{frame();}finally{ctx=MCTX;}}acc-=1000/60;}requestAnimationFrame(loop);}
 /* ===================== TOUCH (Android) ===================== */
 const TOUCH=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 if(TOUCH&&((navigator.hardwareConcurrency||8)<=4||(navigator.deviceMemory||8)<=3)){G.lowq=true;setLowRes(true);}

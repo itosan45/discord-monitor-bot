@@ -21,6 +21,7 @@
 2. 待機→歩き→攻撃→待機を見て、顔・鎧・旗・体格・接地位置が連続しているか確認する。武器の先端だけで体格を合わせない。
 3. ボスの技は`TY`に登録してから、下記テストを実行する。新ボスも`tbosstechniques.js`の対象へ自動的に入る。アトラスのキーが異なる場合はテスト側にも対応を追加する。
 4. Android相当の横画面で自動デモAIを動かし、各ボスの攻撃中のゲーム画面を保存して目視する。シートの一覧画像だけでは合格にしない。検査用にHPや出現波を変更した場合は、自然な全編通しと区別して記録する。
+   デモの速度を×0.25にして、怪しい瞬間は停止→1コマで前後を確認する。`tdemoslowcapture.js`は8ボスの対戦を準備し、実際のAIが選んだ攻撃の有効時間を撮影する。guard/stepは攻撃として数えない。敵の無敵時間を極端に増やすとAIが攻撃を開始しないため、撮影用の耐久強化にはHPを使う。
 5. 数値検査・動作画像・実施環境・未確認範囲を記録し、通過したコミットだけをpush・デプロイする。
 
 主人公6人も公開前の対象に含める。検査表の軸は「キャラ×本来の武器・拾得武器×徒歩・馬上×攻撃の種類×左右向き×上中下レーン」。通常連続技、突進、ジャンプ、溜め、必殺を確認する。馬上は専用の一体絵を使い、武器系統とシートの対応、地上の敵へ向く打点を目視する。鎖鎌は回転中の移動、投擲、引き寄せ、斬撃、回収も別に確認する。絵の選択が正しくても、当たり判定・射程・発射方向まで正しいとは限らないので区別する。
@@ -35,6 +36,8 @@ node game/tests/tmountedattack.js http://127.0.0.1:8876/index.html
 node game/tests/theromatrix.js http://127.0.0.1:8876/index.html
 node game/tests/tkusariheroes.js http://127.0.0.1:8876/index.html
 node game/tests/tkusarivisibility.js http://127.0.0.1:8876/index.html
+node game/tests/tdemoslow.js http://127.0.0.1:8876/index.html
+node game/tests/tdemoslowcapture.js http://127.0.0.1:8876/index.html
 node game/tests/tmountedranged.js http://127.0.0.1:8876/index.html
 git diff --check
 ```
