@@ -616,7 +616,7 @@ function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i
 
 function startAuto(ch,si){AU.init();AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.score=0;G.lives=99;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;if(G.autoPk===undefined)G.autoPk='kage';if(G.autoPk===ch)G.autoPk=ch==='yuki'?'kage':'yuki';G.partnerType=G.autoPk||null;G.curCh=ch;G.mode='play';startStage(si,ch,false);G.auto=true;G.lives=99;
  setDemoMount(demoView.mounted);
- if(si===0)startStory('pro',()=>startStory('s0'));else startStory('s'+si);if(demoView.paused)demoView.steps=1;autoUI(true);}
+ if(demoView.motion==='walk')prepareWalkPreview();else if(si===0)startStory('pro',()=>startStory('s0'));else startStory('s'+si);if(demoView.paused)demoView.steps=1;autoUI(true);}
 
 /* ===================== TITLE SCREEN ===================== */
 const TMENU=['はじめる','デモプレイ（全編自動）'];
@@ -2102,7 +2102,12 @@ function drawHowtoUI(S,t){
 
 /* ===================== AUTO PLAY (デモプレイ) ===================== */
 const autoEl=document.getElementById('auto');let _autoKey='';
-const demoView={paused:false,steps:0,credit:0,settings:false,mounted:false};
+const demoView={paused:false,steps:0,credit:0,settings:false,mounted:false,motion:'auto'};
+// Repeat the real movement update without combat interrupting a gait inspection.
+function prepareWalkPreview(){const p=G.player;G.mode='play';G.state='run';G.fighters=[p];G.partner=null;G.boss=null;G.sq=[];G.proj=[];G.items=[];G.props=[];G.parts=[];G.steeds=[];G.banner=null;G.vo=null;G.cut=null;G.ult=null;G.hitstop=0;G.slow=0;G.camx=0;p.x=640;p.y=570;p.z=0;p.state='idle';p.st=0;p.cur=null;p.face=1;p.inv=0;p.flash=0;p.wp=0;}
+function stepWalkPreview(){const p=G.player;if(p.x>=830)p.face=-1;else if(p.x<=450)p.face=1;updPlayer(p,p.face===1?{r:true}:{l:true});updParts();}
+let walkPreviewBooted=false;
+function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(q.get('preview')!=='walk')return;const hero=SEL_ORDER.includes(q.get('hero'))?q.get('hero'):'musashi';demoView.motion='walk';demoView.mounted=q.get('mount')==='1';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
 function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
 function demoViewTick(){
  if(!demoViewActive()){demoView.paused=false;demoView.steps=0;demoView.credit=0;return true;}
@@ -2110,7 +2115,7 @@ function demoViewTick(){
  const speed=Math.min(1,G.autoSpd||1);demoView.credit+=speed;
  if(demoView.credit<1)return false;demoView.credit-=1;return true;
 }
-function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const key=want+'|'+m+'|'+(G.autoSpd||1)+'|'+demoView.paused+'|'+demoView.settings+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk;if(!force&&key===_autoKey)return;_autoKey=key;
+function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const key=want+'|'+m+'|'+(G.autoSpd||1)+'|'+demoView.paused+'|'+demoView.settings+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk+'|'+demoView.motion;if(!force&&key===_autoKey)return;_autoKey=key;
  if(want==='none'){autoEl.style.display='none';return;}autoEl.style.display='flex';autoEl.innerHTML='';
  const B=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();fn();_autoKey='';});autoEl.appendChild(b);return b;};
  const L=t=>{const s=document.createElement('span');s.className='lab';s.textContent=t;autoEl.appendChild(s);};
@@ -2127,6 +2132,7 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
  L('幕');const stage=document.createElement('select');stage.setAttribute('aria-label','幕');for(let i=0;i<STG.length;i++){const o=document.createElement('option');o.value=i;o.textContent=String(i+1);o.selected=i===G.stage;stage.appendChild(o);}stage.addEventListener('pointerdown',e=>e.stopPropagation());stage.addEventListener('change',()=>startAuto(G.curCh,Number(stage.value)));autoEl.appendChild(stage);
  playback();
  L('馬');const horse=document.createElement('select');horse.setAttribute('aria-label','馬の有無');for(const [v,label] of [['0','なし'],['1','あり']]){const o=document.createElement('option');o.value=v;o.textContent=label;o.selected=(v==='1')===demoView.mounted;horse.appendChild(o);}horse.addEventListener('pointerdown',e=>e.stopPropagation());horse.addEventListener('change',()=>{setDemoMount(horse.value==='1');_autoKey='';});autoEl.appendChild(horse);
+ L('動作');const motion=document.createElement('select');motion.setAttribute('aria-label','確認する動作');for(const [v,label] of [['auto','自動'],['walk','歩行']]){const o=document.createElement('option');o.value=v;o.textContent=label;o.selected=v===demoView.motion;motion.appendChild(o);}motion.addEventListener('pointerdown',e=>e.stopPropagation());motion.addEventListener('change',()=>{demoView.motion=motion.value;startAuto(G.curCh,G.stage);_autoKey='';});autoEl.appendChild(motion);
  if(m==='story')B('会話とばす',()=>endStory());
  B('閉じる',()=>{demoView.settings=false;});}
 /* ===================== MAIN ===================== */
@@ -2148,6 +2154,7 @@ function renderWorld(){
  ctx.fillStyle=STG[G.stage].tint;ctx.fillRect(0,0,W,H);ctx.drawImage(VIG,0,0);postFX();
 }
 function stepGame(){
+ if(G.auto&&demoView.motion==='walk'){stepWalkPreview();return;}
  if(G.state==='continue'){contStep();updParts();return;}
  if(G.ult){if(G.hitstop>0)G.hitstop--;else updUlt();updParts();return;}
  if(G.hitstop>0){G.hitstop--;updParts();return;}
@@ -2159,7 +2166,7 @@ function sprAllReady(){for(const k in SPR){const S=SPR[k];if(!S.ready&&!S.failed
 let _loadT=0;
 function frame(){ctx.setTransform(RS,0,0,RS,0,0);if(G.lowq)ctx.imageSmoothingQuality='low';
  if(!sprAllReady()){_loadT++;ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);txt('読み込み中'+'.'.repeat(1+(_loadT>>4)%3),W/2,H/2,34,'#e8c35a','center','#000',4);txt('SEKIGAHARA RANBU',W/2,H/2-60,20,'#8a7a58','center','#000',3,'Arial');return;}
- G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'&&!G.auto&&!G.pause?'block':'none';autoUI();
+ bootWalkPreview();G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'&&!G.auto&&!G.pause?'block':'none';autoUI();
  try{
  if(G.mode==='demo'||G.mode==='play'){
   if(G.mode==='demo'){G.titleT=(G.titleT||0)+1;if(anyKey()&&G.t>5&&!pressed.KeyM){startTitle();AU.sfx('ok');}else if(G.titleT>60*45){G.demoNext=(G.demoI+1);startTitle();}}
