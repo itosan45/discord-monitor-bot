@@ -13,4 +13,3 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    }}return{rows};});
  console.log(JSON.stringify({assets:r.rows.length,errors,pageErrors:errors,failures:r.rows.filter(x=>x.error)}));await b.close();if(errors.length||r.rows.length!==60||r.rows.some(x=>x.error||x.frames!==5||x.rendered!==5||x.minInk<100))process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1;});
-
