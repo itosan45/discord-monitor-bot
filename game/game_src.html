@@ -29,6 +29,15 @@ html,body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;o
 #base{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
 #auto{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);z-index:8;display:none;gap:4px;align-items:center;flex-wrap:wrap;justify-content:center;font:bold 12px sans-serif;white-space:nowrap;color:#fff;background:rgba(10,8,14,.72);border:1px solid rgba(232,195,90,.6);border-radius:10px;padding:4px 8px;width:max-content;max-width:calc(100vw - 24px);opacity:.85}
 #auto button,#auto select{font:bold 12px sans-serif;color:#fff;background:rgba(60,40,30,.9);border:1px solid rgba(232,195,90,.7);border-radius:6px;padding:4px 7px;cursor:pointer}
+#auto.inspect{flex-wrap:nowrap;overflow-x:auto;gap:3px}
+#auto.inspect select{flex-shrink:0;max-width:100px}
+#auto.inspect select[aria-label="確認するキャラ"]{width:98px}
+#auto.inspect select[aria-label="確認する動作"]{width:78px}
+#auto.inspect select[aria-label="確認する武器"]{width:80px}
+#auto.inspect select[aria-label="馬の有無"]{width:70px}
+#auto.inspect select[aria-label="向き"]{width:46px}
+#auto.inspect select[aria-label="再生速度"]{width:74px}
+#auto.inspect button,#auto.inspect .lab{flex-shrink:0}
 #auto button.sel{background:#b8401e}
 #auto .big{font-size:16px;padding:8px 16px;background:#9a2416}
 #auto.st{bottom:auto;top:10px;right:10px;left:auto;transform:none}
@@ -1917,7 +1926,7 @@ function drawHUD(){drawHitCounter();
  // player panel
  ctx.save();ctx.fillStyle='rgba(10,8,12,0.62)';ctx.beginPath();ctx.moveTo(14,12);ctx.lineTo(430,12);ctx.lineTo(412,104);ctx.lineTo(14,104);ctx.closePath();ctx.fill();ctx.strokeStyle='#c9a24a';ctx.lineWidth=2;ctx.stroke();
  ctx.save();ctx.beginPath();ctx.arc(66,58,38,0,TAU);ctx.clip();const bg=ctx.createLinearGradient(0,20,0,96);bg.addColorStop(0,'#3a3050');bg.addColorStop(1,'#14101c');ctx.fillStyle=bg;ctx.fillRect(20,18,90,80);if(imgOK(FACE[T.type]))ctx.drawImage(FACE[T.type],22,16,88,88);else{ctx.translate(64,86);ctx.scale(1.8,1.8);drawHead(T,T.col,0,-6,G.t,false);}ctx.restore();circ(66,58,38,null,'#c9a24a',3);
- txt(T.name,116,32,26,'#fff','left','#000',4);txt(T.en,118,52,11,'#e8c35a','left',null,0,'Arial');
+ txt(T.name,116,32,26,'#fff','left','#000',4);txt(T.en||(G.auto&&demoView.motion!=='auto'?'DEBUG':''),118,52,11,'#e8c35a','left',null,0,'Arial');
  p.hpLag=p.hpLag==null?p.hp:p.hpLag;p.hpLag+=(p.hp-p.hpLag)*0.06;if(p.hpLag<p.hp)p.hpLag=p.hp;
  bar(118,62,250,14,p.hp,p.maxhp,p.hp<p.maxhp*0.3?'#ff5a3a':'#7fe05a',p.hp<p.maxhp*0.3?'#a02010':'#2a8a1a',p.hpLag);
  {const lv=Math.floor(p.ki/100),cols=['#3a8ad0','#e8b030','#ff4a2a'];ctx.fillStyle='#120c18';ctx.fillRect(118,82,190,8);for(let i=0;i<3;i++){const f=clamp(p.ki-i*100,0,100)/100;ctx.fillStyle=f>=1?cols[i]:'#4a5a80';ctx.fillRect(118+i*64,82,62*f,8);ctx.fillStyle='rgba(0,0,0,0.6)';ctx.fillRect(118+i*64+62,82,2,8);}if(lv>=1&&G.t%40<28)txt((lv>=3?'奥義':'必殺')+' Lv'+lv+(TOUCH?'':' [C]'),318,87,12,['','#9fe0ff','#ffd060','#ff7a5a'][lv],'left','#000',3);}
@@ -2117,11 +2126,11 @@ function stepWalkPreview(){const p=G.player,a=demoView.motion;
   else if(p.debugEnemy){p.t++;p.st++;if(p.state==='atk')updAtk(p);}else updPlayer(p,{});}
  keepFighterOnScreen(p);p.y=clamp(p.y,YMIN,YMAX);G.fighters=[p];G.items=[];G.steeds=[];G.proj=[];G.shake=0;G.hitstop=0;updParts();}
 function setInspectionMode(debug){demoView.motion=debug?'walk':'auto';demoView.actor=null;demoView.settings=true;startAuto(SEL_ORDER.concat(HIDDEN).includes(G.curCh)?G.curCh:'yuki',G.stage);}
-function debugUI(B,L,playback){
+function debugUI(B,L,playback){autoEl.className='inspect';
  const S=(label,items,value,change)=>{const e=document.createElement('select');e.setAttribute('aria-label',label);for(const [v,t] of items){const o=document.createElement('option');o.value=v;o.textContent=t;o.selected=String(v)===String(value);e.appendChild(o);}e.addEventListener('pointerdown',e=>e.stopPropagation());e.addEventListener('change',()=>{change(e.value);_autoKey='';});autoEl.appendChild(e);return e;};
  S('確認モード',[['debug','一体デバッグ'],['stage','全編デモ']],'debug',v=>setInspectionMode(v==='debug'));
  const p=G.player,hero=!p.debugEnemy;S('確認するキャラ',Object.keys(TY).map(k=>[k,k==='spear'?'足軽（槍）':k==='sword'?'足軽（刀）':TY[k].name||k]),p.T.type,v=>{demoView.actor=v;demoView.motion='walk';prepareWalkPreview();});
- const actions=[['idle','待機'],['walk','歩行'],...p.T.atk.map((d,i)=>['atk'+i,'攻撃'+(i+1)+(d.anim?' '+d.anim:'')])];
+ const actions=[['idle','待機'],['walk','歩行'],...(p.mount?[['atk0','馬上攻撃']]:p.T.atk.map((d,i)=>['atk'+i,'攻撃'+(i+1)+(d.anim?' '+d.anim:'')]))];
  if(hero){actions.push(['special','必殺']);if(!p.mount)actions.push(['jump','跳躍'],['charge','溜め']);if(demoView.weapon==='kusari'&&!p.mount)actions.push(['spin','分銅旋回'],['throw','分銅投擲']);}
  S('確認する動作',actions,demoView.motion,v=>{demoView.motion=v;prepareWalkPreview();});
  const weapon=S('確認する武器',hero?[['','主武器'],...Object.keys(WPN).map(k=>[k,WPN[k].n])]:[['','固有装備']],hero?demoView.weapon:'',v=>{demoView.weapon=v;prepareWalkPreview();});weapon.disabled=!hero;
@@ -2129,7 +2138,7 @@ function debugUI(B,L,playback){
  S('向き',[['1','右'],['-1','左']],demoView.facing,v=>{demoView.facing=Number(v);prepareWalkPreview();});playback();B('■ 終了',()=>{G.auto=false;startTitle();});}
 
 let walkPreviewBooted=false;
-function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(q.get('preview')!=='walk')return;const hero=SEL_ORDER.includes(q.get('hero'))?q.get('hero'):'musashi';demoView.motion='walk';demoView.mounted=q.get('mount')==='1';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
+function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(!['walk','debug'].includes(q.get('preview')))return;const hero=SEL_ORDER.includes(q.get('hero'))?q.get('hero'):'musashi',actor=TY[q.get('actor')]?q.get('actor'):hero,isHero=SEL_ORDER.concat(HIDDEN).includes(actor);demoView.actor=actor;demoView.weapon=WPN[q.get('weapon')]?q.get('weapon'):'';demoView.motion='walk';const a=q.get('action'),allowed=['idle','walk',...TY[actor].atk.map((d,i)=>'atk'+i)];if(isHero)allowed.push('special','jump','charge','spin','throw');if(allowed.includes(a))demoView.motion=a;demoView.mounted=isHero&&q.get('mount')==='1';if(demoView.mounted&&['jump','charge','spin','throw'].includes(demoView.motion))demoView.motion='walk';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
 function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
 function demoViewTick(){
  if(!demoViewActive()){demoView.paused=false;demoView.steps=0;demoView.credit=0;return true;}
@@ -2138,7 +2147,7 @@ function demoViewTick(){
  if(demoView.credit<1)return false;demoView.credit-=1;return true;
 }
 function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const key=want+'|'+m+'|'+(G.autoSpd||1)+'|'+demoView.paused+'|'+demoView.settings+'|'+G.stage+'|'+G.curCh+'|'+G.autoPk+'|'+demoView.motion+'|'+demoView.actor+'|'+demoView.weapon+'|'+demoView.mounted;if(!force&&key===_autoKey)return;_autoKey=key;
- if(want==='none'){autoEl.style.display='none';return;}autoEl.style.display='flex';autoEl.innerHTML='';
+ if(want==='none'){autoEl.style.display='none';return;}autoEl.style.display='flex';autoEl.className='';autoEl.innerHTML='';
  const B=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();AU.init();fn();_autoKey='';});autoEl.appendChild(b);return b;};
  const L=t=>{const s=document.createElement('span');s.className='lab';s.textContent=t;autoEl.appendChild(s);};
  const playback=()=>{L('速度');const speed=document.createElement('select');speed.setAttribute('aria-label','再生速度');for(const v of (m==='demo'?[0.25,0.5,1]:[0.25,0.5,1,2,4])){const o=document.createElement('option');o.value=v;o.textContent='×'+v;o.selected=v===(m==='demo'?Math.min(1,G.autoSpd||1):(G.autoSpd||1));speed.appendChild(o);}speed.addEventListener('pointerdown',e=>e.stopPropagation());speed.addEventListener('change',()=>{G.autoSpd=Number(speed.value);demoView.credit=0;_autoKey='';});autoEl.appendChild(speed);
