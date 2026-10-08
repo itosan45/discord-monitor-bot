@@ -1709,12 +1709,13 @@ function mountedAttackProfile(f){if(!f.wpn)return'default';const w=WPN[f.wpn.k];
 const MRIDE={musashi:{hip:112,dy:6,sc:0.98}};
 // Whole seated riders: one body frame contains the horse, thighs, shins and stirrups.
 // Never substitute a cropped standing body when this dedicated artwork is ready.
+const WHOLE_MOUNT_SCALE=1.2/1.4; // One horse+rider scale for all six heroes.
 function drawWholeMounted(f){const W=SPR['mountwalk4_'+f.T.type],walking=f.state==='walk'&&W&&W.ready,B=walking?W:SPR['mountbody3_'+f.T.type];if(!B||!B.ready)return false;
  const attacking=f.state==='matk'||f.state==='mspc',dur=f.state==='mspc'?40:f.cur&&f.cur.dur||24,t=clamp(f.st,0,dur)*24/dur,times=[0,6,10,16,22],seq=[0,2,3,4,0];
  let phase=0;if(attacking)while(phase<4&&t>=times[phase+1])phase++;
  const i=attacking?seq[phase]:walking?Math.floor(((f.wp||0)/TAU*B.a.all.length)%B.a.all.length):0,q=B.a.all[i],hand=B.a.handAll[i],fl=f.flash>0&&(f.flash&2);
  const C=SPR['mountfull3_'+f.T.type],kind=f.wpn?f.wpn.k:'default',full=attacking&&C&&C.ready&&C.a[kind],fq=full&&full[phase];
- ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(f.face*f.sc,f.sc);
+ ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(f.face*f.sc*WHOLE_MOUNT_SCALE,f.sc*WHOLE_MOUNT_SCALE);
  if(fq){ctx.drawImage(fl?sprWhite(C):C.img,fq[0],fq[1],fq[2],fq[3],fq[4],fq[5],fq[2]*(fq[6]||1),fq[3]*(fq[6]||1));ctx.restore();return true;}
  ctx.drawImage(fl?sprWhite(B):B.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));
  const wk=f.wpn?WPN[f.wpn.k]:{draw:f.T.wp,tip:f.T.tip,heavy:f.T.wp==='gunbai'},hx=hand[0],hy=hand[1];

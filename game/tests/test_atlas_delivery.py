@@ -16,7 +16,9 @@ class AtlasDelivery(unittest.TestCase):
         data = json.loads(match.group(1))
         for hero in ['yuki', 'kage', 'mitsu', 'nobu', 'shin', 'musashi']:
             self.assertNotIn('mountatk_' + hero, data['spr'])
-            current = 'mountfull3_musashi' if hero == 'musashi' else 'mountatk2_' + hero
+            self.assertNotIn('mountatk2_' + hero, data['spr'])
+            self.assertIn('mountwalk4_' + hero, data['spr'])
+            current = 'mountbody3_' + hero
             self.assertIn(current, data['spr'])
             self.assertIn(current, data['sm'])
             self.assertTrue((ROOT / data['spr'][current].split('?')[0]).is_file())
