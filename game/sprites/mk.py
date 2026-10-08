@@ -136,6 +136,10 @@ def build(h,Hg=190,q=52):
         import re;n=int(re.search(r'_(\d+)コマ',f).group(1));im=Image.open(SRC+f)
         a=keyim(im);cw=im.size[0]//n
         if h in HERO or h in ENEMY or h in BRAVE:cells,CW=split_strip(a,n);cells=[descrap(feather(c)) for c in cells]
+        elif h in BOSS and an in ('a1','big','dash'):
+            # Weapons and capes may cross nominal cells. Keep the connected
+            # figure intact rather than cutting at the strip's grid lines.
+            cells,CW=split_strip(a,n);cells=[clean(c) for c in cells]
         else:
             cells=[clean(a[:,i*cw:(i+1)*cw]) for i in range(n)];CW=cw
         for (mh,ma,mi),boxes in CUTS.items():
@@ -182,7 +186,7 @@ def build(h,Hg=190,q=52):
             f=s*kk;fs=s*min(kk,1.0)
             nw,nh=max(1,round(im.width*fs)),max(1,round(im.height*fs))
             im=im.resize((nw,nh),Image.LANCZOS)
-            dx=round((x0-CWc)*f);dy=round((y0-gs)*f);ds=round(f/fs,3)
+            dx=round((x0-c.shape[1]/2)*f);dy=round((y0-gs)*f);ds=round(f/fs,3)
             items.append((an,i,(im,dx,dy,ds)))
     # shelf pack
     AW=2048;x=y=rowh=0;pos=[];

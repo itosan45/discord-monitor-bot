@@ -1,7 +1,7 @@
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 const fs=require('fs'),path=require('path');
 (async()=>{
- const b=await chromium.launch();
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await (await b.newContext({viewport:{width:1280,height:720}})).newPage();
  const errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.argv[2]||'http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
@@ -35,7 +35,11 @@ const fs=require('fs'),path=require('path');
       const pix=ctx.getImageData(0,0,1280,720).data;let x0=1280,y0=720,x1=-1,y1=-1;
       for(let y=0;y<720;y++)for(let x=0;x<1280;x++){if(pix[(y*1280+x)*4+3]>0){x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y);}}
       if(x0<8||y0<8||x1>1271||y1>711)bad.push(`${type}:${g.name}:${ix}-canvas-edge`);
-      const cell=document.createElement('canvas');cell.width=cw;cell.height=ch;const cc=cell.getContext('2d');cc.fillStyle='#666';cc.fillRect(0,0,cw,ch);cc.drawImage(ctx.canvas,460,340,360,240,0,0,cw,ch);
+      const cell=document.createElement('canvas');cell.width=cw;cell.height=ch;const cc=cell.getContext('2d');cc.fillStyle='#666';cc.fillRect(0,0,cw,ch);
+      // Fit the complete rendered bounds; the old fixed preview crop itself
+      // cut off long weapons and made a passing canvas-edge check misleading.
+      const bw=x1-x0+17,bh=y1-y0+17,k=Math.min(cw/bw,(ch-20)/bh);
+      cc.drawImage(ctx.canvas,x0-8,y0-8,bw,bh,(cw-bw*k)/2,20+(ch-20-bh*k)/2,bw*k,bh*k);
       seen.set(ix,cell);
      }
     }
