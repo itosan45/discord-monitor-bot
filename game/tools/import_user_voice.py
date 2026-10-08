@@ -15,6 +15,7 @@ FILES = {
     "victory": "victory.m4a",
 }
 FILTERS = (
+    "silenceremove=start_periods=1:start_duration=0.08:start_threshold=-34dB,"
     "highpass=f=100,lowpass=f=9000,"
     "acompressor=threshold=-24dB:ratio=2.5:attack=8:release=150:makeup=4dB,"
     "volume=5dB,aecho=0.9:0.8:65|130:0.14|0.08,alimiter=limit=0.92"

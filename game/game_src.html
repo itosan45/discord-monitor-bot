@@ -1155,7 +1155,7 @@ function updWorld(){
  if(G.goT>0)G.goT++;if(G.goT>300)G.goT=0;
  if(G.waveOn||G.state!=='run')G.goT=0;
  // state flow
- if(G.state==='bossdown'){G.stateT++;const kt=G.stateT;if(!G.demo){if(kt===60)kgunInit();kgunStep(kt);const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===176)G.kdOK=AU.kachi();if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);if(!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');}if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);if(!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');G.shake=12;}}if(G.stateT>(G.demo?170:345)){G.state='clear';G.kgun=null;G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');else AU.fanfare();G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
+ if(G.state==='bossdown'){G.stateT++;const kt=G.stateT;if(!G.demo){if(kt===60)kgunInit();kgunStep(kt);const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===372)G.kdOK=AU.kachi();if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);}if(kt===372&&!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');if(kt===402&&!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);G.shake=12;}}if(G.stateT>(G.demo?170:660)){G.state='clear';G.kgun=null;G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');else AU.fanfare();G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
  else if(G.state==='clear'){G.stateT++;const lim=G.demo?260:330;if(G.stateT>lim||(!G.demo&&G.stateT>60&&anyKey())){
    if(G.demo){startDemo(G.demoI+1);}
    else if(G.stage<STG.length-1){startStage(G.stage+1,G.curCh,false,{hp:p.hp,ki:p.ki});if(!G.noStory)startStory('s'+G.stage);}
@@ -1528,8 +1528,8 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kret&&!f.cur.pulled&&f.st>f.cur.he+6){S=K;sp={arr:K.a.kret,pos:Math.min(0.999,(f.st-f.cur.he-6)/Math.max(1,f.cur.dur-f.cur.he-6))*K.a.kret.length,loop:false,hard:true};kart='throw';}
   else if(f.state==='atk'&&f.cur&&!f.cur.kth&&!f.cur.chg&&K.a.kslash){S=K;sp={arr:K.a.kslash,pos:Math.min(0.999,f.st/Math.max(1,f.cur.dur))*K.a.kslash.length,loop:false,hard:true};kart='slash';}
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
- // 勝鬨: 主人公が拳を突き上げる(えい!=kt180/214、おー!=kt250)
- if(G.state==='bossdown'&&!G.demo&&f===G.player&&G.stateT>=170){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.stateT,i=t<180?0:t<196?1:t<214?2:t<230?1:t<250?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
+ // 勝鬨: 呼びかけ録音の発話終端+1.5秒後に拳を突き上げる
+ if(G.state==='bossdown'&&!G.demo&&f===G.player&&G.stateT>=372){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.stateT,i=t<408?0:t<444?1:t<480?2:t<516?1:t<552?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
  const A0=arr[i0],A1=sp.loop?arr[(i0+1)%n]:arr[Math.min(n-1,i0+1)];if(!A0)return false;
