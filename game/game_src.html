@@ -1539,9 +1539,9 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
  else if(f.gh&&f.gh.length)f.gh.length=0;
  if(f.gh)for(const g of f.gh){g.a*=0.86;if(g.a<0.04)continue;ctx.save();ctx.globalAlpha=g.a;ctx.translate(Math.round(g.x-G.camx),Math.round(g.y));ctx.scale(g.face*f.sc*1.02,f.sc*1.02);const q=g.fr;ctx.drawImage(S.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();}
  // secondary motion: breathing, walk bob, lunge on strike
- let by=0,sx=1,sy=1,lx=0,rot=0;
- if(f.state==='idle'){const b=Math.sin(f.t*0.09);sy=0.95+b*0.006;sx=1-b*0.003;}
- else if(f.state==='walk'){const w=f.wp||0,c=Math.abs(Math.cos(w));by=-Math.abs(Math.sin(w))*0.45;rot=Math.sin(w)*0.003;sy=1-c*0.002;lx=0;}
+ let by=0,sx=1,sy=1,lx=0,rot=0;const isHero=f.team===0&&!!UMAP[f.T.type+'_u'];
+ if(f.state==='idle'){const b=Math.sin(f.t*0.09);sy=isHero?0.95+b*0.006:1+b*0.012;sx=1-b*(isHero?0.003:0.006);}
+ else if(f.state==='walk'){const w=f.wp||0,c=Math.abs(Math.cos(w));by=-Math.abs(Math.sin(w))*(isHero?0.45:1.8);rot=Math.sin(w)*(isHero?0.003:0.012);sy=1-c*(isHero?0.002:0.006);lx=0;}
  else if(f.state==='atk'&&f.cur){const d=f.cur,hs=d.hs||4,he=d.he||hs+4;if(f.st<hs){const k=f.st/hs;lx=-3*k;sy=1-0.02*k;}else if(f.st<=he){lx=7;sx=1.03;sy=0.99;}else lx=3*Math.max(0,1-(f.st-he)/10);}
  else if(f.state==='hurt'){rot=-0.06;lx=-3;}
  else if(f.state==='guard'&&!(S.a.guard||S.a.gstart)){sy=0.97;lx=-3;rot=-0.04-(f.gst>0?0.05:0);}
