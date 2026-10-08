@@ -806,12 +806,12 @@ const UTINT={yuki:'255,70,40',kage:'140,200,255',mitsu:'200,140,255',nobu:'255,1
 const JUYU=['猿飛佐助','霧隠才蔵','三好清海入道','三好伊三入道','穴山小助','海野六郎','根津甚八','望月六郎','筧十蔵','由利鎌之助'];
 const _tint={};
 function redS(key){const id='red|'+key;if(_tint[id])return _tint[id];const S=SPR[key];if(!S||!S.ready)return null;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);try{const D=x.getImageData(0,0,c.width,c.height),d=D.data;for(let i=0;i<d.length;i+=4){if(!d[i+3])continue;const r=d[i],g=d[i+1],b=d[i+2],L=(r+g+b)/3,s=b-r;if(s>8&&b>=g&&L<175){d[i]=Math.min(255,L*1.25+s*2.2+18);d[i+1]=L*0.45;d[i+2]=L*0.4;}}x.putImageData(D,0,0);}catch(e){return null;}return _tint[id]={img:c,a:S.a,ready:true};}
-// 勝鬨: 味方の足軽が周りに集まって拳(刀)を突き上げる。真田の時だけ赤備え+六文銭の旗
-function kgunInit(){const p=G.player;G.kgun=[];const red=G.curCh==='yuki';for(let i=0;i<10;i++){const side=i%2?1:-1,k=i>>1,key=i%3===1?'spear':'sword';const cx=clamp(p.x,G.camx+380,G.camx+W-380),tx=cx+side*(120+k*58+rnd(-12,12)),ty=Math.max(YMIN,p.y-22-((k*37+i*11)%80));G.kgun.push({kg:1,key,red,x:G.camx+(side>0?W+70+k*45:-70-k*45),y:ty,tx,ty,face:-side,t:(i*7)|0,z:0,ph:(i*3)%5,mv:true,up:false});}}
+// 勝鬨: 足軽は集まり、鎧武者は陣内で待つ。全員が接地したまま素手の拳を上げる。
+function kgunInit(){const p=G.player;G.kgun=[];const red=G.curCh==='yuki';for(let i=0;i<10;i++){const side=i%2?1:-1,k=i>>1,key=i%3===1?'kgun_armor':'kgun_sword';const cx=clamp(p.x,G.camx+380,G.camx+W-380),tx=cx+side*(120+k*58+rnd(-12,12)),ty=Math.max(YMIN,p.y-22-((k*37+i*11)%80));G.kgun.push({kg:1,key,red,x:key==='kgun_armor'?tx:G.camx+(side>0?W+70+k*45:-70-k*45),y:ty,tx,ty,face:-side,t:(i*7)|0,z:0,ph:(i*3)%5,mv:key!=='kgun_armor',up:false,pose:0});}}
 function kgunStep(kt){if(!G.kgun)return;const p=G.player;for(const e of G.kgun){e.t++;const dx=e.tx-e.x,dy=e.ty-e.y,d=Math.hypot(dx,dy);if(d>4){const v=Math.min(d,7);e.x+=dx/d*v;e.y+=dy/d*v;e.mv=true;e.face=sgn(dx)||e.face;}else{e.mv=false;e.face=sgn(p.x-e.x)||e.face;}
- const b=[180,214,250].find(s=>kt>=s+e.ph&&kt<s+e.ph+16);e.z=b!==undefined?Math.sin((kt-b-e.ph)/16*Math.PI)*24:0;e.up=!e.mv&&((kt>=180+e.ph&&kt<204)||(kt>=214+e.ph&&kt<238)||kt>=250+e.ph);}}
-function drawKgun(e){let S=SPR[e.key];if(!S||!S.ready)return;if(e.red){const R=redS(e.key);if(R)S=R;}const A=S.a,sc=(TY[e.key]&&TY[e.key].sc)||1;let q,rot=0;
- if(e.up){if(e.key==='sword'&&A.a1)q=A.a1[1];else{q=A.idle[0];rot=-0.22;}}else if(e.mv)q=A.walk[Math.floor(e.t/4)%A.walk.length];else q=A.idle[Math.floor(e.t/9)%A.idle.length];if(!q)return;
+ const t=kt-330-e.ph;e.z=0;e.up=!e.mv&&t>=0;e.pose=t<36?0:t<72?1:t<108?2:t<144?1:t<180?2:3;}}
+function drawKgun(e){const key=e.mv?'sword':e.key;let S=SPR[key];if(!S||!S.ready)return;if(e.red){const R=redS(key);if(R)S=R;}const A=S.a,sc=(TY[key]&&TY[key].sc)||1;let q,rot=0;
+ if(e.up&&A.kachi)q=A.kachi[e.pose];else if(e.mv)q=A.walk[Math.floor(e.t/4)%A.walk.length];else q=A.idle[Math.floor(e.t/9)%A.idle.length];if(!q)return;
  ctx.save();ctx.translate(Math.round(e.x-G.camx),Math.round(e.y-e.z));ctx.scale(e.face*sc,sc);ctx.rotate(rot);
  if(e.red){const by=e.mv?-Math.abs(Math.sin(e.t*0.4))*3:0;ctx.fillStyle='#3a2a18';ctx.fillRect(-30,-222+by,3,110);const wv=Math.sin(e.t*0.12)*2;ctx.fillStyle='#b3151a';ctx.beginPath();ctx.moveTo(-28,-220+by);ctx.lineTo(-58+wv,-220+by);ctx.lineTo(-58+wv*1.4,-152+by);ctx.lineTo(-28,-152+by);ctx.closePath();ctx.fill();ctx.fillStyle='#111';for(let r=0;r<3;r++)for(let c=0;c<2;c++){ctx.beginPath();ctx.arc(-50+c*13+wv*(0.6+r*0.25),-206+r*20+by,5,0,TAU);ctx.fill();}ctx.fillStyle='#b3151a';for(let r=0;r<3;r++)for(let c=0;c<2;c++)ctx.fillRect(-51.5+c*13+wv*(0.6+r*0.25),-207.5+r*20+by,3,3);}
  ctx.drawImage(S.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();}
@@ -1869,10 +1869,10 @@ function drawHUD(){drawHitCounter();
  // GO arrow
  if(G.goT>0&&G.state==='run'&&!G.waveOn&&(G.goT%50<32)){txt('GO',W-120,H/2-40,60,'#ffe070','center','#400',8,'Arial Black,Impact,sans-serif');ctx.fillStyle='#ffe070';ctx.strokeStyle='#400';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(W-190,H/2+10);ctx.lineTo(W-120,H/2+10);ctx.lineTo(W-120,H/2-6);ctx.lineTo(W-70,H/2+30);ctx.lineTo(W-120,H/2+66);ctx.lineTo(W-120,H/2+50);ctx.lineTo(W-190,H/2+50);ctx.closePath();ctx.stroke();ctx.fill();}
 }
-function drawKachi(){if(G.state!=='bossdown'||G.demo)return;const t=G.stateT-(G.victoryShift||0);if(t<136)return;
- const a=Math.min(1,(t-136)/12,(345-t)/16);ctx.save();ctx.globalAlpha=a;ctx.fillStyle='rgba(10,0,0,0.5)';ctx.fillRect(0,170,W,300);ctx.fillStyle='#b01818';ctx.fillRect(0,170,W,5);ctx.fillRect(0,465,W,5);
+function drawKachi(){if(G.state!=='bossdown'||G.demo)return;const t=G.stateT-(G.victoryShift||0);if(t<136||t>600)return;
+ const a=clamp(Math.min((t-136)/12,(600-t)/24),0,1);ctx.save();ctx.globalAlpha=a;ctx.fillStyle='rgba(10,0,0,0.5)';ctx.fillRect(0,170,W,150);ctx.fillStyle='#b01818';ctx.fillRect(0,170,W,5);ctx.fillRect(0,315,W,5);
  txt((TY[G.curCh]?TY[G.curCh].name:'')+'「勝鬨を上げよ！」',W/2,215,40,'#ffe6a8','center','#000',6);
- const bt=[[180,'えい！'],[214,'えい！'],[250,'おーーーッ！']];bt.forEach(([s0,w],i)=>{if(t<s0)return;const k=Math.min(1,(t-s0)/8),sc=1+(1-k)*0.8;ctx.save();if(i<2&&t>=250)ctx.globalAlpha*=0.3;ctx.translate(i===2?W/2:W/2+(i===0?-300:300),i===2?400:310);ctx.scale(sc,sc);txt(w,0,0,i===2?110:72,i===2?'#ff3b2a':'#fff','center','#000',i===2?10:8);ctx.restore();});
+ const bt=[[330,'えい！'],[390,'えい！'],[450,'おーーーッ！']];bt.forEach(([s0,w],i)=>{if(t<s0)return;const k=Math.min(1,(t-s0)/8),sc=1+(1-k)*0.3;ctx.save();if(i<2&&t>=450)ctx.globalAlpha*=0.3;ctx.translate(i===2?W/2:W/2+(i===0?-300:300),280);ctx.scale(sc,sc);txt(w,0,0,i===2?64:56,i===2?'#ff3b2a':'#fff','center','#000',i===2?10:8);ctx.restore();});
  ctx.restore();}
 function drawOverlays(){drawSays();drawRear();drawKachi();drawUlt();
  // stage banner
