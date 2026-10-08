@@ -201,6 +201,9 @@ def build(h,Hg=190,q=52):
         meta.setdefault(an,[])
         if t is None:meta[an].append(None);continue
         im,dx,dy,ds=t;atlas.paste(im,p);meta[an].append([p[0],p[1],im.width,im.height,dx,dy,ds])
+    if h in BOSS:
+        from boss_registration import register_boss
+        register_boss(atlas,meta,h)
     b=io.BytesIO();atlas.save(b,'WEBP',quality=q,method=4)
     return atlas,meta,b.getvalue()
 if __name__=='__main__':
