@@ -1574,6 +1574,9 @@ function polearmAngle(f,hy,angle,length){
  if(Math.abs(s)<=limit)return angle;const b=Math.asin(limit)*(s>=0?1:-1);
  return Math.cos(a)>=0?b:(s>=0?Math.PI-b:-Math.PI-b);
 }
+// Nobunaga unarmed idle/jump omit the flag; attacks already include it.
+// Reuse the existing flag only for those missing animations to avoid duplicates.
+function drawUnarmedBanner(f,S,sp,fl){if(f.T.type!=='nobu'||S!==SPR.nobu_u||!['idle','jump'].includes(sp.arr._an))return;const B=SPR.nobu,q=B&&B.ready&&B.a.idle[0];if(!q)return;ctx.drawImage(fl?sprWhite(B):B.img,q[0]+5,q[1],30,70,q[4]+5,q[5],30,70);}
 function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
@@ -1608,6 +1611,7 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
  if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(G.t&2))ctx.globalAlpha=0.55;
  if(f.state==='dead'&&f.team===1&&f.st>172&&(f.st&2))ctx.globalAlpha=0.35;
  ctx.scale(f.face*f.sc,f.sc);ctx.translate(lx,0);if(rot)ctx.rotate(rot);ctx.scale(sx,sy);
+ drawUnarmedBanner(f,S,sp,fl);
  if(f.state==='spc'&&!G.lowq){ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,-90,5,0,-90,130);g.addColorStop(0,`rgba(${f.T.trail},0.42)`);g.addColorStop(1,`rgba(${f.T.trail},0)`);ctx.fillStyle=g;ctx.fillRect(-140,-230,280,260);ctx.globalCompositeOperation='source-over';}
  if(f.guarding&&!G.lowq){ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(150,210,255,0.55)';ctx.lineWidth=8;ctx.beginPath();ctx.ellipse(70,-130,40,110,0,-1.2,1.2);ctx.stroke();ctx.restore();}
  if(f.state==='guard'&&!G.lowq){const pul=f.gst>0?1:0.5+0.2*Math.sin(G.t*0.3);ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle=`rgba(150,210,255,${0.35*pul})`;ctx.lineWidth=6;ctx.beginPath();ctx.ellipse(34,-92,26,72,0,-1.2,1.2);ctx.stroke();ctx.strokeStyle=`rgba(230,245,255,${0.5*pul})`;ctx.lineWidth=2;ctx.stroke();ctx.restore();}
