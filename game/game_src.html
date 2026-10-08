@@ -947,12 +947,15 @@ function drawIai(){const I=G.iai;if(!I)return;const t=G.t-I.t0;if(t>48){G.iai=nu
  if(ct>=0&&ct<6){ctx.fillStyle=`rgba(255,255,255,${0.35*(1-ct/6)})`;ctx.fillRect(0,0,W,H);}ctx.restore();}
 function startCharge(p){AU.userVoice('charge',1.28);const ck=chargeKind(p);if(ck==='iai'){startIai(p);return;}if(ck!=='rush'){startCk(p,ck);return;}const T=p.T,d=T.dash||T.atk[0],b=atkDef(p,d,false);p.cur=Object.assign({},b,{base:d,pz:b.pz==='shoot'?'thrust':b.pz,proj:null,dur:32,hs:6,he:22,lunge:11,rng:(b.rng||110)+40,dep:56,dmg:Math.round((b.dmg||12)*1.8),kb:9,launch:true,chg:true,sfx:'heavy'});
  p.state='atk';p.combo=98;p.st=0;p.hit.clear();p.buf=false;p.inv=Math.max(p.inv,14);G.shake=Math.max(G.shake,5);ring(p.x,p.y,110,'rgba(255,200,120,0.9)',18);}
+// Seven fighters at 100 world-pixel spacing; reserve the visible weight at edges.
+const KUSARI_REACH=700;
+function kusariReach(p){return Math.max(0,Math.min(KUSARI_REACH,p.face>0?G.camx+W-48-p.x:p.x-G.camx-48));}
 function kusariCtl(p,c){
  const cu=p.cur;if(cu&&cu.lastUse&&p.state!=='atk'&&p.state!=='matk'){if(p.wpn&&p.wpn.k==='kusari')useWpn(p);cu.lastUse=false;}
  if((p.state==='atk'||p.state==='matk')&&cu&&cu.kth){const st=p.st;
-  if(st===cu.hs){AU.sfx('slash');const hits=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&!e.isProp&&sgn(e.x-p.x)===p.face&&Math.abs(e.x-p.x)<440&&Math.abs(e.y-p.y)<36&&e.z<100).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x));
+  if(st===cu.hs){AU.sfx('slash');const reachLimit=kusariReach(p),hits=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&!e.isProp&&sgn(e.x-p.x)===p.face&&Math.abs(e.x-p.x)<=reachLimit&&Math.abs(e.y-p.y)<36&&e.z<100).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x));
    for(const e of hits)hurt(e,{x:p.x,face:p.face,owner:p,hit:null,team:0},{dmg:11,kb:1});
-   const far=hits[hits.length-1];cu.reach=far?Math.abs(far.x-p.x):440;
+   const far=hits[hits.length-1];cu.reach=reachLimit;
    if(far&&far.hp>0&&!(far.T&&far.T.boss)&&far.state!=='dead'){p.kpull=far;cu.pulled=true;popup('手繰り寄せ！',far.x,far.y,far.z+150,'#ffe0a0',22);}
    if(hits.length>1)popup(hits.length+'人貫通',p.x+p.face*120,p.y,190,'#fff6c8',22);if(p.wpn){if(p.wpn.uses===1)cu.lastUse=true;else useWpn(p);}G.shake=Math.max(G.shake,4);}
   if(st>cu.he){const e=p.kpull;if(e&&e.hp>0&&e.state!=='dead'){const tx=p.x+p.face*70;e.x+=(tx-e.x)*0.22;e.y+=(p.y-e.y)*0.22;e.z=Math.max(0,e.z*0.8);e.state='hurt';e.st=0;e.cur=null;cu.reach=Math.max(30,Math.abs(e.x-p.x));if(Math.abs(e.x-tx)<6)p.kpull=null;}else{p.kpull=null;cu.reach*=0.8;}}
@@ -963,7 +966,7 @@ function kusariCtl(p,c){
  if(c.atkH&&!busy&&(!attacking||(cu&&p.st>(cu.he||8))||p.kspin)){p.chg=Math.min(20,(p.chg||0)+1);
   if(p.chg>14){if(!p.kspin){p.kspin=1;AU.sfx('slash');}if(attacking){p.state='idle';p.cur=null;p.st=0;}p.kspin++;
    if(p.kspin%10===0){if(p.kspin%20===0)AU.sfx('slash');for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.state==='dead'||e.isProp)continue;const dx=e.x-p.x,dy=(e.y-p.y)*2.2;if(dx*dx+dy*dy<125*125&&e.z<90)hurt(e,{x:p.x,face:sgn(dx)||p.face,owner:p,hit:null,team:0},{dmg:4,kb:3});}}}}
- else{if((p.kspin||0)>8&&!busy){const mx=(c.r?1:0)-(c.l?1:0);if(mx)p.face=mx;const b=p.T.atk[2]||p.T.atk[0];p.state=p.mount?'matk':'atk';p.combo=97;p.st=0;p.hit.clear();p.buf=false;p.cur=Object.assign({},b,{base:b,kth:true,pz:'thrust',k:undefined,proj:null,rng:0,dmg:0,lunge:0,dur:40,hs:7,he:11,sfx:null,reach:0});}
+ else{if((p.kspin||0)>8&&!busy){const mx=(c.r?1:0)-(c.l?1:0);if(mx)p.face=mx;const b=p.T.atk[2]||p.T.atk[0];p.state=p.mount?'matk':'atk';p.combo=97;p.st=0;p.hit.clear();p.buf=false;p.cur=Object.assign({},b,{base:b,kth:true,pz:'thrust',k:undefined,proj:null,rng:0,dmg:0,lunge:0,dur:40,hs:7,he:11,sfx:null,reach:kusariReach(p)});}
   p.kspin=0;if(!c.atkH)p.chg=0;}}
 function updPlayer(p,c){
  // Victory sprites override the pose; input must not keep moving the actor beneath them.
@@ -1636,8 +1639,8 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
    else if(d.pz==='thrust'||d.pz==='dive'){wa=f.state==='jatk'?0.7:0.02;if(!hk)hx=20+28*k;}
    else{const a0=d.a0??-2.2,a1=d.a1??0.7;wa=a0+(a1-a0)*(f.st<hs-3?0:k);if(!hk)hx=20+10*k;}}
   else if(f.state==='mega'||f.state==='throw')wa=f.st*0.5;
-  if(f.wpn.k==='kusari'&&(f.state==='atk'||f.state==='jatk')&&d&&!kickP&&d.pz!=='shoot'){const hs=d.hs||4,he=d.he||hs+4,dur=d.dur||he+10,s0=Math.max(0,hs-5);let e=f.st<s0?0:f.st<=he?(f.st-s0)/Math.max(1,he-s0):Math.max(0,1-(f.st-he)/Math.max(1,dur-he));e=Math.sin(e*Math.PI/2);
-   const L=d.kth?(d.reach||0)/(f.sc||1)*(f.st<=he?e:1):Math.max(70,((d.rng||60)+20)/(f.sc||1))*e,ang=f.state==='jatk'?0.5:-0.06,tx=hx+Math.cos(ang)*L,ty=hy+Math.sin(ang)*L,sag=(1-e)*18+6;
+  if(f.wpn.k==='kusari'&&(f.state==='atk'||f.state==='jatk')&&d&&!kickP&&d.pz!=='shoot'){const hs=d.hs||4,he=d.he||hs+4,dur=d.dur||he+10,s0=Math.max(0,hs-5);let e=f.st<s0?0:f.st<=he?(f.st-s0)/Math.max(1,(d.kth?hs:he)-s0):Math.max(0,1-(f.st-he)/Math.max(1,dur-he));e=Math.sin(clamp(e,0,1)*Math.PI/2);
+   const L=d.kth?Math.max(0,(d.reach||0)/(f.sc||1)-hx)*(f.st<=he?e:1):Math.max(70,((d.rng||60)+20)/(f.sc||1))*e,ang=f.state==='jatk'?0.5:-0.06,tx=d.kth?hx+L:hx+Math.cos(ang)*L,ty=d.kth?hy+(-90/(f.sc||1)-hy)*e:hy+Math.sin(ang)*L,sag=(1-e)*18+6;
    if(!kart)drawKama(hx,hy,-1.4,fl);
    if(L>8){ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo((hx+tx)/2,(hy+ty)/2+sag,tx,ty);ctx.strokeStyle=fl?'#fff':'#1e1e24';ctx.lineWidth=4.4;ctx.setLineDash([5,3]);ctx.stroke();ctx.strokeStyle=fl?'#fff':'#c4cad2';ctx.lineWidth=1.8;ctx.lineDashOffset=2;ctx.stroke();ctx.restore();
     ctx.save();ctx.translate(tx,ty);{const g=ctx.createRadialGradient(-2,-2,1,0,0,8);g.addColorStop(0,fl?'#fff':'#9aa2ac');g.addColorStop(1,fl?'#fff':'#2a2c32');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,7,0,TAU);ctx.fill();ctx.strokeStyle='#111';ctx.lineWidth=1.2;ctx.stroke();}if(!G.lowq&&e>0.4){ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(220,235,255,0.5)';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-28*e,0);ctx.lineTo(-6,0);ctx.stroke();}ctx.restore();}}
@@ -1737,7 +1740,7 @@ const WHOLE_MOUNT_SCALE=1.2/1.4; // One horse+rider scale for all six heroes.
 // Chain coordinates share the whole mounted body's transform, including its scale.
 function drawMountedKusari(f,hx,hy,fl){drawKama(hx,hy,-1.2,fl);const spinning=f.kspin>0,d=f.cur,scale=f.sc*WHOLE_MOUNT_SCALE;let tx,ty,cx,cy;
  if(spinning){const a=G.t*0.42;cx=hx-6;cy=hy-48;tx=cx+Math.cos(a)*58;ty=cy+Math.sin(a)*16;}
- else{const hs=d.hs,he=d.he,s0=Math.max(0,hs-5),e=f.st<s0?0:f.st<=he?Math.sin(clamp((f.st-s0)/(he-s0),0,1)*Math.PI/2):1;tx=d.reach>0?hx+(d.reach/scale-hx)*e:hx;ty=d.reach>0?hy+(-70/scale-hy)*e:hy;cx=(hx+tx)/2;cy=(hy+ty)/2+12;}
+ else{const hs=d.hs,he=d.he,s0=Math.max(0,hs-5),e=f.st<s0?0:f.st<=he?Math.sin(clamp((f.st-s0)/Math.max(1,hs-s0),0,1)*Math.PI/2):1;tx=d.reach>0?hx+(d.reach/scale-hx)*e:hx;ty=d.reach>0?hy+(-70/scale-hy)*e:hy;cx=(hx+tx)/2;cy=(hy+ty)/2+12;}
  ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo(cx,cy,tx,ty);ctx.setLineDash([4,2.5]);ctx.strokeStyle=fl?'#fff':'#26262c';ctx.lineWidth=4;ctx.stroke();ctx.lineDashOffset=2;ctx.strokeStyle=fl?'#fff':'#bfc5ce';ctx.lineWidth=1.5;ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=fl?'#fff':'#89909b';ctx.beginPath();ctx.arc(tx,ty,7,0,TAU);ctx.fill();ctx.strokeStyle=fl?'#fff':'#20242a';ctx.lineWidth=1;ctx.stroke();ctx.restore();}
 function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk4_'+f.T.type],walking=f.state==='walk'&&W&&W.ready,B=walking?W:SPR['mountbody3_'+f.T.type];if(!B||!B.ready)return false;
  const attacking=f.state==='matk'||f.state==='mspc',dur=f.state==='mspc'?40:f.cur&&f.cur.dur||24,t=clamp(f.st,0,dur)*24/dur,times=[0,6,10,16,22],seq=[0,2,3,4,0];
