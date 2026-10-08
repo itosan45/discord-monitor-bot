@@ -1,4 +1,4 @@
-// 勝ちどきをあげよ音声の発話後1.5秒で勝鬨を開始し、最後まで場面を維持する
+// 勝ちどきをあげよ音声の発話後約0.8秒で勝鬨を開始し、最後まで場面を維持する
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{
  const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
@@ -9,5 +9,5 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   while(G.state==='bossdown'&&G.stateT<660)stepGame();return {events,state:G.state,endFrame:660};});
  console.log(JSON.stringify({r,errors}));await b.close();
  const speech=r.events.find(e=>e[1]==='kc'&&e[2]==='call'),chant=r.events.find(e=>e[1]==='kachi');
- if(errors.length||!speech||!chant||chant[0]-speech[0]!==234||r.state!=='bossdown')process.exit(1);
+ if(errors.length||!speech||!chant||chant[0]-speech[0]!==192||r.state!=='bossdown')process.exit(1);
 })().catch(e=>{console.error(e);process.exit(1);});
