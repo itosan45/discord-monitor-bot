@@ -392,6 +392,9 @@ TY.boss2.atk=[{pz:'swing',a0:-2.7,a1:1.2,r:44,dur:56,hs:28,he:34,rng:185,dmg:16,
 TY.boss1.atk=[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:42,hs:18,he:24,rng:190,dmg:13,kb:5,dep:40,sfx:'heavy',lunge:3},{pz:'thrust',dur:50,hs:18,he:40,rng:140,dmg:15,kb:6,launch:true,k:'charge',move:13,dep:40,sfx:'spc1'},{pz:'raise',k:'cavalry',dur:60,hs:22,he:23,rng:0,dmg:0,sfx:'roar'},{pz:'swing',a0:-2.9,a1:1.3,r:42,dur:62,hs:34,he:38,rng:175,dmg:16,kb:7,launch:true,dep:42,sfx:'heavy',k:'wave'}];TY.boss1.near=[0,1,0];TY.boss1.far=[1,2,3,1];
 TY.boss7.atk=[{pz:'thrust',dur:44,hs:20,he:26,rng:265,dmg:14,kb:6,dep:40,sfx:'thrust',lunge:4},{pz:'swing',a0:-3.0,a1:3.0,r:44,dur:60,hs:26,he:40,rng:200,dmg:15,kb:7,launch:true,around:true,dep:50,sfx:'heavy'},{pz:'thrust',dur:70,hs:20,he:60,rng:140,dmg:13,kb:6,launch:true,k:'charge',move:11,dep:40,sfx:'spc1'},{pz:'raise',k:'guard',dur:70,hs:4,he:60,rng:0,dmg:0}];TY.boss7.near=[0,1,3,0];TY.boss7.far=[0,2,0];
 TY.boss3.atk.push({pz:'raise',k:'volley',dur:70,hs:26,he:27,rng:0,dmg:0,sfx:'roar'});TY.boss3.far=[2,1,3,4,2];
+// Attack behavior tags also include summons and projectiles; they are not
+// sufficient to choose the artwork for every weapon motion.
+TY.boss2.atk[3].anim='a1';TY.boss7.atk[1].anim='big';TY.boss9.atk[3].anim='big';
 for(const k in TY)if(TY[k].boss)for(const d of TY[k].atk){d.hs+=6;d.he+=6;d.dur+=10;d.dmg=Math.round(d.dmg*0.65);}
 for(const k in TY){const T=TY[k];if(!T.boss&&!T.cost&&T.atk)for(const d of T.atk)if(d.dmg)d.dmg=Math.max(3,Math.round(d.dmg*0.6));}
 TY.nezu={type:'nezu',name:'根津甚八',en:'NEZU JINPACHI',role:'真田十勇士 — 刀と海賊仕込みの足腰',hp:118,spd:4.4,jump:12.2,cost:9999,sc:1.08,wp:'katana',tip:96,two:true,gap:15,helm:'ronin',plain:true,
@@ -776,7 +779,7 @@ function updAtk(f){
  if(d.iai)iaiStep(f,d,st);
  if(d.ck)chargeStep(f,d,st);
  if(d.k==='leap'){
-  if(st===d.hs){f.vz=15;const p=nearestAlly(f);f.vx=clamp((p.x-f.x)/30,-9,9);f.vy=clamp((p.y-f.y)/30,-3,3);AU.sfx('jump');}
+  if(st===d.hs){f.vz=f.T.boss?bossLeapSpeed(f):15;const p=nearestAlly(f);f.vx=clamp((p.x-f.x)/30,-9,9);f.vy=clamp((p.y-f.y)/30,-3,3);AU.sfx('jump');}
   if(st>d.hs&&!f.leaped){f.x+=f.vx;f.y=clamp(f.y+f.vy,YMIN,YMAX);f.vz-=GR;f.z+=f.vz;if(f.z<=0&&f.vz<0){f.z=0;f.vz=0;f.leaped=true;f.hit.clear();strike(f,d);G.shake=18;ring(f.x,f.y,170,'rgba(255,220,160,0.9)',28);dust(f.x,f.y,12);AU.sfx('boom');}}
   if(st>=d.dur&&f.z<=0){f.state='idle';f.st=0;f.cool=rndi(35,70);}return;}
  if(d.k==='step'){if(st<12){f.x-=f.face*(10-st*0.6);if(st%3===0)dust(f.x+f.face*20,f.y,1);}f.inv=Math.max(f.inv,st<10?2:0);}
@@ -1032,6 +1035,11 @@ function atkers(){let n=0;for(const e of G.fighters)if(e.team===1&&e.state==='at
 function bossScreenMargin(e){const S=SPR[e.T.spr||e.T.type];if(!S||!S.ready)return 180;
  if(S.bossExtent===undefined){let w=0;for(const an of ['idle','walk','hit','a1','big','dash'])for(const q of S.a[an]||[]){if(q)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));}S.bossExtent=w;}
  return Math.min(W/2-40,Math.max(128,Math.ceil(S.bossExtent*e.sc*1.04)+20));}
+function bossLeapSpeed(e){const S=SPR[e.T.spr||e.T.type];if(!S||!S.ready)return 12;
+ const arr=S.a[e.cur.anim||'big']||S.a.idle,head=Math.max(...arr.filter(Boolean).map(q=>-q[5]*e.sc));
+ // Use the upper lane and the tallest frame, including the bow. Preserve a
+ // physical jump arc while reserving headroom even when landing further up.
+ return Math.min(15,Math.sqrt(2*GR*Math.max(0,YMIN-head-20)));}
 function updEnemy(e){
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);
@@ -1489,7 +1497,7 @@ function drawWeapon(f,o,K,kind){
 
 /* ===================== SPRITES (generated art) ===================== */
 const SPR={};
-const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
+const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
 const UMAP={yuki_u:{a1:'a2',a2:'a2',a3:'a3',a4:'a1',dash:'a2',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump'},kage_u:UGEN,mitsu_u:UGEN,nobu_u:UGEN,shin_u:UGEN,musashi_u:UGEN};
 function loadSPR(){if(!DATA.spr)return;for(const h in DATA.spr){const im=new Image(),S=SPR[h]={img:im,a:DATA.sm[h],ready:false,white:null,hand:DATA.hands&&DATA.hands[h]};for(const k in S.a)if(Array.isArray(S.a[k]))S.a[k]._an=k;if(UMAP[h]){const src={};for(const k in S.a)src[k]=S.a[k];const hs={};if(S.hand)for(const k in S.hand)hs[k]=S.hand[k];for(const [k,v0] of Object.entries(UMAP[h])){const v=v0.split('|').find(x=>src[x]);if(!v)continue;S.a[k]=src[v].slice();S.a[k]._an=k;if(S.hand&&hs[v])S.hand[k]=hs[v];}}im.onload=()=>{S.ready=true;};im.onerror=()=>{S.failed=true;};im.src=DATA.spr[h].startsWith('gfx/')?DATA.spr[h]:'data:image/webp;base64,'+DATA.spr[h];}}
 loadSPR();
@@ -1502,7 +1510,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'down':return P('dead',f.z>0.6?1:4);
   case'getup':return P('dead',6-f.st/20*4);
   case'dead':return P('dead',f.st/9);
-  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&c.k==='step')return P(A.dash?'dash':'walk',f.st/4,true);if(c){const n=c.k==='charge'?A.dash.length:c.k?A.big.length:A.a1.length,nm=c.k==='charge'?'dash':c.k?'big':'a1';return {arr:A[nm],pos:prog(c,n),loop:false};}return P('a1',0);}
+  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&c.k==='step')return P(A.dash?'dash':'walk',f.st/4,true);if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
   default:return P('idle',f.t/14,true);}}
  switch(f.state){
   case'walk':return P('walk',(f.wp||0)/TAU*A.walk.length,true,A.walk.length>=8);
@@ -1525,6 +1533,14 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
 function drawKama(x,y,a,fl){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.lineCap='round';ctx.strokeStyle='#1a0e06';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(44,0);ctx.stroke();ctx.strokeStyle=fl?'#fff':'#6a4626';ctx.lineWidth=4.5;ctx.stroke();ctx.beginPath();ctx.moveTo(42,-2);ctx.quadraticCurveTo(46,22,26,34);ctx.quadraticCurveTo(38,16,36,-1);ctx.closePath();ctx.fillStyle=fl?'#fff':metalG(26,-2,46,34,'#dfe6ee');ctx.fill();ctx.strokeStyle='#222';ctx.lineWidth=1;ctx.stroke();ctx.restore();}
 function drawIcon(key,x,y,ang,len,fl,gf){gf=gf??0.13;const I=SPR.items;if(!I||!I.ready||!I.a.icons)return false;const q=I.a.icons[key];if(!q)return false;const [qx,qy,w,h,gx,gy,tx,ty]=q;const ax=Math.atan2(ty-gy,tx-gx),full=Math.hypot(tx-gx,ty-gy),px=gx+(tx-gx)*gf,py=gy+(ty-gy)*gf,s=len/full;
  ctx.save();ctx.translate(x,y);ctx.rotate(ang-ax);ctx.scale(s,s);ctx.drawImage(fl?sprWhite(I):I.img,qx,qy,w,h,-px,-py,w,h);ctx.restore();return true;}
+function polearmAngle(f,hy,angle,length){
+ // Long pickup weapons sweep in the ground plane; reserve vertical room for
+ // the tip rather than shrinking the fighter or letting it leave the screen.
+ const a=Math.atan2(Math.sin(angle),Math.cos(angle)),s=Math.sin(a),y=f.y-f.z+hy*f.sc;
+ const room=(s>=0?H-24-y:y-24)/f.sc-16,limit=clamp(room/(length*0.87),0,1);
+ if(Math.abs(s)<=limit)return angle;const b=Math.asin(limit)*(s>=0?1:-1);
+ return Math.cos(a)>=0?b:(s>=0?Math.PI-b:-Math.PI-b);
+}
 function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
@@ -1589,7 +1605,7 @@ function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false
    ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo(cx,cy+10,tx,ty);ctx.strokeStyle=fl?'#fff':'#26262c';ctx.lineWidth=3;ctx.setLineDash([4,2.5]);ctx.stroke();ctx.strokeStyle=fl?'#fff':'#a9b0ba';ctx.lineWidth=1.2;ctx.lineDashOffset=2;ctx.stroke();ctx.setLineDash([]);
    if(!G.lowq){ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(220,235,255,0.35)';ctx.lineWidth=5;ctx.beginPath();ctx.ellipse(cx,cy,58,16,0,an-1.2,an);ctx.stroke();ctx.globalCompositeOperation='source-over';}
    const g=ctx.createRadialGradient(tx-2,ty-2,1,tx,ty,8);g.addColorStop(0,fl?'#fff':'#9aa2ac');g.addColorStop(1,fl?'#fff':'#2a2c32');ctx.fillStyle=g;ctx.beginPath();ctx.arc(tx,ty,7,0,TAU);ctx.fill();ctx.strokeStyle='#111';ctx.lineWidth=1.2;ctx.stroke();ctx.restore();}
-  else if(!drawIcon('w_'+f.wpn.k,hx,hy,wk.bow?-1.25:wa,(wk.tip||100)*1.15*(wk.isc||1),fl,wk.bow?0.5:0.13)){ctx.save();ctx.scale(1.3,1.3);drawWeapon(f,{hf:[hx/1.3,hy/1.3],wa,hold:true},fl?WHITE:f.T.col,wk.draw);ctx.restore();}}
+  else{const len=(wk.tip||100)*1.15*(wk.isc||1);if(wk.draw==='naginata')wa=polearmAngle(f,hy,wa,len);if(!drawIcon('w_'+f.wpn.k,hx,hy,wk.bow?-1.25:wa,len,fl,wk.bow?0.5:0.13)){ctx.save();ctx.scale(1.3,1.3);drawWeapon(f,{hf:[hx/1.3,hy/1.3],wa,hold:true},fl?WHITE:f.T.col,wk.draw);ctx.restore();}}}
  if(f.wpn&&!G.lowq&&f.team===0&&!hideW){const wk=WPN[f.wpn.k],tip=wk.tip||100,pul=0.5+0.5*Math.sin(G.t*0.2);
   ctx.globalCompositeOperation='lighter';
   const g2=ctx.createRadialGradient(0,-80,10,0,-80,95);g2.addColorStop(0,`rgba(255,170,90,${0.16+pul*0.1})`);g2.addColorStop(1,'rgba(255,170,90,0)');ctx.fillStyle=g2;ctx.fillRect(-110,-190,220,200);
@@ -1650,7 +1666,8 @@ function updMount(p,c){
  if(p.hp<=0){dropMount(p,-p.face,true);return;}
  if(p.state==='hurt'){if(p.st>14){p.state='idle';p.st=0;}}
  else if(p.state==='matk'){const d=p.cur;
-  if(p.st>=d.hs&&p.st<=d.he){for(const e of G.fighters){if(e.team!==1||e.hp<=0||p.hit.has(e)||e.state==='dead')continue;const dx=e.x-p.x;
+  if(d.proj&&p.st===d.hs){addProj({k:d.proj,x:p.x+p.face*60,y:p.y,z:94,vx:p.face*(d.proj==='shot'?23:19),team:0,dmg:d.dmg,face:p.face,owner:p,w:18,kb:d.kb,launch:d.launch});AU.sfx(d.proj==='shot'?'gun':'arrow');if(p.wpn)useWpn(p);}
+  if(!d.proj&&p.st>=d.hs&&p.st<=d.he){for(const e of G.fighters){if(e.team!==1||e.hp<=0||p.hit.has(e)||e.state==='dead')continue;const dx=e.x-p.x;
     if(dx*p.face>-50&&Math.abs(dx)<d.rng&&Math.abs(e.y-p.y)<34&&e.z<120)hurt(e,p,d);}}
   if(p.st>=d.dur){p.state='idle';p.st=0;p.cur=null;}}
  else if(p.state==='mspc'){if(p.st===16){G.shake=16;AU.sfx('boom');dust(p.x+p.face*40,p.y,14);
@@ -1664,14 +1681,14 @@ function updMount(p,c){
   else p.state='idle';
   if(c.jumpP&&!(G.demo||G.auto)){dropMount(p,p.face,false);return;}
   if(c.spcP&&p.ki>=60){p.ki-=60;p.state='mspc';p.st=0;p.inv=999;AU.sfx('roar');}
-  else if(c.atkP){p.state='matk';p.st=0;p.cur=MATK;p.hit=new Set();AU.sfx('slash');}}
+  else if(c.atkP){p.state='matk';p.st=0;p.cur=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo')?Object.assign({},MATK,{proj:p.wpn.k==='yumi'?'parrow':'shot',hs:10,he:11,rng:0,dmg:p.wpn.k==='yumi'?13:18}):MATK;p.hit=new Set();AU.sfx('slash');}}
  p.x=clamp(p.x,G.camx+60,G.camx+W-60);p.y=clamp(p.y,YMIN,YMAX);}
 function mountedAttackProfile(f){if(!f.wpn)return'default';const w=WPN[f.wpn.k];if(f.wpn.k==='kusari')return'kusari';if(w&&w.bow)return'bow';if(w&&w.draw==='teppo')return'gun';if(w&&(w.heavy||w.blunt))return'heavy';if(w&&w.draw==='naginata')return'polearm';return'blade';}
 // 騎乗時の乗り手の位置補正(脚の長い絵は腰の切り位置を下げる)
 const MRIDE={musashi:{hip:112,dy:6,sc:0.98}};
 function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)return false;
  if(f.state==='matk'){
-  const A=SPR['mountatk_'+f.T.type],kind=mountedAttackProfile(f),seq=A&&A.ready&&A.a[kind];
+  const V=SPR['mountatk2_'+f.T.type],A=V&&V.ready?V:SPR['mountatk_'+f.T.type],kind=A===V?(f.wpn?f.wpn.k:'default'):mountedAttackProfile(f),seq=A&&A.ready&&A.a[kind];
   if(seq&&seq.length){const dur=f.cur&&f.cur.dur||24,t=clamp(f.st,0,dur),times=[0,6,10,14,22,24];let a=0;while(a<4&&t>times[a+1])a++;const b=Math.min(4,a+1),mix=a===b?0:clamp((t-times[a])/(times[a+1]-times[a]),0,1),q0=seq[a],q1=seq[b];
    ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(f.face*f.sc,f.sc);ctx.globalAlpha=1-mix;ctx.drawImage(A.img,q0[0],q0[1],q0[2],q0[3],q0[4],q0[5],q0[2],q0[3]);if(mix>0){ctx.globalAlpha=mix;ctx.drawImage(A.img,q1[0],q1[1],q1[2],q1[3],q1[4],q1[5],q1[2],q1[3]);}ctx.restore();return true;}
  }
@@ -1685,13 +1702,13 @@ function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)re
    ctx.save();ctx.translate(sd[0]+4,sd[1]+bob*0.2+(MR.dy||0));ctx.scale(MR.sc||1.08,MR.sc||1.08);ctx.translate(0,HIP);
    ctx.save();ctx.beginPath();ctx.rect(-300,-500,600,500-HIP+10);ctx.clip();const fl=f.flash>0&&(f.flash&2);ctx.drawImage(fl?sprWhite(H):H.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();
    if((f.wpn||f.mountedDefault)&&f.team===0){const wk=f.wpn?WPN[f.wpn.k]:{draw:f.T.wp,tip:f.T.tip,heavy:f.T.wp==='gunbai'},ha=H.hand&&H.hand[an]&&(H.hand[an][pos]||H.hand[an][0]),hx=ha?ha[0]:24,hy=ha?ha[1]:-108;
-    if(wk){const k=f.state==='matk'?clamp((f.st-MATK.hs+2)/(MATK.he-MATK.hs+5),0,1):0,heavy=wk.heavy||wk.blunt;
+    if(wk){const k=f.state==='matk'?(f.st<=10?clamp((f.st-4)/6,0,1):f.st<=14?1:1-clamp((f.st-14)/10,0,1)):0,heavy=wk.heavy||wk.blunt;
      let wa=f.state==='walk'?-1.05+Math.sin(f.wp||0)*0.08:-1.05;
-     if(f.state==='matk'){if(wk.bow)wa=0.48;else if(wk.draw==='teppo')wa=0.38;else if(heavy)wa=-2.65+3.85*k;else if(wk.draw==='yari'||wk.draw==='naginata')wa=-0.3+1.3*k;else wa=-2.4+3.9*k;}
+     if(f.state==='matk'){if(wk.bow)wa=0.48;else if(wk.draw==='teppo')wa=0.38;else if(heavy)wa=-2.65+3.55*k;else if(wk.draw==='yari'||wk.draw==='naginata')wa=-0.3+1.0*k;else wa=-2.4+3.25*k;}
      if(f.wpn&&f.wpn.k==='kusari'){
       drawKama(hx,hy,-1.4,fl);const a=-0.85+2.9*k,tx=hx+Math.cos(a)*132,ty=hy+Math.sin(a)*94+18;
       ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx+26,hy+12);ctx.quadraticCurveTo((hx+tx)/2+12,(hy+ty)/2+24,tx,ty);ctx.strokeStyle=fl?'#fff':'#24242a';ctx.lineWidth=4;ctx.stroke();ctx.strokeStyle=fl?'#fff':'#c5ccd4';ctx.lineWidth=1.4;ctx.stroke();const g=ctx.createRadialGradient(tx-2,ty-2,1,tx,ty,9);g.addColorStop(0,fl?'#fff':'#aeb7c2');g.addColorStop(1,fl?'#fff':'#30343a');ctx.fillStyle=g;ctx.beginPath();ctx.arc(tx,ty,8,0,TAU);ctx.fill();ctx.strokeStyle='#161616';ctx.lineWidth=1.2;ctx.stroke();ctx.restore();
-     }else drawWeapon(f,{hf:[hx,hy],wa,hb:[hx+20,hy+10],bow:wk.bow?0.3:0,hold:true},fl?WHITE:f.T.col,wk.bow?'bow':wk.draw);
+     }else if(!f.wpn||!drawIcon('w_'+f.wpn.k,hx,hy,wa,(wk.tip||100)*1.15*(wk.isc||1),fl,wk.bow?0.5:0.13))drawWeapon(f,{hf:[hx,hy],wa,hb:[hx+20,hy+10],bow:wk.bow?0.3:0,hold:true},fl?WHITE:f.T.col,wk.bow?'bow':wk.draw);
     }}
    ctx.restore();});
  if(rear)ctx.restore();
