@@ -2,11 +2,11 @@
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
 (async()=>{
  const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
- const p=await(await b.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage(),errors=[];
+ const p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true,hasTouch:true})).newPage(),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const result=await p.evaluate(()=>{
-  window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startDemo(0);G.lowq=true;G.autoSpd=1;
+  window.__qaRAF=window.requestAnimationFrame;window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startDemo(0);G.lowq=true;G.autoSpd=1;
   // Drive the same loop with an exact number of 60 Hz ticks.
   const ticks=n=>{acc=0;last=0;for(let t=1;t<=n;t++)loop(t*1000/60+0.00001);};
   const rows=[],bad=[];
@@ -26,12 +26,18 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
   return {rows,bad,autoStepCalls:calls,boss:{state:boss.state,st:boss.st},errors:window.__err||[]};
  });
  const out=process.env.OUT||path.join(require('os').tmpdir(),'sekigahara-demo-slow');fs.mkdirSync(out,{recursive:true});
- await p.screenshot({path:path.join(out,'android-slow-boss.png')});
+ const session=await p.context().newCDPSession(p);const shot=async file=>{const data=await session.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});fs.writeFileSync(file,Buffer.from(data.data,'base64'));};
+ await p.evaluate(()=>{window.requestAnimationFrame=window.__qaRAF;});
+ await shot(path.join(out,'android-slow-boss.png'));
  // Use the visible mobile controls rather than only internal state setters.
  const before=await p.evaluate(()=>G.t);await p.getByRole('button',{name:'1コマ',exact:true}).dispatchEvent('pointerdown');
- await p.evaluate(()=>{acc=0;last=0;loop(1000/60+0.00001);});
+ await p.evaluate(()=>{window.requestAnimationFrame=()=>0;acc=0;last=0;loop(1000/60+0.00001);window.requestAnimationFrame=window.__qaRAF;});
  const after=await p.evaluate(()=>G.t);if(after-before!==1)result.bad.push({buttonStep:after-before});
- await p.screenshot({path:path.join(out,'android-next-frame.png')});
+ await shot(path.join(out,'android-next-frame.png'));
+ const layout=await p.evaluate(()=>{G.mode='play';G.auto=true;demoView.settings=false;autoUI(true);const compact=autoEl.getBoundingClientRect().toJSON();demoView.settings=true;autoUI(true);const stage=autoEl.querySelector('[aria-label="幕"]'),speed=autoEl.querySelector('[aria-label="再生速度"]');return{compact,stageOptions:stage?.options.length,speedOptions:speed?.options.length,numericButtons:[...autoEl.querySelectorAll('button')].filter(b=>/^\d+$/.test(b.textContent)).length};});
+ if(layout.compact.height>50||layout.compact.left<0||layout.compact.right>802||layout.stageOptions!==6||layout.numericButtons)result.bad.push({layout});
+ await shot(path.join(out,'android-settings-dropdowns.png'));
+ await p.evaluate(()=>{demoView.settings=false;autoUI(true);});await shot(path.join(out,'android-compact-controls.png'));result.layout=layout;
  fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify({...result,pageErrors:errors},null,2));console.log(JSON.stringify({...result,pageErrors:errors}));
  await b.close();if(result.bad.length||result.errors.length||errors.length)process.exitCode=1;
 })();
