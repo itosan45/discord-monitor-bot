@@ -1576,6 +1576,8 @@ function polearmAngle(f,hy,angle,length){
 }
 function drawSprite(f){let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
+ // A missing unarmed walk must not silently turn pickup movement into an idle pose.
+ if(f.wpn&&f.team===0&&f.state==='walk'){const U=SPR['walkbody3_'+f.T.type];if(U&&U.ready&&U.a.walk){S=U;sp=sprPos(f,U);}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
   if(f.kspin>0&&f.state==='walk'&&K.a.kwalk){S=K;sp={arr:K.a.kwalk,pos:(f.t/4)%K.a.kwalk.length,loop:true,hard:true};kart='spin';}
   else if(f.kspin>0&&(f.state==='idle'||f.state==='walk')&&K.a.kspin){S=K;sp={arr:K.a.kspin,pos:(f.t/4)%K.a.kspin.length,loop:true,hard:true};kart='spin';}
