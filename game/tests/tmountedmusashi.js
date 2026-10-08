@@ -23,6 +23,11 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
   ctx.drawImage=native;
   // The visible dropdown sets the current rider and survives hero/stage restart.
   demoView.paused=true;demoView.settings=true;autoUI(true);const horse=autoEl.querySelector('[aria-label="馬の有無"]');horse.value='1';horse.dispatchEvent(new Event('change'));if(!G.player.mount||demoView.steps!==1)bad.push({horseOptionFailed:true});startAuto('musashi',1);if(!G.player.mount)bad.push({horseRestartFailed:true});horse.value='0';horse.dispatchEvent(new Event('change'));if(G.player.mount)bad.push({dismountOptionFailed:true});
+  setDemoMount(true);const rider=G.player,enemy=mk('sword',rider.x+30,rider.y,1);rider.hp=99999;
+  for(let i=0;i<8;i++){rider.inv=0;hurt(rider,enemy,{dmg:1,kb:0});}
+  if(!rider.mount||rider.mount.hp!==6)bad.push({fixedHorseLost:true});
+  G.auto=false;setDemoMount(true);for(let i=0;i<8;i++){rider.inv=0;hurt(rider,enemy,{dmg:1,kb:0});}if(rider.mount)bad.push({normalGameHorseInvulnerable:true});G.auto=true;
+  setDemoMount(false);G.steeds=[{x:rider.x,y:rider.y,face:1,t:60}];rider.state='idle';updSteeds();if(rider.mount)bad.push({unwantedAutoMount:true});
   return{rows:rows.length,frames:rows.length*72,bad,shots};
  });
  const out=process.env.OUT||path.join(require('os').tmpdir(),'sekigahara-mounted-musashi');fs.mkdirSync(out,{recursive:true});for(const s of r.shots)fs.writeFileSync(path.join(out,s.name+'.png'),Buffer.from(s.png,'base64'));delete r.shots;fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify({r,errors},null,2));console.log(JSON.stringify({r,errors}));await b.close();if(r.bad.length||errors.length)process.exitCode=1;
