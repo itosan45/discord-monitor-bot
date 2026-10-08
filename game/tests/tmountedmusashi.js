@@ -26,7 +26,8 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
   setDemoMount(true);const rider=G.player,enemy=mk('sword',rider.x+30,rider.y,1);rider.hp=99999;
   for(let i=0;i<8;i++){rider.inv=0;hurt(rider,enemy,{dmg:1,kb:0});}
   if(!rider.mount||rider.mount.hp!==6)bad.push({fixedHorseLost:true});
-  G.auto=false;setDemoMount(true);for(let i=0;i<8;i++){rider.inv=0;hurt(rider,enemy,{dmg:1,kb:0});}if(rider.mount)bad.push({normalGameHorseInvulnerable:true});G.auto=true;
+  respawn(rider);if(!rider.mount)bad.push({fixedHorseLostOnRespawn:true});
+  G.auto=false;setDemoMount(true);for(let i=0;i<8;i++){rider.inv=0;hurt(rider,enemy,{dmg:1,kb:0});}if(rider.mount)bad.push({normalGameHorseInvulnerable:true});respawn(rider);if(rider.mount)bad.push({normalRespawnMounted:true});G.auto=true;
   setDemoMount(false);G.steeds=[{x:rider.x,y:rider.y,face:1,t:60}];rider.state='idle';updSteeds();if(rider.mount)bad.push({unwantedAutoMount:true});
   return{rows:rows.length,frames:rows.length*72,bad,shots};
  });
