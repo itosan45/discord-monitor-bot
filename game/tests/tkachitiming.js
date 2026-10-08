@@ -3,7 +3,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{
  const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await b.newContext({viewport:{width:1280,height:720}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto('http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
+ await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForTimeout(3000);
  const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;G.noStory=true;startGame('yuki',null);G.state='bossdown';G.stateT=0;G.slow=0;G.demo=false;
   const events=[];AU.on=true;AU.ac={currentTime:0};AU.taiko=()=>{};AU.kc=(k)=>{events.push([G.stateT,'kc',k]);return true;};AU.kachi=()=>{events.push([G.stateT,'kachi']);return true;};AU.crowd=()=>events.push([G.stateT,'crowd']);
   while(G.state==='bossdown'&&G.stateT<660)stepGame();return {events,state:G.state,endFrame:660};});
