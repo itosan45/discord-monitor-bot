@@ -1684,7 +1684,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'dodge':{const L=f.dback?18:20;if(f.dback&&A.dodgeB)return P('dodgeB',f.st/L*A.dodgeB.length);if(!f.dback&&A.dodgeF)return P('dodgeF',f.st/L*A.dodgeF.length);return P(A.dash&&!f.dback?'dash':'jump',f.dback?1:f.st/L*4);}
   case'jump':return P('jump',f.st<4?0:f.vz>3?1:f.vz>-3?2:3);
   case'hurt':return P('hit',f.st<7?0:1);
-  case'down':return P('down',f.z>0.6?(f.vz>0?0:1):2);
+  case'down':return P('down',f.z>0.6||f.vz>0?(f.vz>0?0:1):2); // 打ち上げ直後の止まり中(z≒0・上向き速度)は寝そべりでなく、のけぞりを見せる
   case'getup':return P('getup',f.st/5);
   case'dead':return P('dead',f.st/9);
   case'jatk':return P('jatk',f.cur&&f.cur.dur?prog(f.cur,4):Math.min(3,f.st/6));
