@@ -1,0 +1,12 @@
+// A foot-only stage demo must not chase a horse it is forbidden to mount.
+const {chromium}=require('playwright'),fs=require('fs');
+(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});try{
+ const p=await b.newPage({viewport:{width:802,height:360},isMobile:true});const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+ const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);const bad=[],rows=[];G.camx=0;G.auto=true;G.demo=false;demoView.motion='auto';demoView.mounted=false;
+ for(const hero of ['yuki','kage','mitsu','nobu','shin','musashi']){const f=mk(hero,640,570,0),e=mk('sword',940,570,1);e.entered=true;e.hp=e.maxhp=10000;f.inv=999;f.ki=0;G.player=f;G.fighters=[f,e];G.steeds=[];G.proj=[];G.parts=[];addSteed(470,570,-1);G.steeds[0].t=60;const c=demoCtl(f);if(!c.r||c.l)bad.push({hero,wrongTarget:c});for(let t=0;t<150;t++){G.t++;updPlayer(f,demoCtl(f));updSteeds();}rows.push({hero,x:f.x,damage:10000-e.hp,mounted:!!f.mount});if(e.hp===10000||f.mount)bad.push({hero,noCombat:e.hp===10000,mounted:!!f.mount});}
+ // A long weapon can keep the hero farther from an edge than a dropped item.
+ for(const hero of ['yuki','kage','mitsu','nobu','shin','musashi'])for(const side of [-1,1]){const f=mk(hero,640,570,0);f.wpn={k:'takeyari',uses:99};const edge=fighterScreenMargin(f);f.x=side===-1?edge:W-edge;G.player=f;G.fighters=[f];G.steeds=[];G.camx=0;G.camMax=2000;G.waveOn=false;G.items=[{x:side===-1?100:W-100,y:570,k:'onigiri',t:0}];const c=demoCtl(f);if(!c.r||c.l)bad.push({hero,side,chasedUnreachableItem:c});}
+ // Attract mode still may pursue and mount loose horses.
+ G.auto=false;G.demo=true;const f=mk('yuki',640,570,0);G.player=f;G.fighters=[f];G.steeds=[];addSteed(470,570,-1);const c=demoCtl(f);if(!c.l||c.r)bad.push({attractLostHorseTarget:c});return{bad,rows};});
+ const dir=process.env.OUT||'C:/Users/user/Desktop/output/sekigahara-new-20261006/qa/stage-demo-mount-preference';fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(dir+'/tests.json',JSON.stringify({r,errors},null,2));console.log(JSON.stringify({r,errors}));if(r.bad.length||errors.length)process.exitCode=1;
+ }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
