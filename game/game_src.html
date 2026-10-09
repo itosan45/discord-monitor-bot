@@ -322,7 +322,7 @@ const TY={
  yuki:{name:'真田幸村',en:'SANADA YUKIMURA',role:'赤備えの猛将 — 十文字槍',hp:120,spd:4.5,jump:12.6,cost:40,sc:1.08,wp:'jumonji',tip:138,two:false,gap:30,helm:'deer',scarf:'#c4202e',coin:true,
   col:{armor:'#b21f2d',armor2:'#7d1220',trim:'#e8c35a',cloth:'#5a0f1b',skin:'#f1c7a0'},trail:'255,130,60',banner:{bg:'#a51d2a',k:'coin'},
   stat:[3,5,5],spcName:'赤備え突貫',spcSub:'真田十文字・日本一の兵',
-  atk:[{pz:'thrust',dur:16,hs:5,he:9,rng:140,dmg:9,kb:2.5,lunge:1.5,sfx:'thrust'},{pz:'thrust',dur:16,hs:5,he:9,rng:150,dmg:8,kb:3,lunge:3,sfx:'thrust'},{pz:'rise',a0:1.35,a1:-2.4,r:38,dur:22,hs:7,he:12,rng:150,dmg:11,kb:4,lunge:1,sfx:'slash'},{pz:'swing',a0:-2.6,a1:0.9,r:42,dur:34,hs:14,he:20,rng:150,dmg:16,kb:7,launch:true,dep:46,sfx:'heavy',lunge:2}],
+  atk:[{pz:'thrust',dur:16,hs:5,he:9,rng:180,dmg:9,kb:2.5,lunge:1.5,sfx:'thrust'},{pz:'thrust',dur:16,hs:5,he:9,rng:210,dmg:8,kb:3,lunge:3,sfx:'thrust'},{pz:'rise',a0:1.35,a1:-2.4,r:38,dur:22,hs:7,he:12,rng:150,dmg:11,kb:4,lunge:1,sfx:'slash'},{pz:'swing',a0:-2.6,a1:0.9,r:42,dur:34,hs:14,he:20,rng:150,dmg:16,kb:7,launch:true,dep:46,sfx:'heavy',lunge:2}],
   dash:{pz:'thrust',dur:26,hs:7,he:18,rng:150,dmg:13,kb:6,launch:true,lunge:8,dep:34,sfx:'thrust'},
   jatk:{pz:'dive',rng:120,dmg:12,kb:3,dep:34}},
  kage:{name:'上杉景勝',en:'UESUGI KAGEKATSU',role:'毘沙門の守護 — 直江の太刀',hp:150,spd:3.7,jump:12,cost:40,sc:1.08,wp:'katana',tip:96,two:true,gap:15,helm:'moon',cape:'#161d38',
@@ -1076,6 +1076,7 @@ function fighterScreenMargin(f){
  if(f.mount)S=SPR['mountfull3_'+f.T.type]||SPR['mountbody3_'+f.T.type]||SPR['mountatk2_'+f.T.type]||S;
  let extent=70;
  if(f.T.type==='yuki'&&SPR.yukithrow1&&SPR.yukithrow1.ready)extent=138;
+ if(!f.mount&&f.T.type==='yuki'&&!f.wpn&&SPR.yukiattack2&&SPR.yukiattack2.ready){for(const arr of Object.values(SPR.yukiattack2.a))for(const q of arr)extent=Math.max(extent,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));}
  if(S&&S.ready){if(S.screenExtent===undefined){let w=0;for(const arr of Object.values(S.a))if(Array.isArray(arr))for(const q of arr)if(Array.isArray(q)&&q.length>=6)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));S.screenExtent=w;}extent=Math.max(extent,S.screenExtent);}
  if(f.wpn&&f.wpn.k!=='kusari'){const w=WPN[f.wpn.k];if(w)extent=Math.max(extent,(w.tip||100)*1.15+72);}
  return Math.min(W/2-40,Math.max(70,Math.ceil(extent*f.sc*1.06)+24));
@@ -1608,6 +1609,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
  if(f.state==='throw'&&f.spearThrow){const U=SPR.yukithrow1;if(U&&U.ready){S=U;sp={arr:U.a.throw,pos:yukiThrowFrame(f),loop:false,hard:true};}}
+ if(f.T.type==='yuki'&&!f.wpn&&f.state==='atk'&&f.cur){const U=SPR.yukiattack2,idx=f.T.atk.indexOf(f.cur.base||f.cur);if(U&&U.ready&&idx>=0&&idx<2){const times=idx===0?[0,3,5,9,13]:[0,3,5,10,13];let frame=0;while(frame<4&&f.st>=times[frame+1])frame++;S=U;sp={arr:U.a['a'+(idx+1)],pos:frame,loop:false,hard:true};}}
  if(f.wpn&&f.team===0&&f.state==='walk'){const U=SPR['walkbody3_'+f.T.type];if(U&&U.ready&&U.a.walk){S=U;sp=sprPos(f,U);}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
   if(f.kspin>0&&f.state==='walk'&&K.a.kwalk){S=K;sp={arr:K.a.kwalk,pos:(f.t/4)%K.a.kwalk.length,loop:true,hard:true};kart='spin';}
