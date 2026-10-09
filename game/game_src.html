@@ -679,7 +679,7 @@ function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DE
 
 /* ---------- spawn ---------- */
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(3);G.shake=14;}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(3);G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss)startBossStory(e);return e;}
@@ -1177,7 +1177,7 @@ function updWorld(){
    for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
    if(G.partner&&!G.demo){const pool=w.en.filter(e=>TY[e[0]].ai!=='rider');const ex=Math.max(1,Math.round(w.en.length*0.35));for(let k=0;k<ex&&pool.length;k++){const q=pick(pool);G.sq.push({type:q[0],d:(w.boss?120:30)+q[1]+k*40,side:-q[2]});}}
    G.waveT=0;}
-  if(G.waveOn){G.waveT++;for(let i=G.sq.length-1;i>=0;i--){if(G.waveT>=G.sq[i].d){const s=G.sq[i];G.sq.splice(i,1);spawnEn(s.type,s.side);}}
+  if(G.waveOn){G.waveT++;for(let i=G.sq.length-1;i>=0;i--){if(G.waveT>=G.sq[i].d){const s=G.sq[i];G.sq.splice(i,1);spawnEn(s.type,s.side);if(G.banner&&G.banner.boss)return;}}
    const alive=G.fighters.some(e=>e.team===1&&e.hp>0);
    if(!alive&&!G.sq.length&&!G.boss){G.waveOn=false;G.wi++;if(G.wi<G.waves.length){G.camMax=G.waves[G.wi].x;G.goT=1;}}}
  }
@@ -1583,7 +1583,7 @@ function polearmAngle(f,hy,angle,length){
 // Nobunaga unarmed idle/jump omit the flag; attacks already include it.
 // Reuse the existing flag only for those missing animations to avoid duplicates.
 function drawUnarmedBanner(f,S,sp,fl){if(f.T.type!=='nobu'||S!==SPR.nobu_u||!['idle','jump'].includes(sp.arr._an))return;const B=SPR.nobu,q=B&&B.ready&&B.a.idle[0];if(!q)return;ctx.drawImage(fl?sprWhite(B):B.img,q[0]+5,q[1],30,70,q[4]+5,q[5],30,70);}
-function fighterVisualTime(f){return G.spcScene&&G.spcScene.p!==f?G.spcScene.t:G.t;}
+function fighterVisualTime(f){if(G.banner&&G.banner.boss)return G.banner.frozenAt;return G.spcScene&&G.spcScene.p!==f?G.spcScene.t:G.t;}
 function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
@@ -1793,7 +1793,7 @@ function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)re
  if(f.state==='matk'&&f.st>=f.cur.hs-2&&f.st<=f.cur.he+3&&!G.lowq){const k=(f.st-f.cur.hs+2)/(f.cur.he-f.cur.hs+5);ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y));ctx.scale(f.face,1);ctx.globalCompositeOperation='lighter';
   for(const [lw,al,col] of [[18,0.25*(1-k),'255,150,60'],[7,0.8*(1-k),'255,240,200']]){ctx.strokeStyle=`rgba(${col},${al})`;ctx.lineWidth=lw;ctx.beginPath();ctx.ellipse(20,-150,150,60,0,-2.4+k*2.6,-0.9+k*2.6);ctx.stroke();}ctx.restore();}
  return true;}
-function drawSteeds(){if(!G.steeds)return;for(const h of G.steeds){const S=SPR.mount_blue;if(!S||!S.ready)continue;const f={T:{},x:h.x,y:h.y,z:0,face:h.face,sc:1,t:(G.spcScene?G.spcScene.t:G.t)+h.t,state:h.t<40?'walk':'idle',flash:0};
+function drawSteeds(){if(!G.steeds)return;for(const h of G.steeds){const S=SPR.mount_blue;if(!S||!S.ready)continue;const f={T:{},x:h.x,y:h.y,z:0,face:h.face,sc:1,t:fighterVisualTime(null)+h.t,state:h.t<40?'walk':'idle',flash:0};
  drawMounted(f,S,h.t<40);if(G.player&&!G.player.mount&&(h.t>>4)&1)txt(TOUCH?'跳躍で騎乗':'X(跳躍)で騎乗',h.x-G.camx,h.y-220,18,'#ffe070','center','#000',4);}}
 
 
@@ -1977,7 +1977,7 @@ function drawKachi(){if(G.state!=='bossdown'||G.demo)return;const t=G.stateT-(G.
  ctx.restore();}
 function drawOverlays(){drawSays();drawRear();drawKachi();drawUlt();
  // stage banner
- if(G.banner){const b=G.banner;b.t++;if(b.t<0||G.cut||G.vo){}else{const en_=b.long?300:180,a=b.t<20?b.t/20:b.t>en_-30?1-(b.t-(en_-30))/30:1;if(b.t>en_)G.banner=null;else{ctx.globalAlpha=a;
+ if(G.banner){const b=G.banner;if(!b.boss)b.t++;if(b.t<0||G.cut||G.vo){}else{const en_=b.long?300:180,a=b.t<20?b.t/20:b.t>en_-30?1-(b.t-(en_-30))/30:1;if(b.t>en_)G.banner=null;else{ctx.globalAlpha=a;
   if(b.boss){ctx.fillStyle='rgba(110,0,0,0.64)';ctx.fillRect(0,196,W,266);ctx.fillStyle='#b01818';ctx.fillRect(0,196,W,5);ctx.fillRect(0,457,W,5);txt('— WARNING —',W/2,226,22,'#ff9a8a','center','#000',4,'Arial Black,Impact,sans-serif');txt(b.jp,W/2,290,78,'#fff','center','#600',9);if(b.kana)txt(b.kana,W/2,342,22,'#ffd9d0','center','#000',4);if(b.role)txt(b.role,W/2,380,28,'#ffd27a','center','#000',5);if(b.desc){txt(b.desc[0],W/2,416,19,'#fff','center','#000',4);txt(b.desc[1],W/2,440,19,'#fff','center','#000',4);}}
   else{ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,240,W,150);txt(b.jp,W/2,282,34,'#e8c35a','center','#000',5);txt(b.title,W/2,336,66,'#fff','center','#300',8);txt(b.en,W/2,376,18,'#ddd','center','#000',3,'Arial');}ctx.globalAlpha=1;}}}
  // special cut-in
@@ -2215,6 +2215,8 @@ function renderWorld(){
 function stepGame(){
  if(G.auto&&demoView.motion!=='auto'){stepWalkPreview();return;}
  if(G.state==='continue'){contStep();updParts();return;}
+ // Boss name cut-in is a world pause; advance its clock independently of drawing.
+ if(G.banner&&G.banner.boss){G.banner.t++;G.shake*=0.86;if(G.banner.t>300)G.banner=null;return;}
  if(G.ult){if(G.hitstop>0)G.hitstop--;else updUlt();updParts();return;}
  // Run only the caster and their projectiles; spectators, hazards and timer wait.
  if(G.spcScene){const p=G.spcScene.p;
