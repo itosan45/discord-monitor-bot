@@ -445,7 +445,7 @@ function burst(x,y,z,n,col,sp,life){for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rn
 function dust(x,y,n){for(let i=0;i<(n||4);i++)PT({x:x+rnd(-10,10),y,z:2,vx:rnd(-1.2,1.2),vz:rnd(0.3,1.2),life:rndi(16,28),sz:rnd(8,16),col:'rgba(160,140,110,0.5)',k:'smoke'});}
 function popup(s,x,y,z,col,sz){PT({x,y,z,vz:1.2,life:42,k:'text',s,col:col||'#fff',sz:sz||22,vx:rnd(-.3,.3)});}
 // 剣閃: 会心・反撃・一閃の決着で、刃が通った線を一瞬描く(素材は増やさない)
-function slashFx(x,y,z,face,len,life,col){G.parts.push({k:'slash',x,y,z,vx:0,vy:0,vz:0,g:0,life:life||16,max:life||16,sz:len||170,ang:-0.3+rnd(-0.14,0.14),face:face||1,col:col||'#fff',fr:1});}
+function slashFx(x,y,z,face,len,life,col,ang){G.parts.push({k:'slash',x,y,z,vx:0,vy:0,vz:0,g:0,life:life||16,max:life||16,sz:len||170,ang:ang??(-0.3+rnd(-0.14,0.14)),face:face||1,col:col||'#fff',fr:1});}
 function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
 /* ---------- stage start ---------- */
@@ -966,12 +966,35 @@ function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p)
 // 必殺Lv2で別の技になる武将(信長: Lv1=鉄砲、Lv2=火刑)
 const SPC2={nobu:['魔王の火刑','我に逆らう者、灰となれ']};
 const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36}};
+// 幸村の必殺「赤備え突貫」: ①前の雑兵を槍に掛け、画面の端まで突き抜けながら連続で突く(多段) ②端で最後の一突き、まとめて吹き飛ばす。
+// 最後の一突きで時間の停止を解き、吹き飛ぶ敵がそのまま見える(端で跳ね返る)。Lv2(・極)は最後に十文字の炎が走る。
+function yukiSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?18:16;
+ if(st===0){H.length=0;p.cur=Object.assign({},SPD.yuki);}
+ if(st===8){const m=fighterScreenMargin(p),edge=f>0?G.camx+W-m:G.camx+m,dist=Math.max(0,(edge-p.x)*f);p.rushEnd=8+clamp(Math.ceil(dist/spd),14,56);p.cur.he=p.rushEnd;p.cur.dur=p.rushEnd+14;p.rushEdge=edge;}
+ const RE=p.rushEnd||34,tipX=()=>p.x+f*120;
+ if(st>=8&&st<=RE){p.x+=f*spd;if((p.x-p.rushEdge)*f>0)p.x=p.rushEdge;
+  for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying||e.state==='dead'||H.includes(e))continue;const dx=(e.x-p.x)*f;if(dx>-10&&dx<170&&Math.abs(e.y-p.y)<44&&Math.abs(e.z||0)<90){H.push(e);e.inv=0;}}
+  const wallX=G.camx+(f>0?W-30:30);
+  for(let i=H.length-1;i>=0;i--){const e=H[i];if(e.hp<=0||e.dying||!G.fighters.includes(e)){H.splice(i,1);continue;}
+   if(!e.T.boss){e.state='hurt';e.st=0;e.hurtT=30;e.cur=null;e.vx=0;let tx=p.x+f*(96+i*26);if((tx-wallX)*f>-i*12)tx=wallX-f*i*12;e.x+=(tx-e.x)*0.55;e.y+=(p.y-e.y)*0.2;e.z=Math.min(36,(e.z||0)+6);e.face=-f;}}
+  if((st-8)%5===0){for(const e of H){p.hit.delete(e);hurt(e,p,{dmg:2,kb:0,launch:false,noDecap:true});if(e.hp>0&&!e.T.boss&&e.state==='down'){e.state='hurt';e.vz=0;}PT({x:e.x-f*20,y:e.y,z:(e.z||0)+70,life:6,k:'star',sz:30,col:'#fff'});}
+   if(H.length)AU.sfx('thrust');PT({x:tipX(),y:p.y,z:80,life:5,k:'star',sz:22,col:'#ffd0a0'});}
+  for(let i=0;i<3;i++)PT({x:p.x-f*rnd(10,60),y:p.y+rnd(-8,8),z:rnd(20,110),vx:-f*rnd(2,5),vz:rnd(0.5,2),life:rndi(12,22),sz:rnd(12,24),col:'rgba(255,90,30,0.65)',k:'flame'});
+  if(st%2===0)PT({x:p.x-f*rnd(30,90),y:p.y+rnd(-24,24),z:rnd(30,150),vx:-f*18,life:6,k:'spark',sz:2,col:'rgba(255,200,150,0.9)'});}
+ if(st===RE+1){p.hit.clear();const tx=tipX(),aw=Math.abs(p.x-p.rushEdge)<4,bd=aw?-f:f;G.spcScene=null; // 時間の停止を解く(吹き飛ぶ様子をその場で見せる)
+  for(const e of H){if(e.hp>0&&!e.dying){p.hit.delete(e);hurt(e,p,{dmg:16,kb:14,launch:true,noDecap:true});if(!e.T.boss&&(e.state==='down'||e.dying)){e.vx=bd*(aw?(lv2?12:10):(lv2?17:15));e.vz=11;e.z=Math.max(e.z,1);e.bowl=p;e.wallB=0;}}}
+  strike(p,{rng:190,dmg:16,kb:12,dep:52,launch:true});
+  G.hitstop=Math.max(G.hitstop,12);G.shake=Math.max(G.shake,20);G.flashT=Math.max(G.flashT||0,2);AU.sfx('boom');AU.sfx('hitH');
+  slashFx(tx,p.y,90,f,380,18,'#fff2d0',0);ring(tx,p.y,150,'rgba(255,140,60,0.95)',24);ring(tx,p.y,80,'rgba(255,240,200,0.95)',16);
+  for(let i=0;i<34;i++){const a=rnd(-0.6,0.6);PT({x:tx,y:p.y+rnd(-14,14),z:rnd(50,120),vx:bd*Math.cos(a)*rnd(4,12),vz:Math.sin(a)*rnd(3,8)+2,life:rndi(16,30),sz:rnd(14,30),col:i%3?'rgba(255,120,40,0.75)':'rgba(255,220,120,0.8)',k:'flame'});}
+  popup(H.length>1?H.length+'人まとめて！':'突き破り！',tx-f*60,p.y,210,'#ffcf6a',30);G.yspcN=(G.yspcN||0)+1;}
+ if(lv2&&st===RE+6){const cx=p.x+(Math.abs(p.x-p.rushEdge)<4?-f*120:f*220);slashFx(cx,p.y,90,1,420,22,'#ffb070',0.75);slashFx(cx,p.y,90,1,420,22,'#ffb070',-0.75);ring(cx,p.y,230,'rgba(255,90,40,0.95)',30);G.shake=Math.max(G.shake,16);G.flashT=Math.max(G.flashT||0,3);AU.sfx('fire');
+  for(let i=0;i<40;i++)PT({x:cx+rnd(-170,170),y:p.y+rnd(-30,30),z:rnd(0,60),vx:rnd(-1,1),vz:rnd(2,7),g:-0.05,life:rndi(18,34),sz:rnd(14,30),col:i%2?'rgba(255,90,30,0.7)':'rgba(255,200,90,0.7)',k:'flame'});
+  for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying)continue;if(Math.abs(e.x-cx)<230&&Math.abs(e.y-p.y)<60){p.hit.delete(e);e.inv=0;hurt(e,p,{dmg:16,kb:6,launch:true,noDecap:true,unblock:true});}}}
+ if(st>=p.cur.dur-1)H.length=0;}
 function updSpc(p){
  const st=p.st,k=p.type;p.inv=Math.max(p.inv,3);
- if(k==='yuki'){
-  if(st>=8&&st<=34){p.x+=p.face*12;if(st%5===3)p.hit.clear();strike(p,{rng:150,dmg:8,kb:3,dep:42,launch:false});
-   for(let i=0;i<3;i++)PT({x:p.x-p.face*rnd(10,50),y:p.y+rnd(-8,8),z:rnd(20,100),vx:-p.face*rnd(1,3),vz:rnd(0.5,2),life:rndi(14,26),sz:rnd(10,22),col:'rgba(255,110,40,0.6)',k:'flame'});if(st%6===0)AU.sfx('thrust');}
-  if(st===35){p.hit.clear();strike(p,{rng:160,dmg:18,kb:8,dep:48,launch:true});G.shake=12;ring(p.x+p.face*80,p.y,90,'rgba(255,150,70,0.9)',22);}
+ if(k==='yuki'){yukiSpc(p,st);
  }else if(k==='kage'){
   if(st<24){PT({x:p.x+p.face*rnd(-10,40),y:p.y,z:rnd(60,190),vx:rnd(-1,1),vz:rnd(-1,2),life:14,sz:rnd(2,4),col:'#9fd8ff',k:'spark'});if(st%5===0)PT({x:p.x+p.face*20,y:p.y,z:150,life:6,k:'bolt',sz:90,col:'#bfe8ff',seed:Math.random()*100});}
   if(st===24){strike(p,{rng:190,dmg:26,kb:8,dep:90,launch:true,around:true});for(const s of[1,-1])addProj({x:p.x+s*30,y:p.y,z:6,vx:s*9,team:0,dmg:22,face:s,owner:p,k:'wave',w:50,life:56,launch:true,kb:6,pierce:99});G.shake=22;G.flashT=8;ring(p.x,p.y,220,'rgba(160,220,255,0.95)',30);dust(p.x,p.y,12);for(let i=0;i<4;i++)PT({x:p.x+rnd(-120,120),y:p.y,z:0,life:9,k:'bolt',sz:300,col:'#dff4ff',seed:Math.random()*100});AU.sfx('boom');}
