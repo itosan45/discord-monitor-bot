@@ -1,8 +1,8 @@
 // Demo AI chooses and performs the attack. Only the encounter setup is forced.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
 (async()=>{
- const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'}),p=await(await b.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage(),errors=[];
- p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;});
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'}),p=await(await b.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage(),errors=[];
+ p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;});
  const out=process.env.OUT||path.join(require('os').tmpdir(),'sekigahara-demo-slow-capture');fs.mkdirSync(out,{recursive:true});const rows=[];
  for(const key of ['boss1','boss2','boss3','boss4','boss5','boss7','boss8','boss9']){
   const r=await p.evaluate(key=>{

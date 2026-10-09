@@ -14,6 +14,10 @@ def image_url(f):
 
 data['bg']={os.path.basename(f)[3:-5]:image_url(f) for f in sorted(glob.glob(os.path.join(GFX,'bg_*.webp')))}
 data['spr']={os.path.basename(f)[6:-5]:image_url(f) for f in sorted(glob.glob(os.path.join(GFX,'atlas_*.webp')))}
+# 余白を詰めた版(mountfull4)があれば、4096px超の元版(mountfull3)は読み込まない。
+for hero in ('yuki','kage','mitsu','nobu','shin','musashi'):
+    if 'mountfull4_'+hero in data['spr']:
+        data['spr'].pop('mountfull3_'+hero,None)
 # Preserve source/derived files, but do not decode superseded mounted sheets.
 # Every removed entry has a current replacement in this same build.
 for hero in ('yuki','kage','mitsu','nobu','shin','musashi'):

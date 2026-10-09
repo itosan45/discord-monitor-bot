@@ -2,13 +2,13 @@
 // Serve that old image for unversioned URLs while keeping current metadata.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),cp=require('child_process');
 (async()=>{
- const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await b.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage();
  const errors=[];p.on('pageerror',e=>errors.push(e.message));
  const old=cp.execFileSync('git',['show','92bb33d^:gfx/atlas_musashi.webp'],{maxBuffer:8*1024*1024});
  let staleServed=0;
  await p.route('**/gfx/atlas_musashi.webp*',r=>{if(!new URL(r.request().url()).searchParams.has('v')){staleServed++;return r.fulfill({body:old,contentType:'image/webp'});}return r.continue();});
- await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+ await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const result=await p.evaluate(()=>{
   window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('musashi',null);G.camx=0;
   const rows=[],bad=[],shots=[];

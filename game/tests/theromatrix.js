@@ -3,12 +3,12 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
 (async()=>{
  const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await browser.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage(),errors=[];
- p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+ p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const result=await p.evaluate(()=>{
   window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);G.camx=0;G.partner=null;G.state='run';G.lowq=true;
   const bad=[],reports=[],sheets=[],weapons=[null,...Object.keys(WPN)],heroes=['yuki','kage','mitsu','nobu','shin','musashi'];
   const native=ctx.drawImage.bind(ctx);let drawn=[],sourceBad=[],calls=[];
-  ctx.drawImage=function(im,...q){if(q.length===8){if(q[0]<0||q[1]<0||q[2]<=0||q[3]<=0||q[0]+q[2]>im.width+0.1||q[1]+q[3]>im.height+0.1)sourceBad.push(q.slice(0,4));const s=Object.keys(SPR).find(k=>SPR[k].img===im);if(s){drawn.push(s);calls.push({s,y:q[1]});}}return native(im,...q);};
+  ctx.drawImage=function(im,...q){if(q.length===8){if(q[0]<0||q[1]<0||q[2]<=0||q[3]<=0||q[0]+q[2]>im.width+0.1||q[1]+q[3]>im.height+0.1)sourceBad.push(q.slice(0,4));const s=Object.keys(SPR).find(k=>SPR[k].img===im);if(s){drawn.push(s);calls.push({s,x:q[0],y:q[1]});}}return native(im,...q);};
   for(const hero of heroes){let cases=0,frames=0,samples=0;const modes=[...TY[hero].atk.map((_,i)=>'a'+(i+1)),'dash','jump','charge','spc','mountatk','mountspc'];
    const sheet=document.createElement('canvas');sheet.width=modes.length*160;sheet.height=weapons.length*200;const sc=sheet.getContext('2d');sc.fillStyle='#252530';sc.fillRect(0,0,sheet.width,sheet.height);
    for(let wi=0;wi<weapons.length;wi++)for(let mi=0;mi<modes.length;mi++)for(const face of [-1,1])for(const y of [YMIN,570,YMAX]){
@@ -25,7 +25,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
      if(t%4&&t!==dur-1)continue;
      ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,1280,720);drawn=[];sourceBad=[];calls=[];drawFighter(f);samples++;
      if(sourceBad.length)bad.push({hero,weapon,mode,t,sourceBad});
-     if(mode==='mountatk'&&f.state==='matk'){const key=SPR['mountfull3_'+hero]?.ready?'mountfull3_'+hero:'mountatk2_'+hero,seq=SPR[key]?.a[weapon||'default'];if(!seq||!calls.some(q=>q.s===key&&q.y===seq[0][1]))bad.push({hero,weapon,mode,t,wrongMountedSheet:drawn});}
+     if(mode==='mountatk'&&f.state==='matk'){const full=SPR['mountfull4_'+hero]?.ready,key=full?'mountfull4_'+hero:'mountbody3_'+hero,seq=full?SPR[key]?.a[weapon||'default']:SPR[key]?.a.all;if(!seq||!calls.some(q=>q.s===key&&seq.some(r=>r[0]===q.x&&r[1]===q.y)))bad.push({hero,weapon,mode,t,wrongMountedSheet:drawn});}
      if(mode==='jump'&&f.state==='jatk'&&weapon&&!drawn.includes(hero+'_u'))bad.push({hero,weapon,mode,t,wrongJumpWeaponSheet:drawn});
      if(weapon&&weapon!=='kusari'&&(mode.startsWith('a')||mode==='dash'||mode==='charge')&&f.state==='atk'&&!drawn.includes(hero+'_u'))bad.push({hero,weapon,mode,t,wrongPickupBody:drawn});
      const top=ctx.getImageData(0,0,1280,1).data,bottom=ctx.getImageData(0,719,1280,1).data,left=ctx.getImageData(0,0,1,720).data,right=ctx.getImageData(1279,0,1,720).data;

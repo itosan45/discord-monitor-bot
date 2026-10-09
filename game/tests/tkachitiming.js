@@ -3,7 +3,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{
  const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await b.newContext({viewport:{width:1280,height:720}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForTimeout(3000);
+ await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForTimeout(3000);
  const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;G.noStory=true;startGame('yuki',null);G.demo=false;
   const events=[];Object.defineProperty(AU,'on',{value:true,configurable:true});AU.ac={currentTime:0};AU.tick=()=>{};AU.taiko=()=>{};AU.sfx=()=>{};
   AU.voBuf.yuki={duration:2.5};AU.voice=k=>events.push([G.stateT,'defeat',k]);AU.stopBgm=()=>events.push([0,'stopBgm']);AU.kc=k=>{events.push([G.stateT,'kc',k]);return true;};AU.kachi=()=>{events.push([G.stateT,'kachi']);return true;};

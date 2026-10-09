@@ -1,6 +1,6 @@
 // Exercise the actual attack definitions and movement, including the bow leap.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
-(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'}),p=await(await b.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+(async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'}),p=await(await b.newContext({viewport:{width:915,height:412},isMobile:true,hasTouch:true})).newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
 const out=process.env.OUT||path.join(require('os').tmpdir(),'sekigahara-boss-techniques');fs.mkdirSync(out,{recursive:true});
 const result=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);G.camx=0;G.partner=null;G.banner=null;G.state='run';G.player.hp=G.player.maxhp=100000;const bad=[],reports=[],sheets=[];
 for(const key of Object.keys(TY).filter(k=>TY[k].boss)){

@@ -6,7 +6,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
  const errors=[],reports=[];
  for(const viewport of [{width:915,height:412},{width:412,height:915}]){
   const context=await browser.newContext({viewport,isMobile:true,hasTouch:true}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');
+  await page.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');
   await page.waitForFunction(()=>['boss1','boss2','boss3','boss4','boss5','boss7','boss8','boss9'].every(k=>SPR[k]?.ready));
   const result=await page.evaluate(()=>{
    window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('kage',null);G.camx=0;G.lowq=false;G.banner=null;G.state='run';

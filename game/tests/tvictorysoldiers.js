@@ -6,7 +6,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
  const errors=[],reports=[];
  for(const viewport of [{width:1280,height:720},{width:915,height:412},{width:412,height:915}]){
   const context=await browser.newContext({viewport}),p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));
-  await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');
+  await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');
   await p.waitForFunction(()=>SPR.kgun_sword?.ready&&SPR.kgun_armor?.ready);
   const r=await p.evaluate(()=>{
    window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('kage',null);G.banner=null;G.fighters=G.fighters.filter(f=>f.team===0);G.camx=0;G.player.x=640;G.player.y=620;G.state='bossdown';G.stateT=0;G.slow=0;G.victoryShift=0;G.lowq=true;

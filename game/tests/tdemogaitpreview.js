@@ -1,10 +1,10 @@
 // A repeatable gait scene must use real player updates, remain on screen and pause.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
 (async()=>{
- const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await b.newPage({viewport:{width:802,height:360},hasTouch:true,isMobile:true}),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
- await p.goto((process.argv[2]||'http://127.0.0.1:8876/index.html')+'?preview=walk&hero=musashi&mount=1');await p.waitForFunction(()=>sprAllReady());
+ await p.goto((process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html')+'?preview=walk&hero=musashi&mount=1');await p.waitForFunction(()=>sprAllReady());
  const result=await p.evaluate(()=>{
   if(typeof prepareWalkPreview!=='function')return{bad:['walk preview missing']};
   window.__qaRAF=window.requestAnimationFrame;window.requestAnimationFrame=()=>0;AU.muted=true;const bad=[],keys=new Set(),faces=new Set(),f=G.player;

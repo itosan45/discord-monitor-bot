@@ -1,9 +1,9 @@
 // Walk must use a dedicated full-body gait, not alternate two idle horse poses.
 const {chromium}=require('playwright');
 (async()=>{
- const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true})).newPage();
- await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+ await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const r=await p.evaluate(()=>{
   window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('musashi',null);G.camx=0;G.lowq=true;
   const bad=[],cases=[];

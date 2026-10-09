@@ -1,8 +1,8 @@
 // Focused reproduction of the reported Musashi rider proportion/cropping defect.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
 (async()=>{
- const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'}),p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true,hasTouch:true})).newPage(),errors=[];
- p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'}),p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true,hasTouch:true})).newPage(),errors=[];
+ p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const r=await p.evaluate(()=>{
   window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;G.autoPk=null;startAuto('musashi',0);G.mode='play';G.state='run';G.banner=null;G.vo=null;G.cut=null;G.lowq=true;G.camx=0;
   const bad=[],rows=[],shots=[],native=ctx.drawImage.bind(ctx);let drawn=[];ctx.drawImage=function(im,...q){if(q.length===8){const key=Object.keys(SPR).find(k=>SPR[k].img===im);if(key)drawn.push(key);if(q[0]<0||q[1]<0||q[0]+q[2]>im.width||q[1]+q[3]>im.height)bad.push({sourceBounds:key,q});}return native(im,...q);};
@@ -12,7 +12,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
     f.state='idle';f.st=0;f.x=640;f.z=0;f.cur=null;if(mode==='attack')updPlayer(f,{atkP:true});
     for(let t=0;t<24;t++){
      if(mode!=='attack'||t)updPlayer(f,mode==='walk'?{r:true}:{});G.t++;drawn=[];ctx.clearRect(0,0,1280,720);drawFighter(f);
-     if(!drawn.includes(mode==='attack'&&f.state==='matk'?'mountfull3_musashi':mode==='walk'?'mountwalk5_musashi':'mountbody3_musashi'))bad.push({wrongSheet:drawn,weapon,mode,t});
+     if(!drawn.includes(mode==='attack'&&f.state==='matk'?'mountfull4_musashi':mode==='walk'?'mountwalk5_musashi':'mountbody3_musashi'))bad.push({wrongSheet:drawn,weapon,mode,t});
      if(drawn.includes('musashi')||drawn.includes('musashi_u'))bad.push({standingBodyUsed:true,mode,weapon,t});
      const ink=(x,y,w,h)=>{const a=ctx.getImageData(x,y,w,h).data;for(let j=3;j<a.length;j+=4)if(a[j]>8)return true;return false;};
      if(ink(0,0,1280,1)||ink(0,719,1280,1)||ink(0,0,1,720)||ink(1279,0,1,720))bad.push({edge:true,weapon,mode,t,y});
@@ -23,7 +23,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
   // Mounted special must animate the whole rider too, rather than hold idle.
   for(const weapon of [null,...Object.keys(WPN)]){
    const f=mk('musashi',640,570,0);f.wpn=weapon?{k:weapon,uses:999}:null;f.mount={hp:6,max:6,col:'iron'};f.ki=300;G.player=f;G.fighters=[f];G.lowq=true;const phases=new Set();
-   const spy=ctx.drawImage;ctx.drawImage=function(im,...q){if(im===SPR.mountfull3_musashi.img&&q.length===8)phases.add(q.slice(0,4).join(','));return spy(im,...q);};
+   const spy=ctx.drawImage;ctx.drawImage=function(im,...q){if(im===SPR.mountfull4_musashi.img&&q.length===8)phases.add(q.slice(0,4).join(','));return spy(im,...q);};
    updPlayer(f,{spcP:true});for(let t=0;t<40;t++){drawFighter(f);if(!weapon&&[10,17,27].includes(t)){renderWorld();shots.push({name:'special-'+t,png:cv.toDataURL().split(',')[1]});}updPlayer(f,{});}
    ctx.drawImage=spy;if(phases.size<4)bad.push({mountedSpecialFrozen:true,weapon,phases:phases.size});
   }

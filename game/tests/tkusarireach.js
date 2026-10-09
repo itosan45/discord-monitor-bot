@@ -1,7 +1,7 @@
 // Seven-fighter reach plus a point-blank foe: pierce all, never stop at the first.
 const {chromium}=require('playwright'),fs=require('fs');
-(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});try{
- const p=await b.newPage({viewport:{width:802,height:360},isMobile:true});const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+(async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});try{
+ const p=await b.newPage({viewport:{width:802,height:360},isMobile:true});const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);G.auto=false;G.demo=false;G.lowq=true;G.camx=0;const bad=[],rows=[],shots=[];
  for(const hero of ['yuki','kage','mitsu','nobu','shin','musashi'])for(const mounted of [false,true])for(const face of [-1,1])for(const edge of [false,true]){
   const f=mk(hero,edge?(face===1?1130:150):(face===1?180:1100),570,0);f.face=face;f.inv=999;f.wpn={k:'kusari',uses:99};if(mounted)f.mount={hp:6,max:6,col:'iron'};G.player=f;G.fighters=[f];G.parts=[];G.items=[];G.props=[];G.proj=[];G.state='run';
@@ -16,5 +16,5 @@ const {chromium}=require('playwright'),fs=require('fs');
   if(!edge&&hero==='musashi'&&face===1){renderWorld();drawHUD();shots.push({mounted,png:cv.toDataURL().split(',')[1]});}
   rows.push({hero,mounted,face,edge,reach,tip});
  }return{bad,rows,shots};});
- const out=process.env.OUT||'C:/Users/user/Desktop/output/sekigahara-new-20261006/qa/kusari-seven-fighters';fs.mkdirSync(out,{recursive:true});for(const s of r.shots)fs.writeFileSync(out+'/'+(s.mounted?'mounted':'foot')+'.png',Buffer.from(s.png,'base64'));delete r.shots;fs.writeFileSync(out+'/tests.json',JSON.stringify({r,errors},null,2));console.log(JSON.stringify({cases:r.rows.length,nearPierceCases:r.rows.filter(q=>!q.edge).length,bad:r.bad.slice(0,12),errors}));if(r.bad.length||errors.length)process.exitCode=1;
+ const out=process.env.OUT||(process.env.QA_OUT||'C:/Users/user/Desktop/output/sekigahara-new-20261006')+'/qa/kusari-seven-fighters';fs.mkdirSync(out,{recursive:true});for(const s of r.shots)fs.writeFileSync(out+'/'+(s.mounted?'mounted':'foot')+'.png',Buffer.from(s.png,'base64'));delete r.shots;fs.writeFileSync(out+'/tests.json',JSON.stringify({r,errors},null,2));console.log(JSON.stringify({cases:r.rows.length,nearPierceCases:r.rows.filter(q=>!q.edge).length,bad:r.bad.slice(0,12),errors}));if(r.bad.length||errors.length)process.exitCode=1;
  }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

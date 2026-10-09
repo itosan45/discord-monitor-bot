@@ -2,9 +2,9 @@
 // No health, damage, wave or enemy-AI overrides; seeded RNG only for reproducibility.
 const {chromium}=require('playwright'),fs=require('fs');
 (async()=>{let b;const errors=[];try{
- const stageIndex=Number(process.argv[4]||0);const dir=process.env.OUT||'C:/Users/user/Desktop/output/sekigahara-new-20261006/qa/stage-auto-progress';fs.mkdirSync(dir,{recursive:true});const rows=[];
+ const stageIndex=Number(process.argv[4]||0);const dir=process.env.OUT||(process.env.QA_OUT||'C:/Users/user/Desktop/output/sekigahara-new-20261006')+'/qa/stage-auto-progress';fs.mkdirSync(dir,{recursive:true});const rows=[];
  for(const hero of (process.argv[3]?[process.argv[3]]:['yuki','kage','mitsu','nobu','shin','musashi']))for(const mounted of [false,true]){
-  b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});const p=await b.newPage({viewport:{width:802,height:360},isMobile:true});p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+  b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});const p=await b.newPage({viewport:{width:802,height:360},isMobile:true});p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
   await p.evaluate(({hero,mounted,stageIndex})=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=false;G.autoPk=null;demoView.motion='auto';demoView.mounted=mounted;demoView.paused=false;G.lowq=true;AU.init();let seed=1729;Math.random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};startAuto(hero,stageIndex);window.flowQA={ticks:0,events:[],last:'',bossSeen:false,conversationSeen:false,clearSeen:false,start:stageIndex,bosses:[],expectedBosses:G.waves.filter(w=>w.boss).map(w=>w.boss)};},{hero,mounted,stageIndex});
   let r;
   for(let chunk=0;chunk<60;chunk++){

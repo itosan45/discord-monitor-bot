@@ -1,10 +1,10 @@
 // Exercise the real scheduler, including frozen canvas and one-frame advance.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
 (async()=>{
- const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true,hasTouch:true})).newPage(),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
- await p.goto(process.argv[2]||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
+ await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const result=await p.evaluate(()=>{
   window.__qaRAF=window.requestAnimationFrame;window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startDemo(0);G.lowq=true;G.autoSpd=1;
   // Drive the same loop with an exact number of 60 Hz ticks.
