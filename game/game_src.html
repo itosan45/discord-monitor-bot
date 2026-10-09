@@ -1061,7 +1061,9 @@ function fighterScreenMargin(f){
  if(f.wpn&&f.wpn.k!=='kusari'){const w=WPN[f.wpn.k];if(w)extent=Math.max(extent,(w.tip||100)*1.15+72);}
  return Math.min(W/2-40,Math.max(70,Math.ceil(extent*f.sc*1.06)+24));
 }
-function keepFighterOnScreen(f){const edge=fighterScreenMargin(f);f.x=clamp(f.x,G.camx+edge,G.camx+W-edge);}
+// NPCs may not retreat into a strip the hero's weapon margin makes unreachable.
+function combatScreenMargin(f){const own=fighterScreenMargin(f),p=G.player;return f.team===1&&p&&p!==f&&p.hp>0?Math.max(own,fighterScreenMargin(p)):own;}
+function keepFighterOnScreen(f){const edge=combatScreenMargin(f);f.x=clamp(f.x,G.camx+edge,G.camx+W-edge);}
 // Reserve the whole attack silhouette, not just ten pixels around its origin.
 // A constant margin across frames/directions prevents clamping from causing jitter.
 function bossScreenMargin(e){const S=SPR[e.T.spr||e.T.type];if(!S||!S.ready)return 180;
@@ -1105,7 +1107,7 @@ function updEnemy(e){
   case'getup':if(e.st>=20){e.state='idle';e.st=0;}break;
   case'dead':break;
  }
- const edge=fighterScreenMargin(e),entry=edge;
+ const edge=combatScreenMargin(e),entry=edge;
  if(!e.entered&&e.x>=G.camx+entry&&e.x<=G.camx+W-entry)e.entered=true;
  if(e.entered)e.x=clamp(e.x,G.camx+edge,G.camx+W-edge);
  e.y=clamp(e.y,YMIN,YMAX);
@@ -1117,12 +1119,12 @@ function demoCtl(p,follow){
  const P0=G.player;
  const stick=()=>{const tx=P0.x-70*(P0.face||1),dxp=tx-p.x;if(Math.abs(dxp)>36)(dxp>0?c.r=1:c.l=1);const dyp=P0.y+26-p.y;if(Math.abs(dyp)>14)(dyp>0?c.d=1:c.u=1);return c;};
  if(['dead','down','getup','hurt','spc'].includes(p.state))return c;
- if(p===G.player&&!p.mount&&G.steeds&&G.steeds.length){const h=G.steeds[0];if(Math.abs(h.x-p.x)<420){if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);return c;}}
+ if(p===G.player&&!p.mount&&!(G.auto&&!demoView.mounted)&&G.steeds&&G.steeds.length){const h=G.steeds[0];if(Math.abs(h.x-p.x)<420){if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);return c;}}
  const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,rg=T.atk[0].rng;
  for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
  if(follow&&P0&&(P0.state==='dead'||Math.abs(P0.x-p.x)>460))return stick();
  if(!en.length){if(follow)return stick();if(G.camx<G.camMax-4||!G.waveOn)c.r=1;if(p.y<548)c.d=1;else if(p.y>592)c.u=1;
-  const vis=G.items.filter(q=>q.x>G.camx+50&&q.x<G.camx+W-50&&Math.abs(q.x-p.x)<520);if(vis.length){c.r=0;c.l=0;c.u=0;c.d=0;const it=vis[0];if(Math.abs(it.x-p.x)>20)(it.x>p.x?c.r=1:c.l=1);if(Math.abs(it.y-p.y)>10)(it.y>p.y?c.d=1:c.u=1);if(it.k.startsWith('w_')&&Math.abs(it.x-p.x)<40&&Math.abs(it.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}}
+  const edge=fighterScreenMargin(p),vis=G.items.filter(q=>{const reach=q.k.startsWith('w_')?48:40;return q.x>G.camx+50&&q.x<G.camx+W-50&&q.x>=G.camx+edge-reach&&q.x<=G.camx+W-edge+reach&&Math.abs(q.x-p.x)<520;});if(vis.length){c.r=0;c.l=0;c.u=0;c.d=0;const it=vis[0];if(Math.abs(it.x-p.x)>20)(it.x>p.x?c.r=1:c.l=1);if(Math.abs(it.y-p.y)>10)(it.y>p.y?c.d=1:c.u=1);if(it.k.startsWith('w_')&&Math.abs(it.x-p.x)<40&&Math.abs(it.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}}
   const pr=G.props.find(q=>q.x>p.x-60&&q.x<p.x+260);if(pr&&G.camx>=G.camMax-4){}
   return c;}
  const foot=en.filter(e=>e.T.ai!=='rider');let tg=null,bd=1e9;for(const e of (foot.length?foot:en)){const d=Math.abs(e.x-p.x)+Math.abs(e.y-p.y)*2-(e.T.boss?150:0);if(d<bd){bd=d;tg=e;}}
@@ -1253,9 +1255,9 @@ function dismount(e,forced){const nt=e.T.mode==='arch'?'archer':'samurai',T=TY[n
  if(forced){e.state='idle';e.st=0;e.x=clamp(e.x,G.camx+80,G.camx+W-80);}}
 function updRider(e){
  const p=nearestAlly(e),T=e.T;e.wp+=0.55;if(e.mA){e.mA.t++;if(e.mA.t>=e.mA.dur){const k=e.mA.k;e.mA=null;if(k==='hit'){dismount(e,false);knock(e,e.hdir||-e.dir,5,7);return;}}else if(e.mA.k==='hit'){e.x+=(e.hdir||-e.dir)*1.5;return;}}
- if(e.rp==='wait'){e.rt--;e.face=e.dir;const edge=fighterScreenMargin(e);e.x=e.dir>0?G.camx+edge:G.camx+W-edge;e.y=e.ry;if(e.rt<=0){e.rp='go';e.hit.clear();if(!AU.sx('horse',0.8))AU.sfx('don');}return;}
+ if(e.rp==='wait'){e.rt--;e.face=e.dir;const edge=combatScreenMargin(e);e.x=e.dir>0?G.camx+edge:G.camx+W-edge;e.y=e.ry;if(e.rt<=0){e.rp='go';e.hit.clear();if(!AU.sx('horse',0.8))AU.sfx('don');}return;}
  e.face=e.dir;const sp=T.mode==='arch'?4.6:6.8;e.x+=e.dir*sp;e.y=clamp(e.y+(p.y-e.y)*(T.mode==='arch'?0.05:0.012),YMIN,YMAX);
- const edge=fighterScreenMargin(e);
+ const edge=combatScreenMargin(e);
  if(!e.entered){if(e.x>=G.camx+edge&&e.x<=G.camx+W-edge)e.entered=true;else return;}
  if(T.mode==='arch'){if(e.t%80===62&&(p.x-e.x)*e.dir>140&&Math.abs(p.x-e.x)<700&&!e.mA)e.mA={k:'a1',t:0,dur:30};if(e.mA&&e.mA.k==='a1'&&e.mA.t===16&&p.hp>0&&eProj()<3){fireProj(e,T.atk[0]);AU.sfx('arrow');}}
  else{const dd=(p.x-e.x)*e.dir;if(dd<330&&dd>200&&!e.mA&&!e.swung){e.mA={k:'a1',t:0,dur:26};e.swung=true;AU.sfx('slash');}if(dd<185&&dd>-30)strike(e,{rng:175,dmg:7,kb:5,launch:false,dep:34});}
