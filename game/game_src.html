@@ -88,7 +88,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  get on(){return !!this.ac&&this.ac.state==='running'&&!this.muted;},
  async dec(s){if(s.startsWith('gfx/')){const r=await fetch(s);return await this.ac.decodeAudioData(await r.arrayBuffer());}const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return await this.ac.decodeAudioData(u.buffer);},
  async load(){if(this.loaded)return;this.loaded=true;
-  try{const order=[this.want,4,...DATA.bgm.map((_,i)=>i)];for(const i of order){if(i<0||i>=DATA.bgm.length||this.bgmBuf[i])continue;this.bgmBuf[i]=await this.dec(DATA.bgm[i]);if(this.want>=0&&!this.bgmBuf[this.want]&&DATA.bgm[this.want])this.bgmBuf[this.want]=await this.dec(DATA.bgm[this.want]);}}catch(e){console.warn('bgm decode',e);}
+  try{await this.ensureBgm(this.want);this.ensureBgm(4);}catch(e){console.warn('bgm decode',e);}
   try{for(const k in DATA.vo)this.voBuf[k]=await this.dec(DATA.vo[k]);}catch(e){console.warn('vo decode',e);}
   try{for(let i=0;i<(DATA.sc||[]).length;i++)this.scBuf[i]=await this.dec(DATA.sc[i]);}catch(e){console.warn('sc decode',e);}
   try{this.dvBuf={};for(const c in (DATA.dv||{})){this.dvBuf[c]=[];for(const s of DATA.dv[c])this.dvBuf[c].push(await this.dec(s));}}catch(e){console.warn('dv decode',e);}
@@ -108,8 +108,17 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
     if(p){p.pan.value=clamp((t.x-G.camx-W/2)/(W/2),-0.7,0.7);s.connect(g);g.connect(p);p.connect(this.mg);}else{s.connect(g);g.connect(this.mg);}s.start();return;}}
   if(!this.on||!this.scBuf.length)return;const now=this.ac.currentTime;if(now-this.lastSc<0.2)return;this.lastSc=now;const s=this.ac.createBufferSource();s.buffer=boss?(this.scBuf[5]||this.scBuf[0]):this.scBuf[Math.floor(Math.random()*Math.min(5,this.scBuf.length))];s.playbackRate.value=boss?0.8:rnd(0.9,1.25);const g=this.ac.createGain();g.gain.value=boss?1.5:0.9;s.connect(g);g.connect(this.mg);s.start();},
  bgm(i){this.want=i;},
+ async ensureBgm(i){ // 曲は必要になった時だけ展開する(1曲約17MB。使い終わった古い曲は捨ててメモリを節約)
+  if(i<0||i>=DATA.bgm.length||this.bgmBuf[i]||(this.bgmBusy&&this.bgmBusy[i]))return;
+  (this.bgmBusy=this.bgmBusy||{})[i]=1;
+  try{this.bgmBuf[i]=await this.dec(DATA.bgm[i]);}catch(e){console.warn('bgm decode',i,e);}
+  this.bgmBusy[i]=0;this.bgmUse=(this.bgmUse||[]).filter(k=>k!==i);this.bgmUse.push(i);
+  while(this.bgmUse.length>4){const k=this.bgmUse.find(x=>x!==this.want&&x!==this.cur&&x!==4);if(k===undefined)break;this.bgmBuf[k]=null;this.bgmUse=this.bgmUse.filter(x=>x!==k);}
+ },
  tick(){ // switch bgm with crossfade
   if(!this.on){ if(this.src&&this.muted){this.stopSrc();} return;}
+  if(this.want!==this.cur&&!this.bgmBuf[this.want])this.ensureBgm(this.want);
+  else if(this.bgmBuf[this.want]&&this.pre)for(const i of this.pre)if(!this.bgmBuf[i]){this.ensureBgm(i);break;} // 次に鳴る曲(ボス戦など)を先に用意
   if(this.want!==this.cur&&this.bgmBuf[this.want]){
    this.stopSrc();const s=this.ac.createBufferSource();s.buffer=this.bgmBuf[this.want];s.loop=true;
    const g=this.ac.createGain();g.gain.setValueAtTime(0,this.ac.currentTime);g.gain.linearRampToValueAtTime(1,this.ac.currentTime+1.2);
@@ -456,7 +465,7 @@ function startStage(si,ch,demo,keep){
  G.props.push({isProp:true,team:2,x:G.waves[0].x-240,y:560,z:0,hp:3,shk:0,k:'barrel',drop:null});
  G.items.push({x:430,y:575,k:'w_'+['takeyari','kusari','ono','naginata','yoto','odachi'][si%6],t:0});G.items.push({x:G.waves[0].x-120,y:600,k:'onigiri',t:0});
  G.banner={t:0,jp:STG[si].jp,title:STG[si].title,en:STG[si].en};
- AU.bgm(STG[si].bgm);G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
+ AU.bgm(STG[si].bgm);AU.pre=si===5?[3,10]:[3];G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
  if(G.auto)setDemoMount(demoView.mounted);
 }
 function startGame(ch,pk){G.auto=false;AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.mode='play';G.score=0;G.lives=diffNow().lives;G.credits=3;G.conts=0;G.nextLife=5000;G.oneUp=0;G.partnerType=pk||null;G.curCh=ch;startStage(0,ch,false);if(!G.noStory)startStory('pro',()=>startStory('s0'));}
@@ -678,8 +687,10 @@ function drawTitle(){const t=G.ttlT;
 function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DEMO_PLAN.length;const d=DEMO_PLAN[G.demoI];G.curCh=d.ch;startStage(d.st,d.ch,true);G.score=0;G.lives=99;G.titleT=0;AU.bgm(4);}
 
 /* ---------- spawn ---------- */
+// ボス戦の曲: 最終幕の大将(徳川家康 boss3)だけラスボス曲(10)、それ以外のボスは3
+function bossBgm(e){return G.stage===5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(3);G.shake=14;}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss)startBossStory(e);return e;}
@@ -1232,7 +1243,7 @@ function updWorld(){
  else if(G.state==='clear'){G.stateT++;const lim=G.demo?260:330;if(G.stateT>lim||(!G.demo&&G.stateT>60&&anyKey())){
    if(G.demo){startDemo(G.demoI+1);}
    else if(G.stage<STG.length-1){startStage(G.stage+1,G.curCh,false,{hp:p.hp,ki:p.ki});if(!G.noStory)startStory('s'+G.stage);}
-   else{G.newUnlock=!G.unlocked;G.unlocked=true;try{localStorage.setItem('sekigahara_unlock','1');}catch(e){}AU.bgm(4);const fin=()=>{G.mode='end';G.stateT=0;};if(G.noStory)fin();else startStory('end',fin);}}}
+   else{G.newUnlock=!G.unlocked;G.unlocked=true;try{localStorage.setItem('sekigahara_unlock','1');}catch(e){}AU.bgm(11);const fin=()=>{G.mode='end';G.stateT=0;};if(G.noStory)fin();else startStory('end',fin);}}}
  else if(G.state==='over'){G.stateT++;if(G.stateT>260||(G.stateT>40&&anyKey())){startTitle();}}
  // ambient
  if(G.demo){G.demoT++;if(G.demoT>60*260&&G.state==='run'){startDemo(G.demoI+1);}}
@@ -1251,7 +1262,7 @@ function addScore(n){G.score+=n;if(G.demo)return;while(G.score>=G.nextLife){G.li
 function nearestAlly(e){if(G.auto&&demoView.motion!=='auto'&&e.debugEnemy){const d=mk('yuki',e.x+e.face*180,e.y,0);d.inv=999;return d;}if(G.rear&&G.rear.ph==='call'&&e.team===1)return G.rear.q;let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==0||f.hp<=0||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}
 function partnerCtl(f){return demoCtl(f,!f.rear);}
 function partnerRevive(q){q.hp=Math.round(q.maxhp*0.5);q.state='idle';q.st=0;q.z=0;q.vz=0;q.dying=false;q.pooled=false;q.x=clamp(G.player.x-90,G.camx+40,G.camx+W-40);q.y=G.player.y+20;q.inv=150;popup('味方が復帰！',q.x,q.y,120,'#9f9',24);AU.sfx('pick');}
-function doContinue(){G.credits--;G.conts++;G.lives=diffNow().lives;const p=G.player;respawn(p);if(G.over==='time')G.time=180*60;else G.time=Math.max(G.time,120*60);if(G.partner&&G.partner.state==='dead')partnerRevive(G.partner);G.state='run';G.stateT=0;AU.sfx('ok');AU.bgm(G.boss?3:STG[G.stage].bgm);}
+function doContinue(){G.credits--;G.conts++;G.lives=diffNow().lives;const p=G.player;respawn(p);if(G.over==='time')G.time=180*60;else G.time=Math.max(G.time,120*60);if(G.partner&&G.partner.state==='dead')partnerRevive(G.partner);G.state='run';G.stateT=0;AU.sfx('ok');AU.bgm(G.boss?bossBgm(G.boss):STG[G.stage].bgm);}
 function contStep(){G.stateT++;
  if(G.credits<=0){if(G.stateT>70){G.state='over';G.stateT=0;}return;}
  if(G.stateT>40&&(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ)){doContinue();return;}

@@ -12,6 +12,8 @@ def image_url(f):
         version=hashlib.sha256(source.read()).hexdigest()[:16]
     return 'gfx/'+os.path.basename(f)+'?v='+version
 
+# BGM(gfx/ のmp3)も画像と同じく内容ハッシュ付きURLにして、古い版のキャッシュと混ざらないようにする
+data['bgm']=[(image_url(os.path.join(REPO,b.split('?')[0])) if b.startswith('gfx/') else b) for b in data['bgm']]
 data['bg']={os.path.basename(f)[3:-5]:image_url(f) for f in sorted(glob.glob(os.path.join(GFX,'bg_*.webp')))}
 data['spr']={os.path.basename(f)[6:-5]:image_url(f) for f in sorted(glob.glob(os.path.join(GFX,'atlas_*.webp')))}
 # 余白を詰めた版(mountfull4)があれば、4096px超の元版(mountfull3)は読み込まない。
