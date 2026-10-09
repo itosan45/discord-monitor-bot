@@ -1141,7 +1141,7 @@ function demoCtl(p,follow){
  const stick=()=>{const tx=P0.x-70*(P0.face||1),dxp=tx-p.x;if(Math.abs(dxp)>36)(dxp>0?c.r=1:c.l=1);const dyp=P0.y+26-p.y;if(Math.abs(dyp)>14)(dyp>0?c.d=1:c.u=1);return c;};
  if(['dead','down','getup','hurt','spc'].includes(p.state))return c;
  if(p===G.player&&!p.mount&&!(G.auto&&!demoView.mounted)&&G.steeds&&G.steeds.length){const h=G.steeds[0];if(Math.abs(h.x-p.x)<420){if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);return c;}}
- const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,rg=T.atk[0].rng;
+ const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,ranged=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo'),rg=ranged?280:T.atk[0].rng;
  for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
  if(follow&&P0&&(P0.state==='dead'||Math.abs(P0.x-p.x)>460))return stick();
  if(!en.length){if(follow)return stick();if(G.camx<G.camMax-4||!G.waveOn)c.r=1;if(p.y<548)c.d=1;else if(p.y>592)c.u=1;
@@ -1149,11 +1149,12 @@ function demoCtl(p,follow){
   const pr=G.props.find(q=>q.x>p.x-60&&q.x<p.x+260);if(pr&&G.camx>=G.camMax-4){}
   return c;}
  const foot=en.filter(e=>e.T.ai!=='rider');let tg=null,bd=1e9;for(const e of (foot.length?foot:en)){const d=Math.abs(e.x-p.x)+Math.abs(e.y-p.y)*2-(e.T.boss?150:0);if(d<bd){bd=d;tg=e;}}
- const dx=tg.x-p.x,dy=tg.y-p.y,adx=Math.abs(dx),ady=Math.abs(dy),want=rg*0.72;
+ const dx=tg.x-p.x,dy=tg.y-p.y,adx=Math.abs(dx),ady=Math.abs(dy),want=rg*0.72,dir=dx===0?p.face:sgn(dx);
  if(tg.T.ai==='rider'){const on=tg.x>G.camx-60&&tg.x<G.camx+W+60;if(!on){if(p.x<G.camx+W*0.4)c.r=1;else if(p.x>G.camx+W*0.5)c.l=1;if(Math.abs(tg.y-p.y)>10)(tg.y>p.y?c.d=1:c.u=1);return c;}}
  if(ady>9){if(dy>0)c.d=1;else c.u=1;}
- if(adx>want)(dx>0?c.r=1:c.l=1);else if(p.face!==sgn(dx)&&p.state!=='atk')(dx>0?c.r=1:c.l=1);
- if(adx<rg*1.05&&ady<22&&p.face===sgn(dx)){if(p.state==='idle'||p.state==='walk'){if(Math.random()<0.55)c.atkP=1;}else if(p.state==='atk'&&p.st>=p.cur.hs&&Math.random()<0.4)c.atkP=1;}
+ if(ranged&&adx<90&&(p.state==='idle'||p.state==='walk')){if(dir>0)c.l=1;else c.r=1;return c;}
+ if(adx>want)(dir>0?c.r=1:c.l=1);else if(p.state==='idle'||p.state==='walk')p.face=dir;
+ if(adx<rg*1.05&&ady<22&&p.face===dir){if(p.state==='idle'||p.state==='walk'){if(Math.random()<0.55)c.atkP=1;}else if(p.state==='atk'&&p.st>=p.cur.hs&&Math.random()<0.4)c.atkP=1;}
  const near=en.filter(e=>Math.abs(e.x-p.x)<300&&Math.abs(e.y-p.y)<120).length;
  if(p.ki>=T.cost&&p.state!=='atk'||p.ki>=T.cost&&p.state==='atk'&&p.st>p.cur.he){const want=p.ki>=300||(p.ki<200&&Math.random()<0.5)||p.isPartner;if(want&&(near>=3||(tg.T.boss&&adx<320&&ady<60))&&Math.random()<0.12)c.spcP=1;}
  return c;
