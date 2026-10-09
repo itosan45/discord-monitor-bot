@@ -1571,7 +1571,18 @@ function drawWeapon(f,o,K,kind){
 const SPR={};
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
 const UMAP={yuki_u:{a1:'a2',a2:'a2',a3:'a3',a4:'a1',dash:'a2',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump'},kage_u:UGEN,mitsu_u:UGEN,nobu_u:UGEN,shin_u:UGEN,musashi_u:UGEN};
-function loadSPR(){if(!DATA.spr)return;for(const h in DATA.spr){const im=new Image(),S=SPR[h]={img:im,a:DATA.sm[h],ready:false,white:null,hand:DATA.hands&&DATA.hands[h]};for(const k in S.a)if(Array.isArray(S.a[k]))S.a[k]._an=k;if(UMAP[h]){const src={};for(const k in S.a)src[k]=S.a[k];const hs={};if(S.hand)for(const k in S.hand)hs[k]=S.hand[k];for(const [k,v0] of Object.entries(UMAP[h])){const v=v0.split('|').find(x=>src[x]);if(!v)continue;S.a[k]=src[v].slice();S.a[k]._an=k;if(S.hand&&hs[v])S.hand[k]=hs[v];}}im.onload=()=>{S.ready=true;};im.onerror=()=>{S.failed=true;};im.src=DATA.spr[h].startsWith('gfx/')?DATA.spr[h]:'data:image/webp;base64,'+DATA.spr[h];}}
+// 体格の補正(元の絵は変えず、読み込み時に足元を中心に拡大する)。石田三成は待機以外の動きの元絵が小さく描かれ
+// 「子供みたいに小さい」と指摘されたため、胴の列の頭頂の高さを他の5人の中央値にそろえた(最低1.05倍、最大1.2倍)。
+// 測り方: 武器・旗を除いた胴体の列の頭頂。寝姿など姿勢でぶれる動きは共通の1.05〜1.1倍。
+const HFIX={
+ mitsu:{_:1.05,walk:1.16,a1:1.13,a2:1.08,a3:1.14,dash:1.15,hit:1.12,jump:1.07,jatk:1.2,gend:1.08,getup:1.12,dead:1.1,down:1.1,kachi:1.06,kpull:1.08},
+ mitsu_u:{_:1.07,idle:1.12,a1:1.15,a2:1.12,a3:1.1,dash:1.12,jump:1.08,walk:1.07}};
+function applyHFIX(){for(const key in HFIX){const A=DATA.sm&&DATA.sm[key];if(!A||A._hfix)continue;const F=HFIX[key],H=DATA.hands&&DATA.hands[key];
+ for(const an in A){const v=A[an];if(!Array.isArray(v)||!Array.isArray(v[0]))continue;const k=F[an]||F._;
+  A[an]=v.map(q=>{if(!Array.isArray(q))return q;const n=q.slice();n[4]=q[4]*k;n[5]=q[5]*k;n[6]=(q[6]||1)*k;return n;});
+  if(H&&Array.isArray(H[an]))H[an]=H[an].map(h=>Array.isArray(h)?[h[0]*k,h[1]*k,...h.slice(2)]:h);}
+ Object.defineProperty(A,'_hfix',{value:true});}}
+function loadSPR(){if(!DATA.spr)return;applyHFIX();for(const h in DATA.spr){const im=new Image(),S=SPR[h]={img:im,a:DATA.sm[h],ready:false,white:null,hand:DATA.hands&&DATA.hands[h]};for(const k in S.a)if(Array.isArray(S.a[k]))S.a[k]._an=k;if(UMAP[h]){const src={};for(const k in S.a)src[k]=S.a[k];const hs={};if(S.hand)for(const k in S.hand)hs[k]=S.hand[k];for(const [k,v0] of Object.entries(UMAP[h])){const v=v0.split('|').find(x=>src[x]);if(!v)continue;S.a[k]=src[v].slice();S.a[k]._an=k;if(S.hand&&hs[v])S.hand[k]=hs[v];}}im.onload=()=>{S.ready=true;};im.onerror=()=>{S.failed=true;};im.src=DATA.spr[h].startsWith('gfx/')?DATA.spr[h]:'data:image/webp;base64,'+DATA.spr[h];}}
 loadSPR();
 function sprWhite(S){if(S.white)return S.white;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);x.globalCompositeOperation='source-atop';x.fillStyle='rgba(255,250,235,0.5)';x.fillRect(0,0,c.width,c.height);return S.white=c;}
 function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.idle;return {arr,pos:loop?((pos%arr.length)+arr.length)%arr.length:clamp(pos,0,arr.length-1),loop:!!loop,hard:!!hard};};
