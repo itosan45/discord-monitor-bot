@@ -3,7 +3,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{
  const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  const p=await(await b.newContext({viewport:{width:1280,height:720}})).newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');
+ await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>typeof sprAllReady!=='function'||sprAllReady(),null,{timeout:120000});
  const r=await p.evaluate(async()=>{for(let n=0;n<160;n++){const ready=['yuki','kage','mitsu','nobu','shin','musashi'].every(h=>(SPR['mountfull4_'+h]||SPR['mountbody3_'+h])?.ready);if(ready)break;await new Promise(r=>setTimeout(r,50));}
   window.requestAnimationFrame=()=>0;G.noStory=true;G.lowq=true;G.camx=0;const heroes=['yuki','kage','mitsu','nobu','shin','musashi'],profiles=['default','odachi','naginata','teppo','yoto','ono','konbou','takeyari','kusari','yumi'],weapons=Object.fromEntries(profiles.filter(k=>k!=='default').map(k=>[k,k])),rows=[];
   for(const h of heroes){const S=SPR['mountfull4_'+h]||SPR['mountbody3_'+h];if(!S?.ready)return{rows:[...rows,{error:h+':atlas-not-ready'}]};for(const kind of profiles){const seq=SPR['mountfull4_'+h]?S.a[kind]:S.a.all;if(!seq||seq.length!==5)return{rows:[...rows,{error:h+':'+kind+'-frames'}]};

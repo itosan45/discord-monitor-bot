@@ -31,6 +31,14 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright'),fs=require('fs');
    if(!late&&hero==='shin'){for(let t=0;t<3;t++)updParts();snap('mikiri-'+hero);}
    rows.push({hero,late,guard:f.state,mikiri:mk1,chip:Math.round((hp0-f.hp)*10)/10,enemy:e.state});
    if(!late&&(mk1!==1||f.hp<hp0||e.state!=='hurt'))bad.push({hero,mikiriFail:true,mk1,st:e.state});if(late&&(mk1!==0||!(f.hp<hp0)))bad.push({hero,lateGuardWrong:true,mk1});}
+  // 追い打ち: 浮いた雑兵に当てると再び浮く。1回の滞空で2回まで。ボスは対象外
+  for(const hero of HEROES){const {f,es}=setup(hero,[[70,0,500]]);const e=es[0];G.jugN=0;hurt(e,f,{dmg:5,kb:1,launch:true});let tries=0;
+   for(let t=0;t<80;t++){G.t++;stepGame();if(e.state==='down'&&e.z>30&&tries<4&&t%3===0){tries++;f.hit.clear();f.x=e.x-60;strike(f,{rng:120,dmg:5,kb:1,dep:40});if(hero==='nobu'&&tries===2)snap('juggle-'+hero);}}
+   rows.push({hero,juggle:G.jugN,tries});if(G.jugN<1||G.jugN>2)bad.push({hero,juggle:G.jugN});}
+  // 踏み散らし: 馬で走り込むと正面の雑兵が倒れる(既存処理に表示を追加)
+  for(const hero of HEROES){const {f,es}=setup(hero,[[260,0,500],[300,10,500]]);f.mount={hp:6,max:6,col:'red'};G.trampleN=0;keys.ArrowRight=true;let shot=false;
+   for(let t=0;t<90;t++){G.t++;stepGame();if(!shot&&G.trampleN&&hero==='shin'){shot=true;for(let k=0;k<3;k++){G.t++;stepGame();}snap('trample-'+hero);}}keys.ArrowRight=false;
+   const hp=f.mount.hp;rows.push({hero,trample:G.trampleN,mountHp:hp,downed:es.filter(e=>e.hp<500).length});if(G.trampleN<1)bad.push({hero,noTrample:true});}
   // ボスは巻き込まれない
   {const {f,es}=setup('yuki',[[90,0,500]]);const bo=mk(Object.keys(TY).find(k=>TY[k].boss),f.x+170,570,1);bo.entered=true;bo.cool=9999;G.fighters.push(bo);const h0=bo.hp;hurt(es[0],f,{dmg:6,kb:9,launch:true});for(let t=0;t<60;t++){G.t++;stepGame();}if(bo.hp<h0&&G.bowlN)bad.push({bossBowled:true});}
   return {bad,rows,shots};});

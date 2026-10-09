@@ -727,6 +727,7 @@ function hurt(t,a,d){
  if(t.isProp){t.hp-=1+(d.dmg>12?1:0);t.shk=8;AU.sfx('hit');burst(t.x,t.y,40,6,'#c9a','4');G.hitstop=Math.max(G.hitstop,3);if(t.hp<=0)breakProp(t);return;}
  if(own.state==='spc'&&own.spLv===2)dmg*=1.6;
  if(t.team===0&&G.demo)dmg*=0.15;if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
+ const air=t.team===1&&own.team===0&&t.state==='down'&&t.z>0&&!t.T.boss;if(air){dmg*=0.7;t.jug=(t.jug||0)+1;}
  let mh=false;if(t.mount){mh=true;if(!(G.auto&&t===G.player&&demoView.mounted))t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
  let ctr=false;if(own.team===0&&t.team===1&&t.state==='atk'&&t.cur&&t.st<(t.cur.hs||0)){ctr=true;dmg*=1.3;popup('反撃！',t.x,t.y,t.z+175,'#7fe0ff',28);G.hitstop=Math.max(G.hitstop,9);G.shake=Math.max(G.shake,7);slashFx(t.x,t.y,t.z+80,dir,180,16,'#dff6ff');G.ctrN=(G.ctrN||0)+1;}
  let crit=false;if(own.team===0&&t.team===1){const cc=(d.chg||(own.cur&&(own.cur.iai||own.cur.chg||own.cur.ck)))?0.3:0.07;if(Math.random()<cc){crit=true;dmg*=1.6;popup('会心！',t.x,t.y,t.z+150,'#ffd040',30);G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,9);PT({x:t.x,y:t.y,z:t.z+80,life:10,k:'star',sz:80,col:'#fff6c0'});slashFx(t.x,t.y,t.z+85,dir,210,18);}}t.critK=crit;
@@ -741,6 +742,7 @@ function hurt(t,a,d){
  popup(String(Math.round(dmg)),t.x,t.y,t.z+100,t.team===0?'#ff6a5a':'#ffe27a',t.team===0?24:20);
  if(t.hp<=0){if(t.team===1){bloodSpray(t.x,t.y,t.z+70,dir,t.T.boss?120:70,t.T.boss?2.6:2.2);addDecal(t.x+dir*18,t.y+3,14,0.8);t.gush=t.T.boss?240:rndi(110,170);t.gdir=dir;t.gpool=0;}if(t.T.horse){if(SPR[t.T.type]&&SPR[t.T.type].a.fall){t.mfall=true;t.mA=null;setTimeout(()=>{if(G.mode==='play')spawnHorse(t);},700);}else spawnHorse(t);}t.hp=0;t.dying=true;if(t.mfall){t.state='dead';t.st=0;t.z=0;t.vz=0;t.vx=0;}else if(!(t.critK&&!d.noDecap&&decap(t,dir)))knock(t,dir,6,9);if(t.state==='down'&&own.team===0&&t.team===1&&!t.T.boss)t.bowl=own;
   if(own.team===0&&t.team===1&&!t.T.boss&&G.waveOn&&!G.sq.length&&!G.fighters.some(e=>e!==t&&e.team===1&&e.hp>0&&!e.dying))issen(t,dir);onKill(t,own);return;}
+ if(air){knock(t,dir,Math.max(3,(d.kb||3)),6+(d.launch?2:0));t.bowl=own;popup('追い打ち！',t.x,t.y,t.z+205,'#ffb070',24);G.jugN=(G.jugN||0)+1;return;}
  if(mh){t.state='hurt';t.st=0;t.inv=30;return;}
  if(t.T.ai==='rider'){if(t.rp==='go'&&SPR[t.T.type]&&SPR[t.T.type].a.hit){if(!(t.mA&&t.mA.k==='hit')){t.mA={k:'hit',t:0,dur:14};t.hdir=dir;}}else{dismount(t,false);knock(t,dir,5,7);}return;}
  if(t.T.boss){t.poise+=dmg;t.x+=dir*d.kb*0.15;if(t.entered)keepFighterOnScreen(t);if(d.launch&&t.kd<=0&&t.state!=='atk'){t.kd=480;knock(t,dir,5,8);}else if(d.launch&&t.kd<=0){t.kd=480;knock(t,dir,4,7);}else if(t.poise>=t.T.poise*(t.poiseK||1)&&t.state!=='atk'){t.poise=0;t.state='hurt';t.st=0;t.vx=dir*3;t.hurtT=20;t.cur=null;}return;}
@@ -785,7 +787,7 @@ function strike(a,d){
  for(const t of list){
   if(t===a||a.hit.has(t))continue;
   if(a.team===0&&!(t.team===1||t.isProp))continue;if(a.team===1&&t.team!==0)continue;
-  if(!t.isProp){if(t.hp<=0||t.inv>0||t.state==='down'||t.state==='getup'||t.state==='dead')continue;}
+  if(!t.isProp){const jug=a.team===0&&t.team===1&&t.state==='down'&&t.z>24&&t.hp>0&&!t.dying&&!t.T.boss&&(t.jug||0)<2;if(t.hp<=0||t.inv>0||(t.state==='down'&&!jug)||t.state==='getup'||t.state==='dead')continue;}
   const dx=(t.x-a.x),dy=Math.abs(t.y-a.y),rad=t.T&&t.T.rad?t.T.rad:(t.T&&t.T.boss?44*t.sc:18*(t.sc||1));
   const reach=d.around?(Math.abs(dx)<d.rng+rad):(dx*dir>-14&&dx*dir<d.rng+rad);
   if(!reach||dy>(d.dep||28)+(t.T&&(t.T.boss||t.T.rad)?24:0)||Math.abs((t.z||0)-a.z)>70)continue;
@@ -1129,7 +1131,7 @@ function bowlStep(f){if(f.z<=0&&f.vz<=0||Math.abs(f.vx)<3.5){f.bowl=null;return;
 function respawn(p){p.mount=G.auto&&p===G.player&&demoView.mounted?{hp:6,max:6,col:MCOL[p.T.type]||'iron'}:null;p.hp=p.maxhp;p.state='idle';p.st=0;p.z=0;p.x=G.camx+200;p.y=570;p.inv=150;p.ki=Math.max(p.ki,75);p.dying=false;G.items.push({x:p.x+160,y:p.y,k:'onigiri',t:0});}
 function updDown(f){
  if(f.bowl)bowlStep(f);
- f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
+ f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;f.jug=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
  else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=40;}}}
 }
 
@@ -1854,7 +1856,7 @@ function updMount(p,c){
  else{
   const mx=(c.r?1:0)-(c.l?1:0),my=(c.d?1:0)-(c.u?1:0),sp=T.spd*1.75;
   if(mx||my){const k=(mx&&my)?0.8:1;p.x+=mx*sp*k;p.y+=my*sp*0.6*k;if(mx)p.face=mx;p.state='walk';p.wp=(p.wp||0)+sp*0.04;
-   if(mx){for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.T.boss||(e.trT||0)>G.t)continue;const dx=e.x-p.x;if(dx*mx>0&&Math.abs(dx)<70&&Math.abs(e.y-p.y)<26&&e.z<30){e.trT=G.t+40;hurt(e,p,{pz:'tackle',dmg:7,kb:6,launch:true});}}}
+   if(mx){for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.T.boss||(e.trT||0)>G.t)continue;const dx=e.x-p.x;if(dx*mx>0&&Math.abs(dx)<70&&Math.abs(e.y-p.y)<26&&e.z<30){e.trT=G.t+40;hurt(e,p,{pz:'tackle',dmg:7,kb:6,launch:true,noDecap:true});G.trampleN=(G.trampleN||0)+1;if(!((p.trPop||0)>G.t)){p.trPop=G.t+40;popup('蹴散らし！',p.x+mx*70,p.y,230,'#ffcf6a',24);}dust(e.x,e.y,4);}}}
    if(G.t%9===0)dust(p.x-p.face*50,p.y,2);}
   else p.state='idle';
   if(c.jumpP&&!(G.demo||G.auto)){dropMount(p,p.face,false);return;}
