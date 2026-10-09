@@ -6,7 +6,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright'),fs=require('fs');
  await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
  const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;const bad=[],rows=[],shots=[];
   const setup=(hero,list)=>{startGame(hero,null);G.state='run';G.waveOn=false;G.waves=[{x:1e9,en:[]}];G.wi=0;G.items=[];G.props=[];G.proj=[];G.steeds=[];G.hzT=99999;G.sq=[];G.slow=0;G.hitstop=0;
-   const f=G.player;f.x=G.camx+300;f.y=570;f.face=1;f.hp=f.maxhp=999;f.inv=0;G.partner=null;const es=list.map(([dx,dy,hp])=>{const e=mk('sword',f.x+dx,570+dy,1);e.hp=e.maxhp=hp;e.entered=true;e.face=-1;e.cool=9999;return e;});G.fighters=[f,...es];G.bowlN=0;G.ctrN=0;G.issenN=0;return {f,es};};
+   const f=G.player;f.x=G.camx+300;f.y=570;f.face=1;f.hp=f.maxhp=999;f.inv=0;G.partner=null;const es=list.map(([dx,dy,hp])=>{const e=mk('sword',f.x+dx,570+dy,1);e.hp=e.maxhp=hp;e.entered=true;e.face=-1;e.cool=9999;return e;});G.fighters=[f,...es];G.bowlN=0;G.ctrN=0;G.issenN=0;G.ctrFxT=0;return {f,es};};
   const snap=name=>{renderWorld();shots.push({name,png:cv.toDataURL('image/png').split(',')[1]});};
   const HEROES=['yuki','kage','mitsu','nobu','shin','musashi'];
   for(const hero of HEROES){
