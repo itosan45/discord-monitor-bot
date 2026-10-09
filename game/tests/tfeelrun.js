@@ -7,12 +7,12 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  const heroes=(process.env.HEROES||'yuki,kage,mitsu,nobu,shin,musashi').split(','),rows=[],bad=[];
  for(const hero of heroes)for(let si=0;si<6;si++){
   const r=await p.evaluate(([si,hero])=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame(hero,null);startStage(si,hero,false);G.auto=true;G.lives=99;
-   const K=['bowlN','ctrN','issenN','mikiriN','jugN','trampleN'];for(const k of K)G[k]=0;let ms=0,n=0,maxEn=0,res='timeout';
+   const K=['bowlN','ctrN','issenN','mikiriN','jugN','trampleN','wallN'];for(const k of K)G[k]=0;let ms=0,n=0,maxEn=0,res='timeout';
    for(let i=0;i<30000;i++){G.t++;const t0=performance.now();stepGame();if(i%30===0)renderWorld();ms+=performance.now()-t0;n++;
     if(i%10===0)maxEn=Math.max(maxEn,G.fighters.filter(e=>e.team===1&&e.hp>0).length);
     if(G.state==='clear'){res='clear';break;}if(G.state==='continue'||G.state==='over'){res=G.state;break;}}
    const o={hero,stage:si+1,res,frames:n,avgMs:+(ms/n).toFixed(2),maxEn};for(const k of K)o[k.replace('N','')]=G[k];return o;},[si,hero]);
   rows.push(r);console.error(JSON.stringify(r));if(r.res!=='clear')bad.push({hero:r.hero,stage:r.stage,res:r.res});}
- const sum={};for(const k of ['bowl','ctr','issen','mikiri','jug','trample'])sum[k]=rows.reduce((s,r)=>s+r[k],0);
+ const sum={};for(const k of ['bowl','ctr','issen','mikiri','jug','trample','wall'])sum[k]=rows.reduce((s,r)=>s+r[k],0);
  console.log(JSON.stringify({bad,sum,errors}));if(bad.length||errors.length)process.exitCode=1;
  }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

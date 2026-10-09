@@ -702,7 +702,7 @@ function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';c
 /* ===================== COMBAT ===================== */
 // 一閃: その場の最後の一人を斬った瞬間だけ時間を緩め、刃の線を残す(サムライスピリッツの決着の間)
 function issen(t,dir){G.slow=Math.max(G.slow,30);G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,10);slashFx(t.x,t.y,t.z+80,dir,300,26);G.flashT=Math.max(G.flashT||0,4);AU.sfx('slash');G.issenN=(G.issenN||0)+1;}
-function knock(t,dir,vx,vz){t.bowled=null;t.state='down';t.st=0;t.vx=dir*vx;t.vz=vz;t.z=Math.max(t.z,0.1);t.bounced=false;t.lieT=0;t.lying=false;t.cur=null;t.trail.length=0;}
+function knock(t,dir,vx,vz){t.bowled=null;if(t.z<=0.1)t.wallB=0;t.state='down';t.st=0;t.vx=dir*vx;t.vz=vz;t.z=Math.max(t.z,0.1);t.bounced=false;t.lieT=0;t.lying=false;t.cur=null;t.trail.length=0;}
 // 信玄: 川中島で謙信の太刀を軍配で受けた逸話。素手でガード中に近接攻撃を正面で受けたら、軍配で弾いて反撃する
 // 見切り: 構えた直後(8フレーム以内)に正面で受けると、削られず相手が大きく崩れる(サムライスピリッツの弾き)
 function mikiri(t,own,a){const hx=t.x+t.face*30,hz=t.z+90;AU.clang?AU.clang(hx):AU.sfx('block');G.hitstop=Math.max(G.hitstop,12);G.shake=Math.max(G.shake,6);t.gst=6;t.gvx=-t.face*2;
@@ -1129,8 +1129,11 @@ function bowlStep(f){if(f.z<=0&&f.vz<=0||Math.abs(f.vx)<3.5){f.bowl=null;return;
  for(const e of G.fighters){if(e===f||e.team!==1||e.hp<=0||e.dying||e.T.boss||e.inv>0||e.heldBy||e.state==='down'||e.state==='getup'||e.state==='dead'||(f.bowled&&f.bowled.has(e)))continue;
   if(Math.abs(e.x-f.x)<42*(e.sc||1)&&Math.abs(e.y-f.y)<26){(f.bowled||(f.bowled=new Set())).add(e);hurt(e,{team:0,face:sgn(f.vx),x:f.x-sgn(f.vx)*20,owner:own,hit:new Set()},{dmg:9,kb:4,launch:true,noDecap:true});popup('巻き込み！',e.x,e.y,e.z+170,'#ffcf6a',24);G.bowlN=(G.bowlN||0)+1;}}}
 function respawn(p){p.mount=G.auto&&p===G.player&&demoView.mounted?{hp:6,max:6,col:MCOL[p.T.type]||'iron'}:null;p.hp=p.maxhp;p.state='idle';p.st=0;p.z=0;p.x=G.camx+200;p.y=570;p.inv=150;p.ki=Math.max(p.ki,75);p.dying=false;G.items.push({x:p.x+160,y:p.y,k:'onigiri',t:0});}
+// 画面端の跳ね返り: 主人公に吹き飛ばされた雑兵が空中で画面端に当たると、1回だけ跳ね返って戻ってくる(ファイナルファイトの壁)
+function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)return;const m=combatScreenMargin(f)+2,L=G.camx+m,R=G.camx+W-m;if(!((f.vx<0&&f.x+f.vx<=L)||(f.vx>0&&f.x+f.vx>=R)))return;
+ f.wallB=1;f.x=clamp(f.x,L,R);f.vx=-f.vx*0.55;f.vz=Math.max(f.vz,4.5);f.jug=0;G.shake=Math.max(G.shake,6);G.hitstop=Math.max(G.hitstop,4);dust(f.x,f.y,6);AU.sfx('land');if(!((G.wallPopT||0)>G.t)){G.wallPopT=G.t+60;popup('壁！',f.x,f.y,f.z+200,'#ffd28a',24);}G.wallN=(G.wallN||0)+1;}
 function updDown(f){
- if(f.bowl)bowlStep(f);
+ if(f.bowl){wallBounce(f);bowlStep(f);}
  f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;f.jug=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
  else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=40;}}}
 }
