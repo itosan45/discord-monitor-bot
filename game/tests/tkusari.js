@@ -16,5 +16,5 @@ const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;G.noStory=true;
  for(let i=0;i<20;i++){stepGame();if(i===6){renderWorld();imgs.push(ctx.canvas.toDataURL());}}
  out.farMoved=Math.round(far0-line[2].x);out.farDist=Math.round(line[2].x-pl.x);out.uses=pl.wpn&&pl.wpn.uses;out.state=pl.state;
  return {out,imgs};});
-r.imgs.forEach((d,i)=>require('fs').writeFileSync(`/tmp/claude-0/-home-user-discord-monitor-bot/700bd5a1-9c8f-55df-81ff-13c1ce410a00/scratchpad/ks${i}.png`,Buffer.from(d.split(',')[1],'base64')));
+r.imgs.forEach((d,i)=>require('fs').writeFileSync(`${process.env.QA_OUT||require('os').tmpdir()}/ks${i}.png`,Buffer.from(d.split(',')[1],'base64')));
 console.log(r.out,er);await b.close();})();

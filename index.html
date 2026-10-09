@@ -1668,6 +1668,16 @@ function polearmAngle(f,hy,angle,length){
 // Reuse the existing flag only for those missing animations to avoid duplicates.
 function drawUnarmedBanner(f,S,sp,fl){if(f.T.type!=='nobu'||S!==SPR.nobu_u||!['idle','jump'].includes(sp.arr._an))return;const B=SPR.nobu,q=B&&B.ready&&B.a.idle[0];if(!q)return;ctx.drawImage(fl?sprWhite(B):B.img,q[0]+5,q[1],30,70,q[4]+5,q[5],30,70);}
 function fighterVisualTime(f){if(G.banner&&G.banner.boss)return G.banner.frozenAt;return G.spcScene&&G.spcScene.p!==f?G.spcScene.t:G.t;}
+// 鎖鎌: 元絵で分銅が体の後ろを回るコマは鎖が体に隠れて描かれておらず、分銅だけ浮いて見える(オーナー指摘)。
+// 該当コマだけ手元から分銅まで鎖を描き足す。体の後ろの鎖は体より先に描くので、体の外に出た部分だけが見える。
+// [分銅x, 分銅y, 手x, 手y, 体の前なら1](元絵のコマ内ピクセル座標。拡大・HFIX は q から換算)
+const KCHAIN={kage:{kwalk:{3:[6,77,75,83],7:[6,81,72,83]}},mitsu:{kwalk:{4:[7,119,91,78],5:[8,66,97,78]},kret:{4:[77,69,98,96,1]}},shin:{kwalk:{4:[5,115,86,86]}},musashi:{kwalk:{4:[6,101,76,60]}}};
+function drawKChain(f,S,q,arr,i,front){if(!q||!arr||S!==SPR[f.T.type])return;const K=KCHAIN[f.T.type],c=K&&K[arr._an]&&K[arr._an][i];if(!c||!!c[4]!==front)return;
+ const s=q[6]||1;let bx=q[4]+c[0]*s,by=q[5]+c[1]*s;const hx=q[4]+c[2]*s,hy=q[5]+c[3]*s;
+ if(front){const d=Math.hypot(hx-bx,hy-by)||1;bx+=(hx-bx)/d*6*s;by+=(hy-by)/d*6*s;}
+ const mx=(bx+hx)/2,my=(by+hy)/2+Math.abs(bx-hx)*0.12;
+ ctx.save();ctx.lineCap='round';ctx.strokeStyle='#26262b';ctx.lineWidth=3.4*s;ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo(mx,my,bx,by);ctx.stroke();
+ ctx.strokeStyle='#9a9aa4';ctx.lineWidth=1.3*s;ctx.setLineDash([2.6*s,2.6*s]);ctx.stroke();ctx.restore();}
 function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
@@ -1708,6 +1718,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  if(f.state==='spc'&&!G.lowq){ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,-90,5,0,-90,130);g.addColorStop(0,`rgba(${f.T.trail},0.42)`);g.addColorStop(1,`rgba(${f.T.trail},0)`);ctx.fillStyle=g;ctx.fillRect(-140,-230,280,260);ctx.globalCompositeOperation='source-over';}
  if(f.guarding&&!G.lowq){ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(150,210,255,0.55)';ctx.lineWidth=8;ctx.beginPath();ctx.ellipse(70,-130,40,110,0,-1.2,1.2);ctx.stroke();ctx.restore();}
  if(f.state==='guard'&&!G.lowq){const pul=f.gst>0?1:0.5+0.2*Math.sin(vt*0.3);ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle=`rgba(150,210,255,${0.35*pul})`;ctx.lineWidth=6;ctx.beginPath();ctx.ellipse(34,-92,26,72,0,-1.2,1.2);ctx.stroke();ctx.strokeStyle=`rgba(230,245,255,${0.5*pul})`;ctx.lineWidth=2;ctx.stroke();ctx.restore();}
+ drawKChain(f,S,A0,arr,i0,false);
  const img=fl?sprWhite(S):S.img,ga=ctx.globalAlpha;
  if(f.state==='walk'&&!f.T.boss&&S.a.walk.length<8){const hp=A0[5]+A0[3]*(A0[6]||1)*0.56,w=f.wp||0,sw=Math.sin(w),lift=Math.max(0,Math.cos(w))*3;
   ctx.save();ctx.beginPath();ctx.rect(-400,-600,800,600+hp+8);ctx.clip();ctx.drawImage(img,A0[0],A0[1],A0[2],A0[3],A0[4],A0[5],A0[2]*(A0[6]||1),A0[3]*(A0[6]||1));ctx.restore();
@@ -1715,6 +1726,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  }else
  {const D=f.decap;if(D){const R=D.R,k=A0[6]||1;ctx.save();ctx.beginPath();ctx.rect(-3000,-3000,6000,6000);ctx.rect(A0[4]+R[0]*k,A0[5]+R[1]*k,R[2]*k,R[3]*k);ctx.clip('evenodd');}
  ctx.drawImage(img,A0[0],A0[1],A0[2],A0[3],A0[4],A0[5],A0[2]*(A0[6]||1),A0[3]*(A0[6]||1));if(D)ctx.restore();}
+ drawKChain(f,S,A0,arr,i0,true);
  const atkSt=f.state==='atk'||f.state==='jatk'||f.state==='spc'||f.state==='throw'||f.state==='mega';
  if(A1&&A1!==A0&&fr>0.02&&!fl&&!sp.hard&&!atkSt&&!G.lowq){ctx.globalAlpha=ga*fr*0.85;ctx.drawImage(img,A1[0],A1[1],A1[2],A1[3],A1[4],A1[5],A1[2]*(A1[6]||1),A1[3]*(A1[6]||1));ctx.globalAlpha=ga;}
  if(f.T.shield&&f.shieldOn!==false&&f.state!=='down'&&f.state!=='dead'){ctx.save();ctx.translate(30,-118);ctx.rotate(f.state==='atk'?0.35:0.05);const sg=ctx.createLinearGradient(-20,0,20,0);sg.addColorStop(0,fl?'#fff':'#5a3a1e');sg.addColorStop(0.5,fl?'#fff':'#8a5a2e');sg.addColorStop(1,fl?'#fff':'#4a2e16');ctx.fillStyle=sg;ctx.fillRect(-18,-50,36,100);ctx.strokeStyle='#1a0e06';ctx.lineWidth=3;ctx.strokeRect(-18,-50,36,100);ctx.fillStyle='#2a1a0c';for(const yy of[-30,0,30])ctx.fillRect(-18,yy-2,36,4);ctx.beginPath();ctx.arc(0,-12,9,0,TAU);ctx.fillStyle='#e8e0c8';ctx.fill();ctx.restore();}
