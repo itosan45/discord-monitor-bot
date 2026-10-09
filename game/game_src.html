@@ -1608,7 +1608,10 @@ function drawWeapon(f,o,K,kind){
 }
 
 /* ===================== SPRITES (generated art) ===================== */
-const SPR={};
+// キャラ画像はステージで使う分だけ読み込み、使わない分は捨てる(Android のメモリ対策。全部だと展開後約245MB)。
+// SPR_RAW が本体。SPR は見張り役: 予定外の画像を使おうとしたら、その場で読み込みを頼み G.sprMiss に記録する(テストで漏れを見つける)。
+const SPR_RAW={};let SPR_ALL=false;
+const SPR=new Proxy(SPR_RAW,{get(t,k){const S=t[k];if(S&&!S.want&&typeof k==='string'&&!SPR_ALL){sprRequest(k);(G.sprMiss||(G.sprMiss=[])).push(k);}return S;}});
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
 const UMAP={yuki_u:{a1:'a2',a2:'a2',a3:'a3',a4:'a1',dash:'a2',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump'},kage_u:UGEN,mitsu_u:UGEN,nobu_u:UGEN,shin_u:UGEN,musashi_u:UGEN};
 // 体格の補正(元の絵は変えず、読み込み時に足元を中心に拡大する)。石田三成は待機以外の動きの元絵が小さく描かれ
@@ -1622,7 +1625,7 @@ function applyHFIX(){for(const key in HFIX){const A=DATA.sm&&DATA.sm[key];if(!A|
   A[an]=v.map(q=>{if(!Array.isArray(q))return q;const n=q.slice();n[4]=q[4]*k;n[5]=q[5]*k;n[6]=(q[6]||1)*k;return n;});
   if(H&&Array.isArray(H[an]))H[an]=H[an].map(h=>Array.isArray(h)?[h[0]*k,h[1]*k,...h.slice(2)]:h);}
  Object.defineProperty(A,'_hfix',{value:true});}}
-function loadSPR(){if(!DATA.spr)return;applyHFIX();for(const h in DATA.spr){const im=new Image(),S=SPR[h]={img:im,a:DATA.sm[h],ready:false,white:null,hand:DATA.hands&&DATA.hands[h]};for(const k in S.a)if(Array.isArray(S.a[k]))S.a[k]._an=k;if(UMAP[h]){const src={};for(const k in S.a)src[k]=S.a[k];const hs={};if(S.hand)for(const k in S.hand)hs[k]=S.hand[k];for(const [k,v0] of Object.entries(UMAP[h])){const v=v0.split('|').find(x=>src[x]);if(!v)continue;S.a[k]=src[v].slice();S.a[k]._an=k;if(S.hand&&hs[v])S.hand[k]=hs[v];}}im.onload=()=>{S.ready=true;};im.onerror=()=>{S.failed=true;};im.src=DATA.spr[h].startsWith('gfx/')?DATA.spr[h]:'data:image/webp;base64,'+DATA.spr[h];}}
+function loadSPR(){if(!DATA.spr)return;applyHFIX();for(const h in DATA.spr){const im=new Image(),S=SPR_RAW[h]={img:im,a:DATA.sm[h],ready:false,white:null,hand:DATA.hands&&DATA.hands[h]};for(const k in S.a)if(Array.isArray(S.a[k]))S.a[k]._an=k;if(UMAP[h]){const src={};for(const k in S.a)src[k]=S.a[k];const hs={};if(S.hand)for(const k in S.hand)hs[k]=S.hand[k];for(const [k,v0] of Object.entries(UMAP[h])){const v=v0.split('|').find(x=>src[x]);if(!v)continue;S.a[k]=src[v].slice();S.a[k]._an=k;if(S.hand&&hs[v])S.hand[k]=hs[v];}}S.url=DATA.spr[h].startsWith('gfx/')?DATA.spr[h]:'data:image/webp;base64,'+DATA.spr[h];}}
 loadSPR();
 function sprWhite(S){if(S.white)return S.white;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);x.globalCompositeOperation='source-atop';x.fillStyle='rgba(255,250,235,0.5)';x.fillRect(0,0,c.width,c.height);return S.white=c;}
 function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.idle;return {arr,pos:loop?((pos%arr.length)+arr.length)%arr.length:clamp(pos,0,arr.length-1),loop:!!loop,hard:!!hard};};
@@ -2258,7 +2261,7 @@ function stepWalkPreview(){const p=G.player,a=demoView.motion;
    else if(a==='special')updPlayer(p,{spcP:true});else if(a==='jump')updPlayer(p,{jumpP:true});else if(a==='charge')startCharge(p);}
   else if(p.debugEnemy){p.t++;p.st++;if(p.state==='atk')updAtk(p);}else updPlayer(p,{});}
  keepFighterOnScreen(p);p.y=clamp(p.y,YMIN,YMAX);p.inv=999;p.hp=p.maxhp;if(a!=='grapplethrow')G.fighters=[p];G.items=[];G.steeds=[];updProj();G.shake=0;G.hitstop=0;updParts();}
-function setInspectionMode(debug){demoView.motion=debug?'walk':'auto';demoView.actor=null;demoView.settings=true;startAuto(SEL_ORDER.concat(HIDDEN).includes(G.curCh)?G.curCh:'yuki',G.stage);}
+function setInspectionMode(debug){SPR_ALL=true;demoView.motion=debug?'walk':'auto';demoView.actor=null;demoView.settings=true;startAuto(SEL_ORDER.concat(HIDDEN).includes(G.curCh)?G.curCh:'yuki',G.stage);}
 function debugUI(B,L,playback){autoEl.className='inspect';
  const S=(label,items,value,change)=>{const e=document.createElement('select');e.setAttribute('aria-label',label);for(const [v,t] of items){const o=document.createElement('option');o.value=v;o.textContent=t;o.selected=String(v)===String(value);e.appendChild(o);}e.addEventListener('pointerdown',e=>e.stopPropagation());e.addEventListener('change',()=>{change(e.value);_autoKey='';});autoEl.appendChild(e);return e;};
  S('確認モード',[['debug','一体デバッグ'],['stage','全編デモ']],'debug',v=>setInspectionMode(v==='debug'));
@@ -2271,7 +2274,7 @@ function debugUI(B,L,playback){autoEl.className='inspect';
  S('向き',[['1','右'],['-1','左']],demoView.facing,v=>{demoView.facing=Number(v);prepareWalkPreview();});playback();B('■ 終了',()=>{G.auto=false;startTitle();});}
 
 let walkPreviewBooted=false;
-function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(!['walk','debug'].includes(q.get('preview')))return;const hero=SEL_ORDER.concat(HIDDEN).includes(q.get('hero'))?q.get('hero'):'musashi',actor=TY[q.get('actor')]?q.get('actor'):hero,isHero=SEL_ORDER.concat(HIDDEN).includes(actor);demoView.actor=actor;demoView.weapon=WPN[q.get('weapon')]?q.get('weapon'):'';demoView.motion='walk';const a=q.get('action'),allowed=['idle','walk',...TY[actor].atk.map((d,i)=>'atk'+i)];if(isHero)allowed.push('special','jump','charge','spin','throw','grapplethrow');if(allowed.includes(a))demoView.motion=a;demoView.mounted=isHero&&q.get('mount')==='1';if(demoView.mounted&&['jump','charge','grapplethrow'].includes(demoView.motion))demoView.motion='walk';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
+function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(!['walk','debug'].includes(q.get('preview')))return;SPR_ALL=true;const hero=SEL_ORDER.concat(HIDDEN).includes(q.get('hero'))?q.get('hero'):'musashi',actor=TY[q.get('actor')]?q.get('actor'):hero,isHero=SEL_ORDER.concat(HIDDEN).includes(actor);demoView.actor=actor;demoView.weapon=WPN[q.get('weapon')]?q.get('weapon'):'';demoView.motion='walk';const a=q.get('action'),allowed=['idle','walk',...TY[actor].atk.map((d,i)=>'atk'+i)];if(isHero)allowed.push('special','jump','charge','spin','throw','grapplethrow');if(allowed.includes(a))demoView.motion=a;demoView.mounted=isHero&&q.get('mount')==='1';if(demoView.mounted&&['jump','charge','grapplethrow'].includes(demoView.motion))demoView.motion='walk';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
 function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
 function demoViewTick(){
  if(!demoViewActive()){demoView.paused=false;demoView.steps=0;demoView.credit=0;return true;}
@@ -2335,10 +2338,31 @@ function stepGame(){
  G.shake*=0.86;if(G.comboT>0)G.comboT--;if(G.hitPop>0)G.hitPop--;
  updWorld();updParts();
 }
-function sprAllReady(){for(const k in SPR){const S=SPR[k];if(!S.ready&&!S.failed)return false;}for(const k in BGIMG){const b=BGIMG[k];if(!(b.complete&&b.naturalWidth)&&!b.failed)return false;}return true;}
+const HERO_KEYS=['yuki','kage','mitsu','nobu','shin','musashi'];
+function sprRequest(k){const S=SPR_RAW[k];if(!S||S.want)return;S.want=true;if(S.ready||S.loading)return;const im=new Image();S.img=im;S.loading=true;S.failed=false;
+ im.onload=()=>{if(S.img!==im)return;S.loading=false;S.ready=true;};im.onerror=()=>{if(S.img!==im)return;S.loading=false;S.failed=true;};im.src=S.url;}
+function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.ready=false;S.loading=false;S.white=null;const im=S.img;im.onload=im.onerror=null;im.removeAttribute('src');S.img=new Image();
+ for(const id in _tint)if(id==='red|'+k||id.startsWith(k+'|'))delete _tint[id];}
+// 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
+function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];if(h==='yuki')b.push('yukithrow1','yukiattack2');return b.filter(k=>SPR_RAW[k]);}
+// 今の画面で必要な画像の組。null は「今のまま(捨てない)」
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^boss\d/.test(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+ if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]));
+ if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>w.boss);
+  return base.concat(bs,heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
+ if(m==='title'||m==='gate'||m==='diff')return base;return null;}
+let _sprSig='';
+function syncSprWant(){if(SPR_ALL){for(const k in SPR_RAW)sprRequest(k);return;}
+ const sig=[G.mode,G.stage,G.player&&G.player.T.type,G.partner&&G.partner.T.type,G.partnerType,G.waves&&G.waves.length].join('|');if(sig===_sprSig)return;
+ const T=sprTarget();if(!T)return;_sprSig=sig;const want=new Set(T);for(const k of want)sprRequest(k);for(const k in SPR_RAW)if(!want.has(k))sprRelease(k);}
+function sprWantReady(){syncSprWant();for(const k in SPR_RAW){const S=SPR_RAW[k];if(S.want&&!S.ready&&!S.failed)return false;}for(const k in BGIMG){const b=BGIMG[k];if(!(b.complete&&b.naturalWidth)&&!b.failed)return false;}return true;}
+// 今読み込んでいる画像の展開後の大きさ(MB)。テストで使う
+function sprMB(){let t=0;for(const k in SPR_RAW){const S=SPR_RAW[k];if(S.ready&&S.img.naturalWidth)t+=S.img.naturalWidth*S.img.naturalHeight*4;}return Math.round(t/1e6);}
+// テストや検査画面用: 呼ばれたら全部の画像を読み込むモードに切り替え、全部そろったかを返す(以前と同じ意味)
+function sprAllReady(){if(!SPR_ALL){SPR_ALL=true;for(const k in SPR_RAW)sprRequest(k);}for(const k in SPR_RAW){const S=SPR_RAW[k];if(!S.ready&&!S.failed)return false;}for(const k in BGIMG){const b=BGIMG[k];if(!(b.complete&&b.naturalWidth)&&!b.failed)return false;}return true;}
 let _loadT=0;
 function frame(){ctx.setTransform(RS,0,0,RS,0,0);if(G.lowq)ctx.imageSmoothingQuality='low';
- if(!sprAllReady()){_loadT++;ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);txt('読み込み中'+'.'.repeat(1+(_loadT>>4)%3),W/2,H/2,34,'#e8c35a','center','#000',4);txt('SEKIGAHARA RANBU',W/2,H/2-60,20,'#8a7a58','center','#000',3,'Arial');return;}
+ if(!sprWantReady()){_loadT++;ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);txt('読み込み中'+'.'.repeat(1+(_loadT>>4)%3),W/2,H/2,34,'#e8c35a','center','#000',4);txt('SEKIGAHARA RANBU',W/2,H/2-60,20,'#8a7a58','center','#000',3,'Arial');return;}
  bootWalkPreview();G.t++;AU.tick();if(TOUCH)tc.style.display=G.mode==='play'&&!G.auto&&!G.pause?'block':'none';autoUI();
  try{
  if(G.mode==='demo'||G.mode==='play'){
