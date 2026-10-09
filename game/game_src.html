@@ -689,6 +689,8 @@ function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DE
 /* ---------- spawn ---------- */
 // ボス戦の曲: 最終幕の大将(徳川家康 boss3)だけラスボス曲(10)、それ以外のボスは3
 function bossBgm(e){return G.stage===5&&e&&e.T&&e.T.type==='boss3'?10:3;}
+// 雑魚の同時出現数の上限(スマホで一度に出すぎると重い、オーナー指摘)。超えた分は前の敵が倒れてから順に出る。総数は変わらない
+const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
  if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
@@ -1176,7 +1178,7 @@ function updEnemy(e){
  }
  const edge=combatScreenMargin(e),entry=edge;
  if(!e.entered&&e.x>=G.camx+entry&&e.x<=G.camx+W-entry)e.entered=true;
- if(e.entered)e.x=clamp(e.x,G.camx+edge,G.camx+W-edge);
+ if(e.entered&&e.hp>0&&e.state!=='dead'&&!e.dying)e.x=clamp(e.x,G.camx+edge,G.camx+W-edge); // 死体は押さない
  e.y=clamp(e.y,YMIN,YMAX);
 }
 
@@ -1202,7 +1204,8 @@ function demoCtl(p,follow){
  if(adx>want)(dir>0?c.r=1:c.l=1);else if(p.state==='idle'||p.state==='walk')p.face=dir;
  if(adx<rg*1.05&&ady<22&&p.face===dir){if(p.state==='idle'||p.state==='walk'){if(Math.random()<0.55)c.atkP=1;}else if(p.state==='atk'&&p.st>=p.cur.hs&&Math.random()<0.4)c.atkP=1;}
  const near=en.filter(e=>Math.abs(e.x-p.x)<300&&Math.abs(e.y-p.y)<120).length;
- if(p.ki>=T.cost&&p.state!=='atk'||p.ki>=T.cost&&p.state==='atk'&&p.st>p.cur.he){const want=p.ki>=300||(p.ki<200&&Math.random()<0.5)||p.isPartner;if(want&&(near>=3||(tg.T.boss&&adx<320&&ady<60))&&Math.random()<0.12)c.spcP=1;}
+ // 必殺はゲージ1本(100)以上から。相方は撃ちすぎていた(オーナー指摘)ので、ゲージ2本以上かボス戦の時だけ、撃ったら約20秒は控える
+ if(p.ki>=100&&(p.state!=='atk'||p.st>p.cur.he)){const want=p.isPartner?((p.ki>=200||tg.T.boss)&&!((p.spcCdT||0)>G.t)):(p.ki>=300||(p.ki<200&&Math.random()<0.5));if(want&&(near>=3||(tg.T.boss&&adx<320&&ady<60))&&Math.random()<(p.isPartner?0.05:0.12)){c.spcP=1;if(p.isPartner)p.spcCdT=G.t+1200;}}
  return c;
 }
 
@@ -1250,7 +1253,7 @@ function updWorld(){
    for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
    if(G.partner&&!G.demo){const pool=w.en.filter(e=>TY[e[0]].ai!=='rider');const ex=Math.max(1,Math.round(w.en.length*0.35));for(let k=0;k<ex&&pool.length;k++){const q=pick(pool);G.sq.push({type:q[0],d:(w.boss?120:30)+q[1]+k*40,side:-q[2]});}}
    G.waveT=0;}
-  if(G.waveOn){G.waveT++;for(let i=G.sq.length-1;i>=0;i--){if(G.waveT>=G.sq[i].d){const s=G.sq[i];G.sq.splice(i,1);spawnEn(s.type,s.side);if(G.banner&&G.banner.boss)return;}}
+  if(G.waveOn){G.waveT++;let enAlive=G.fighters.reduce((n,e)=>n+(e.team===1&&e.hp>0&&!e.isProp?1:0),0);for(let i=G.sq.length-1;i>=0;i--){if(G.waveT>=G.sq[i].d){const s=G.sq[i],boss=TY[s.type]&&TY[s.type].boss;if(!boss&&enAlive>=ENCAP)continue;G.sq.splice(i,1);spawnEn(s.type,s.side);enAlive++;if(G.banner&&G.banner.boss)return;}}
    const alive=G.fighters.some(e=>e.team===1&&e.hp>0);
    if(!alive&&!G.sq.length&&!G.boss){G.waveOn=false;G.wi++;if(G.wi<G.waves.length){G.camMax=G.waves[G.wi].x;G.goT=1;}}}
  }
@@ -1264,7 +1267,7 @@ function updWorld(){
  // anti-stall: pull far-away stragglers in
  if(G.waveOn&&G.waveT>(G.demo?1100:2400)&&G.waveT%120===0){for(const e of G.fighters)if(e.team===1&&e.hp>0&&!e.T.boss&&e.T.ai!=='rider'&&Math.abs(e.x-p.x)>380){e.x=clamp(p.x+(e.x>p.x?1:-1)*300,G.camx+20,G.camx+W-20);e.entered=true;}}
  // remove dead
- for(let i=G.fighters.length-1;i>=0;i--){const f=G.fighters[i];if(f.team===1){if(f.state==='dead')f.st++;if(f.state==='dead'&&f.st>(f.gush>0?f.st+1:200)){G.fighters.splice(i,1);if(f===G.boss){}}}else{ if(f.state==='dead')f.st=f.st;}}
+ for(let i=G.fighters.length-1;i>=0;i--){const f=G.fighters[i];if(f.team===1){if(f.state==='dead')f.st++;if(f.state==='dead'&&(f.st>(f.gush>0?f.st+1:200)||f.x<G.camx-160||f.x>G.camx+W+160)){G.fighters.splice(i,1);if(f===G.boss){}}}else{ if(f.state==='dead')f.st=f.st;}}
  // trails
  for(const f of G.fighters){if(f.trailOn)f.trailOn=false;else if(f.trail.length)f.trail.shift();}
  // items
@@ -1275,7 +1278,7 @@ function updWorld(){
  const tgt=clamp(p.x-440,G.camx,G.camMax);G.camx+=(tgt-G.camx)*0.12;if(G.camMax-G.camx<1.5&&tgt>=G.camMax-1)G.camx=G.camMax;
  // Separation and camera movement happen after individual AI updates. Clamp
  // again here so an entered fighter cannot act outside the next rendered view.
- for(const f of G.fighters)if(f.team===0||f.entered)keepFighterOnScreen(f);
+ for(const f of G.fighters)if(f.team===0||(f.entered&&!(f.team===1&&(f.hp<=0||f.state==='dead'||f.dying))))keepFighterOnScreen(f); // 死体は押さない(画面について回るのを防ぐ)
  if(G.goT>0)G.goT++;if(G.goT>300)G.goT=0;
  if(G.waveOn||G.state!=='run')G.goT=0;
  // state flow
@@ -1382,12 +1385,17 @@ function bloodSpray(x,y,z,dir,n,pw){
  for(let i=0;i<Math.min(5,(n>>2)+1);i++)PT({x,y,z,vx:dir*rnd(0.4,2),vy:rnd(-.4,.4),vz:rnd(0.2,1.4),g:0,life:rndi(12,24),sz:rnd(8,18),col:'rgba(140,10,16,0.6)',k:'bloodmist'});
 }
 function addDecal(x,y,r,a,grow,rmax){
- if(!G.blood)return;G.decals.push({x,y,r,a:a||0.7,rot:rnd(0,TAU),seed:rnd(0,6),grow:grow||0,rmax:rmax||r,age:0});if(G.decals.length>260)G.decals.shift();}
-function drawDecals(){
+ if(!G.blood)return;G.decals.push({x,y,r,a:a||0.7,rot:rnd(0,TAU),seed:rnd(0,6),grow:grow||0,rmax:rmax||r,age:0});if(G.decals.length>(_ISTOUCH||G.lowq?140:260))G.decals.shift();}
+// 血だまりの絵を8種類だけ先に描いておき、毎コマはそれを回転・拡大して貼る(以前は1個ずつ毎コマぼかしを作り直していて重かった)
+const _decalSpr=[];
+function decalSprite(v){if(_decalSpr[v])return _decalSpr[v];const R=32,c=document.createElement('canvas');c.width=c.height=80;const x=c.getContext('2d');x.translate(40,40);
+ const g=x.createRadialGradient(0,0,0,0,0,R);g.addColorStop(0,'rgba(60,3,7,1)');g.addColorStop(0.6,'rgba(100,7,12,0.85)');g.addColorStop(1,'rgba(100,7,12,0)');x.fillStyle=g;x.beginPath();x.arc(0,0,R,0,TAU);x.fill();
+ if(v<8){const seed=v*TAU/8;x.fillStyle='rgba(85,5,9,0.8)';for(let i=0;i<4;i++){const ang=seed+i*1.7,rr=R*(0.75+0.12*i);x.beginPath();x.arc(Math.cos(ang)*rr,Math.sin(ang)*rr,R*0.15,0,TAU);x.fill();}x.fillStyle='rgba(190,30,36,0.35)';x.beginPath();x.ellipse(-R*0.15,-R*0.15,R*0.28,R*0.14,0,0,TAU);x.fill();}
+ return _decalSpr[v]=c;}
+function drawDecals(){const ga=ctx.globalAlpha;
  for(const d of G.decals){const sx=d.x-G.camx;if(sx<-90||sx>W+90)continue;d.age++;if(d.grow&&d.r<d.rmax)d.r+=d.grow;const a=d.a*(1-Math.min(0.35,d.age/5200));
-  ctx.save();ctx.translate(sx,d.y+2);ctx.scale(1,0.34);ctx.rotate(d.rot);const g=ctx.createRadialGradient(0,0,0,0,0,d.r);g.addColorStop(0,`rgba(60,3,7,${a})`);g.addColorStop(0.6,`rgba(100,7,12,${a*0.85})`);g.addColorStop(1,'rgba(100,7,12,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,d.r,0,TAU);ctx.fill();
-  if(d.r>9){ctx.fillStyle=`rgba(85,5,9,${a*0.8})`;for(let i=0;i<4;i++){const ang=d.seed+i*1.7,rr=d.r*(0.75+0.12*i);ctx.beginPath();ctx.arc(Math.cos(ang)*rr,Math.sin(ang)*rr,d.r*0.15,0,TAU);ctx.fill();}ctx.fillStyle=`rgba(190,30,36,${a*0.35})`;ctx.beginPath();ctx.ellipse(-d.r*0.15,-d.r*0.15,d.r*0.28,d.r*0.14,0,0,TAU);ctx.fill();}
-  ctx.restore();}
+  const im=decalSprite(d.r>9?Math.floor((d.seed%TAU)/TAU*8)&7:8),k=d.r/32;
+  ctx.save();ctx.translate(sx,d.y+2);ctx.scale(1,0.34);ctx.rotate(d.rot);ctx.globalAlpha=ga*a;ctx.drawImage(im,-40*k,-40*k,80*k,80*k);ctx.restore();}
 }
 /* ---------- post fx: bloom + grading ---------- */
 const BL={c:null,x:null,ok:false};
