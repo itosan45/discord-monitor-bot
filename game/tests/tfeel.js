@@ -40,9 +40,10 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright'),fs=require('fs');
    for(let t=0;t<90;t++){G.t++;stepGame();if(!shot&&G.trampleN){shot=true;for(let k=0;k<3;k++){G.t++;stepGame();}snap('trample-'+hero);}}keys.ArrowRight=false;
    const hp=f.mount.hp;rows.push({hero,trample:G.trampleN,mountHp:hp,downed:es.filter(e=>e.hp<500).length});if(G.trampleN<1)bad.push({hero,noTrample:true});}
   // 画面端の跳ね返り: 端へ吹き飛んだ雑兵は1回だけ跳ね返り、画面内に戻る
-  for(const hero of HEROES){const {f,es}=setup(hero,[[0,0,500]]);const e=es[0];G.camMax=G.camx;G.waves=[{x:1e9,en:[]},{x:1e9,en:[]}];G.waveOn=true;G.wallPopT=0;f.x=G.camx+W-260;e.x=G.camx+W-170;G.wallN=0;hurt(e,f,{dmg:5,kb:9,launch:true});let shot=false,maxX=0;
-   for(let t=0;t<90;t++){G.t++;stepGame();maxX=Math.max(maxX,e.x-G.camx);if(!shot&&G.wallN){shot=true;for(let k=0;k<3;k++){G.t++;stepGame();}snap('wall-'+hero);}}
-   rows.push({hero,wall:G.wallN,maxX:Math.round(maxX),endX:Math.round(e.x-G.camx)});if(G.wallN!==1||maxX>W-20)bad.push({hero,wall:G.wallN,maxX});}
+  for(const hero of HEROES){const {f,es}=setup(hero,[[0,0,500]]);const e=es[0];G.camMax=G.camx;G.waves=[{x:1e9,en:[]},{x:1e9,en:[]}];G.waveOn=true;G.wallPopT=0;f.x=G.camx+W-230;e.x=G.camx+W-140;G.wallN=0;hurt(e,f,{dmg:5,kb:9,launch:true});let shot=false,maxX=0;
+   let px=e.x,jump=0,bx=null;for(let t=0;t<160;t++){G.t++;stepGame();maxX=Math.max(maxX,e.x-G.camx);if(G.wallN&&bx===null){const [l,r]=frameExt(e);bx=W-(e.x-G.camx+r);}if(t>0&&!G.hitstop)jump=Math.max(jump,Math.abs(e.x-px)-Math.abs(e.vx||0)-1);px=e.x;if(!shot&&G.wallN){shot=true;snap('wall-'+hero);}}
+   const bm=bodyScreenMargin(e),cm=combatScreenMargin(e);rows.push({hero,wall:G.wallN,edgeGap:Math.round(bx),bodyMargin:bm,oldWall:cm,maxJump:+jump.toFixed(1),endX:Math.round(e.x-G.camx),state:e.state});
+   if(G.wallN!==1||maxX>W-20||bx>12||jump>5)bad.push({hero,wall:G.wallN,bx,bm,jump});}
   {const {f,es}=setup('yuki',[[150,0,500]]);G.wallN=0;hurt(es[0],f,{dmg:5,kb:9,launch:true});for(let t=0;t<90;t++){G.t++;stepGame();}if(G.wallN)bad.push({wallInMiddle:true});}
   // ボスは巻き込まれない
   {const {f,es}=setup('yuki',[[90,0,500]]);const bo=mk(Object.keys(TY).find(k=>TY[k].boss),f.x+170,570,1);bo.entered=true;bo.cool=9999;G.fighters.push(bo);const h0=bo.hp;hurt(es[0],f,{dmg:6,kb:9,launch:true});for(let t=0;t<60;t++){G.t++;stepGame();}if(bo.hp<h0&&G.bowlN)bad.push({bossBowled:true});}

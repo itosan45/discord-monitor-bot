@@ -17,7 +17,8 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
     if(t===450&&e.entered){e.state='hurt';e.hurtT=20;e.st=0;e.vx=side*50;}
     updWorld();frames++;
     if(!e.entered){if(e.state==='atk'||e.mA?.k==='a1')bad.push({key,side,t,offscreenAttack:true});continue;}
-    entered=true;const margin=fighterScreenMargin(e),x=e.x-G.camx;
+    entered=true;const loose=!e.T.boss&&(e.state==='down'||e.state==='getup'||e.outBack),margin=fighterScreenMargin(e),x=e.x-G.camx;if(loose){const [l,r]=frameExt(e);if(x+l<-1||x+r>W+1)bad.push({key,side,t,bodyOut:[x+l,x+r]});continue;} // 倒れ・起き上がり・戻り中は体の幅だけ確保(攻撃しない)
+    if(loose&&e.state==='atk')bad.push({key,side,t,attackWhileOutside:true});
     if(x<margin-.01||x>W-margin+.01)bad.push({key,side,t,x,margin});
    }
    if(!entered)bad.push({key,side,neverEntered:true});rows.push({key,side,frames,entered,finalType:e.T.type});

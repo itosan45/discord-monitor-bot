@@ -406,7 +406,7 @@ TY.boss9.atk=[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:44,hs:20,he:26,rng:195,dmg:13,
 TY.boss4.atk=[{pz:'swing',a0:-2.4,a1:0.8,r:38,dur:34,hs:14,he:20,rng:165,dmg:12,kb:4,dep:38,sfx:'slash',lunge:3},{pz:'swing',a0:-2.6,a1:1.0,r:40,k:'warp',dur:48,hs:20,he:28,rng:150,dmg:15,kb:6,launch:true,dep:42,sfx:'slash'},{pz:'raise',k:'volley',dur:70,hs:26,he:27,rng:0,dmg:0,sfx:'roar'},{pz:'thrust',dur:44,hs:12,he:30,rng:130,dmg:14,kb:6,launch:true,k:'charge',move:15,dep:40,sfx:'spc1'}];TY.boss4.near=[0,1,0];TY.boss4.far=[1,2,3];
 TY.boss8.atk=[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:46,hs:22,he:28,rng:190,dmg:13,kb:5,dep:40,sfx:'heavy',lunge:2},{pz:'swing',a0:-2.9,a1:1.3,r:42,dur:62,hs:34,he:38,rng:175,dmg:16,kb:7,launch:true,dep:42,sfx:'heavy',k:'wave'},{pz:'raise',k:'pincer',dur:70,hs:26,he:27,rng:0,dmg:0,sfx:'roar'},{pz:'thrust',dur:56,hs:24,he:44,rng:130,dmg:15,kb:6,launch:true,k:'charge',move:10,dep:40,sfx:'spc1'}];TY.boss8.near=[0,1,0];TY.boss8.far=[2,3,1];
 TY.boss5.atk=[{pz:'swing',a0:-2.4,a1:0.8,r:38,dur:34,hs:14,he:20,rng:165,dmg:12,kb:4,dep:38,sfx:'slash',lunge:3},{pz:'raise',k:'guard',dur:80,hs:4,he:70,rng:0,dmg:0},{pz:'raise',k:'summon',dur:80,hs:30,he:31,rng:0,dmg:0,sfx:'roar'},{pz:'raise',k:'rain',dur:90,hs:30,he:31,rng:0,dmg:0,sfx:'spc3'},{pz:'thrust',dur:44,hs:12,he:30,rng:130,dmg:15,kb:6,launch:true,k:'charge',move:15,dep:40,sfx:'spc1'}];TY.boss5.near=[0,1,0];TY.boss5.far=[2,3,4];
-TY.boss2.atk=[{pz:'swing',a0:-2.7,a1:1.2,r:44,dur:56,hs:28,he:34,rng:185,dmg:16,kb:6,launch:true,dep:44,sfx:'heavy'},{pz:'swing',a0:-3.0,a1:1.4,r:44,k:'quake',dur:80,hs:34,he:35,rng:40,dmg:13,kb:5,sfx:'boom'},{pz:'raise',k:'leap',dur:90,hs:22,he:40,rng:140,dmg:20,kb:7,launch:true,dep:70,around:true}];TY.boss2.atk.push({pz:'bow',k:'arrows3',dur:40,hs:22,he:23,rng:0,dmg:9,sfx:'arrow'},{pz:'raise',k:'rain',dur:90,hs:30,he:31,rng:0,dmg:0,sfx:'spc3'});TY.boss2.near=[0,0,2];TY.boss2.far=[3,3,4,1];TY.boss2.ai2='archer';TY.boss2.keep=380;
+TY.boss2.atk=[{pz:'swing',a0:-2.7,a1:1.2,r:44,dur:56,hs:28,he:34,rng:185,dmg:16,kb:6,launch:true,dep:44,sfx:'heavy'},{pz:'swing',a0:-3.0,a1:1.4,r:44,k:'quake',dur:80,hs:34,he:35,rng:40,dmg:13,kb:5,sfx:'boom'},{pz:'raise',k:'leap',dur:90,hs:22,he:40,rng:140,dmg:20,kb:7,launch:true,dep:70,around:true}];TY.boss2.atk.push({pz:'bow',k:'arrows3',dur:40,hs:22,he:23,rng:0,dmg:9,sfx:'arrow'},{pz:'raise',k:'rain',dur:90,hs:30,he:31,rng:0,dmg:0,sfx:'spc3'});TY.boss2.near=[0,0,2];TY.boss2.far=[3,3,4,1];TY.boss2.ai2='archer';TY.boss2.keep=380;TY.boss2.spd*=2; // 飛び道具のボスは間合いを取れるよう移動2倍(オーナー指示)
 TY.boss1.atk=[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:42,hs:18,he:24,rng:190,dmg:13,kb:5,dep:40,sfx:'heavy',lunge:3},{pz:'thrust',dur:50,hs:18,he:40,rng:140,dmg:15,kb:6,launch:true,k:'charge',move:13,dep:40,sfx:'spc1'},{pz:'raise',k:'cavalry',dur:60,hs:22,he:23,rng:0,dmg:0,sfx:'roar'},{pz:'swing',a0:-2.9,a1:1.3,r:42,dur:62,hs:34,he:38,rng:175,dmg:16,kb:7,launch:true,dep:42,sfx:'heavy',k:'wave'}];TY.boss1.near=[0,1,0];TY.boss1.far=[1,2,3,1];
 TY.boss7.atk=[{pz:'thrust',dur:44,hs:20,he:26,rng:265,dmg:14,kb:6,dep:40,sfx:'thrust',lunge:4},{pz:'swing',a0:-3.0,a1:3.0,r:44,dur:60,hs:26,he:40,rng:200,dmg:15,kb:7,launch:true,around:true,dep:50,sfx:'heavy'},{pz:'thrust',dur:70,hs:20,he:60,rng:140,dmg:13,kb:6,launch:true,k:'charge',move:11,dep:40,sfx:'spc1'},{pz:'raise',k:'guard',dur:70,hs:4,he:60,rng:0,dmg:0}];TY.boss7.near=[0,1,3,0];TY.boss7.far=[0,2,0];
 TY.boss3.atk.push({pz:'raise',k:'volley',dur:70,hs:26,he:27,rng:0,dmg:0,sfx:'roar'});TY.boss3.far=[2,1,3,4,2];
@@ -826,7 +826,7 @@ function doSummon(f){for(const s of[-1,1]){const e=spawnEn('spear',s);e.x=f.x+s*
 function doRain(f){const p=nearestAlly(f);for(let i=0;i<4;i++)fall(clamp(p.x+rnd(-260,260),G.camx+40,G.camx+W-40),rnd(YMIN+10,YMAX),1,9,80,30+i*24,f);}
 
 /* ---------- attacks ---------- */
-const BGUARD={pz:'raise',k:'guard',dur:44,hs:2,he:38,rng:0,dmg:0},BSTEP={pz:'raise',k:'step',dur:22,hs:1,he:2,rng:0,dmg:0},BSHAKE={pz:'swing',a0:-3,a1:3,r:44,dur:34,hs:8,he:16,rng:165,dmg:10,kb:10,launch:true,around:true,dep:60,sfx:'heavy'};
+const BGUARD={pz:'raise',k:'guard',dur:44,hs:2,he:38,rng:0,dmg:0},BSTEP={pz:'raise',k:'step',dur:22,hs:1,he:2,rng:0,dmg:0},BHOP={pz:'raise',k:'hop',dur:90,hs:1,he:2,rng:0,dmg:0},BSHAKE={pz:'swing',a0:-3,a1:3,r:44,dur:34,hs:8,he:16,rng:165,dmg:10,kb:10,launch:true,around:true,dep:60,sfx:'heavy'};
 function startEAct(e,d){e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=-1;}
 function startEAtk(e,i){const d=e.T.atk[i];e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=i;if(d.k==='leap'){e.leaped=false;}if(e.T.boss&&d.hs>14)AU.sfx('warn2');}
 
@@ -842,11 +842,15 @@ function updAtk(f){
  const d=f.cur,st=f.st;
  if(d.iai)iaiStep(f,d,st);
  if(d.ck)chargeStep(f,d,st);
+ // 跳び越し: 画面端に追い詰められた飛び道具のボスが、主人公の頭上を跳び越えて反対側へ間合いを取る
+ if(d.k==='hop'){if(st===1){const p=nearestAlly(f),vz=bossLeapSpeed(f),T=2*vz/GR,side=sgn(p.x-f.x)||-f.face,m=bossScreenMargin(f)+10,tx=clamp(p.x+side*280,G.camx+m,G.camx+W-m);f.vz=vz;f.vx=clamp((tx-f.x)/T,-20,20);f.face=side;f.hopped=false;AU.sfx('jump');dust(f.x,f.y,6);popup('とうっ！',f.x,f.y,f.z+220,'#cfe',22);G.hopN=(G.hopN||0)+1;}
+  if(!f.hopped){f.x+=f.vx;f.vz-=GR;f.z+=f.vz;f.inv=Math.max(f.inv,2);if(f.z<=0&&f.vz<0){f.z=0;f.vz=0;f.vx=0;f.hopped=true;f.hopEnd=st;dust(f.x,f.y,8);AU.sfx('land');}}
+  if(f.hopped&&st>=f.hopEnd+8){f.state='idle';f.st=0;f.face=-f.face;f.cool=Math.min(f.cool,10);}return;}
  if(d.k==='leap'){
-  if(st===d.hs){f.vz=f.T.boss?bossLeapSpeed(f):15;const p=nearestAlly(f);f.vx=clamp((p.x-f.x)/30,-9,9);f.vy=clamp((p.y-f.y)/30,-3,3);AU.sfx('jump');}
+  if(st===d.hs){f.vz=f.T.boss?bossLeapSpeed(f):15;const p=nearestAlly(f),lv=f.T.ai2==='archer'?18:9;f.vx=clamp((p.x-f.x)/30,-lv,lv);f.vy=clamp((p.y-f.y)/30,-3,3);AU.sfx('jump');}
   if(st>d.hs&&!f.leaped){f.x+=f.vx;f.y=clamp(f.y+f.vy,YMIN,YMAX);f.vz-=GR;f.z+=f.vz;if(f.z<=0&&f.vz<0){f.z=0;f.vz=0;f.leaped=true;f.hit.clear();strike(f,d);G.shake=18;ring(f.x,f.y,170,'rgba(255,220,160,0.9)',28);dust(f.x,f.y,12);AU.sfx('boom');}}
   if(st>=d.dur&&f.z<=0){f.state='idle';f.st=0;f.cool=rndi(35,70);}return;}
- if(d.k==='step'){if(st<12){f.x-=f.face*(10-st*0.6);if(st%3===0)dust(f.x+f.face*20,f.y,1);}f.inv=Math.max(f.inv,st<10?2:0);}
+ if(d.k==='step'){const arc=f.T.ai2==='archer';if(arc&&st===1&&f.z<=0){f.vz=Math.min(7.5,bossLeapSpeed(f));AU.sfx('jump');}if(st<12){f.x-=f.face*(10-st*0.6)*(arc?2:1);if(st%3===0)dust(f.x+f.face*20,f.y,1);}f.inv=Math.max(f.inv,st<10?2:0);}
  if(d.lunge&&st>=Math.max(0,d.hs-3)&&st<=d.he)f.x+=f.face*d.lunge;
  if(d.chg&&st>=d.hs&&st<=d.he){if(st%2===0)dust(f.x-f.face*24,f.y,1);if(st%3===0)PT({x:f.x+f.face*rnd(40,140),y:f.y+rnd(-8,8),z:rnd(40,110),life:9,k:'star',sz:rnd(30,60),col:'#ffe6a0'});if(st===d.hs+8)f.hit.clear();}
  if(d.k==='charge'&&st>=d.hs&&st<=d.he){f.x+=f.face*d.move;if(st%2===0)dust(f.x-f.face*20,f.y,1);if(st%6===0)f.hit.clear();}
@@ -856,7 +860,7 @@ function updAtk(f){
  f.guarding=d.k==='guard'&&st>=d.hs&&st<=d.he;
  if(d.rng&&st>=d.hs&&st<=d.he)strike(f,d);
  if(st>=d.dur&&f.T.boss&&f.team===1&&d.k!=='guard'&&d.k!=='step'&&d!==BSHAKE){const p=nearestAlly(f);if(p&&Math.abs(p.x-f.x)<280&&(f.comboN||0)<(f.enr?2:1)&&Math.random()<(f.enr?0.55:0.38)){f.comboN=(f.comboN||0)+1;const pool=f.T.near.filter(i=>i!==f.atkI);startEAtk(f,pool.length?pick(pool):pick(f.T.near));f.face=sgn(p.x-f.x)||f.face;return;}f.comboN=0;}
- if(st>=d.dur){if(d.lastUse&&f.wpn&&f.wpn.k==='kusari')useWpn(f);f.state='idle';f.st=0;if(f.team===1)f.cool=rndi(d.cd0||(f.T.boss?18:f.T.ai==='ranged'?110:50),d.cd1||(f.T.boss?44:f.T.ai==='ranged'?200:100))*(f.enr?0.7:1)*(G.partner?0.8:1);}
+ if(st>=d.dur){if(d.lastUse&&f.wpn&&f.wpn.k==='kusari')useWpn(f);f.state='idle';f.st=0;if(f.team===1)f.cool=rndi(d.cd0||(f.T.boss?18:f.T.ai==='ranged'?110:50),d.cd1||(f.T.boss?44:f.T.ai==='ranged'?200:100))*(f.enr?0.7:1)*(G.partner?0.8:1);if(f.T.ai2==='archer'&&d.k==='step')f.cool=4;}
 }
 function startGrab(p,e){p.state='grab';p.st=0;p.gt=e;p.knee=0;p.kneeT=0;p.kbuf=false;p.kdir=0;p.pushT=0;e.state='held';e.st=0;e.cur=null;e.trail&&(e.trail.length=0);e.face=-p.face;e.heldBy=p;AU.sfx('heavy');G.hitstop=Math.max(G.hitstop,3);}
 // A short stab, lift over the head, then release behind the original facing.
@@ -987,7 +991,7 @@ function updSpc(p){
  if(p.spLv===2&&st===p.cur.dur-2){for(const sd of[1,-1])addProj({x:p.x+sd*30,y:p.y,z:6,vx:sd*11,team:0,dmg:20,face:sd,owner:p,k:'wave',w:56,life:50,launch:true,kb:7,pierce:99});G.shake=16;ring(p.x,p.y,240,'rgba(255,220,120,0.95)',30);AU.sfx('boom');}
  if(st>=p.cur.dur){p.state='idle';p.st=0;p.inv=20;}
 }
-function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk'&&!(f.state==='atk'&&f.cur&&f.cur.k==='leap')){f.vz-=GR;f.z+=f.vz;if(f.z<=0){f.z=0;f.vz=0;}}}
+function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk'&&!(f.state==='atk'&&f.cur&&(f.cur.k==='leap'||f.cur.k==='hop'))){f.vz-=GR;f.z+=f.vz;if(f.z<=0){f.z=0;f.vz=0;}}}
 const CHG=40;
 const CKNAME={iai:'居合',spin:'回転斬り',quake:'地割れ',bigshot:'溜め撃ち',triarrow:'三本矢',gale:'疾風',gou:'号令'};
 function chargeKind(p){const w=p.wpn&&p.wpn.k,o=p.T.wp;
@@ -1130,8 +1134,8 @@ function bowlStep(f){if(f.z<=0&&f.vz<=0||Math.abs(f.vx)<3.5){f.bowl=null;return;
   if(Math.abs(e.x-f.x)<42*(e.sc||1)&&Math.abs(e.y-f.y)<26){(f.bowled||(f.bowled=new Set())).add(e);hurt(e,{team:0,face:sgn(f.vx),x:f.x-sgn(f.vx)*20,owner:own,hit:new Set()},{dmg:9,kb:4,launch:true,noDecap:true});popup('巻き込み！',e.x,e.y,e.z+170,'#ffcf6a',24);G.bowlN=(G.bowlN||0)+1;}}}
 function respawn(p){p.mount=G.auto&&p===G.player&&demoView.mounted?{hp:6,max:6,col:MCOL[p.T.type]||'iron'}:null;p.hp=p.maxhp;p.state='idle';p.st=0;p.z=0;p.x=G.camx+200;p.y=570;p.inv=150;p.ki=Math.max(p.ki,75);p.dying=false;G.items.push({x:p.x+160,y:p.y,k:'onigiri',t:0});}
 // 画面端の跳ね返り: 主人公に吹き飛ばされた雑兵が空中で画面端に当たると、1回だけ跳ね返って戻ってくる(ファイナルファイトの壁)
-function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)return;const m=combatScreenMargin(f)+2,L=G.camx+m,R=G.camx+W-m;if(!((f.vx<0&&f.x+f.vx<=L)||(f.vx>0&&f.x+f.vx>=R)))return;
- f.wallB=1;f.x=clamp(f.x,L,R);f.vx=-f.vx*0.55;f.vz=Math.max(f.vz,4.5);f.jug=0;G.shake=Math.max(G.shake,6);G.hitstop=Math.max(G.hitstop,4);dust(f.x,f.y,6);AU.sfx('land');if(!((G.wallPopT||0)>G.t)){G.wallPopT=G.t+60;popup('壁！',f.x,f.y,f.z+200,'#ffd28a',24);}G.wallN=(G.wallN||0)+1;}
+function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)return;const [el,er]=frameExt(f),L=G.camx+2-el,R=G.camx+W-2-er;if(!((f.vx<0&&f.x+f.vx<=L)||(f.vx>0&&f.x+f.vx>=R)))return;
+ f.wallB=1;f.x=clamp(f.x+f.vx,L,R);f.vx=-f.vx*0.55;f.vz=Math.max(f.vz,4.5);f.jug=0;G.shake=Math.max(G.shake,6);G.hitstop=Math.max(G.hitstop,4);dust(f.x,f.y,6);AU.sfx('land');if(!((G.wallPopT||0)>G.t)){G.wallPopT=G.t+60;popup('壁！',f.x,f.y,f.z+200,'#ffd28a',24);}G.wallN=(G.wallN||0)+1;}
 function updDown(f){
  if(f.bowl){wallBounce(f);bowlStep(f);}
  f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;f.jug=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
@@ -1154,6 +1158,17 @@ function fighterScreenMargin(f){
 }
 // NPCs may not retreat into a strip the hero's weapon margin makes unreachable.
 function combatScreenMargin(f){const own=fighterScreenMargin(f),p=G.player;return f.team===1&&p&&p!==f&&p.hp>0?Math.max(own,fighterScreenMargin(p)):own;}
+// 吹き飛び中の体の半幅(倒れ絵の幅から)。壁はこの位置=体が画面端に触れる所にする
+function bodyScreenMargin(f){const S=SPR[f.T.spr||f.T.type];if(!S||!S.ready||!S.a)return 60*(f.sc||1);
+ if(S.bodyExt===undefined){let w=0;for(const an of ['down','dead','hit'])for(const q of S.a[an]||[]){if(q)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));}S.bodyExt=w||60;}
+ return Math.ceil(S.bodyExt*(f.sc||1))+2;}
+// 倒れ・起き上がり中の雑兵は体が見える所まで画面端に寄れる。着地後は少しずつ通常の位置へ戻す(見えない壁で止まって見えないように)
+// 今描いている絵の左右の端(f.xからの距離)。壁はこの絵の端が画面端に触れる所
+function frameExt(f){const S=SPR[f.T.spr||f.T.type];if(!S||!S.ready||!S.a)return [-60,60];const sp=sprPos(f,S);const q=sp&&sp.arr&&sp.arr[Math.floor(sp.pos)%sp.arr.length];if(!q)return [-60,60];
+ const k=q[6]||1,sc=f.sc||1,a=f.face*q[4]*sc,b=f.face*(q[4]+q[2]*k)*sc;return [Math.min(a,b),Math.max(a,b)];}
+function keepDownOnScreen(f){const [l,r]=frameExt(f);f.x=clamp(f.x,G.camx+2-l,G.camx+W-2-r);f.outBack=true;}
+// 起き上がった直後に通常の位置より外にいる雑兵は、瞬間移動させずに数フレームで戻す
+function easeBackOnScreen(f){f.cool=Math.max(f.cool||0,2);const c=combatScreenMargin(f),L=G.camx+c,R=G.camx+W-c,b=bodyScreenMargin(f);f.x=clamp(f.x,G.camx+b,G.camx+W-b);if(f.x<L)f.x+=Math.min(L-f.x,2.5);else if(f.x>R)f.x-=Math.min(f.x-R,2.5);else f.outBack=false;}
 function keepFighterOnScreen(f){const edge=combatScreenMargin(f);f.x=clamp(f.x,G.camx+edge,G.camx+W-edge);}
 // Reserve the whole attack silhouette, not just ten pixels around its origin.
 // A constant margin across frames/directions prevents clamping from causing jitter.
@@ -1182,9 +1197,9 @@ function updEnemy(e){
    if(!e.entered){mx=e.x<G.camx+W/2?1:-1;}
    else if(T.ai==='ranged'){const cornered=(dx>0&&e.x<G.camx+90)||(dx<0&&e.x>G.camx+W-90);if(adx<T.keep-130&&!cornered)mx=-sgn(dx)*0.5;else if(adx>T.keep+100)mx=sgn(dx);if(ady>10)my=sgn(dy);if(e.cool<=0&&ady<16&&adx<760&&adx>180&&e.entered&&eProj()<2)startEAtk(e,0);}
    else if(T.ai==='boss'){
-    if(p.state==='atk'&&p.cur&&p.st===2&&adx<240&&ady<34&&!(e.gcd>0)&&sgn(dx)===e.face&&Math.random()<(e.enr?0.55:0.35)){e.gcd=80;if(T.ai2==='archer'||Math.random()<0.35){startEAct(e,BSTEP);popup('ふっ！',e.x,e.y,e.z+200,'#cfe',20);}else{startEAct(e,BGUARD);}break;}
-    if(T.ai2==='archer'){const edge=bossScreenMargin(e)+24,cornered=(dx>0&&e.x<G.camx+edge)||(dx<0&&e.x>G.camx+W-edge);if(adx<T.keep-80&&!cornered)mx=-sgn(dx);else if(adx>T.keep+140)mx=sgn(dx);if(ady>9)my=sgn(dy);
-     if(e.cool<=0&&e.inv<=0){if(adx<200){if(!cornered&&Math.random()<0.5)startEAct(e,BSTEP);else startEAtk(e,pick(T.near));}else if(ady<40)startEAtk(e,pick(T.far));}}
+    if(p.state==='atk'&&p.cur&&p.st===2&&adx<240&&ady<34&&!(e.gcd>0)&&sgn(dx)===e.face&&Math.random()<(e.enr?0.55:0.35)){e.gcd=80;if(T.ai2==='archer'||Math.random()<0.35){const bm=bossScreenMargin(e)+24,cn=(dx>0&&e.x<G.camx+bm)||(dx<0&&e.x>G.camx+W-bm);if(T.ai2==='archer'&&cn&&!(e.hopCd>G.t)){e.hopCd=G.t+150;startEAct(e,BHOP);break;}startEAct(e,BSTEP);popup('ふっ！',e.x,e.y,e.z+200,'#cfe',20);}else{startEAct(e,BGUARD);}break;}
+    if(T.ai2==='archer'){const edge=bossScreenMargin(e)+24,cornered=(dx>0&&e.x<G.camx+edge)||(dx<0&&e.x>G.camx+W-edge);if(cornered&&adx<300&&ady<60&&!(e.hopCd>G.t)&&e.inv<=0){e.hopCd=G.t+150;startEAct(e,BHOP);break;}if(adx<T.keep-80&&!cornered)mx=-sgn(dx);else if(adx>T.keep+140)mx=sgn(dx);if(ady>9)my=sgn(dy);
+     if(e.cool<=0&&e.inv<=0){if(adx<200){if(Math.random()<0.7){if(cornered){e.hopCd=G.t+150;startEAct(e,BHOP);}else startEAct(e,BSTEP);}else startEAtk(e,pick(T.near));}else if(ady<40)startEAtk(e,pick(T.far));}}
     else{const rg=T.atk[0].rng;if(adx>rg*0.7)mx=sgn(dx);else if(adx<rg*0.4)mx=-sgn(dx)*0.5;if(ady>9)my=sgn(dy);
     if(e.cool<=0&&e.inv<=0){const pool=adx<230?T.near:T.far;startEAtk(e,pick(pool));}}}
    else{const rg=T.atk[0].rng,sx=rg*0.72;if(adx>sx+8)mx=sgn(dx);else if(adx<sx-34)mx=-sgn(dx)*0.5;if(ady>8)my=sgn(dy);
@@ -1201,7 +1216,7 @@ function updEnemy(e){
  }
  const edge=combatScreenMargin(e),entry=edge;
  if(!e.entered&&e.x>=G.camx+entry&&e.x<=G.camx+W-entry)e.entered=true;
- if(e.entered&&e.hp>0&&e.state!=='dead'&&!e.dying)e.x=clamp(e.x,G.camx+edge,G.camx+W-edge); // 死体は押さない
+ if(e.entered&&e.hp>0&&e.state!=='dead'&&!e.dying){if(!e.T.boss&&(e.state==='down'||e.state==='getup'))keepDownOnScreen(e);else if(!e.T.boss&&e.outBack)easeBackOnScreen(e);else e.x=clamp(e.x,G.camx+edge,G.camx+W-edge);} // 死体は押さない。倒れ中は体が見える所まで
  e.y=clamp(e.y,YMIN,YMAX);
 }
 
@@ -1305,7 +1320,7 @@ function updWorld(){
  const tgt=clamp(p.x-440,G.camx,G.camMax);G.camx+=(tgt-G.camx)*0.12;if(G.camMax-G.camx<1.5&&tgt>=G.camMax-1)G.camx=G.camMax;
  // Separation and camera movement happen after individual AI updates. Clamp
  // again here so an entered fighter cannot act outside the next rendered view.
- for(const f of G.fighters)if(f.team===0||(f.entered&&!(f.team===1&&(f.hp<=0||f.state==='dead'||f.dying))))keepFighterOnScreen(f); // 死体は押さない(画面について回るのを防ぐ)
+ for(const f of G.fighters)if(f.team===0||(f.entered&&!(f.team===1&&(f.hp<=0||f.state==='dead'||f.dying)))){if(f.team===1&&!f.T.boss&&(f.state==='down'||f.state==='getup'))keepDownOnScreen(f);else if(f.team===1&&!f.T.boss&&f.outBack)easeBackOnScreen(f);else keepFighterOnScreen(f);} // 死体は押さない(画面について回るのを防ぐ)
  if(G.goT>0)G.goT++;if(G.goT>300)G.goT=0;
  if(G.waveOn||G.state!=='run')G.goT=0;
  // state flow
@@ -1671,7 +1686,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'down':return P('dead',f.z>0.6?1:4);
   case'getup':return P('dead',6-f.st/20*4);
   case'dead':return P('dead',f.st/9);
-  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&c.k==='step')return P(A.dash?'dash':'walk',f.st/4,true);if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
+  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&(c.k==='step'||c.k==='hop'))return P(A.dash?'dash':'walk',f.st/4,true);if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
   default:return P('idle',f.t/14,true);}}
  switch(f.state){
   case'walk':return P('walk',(f.wp||0)/TAU*A.walk.length,true,A.walk.length>=8);
