@@ -1,0 +1,15 @@
+{
+  "name": "小早川秀秋_歩き_8コマ_v2",
+  "candidate": 2,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-e107d0fa-5b54-4ccb-83fc-9204206f6cfe.png",
+  "editSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-1f5c1e5f-0320-46bb-8054-ee07c349fd44.png",
+  "prompt": "Create an 8-pose right-facing combat walk sprite atlas for the exact same Kobayakawa Hideaki shown in the references. Preserve his youthful anxious face, green and gold armor, tall distinctive helmet, green floral cape, and single cursed katana with its purple-colored blade. Reference 1 defines design; reference 2 defines existing game sprite scale/style. The sword may retain a purple blade, but draw NO magical aura, smoke, glow, light, particles or attack effects. Exactly 8 full-body poses arranged in 4 columns by 2 rows on perfectly flat #FF00FF pure magenta. No grid, borders, text, labels, shadows or scenery. Real grounded combat walk: frame 1 right-foot-forward contact; 2 weight transfer; 3 left foot passing; 4 left foot swinging forward; frame 5 opposite contact with left foot forward/right foot behind; 6 weight transfer; 7 right foot passing; 8 right foot swinging into frame 1. Make support-leg exchange visible between frames 1 and 5, keep the katana in a steady ready carry, and maintain identical anatomy and body scale. Keep helmet, cape, hands, sword and feet wholly within each invisible cell; no neighboring overlap.",
+  "editPrompt": "Edit this existing 4-column by 2-row sprite atlas with strict preservation. Remove ONLY the purple magical glow, smoke, wisps and luminous energy around the sword hilts/blades in all eight poses. Keep the katana blade itself dark purple metal with its current shape and position. Preserve every character pose, face, helmet, armor, cape, body scale, feet, all other pixels and exact 4x2 layout. Keep the background flat #FF00FF. Do not add any new effect, text, border, shadow, or change any other detail.",
+  "promptProvenance": "Candidate 2 is a localized edit of candidate 1; no third full regeneration.",
+  "normalization": "Separated eight poses and placed each at uniform scale in 384px cells on pure magenta.",
+  "result": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\小早川秀秋_歩き_8コマ_v2.png",
+  "qa": "要注意",
+  "warnings": [
+    "Existing idle image depicts a smaller body scale than current 384px boss-walk specification."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "weapon": "軍配",
+  "char": "石田三成",
+  "status": "qa_passed_ready_to_push",
+  "name": "石田三成_勝鬨_4コマ_v1.png",
+  "candidateCount": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_待機_4コマ.png",
+  "prompt": "Use the exact Ishida Mitsunari from 石田三成_待機_4コマ.png as the visual identity reference: preserve same face, slim body, dark purple-and-gold armor/robes, hair, headband or helmet, sashimono and painterly game style. Four consecutive full-body victory poses facing right three-quarter. Explicit weapon rule for this request: left hand holds his usual war fan (gunbai) lowered beside his body; the right hand is completely empty and clenched. Do not show a firearm or second weapon in any frame. Sequence: 1 chest proud, right fist clenched before chest; 2 right fist thrust vertically overhead with mouth open in a silent victory cry; 3 fist lowered beside face; 4 fist highest overhead, slight backward lean and mouth open in triumph. Keep the same armor, banner, crest and headwear in all four frames, with only restrained cloth/flag flutter at frame4; never omit or change gear. Exact same standing character scale and planted sole baseline as reference; use natural knee bend for overhead pose without shrinking. Exactly four separate full-body poses in one left-to-right row, suitable for four 256x256 cells, one continuous flat #FF00FF background. If the source is taller than one cell, keep all four poses in a centered narrow band and other area flat magenta. No text, balloons, shadows, slash/weapon effects, glow, borders, gridlines, extra figures, crop or neighbor fragments.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-69091029-4ff6-4b97-9603-2392e94fbf19.png",
+  "sourceSize": [
+    2170,
+    725
+  ],
+  "visualReview": "四つのポーズ。紫金鎧、扇飾り、背旗と軍配が一貫。右拳のみ上げ、効果や文字なし。 Normalized 1024x256; checker passed; GIF 4/4 frames decoded; final contact inspected; OCR runtime unavailable.",
+  "ocrReview": "Windows OCR (Windows PowerShell 5.1) success; no recognized text."
+}

@@ -1,0 +1,6 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-31346031-0794-42ce-8a73-c15e1cb4cc13.png",
+  "status": "motion_review_hold",
+  "reason": "Requested opposite near-leg stride is not unambiguous; do not integrate, do not count delivered. Preserve candidate and avoid generating same pose again.",
+  "gitVerified": false
+}

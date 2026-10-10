@@ -1,0 +1,91 @@
+{
+  "name": "敵_騎馬弓兵_被弾_2コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬弓兵_被弾_2コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-d2eedd36-7bc0-4835-b80a-3853cd7112de.png",
+  "status": "git_verified",
+  "scale": 0.3611764705882353,
+  "standingHeightSource": 850.0,
+  "standingHeightTarget": 307,
+  "n": 2,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        178,
+        23,
+        810,
+        817
+      ],
+      "destination": [
+        78,
+        60,
+        228,
+        287
+      ],
+      "scale": 0.3611764705882353,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        952,
+        43,
+        1651,
+        820
+      ],
+      "destination": [
+        66,
+        66,
+        252,
+        281
+      ],
+      "scale": 0.3611764705882353,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "653fc472db531a5db7de91ae66859db056f880dd90bf0c66549f885a2e9ca47c",
+  "backgroundSource": [
+    238,
+    22,
+    239
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの74%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    41251,
+    41251
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_被弾_2コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 2,
+    "durationMs": [
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_被弾_2コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "OCR空、目視文字なし。",
+  "qaNote": "胸の後傾反動→弓矢の低い構えへ回復。馬の後脚支持と前脚浮き→四脚接地。四白脚、羽根・甲冑・弓と馬体尺度保持。",
+  "visualReview": "2コマ復号目視。騎手の後ろへの反動と回復、四白脚の馬の小立上がりから四脚接地、弓全端・同一頭胴と衣装・文字なし。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

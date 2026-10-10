@@ -1,0 +1,25 @@
+{
+  "name": "真田幸村_鎖鎌_移動旋回_8コマ_v2.png",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "action": "鎖鎌移動旋回",
+  "candidateCount": 2,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-09f41695-a44d-4333-9357-c687663be58e.png",
+  "status": "rejected_layout",
+  "visualApproved": false,
+  "gitVerified": false,
+  "qaResult": "見送り",
+  "rejectionReason": "原画像の8コマ目で鎌の刃先がx=2171のキャンバス右端に接触し欠けている。共通縮尺で正規化する前提を満たさず、finishedへ移さず、PNG納品なし。",
+  "visualReview": "六文銭旗と武器の連続性は改善したが、右端の鎌先欠けが目視確認できる。セル幅への縮小では元の欠損を復元できない。",
+  "rawSize": [
+    2172,
+    724
+  ],
+  "targetSize": [
+    2048,
+    256
+  ],
+  "prompt": "Create a fresh 8-frame grounded Sanada Yukimura kusarigama movement-spin strip. Preserve the red armor, gold deer-antler kabuto, white headband, red scarf, same walk scale, and six-coin red back banner. Near hand spins the connected chain weight while far hand holds the sickle. Distinct walking poses with opposite lead legs at frames 1 and 5; exactly one full weight orbit across eight frames. Pure magenta, no effects, no clipped silhouette or weapon, 16px cell margins.",
+  "createdAt": "2026-10-08T08:04:07+09:00",
+  "updatedAt": "2026-10-08T08:04:07+09:00"
+}

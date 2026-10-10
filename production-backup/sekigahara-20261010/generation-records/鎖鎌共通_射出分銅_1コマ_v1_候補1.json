@@ -1,0 +1,48 @@
+{
+  "name": "鎖鎌共通_射出分銅_1コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\鎖鎌共通_射出分銅_1コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-28b9d766-6806-45d5-875a-ef31b6a1057c.png",
+  "size": [
+    256,
+    256
+  ],
+  "mode": "RGB",
+  "char": "共通",
+  "kind": "weapon_projectile",
+  "candidateCount": 1,
+  "n": 1,
+  "cell": 256,
+  "status": "git_verified",
+  "sourceBounds": [
+    149,
+    484,
+    1121,
+    766
+  ],
+  "placement": [
+    96,
+    119
+  ],
+  "contentSize": [
+    64,
+    19
+  ],
+  "gifDecodedFrames": 1,
+  "checkResults": [
+    "OK 純マゼンタの割合 99%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ1: 空、または小さすぎる"
+  ],
+  "sha256": "339e12e19785828ea2a36807333079c0040d845bd270b4c02daa213e59751d48",
+  "prompt": "Round forged iron kusarigama weight with left attachment ring and short straight chain, magenta, no effects.",
+  "visualApproved": true,
+  "qaResult": "OK",
+  "visualReview": "独立射出部品。256RGB純マゼンタ、全体64x約19pxのうち球約18px、右側球と左側短鎖、全体枠内。OCRなし1フレーム復号確認。30_check_stripの小さすぎるNGは人物用閾値のため適用外、武器部品の意図したサイズとして確認。長鎖と約7体分の合成は未完。",
+  "gitVerified": true,
+  "gitCommit": "be520acd0cd27ddc3f18b00260fb58c1e14e37db",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "339e12e19785828ea2a36807333079c0040d845bd270b4c02daa213e59751d48",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:27:09.806925+09:00"
+}

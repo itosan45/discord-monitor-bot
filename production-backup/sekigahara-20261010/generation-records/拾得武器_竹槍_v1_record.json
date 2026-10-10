@@ -1,0 +1,36 @@
+{
+  "name": "拾得武器_竹槍_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\拾得武器_竹槍_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-94fb4558-2696-41b9-a294-4d11f2c8d814.png",
+  "status": "candidate",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.17854077253218884,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    44,
+    57,
+    1209,
+    1177
+  ],
+  "destination": [
+    24,
+    30,
+    208,
+    200
+  ],
+  "backgroundSource": [
+    240,
+    23,
+    240
+  ],
+  "foregroundPixels": 70977,
+  "sha256": "96efd6df5e16be91a5b685103579d3c94f87d2bf1a5a92c385fc4d379bc92a42"
+}

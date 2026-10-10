@@ -1,0 +1,131 @@
+{
+  "name": "敵_足軽槍_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-9871593a-79b9-48b3-aa9a-0abcb0a671ab.png",
+  "status": "drive_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        72,
+        142,
+        471,
+        564
+      ],
+      "destination": [
+        37,
+        39,
+        182,
+        192
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        575,
+        75,
+        1010,
+        437
+      ],
+      "destination": [
+        29,
+        26,
+        198,
+        165
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 190,
+      "verticalOffset": -40
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1092,
+        240,
+        1571,
+        568
+      ],
+      "destination": [
+        19,
+        82,
+        218,
+        149
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1667,
+        245,
+        2116,
+        572
+      ],
+      "destination": [
+        25,
+        78,
+        205,
+        149
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 226,
+      "verticalOffset": -4
+    }
+  ],
+  "sha256": "3dcf62be506a26b597623c9c6dfbcae9e34c8d0cf0673e991ef6a198ee3b15d0",
+  "backgroundSource": [
+    241,
+    23,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 87%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの61%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14977,
+    18197,
+    11494,
+    16358
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽槍_ダウン_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽槍_ダウン_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 3,
+  "retries": 2,
+  "selectedCandidate": 3,
+  "ocrReview": "成功・文字なし",
+  "groundReview": "air指定。コマ2最低点190px、1/3は230px、4反動226px。",
+  "visualReview": "4コマGIF復号目視。衝撃で後傾→腰が浮いて膝が上がる→仰向け着地→肩と脚が小さく跳ねる。コマ2は地面より40px浮く、4は4px反動。頭部・胴幅は待機と同程度、共通倍率、全槍先端と右向き保持。air規格全項目OK。",
+  "driveId": "1RUJg7B-11j8Vd9It-6EY6QXtKEZlwgTp",
+  "readbackSha256": "3dcf62be506a26b597623c9c6dfbcae9e34c8d0cf0673e991ef6a198ee3b15d0",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

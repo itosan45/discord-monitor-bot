@@ -1,0 +1,13 @@
+{
+  "name": "織田信長_手ぶら_歩き_8コマ_v2.png",
+  "char": "織田信長",
+  "kind": "sprite_motion",
+  "candidate": "composite-test",
+  "status": "rejected_composite",
+  "source": "既存の織田信長_歩き_8コマ_v2.png plus unarmed candidate 2",
+  "candidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261008_oda_unarmed_walk\\candidate-03.png",
+  "automaticPass": true,
+  "visualApproved": false,
+  "qaResult": "NG",
+  "reason": "Waist-level lower-body splice produced a visible seam and duplicate scabbard; do not reuse."
+}

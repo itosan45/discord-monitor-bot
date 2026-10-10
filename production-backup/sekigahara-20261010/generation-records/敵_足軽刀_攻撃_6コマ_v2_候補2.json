@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_攻撃_6コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-57a61587-4afd-4f51-a7a4-a29fa291e7e2.png",
+  "prompt": "Repair layout and frame4 compactness of this SIX-frame blue ashigaru katana downward slash. Preserve exact anatomy, appearance and attack sequence. Current frame4 sword overlaps frame5 rear leg: separate all6 characters with wide clear magenta gaps. Frame4 rear knee bends and rear foot advances under hip, both elbows fold slightly, katana blade remains complete angled downward right within own square. Frame5 bent rear knee compact too, sword complete downright beside front shin. Do not shrink character or shorten blade. Keep1ready,2overheadwindup,3downwardchestslash,4lowforwardimpact,5followthrough,6recover. Strong hip/weight change, same head/torso/limb scale across6. Six equal SQUARE cells horizontal row, ONE whole soldier/action percell, all art centered within86%width/height, soles90%. Entire blade/hilt/scabbard/body visible with16pxequivalent margins, pure#FF00FF opaque background, no text shadows grid borders.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

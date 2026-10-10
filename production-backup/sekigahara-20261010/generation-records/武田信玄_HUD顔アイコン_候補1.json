@@ -1,0 +1,64 @@
+{
+  "name": "武田信玄_HUD顔アイコン.png",
+  "char": "武田信玄",
+  "group": "ui",
+  "kind": "hud_face_icon",
+  "priority": 5,
+  "status": "git_verified",
+  "attemptCount": 1,
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_HUD顔アイコン.png",
+  "actualName": "武田信玄_HUD顔アイコン.png",
+  "sha256": "679dcb783d31da277a1d8aa728b5642c7f417eef036045644b0fc17a439c5a46",
+  "generationSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f67c5111-e655-4fe2-8869-00abcff96303.png",
+  "generatedSourceSha256": "5387c0e08966ad8129e9cc08973340ba5ef7d3eb3633e5c39478b22e0e1de413",
+  "sourceReference": "assets/sprites/武田信玄_設定画.png",
+  "referenceAsset": "assets/sprites/武田信玄_設定画.png",
+  "prompt": "Use the attached approved Takeda Shingen setting sheet only as identity and costume reference; ignore its three-view layout and all banner lettering. Create ONE square 256px-style HUD face icon, chest-up, painterly Japanese historical action-game illustration. Shingen is an imposing older Japanese commander with intense eyes, a thick dark moustache and beard, a voluminous long white mane framing his face, black and antique-gold kabuto with his distinctive paired upward crescent horns, dark crimson-and-black lacquered armor with restrained gold edging and diamond crest. Three-quarter view facing right, calm battle-tested expression. Keep the full horn tips and recognizable white hair, face and shoulders readable at tiny HUD size with 8% breathing room. Flat uniform pure magenta #FF00FF background edge to edge. No banner, weapons, text, kanji, calligraphy, scenery, frame, effects, watermark, or other people. Match the graphic painterly treatment of existing game HUD portraits; not photorealistic.",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceMode": "RGB",
+  "size": [
+    256,
+    256
+  ],
+  "mode": "RGB",
+  "background": "#FF00FF exact pure magenta; outer16 pixels verified",
+  "placementTransform": "Keyed generated near-magenta background by per-pixel deviation max(255-R,G,255-B): transparent at <=18, opaque at >=55, linear antialias between; uniformly resized to 82% of 256x256 canvas and centered on exact #FF00FF RGB background. Original generated source preserved unchanged.",
+  "visibleBBox": [
+    23,
+    23,
+    233,
+    233
+  ],
+  "visibleMargins": [
+    23,
+    23,
+    23,
+    23
+  ],
+  "outer16PureMagenta": true,
+  "automaticCheck": [
+    "PASS: 256x256 RGB",
+    "PASS: exact #FF00FF outer 16px",
+    "PASS: visible silhouette margins >=8px on each edge"
+  ],
+  "qaResult": "OK",
+  "visualReview": "At native 256x256 size, face and character-specific identifying features are clearly legible. Three-quarter right-facing view and costume palette/crest match the approved setting art; shoulders remain inside the frame. Exact pure-magenta background and visible margins of at least 23px on all edges. No weapons or lettering.",
+  "ocrResult": {
+    "name": "武田信玄_HUD顔アイコン.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded with no text detected; post-OCR visual inspection completed.",
+  "gitVerified": true,
+  "gitSha256Verified": true,
+  "gitCommit": "6a2632e5125d527bbb599dd4c6c8668a5202258a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "6a2632e5125d527bbb599dd4c6c8668a5202258a",
+  "gitVerifiedAt": "2026-10-07T08:26:43+09:00",
+  "reviewDate": "2026-10-07"
+}

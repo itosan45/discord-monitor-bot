@@ -1,0 +1,7 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-eb8f8049-5a53-48ca-a81f-f776673db309.png",
+  "prompt": "Correct this SIX-frame ashigaru SPEAR THRUST animation. Preserve exact same blue clothing black armor jingasa face body anatomy and spear length across all6. Keep action:1 ready,2 pull shaft back,3 straight thrust,4 full thrust with torso/hips forward,5 retract,6 ready. Do not replace motion with static standing. The peak poses3/4 extend too wide because rear foot is far behind while spear reaches forward. Fix by FOLDING the rear knee and bringing rear foot closer UNDER the rear hip in3/4 (heel raised to show push), keeping FRONT leg bent supporting forward weight, body/heads/limbs same size. Hands grip one continuous spear and both arms extend, no bent shaft, no change to spear length. Compact footwork, not shrinking character or losing spear. Last pose6 spear blade is at image edge: relayout the entire sixth whole figure and spear left enough to leave32px blank magenta AFTER its complete tip; all6 full figures in equal regions with generous gaps. Standing-equivalent anatomical height identical first/last, all face RIGHT, both sandal toes RIGHT. Exactly6 fullbody poses in one horizontal row, full hat and full spear butt/blade in each region. Flat PURE RGB255,0,255, no shadows floor labels text numbers grids. No other characters or effects. Draw clear preparation→impact3/4→followthrough→recovery.",
+  "status": "candidate_pending_QA",
+  "attempt": 2,
+  "retries": 1
+}

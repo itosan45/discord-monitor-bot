@@ -1,0 +1,159 @@
+{
+  "name": "宮本武蔵_手ぶら_攻撃B_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_攻撃B_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-33182de5-78ce-4cb4-a76a-3863bea1db3b.png",
+  "status": "git_verified",
+  "scale": 0.3486394557823129,
+  "standingHeightSource": 588.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        13,
+        119,
+        337,
+        707
+      ],
+      "destination": [
+        71,
+        26,
+        113,
+        205
+      ],
+      "scale": 0.3486394557823129,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        383,
+        117,
+        731,
+        708
+      ],
+      "destination": [
+        67,
+        25,
+        121,
+        206
+      ],
+      "scale": 0.3486394557823129,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        736,
+        119,
+        1176,
+        707
+      ],
+      "destination": [
+        51,
+        26,
+        153,
+        205
+      ],
+      "scale": 0.3486394557823129,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1144,
+        124,
+        1631,
+        708
+      ],
+      "destination": [
+        43,
+        27,
+        170,
+        204
+      ],
+      "scale": 0.3486394557823129,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1628,
+        119,
+        1974,
+        708
+      ],
+      "destination": [
+        67,
+        26,
+        121,
+        205
+      ],
+      "scale": 0.3486394557823129,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "23dd95f1349ac3d455a94ba45654986e76502e7db0232935dcf160e169250fb5",
+  "backgroundSource": [
+    234,
+    23,
+    235
+  ],
+  "sourceIndices": null,
+  "groupCenters": "200,595,991,1387,1783",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    15715,
+    17366,
+    17311,
+    18192,
+    15295
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_手ぶら_攻撃B_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_手ぶら_攻撃B_5コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "qaRecord": "musashi-unarmed-thrust-v2-record.json",
+  "candidate": 1,
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "visualReview": "設定画の右向き武蔵を目視確認。全コマで二刀・鞘を持たず、空の拳で構え→腰へ引き→前方へ伸ばし→突き切り→回収。手足・頭身・接地・服装を確認。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  },
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

@@ -1,0 +1,109 @@
+{
+  "name": "宮本武蔵_通常3_5コマ_縮尺修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常3_5コマ_縮尺修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-bad5a551-fe4e-4844-ad95-8bfdc740429f.png",
+  "status": "drive_verified",
+  "scale": 0.46275395033860045,
+  "standingHeightSource": 443.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        50,
+        193,
+        380,
+        546
+      ],
+      "destination": [
+        51,
+        68,
+        153,
+        163
+      ],
+      "scale": 0.46275395033860045,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        470,
+        192,
+        770,
+        546
+      ],
+      "destination": [
+        58,
+        67,
+        139,
+        164
+      ],
+      "scale": 0.46275395033860045,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        826,
+        196,
+        1304,
+        546
+      ],
+      "destination": [
+        17,
+        69,
+        221,
+        162
+      ],
+      "scale": 0.46275395033860045,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1306,
+        209,
+        1790,
+        546
+      ],
+      "destination": [
+        16,
+        75,
+        224,
+        156
+      ],
+      "scale": 0.46275395033860045,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1830,
+        192,
+        2152,
+        546
+      ],
+      "destination": [
+        53,
+        67,
+        149,
+        164
+      ],
+      "scale": 0.46275395033860045,
+      "ground": 230
+    }
+  ],
+  "sha256": "15d78c2c6e4b9d0e056db3d8d50f61b417c95dd751ac813077224087c7359458",
+  "backgroundSource": [
+    243,
+    23,
+    241
+  ],
+  "sourceIndices": null,
+  "visualReview": "全5コマ右手長刀・左手短刀、二刀の前方突き、引き戻し。腰と膝を低く保つ戦闘姿勢、頭と体の部分寸法を通常1と目視比較。全コマ同一倍率、姿勢による高さ差を保持。余白16px以上、足元230px、全剣先あり、OCR文字なし。",
+  "driveId": "1ccOKAQhRhtJxQey9sARWcGrH5zUXb6rc",
+  "driveReadbackSha256": "15D78C2C6E4B9D0E056DB3D8D50F61B417C95DD751AC813077224087C7359458"
+}

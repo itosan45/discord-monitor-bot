@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-cb946986-d9d5-42d6-89a6-fcfe98524bec.png",
+  "prompt": "Repair only FRAME5 ofthis8-framegunnerwalk plusfacialhair. Frame5 mustbeLEFTFOOTFRONTCONTACT pose oppositeframe1. BothfeetPLANTED, nearRIGHTfoot BACK LEFTside withHEELUP slightly, farLEFTfootFRONT RIGHTside plantedflat. NearRIGHTTHIGH anglesBACK/LEFT fromhip and isVISIBLEINFRONT of farLEFTthigh atHIP. FarLEFTthigh anglesFORWARD/RIGHT fromhip BEHINDnearRIGHTthigh then emerge tofarfrontknee. REDRAWentirethigh-knee-shinchain accordingly, do notonlyraiseheelascurrent5. Frame6weightontoLEFTfrontandRIGHTrearheelraised. BothtoesRIGHT inall8. Retainpassing3/7kneescloseunderhip. Gun torso clothing head sizeunchanged. All8 SAMEshortblackmoustache andchinbeard as referenceidle, cleanfacewrong. Fullbody8equalcells horizontalrow pureopaque#FF00FF no textgridshadow borders.",
+  "attempt": 3,
+  "status": "candidate_repair_frame5"
+}

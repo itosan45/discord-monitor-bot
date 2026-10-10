@@ -1,0 +1,20 @@
+[
+  {
+    "taskFile": "tasks-v2.json",
+    "taskName": "石田三成_被弾_2コマ_v2.png",
+    "name": "石田三成_被弾_2コマ_v2.png",
+    "sha256": "8f801b3aef36f7f3988d70068b8627730e92dca2eddd029051e951f4376a46d9",
+    "qaResult": "OK",
+    "record": "ishida-hurt-v2-record.json",
+    "priorStatus": "qa_passed"
+  },
+  {
+    "taskFile": "tasks-v2.json",
+    "taskName": "石田三成_起き上がり_4コマ_v2.png",
+    "name": "石田三成_起き上がり_4コマ_v2.png",
+    "sha256": "c6151c5440a36a59b59c760a5a8865738b385f866f2af84451eec782429024f9",
+    "qaResult": "OK",
+    "record": "ishida-getup-v2-record.json",
+    "priorStatus": "qa_passed"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "望月六郎_被弾_2コマ_v1.png",
+  "char": "望月六郎",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a3cbdef3-7489-4f42-b9aa-40b40120cf7b.png",
+  "status": "qa_hold",
+  "visualApproved": false,
+  "candidateCount": 1,
+  "reason": "胸の六文銭が4個。候補2の紋のみ編集でも直らず。顔と腰道具の細部差もある。",
+  "verifiedVisual": [
+    "右向き被弾2段階",
+    "短刀保持",
+    "2腕と接地"
+  ],
+  "nextAction": "再生成を反復せず他の未完素材を先行。後に六文銭の明瞭な設定参照で修正。",
+  "updatedAt": "2026-10-07T23:50:20.368068+09:00"
+}

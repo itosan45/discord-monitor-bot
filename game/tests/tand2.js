@@ -1,0 +1,11 @@
+const {chromium,devices}=require(process.env.PLAYWRIGHT||'playwright');
+(async()=>{const b=await chromium.launch();const d=devices['Pixel 7 landscape'];
+const p=await (await b.newContext({...d})).newPage();const er=[];p.on('pageerror',e=>er.push(e.message));
+await p.goto('http://127.0.0.1:8765/index.html');await p.waitForTimeout(4000);
+await p.evaluate(()=>{G.lowq=true;setLowRes(true);window.requestAnimationFrame=()=>0;G.noStory=true;startGame('yuki',null);for(let i=0;i<20;i++)frame();G.banner=null;G.fighters=G.fighters.filter(f=>f===G.player);});
+const R=await p.evaluate(()=>{const out=[];const pl=G.player;const T=pl.T;const list=[['a1',T.atk[0]],['a2',T.atk[1]],['a3',T.atk[2]],['a4',T.atk[3]],['dash',T.dash]];
+ const cv2=document.createElement('canvas');cv2.width=10*200;cv2.height=list.length*220;const g=cv2.getContext('2d');
+ list.forEach(([n,d],r)=>{for(let i=0;i<10;i++){pl.x=G.camx+640;pl.y=600;pl.z=0;pl.face=1;pl.state='atk';pl.cur=d;pl.st=Math.round(i*(d.dur-1)/9);pl.gh=null;pl.inv=0;
+  ctx.setTransform(RS,0,0,RS,0,0);ctx.fillStyle='#456';ctx.fillRect(0,0,W,H);drawSprite(pl);
+  g.drawImage(cv,(640-100)*RS,(600-210)*RS,200*RS,220*RS,i*200,r*220,200,220);}});return cv2.toDataURL();});
+require('fs').writeFileSync('and_atk.png',Buffer.from(R.split(',')[1],'base64'));console.log(er);await b.close();})();

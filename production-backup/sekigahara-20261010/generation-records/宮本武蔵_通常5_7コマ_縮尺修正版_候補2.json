@@ -1,0 +1,20 @@
+{
+  "name": "宮本武蔵_通常5_7コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-0891a3ee-7efb-47e4-8eaf-5aa2f55b8b25.png",
+  "prompt": "Edit only action of this Musashi reference animation. EXACT same character/head/torso/limb dimensions, clothing, colors and outline. SEVEN full-body frames of a360degree dual-blade WHIRL in one horizontal row. STRICT RIGHT-facing profile, camera fixed, knees bent and feet pivot subtly, hips/shoulders twist. In ALL7 exactly TWO COMPLETE STEEL BLADES clearly visible connected to hilts: LONG right-hand katana on bare arm and SHORT left-hand katana on sleeved arm. No white arcs/trails/effects at all; do NOT substitute a sword with a trail. Both hands stay near WAIST level while blades sweep circularly around the torso. 1 same standing ready pose as reference frame1;2 two blades point backward aroundwaist, torso coils;3 long sweeps low forward and short sweeps high behind;4 long blade horizontalforward at waist, short blade horizontalbackwards at waist;5 long blade points upward diagonally with tip near head level while short blade points lowbehind;6 both blades return towardforwardready;7 same standingready asframe1. Never hands overhead, blade tips no higher than topknot, physical seven-head proportions. Wholebody and complete swords isolated by magenta gaps wider than a head; no neighboring contact. Same body scale, standing205px in256squarecells, soles230px,16px margins. No shrinkage for action. Flat pure#FF00FF no shadows/text/labels/numbers/grid/borders.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常1_5コマ_縮尺修正版.png"
+  ],
+  "status": "git_verified",
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常5_7コマ_v2.png",
+  "size": [
+    1792,
+    256
+  ],
+  "mode": "RGB",
+  "sha256": "df6d092b5d2b68dd0e0a0d2a20e01955e7d128683913cfddb9e9e48dc28a9cad",
+  "qaResult": "30_check_strip PASS; 84% pure magenta; median character height 75%; feet baseline y230; 16px cell margins; 80ms GIF 7/7 decoded; OCR no recognized text; visual reviewed.",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitCommit": "61c8de1daee7b7ec5b4ca0d60f2af88f98325c74",
+  "remoteByteEqual": true
+}

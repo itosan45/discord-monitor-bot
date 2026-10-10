@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-d643f888-8479-48fc-a237-8ffb0c9670e1.png",
+  "prompt": "Repairgunconsistencyandgroundinthis4framegunnerdeath. Groundgunsin2/3/4areenlargedvsframe1: redrawONEsameexactmatchlock SAMEphysicalLENGTHandTHICKNESSall4, groundgunoveralllengthabout270rawpixelslikeframe1, not370. Referencegunnerweaponfullstockbarrelonecontinuous. Groundgun2/3/4 HORIZONTAL nearbody withgunLOWESTpoint on EXACTSAMEGROUNDlineasfoot/hip/forearmLOWEST; currentlygunBELOWbodymakesbodyfloat. Raiseonlyweaponpositionbydrawingit adjacent tobodyatmatchingground; samegunplacement3/4. Foot2rearandbothfeet4 MUSTstrictsideprofileTOESRIGHT heelLEFT no camera-facingrowoftoes. Body4side-lyingheadLEFTfeetRIGHTfacetoright, body3collapseonforearm. SAMEheadtorsoanatomyandcharacterall4 unchanged, no shrinkbody. Fourisolatedfullfigures horizontalrowequalcells pureopaque#FF00FF no textgridshadowbordersfloor.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

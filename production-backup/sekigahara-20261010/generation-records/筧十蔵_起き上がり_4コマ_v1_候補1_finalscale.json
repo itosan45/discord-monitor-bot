@@ -1,0 +1,101 @@
+{
+  "name": "筧十蔵_起き上がり_4コマ_v1_final_candidate.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\筧十蔵_起き上がり_4コマ_v1_final_candidate.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f588a2b6-cb4f-4104-bc41-af3115e7e668.png",
+  "status": "candidate",
+  "scale": 0.4019607843137255,
+  "standingHeightSource": 510.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        46,
+        369,
+        571,
+        610
+      ],
+      "destination": [
+        22,
+        134,
+        211,
+        97
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        633,
+        321,
+        1108,
+        609
+      ],
+      "destination": [
+        32,
+        115,
+        191,
+        116
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1167,
+        203,
+        1610,
+        609
+      ],
+      "destination": [
+        39,
+        68,
+        178,
+        163
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1711,
+        103,
+        2146,
+        625
+      ],
+      "destination": [
+        40,
+        21,
+        175,
+        210
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "508fc3f147eba82cd964377ed8c4683e038c0dff574e8deddf013939a64cb277",
+  "backgroundSource": [
+    239,
+    25,
+    242
+  ],
+  "sourceIndices": null,
+  "groupCenters": "285,820,1320,1855",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false
+}

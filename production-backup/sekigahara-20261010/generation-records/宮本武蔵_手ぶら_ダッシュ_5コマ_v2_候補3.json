@@ -1,0 +1,109 @@
+{
+  "name": "宮本武蔵_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-9570a31f-430c-4332-a099-9fd03ea750dd.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.5283018867924528,
+  "sourceBounds": [
+    [
+      89,
+      13,
+      411,
+      379
+    ],
+    [
+      720,
+      13,
+      1125,
+      379
+    ],
+    [
+      1366,
+      13,
+      1790,
+      389
+    ],
+    [
+      141,
+      406,
+      512,
+      760
+    ],
+    [
+      748,
+      405,
+      1093,
+      761
+    ]
+  ],
+  "placements": [
+    [
+      43,
+      37,
+      170,
+      193
+    ],
+    [
+      21,
+      37,
+      214,
+      193
+    ],
+    [
+      16,
+      31,
+      224,
+      199
+    ],
+    [
+      30,
+      43,
+      196,
+      187
+    ],
+    [
+      37,
+      42,
+      182,
+      188
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "da844aa0fed63336f96472f49bbb00f5de048a4b66ae653fd5d23676c144456f",
+  "visualApproved": true,
+  "visualWarnings": [
+    "2/3コマ目の左右脚交替が弱い。",
+    "姿勢による高さ差と衣服の細部差があり、待機と完全一致ではない。"
+  ],
+  "visualReview": "Candidate3 compact frame4 correction preserves paired-fist attack3/4. Uniform scale .5283, decoded heights187-199 versus idle~200. All grounded and no clipping. Leg exchange remains caution.",
+  "gitVerified": true,
+  "gitCommit": "895556e9c73a4f4d4bcf154bd0072d19805d9416",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "da844aa0fed63336f96472f49bbb00f5de048a4b66ae653fd5d23676c144456f",
+  "prompt": "Candidate3 edits only frame4 rearfoot and robe to compact lunge, preserves frame3 paired-fist thrust and all other figures. Same Musashi design.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-08T00:06:24.470004+09:00"
+}

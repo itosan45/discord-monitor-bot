@@ -1,0 +1,17 @@
+{
+  "name": "真田幸村_勝鬨_4コマ_v1.png",
+  "weapon": "十文字槍",
+  "char": "真田幸村",
+  "status": "qa_passed_ready_to_push",
+  "candidateCount": 1,
+  "prompt": "Use case: stylized-concept. Asset type: 2D Sengoku beat-em-up victory animation strip. Reference image: exactly preserve the same Sanada Yukimura from 真田幸村_待機_4コマ.png: same face, body, vivid red armor, horned kabuto, black hair, red sashimono with gold six-coin crest, same painterly game art. One horizontal sequence of exactly four consecutive full-body poses, facing right in the same three-quarter direction as reference. The left hand holds the same 十文字槍 lowered beside the body; right hand is bare with a clenched fist. No other hand weapon. Pose 1 chest proud, right fist clenched in front of chest; pose 2 right fist thrust straight overhead, mouth open in a silent battle cry; pose 3 fist lowered to beside face; pose 4 fist highest overhead, torso leans back slightly and mouth open in triumph. Keep spear, banner, helmet ornaments and all costume pieces present in every frame; only slight natural cloth/banner/ornament flutter in frame 4, never disappearing. Feet soles remain on the exact same baseline, body scale exactly matches standing size in reference, use slight knee bend and shoulder posture to fit the raised arm without shrinking the character. Output usable source for four separate equal 256x256 cells; if source canvas is taller, place all four poses in one centered horizontal band on pure magenta with all other area blank. Pure flat #FF00FF background, no cast shadows, no text, no speech bubbles, no effects, no glow, no slash trails, no border/cell lines. Never crop any part or show neighboring poses.",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_待機_4コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3e203d2e-54fe-4318-91a4-c73a4eda9a77.png",
+  "sourceSize": [
+    2172,
+    724
+  ],
+  "candidateCopy": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\真田幸村_勝鬨_4コマ_v1_候補1.png",
+  "visualReview": "Four beats readable; same red armor, horned helmet, spear, red six-coins flag in all cells. Left hand holds 十文字槍 lowered; right fist raised/near chest. No effects/text. Normalized 1024x256; checker passed; GIF 4/4 frames decoded; final contact inspected; OCR runtime unavailable.",
+  "ocrReview": "Windows OCR (Windows PowerShell 5.1) success; no recognized text."
+}

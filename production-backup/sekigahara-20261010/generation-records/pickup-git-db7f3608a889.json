@@ -1,0 +1,21 @@
+{
+  "commit": "db7f3608a8893a2a0f89bc16fe446fb777b20d86",
+  "remote": "db7f3608a8893a2a0f89bc16fe446fb777b20d86",
+  "verifiedAt": "2026-10-06T15:36:32.909945+00:00",
+  "assets": [
+    {
+      "taskName": "回復アイテム_饅頭_v1.png",
+      "name": "回復アイテム_饅頭_v1.png",
+      "sha256": "1030064581cae9de16879f26c1a811f0f055ca05adc37dbda67d943655acaf6b",
+      "qaResult": "OK",
+      "record": "pickup-manju-record.json"
+    },
+    {
+      "taskName": "回復アイテム_寿司_v1.png",
+      "name": "回復アイテム_寿司_v1.png",
+      "sha256": "96300d313d17c05134219435d626ca57c8ddad3c418f7452715c4f89878fffe6",
+      "qaResult": "OK",
+      "record": "pickup-sushi-record.json"
+    }
+  ]
+}

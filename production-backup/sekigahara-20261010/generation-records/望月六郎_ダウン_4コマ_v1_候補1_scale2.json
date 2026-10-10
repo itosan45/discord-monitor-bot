@@ -1,0 +1,101 @@
+{
+  "name": "望月六郎_ダウン_4コマ_v1_scale2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\望月六郎_ダウン_4コマ_v1_scale2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-76a7a8fd-db58-4730-a948-074bb9af5bb3.png",
+  "status": "candidate",
+  "scale": 0.4019607843137255,
+  "standingHeightSource": 510.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        64,
+        137,
+        451,
+        590
+      ],
+      "destination": [
+        50,
+        49,
+        156,
+        182
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        511,
+        267,
+        934,
+        586
+      ],
+      "destination": [
+        43,
+        103,
+        170,
+        128
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1015,
+        366,
+        1535,
+        585
+      ],
+      "destination": [
+        23,
+        143,
+        209,
+        88
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1567,
+        446,
+        2125,
+        586
+      ],
+      "destination": [
+        16,
+        175,
+        224,
+        56
+      ],
+      "scale": 0.4019607843137255,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "a2072165f9049d60d26f28b2fa9f162987bbe05a71a6cbbf2e580740eae41bf9",
+  "backgroundSource": [
+    240,
+    22,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": "240,680,1200,1745",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false
+}

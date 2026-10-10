@@ -1,0 +1,154 @@
+﻿{
+  "name": "上杉景勝_手ぶら_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_手ぶら_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-96504bd5-4c3f-4bb1-8d45-fc52535ca682.png",
+  "status": "git_verified",
+  "scale": 0.30597014925373134,
+  "standingHeightSource": 670.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        28,
+        33,
+        449,
+        712
+      ],
+      "destination": [
+        63,
+        23,
+        129,
+        208
+      ],
+      "scale": 0.30597014925373134,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        534,
+        27,
+        960,
+        711
+      ],
+      "destination": [
+        63,
+        22,
+        130,
+        209
+      ],
+      "scale": 0.30597014925373134,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1063,
+        42,
+        1479,
+        712
+      ],
+      "destination": [
+        64,
+        26,
+        127,
+        205
+      ],
+      "scale": 0.30597014925373134,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1569,
+        35,
+        1991,
+        712
+      ],
+      "destination": [
+        63,
+        24,
+        129,
+        207
+      ],
+      "scale": 0.30597014925373134,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "cfb4878d9c7800294acf3a77ea3b337af508fb959b57ae6d297187cd3f609045",
+  "backgroundSource": [
+    239,
+    20,
+    239
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14454,
+    14611,
+    14396,
+    14372
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\上杉景勝_手ぶら_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\上杉景勝_手ぶら_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "actualName": "上杉景勝_手ぶら_待機_4コマ_v2.png",
+  "dimensions": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "sourceGenerationSha256": "0b16d40367092abd08c4bf9f690bade974b3477be5f52ffcde5475e1cc2a9b6f",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+  "prompt": "Create ONE production-ready wide horizontal sprite sheet for Sekigahara Ranbu: four distinct full-body frames of Uesugi Kagekatsu's unarmed idle loop, arranged left-to-right in one row with four equal, clearly separated spaces and no panel borders. Same adult Japanese commander, same exact identity, anatomy, armor and scale in all frames, facing screen-right in a composed low ready stance. Match the approved Uesugi setting art: stern middle-aged face, black hair, dark navy-blue lamellar armor with fine silver edging and restrained silver floral fittings, deep indigo sleeves and hakama, white waist ties, dark blue cape, black-blue kabuto crowned by a large elegant gold crescent moon, dark shin guards and sandals. Remove all swords, scabbards, banner, flag and weapons completely. Both hands must be clearly empty closed fists in a consistent long-weapon overlay grip: right fist forward, left fist behind, never holding a prop. Keep the cape close to the body and let it hang down; do not let it trail across another frame. Frame 1: steady guard stance. Frame 2: small inhale, chest and shoulders rise slightly. Frame 3: subtle exhale, fists and elbows settle by a few pixels, cape hem shifts slightly. Frame 4: returns near frame 1 but remains a visibly distinct drawing. Loopable idle only, no step, attack, jump or kneel. Both feet planted on the same ground baseline, full body height about 80% of a square frame. Complete crescent, hair, cape, gauntlets and sandals inside each slot with at least 16px clear margins; keep pose silhouettes separated with large empty magenta gaps. Polished painterly Japanese historical action game sprite art, precise ink contours, layered charcoal-navy shading, bright silver accents, realistic anatomy, strong readable silhouette at 256px. Background perfectly flat opaque RGB pure magenta #FF00FF across the whole canvas, absolutely no color variation. No text, characters, lettering, UI, scenery, shadows beyond tiny foot contact, glow, motion trails or decorative symbols. Generate just this one first candidate.",
+  "candidateCount": 1,
+  "selectedCandidate": 1,
+  "firstGenerationOnly": true,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "qaResult": "OK",
+  "ocrResult": {
+    "name": "上杉景勝_手ぶら_待機_4コマ_v2.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR success, no recognized text. Post-OCR visual review confirms no writing or UI; crescent crest is pictorial.",
+  "visualReview": "復号後の全4コマを目視。濃紺銀縁の甲冑・三日月兜・黒髪・外套を維持。旗・鞘・武器なし、両拳は空。肩と拳の呼吸差、外套裾の微差を確認。全身輪郭、16px以上の余白、同一縮尺と接地線を確認。",
+  "reviewDate": "2026-10-07",
+  "gitVerified": true,
+  "gitCommit": "b1c10a6c36aa027a89b9959793a56f12575ab43c",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "b1c10a6c36aa027a89b9959793a56f12575ab43c",
+  "gitVerifiedAt": "2026-10-07T07:43:16+09:00",
+  "gitSha256Verified": "cfb4878d9c7800294acf3a77ea3b337af508fb959b57ae6d297187cd3f609045"
+}

@@ -1,0 +1,140 @@
+{
+  "name": "三好伊三入道_起き上がり_4コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_起き上がり_4コマ_v1_候補1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f7602350-01e0-4220-965d-5a5bdc538070.png",
+  "status": "git_verified_caution",
+  "scale": 0.3474576271186441,
+  "standingHeightSource": 590.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        29,
+        486,
+        574,
+        702
+      ],
+      "destination": [
+        33,
+        156,
+        189,
+        75
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        592,
+        298,
+        1040,
+        708
+      ],
+      "destination": [
+        50,
+        89,
+        156,
+        142
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1061,
+        185,
+        1459,
+        708
+      ],
+      "destination": [
+        59,
+        49,
+        138,
+        182
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1646,
+        110,
+        1923,
+        711
+      ],
+      "destination": [
+        80,
+        22,
+        96,
+        209
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "28df57fefa2312911c005f634f3d4240a06db2429633c01738e3153ffbdf1e0b",
+  "backgroundSource": [
+    238,
+    27,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": "300,820,1280,1810",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの63%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    13999,
+    16503,
+    16665,
+    18191
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_起き上がり_4コマ_v1_候補1_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_起き上がり_4コマ_v1_候補1_GIF復号確認.png"
+  },
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好伊三入道_起き上がり_4コマ_v1.png",
+  "repoPath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\三好伊三入道_起き上がり_4コマ_v1.png",
+  "gitVerified": true,
+  "gitCommit": "1b441253322813b727d698d9e0b64be73737f189",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "finalSha256": "28df57fefa2312911c005f634f3d4240a06db2429633c01738e3153ffbdf1e0b",
+  "qaRecord": "qa/20261008_miyoshi_isan_getup/qa-record.json",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  },
+  "visualReview": "GIF4/80ms decoded; prone -> staff-supported rise -> kneel -> standing, staff remains continuous and within each cell.",
+  "note": "Caution: median silhouette height 63% because the strip includes a prone pose; shared scale, margins, ground line and checker passed."
+}

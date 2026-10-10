@@ -1,0 +1,57 @@
+[
+  {
+    "name": "上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+    "kind": "additional_jump_attack",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+    "selectedImagegenOutput": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4800015b-cb2a-40d3-8154-ddfb33f18656.png",
+    "selectedCandidate": 1,
+    "action": "single katana airborne downward slash",
+    "rejectedInitialCandidate": null,
+    "rejectionReason": null,
+    "generatedAndQARecordedAt": "2026-10-06T15:53:17.013105+00:00"
+  },
+  {
+    "name": "石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+    "kind": "additional_jump_attack",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+    "selectedImagegenOutput": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3829a035-5dfe-4637-862c-17fa3e45466b.png",
+    "selectedCandidate": 1,
+    "action": "left-hand iron-war-fan strike; holstered matchlock retained",
+    "rejectedInitialCandidate": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c49442ea-3163-4963-9c8a-7bf3b4c81cd3.png",
+    "rejectionReason": "別人物・刀装備で三成設定画に不一致",
+    "generatedAndQARecordedAt": "2026-10-06T15:53:17.031472+00:00"
+  },
+  {
+    "name": "織田信長_ジャンプ攻撃_4コマ_追加v1.png",
+    "kind": "additional_jump_attack",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_設定画.png",
+    "selectedImagegenOutput": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-419253e1-ffc3-43e4-b34c-0537c0801852.png",
+    "selectedCandidate": 1,
+    "action": "katana jump slash",
+    "rejectedInitialCandidate": null,
+    "rejectionReason": null,
+    "generatedAndQARecordedAt": "2026-10-06T15:53:17.048620+00:00"
+  },
+  {
+    "name": "武田信玄_ジャンプ攻撃_4コマ_追加v1.png",
+    "kind": "additional_jump_attack",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_設定画.png",
+    "selectedImagegenOutput": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-66994b71-2a30-4903-96a2-0ad2549917be.png",
+    "selectedCandidate": 1,
+    "action": "two-handed gunbai overhead jump slam",
+    "rejectedInitialCandidate": null,
+    "rejectionReason": null,
+    "generatedAndQARecordedAt": "2026-10-06T15:53:17.064955+00:00"
+  },
+  {
+    "name": "宮本武蔵_ジャンプ攻撃_4コマ_追加v1.png",
+    "kind": "additional_jump_attack",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "selectedImagegenOutput": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-64fda5d2-a8ad-4249-810c-42fdae1b71fc.png",
+    "selectedCandidate": 1,
+    "action": "nitoryu dual-sword crossing downward cut",
+    "rejectedInitialCandidate": null,
+    "rejectionReason": null,
+    "generatedAndQARecordedAt": "2026-10-06T15:53:17.082424+00:00"
+  }
+]

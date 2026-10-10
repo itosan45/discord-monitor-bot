@@ -1,0 +1,204 @@
+{
+  "name": "石田三成_鎖鎌_移動旋回_8コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_鎖鎌_移動旋回_8コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5b49c314-2f3c-4f29-95fd-21ad8661e48c.png",
+  "status": "git_verified",
+  "scale": 0.5857142857142857,
+  "standingHeightSource": 350.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        32,
+        188,
+        284,
+        534
+      ],
+      "destination": [
+        54,
+        28,
+        148,
+        203
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        290,
+        167,
+        522,
+        530
+      ],
+      "destination": [
+        60,
+        18,
+        136,
+        213
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        537,
+        195,
+        831,
+        532
+      ],
+      "destination": [
+        42,
+        34,
+        172,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        838,
+        195,
+        1075,
+        531
+      ],
+      "destination": [
+        58,
+        34,
+        139,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 228
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1107,
+        187,
+        1361,
+        533
+      ],
+      "destination": [
+        53,
+        28,
+        149,
+        203
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1376,
+        193,
+        1643,
+        534
+      ],
+      "destination": [
+        50,
+        31,
+        156,
+        200
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1662,
+        190,
+        1913,
+        531
+      ],
+      "destination": [
+        54,
+        31,
+        147,
+        200
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1936,
+        190,
+        2168,
+        534
+      ],
+      "destination": [
+        60,
+        30,
+        136,
+        201
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "9d690622bd1f918dd8f606189835d09d863cb6042e70fb1f5da15b45a6272594",
+  "backgroundSource": [
+    239,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "135,407,679,951,1223,1495,1767,2039",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "visualApproved": true,
+  "gitVerified": true,
+  "gitCommit": "5bc4f2468d2d386c0b3d6ed7d1ed97cd04fd2b1a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9d690622bd1f918dd8f606189835d09d863cb6042e70fb1f5da15b45a6272594",
+  "qaResult": "PASS; expected banner text OCR",
+  "ocrSuccess": true,
+  "ocrText": "。 ′ 大 方 り 文 ′ 万 攵 十 は ′ え 万 え 言 ′ え 方 ↓ 石 大 万 攵 は 方 攵 十 は",
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "checkResults": [
+    "30_check_strip.py PASS: 2048x256, pure magenta, median height within limits, cell margin and ground checks pass.",
+    "Native OCR successful; detected fragments are from intended banner design.",
+    "8 GIF frames decoded at 80ms and visually reviewed."
+  ],
+  "updatedAt": "2026-10-08T07:59:54+09:00",
+  "visualReview": "右向き。三成の緑灰鎧、紫の金縁羽織、扇前立、白旗を維持。旗を既存歩行素材と拡大比較。分銅一周と歩行位相の変化あり。余白・接地・鎖の接続・コマ独立を確認。"
+}

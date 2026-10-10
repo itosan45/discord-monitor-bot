@@ -1,0 +1,12 @@
+{
+  "name": "真田幸村_必殺_8コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_unusable_layout",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-fc8a1fae-c653-4826-8644-5ae8e5a16146.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+  "action": "炎を纏い連続槍突進する8コマ必殺。",
+  "candidateCount": 1,
+  "createdAt": "2026-10-06T16:27:29.006594+00:00",
+  "noDuplicateGeneration": true,
+  "rejectionReason": "炎の連結が広く、8つの独立した全身ポーズを自動分離できない。"
+}

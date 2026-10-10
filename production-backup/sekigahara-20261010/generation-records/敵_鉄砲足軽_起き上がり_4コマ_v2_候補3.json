@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-ddacad5a-4bd2-4923-beb7-770cbf2c54ce.png",
+  "prompt": "REDRAW FRAME2 upperbodyarms clearly with EXACTLYTWO hands. Rightpalmground atrearLEFT. LEFTARMholdsGUNSTOCKnearWAIST withONEhand; gunstockrestsagainstlap. GUNFORESTOCK/BARREL HASNOHAND atall, remove handcurrentlyunderforwardbarrel anditsarm. Thus only visiblehands2:groundpalm andstockhand. One rightshoulderarmtorear-ground andone leftshoulderarmtowaist-stock. NOextraarmandNOthirdhand. Rest ofbodypose2seatedunchanged. FRAME3rearfootredrawhorizontalSIDEPROFILElikefrontfoot: heelLEFTtoeRIGHT, footlongaxisHORIZONTAL, no toesfacingviewer. Kneestillgrounded. Preserveotherframes1/4entirely andallheadsphysiqueclothinggunlength. Pureopaque#FF00FF4equalcellsrow no labelsgridshadow.",
+  "attempt": 3,
+  "status": "candidate_repair_frame3_rear_boot_left"
+}

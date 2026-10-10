@@ -1,0 +1,7 @@
+{
+  "name": "敵_忍者_歩き_8コマ_v2.png",
+  "attempt": 2,
+  "prompt": "Repair 8frame ninja COMBATWALK. Critical Frame5 must LEFTlegforward andRIGHTlegback vs1 RIGHTlegforward LEFTback. Currently1/5same pose. KeepbodyfacesRIGHT; do NOTmirrorwholebody. RedrawnearRIGHTthighfromhipbacklefttocurrentrearfoot5, FARLEFTthighfromhipforwardrighttocurrentfrontfoot5, occlusionchangesRIGHTthighbehindLEFTknee. Frame3and7 passinglegsCLOSEknees cross, frame4and8 swingforward, frame2and6loadcontactleg. BothfeetTOERIGHT everyframe, retainclothstabletorsohoodshortreverseswordbehindhipandopenlefthand. Sameheadtorsoanatomysizeasidle all8, crouchingLOW. No uprightwalk/noarmswing. Onehorizontalrow8equalcells no textgridshadow opaque#FF00FF background.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-03dda9d8-aaa0-4b84-993b-c2d1c4bd0104.png",
+  "status": "generated"
+}

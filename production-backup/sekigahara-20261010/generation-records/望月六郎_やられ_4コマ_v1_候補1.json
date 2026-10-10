@@ -1,0 +1,112 @@
+{
+  "name": "望月六郎_やられ_4コマ_v1.png",
+  "char": "望月六郎",
+  "kind": "ten_braves_sprite_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-40d0d33b-2d63-4683-8569-d956da99ac1f.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\望月六郎_やられ_4コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\望月六郎_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "uniformScale": 0.37,
+  "sourceBands": [
+    [
+      0,
+      543
+    ],
+    [
+      543,
+      1086
+    ],
+    [
+      1086,
+      1629
+    ],
+    [
+      1629,
+      2172
+    ]
+  ],
+  "sourceBounds": [
+    [
+      49,
+      86,
+      499,
+      648
+    ],
+    [
+      607,
+      110,
+      1007,
+      646
+    ],
+    [
+      1148,
+      267,
+      1579,
+      642
+    ],
+    [
+      1732,
+      260,
+      2071,
+      657
+    ]
+  ],
+  "placements": [
+    [
+      45,
+      22,
+      166,
+      208
+    ],
+    [
+      54,
+      32,
+      148,
+      198
+    ],
+    [
+      48,
+      91,
+      159,
+      139
+    ],
+    [
+      65,
+      83,
+      125,
+      147
+    ]
+  ],
+  "checkResults": [
+    "30_check_strip.py: PASS; pure magenta 81%; median figure height 67%; per-cell bounds and ground baseline pass.",
+    "Windows PowerShell 5.1 OCR success, no recognized text.",
+    "GIF decoded all 4 frames at 80ms."
+  ],
+  "visualReview": "Mature lean Mochizuki Rokuro retains olive-brown headwrap/clothing, red six-coin chest crest, closed belt powder pouches/tube, short tanto and sheath. Four sequential states: brace/recoil, backward stagger, one-knee drop with tanto low, final kneeling settle. Tanto remains continuous in right hand, no visual text or effects. Caution: median silhouette height 67% due kneeling poses; same uniform scale used across the whole sheet.",
+  "qaResult": "git_verified_caution",
+  "sha256": "8dba060d7979abcd71ffc7c790c018f04832667ea7540830e97bb05ffa5aa3f3",
+  "gitVerified": true,
+  "gitCommit": "7548a34d70335ee20a7405a12ad136f9e9e76478",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "8dba060d7979abcd71ffc7c790c018f04832667ea7540830e97bb05ffa5aa3f3",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "attempts": 1,
+  "updatedAt": "2026-10-08T10:25:00+09:00",
+  "prompt": "Use case: stylized-concept. Game sprite animation, exactly FOUR chronological full-body poses in one horizontal row, final 1024x256 with four 256x256 cells. Reference image 1 is the exact idle sprite scale and pixel-art style; reference image 2 defines the same character and outfit. Preserve Mochizuki Rokuro: lean mature Japanese ninja-samurai, thin mustache, olive-brown head wrap, worn olive-brown jacket, charcoal trousers, red six-coins chest emblem, leather forearm guards, wrapped shins and sandals. Keep the same two small closed leather powder pouches and bamboo powder tube at belt, same short tanto in right hand and same sheath at left hip in every frame. No explosives, fire, smoke, extra weapons or new accessories. Right-facing 3/4 throughout; same design and body proportions. Grounded with foot soles at y=230, same anatomical scale as idle (~80% cell upright), all hair/gear/blade/feet safely inside own cell with >=16px margins. Pure #FF00FF, no shadows/text/effects/blood/scenery. Four defeat stages: 1 brace after unseen hit, torso recoils, feet planted, tanto low beside hip; 2 staggers one short step backward, knees bend and sword hand drops while left arm balances; 3 falls to one knee, torso forward, tanto angled point-down near ground; 4 settles into final resolute kneeling pose, head lowered, shoulders controlled, tanto still in hand beside knee. Frames 3/4 differ in torso balance and hand/blade position. Real weight transfer, grounded, matching gritty detailed painted game art."
+}

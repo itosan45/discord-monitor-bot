@@ -1,0 +1,28 @@
+{
+  "commit": "5ff2c4ac20b1b93e0f8725a6ac53604c7be0afda",
+  "remote": "5ff2c4ac20b1b93e0f8725a6ac53604c7be0afda",
+  "verifiedAt": "2026-10-06T15:16:37.704030+00:00",
+  "assets": [
+    {
+      "taskName": "拾得武器_長剣_v1.png",
+      "name": "拾得武器_長剣_v1.png",
+      "sha256": "5d77223c4c5d5d65b434094aa63312cf701a8b8b2487bddc234bc6805a83acca",
+      "qaResult": "OK",
+      "record": "pickup-long-sword-record.json"
+    },
+    {
+      "taskName": "拾得武器_妖刀_v1.png",
+      "name": "拾得武器_妖刀_v1.png",
+      "sha256": "6ac2c0fa412ee78dbf87278654c680e9b7e6e83ca6a66854d06fdb1b09be9b1f",
+      "qaResult": "OK",
+      "record": "pickup-yokai-blade-record.json"
+    },
+    {
+      "taskName": "拾得武器_棍棒_v1.png",
+      "name": "拾得武器_棍棒_v1.png",
+      "sha256": "3706f5c53bb4968ffa08aaae6040f944952b54ca883df79138b4674d78c63821",
+      "qaResult": "OK",
+      "record": "pickup-club-record.json"
+    }
+  ]
+}

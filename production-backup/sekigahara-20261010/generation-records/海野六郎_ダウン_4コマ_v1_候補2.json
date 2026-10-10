@@ -1,0 +1,14 @@
+{
+  "name": "海野六郎_ダウン_4コマ_v1.png",
+  "candidate": 2,
+  "status": "rejected_not_delivered",
+  "char": "海野六郎",
+  "action": "ダウン",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3b515d08-b41e-483f-945b-7c2a86e5005e.png",
+  "prompt": "Edit the attached four-pose strip and preserve the same Umino Rokuro, his older stern face, red-black armor, six-coin headband and banner, sheath, and exact same body scale as the waiting reference. Recompose only the poses/weapon placement for safe sprite cells: the fully upright-equivalent body size must be about 200px tall in a 256px cell. Keep every part (including katana, banner, hands, feet and hair) inside a central 224x214px safe area, with 16px clear magenta margin. Do not shrink the character. 1 clear backward recoil from a hit; 2 airborne throw-back with knees tucked and katana held close/angled steeply upward beside the body (not stretched horizontally); 3 landed on his back with knees bent and sword resting close across the hip/torso, all inside the cell; 4 visibly distinct small settling bounce: shoulder/hip lift slightly and settle, one knee shifts, banner/cloth changes a little, then returns toward lying. Preserve the same face, armor, banner and weapon every frame; no gear disappears. Strict right-facing side view. Exactly four separate frames, one horizontal row, each 256x256, flat #FF00FF. No text, shadows, effects, frame lines, neighbor pose fragments or cropping.",
+  "createdAt": "2026-10-08",
+  "correctionReason": "candidate1 not safe at reference scale and last two frames too similar",
+  "noFurtherRegenerationPlanned": true,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e80719c3-ffbe-48ec-a555-3580847ef29a.png"
+}

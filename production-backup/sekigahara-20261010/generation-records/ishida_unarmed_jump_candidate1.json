@@ -1,0 +1,223 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-2f85fa5d-a1e5-4348-901b-641d6f473d51.png",
+  "sourceSha256": "c3f95f933bc0348182cd53c3d2fed2b8723d4591b5991feaab11ff9c317974be",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: 石田三成_手ぶら_ジャンプ_4コマ_v2.png; unarmed jump: crouch, takeoff, tucked apex, falling with legs lowered. No weapon or banner; the character setting sheet and a matching unarmed sprite style ref are attached.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/石田三成_設定画.png",
+    "assets/sprites/真田幸村_手ぶら_待機_4コマ_v2.png"
+  ],
+  "requestedName": "石田三成_手ぶら_ジャンプ_4コマ_v2.png",
+  "actualName": "石田三成_手ぶら_ジャンプ_4コマ_v2_candidate1-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_手ぶら_ジャンプ_4コマ_v2_candidate1-normalized.png",
+  "sha256": "29db60bacdbce6d37e47c71482aebc27a3e801f22182f18bd844326b3d8671ce",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellSize": [
+      543,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.35359116022099446,
+    "yOffsets": [
+      7,
+      5,
+      6,
+      6
+    ],
+    "description": "Each source cell scaled uniformly to 192x256 and centered; per-frame translation aligns planted/descent poses and preserves 16px apex top margin. Magenta key set to exact RGB(255,0,255)."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        56,
+        87,
+        196,
+        231
+      ],
+      "heightPx": 143,
+      "bottomY": 230,
+      "marginsPx": {
+        "left": 56,
+        "right": 60,
+        "top": 87
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        53,
+        38,
+        188,
+        230
+      ],
+      "heightPx": 191,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 53,
+        "right": 68,
+        "top": 38
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        47,
+        16,
+        180,
+        173
+      ],
+      "heightPx": 156,
+      "bottomY": 172,
+      "marginsPx": {
+        "left": 47,
+        "right": 76,
+        "top": 16
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        57,
+        40,
+        202,
+        230
+      ],
+      "heightPx": 189,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 57,
+        "right": 54,
+        "top": 40
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    17530,
+    17072,
+    16927
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_heroes_unarmed_jump_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_heroes_unarmed_jump_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。目視でも文字・字幕なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_heroes_unarmed_jump_candidate1\\ishida-80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "c44d1edfe95ad5a125b085aff6d94858cd665e37481697363acc23c1d3b5f909",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_heroes_unarmed_jump_candidate1\\ishida-gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "しゃがみ→踏切→膝を畳んだ頂点→脚を下ろした降下。紫の羽織と軍配前立て、右向き、素手と全身を確認。 GIF復号全コマ目視。人物縮尺一定、ジャンプ中の足位置、全身と16px余白を確認。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "framePlacementReview": [
+    {
+      "frame": 1,
+      "bbox": [
+        56,
+        87,
+        196,
+        231
+      ],
+      "heightPx": 143,
+      "bottomY": 230,
+      "marginsPx": {
+        "left": 56,
+        "right": 60,
+        "top": 87
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        53,
+        38,
+        188,
+        230
+      ],
+      "heightPx": 191,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 53,
+        "right": 68,
+        "top": 38
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        47,
+        16,
+        180,
+        173
+      ],
+      "heightPx": 156,
+      "bottomY": 172,
+      "marginsPx": {
+        "left": 47,
+        "right": 76,
+        "top": 16
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        57,
+        40,
+        202,
+        230
+      ],
+      "heightPx": 189,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 57,
+        "right": 54,
+        "top": 40
+      }
+    }
+  ],
+  "gitCommit": "c7760c542053a7c76f60d5a4a9ab29d7d29929fd",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "8d0dd207727e0ff66354f5fdf8b990d0a8a1575b",
+  "remoteSha256": "29db60bacdbce6d37e47c71482aebc27a3e801f22182f18bd844326b3d8671ce",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 136967,
+  "completedAt": "2026-10-07T10:07:38+09:00"
+}

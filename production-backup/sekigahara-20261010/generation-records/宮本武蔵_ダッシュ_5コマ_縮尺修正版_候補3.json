@@ -1,0 +1,9 @@
+{
+  "name": "宮本武蔵_ダッシュ_5コマ_縮尺修正版_候補3",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-edc2f2ce-6474-4b0d-b128-789f5232f2cc.png",
+  "prompt": "EDIT ONLY the BACK LEG poses in frames2,3,4 of this five-frame Musashi dash strip. Preserve all heads/torso/arms/hands/swords/clothing/body scale EXACTLY, and preserveframes1/5unchanged. In chargingframes2-4 BEND the BACK KNEE deeply, bring BACK HEEL UP nearrearhip and BACK FOOT FORWARD directlyUNDERrearhip. Do not keep straight leg extended farbehind. Running recovery-leg action: one FRONTFOOT remains on sharedground, rearlegfolded tightlynearhip, notakick. This must make rearbodyoutline compact, withoutshorteninganylimb orshrinkingcharacter. Hands andcompleteblades stayexactly sameposes/lengths. The backfootmustn'tdefineafarleftsilhouetteend; it sitsbelow/nearrearhip. Actualdashattack withcompactrecoveringbackleg. Keepfivewholeright-facingprofilecharacters inONEhorizontalrow,fullswordswithpointedtips isolatedbyamplemagenta gaps, no contactwithneighbors orcroppededges. Fixed anatomicalscale,standingcharacter205px in256squarecells,footground230px. Pureflat#FF00FF,no shadow/text/labels/numbers/grids/borders. ONLYfixrearlegpositions, preserveeverythingelse.",
+  "referencePaths": [
+    "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-142c6f81-2116-4930-8f42-36f05e8bf926.png"
+  ],
+  "status": "candidate_pending_QA"
+}

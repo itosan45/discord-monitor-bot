@@ -1,0 +1,34 @@
+{
+  "name": "上杉景勝_討死立ち絵.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-32d0f155-7181-486a-9c1c-3680fed8fcad.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_討死立ち絵.png",
+  "size": [
+    512,
+    768
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    52,
+    16,
+    975,
+    1466
+  ],
+  "placement": [
+    27,
+    24
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "be7961af35802efba199bcad8fa9416f07651a227bfd3e51c05d90f2ca9c7113",
+  "updatedAt": "2026-10-07T12:18:53.667018+09:00",
+  "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 上杉景勝. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing katana is drawn and held point-down with its tip planted into ground. Preserve navy flag and exact white emblem. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+  "ocrText": "",
+  "ocrSuccess": true,
+  "ocrReview": "No actual captions; OCR detections are existing six-coin/armor crest patterns.",
+  "qaResult": "OK",
+  "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+  "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "be7961af35802efba199bcad8fa9416f07651a227bfd3e51c05d90f2ca9c7113"
+}

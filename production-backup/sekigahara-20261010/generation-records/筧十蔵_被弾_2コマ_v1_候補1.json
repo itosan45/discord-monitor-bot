@@ -1,0 +1,70 @@
+{
+  "name": "筧十蔵_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-2b64e1d1-3826-45a8-b009-c1f435180ef0.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\筧十蔵_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3032904148783977,
+  "sourceBounds": [
+    [
+      277,
+      89,
+      718,
+      788
+    ],
+    [
+      1022,
+      93,
+      1557,
+      788
+    ]
+  ],
+  "placements": [
+    [
+      61,
+      18,
+      134,
+      212
+    ],
+    [
+      47,
+      19,
+      162,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "c38204477b0da8b747d6ebc131b4516f6d5c9276cbcbdc47fa80979605beba1a",
+  "prompt": "Canonical Kakehi Juzo light armor, matchlock musket retained with both hands, two grounded damage recoil frames, rightfacing, magenta.",
+  "char": "筧十蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "胸の六文銭の大きさ、甲冑・銃床・火縄銃機構に細部差。両手保持、接地、銃全体の枠内収容、被弾動作を確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "61348ec8202ccd92409ea63f77b807e73ed7765a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c38204477b0da8b747d6ebc131b4516f6d5c9276cbcbdc47fa80979605beba1a",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:41:53.294377+09:00"
+}

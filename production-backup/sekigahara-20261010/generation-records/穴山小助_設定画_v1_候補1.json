@@ -1,0 +1,37 @@
+{
+  "name": "穴山小助_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4c35970c-9274-476d-9f89-28569a02890e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\穴山小助_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    83,
+    27,
+    1438,
+    952
+  ],
+  "placement": [
+    111,
+    64
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "6db81f54f1863414dccd48af5cad3644f414122771356d980025e32ac6117758",
+  "updatedAt": "2026-10-07T15:01:21.673009+09:00",
+  "prompt": "Original Anayama Kosuke game character THREE fullbody views front, RIGHTside, back same man/equipment/scale alignedground. Reference ONLY grittypainted style/3viewlayout not its oldface or sword. Fit athletic Japanese samurai early30s cleanshaven determinedface blackhairtopknot. Distinct brightworn SANADA CRIMSON lamellararmor blackcords, modestred kabuto sixblackcoins2rows3 smallcrest NOantlers, redarm/shinplates darkgraypants warajisandals. Compactred backbanner sixblackcoins2rows3 and completepole EVERYview. PRIMARY WEAPON realSTRAIGHT YARI spear: brownshaft plus narrow straightsteelhead, overalllength about1.15times warriorheight (about2m), nevertiny oroversized. Hold spear UPRIGHT besidebody right hand atwaist, buttnearfeet, spearpointabovehelmet; all3views EXACTsamelength. Left handnearshaft. Small black sheathedshortsword lefthip. Slightbentknees guarded. Fullspearpoint/butt/flag/helmet/feet within amplemargins and nooverlapbetweenviews. Pureflat #FF00FF NOeffects/shadow/text/UI/grid. Landscape1536x1024 PNG originalcostume. Fit fullspear by spaceabovehead, NOTshorteningit.",
+  "char": "穴山小助",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "visualReview": "Reviewed all three views after normalization: full spear tips/butts, six-coin flags and poles, feet, consistent spear length and body scale. OCR detections are armor/coin patterns, no actual text. Helmet is black with red trim rather than the requested predominantly red helmet; retained as a design caution.",
+  "gitVerified": true,
+  "gitCommit": "4565e809894f443380729532de46cfbc89cbe7a0",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "6db81f54f1863414dccd48af5cad3644f414122771356d980025e32ac6117758",
+  "ocrSuccess": true,
+  "ocrText": "56 物 設 を 0 ・ 0 / 第 ツ 物 を 当"
+}

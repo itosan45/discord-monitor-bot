@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-51c04106-53b7-48aa-a857-458797514537.png",
+  "prompt": "Create EIGHT-frame combat walk for EXACT attached blue ashigaru archer: iron cone hat, blue tunic, black torsoarmor, quiver arrows, waistscabbard, shin guards straw sandals. Low hips bentknees, torso slightlyforward stable. LEFT hand bow upright ahead at WAIST, RIGHT holds nockedarrow atwaist, string notdrawn; bow/arrow/quiverupperbody stable throughout, no shooting. Legcycle1RIGHTfootfront LEFTrear;2weightontoRIGHT;3LEFTpassesplantedRIGHT kneesfeetclosetogetherunderhips;4LEFTswingsahead;5LEFTfrontRIGHTrear with NEAR RIGHT thigh extendingdownbackand FAR LEFTthighreachingfront (oppositeanatomicaloverlapfrom1);6weightontoLEFT;7RIGHTpassesLEFTkneesunderhips;8RIGHTswingsaheadintoframe1. ALLtoetipsRIGHT, no mirroring shoes orstandingstroll. Eight equalsquarecells one horizontalrow, one fullarcher percell, wide magenta gaps and outer margins, fullbowtopbottomstringarrowquiverandbodywithin16px-equivalentmargin. SAMEanatomicalscaleall8 (standingequiv80%height), soles90%. Pureopaque#FF00FF no textshadowgridborder. If aspect limited use thinner central strip with extra magenta abovebelow rather than clippedbows.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-5b35d335-26bf-498d-8fcf-9f239a7e49b8.png",
+  "prompt": "Animate exact blue katana ashigaru in attached fourframe idle, no shoulder armor, rolled sleeves, black conical hat, short beard, black lamellar torso, blue hakama, shin guards/straw sandals, sheath at waist. EIGHT distinct frames of LOW combat walk, single horizontal row of8equal squarecells. Stable torso and both hands hold katana low ahead; hips stay lowered and knees bent, not upright stroll. Frame1 RIGHT leg forward contact and LEFT rear;2weight onright;3LEFT passes right beneath hips;4LEFT swings forward;5LEFT leg forward and RIGHT rear;6weight onleft;7RIGHT passes left beneath hips;8RIGHT swings toward frame1. Explicitly swap anatomical near/far thigh and knee occlusion between1and5; don’t reuse same leg silhouette in both. Both toe tips face right throughout, never mirror entire image. Upper body and katana stable no slashing. Same head/torso/leg scale across8, standingequiv80%cellheight, lowestsole90%, fullbody/katana/scabbard inside each owncell16pxequivalent margins. Pure solid #FF00FF opaque background no text/shadows/grid/borders. If canvas aspect limited leave excess magenta above/below rather than overlap characters.",
+  "attempt": 1,
+  "status": "rejected_leg_exchange_weak_blade8_cropped"
+}

@@ -1,0 +1,120 @@
+{
+  "name": "猿飛佐助_武器別攻撃_6コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8af5fbd5-d85e-4b6e-9761-a5dbd41428e4.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\猿飛佐助_武器別攻撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4785553047404063,
+  "sourceBounds": [
+    [
+      54,
+      133,
+      270,
+      576
+    ],
+    [
+      327,
+      140,
+      675,
+      574
+    ],
+    [
+      689,
+      150,
+      1112,
+      571
+    ],
+    [
+      1076,
+      188,
+      1528,
+      571
+    ],
+    [
+      1534,
+      146,
+      1800,
+      575
+    ],
+    [
+      1905,
+      134,
+      2117,
+      576
+    ]
+  ],
+  "placements": [
+    [
+      76,
+      18,
+      103,
+      212
+    ],
+    [
+      44,
+      22,
+      167,
+      208
+    ],
+    [
+      27,
+      29,
+      202,
+      201
+    ],
+    [
+      20,
+      47,
+      216,
+      183
+    ],
+    [
+      64,
+      25,
+      127,
+      205
+    ],
+    [
+      77,
+      18,
+      101,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "27ccff2311d69cc931fd5887d7c58a68f68d11bf74f6473b1ae1e78c0020086f",
+  "prompt": "Sarutobi Sasuke shortblade attack animation SIX chronological fullbody frames SINGLE HORIZONTAL ROW. Exact same man face charcoal ninja outfit headwrap/topknot red6coins leatherguards beltthree throwingknives sheath as reference. RIGHT-facing allframes. Same anatomicalscale as reference idle body~210px per256cell (source equivalent). Shortblade same length allframes. Real attack:1 low guarded blade nearhip,2 anticipation torso twistsback rightelbowdrawsbladeback weight rearleg,3 step right leadfoot forward hipsrotate short diagonal CUT down-forward right arm extends,4 impact/followthrough torso forward blade finishes downnearfrontknee leftelbowback,5 recovery drawsbladeback hip and shiftsweightrear,6 returns ready similar1. Clear sequential weight transfer anticipation impact recovery, no six standing copies. Feet on sameground everyframe no jumps, compact stance and armrange so body not shrunk to fit. Entire blade/hair/sheath/feet within owncell amplemargins, six equally spaced views no overlap. Fixedcamera/bodyproportions, no zoom. Grittypaintedgameart pureflat#FF00FF widehorizontalPNG6frames, NO slash effects/light/trails/smoke/shadow/text/grid/scenery.",
+  "char": "猿飛佐助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All6 GIF decoded frames and idle comparison reviewed: matching character gear/scale, right-facing, full blade/sheath/body, anticipation2 step/cut3 followthrough4 recovery5 ready6, grounded weight transfer. OCR empty, no effects/clipping. Blade projection varies with angle and chest emblem barely legible; recorded caution. No standing-pose substitution.",
+  "gitVerified": true,
+  "gitCommit": "8093dade3007ccc542bef651cc5adaf08f40a140",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "27ccff2311d69cc931fd5887d7c58a68f68d11bf74f6473b1ae1e78c0020086f",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T16:04:54.417796+09:00"
+}

@@ -1,0 +1,8 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-8be13df7-2eca-44b0-9013-8e216dea458d.png",
+  "prompt": "Keep exact8-frame ashigaru spear combat strip and all poses, armor and anatomy. Fix ONLY two defects. First: the sandals in frames5,6,7 face LEFT due to mirrored lower body. REPAINT sandals5,6,7 around their unchanged ankle locations so heels are on LEFT and toes extend to RIGHT, like all other frames. All16 individual feet toes RIGHT. Do not mirror or move thighs/knees/shins again; their gait exchange is intentional. Preserve low knees and near/far occlusion. Second: the eighth spear tip is too near outer right boundary. Shift whole frame8 figure together with its complete spear a little LEFT within its own raw space, preserving pose and scale, to leave at least24px pure magenta AFTER its spear tip. Make blade fully visible, no cropped point. If necessary uniformly relayout all8 whole figures at equal centers on slightly wider blank magenta canvas, but do not change body scale per-frame or shorten character. Heads and spears all right facing. No text grid shadow floor. Same exact one-row8 fullbody animation, pure flat magenta.",
+  "status": "candidate_pending_QA",
+  "attempt": 3,
+  "retries": 2,
+  "visualReview": "5-7の両足つま先を右向きへ修正、8穂先に外周余白確保。近い膝鎧は元1の後ろ・元5の前へ交換。最新11の右脚前始動に合わせ、全セル単位で後半→前半へ周期の開始を移す。"
+}

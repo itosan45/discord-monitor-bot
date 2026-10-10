@@ -1,0 +1,26 @@
+{
+  "name": "猿飛佐助_やられ_4コマ_v1.png",
+  "char": "猿飛佐助",
+  "kind": "sprite_motion",
+  "status": "git_verified",
+  "candidateCount": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\猿飛佐助_設定画_v1.png",
+  "prompt": "Preserve exact Sarutobi Sasuke from the reference: same young face, tied dark hair/headband, charcoal practical ninja outfit, red six-coin chest crest, brown bracers/belt, kunai holders, sandals, right-facing 3/4, painterly game style and same scale. Four full-body hit-reaction frames in one horizontal strip. Sequence: 1 guarded ready stance, knees soft, short sword held low; 2 sudden impact recoil with shoulders turned and free hand raised defensively, sword remains securely in hand; 3 stagger backward one step, torso bends but both feet stay grounded, expression strained; 4 regains balance into a guarded low stance. No wounds, blood, extra enemy, projectile, flash, text, shadow or effects. Keep same equipment, weapon and costume in every frame. Match reference standing height and planted soles baseline; exactly four separate 256x256-ready poses with magenta gaps, one flat pure #FF00FF background, no crop or neighboring fragments.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-13047343-df84-409f-8966-dcd4ae5bad20.png",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "visualReview": "Four clear reaction poses with sword held consistently, same charcoal ninja costume and red six-coin chest crest; normalization/strip QA pending.",
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\猿飛佐助_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "sha256": "6fc309583b3e7780951eeb51866f88dc054bd4dc3a609d7a7d10ded406d6b7a6",
+  "qaResult": "30_check_strip PASS; 82% pure magenta; median height79%; feet y230; no cell-edge violations; 80ms GIF 4/4 decoded; Windows OCR success/no text; visual verified.",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitCommit": "074d3c49e7045dcff1d2aa730e986379e7c48a3f",
+  "remoteByteEqual": true
+}

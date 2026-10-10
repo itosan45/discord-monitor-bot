@@ -1,0 +1,38 @@
+{
+  "name": "海野六郎_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b21ce4b8-28ea-47ce-9bd1-ad680bde73db.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\海野六郎_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    34,
+    13,
+    1488,
+    949
+  ],
+  "placement": [
+    72,
+    64
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "ec02c273730af21981a22a36f8dd2e4a6440b101a1d17a8d8e1e9b1d1fe5f75a",
+  "updatedAt": "2026-10-07T14:52:36.609690+09:00",
+  "prompt": "Original Unno Rokuro character reference THREE fullbody views FRONT, RIGHTside, BACK, same man/outfit/equipment andsize alignedground. Referenceimage STYLEandlayoutONLY, NOT its ninjaoutfit oryoungface. Seasoned Japanese samurai late50s sturdy compactbuild weatheredseriousface graystreaked shortbeard blackgrayhairtopknot. Worn mutedcrimson andblack realistic lamellarsamuraiarmor with darkcordlacing, modestblack kabuto smallred sixcoins2rows3 foreheadcrest, nohugehorns. Redblack waistplates, armoredforearms/shins, darktabi warajisandals. ONE normal70cm steel katana heldright lowangledforward closebody, simpleblackscabbard atlefthip. Smallred back sashimono sixblackcoins2rows3 with completepole allviews; restrained compactflag. No gun/fan/ninjaequipment/cape/magic. Solid defensive bentknee readyguard. Realistic7head anatomy grittypainted Sengokugame detaileddamagedlacquer crispoutline. Fullhelmet/flag/weapon/feetinsidegenerousmargins andgaps. Pureflat #FF00FF no effects/shadow/text/UI/grid. Landscape1536x1024. Originalgame design.",
+  "char": "海野六郎",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "visualReview": "All three normalized views reviewed: same face/outfit/equipment, front/rightprofile/back, full head/weapon/feet and margins, no effects/text. Saizo bluegray shinobi clothing and Unno veteran redblackarmor/6coinflag differentiated. Blade appears shorter than70cm prompt; realistic shortblade, exact longkatana length not met. Preserve this limitation in production ledger.",
+  "weaponCaution": "Blade reads as short sword; requested70cm katana not proven. Use this sheet as shortblade candidate until longer blade validated.",
+  "gitVerified": true,
+  "gitCommit": "cfb575291d9c7a7383cb5746e63db487168e8516",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "ec02c273730af21981a22a36f8dd2e4a6440b101a1d17a8d8e1e9b1d1fe5f75a",
+  "ocrSuccess": true,
+  "ocrText": "006 000 、"
+}

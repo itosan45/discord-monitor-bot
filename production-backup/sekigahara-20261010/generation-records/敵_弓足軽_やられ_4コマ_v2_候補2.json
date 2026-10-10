@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-59cab567-6e80-45e4-a1f8-4fd24f28f626.png",
+  "prompt": "Repairthissame4framearcherdeath. Required3collapse→4SIDE-LYINGmotionless, current3/4repeatkneesdowncurlwrong. Keep3fallingwithrightforearmgroundandkneesbent. REDRAW4 lying fullyonRIGHTSIDE withhipshoulderandheadgrounded, oneforearmunderhead, bentkneesandbothsideprofilesandals toesRIGHT atRIGHTofhip, notleftwardfeet. Faceandhelmetright. SAMEheadtorsoandlimb dimensions all4. Frame2kneelingrearfoot also strictsideprofiletoeRIGHT. Frame3allfeetrightsideprofile. Bowdrops2 andliesground3/4 COMPLETEsamebowinconsistentorientationdiagonalinfront; bowLOWESTpoint alignsbodylowestground notbelowbody; keepbowsclose tobody soentirewidthfits256cell16pxmarginwithsamebody205standingscale. No duplicatebow, onebowallframes withcontinuouscurve/string. Brownquiversame. Fourequalcells horizontalrowpureopaque#FF00FF no textgridshadowborder.",
+  "attempt": 2,
+  "status": "rejected_last_kneeling_feet_left"
+}

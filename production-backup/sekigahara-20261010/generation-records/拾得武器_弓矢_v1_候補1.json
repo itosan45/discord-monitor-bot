@@ -1,0 +1,12 @@
+{
+  "name": "拾得武器_弓矢_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: one dropped-weapon pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce people.\nComposition/framing: one complete pickup centered in one 256x256 square cell, resting diagonally on the ground and occupying about 70-80% of the canvas. At least 20px clear margin. \nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, realistic period materials, consistent with Image 1.\nScene/backdrop: perfectly flat solid RGB(255,0,255) magenta (#FF00FF), no ground plane or cast shadow.\nConstraints: fully visible, physically plausible, one weapon pickup only, no hands/characters, no text/letters/numbers/labels, border, effects, extra items or watermark.\nPrimary request: a dropped Sengoku Japanese yumi bow with one matching wooden arrow laid closely alongside it as a single bow-and-arrow pickup. The long asymmetrical yumi is dark lacquered bamboo and wood, with a simple wrapped grip, a visible taut bowstring and small realistic nocks. The arrow has a straight wooden shaft and restrained feather fletching. Arrange the bow diagonally from lower-left to upper-right, and the arrow parallel just below it.\nAvoid: modern bow limbs, crossbow, quiver, multiple arrows, magical glow, sparks, text, European longbow.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-65ea5b65-921b-453d-9e2e-9429489a983f.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_弓矢_v1.png",
+  "sha256": "09a696b56dac285453545b724f9d1b4e8a748bf5c0a3338831ea15a2be3364a4"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "真田幸村_鎖鎌_移動旋回_8コマ_v1.png",
+  "char": "真田幸村",
+  "prompt": "undefined\n Candidate2 layoutspacing andoppositelegs correction requested.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-205f6178-d92d-4e8d-bf5a-855a54a99f08.png",
+  "initialSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c2ebf0d0-4608-4ca9-944b-f4131c659f7c.png",
+  "status": "held_visual_failure",
+  "visualApproved": false,
+  "gitVerified": false,
+  "candidateCount": 3,
+  "warnings": [
+    "後半も支持脚が入れ替わらない。8コマ目は両足が地面から離れて見える。"
+  ],
+  "nextAction": "候補3は未納品。脚修正プロンプトに前後方向の矛盾があったため、次は画面上の左右位置と膝の重なりを一貫した指定で行う。同じ全体修正反復は避け、別未完素材も並行順次進める。"
+}

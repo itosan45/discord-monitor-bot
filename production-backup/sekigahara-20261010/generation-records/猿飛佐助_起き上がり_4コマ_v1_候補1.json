@@ -1,0 +1,51 @@
+{
+  "name": "猿飛佐助_起き上がり_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\猿飛佐助_起き上がり_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1327e96e-ac1c-48ae-8499-249614ddb273.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "kind": "sprite_motion",
+  "char": "猿飛佐助",
+  "motion": "get up from back through side and one knee to ready stance",
+  "placements": [],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sourceNormalization": "Same scale from standing frame, cell-separated largest foreground components, bottom aligned at y240.",
+  "sha256": "4e2661a9082f701a2f1374a1ea865006e2234a4cbb438cbc28ad424e9cf4675a",
+  "visualApproved": true,
+  "visualReview": "Four distinct consecutive poses, charcoal outfit and red chest mark, belt knives, sheath/sword preserved, right facing; matches reference idle. Natural pose height changes preserve anatomy.",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの56%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    23899,
+    25030,
+    28677,
+    32368
+  ],
+  "gitVerified": true,
+  "gitCommit": "5aa2b5cba82e15f52f89413f48877d9ce977a710",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "4e2661a9082f701a2f1374a1ea865006e2234a4cbb438cbc28ad424e9cf4675a",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "completedAt": "2026-10-08T06:32:45.961542+09:00",
+  "actualName": "猿飛佐助_起き上がり_4コマ_v1.png"
+}

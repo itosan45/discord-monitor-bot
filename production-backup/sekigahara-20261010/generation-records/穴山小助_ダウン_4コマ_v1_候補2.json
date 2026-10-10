@@ -1,0 +1,113 @@
+{
+  "name": "穴山小助_ダウン_4コマ_v1_候補2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\穴山小助_ダウン_4コマ_v1_候補2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4dc4e66e-2d97-4088-8d48-9059d02d9434.png",
+  "status": "rejected_height_check",
+  "scale": 0.42008196721311475,
+  "standingHeightSource": 488.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        54,
+        135,
+        513,
+        621
+      ],
+      "destination": [
+        31,
+        27,
+        193,
+        204
+      ],
+      "scale": 0.42008196721311475,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        500,
+        156,
+        1002,
+        497
+      ],
+      "destination": [
+        22,
+        70,
+        211,
+        143
+      ],
+      "scale": 0.42008196721311475,
+      "ground": 212,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 211
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1061,
+        345,
+        1569,
+        614
+      ],
+      "destination": [
+        21,
+        118,
+        213,
+        113
+      ],
+      "scale": 0.42008196721311475,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1604,
+        399,
+        2136,
+        624
+      ],
+      "destination": [
+        16,
+        131,
+        223,
+        95
+      ],
+      "scale": 0.42008196721311475,
+      "ground": 225,
+      "verticalOffset": -5,
+      "estimatedBodyGround": 223
+    }
+  ],
+  "sha256": "75839a614890a90cd336129aed4271c7b6bb84154a001c0011059c8146e1cf2a",
+  "backgroundSource": [
+    241,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "250,690,1250,1790",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "candidateNumber": 2,
+  "candidateCount": 4,
+  "attempts": 2,
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "checkResults": [
+    "30_check_strip.py: magenta/margins pass; median silhouette height 49% (NG).",
+    "The prone body geometry naturally reduced the silhouette proxy at the idle-matching anatomical scale; no OCR/GIF/delivery performed."
+  ],
+  "rejection": "Not delivered: the full yari and flag fit at uniform scale 0.420, but the prone poses made median total-silhouette height 49%, below the 55% automated floor. Targeted fourth candidate changed the impact leg silhouette while keeping the same body scale."
+}

@@ -1,0 +1,93 @@
+{
+  "name": "武田信玄_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-7c836446-d23c-40f2-9811-da5b8bf08a9d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_ダウン_4コマ_v2.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.4317718940936864,
+  "sourceBounds": [
+    [
+      144,
+      11,
+      553,
+      502
+    ],
+    [
+      892,
+      28,
+      1305,
+      500
+    ],
+    [
+      161,
+      538,
+      659,
+      958
+    ],
+    [
+      989,
+      571,
+      1367,
+      958
+    ]
+  ],
+  "placements": [
+    [
+      39,
+      18,
+      177,
+      212
+    ],
+    [
+      39,
+      26,
+      178,
+      204
+    ],
+    [
+      20,
+      49,
+      215,
+      181
+    ],
+    [
+      46,
+      63,
+      163,
+      167
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 72%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "463bc7badf2bc09d068743035d101d23d18e9275965b215c1b46d6c1dba94792",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames and idle comparison reviewed. Recoil, knee buckle, supporting hand fall, curled settled collapse clearly distinct. Targeted final-pose edit permits uniform scale with standing frame about212px high; no per-frame shrinking. Full horns, mane, attached banner, gunbai, sheathed sword, boots retained; pure magenta, no effects, grounded baseline. OCR empty.",
+  "gitVerified": true,
+  "gitCommit": "988c697802d23268f8f1b01a5d264bd75a6792a8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "463bc7badf2bc09d068743035d101d23d18e9275965b215c1b46d6c1dba94792",
+  "prompt": "Edit this four-frame Takeda Shingen knockdown atlas. Preserve TOP LEFT, TOP RIGHT, BOTTOM LEFT images pixel-identical. Change ONLY BOTTOM RIGHT fallen pose: tuck both knees tightly toward chest, shift feet inward to right near hips, compress horizontal pose to at most500 pixels width on this1536x1024 image, without changing head size or anatomy bone lengths. Keep same helmet redgold armor, mane, gunbai, sheathed sword, blackgold backbanner. Curve white mane close to neck and back instead of spreading horizontally to right. Head stillpointsRIGHT, fully downonrightside. Preserve fullbannerpole and horn. Same magenta, no effects. Everything else unchanged;4figures2x2.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:54:52.660213+09:00",
+  "motionCaution": "Latest11 calls for backward airborne throw, back landing and bounce. Delivered strip instead depicts grounded knee collapse and curled side fall. This mismatch was found in subsequent specification reread; do not represent full requested knockdown motion as verified."
+}

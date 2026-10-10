@@ -1,0 +1,100 @@
+{
+  "name": "織田信長_手ぶら_攻撃B_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-40bf8ddb-8684-41ba-b63c-d9e31e96090e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_手ぶら_攻撃B_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "qa_rejected",
+  "uniformScale": 0.463768115942029,
+  "sourceBounds": [
+    [
+      140,
+      13,
+      474,
+      382
+    ],
+    [
+      822,
+      13,
+      1170,
+      380
+    ],
+    [
+      1457,
+      13,
+      1833,
+      383
+    ],
+    [
+      78,
+      397,
+      561,
+      777
+    ],
+    [
+      822,
+      396,
+      1170,
+      774
+    ]
+  ],
+  "placements": [
+    [
+      50,
+      59,
+      155,
+      171
+    ],
+    [
+      47,
+      60,
+      161,
+      170
+    ],
+    [
+      41,
+      58,
+      174,
+      172
+    ],
+    [
+      16,
+      54,
+      224,
+      176
+    ],
+    [
+      47,
+      55,
+      161,
+      175
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "f89212054595c96c436431dea75325be662c498a855a971a23a8a41d37336fcf",
+  "visualApproved": false,
+  "deliveryBlocked": true,
+  "preservedCandidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\織田信長_手ぶら_攻撃B_5コマ_v2_候補2_体格不足_未納品.png",
+  "visualReview": "Paired-fist correction succeeded, but source frame4 spans483px; packing full cape, hands and deep lunge at16px margins requires uniform scale0.4638. Standing figures become170px tall versus idle roughly195px. Violates same-body-scale requirement; do not deliver. Preserve source and candidate, avoid repeated generation this round.",
+  "nextCorrection": "Future targeted edit only frame4: shorten lunge stance and let cape hang closer behind body. Preserve anatomy. Need maximum figure width <=400px at source to permit matching idle scale.",
+  "updatedAt": "2026-10-07T13:17:54.279337+09:00"
+}

@@ -1,0 +1,7 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-6764095c-2607-416c-83c4-14087f098bd1.png",
+  "prompt": "Edit this 4-frame ashigaru spearman combat idle strip for a 2D Sengoku action game. Exact same ONE spearman in all four cells: black jingasa hat, blue cloth clothing, black lacquer lamellar chest shoulder waist armor, arm guards shin guards, straw sandals, both hands holding ONE long steel yari diagonally forward-up. Maintain same body anatomy and design, strict right-facing profile, low bent-knee combat ready stance, NOT casual standing. Keep frames1-3 and their existing subtle breathing. Frame4 currently duplicates frame1: redraw frame4 with the last phase of exhalation, chest/shoulders a little lower by1-2px, a small cloth fold/waist cord sway and slightly eased elbows, while same hand grip and yari remain steady and feet stay planted at same ground. Frame4 should smoothly lead into frame1, all4 subtly different. Do not rotate the whole picture to fake breathing, use ribcage and shoulders. Exact same apparent character scale in every frame, standing equivalent205px within256px cells. One horizontal strip exactly4 equal square256x256 cells, entire1024x256, all full body and spear tips inside own cell with at least16px margins. Pure magenta RGB255,0,255 background, no shadows ground text numbers labels grid borders. No empty cells or neighbors visible. Keep all spear shaft and steel tip continuous, no extra limbs.",
+  "status": "candidate_pending_QA",
+  "attempt": 1,
+  "retries": 0
+}

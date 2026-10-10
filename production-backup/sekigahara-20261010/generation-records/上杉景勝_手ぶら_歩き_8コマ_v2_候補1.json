@@ -1,0 +1,145 @@
+{
+  "name": "上杉景勝_手ぶら_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-af8902c3-0133-43b5-b619-ea8e587eb01a.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_手ぶら_歩き_8コマ_v2.png",
+  "size": [
+    2048,
+    256
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.39626168224299063,
+  "sourceBounds": [
+    [
+      16,
+      89,
+      307,
+      624
+    ],
+    [
+      279,
+      89,
+      535,
+      619
+    ],
+    [
+      528,
+      89,
+      756,
+      624
+    ],
+    [
+      757,
+      89,
+      1037,
+      624
+    ],
+    [
+      1011,
+      89,
+      1267,
+      624
+    ],
+    [
+      1277,
+      89,
+      1529,
+      619
+    ],
+    [
+      1527,
+      89,
+      1757,
+      624
+    ],
+    [
+      1774,
+      89,
+      2065,
+      624
+    ]
+  ],
+  "placements": [
+    [
+      70,
+      18,
+      115,
+      212
+    ],
+    [
+      77,
+      20,
+      101,
+      210
+    ],
+    [
+      83,
+      18,
+      90,
+      212
+    ],
+    [
+      72,
+      18,
+      111,
+      212
+    ],
+    [
+      77,
+      18,
+      101,
+      212
+    ],
+    [
+      78,
+      20,
+      100,
+      210
+    ],
+    [
+      82,
+      18,
+      91,
+      212
+    ],
+    [
+      70,
+      18,
+      115,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "c0d9edcf45a4ddcfdee3db33ac402cceb471cb9706ff0b7958a00cb8874134db",
+  "visualApproved": true,
+  "visualReview": "All eight decoded frames after left-to-right source ordering correction reviewed; idle anatomy comparison reviewed. Navy silver armor, golden crest, banner/pole, empty fist guard retained; no weapon/effects/clipping/neighbors. Steps show heel lift, feet passing, forward swing, grounded support. Near/far knee occlusion reversal at1/5 not clear; combat crouch shallow and banner-inclusive normalized anatomy slightly smaller than idle. OCR fragments correspond to banner/armor. Do not claim full latest11 gait verified.",
+  "motionCaution": "Near/far leg exchange at1/5 weak; shallow crouch; slight idle scale difference.",
+  "gitVerified": true,
+  "gitCommit": "267baef1a46cd50eef972ad61e0cfe05aa1699b0",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c0d9edcf45a4ddcfdee3db33ac402cceb471cb9706ff0b7958a00cb8874134db",
+  "prompt": "EIGHT chronological RIGHT-facing Uesugi Kagekatsu UNARMED COMBAT WALK frames fullbody. Exact ref1 navyblack silverornatearmor navycape golden crescentkabuto paleheadties thinmustachegoatee sternface. REQUIRED navy white 毘 backbanner and fullpole EVERYframe, do notomit. Ref2 anatomicalscaleonly. NOkatana/scabbard/stick/weapon; rightEMPTYfistforward leftEMPTYfistwaist heldstable. Kneesalwaysbent lowhips slightforwardlean, combatadvance not strolling. Walking cycle:1 anatomicalRIGHT NEAR foot frontheelcontact, LEFT FAR footrear toe.2 weightontoNEARright, FARleftrearheelrises.3 FARleft knee PASSES inFRONT of plantedNEARright underhip, feettogether.4 FARleft footswingsahead, NEARrightsupportsrear.5 FARleftfrontheelcontact NEARrightrear toe: reverselegorderfrom1; knee/shin plates overlap MUSTreverse.6 weightontoFARleft NEARrightrearheelrises.7 NEARrightkneepassesinFRONT of plantedFARleft, feettogether.8 NEARrightswingsahead into1. Bothboottoesright, atleastonefootgrounded EVERYframe, bodybobsminimally, feetvisiblebelowcoat. Stablefistguard. SAME head/torso/limb dimensions allframes; matchref2 anatomy205px standingheight, ground230px per256cell. Compactstride/capeclosebody; fullcrest/flag/pole/feet inside16pxmargin. NOeffect/light/glow/slash/speedline/shadow/UI/text exceptbannerinscription. Pureflat #FF00FF. Intermediate4x2atlas8separatefigures chronologicalrowmajor, equalsquarecells largegutters NOgrid. Final2048x256 horizontal8cells.",
+  "ocrSuccess": true,
+  "ocrText": "上 、 」 い",
+  "updatedAt": "2026-10-07T14:15:15.724049+09:00"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "敵_足軽槍_やられ_4コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-35be9968-96f0-4fd8-ba4a-c94e987c9f26.png",
+  "prompt": "Use attached four-frame idle as exact enemy character model, ONE identical blue cloth black-lacquer-armored ashigaru with iron cone hat, shoulders armor, darkgreaves,strawsandals. Strict right-facing side profile, painted anime-realistic detailed arcade sprite. Generate ONLY ONE horizontal strip of 4 equally spaced SQUARE cells; each cell ONE full character, no contact sheet. Motion: 1standing recoils losing strength,2knees buckle and drops spear,3falls backward curled,4lies motionless on back bent legs keeping anatomical body sizes unchanged. Dropped spear remains complete within each own cell. No gore. First frame gives standing scale anchor: helmettop-to-sole205px of256height; same anatomical head/torso/limbs across all frames, crouches and lying bodies NOT smaller. Weapons/effects must fit by compact posing not character shrink. Feet/lowestbodypoint ground230px. Full hat, weapon, clothes, body inside owncell with generous margins and gaps, no neighboring overlap. EXACT solid flat pure#FF00FF background, no groundshadow/gradient/text/captions/grid/borders. No other enemy.",
+  "status": "candidate_pending_QA"
+}

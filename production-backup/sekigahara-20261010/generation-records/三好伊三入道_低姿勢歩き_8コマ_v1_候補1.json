@@ -1,0 +1,214 @@
+{
+  "name": "三好伊三入道_低姿勢歩き_8コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_低姿勢歩き_8コマ_v1_候補1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f87ce675-0ab9-46a5-942b-aeddea632df8.png",
+  "status": "rejected_motion",
+  "scale": 0.3474576271186441,
+  "standingHeightSource": 590.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        19,
+        148,
+        239,
+        574
+      ],
+      "destination": [
+        90,
+        83,
+        76,
+        148
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        267,
+        153,
+        523,
+        575
+      ],
+      "destination": [
+        83,
+        84,
+        89,
+        147
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        545,
+        155,
+        778,
+        575
+      ],
+      "destination": [
+        87,
+        85,
+        81,
+        146
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        787,
+        158,
+        1040,
+        575
+      ],
+      "destination": [
+        84,
+        86,
+        88,
+        145
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1073,
+        156,
+        1327,
+        575
+      ],
+      "destination": [
+        84,
+        85,
+        88,
+        146
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1360,
+        155,
+        1597,
+        575
+      ],
+      "destination": [
+        87,
+        85,
+        82,
+        146
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1621,
+        157,
+        1872,
+        574
+      ],
+      "destination": [
+        84,
+        86,
+        87,
+        145
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1903,
+        148,
+        2137,
+        575
+      ],
+      "destination": [
+        87,
+        83,
+        81,
+        148
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "4e3f6d7dc04a9cf648c60287b9db6c42d5f7e4271e9be4f0d452f3d9260ef960",
+  "backgroundSource": [
+    239,
+    23,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": "129,395,661,914,1200,1479,1747,2020",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 91%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの57%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    7925,
+    7853,
+    7994,
+    7612,
+    7316,
+    7447,
+    7373,
+    6968
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_低姿勢歩き_8コマ_v1_候補1_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 8,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_低姿勢歩き_8コマ_v1_候補1_GIF復号確認.png"
+  },
+  "qaResult": "30_check_strip PASS: magenta 91%, median figure height 57%, shared ground and 16px margins. GIF8/80ms decoded.",
+  "visualReview": "Eight visible frames, but the torso remains almost upright and gait amplitude is too small for the required low-stance walk; the animation reads as a repeated restrained walk. Do not deliver.",
+  "noRegeneration": "Do not immediately regenerate this motion; move to another character/task.",
+  "finalizedAt": "2026-10-08T12:00:00+09:00"
+}

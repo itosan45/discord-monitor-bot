@@ -1,0 +1,144 @@
+{
+  "name": "徳川家康_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-70d2482f-7b21-4b1b-be94-842932768741.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\徳川家康_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.6630669546436285,
+  "sourceBounds": [
+    [
+      37,
+      19,
+      345,
+      471
+    ],
+    [
+      420,
+      22,
+      727,
+      465
+    ],
+    [
+      802,
+      22,
+      1078,
+      468
+    ],
+    [
+      1184,
+      23,
+      1508,
+      468
+    ],
+    [
+      31,
+      518,
+      349,
+      970
+    ],
+    [
+      406,
+      514,
+      685,
+      977
+    ],
+    [
+      769,
+      511,
+      1093,
+      973
+    ],
+    [
+      1154,
+      513,
+      1507,
+      975
+    ]
+  ],
+  "placements": [
+    [
+      90,
+      46,
+      204,
+      300
+    ],
+    [
+      90,
+      52,
+      204,
+      294
+    ],
+    [
+      100,
+      50,
+      183,
+      296
+    ],
+    [
+      84,
+      51,
+      215,
+      295
+    ],
+    [
+      86,
+      46,
+      211,
+      300
+    ],
+    [
+      99,
+      39,
+      185,
+      307
+    ],
+    [
+      84,
+      40,
+      215,
+      306
+    ],
+    [
+      75,
+      40,
+      234,
+      306
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "de5c983a6aa7f3e8d400d802f32708aa1223e4c3141077858afe16ddc04208fc",
+  "visualApproved": true,
+  "visualReview": "GIF復号後に8コマを目視し、待機絵・設定画と比較。黒金甲冑・紫金の陣羽織・兜・刀を保持し、右向き、純マゼンタ背景、セル分離、人物の欠けなし。支持脚が入れ替わり歩行の段階差を確認。OCRは空。既存待機絵の人物尺度は現行ボス規格の約307px高より小さく見えるため、旧待機との尺度互換は要注意。規格準拠の候補として納品。",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gitVerified": true,
+  "gitCommit": "2cdb74dd653a92d16c2bc5a7ee8abf6c1f66d18b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "de5c983a6aa7f3e8d400d802f32708aa1223e4c3141077858afe16ddc04208fc",
+  "prompt": "Create one 4-column by 2-row sprite atlas showing eight consecutive full-body right-facing combat-walk poses of the exact Tokugawa Ieyasu from the supplied references. Preserve the existing black and gold armor, purple-and-gold mantle, exact helmet, face, crest and katana. The setting image is authoritative for design; the waiting sprite is authoritative for game rendering style. Use a perfectly flat #FF00FF pure magenta background. Each pose is isolated in an evenly spaced invisible cell; no borders, grid lines, labels, letters, numbers, shadows, scenery, attacks, effects or motion streaks. Keep the same anatomy, colors, outfit, katana and body size. Show a grounded combat-advance cycle: frame 1 right-foot-forward contact; frame 2 weight transfer; frame 3 left foot passing; frame 4 left foot swinging forward; frame 5 opposite contact with left foot forward and right foot behind; frame 6 weight transfer; frame 7 right foot passing; frame 8 right foot swinging forward into frame 1. Make frame 1 and frame 5 support legs visibly alternate. Keep torso and katana guard steady. Keep all of Ieyasu, helmet, mantle and katana inside each cell, with clear gaps between neighboring figures.",
+  "updatedAt": "2026-10-08T05:46:16.330254+09:00"
+}

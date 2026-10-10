@@ -1,0 +1,94 @@
+{
+  "name": "宮本武蔵_鎖鎌_分銅旋回_4コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-b958b5c5-1839-44fa-9e5b-a80bbdbc11aa.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_鎖鎌_分銅旋回_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.3831417624521073,
+  "sourceBounds": [
+    [
+      76,
+      163,
+      435,
+      684
+    ],
+    [
+      568,
+      162,
+      936,
+      684
+    ],
+    [
+      1066,
+      163,
+      1424,
+      684
+    ],
+    [
+      1561,
+      163,
+      1920,
+      684
+    ]
+  ],
+  "placements": [
+    [
+      59,
+      30,
+      138,
+      200
+    ],
+    [
+      57,
+      30,
+      141,
+      200
+    ],
+    [
+      59,
+      30,
+      137,
+      200
+    ],
+    [
+      59,
+      30,
+      138,
+      200
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "d5d355040c20fd8cc2f06d818ef5aad7103a7aea45db4ad7ccddfa1b9cda8812",
+  "prompt": "Exact Musashi tattered gray robe bare muscular arm white headband. Four clockwise weight phases above-right-below-left. Add missing slack chain from sickle handle butt to chest fist. Two connected arms, fixed planted lower body, pure magenta no effects.",
+  "char": "宮本武蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全4GIF復号フレームと待機縮尺を比較。顔・髪・白鉢巻・灰色破れ衣・素腕保持、二本腕、右向き接地枠内、鎌柄尻と手元の鎖を確認。分銅上下左右一周。注意: 半径変動と胸前の重なり、移動合成と投擲以降未完。",
+  "gitVerified": true,
+  "gitCommit": "b5e466b5360eb685f30088475cb61b3b7686ab95",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "d5d355040c20fd8cc2f06d818ef5aad7103a7aea45db4ad7ccddfa1b9cda8812",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:20:22.687211+09:00"
+}

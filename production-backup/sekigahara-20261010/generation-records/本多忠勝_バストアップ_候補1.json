@@ -1,0 +1,72 @@
+{
+  "name": "本多忠勝_バストアップ.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-90474565-12f0-4d23-b1d4-4d4739bd0072.png",
+  "sourceSha256": "2bde39315f7519700a0ee993919376845f1a5b764eb5d7a739706960394687aa",
+  "referencePath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\本多忠勝_設定画.png",
+  "prompt": "Use case: stylized-concept\nAsset type: 512x512 in-game boss bust portrait for Sekigahara Ranbu.\nPrimary request: Draw one fierce, slightly-right-facing head-and-shoulders portrait of Honda Tadakatsu, matching the attached character sheet exactly.\nSubject: Preserve his powerful mature face, enormous branching gold-antler kabuto, black-and-gold heavy armor, dark cloak, and round gold chest ornaments. Frame the full antler tips, face, shoulders, and upper chest.\nStyle/medium: Painted anime-realistic Japanese action-game portrait, crisp dark outlines, rich metal and lacquer detail, dramatic lighting with a clearly readable face.\nComposition/framing: One person, centered bust, with visible pure-magenta margin around the full helmet and both shoulder ends.\nScene/backdrop: Exactly flat pure RGB(255,0,255) / #FF00FF.\nConstraints: Keep his identity, armor, antlers, and palette faithful to the reference. His weapon is a long spear; it may stay outside this head-and-shoulders crop.\nAvoid: Text, letters, numbers, labels, UI, border, scenery, extra people, cropped antler tips or shoulders, gradients, background shadow, watermark.",
+  "status": "git_verified",
+  "candidateStatus": "git_verified",
+  "createdAt": "2026-10-07",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\本多忠勝_バストアップ.png",
+  "normalizedSha256": "4068afdc5566da9e80b01b2ef6d072a9d1e5193ef9ee67434f4d1be888a43285",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "pureMagentaRatio": 0.4397,
+  "visibleBBox": [
+    0,
+    2,
+    512,
+    512
+  ],
+  "visibleMargins": [
+    0,
+    2,
+    0,
+    0
+  ],
+  "automaticCheck": {
+    "dimension": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "exactMagentaRatio": 0.4422,
+    "visibleBBox": [
+      0,
+      2,
+      512,
+      512
+    ],
+    "visibleMargins": [
+      0,
+      2,
+      0,
+      0
+    ],
+    "result": "PASS for base UI bust portrait; bust crop intentionally fills canvas."
+  },
+  "note": "One candidate only. No regeneration; preserve this source and record any QA caution.",
+  "normalizedPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_base_boss_portraits_candidate1_bgclean\\本多忠勝_バストアップ.png",
+  "backgroundNormalization": "Flood-filled only border-connected near-magenta background to exact #FF00FF, then uniform 512x512 Lanczos resize; no subject-component edits and no recrop.",
+  "qaResult": "OK",
+  "visualReview": "黒金の重装・大鹿角兜・数珠飾り・顔の判読性を確認。頭部装飾と肩は胸上構図の端近く。 6枚の512x512一覧で衣装・顔・向き・背景・フレーム境界を目視。追加候補なし。",
+  "ocrReview": "Windows PowerShell 5.1 native OCR succeeded; no text detected.",
+  "attempts": 1,
+  "gitVerified": true,
+  "sha256": "4068afdc5566da9e80b01b2ef6d072a9d1e5193ef9ee67434f4d1be888a43285",
+  "gitSha256": "4068afdc5566da9e80b01b2ef6d072a9d1e5193ef9ee67434f4d1be888a43285",
+  "gitVerifiedAt": "2026-10-07T12:00:36+09:00",
+  "gitCommit": "6399176643864b97c1a7e297eda78f5eeebe6fb8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "78da2a1ef68240d104e0d2a97b8f4e0abcedba3b",
+  "gitBytes": 367530,
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T12:00:36+09:00",
+  "qaRepairPending": false
+}

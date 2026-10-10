@@ -1,0 +1,14 @@
+{
+  "name": "織田信長_手ぶら_歩き_8コマ_v2.png",
+  "char": "織田信長",
+  "kind": "sprite_motion",
+  "candidate": 2,
+  "status": "rejected_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-9d6cc3fe-a899-4a63-b9c2-4af019488108.png",
+  "candidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261008_oda_unarmed_walk\\candidate-02.png",
+  "prompt": "Edit candidate 1 to preserve design and change only legs; explicitly invert right/left contact poses in frames 1 and 5 and animate transitions.",
+  "automaticPass": true,
+  "visualApproved": false,
+  "qaResult": "NG",
+  "reason": "One corrective generation still failed explicit support-leg exchange; frames 1/5 lower-body silhouette IoU remained 0.925."
+}

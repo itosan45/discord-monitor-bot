@@ -1,0 +1,37 @@
+{
+  "name": "猿飛佐助_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f1d9fcf5-93d9-441c-ae04-a5d71f1490f1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\猿飛佐助_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    23,
+    12,
+    1513,
+    963
+  ],
+  "placement": [
+    66,
+    64
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "45b29ee38d7199568fcfb5b37cd6f4060c657467b6c1b5e1474b6a87574332e1",
+  "updatedAt": "2026-10-07T14:46:01.588906+09:00",
+  "prompt": "Original game character reference sheet SARUTOBI SASUKE for Sekigahara Sengoku action game, practical realistic ninja, grittypainted anime-realistic crisp outlines same highdetail Sengoku game art. THREE fullbody views same man front, RIGHT-facing side, back, aligned same size/ground. Lean athletic Japanese man late20s sharpalertface, short blackhair tied compacttopknot, narrow charcoalheadwrap forehead but FACE uncovered, darkcharcoal practical fitted cloth shinobi jacket and loosepants, worn brown leather forearmguards and clothshinwraps, splittoe dark tabi and warajisandals. Small mutedcrimson Sanada sixcoin badge on upperchest: six plain circles2rows3. Compact brownutilitybelt two smallpouches, 3normalsteel throwingknives in belt loops, realistic40cmshortsword in right hand angled down and held closebody, simpleblackscabbard atlefthip. Noarmorhelmet/banner/cape/magic/oversizedweapons. Same face, hairstyle, outfit and equipment all3views, anatomicallycredible7headtall. Calm lowguardslightlybentknees. Allheads/weapons/feet fully inside generous margins with magentagaps betweenfigures. Pureflat #FF00FF background no shadows/effects/text/UI/grid. Landscape1536x1024 PNG. This is originalgamecostume NOT a copy of existing fictionalwork.",
+  "char": "猿飛佐助",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "OK",
+  "visualReview": "Three views reviewed: same charcoal practical shinobi outfit, compact topknot/headwrap, exposed face, red sixcoin2x3 badge, leather guards, utility pouches, three belt throwing knives, short sword right hand and left-hip scabbard. Right side profile, full weapons/head/feet, magenta margins, consistent proportions and no effects/text. Original game design per26.",
+  "gitVerified": true,
+  "gitCommit": "ae916f3ae9602545721dbf836723d141c87e193e",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "45b29ee38d7199568fcfb5b37cd6f4060c657467b6c1b5e1474b6a87574332e1",
+  "ocrSuccess": true,
+  "ocrText": ""
+}

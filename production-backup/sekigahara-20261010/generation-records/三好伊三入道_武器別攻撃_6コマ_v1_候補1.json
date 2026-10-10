@@ -1,0 +1,52 @@
+{
+  "name": "三好伊三入道_武器別攻撃_6コマ_v1.png",
+  "char": "三好伊三入道",
+  "kind": "ten_braves_sprite_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-91d002ca-b883-413a-b775-acfdb01b5f85.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\三好伊三入道_武器別攻撃_6コマ_v1_候補1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "uniformScale": 0.449,
+  "sourceBands": [
+    [
+      0,
+      240
+    ],
+    [
+      240,
+      600
+    ],
+    [
+      600,
+      960
+    ],
+    [
+      960,
+      1450
+    ],
+    [
+      1450,
+      1950
+    ],
+    [
+      1950,
+      2172
+    ]
+  ],
+  "status": "rejected",
+  "qaResult": "visual_reject_detached_staff_fragments",
+  "visualReview": "両手持ち木棍の6コマ攻撃。30_check_stripはPASSしたが、4/5コマ目で棒が手から分断され、コマ境界付近に独立した浮遊断片として表示される。武器連続性が壊れゲーム素材として不採用。再生成を連続させず別素材へ進む。",
+  "checkResults": [
+    "30_check_strip.py: PASS; pure magenta 84%; median sprite height 78%; margins and baseline pass.",
+    "OCR and GIF acceptance not performed because visual weapon-continuity failure already rejects the candidate."
+  ],
+  "gitVerified": false,
+  "noRegeneration": "同一攻撃の連続再生成を避ける。",
+  "updatedAt": "2026-10-08T10:10:00+09:00"
+}

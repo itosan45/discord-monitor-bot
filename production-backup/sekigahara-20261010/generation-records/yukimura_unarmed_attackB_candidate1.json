@@ -1,0 +1,258 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-7b7a6afb-7360-4579-8935-519cead62b7b.png",
+  "sourceSha256": "912ae68234ff207ba919b8b304b38b435e5a9af8931c2ab108977ebc5dc8bc72",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: Yukimura unarmed 攻撃B; five cells and ordered attack phases are described in visualReview and the 2026-10-07 production prompt. References: setting sheet and unarmed idle strip. Empty fists only, no weapon or banner.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/真田幸村_設定画.png",
+    "assets/sprites/真田幸村_手ぶら_待機_4コマ_v2.png"
+  ],
+  "requestedName": "真田幸村_手ぶら_攻撃B_5コマ_v2.png",
+  "actualName": "真田幸村_手ぶら_攻撃B_5コマ_v2_candidate1-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_手ぶら_攻撃B_5コマ_v2_candidate1-normalized.png",
+  "sha256": "fd73c415c5eeb9b5e370c1241c9ac95a92ac6c0fda7808c271aac8b6dbc0e657",
+  "n": 5,
+  "cell": 256,
+  "outputDimensions": [
+    1280,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellWidths": [
+      434,
+      435,
+      434,
+      435,
+      434
+    ],
+    "sourceCropY": [
+      32,
+      656
+    ],
+    "commonScale": 0.41025641025641024,
+    "finalSize": [
+      1280,
+      256
+    ],
+    "description": "Uniform scale per cell, centered. Background keyed to exact RGB(255,0,255). 構え→両拳を引く→前へ突き出す→完全伸展→構えへ戻る。frame5外側の分離生成ノイズ1点を背景化。"
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        48,
+        54,
+        195,
+        230
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 48,
+        "right": 61,
+        "top": 54
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        47,
+        54,
+        193,
+        230
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 47,
+        "right": 63,
+        "top": 54
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        41,
+        58,
+        201,
+        230
+      ],
+      "heightPx": 171,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 41,
+        "right": 55,
+        "top": 58
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        40,
+        57,
+        217,
+        230
+      ],
+      "heightPx": 172,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 40,
+        "right": 39,
+        "top": 57
+      }
+    },
+    {
+      "frame": 5,
+      "bbox": [
+        54,
+        54,
+        200,
+        230
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 54,
+        "right": 56,
+        "top": 54
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    12929,
+    14231,
+    15196,
+    15960
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_attackBC_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_attackBC_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。復号した全コマでも字幕・文字・記号なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_attackBC_candidate1\\attackB-80ms.gif",
+    "frameCount": 5,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "5d9e91bcfeb5853fa9d543b6aa8a5ef3452bc20c05d46c4f99d4309c5038277d",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_attackBC_candidate1\\attackB-gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "構え→両拳を引く→前へ突き出す→完全伸展→構えへ戻る。frame5外側の分離生成ノイズ1点を背景化。 幸村の赤備え・鹿角兜・右向き・素手の拳、全身・縮尺・接地、コマ間の連続性を復号コンタクトシートで目視確認。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "framePlacementReview": [
+    {
+      "frame": 1,
+      "bbox": [
+        48,
+        54,
+        195,
+        230
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 48,
+        "right": 61,
+        "top": 54
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        47,
+        54,
+        193,
+        230
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 47,
+        "right": 63,
+        "top": 54
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        41,
+        58,
+        201,
+        230
+      ],
+      "heightPx": 171,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 41,
+        "right": 55,
+        "top": 58
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        40,
+        57,
+        217,
+        230
+      ],
+      "heightPx": 172,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 40,
+        "right": 39,
+        "top": 57
+      }
+    },
+    {
+      "frame": 5,
+      "bbox": [
+        54,
+        54,
+        200,
+        230
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 54,
+        "right": 56,
+        "top": 54
+      }
+    }
+  ],
+  "gitCommit": "d21aadf66efbb3d221c0cfa00136000509db017d",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "ad781fcaf536114b87c57ad4eab3efbe4156c42f",
+  "remoteSha256": "fd73c415c5eeb9b5e370c1241c9ac95a92ac6c0fda7808c271aac8b6dbc0e657",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 163409,
+  "completedAt": "2026-10-07T09:59:31+09:00"
+}

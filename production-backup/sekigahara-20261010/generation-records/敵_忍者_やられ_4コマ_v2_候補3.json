@@ -1,0 +1,7 @@
+{
+  "name": "敵_忍者_やられ_4コマ_v2.png",
+  "attempt": 3,
+  "prompt": "Repair4frame ninja death, NObody/headscaling. Exactrequiredpixels source2172x724: inFRAME3and4 BODYgroundisY520 butSWORDbottomcurrentlyY561. Redrawdroppedblade3/4 UP41rawpx: swordbottomY520andtopsY509, fullyvisiblehorizontalnearhands atSAMEgroundasbody. NOTatY550/561. Frame2swordbottomY536 (kneeground). Blade200rawlengthsame. Compactlying3/4width: bendkneesMORE tobringfeettowardhipsby50rawpx, keepthigh/tibia SAMEbone length, foldscarfclosehead. Fulllyingwidth≤475rawwithoutshrinkingchar. Frame3FOREARM-support raisesupperbody (head/chest) to40degreesaboveground, HEADRIGHTSIDEprofileclosedeyes noseRIGHT towardsfeet, notnoseLEFT. Frame4foldedSIDELYINGsamebodyheadsLEFTfeetRIGHT closedeyesRIGHTprofile, noSUPINE. 1stagger2drop3fall4motionless all2arms2legs. AllbootsRIGHTheelLEFTtoeRIGHT. Fourequalcellsrow16marginopaque#FF00FF no textgridfloorborder/shadow.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-0b49855c-2c5d-4e28-a1d9-236b92381fd8.png",
+  "status": "generated"
+}

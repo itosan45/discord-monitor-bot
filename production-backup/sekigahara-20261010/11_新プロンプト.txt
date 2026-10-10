@@ -1,0 +1,174 @@
+﻿【新セッション用】画像生成プロンプト集（前提知識なしで使える版）
+作成: Claude／2026-10-06
+先に「10_【新セッション用】依頼文」を読んでください。規格（サイズ、背景、縮尺など）と、作業の流れは、そちらに書いてあります。
+
+
+────────────────────────
+■ 0. プロンプトの組み立て方
+────────────────────────
+画像を1枚作るときの完成プロンプト ＝ [S 共通スタイル] ＋ [C キャラの記述] ＋ [M 動きの定義] ＋ [R レイアウト指示]
+・[C] と [M] は、このドキュメントの該当部分をそのまま貼る。{N}（コマ数）、{CELL}（256 または 384）、{W}（画像の幅 = コマ数 × セル）、{動き名}、{名前} は、実際の値に置き換える。
+・毎回、そのキャラの設定画（Driveの「{名前}_設定画.png」）を、参照画像として添付する。敵は「敵兵_8種設定シート.png」を添付する。
+・プロンプトは英語のまま使う（画像生成の精度が上がるため）。ファイル名と、報告は日本語。
+・最後に「■ 6. 組み立て例」に、完成形を1つ載せています。
+
+
+────────────────────────
+■ 1. [S] 共通スタイル（全プロンプトの先頭）
+────────────────────────
+Style: 2D side-view Japanese Sengoku-era beat-'em-up game character, in the spirit of 1990s arcade brawlers but with high detail and realistic proportions (about 7 heads tall). Painted anime-realistic rendering with a crisp dark outline, cel-shaded with strong rim light. Rich armor detail: kozane scale lacing, lacquer sheen, silk cords, cloth folds. Full body, facing RIGHT, strict side view (profile, very slight three-quarter), no perspective distortion.
+
+
+────────────────────────
+■ 2. [R] レイアウト指示（全プロンプトの末尾）
+────────────────────────
+Using the attached reference image, keep EXACTLY the same character design, proportions, colors and line style in every frame.
+Layout: ONE horizontal sprite strip with exactly {N} frames. Each frame is an equal square cell of {CELL}x{CELL} px, so the whole image is exactly {W}x{CELL} px. No gaps and no borders between cells. In every cell: one full-body character, centered horizontally, the soles of the feet (or the horse's hooves) on the same ground line at 90% of the cell height, and the standing height about 80% of the cell height (the same scale in every cell and the same scale as the standing pose in the reference). A crouching, lunging, jumping or falling pose must NOT make the character smaller: the head, torso and legs keep the same size in every frame. Special effects (flames, lightning, slash trails) must not shrink the character; keep them inside the cell. Keep at least 16 px of empty margin between any part of the drawing and the cell edges (top, left, right). Nothing may cross into a neighboring cell, and no part of a neighboring pose may be visible. Every frame differs only slightly from its neighbours so the motion looks smooth and continuous at about 12 frames per second.
+Background: exactly flat pure magenta RGB(255,0,255) / #FF00FF everywhere, with no gradient, no purple or gray tint, no vignette, no noise, no ground, no cast shadow.
+Do NOT draw any text, letters, numbers, labels, captions, borders, frame lines, grid lines or cell outlines. No empty cells. ONE character and ONE motion only. The character faces RIGHT in strict side view in every frame.
+（数値の目安: セル256のとき 立ち姿の高さ約205px、足元 y=230。セル384のとき 立ち姿の高さ約307px、足元 y=346。）
+
+
+────────────────────────
+■ 3. [C] キャラの記述
+────────────────────────
+【主人公】
+[C-幸村] Sanada Yukimura: a lean, agile samurai in his 40s with sharp determined eyes and light stubble. Full crimson-red lacquered "Akazonae" armor with kozane scale lacing, a red kabuto helmet with a golden deer-antler crest and a white headband, long tattered red scarf/cloth streaming behind him, a six-coin (rokumonsen) crest on the chest, a red sashimono banner on his back with six gold coins, a white sash, brown hakama, red greaves, straw sandals. Weapon: a jumonji-yari (cross-shaped spear) with a red tassel. Palette: crimson, gold, dark brown, ivory.
+[C-景勝] Uesugi Kagekatsu: a stern, quiet samurai lord in his 40s with calm cold eyes. Deep indigo-black armor with silver trim, a kabuto with a golden crescent-moon crest and a white headband, a long dark navy cape, a katana with a faint pale-blue glow, a dark navy sashimono banner on his back with the white character "毘" (Bishamonten). Palette: indigo, black, silver, pale blue.
+[C-三成] Ishida Mitsunari: a slim, intelligent, serious samurai strategist in his 40s with a sharp face. Light green-gray armor under a purple haori coat with gold trim, a kabuto with a large golden folding-fan-shaped crest, a purple cloth tail from the helmet, a matchlock gun (hinawa-ju) in the right hand as the main weapon and an iron war fan (tessen) in the left hand as the sub weapon, a cream sashimono banner on his back reading "大一大万大吉" vertically. Palette: purple, sage green, gold, cream.
+[C-信長] Oda Nobunaga, the "Demon King of the Sixth Heaven": a charismatic samurai in his 40s with sharp narrow eyes, a thin mustache and goatee, an arrogant half-smile. Black lacquered armor with crimson lacing and gold trim, a European-style nanban-do chest plate, a black kabuto with a gold arc crest, a short crimson cape, a katana at the waist and a matchlock arquebus in the hands, a black sashimono banner reading "天下布武" in white vertically. Palette: black, crimson, gold, white.
+[C-信玄] Takeda Shingen, the "Tiger of Kai": a broad, powerful samurai in his early 50s with heavy brows. Dark crimson-brown armor with gold trim, a Suwa-hosshou kabuto with a long flowing white yak-hair mane and two gold horn-shaped crests, a large war fan (gunbai) with a red sun disc in the hand, a short katana at the waist, a black sashimono banner with the gold characters "風林火山" vertically, a gold tiger pattern on the coat. Palette: crimson-brown, gold, white, black.
+[C-武蔵] Miyamoto Musashi: a wandering swordsman in his 30s, rough long black hair loosely tied, a white headband (hachimaki) whose tails flow behind, stubble, intense eyes. NO armor: a worn gray-brown kimono with the right sleeve off, light cloth leg wraps, dark straw sandals, wielding two katanas at once (nito-ichiryu: a long sword in the right hand, a shorter sword in the left hand). Palette: charcoal, ash gray, off-white, steel.
+【ボス】（すべて、通常の兵士の約1.4倍の大きさで、威圧感のある体格）
+[C-直政] Ii Naomasa: entirely blood-red lacquered armor (the Ii clan "Akazonae") with gold trim, a red kabuto with a fierce oni (demon) horned crest, a fearsome red-tinged face, a dark maroon cape, a huge odachi (extra-long greatsword). Palette: crimson, dark maroon, gold, black.
+[C-忠勝] Honda Tadakatsu: black lacquered armor with gold trim and a huge rosary around the neck, a kabuto with giant golden deer antlers, a dark cloak, the legendary long spear Tonbogiri (very long, glinting blade). Palette: black, charcoal, gold.
+[C-家康] Tokugawa Ieyasu: black lacquered armor with gold trim, a shogun-style kabuto with a golden crest, a long deep-purple cloak, a heavy middle-aged build with a calm cunning expression, a golden-hilted sword. Palette: black, gold, deep purple, ivory.
+[C-義光] Mogami Yoshiaki: dark green-gray armor with silver trim, an iron helmet, a stern scarred face, a huge spiked iron club (kanabo) in both hands. Palette: dark green, gunmetal, silver.
+[C-秀秋] Kobayakawa Hideaki: deep teal-green armor with gold trim, a tall kabuto, a dark green cape, a nervous shifty young face, a golden-hilted sword. Palette: teal green, gold, dark green.
+[C-秀忠] Tokugawa Hidetada: navy-blue armor with gold trim, a kabuto with large horns, a dark blue cape, a serious earnest expression, a katana. Palette: navy blue, gold, steel.
+[C-長政] Kuroda Nagamasa: dark indigo armor with ivory trim, a kabuto with large horns, a deep navy cape, a huge odachi (extra-long greatsword). Palette: indigo, ivory, navy.
+[C-正則] Fukushima Masanori: brown-bronze armor with gold trim, a kabuto with large horns, a rust-brown cape, a thick-necked brawny build with a fierce roaring expression, a long naginata (glaive). Palette: bronze, brown, gold.
+【敵兵】（参照画像: 敵兵_8種設定シート.png。シートの中の、指定した番号の1体だけを描く。青い胴・黒い鎧・笠・青い房飾りの色を変えない）
+[C-足軽槍]（シートの1番）An ashigaru spearman: a conical black jingasa hat, dark gray-black lamellar armor over a blue tunic and indigo hakama, shin guards, straw sandals, a long yari spear with a straight steel blade. Muted earth colors with blue accents.
+[C-足軽刀]（2番）An ashigaru swordsman: the same look (jingasa hat, black armor over a blue tunic), a katana. Muted earth colors with blue accents.
+[C-弓足軽]（3番）An ashigaru archer: the same look, a quiver of arrows on the back, a yumi (long bow). Muted earth colors with blue accents.
+[C-鉄砲足軽]（4番）An ashigaru arquebusier: the same look, a long-barreled matchlock gun. Muted earth colors with blue accents.
+[C-騎馬武者]（5番）A mounted samurai officer on a brown horse: a kabuto with a golden horn-shaped crest, a blue cloak, dark armor, a naginata; the horse has a blue tasseled caparison and a gold-trimmed saddle cloth.
+[C-忍者]（6番）A black-clad ninja: a hood and face mask, a flowing scarf, a short sword (ninjato), low crouching posture.
+[C-騎馬兵]（7番）A cavalryman on a brown horse: a jingasa hat, a blue-gray tunic with dark armor, a long lance; the horse has a blue tasseled caparison.
+[C-騎馬弓兵]（8番）A horse archer on a brown horse: a helmet with a small plume, a blue tunic, a bow and a quiver; the horse has white-socked legs and a blue caparison.
+
+
+────────────────────────
+■ 4. [M] 動きの定義
+────────────────────────
+■ 4-1. 歩き（構え移動）8コマ — 主人公・敵兵・ボス共通
+戦場なので、腕を振る普通の歩きではなく、武器を構えたまま、低い姿勢で前に進みます。足は左右交互に出ます。
+[M-歩き] Task: draw an 8-frame "combat advance" walk cycle: the character moves to the RIGHT while staying in a low, ready combat stance, the weapon held ready the whole time (do not swing the arms like an ordinary walk). Knees bent, hips low, the upper body, head and weapon almost still. The legs must clearly ALTERNATE in this order:
+1. Right foot lands in front (contact pose: wide low stance, right leg forward, left leg behind)
+2. Weight shifts onto the right foot (body slightly lowered)
+3. The left foot passes the right leg (passing pose, legs close together, body slightly higher)
+4. The left foot swings forward
+5. Left foot lands in front (contact pose: the mirror of frame 1, LEFT leg forward, right leg behind)
+6. Weight shifts onto the left foot (body slightly lowered)
+7. The right foot passes the left leg (passing pose)
+8. The right foot swings forward (leads back into frame 1 so the cycle loops)
+In frames 1 and 5 the front and back legs must be swapped. {構えの武器の記述}
+構えの武器の記述 {構えの武器の記述} に入れる文:
+・幸村: The cross spear is held diagonally forward at a ready angle with both hands.
+・景勝: The katana is held ready in front with the point forward-up.
+・三成: The matchlock gun is held ready in the right hand pointing forward-up, the war fan in the left hand.
+・信長: The matchlock arquebus is held ready across the body with both hands, the katana at the waist.
+・信玄: The war fan is held ready in the right hand in front, the left hand near the sword hilt.
+・武蔵: The long sword in the right hand points forward-up, the short sword in the left hand is held low.
+・足軽槍: The spear is held level forward with both hands. ・足軽刀: The katana is held low in front with both hands. ・弓足軽: The bow is held in the left hand with an arrow nocked. ・鉄砲足軽: The matchlock gun is held diagonally at the chest. ・忍者: Crouched low, the short sword held reversed behind the back.
+・ボス: 各ボスの武器を、構えたまま（直政=大太刀、忠勝=槍、家康=金の太刀、義光=鉄棒、秀秋=金の太刀、秀忠=刀、長政=大太刀、正則=薙刀）。
+
+
+■ 4-2. 主人公の動き（共通）
+[M-待機 4] Task: draw 4 frames of the idle stance in profile facing right, the weapon held ready, subtle breathing and slightly swaying cloth, hair and scarf; the 4 frames are slightly different from each other and the cycle loops.
+[M-ジャンプ 4] Task: draw 4 frames of a jump: crouch, take-off, apex with the legs tucked, falling with the legs extended.
+[M-被弾 2] Task: draw 2 frames of a hit reaction: the body flinches backward in pain, then recovers.
+[M-ダウン 4] Task: draw 4 frames of being knocked down: struck, thrown backward through the air, lying on the back, a small bounce.
+[M-起き上がり 4] Task: draw 4 frames of getting up from lying on the back, to one knee, back to the ready stance.
+[M-やられ 4] Task: draw 4 frames of being defeated: staggers, drops the weapon, collapses and lies motionless.
+[M-ジャンプ攻撃 4] Task: draw 4 frames of a diving downward weapon attack in mid-air.
+
+
+■ 4-3. 主人公ごとの攻撃・ダッシュ・必殺（{動き名} とコマ数）
+【真田幸村】通常1（5）fast forward spear thrust with a thin white slash line on the impact frame / 通常2（5）front shin kick, the spear held back in one hand / 通常3（6）rising spear slash from low behind to high in front with a crescent light trail / 通常4（7）finisher: a spinning spear sweep, a full 360-degree turn with a wide circular trail / ダッシュ（5）running lunge, body low, the spear thrust straight forward / 必殺（8）charging forward in a blaze of red flame with repeated spear thrusts, a fire aura
+【上杉景勝】通常1（5）diagonal downward katana slash / 通常2（5）reverse upward katana slash / 通常3（5）shoulder tackle / 通常4（7）heavy overhead katana slam creating a shockwave / ダッシュ（5）running lunge with the katana thrust forward / 必殺（8）raising the katana as lightning gathers, then slamming it down
+【石田三成】通常1（5）iron war fan strike with the left hand / 通常2（5）iron war fan backhand strike / 通常3（5）front kick / 通常4（6）firing the matchlock gun forward with muzzle flash and recoil / ダッシュ（5）running lunge with the matchlock gun levelled forward / 必殺（8）raising the war fan to the sky as meteors fall
+【織田信長】通常1（5）diagonal katana slash / 通常2（5）reverse katana slash / 通常3（5）front kick / 通常4（6）firing the matchlock arquebus forward with a muzzle flash and recoil / ダッシュ（5）running lunge with the katana thrust forward / 必殺（8）a rapid volley of arquebus shots forward with muzzle flashes and smoke
+【武田信玄】通常1（5）war fan (gunbai) heavy swing downward / 通常2（5）war fan backswing / 通常3（5）shoulder tackle / 通常4（7）huge two-handed war fan slam creating a wave of fire / ダッシュ（5）running shoulder charge / 必殺（8）rushing forward in flames, then a big fan slam with a fiery shockwave
+【宮本武蔵】通常1（5）fast diagonal slash with the long sword / 通常2（5）reverse slash with the short sword / 通常3（5）forward thrust with both swords / 通常4（5）rising double slash from low to high / 通常5（7）spinning dual-blade whirl, a full 360 degrees / ダッシュ（5）running lunge with both swords thrust forward / 必殺（8）charging forward with a rapid flurry of dual-sword slashes and white slash lines
+いずれも、先頭に "Task: draw {N} frames of the character performing '{動き}'." を付ける。
+
+
+■ 4-4. 手ぶら（武器なし）の動き — 主人公6人 × 7種（256px）
+[U 手ぶらの指定（[C] の後ろ、[M] の前に入れる）] Draw the character UNARMED: remove the weapon completely (no sword, spear, fan, gun or pole in the hands; the sashimono banner on the back may stay). Both hands are closed fists in a gripping pose as if holding a long weapon (right fist forward, left fist behind), holding nothing; the grip positions stay consistent across all frames so that a weapon can be overlaid on the right hand later. Keep the face, armor, clothes and colors exactly the same.
+手ぶらの動き（7種）:
+・待機（4）Task: 4 frames of the idle stance, both fists held forward in a gripping pose, subtle breathing, loopable
+・歩き（8）[M-歩き] のとおり。構えの武器の記述の代わりに「both fists held forward in a gripping pose」
+・ジャンプ（4）[M-ジャンプ] のとおり
+・攻撃A（5）a wide diagonal downward swing as if swinging a long weapon, both fists gripping the empty air, with a clear wind-up and follow-through
+・攻撃B（5）a straight forward thrust as if thrusting a spear, both fists gripping the empty air
+・攻撃C（5）a reverse upward swing from low to high, both fists gripping the empty air
+・ダッシュ（5）a running lunge with both fists thrust forward
+三成の手ぶらは、鉄砲も扇も持たない。武蔵の手ぶらは、二刀とも持たない。
+
+
+■ 4-5. 敵兵の動き
+歩兵5種（足軽槍・足軽刀・弓足軽・鉄砲足軽・忍者。256px）
+・待機（4）Task: 4 frames of the idle stance in profile facing right, the weapon held ready, subtle breathing, loopable
+・歩き（8）[M-歩き] ＋ 上の「構えの武器の記述」
+・攻撃（6）敵ごとに: 足軽槍 = a straight forward spear thrust with a clear wind-up and a long extended thrust ／ 足軽刀 = a diagonal downward katana slash with a clear wind-up and follow-through ／ 弓足軽 = drawing the bow, aiming, releasing the arrow, lowering the bow (the arrow stays near the bow) ／ 鉄砲足軽 = raising the matchlock, aiming, firing with a muzzle flash and smoke, recoil ／ 忍者 = a fast dash-slash with a short sword, low body, hood and scarf streaming back
+・被弾（2）Task: 2 frames of a hit reaction: flinches backward in pain, then recovers
+・ダウン（4）Task: 4 frames of being knocked down: struck, thrown backward through the air, lying on the back, a small bounce
+・起き上がり（4）Task: 4 frames of getting up from lying on the back, to one knee, back to the ready stance
+・やられ（4）Task: 4 frames of being defeated: staggers, drops the weapon, collapses and lies motionless
+騎馬3種（騎馬武者・騎馬兵・騎馬弓兵。384px。足元の基準は、馬の蹄）
+・待機（4）Task: 4 frames of the horse standing and breathing while the rider holds the weapon ready, the tail and mane moving slightly, loopable
+・疾走（6）Task: 6 frames of the horse galloping to the right, the rider leaning forward, loopable, all four hooves clearly moving
+・攻撃（6）騎馬武者 = the horse trotting while the rider swings a naginata in a wide diagonal slash ／ 騎馬兵 = the horse charging while the rider levels a long lance forward and thrusts ／ 騎馬弓兵 = the horse galloping while the rider draws the bow, aims and releases
+・被弾（2）Task: 2 frames of a hit reaction: the rider flinches backward, the horse rears slightly, then recovers
+・落馬（4）Task: 4 frames of the rider being thrown from the horse and falling to the ground (the horse stays on the right side, only the rider falls)
+・やられ（4）Task: 4 frames of the fallen rider lying motionless on the ground (the rider only, no horse)
+
+
+■ 4-6. ボスの歩き（構え移動）8コマ — 384px
+[M-歩き] ＋ ボスの武器の構え。キャラ記述は [C-直政] 〜 [C-正則]。セルは 384×384、画像全体は 3072×384。
+
+
+────────────────────────
+■ 5. UI用の画像（コマ割りではなく、1枚絵）
+────────────────────────
+[UI-HUD顔アイコン] Using the attached reference sheet, draw a single square 256x256 px bust portrait (head and shoulders only) of {キャラ名}, facing slightly right, a determined expression, the same helmet or headwear, face and armor details; the face fills about 70% of the height. Background: exactly flat pure magenta #FF00FF, no gradient, no text, no border. （対象: 上杉景勝、石田三成、織田信長、武田信玄、宮本武蔵）
+[UI-選択画面立ち絵] Using the attached reference sheet, draw ONE full-body standing pose of {キャラ名} facing right in a confident ready stance holding the weapon diagonally, dynamic but readable, exactly the same design and colors, canvas 512x768 px, the whole figure inside with at least 24 px of margin, the feet at about 92% of the height. Background: exactly flat pure magenta #FF00FF, no gradient, no text, no border. （対象: 同じ5人）
+[UI-ボスのバストアップ] Using the attached reference sheet, draw a single 512x512 px bust portrait (head and shoulders) of {ボス名}, facing slightly right, a fierce expression, dramatic lighting. Background: exactly flat pure magenta #FF00FF, no gradient, no text, no border. （対象: ボス8人）
+ファイル名: {名前}_HUD顔アイコン.png ／ {名前}_選択画面立ち絵.png ／ {ボス名}_バストアップ.png
+
+
+────────────────────────
+■ 6. 組み立て例（宮本武蔵「通常4」、5コマ、256px）
+────────────────────────
+（参照画像として「宮本武蔵_設定画.png」を添付）
+Style: 2D side-view Japanese Sengoku-era beat-'em-up game character, in the spirit of 1990s arcade brawlers but with high detail and realistic proportions (about 7 heads tall). Painted anime-realistic rendering with a crisp dark outline, cel-shaded with strong rim light. Rich armor detail: kozane scale lacing, lacquer sheen, silk cords, cloth folds. Full body, facing RIGHT, strict side view (profile, very slight three-quarter), no perspective distortion.
+Miyamoto Musashi: a wandering swordsman in his 30s, rough long black hair loosely tied, a white headband (hachimaki) whose tails flow behind, stubble, intense eyes. NO armor: a worn gray-brown kimono with the right sleeve off, light cloth leg wraps, dark straw sandals, wielding two katanas at once (nito-ichiryu: a long sword in the right hand, a shorter sword in the left hand). Palette: charcoal, ash gray, off-white, steel.
+Task: draw 5 frames of the character performing "a rising double slash from low to high".
+Using the attached reference image, keep EXACTLY the same character design, proportions, colors and line style in every frame.
+Layout: ONE horizontal sprite strip with exactly 5 frames. Each frame is an equal square cell of 256x256 px, so the whole image is exactly 1280x256 px. No gaps and no borders between cells. In every cell: one full-body character, centered horizontally, the soles of the feet on the same ground line at 90% of the cell height, and the standing height about 80% of the cell height (the same scale in every cell and the same scale as the standing pose in the reference). A crouching, lunging, jumping or falling pose must NOT make the character smaller: the head, torso and legs keep the same size in every frame. Special effects (flames, lightning, slash trails) must not shrink the character; keep them inside the cell. Keep at least 16 px of empty margin between any part of the drawing and the cell edges (top, left, right). Nothing may cross into a neighboring cell, and no part of a neighboring pose may be visible. Every frame differs only slightly from its neighbours so the motion looks smooth and continuous at about 12 frames per second.
+Background: exactly flat pure magenta RGB(255,0,255) / #FF00FF everywhere, with no gradient, no purple or gray tint, no vignette, no noise, no ground, no cast shadow.
+Do NOT draw any text, letters, numbers, labels, captions, borders, frame lines, grid lines or cell outlines. No empty cells. ONE character and ONE motion only. The character faces RIGHT in strict side view in every frame.
+
+
+────────────────────────
+■ 7. うまくいかないときの足し文（作り直しのとき、末尾に足す）
+────────────────────────
+・文字が入った: ABSOLUTELY NO TEXT, LETTERS, NUMBERS OR LABELS ANYWHERE IN THE IMAGE. Remove every label.
+・背景に色むらが出た: The background must be exactly RGB(255,0,255) in every pixel outside the character. No tint, no gradient.
+・隣のコマの欠片が見える: Leave at least 24 px of empty magenta on the left and right of every figure. Do not let any weapon, cloth or effect reach the cell edge.
+・キャラの大きさがコマごとに違う: The character's head is the same size (about 30 px tall from chin to the top of the helmet body, in a 256 px cell) in every frame. Do not shrink the character for crouching poses or effects.
+・足が入れ替わらない（歩き）: The leg that is in front in frame 1 is behind in frame 5, and vice versa. Draw the two contact poses (frames 1 and 5) as mirror images of each other.
+・顔や服が設定画と違う: Copy the face, helmet, armor pattern, banner and colors of the attached reference sheet exactly; do not redesign anything.
+・待機が全く同じ絵: Make each of the 4 frames slightly different (chest rising and falling, cloth and hair swaying by a few pixels).

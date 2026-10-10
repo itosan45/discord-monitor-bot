@@ -1,0 +1,10 @@
+{
+  "name": "敵_足軽槍_歩き_8コマ_姿勢ガイド候補",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-27e9840b-db75-4c58-b903-d182aec578cc.png",
+  "prompt": "Image1 CHARACTER design: ONLY upper-left blue-tunic black-armor conical-jingasa ashigaru SPEARMAN. Image2 is a POSE-ONLY skeletal guide for EIGHT frames. Reproduce all8 poses EXACTLY from image2 joints and leg overlap: ORANGE marks anatomical RIGHT NEAR arm/leg; BLUE marks LEFT FAR arm/leg. These guide colors are NOT costume colors: render ALL clothing/armor/weapon fromimage1. Near rightleg clearlyforward in1 andclearlyBACK in5; farleftforward in5. Farblue legdrawnbehind, nearorangelegdrawninfront at3/7 crossing. Exact hand/forearm/feet jointpositions relativebodyguide. Head/hips/upperbody/rigid diagonal simple-pointed spear stable all8. Both shoulderplates inall8; originalblackarmorblueclothes/sandals, no guideorange/blue limb paint or white background. Full realistic sevenhead standing anatomy, richarmordetail paintedanime-realistic arcade darkoutline. One horizontal strip exactly8 full figures, EVERY figure facesRIGHT profile; knee bends/grounded slidingstepsnotuprightwalking. Same body scale acrossall8, standing-equivalent205px, soles230px in256squarecells,16px insidemargins, generousmagenta gaps/outsidemargins so no cropped weapons. PUREflat#FF00FF,nogradient/shadow/text/numbers/borders/grid. Onlyonepersononemotion, no otherrefcharacters, no actualstickfigures.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\敵兵_8種設定シート.png",
+    "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\pose-guides\\右前から左前へ_構え移動8コマ_姿勢のみ.png"
+  ],
+  "status": "candidate_pending_QA"
+}

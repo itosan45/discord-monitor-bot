@@ -1,0 +1,68 @@
+﻿{
+  "name": "会話肖像_井伊直政_右向き_v1.png",
+  "source": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_井伊直政_右向き_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_井伊直政_右向き_v1.png",
+  "kind": "dialogue_portrait",
+  "status": "git_verified",
+  "attempts": 1,
+  "cellSpecificationApplicable": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    35,
+    19,
+    1212,
+    1235
+  ],
+  "margins": [
+    35,
+    19,
+    42,
+    19
+  ],
+  "alphaZeroPixels": 1040788,
+  "automaticPass": true,
+  "visibleBBox": [
+    105,
+    19,
+    1154,
+    1222
+  ],
+  "visibleMargins": [
+    105,
+    19,
+    100,
+    32
+  ],
+  "alphaOnePixels": 7868,
+  "alphaReview": "Raw bounds and alpha > 1 silhouette bounds both recorded. Alpha 1 residue is 1/255 opacity; do not erase or change generated pixels.",
+  "sha256": "0ac29e97da50336d4905f841b3513a0fcf8c16bff61dc2d0aff75ade605a34d3",
+  "candidateCount": 1,
+  "selectedCandidate": 1,
+  "firstGenerationOnly": true,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0852b751-8d69-44de-9dee-4ec10489ba2e.png",
+  "generatedSourceSha256": "4d69abc381041e553e3096d9af279d28bbeaddb9efb9a6bb777a20d7a5c878d9",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\井伊直政_設定画.png",
+  "placementTransform": "Uniform 97% premultiplied-alpha rescale centered on transparent 1254x1254 canvas to meet visible 16px margins; raw generated source preserved unchanged.",
+  "actualName": "会話肖像_井伊直政_右向き_v1.png",
+  "qaResult": "要注意",
+  "prompt": "Create ONE square 1:1 transparent-background chest-up dialogue portrait for Sekigahara Ranbu. Character: Ii Naomasa, the stern, battle-hardened Japanese commander in the approved setting design: mature Japanese face, hard focused eyes, strong nose, black hair mostly covered by a striking black kabuto with two very tall narrow golden antler-like horns rising from its crown. He wears vivid deep-crimson red lacquered lamellar armor with gold edging and floral fittings, black sleeves, dark maroon scarf, red cape bearing restrained gold five-petal flower motifs, and black-red shoulder guards. Preserve the exact red-and-gold palette, distinctive twin tall horns, face and armor; no sword or handheld object. Three-quarter bust, shoulders and eyes turned to the RIGHT. Dignified severe expression, imposing and disciplined. Premium painterly Japanese historical action game portrait with expressive ink contours, layered brush shading, charcoal shadows and warm gold highlights; illustrated 2D, never photorealistic or 3D. Center a compact bust occupying no more than 62% of canvas width and 76% height. Keep both complete horn tips, hair, shoulders and natural chest edge inside the square with generous transparent margin on every side, at least 16% left/right. Real transparent alpha background. One person only. No scenery, battlefield, banner, text, calligraphy, seal, frame, glow, weapon, extra person or cropped armor/horns.",
+  "ocrResult": {
+    "name": "会話肖像_井伊直政_右向き_v1.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded, empty result. Post-OCR visual review confirms no text.",
+  "visualReview": "Chest-up, full twin horns, both shoulders and chest contour visible with >=16px clear padding. Right portrait faces right; left faces left. Crimson armor, black underlayers, gold fittings, maroon scarf and floral cape match setting art. alpha1/255 residue recorded as caution and not erased.",
+  "gitVerified": true,
+  "reviewDate": "2026-10-07",
+  "gitCommit": "00cafe23b623dfdb191fd9ca55b2efa0e3d35f03",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "00cafe23b623dfdb191fd9ca55b2efa0e3d35f03",
+  "gitVerifiedAt": "2026-10-07T07:58:41+09:00",
+  "gitSha256Verified": "0ac29e97da50336d4905f841b3513a0fcf8c16bff61dc2d0aff75ade605a34d3"
+}

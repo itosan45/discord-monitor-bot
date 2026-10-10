@@ -1,0 +1,97 @@
+{
+  "name": "石田三成_被弾_2コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_被弾_2コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4bb993cb-158f-4258-be57-d388a75edd59.png",
+  "status": "qa_passed",
+  "scale": 0.24433849821215733,
+  "standingHeightSource": 839.0,
+  "standingHeightTarget": 205,
+  "n": 2,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        70,
+        19,
+        839,
+        861
+      ],
+      "destination": [
+        34,
+        25,
+        188,
+        206
+      ],
+      "scale": 0.24433849821215733,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        917,
+        69,
+        1718,
+        862
+      ],
+      "destination": [
+        30,
+        37,
+        196,
+        194
+      ],
+      "scale": 0.24433849821215733,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "8f801b3aef36f7f3988d70068b8627730e92dca2eddd029051e951f4376a46d9",
+  "backgroundSource": [
+    238,
+    24,
+    238
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    24005,
+    24005
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_被弾_2コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 2,
+    "durationMs": [
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_被弾_2コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "action": "被弾2コマ: 後方へ flinch → guard recovery",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "ishida-hurt-v2-record.json",
+  "qaNote": "三成の紫金装束・金扇形前立・右手火縄銃・左手鉄扇を維持。被弾の後傾から低い構えへの回復が2コマで読める。全身と装備に余白。GIF復号後も同じ動作を確認。",
+  "visualReview": "三成の紫金装束・金扇形前立・右手火縄銃・左手鉄扇を維持。被弾の後傾から低い構えへの回復が2コマで読める。全身と装備に余白。GIF復号後も同じ動作を確認。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "name": "武田信玄_鎖鎌_回収_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-b520f5d5-52d4-4cc5-93a5-6496f38e95ae.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_鎖鎌_回収_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5059665871121718,
+  "sourceBounds": [
+    [
+      31,
+      153,
+      362,
+      572
+    ],
+    [
+      393,
+      153,
+      725,
+      572
+    ],
+    [
+      750,
+      153,
+      1075,
+      572
+    ],
+    [
+      1110,
+      153,
+      1444,
+      572
+    ],
+    [
+      1468,
+      153,
+      1801,
+      572
+    ],
+    [
+      1828,
+      153,
+      2158,
+      572
+    ]
+  ],
+  "placements": [
+    [
+      44,
+      18,
+      167,
+      212
+    ],
+    [
+      44,
+      18,
+      168,
+      212
+    ],
+    [
+      46,
+      18,
+      164,
+      212
+    ],
+    [
+      43,
+      18,
+      169,
+      212
+    ],
+    [
+      44,
+      18,
+      168,
+      212
+    ],
+    [
+      44,
+      18,
+      167,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "440d727d052ea6ee73f1b4576b37217a98a9665daafcee432c681e2b6bd6f9f1",
+  "prompt": "undefined\n",
+  "char": "武田信玄",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "二腕二手と奥手鎌・手前鎖、6コマ分銅保持を確認。",
+    "2コマの鎖接続が衣装に重なり不明瞭。柄尻接続に差あり。",
+    "鎧装飾線に待機との差、人物が待機よりわずかに大きめ。",
+    "OCRは装飾の誤認、描画文字なし。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "0cc3332cb014d603026f5ddd021164e662099106",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "440d727d052ea6ee73f1b4576b37217a98a9665daafcee432c681e2b6bd6f9f1",
+  "ocrSuccess": true,
+  "ocrText": "と ′",
+  "updatedAt": "2026-10-07T23:05:57.173625+09:00"
+}

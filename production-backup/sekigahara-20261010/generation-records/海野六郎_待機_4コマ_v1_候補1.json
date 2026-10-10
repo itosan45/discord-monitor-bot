@@ -1,0 +1,94 @@
+{
+  "name": "海野六郎_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a740f8d6-3396-43f4-852d-ea374bdded4a.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\海野六郎_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3103953147877013,
+  "sourceBounds": [
+    [
+      150,
+      27,
+      461,
+      705
+    ],
+    [
+      693,
+      25,
+      1002,
+      705
+    ],
+    [
+      1235,
+      22,
+      1543,
+      705
+    ],
+    [
+      1765,
+      24,
+      2075,
+      705
+    ]
+  ],
+  "placements": [
+    [
+      79,
+      20,
+      97,
+      210
+    ],
+    [
+      80,
+      19,
+      96,
+      211
+    ],
+    [
+      80,
+      18,
+      96,
+      212
+    ],
+    [
+      80,
+      19,
+      96,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "7a8cd1506a21b3820eabf0a85a8d15ac3a6e643f3d943b6df8e53132a3a98114",
+  "prompt": "Unno Rokuro IDLE breathing FOUR-frame horizontal sprite row. EXACT SAME old gray-bearded samurai from attached character reference, use RIGHT-facing side view: worn red-black lamellar armor, black kabuto red six-coins crest, RED backbanner SIX BLACK COINS2rows3, complete black bannerpole, black sheath left hip, same steel sword right hand low angled down-forward. FOUR frames in ONE horizontal row equal cells, character+entireflag/pole/sword+feet within each cell generous margins, no overlap. Same body size camera scale/footpositions ground. Low balanced knees slightly flexed. 1 exhale guarded,2 chest/shoulders rise inhale,3 peak inhale head rises slightly(~2%height),4 settles toward1. Feet stayfixed, no walking or attacks; slight cloth response to breathing only. Keep flag same size and all six coins EVERYframe, weapon length same. Whole top-of-flag tofeet ~82%cellheight, body remains same ratio to flag as reference. Pure flat#FF00FF magenta background, gritty detailed painted game art, NOeffects shadow scenery text grid labels. Wide horizontal4frame PNG.",
+  "char": "海野六郎",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames reviewed with source and reference: old gray-bearded face, red-black armor/kabuto, six black coin banner and full pole, complete sword/sheath/feet; right-facing, uniform scale and planted ground. OCR detections are armor/flag motifs, no actual text. Breathing is small and knee flex shallow; caution. This idle defines character scale for later actions.",
+  "gitVerified": true,
+  "gitCommit": "390cf94f74daf7636d93f9d73a4cf34fd9912967",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "7a8cd1506a21b3820eabf0a85a8d15ac3a6e643f3d943b6df8e53132a3a98114",
+  "ocrSuccess": true,
+  "ocrText": "ゞ ぼ . を す 3 ~ 一 」 ご 3 物 . ( 篝 す を て",
+  "updatedAt": "2026-10-07T15:32:10.593885+09:00"
+}

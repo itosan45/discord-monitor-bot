@@ -1,0 +1,77 @@
+{
+  "name": "織田信長_手ぶら_歩き_8コマ_v3.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-96ce0f72-0d58-4a0a-abd1-2d80444bed05.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\nobu-pickup-walk-v3\\織田信長_手ぶら_歩き_8コマ_v3.png",
+  "status": "git_verified",
+  "sourceBounds": [
+    [
+      48,
+      190,
+      260,
+      537
+    ],
+    [
+      29,
+      193,
+      211,
+      537
+    ],
+    [
+      26,
+      193,
+      215,
+      537
+    ],
+    [
+      33,
+      192,
+      253,
+      537
+    ],
+    [
+      26,
+      191,
+      241,
+      537
+    ],
+    [
+      23,
+      193,
+      204,
+      537
+    ],
+    [
+      37,
+      189,
+      219,
+      537
+    ],
+    [
+      29,
+      193,
+      251,
+      537
+    ]
+  ],
+  "scale": 0.5862068965517241,
+  "sha256": "d51171beda7519b60489819a0596c1126f73e73e7e1a3758fc829b345ff3726d",
+  "gifDecodedFrames": 8,
+  "checkResults": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "visualApproved": true,
+  "scope": "Remove held weapon from existing armed walk; preserve original poses. Replaces idle fallback only, does not certify anatomical leading-leg exchange or cross-state banner continuity.",
+  "gitVerified": true,
+  "gitCommit": "b1fe8f7ef2c73f5b0f679503c87563f6922412d7",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "ocrSuccess": true,
+  "ocrText": "0 天 下 布 第",
+  "qaResult": "要注意",
+  "motionFullApproved": false,
+  "gifDecodedDistinctFrames": 8,
+  "visualReview": "Full body, armor, flag and empty fists preserved across decoded eight frames. Native game screenshots and 108 actual movement conditions checked. Existing idle/attack flags and body proportions remain separate review items.",
+  "updatedAt": "2026-10-09T07:40:50.843268+09:00"
+}

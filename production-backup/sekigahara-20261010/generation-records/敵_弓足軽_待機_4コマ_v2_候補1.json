@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_待機_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-b070b797-8532-4ec0-a8fe-1a424422af07.png",
+  "prompt": "Create ONLY archer ashigaru TOP ROW THIRD character in attached eight-enemy sheet, exact blue tunic with rolled sleeves, conical black iron hat, black lamellar torso armor, no shoulderplates, indigo hakama, greaves/straw sandals, quiver of arrows on back, belt scabbard. FOUR-frame breathing IDLE combat loop, rightfacing fullbody. Low bent knees hips lowered slightlyforward torso, LEFT hand holds Japanese bow upright ahead, RIGHT hand near string with one arrow NOCKED at chest, bow not fully drawn until attack. Entire bowtop/bottom/string/nockedarrow/quiver/body visible, arrowtipnearbow, no flyingarrows. Stable bowguard, subtle distinct chest/shoulder/cloth breathing in all4frames, fourthapproachesfirst notidenticalcopy. Same anatomy and scale throughout, standing equivalent80%squareheight, soles90%; bowends aboveground and allartinsideowncell with16pxequivalent margins. One archer per equal squarecell FOURcells horizontalrow, bothtoesright. Pure flat solid #FF00FF opaque background no shadows/text/grid/borders, no other sevencharacters.",
+  "attempt": 1,
+  "status": "rejected_full_draw_guard_bowtop_too_high"
+}

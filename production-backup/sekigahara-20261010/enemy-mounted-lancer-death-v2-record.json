@@ -1,0 +1,135 @@
+{
+  "name": "敵_騎馬兵_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬兵_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b2b0a53e-8327-45df-b580-b9b1a83773f4.png",
+  "status": "git_verified",
+  "scale": 0.614,
+  "standingHeightSource": 500.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        18,
+        275,
+        539,
+        500
+      ],
+      "destination": [
+        32,
+        209,
+        320,
+        138
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 347
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        578,
+        223,
+        1074,
+        510
+      ],
+      "destination": [
+        39,
+        171,
+        305,
+        176
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 347
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1115,
+        242,
+        1611,
+        503
+      ],
+      "destination": [
+        39,
+        187,
+        305,
+        160
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 347
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1645,
+        300,
+        2157,
+        507
+      ],
+      "destination": [
+        35,
+        220,
+        314,
+        127
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "a9f38228757c1019399e3035cfb18f931a10ce244319cad41c7defa8c5c1b9cf",
+  "backgroundSource": [
+    241,
+    23,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "240,765,1330,1860",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの39%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    34036,
+    33586,
+    30951,
+    27666
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬兵_やられ_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬兵_やられ_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "Windows OCR成功・文字なし。",
+  "qaNote": "初回候補を採用。横倒し終端姿勢のため全高中央値39%で自動高さ目安55%を下回る。立ち素材と同一倍率0.614で処理し、頭・胴の縮尺は保持。全身・槍の欠けなし、身体接地差0-1px。動作・文字なし確認。",
+  "manualVisualException": "横たわり姿勢の全高中央値39%は水平投影による。待機時の身長500pxに対し各全身を0.614倍にして384pxセルへ配置し、頭・胴サイズを立ち素材と揃えた。全4コマの身体接地差0-1px。横倒し終端が立ち絵より低く映るのは自然な投影差であるため、人物を拡大しない。",
+  "visualReview": "騎手のみ。衝撃→仰向け膝抱え込み→小反動→横向き静止。槍・帽子・服・全身保持。頭・胴を既存騎乗素材と同縮尺に固定したため、横倒し姿勢の自動身長39%は自然投影と目視判断。要注意で採用。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

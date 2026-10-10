@@ -1,0 +1,8 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-3fb3e6a3-e58d-42ba-a5c0-ffad847d3349.png",
+  "prompt": "Correct Musashi strip (image1), using image2 ONLY as a leg movement diagram. Keep Musashi face clothes white headband two swords. Eight right-facing full body combat walk poses in one row. Current strip has repeated right-leg-leading poses and clipped last blade: repair BOTH. The ORANGE leg in guide is the visible/near/bare-arm-side RIGHT leg: foreground right thigh and calf must be BACK at frame5, FRONT at1. BLUE far left leg does the opposite. In frame5 near right thigh runs down-left from hip and overlaps far left leg at pelvis, near right knee is LEFT of pelvis and rear foot, far left thigh runs down-right to forward knee. Frame3 far left leg passes, frame7 NEAR RIGHT leg passes in foreground: opposite leg occlusion. Use actual Musashi anatomy (no colored legs) and deeply bent knees. Upperbody weapons steady, long sword forward-up right hand short sword low left hand. Full complete toes heels blades visible. BOTH toes right even rear boot. Wide 2176x768 canvas: exactly8 figures inside a central thin band, each maximum220px wide including headband and swordtip, centered in equal256px-wide regions, 24px margin on both sides and at least48px blank magenta at whole image left/right edges. Do not crop ANY blade at image boundary. Slight overall uniform reduction for raw layout is allowed, but no changing anatomical scale between poses. No text labels, border, shadows, floor. Flat pure magenta background.",
+  "status": "candidate_motion_review_failed",
+  "attempt": 2,
+  "retries": 1,
+  "visualReview": "二刀の構えは維持。1/5で近い腿と膝が前側のまま、3/7の脚交差の差が不足。次は信長の合格脚姿勢を動作参照に変更。"
+}

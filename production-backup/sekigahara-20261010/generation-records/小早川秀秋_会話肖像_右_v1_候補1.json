@@ -1,0 +1,39 @@
+{
+  "name": "小早川秀秋_会話肖像_右_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4f6b324c-6146-4305-a8b5-7a136ec39c4c.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\小早川秀秋_会話肖像_右_v1.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sourceBounds": [
+    10,
+    31,
+    1245,
+    1237
+  ],
+  "placement": [
+    64,
+    90
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "949f239e59d38fca4be67326780ce00f6429846b796b53d2a8bbdcb0be37d5c3",
+  "updatedAt": "2026-10-07T14:41:14.656222+09:00",
+  "prompt": "Edit reference ONLY to opposite RIGHT-facing threequarter chest-up Kobayakawa Hideaki portrait. Exact SAME youthful clean-shaven uneasyface darkeyes blackhair, tealblack goldlamellararmor, tealcords/tassels, talltwin uprightgold blade-shaped helmetcrests, roundgoldfivepetal emblems, greentealgoldpatternedrobe. Nose/gazeRIGHT both eyesvisible, same painterly grittygame style. Fulltallcrests hair BOTHshoulders chest insidegenerous80px transparentmargins atalledges. Figure only85percentcanvassize toensure completeoutershoulderarmor. Square1254x1254 PNG realtransparentbackground. No weapons/banner/effects/text/UI/scenery.",
+  "kind": "dialogue_portrait",
+  "char": "小早川秀秋",
+  "direction": "右向き",
+  "visualApproved": true,
+  "ocrReview": "OCR fragments manually reviewed as armor/cord motifs, no visible lettering. Correct right-facing identity, complete crests, hair, shoulders and transparent margin inspected.",
+  "gitVerified": true,
+  "gitCommit": "da976d93c33f56322a9ceb3ad08598a3539413f8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "949f239e59d38fca4be67326780ce00f6429846b796b53d2a8bbdcb0be37d5c3",
+  "qaResult": "OK",
+  "ocrSuccess": true,
+  "ocrText": "第 0 い の",
+  "visualReview": "Exact existing left portrait identity and equipment preserved; right-facing chest-up, complete helmet crests and shoulders. Right-facing chest-up, full hair/beard/shoulders, alpha/margins and OCR reviewed."
+}

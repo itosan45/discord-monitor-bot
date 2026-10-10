@@ -1,0 +1,17 @@
+{
+  "name": "最上義光_歩き_8コマ_v2",
+  "candidate": 1,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-aa8fd910-0fc2-4011-b6b8-6cb0b4051c0e.png",
+  "references": [
+    "assets/sprites/最上義光_設定画.png",
+    "assets/sprites/最上義光_待機_4コマ.png"
+  ],
+  "prompt": "Create an 8-pose right-facing combat walk sprite atlas for Mogami Yoshiaki using the references. Preserve his exact green and dark armor, silver flower crests, helmet, face, quiver and tall Japanese bow. Reference 1 defines character design; reference 2 defines existing game sprite style and scale. Arrange exactly 8 full-body poses in a clean 4-column by 2-row grid on perfectly flat pure #FF00FF magenta. No visible grid, borders, text, labels, effects, shadows, scenery, arrows in flight, or attack action. Keep his bow in a steady ready carry. Make a real grounded walk cycle: frame 1 right-foot-forward contact, 2 weight transfer, 3 left foot passes, 4 left foot swings forward, 5 opposite contact with left foot forward/right foot back, 6 weight transfer, 7 right foot passes, 8 right foot swings into frame 1. Ensure clear support-leg exchange at frames 1 and 5 and distinct passing/stride poses. Stable torso and bow. Identical anatomy and scale in every panel; complete antlers, clothing, bow, quiver and body comfortably inside each invisible cell, no cross-cell overlaps.",
+  "promptProvenance": "This is the submitted built-in image generation prompt text.",
+  "normalization": "Each pose separated by source component, uniformly scaled into a 384px cell and placed on pure magenta background; 8 cells in one horizontal row.",
+  "result": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\最上義光_歩き_8コマ_v2.png",
+  "qa": "要注意",
+  "warnings": [
+    "Existing idle image depicts a smaller body scale than current 384px boss-walk specification."
+  ]
+}

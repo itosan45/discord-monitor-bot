@@ -1,0 +1,125 @@
+{
+  "name": "宮本武蔵_鎖鎌_回収_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-1200aea3-fedc-402b-bc50-d2ddf4a3f469.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_鎖鎌_回収_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4711111111111111,
+  "sourceBounds": [
+    [
+      38,
+      139,
+      347,
+      588
+    ],
+    [
+      410,
+      138,
+      710,
+      588
+    ],
+    [
+      757,
+      140,
+      1061,
+      587
+    ],
+    [
+      1144,
+      139,
+      1444,
+      588
+    ],
+    [
+      1494,
+      140,
+      1803,
+      588
+    ],
+    [
+      1865,
+      139,
+      2152,
+      588
+    ]
+  ],
+  "placements": [
+    [
+      55,
+      18,
+      146,
+      212
+    ],
+    [
+      57,
+      18,
+      141,
+      212
+    ],
+    [
+      56,
+      19,
+      143,
+      211
+    ],
+    [
+      57,
+      18,
+      141,
+      212
+    ],
+    [
+      55,
+      19,
+      146,
+      211
+    ],
+    [
+      60,
+      18,
+      135,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "24055e2ecbc800068f9b1dfc0e212a5753315a6766aead4fb6b0ca84315e01d4",
+  "prompt": "undefined\n",
+  "char": "宮本武蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "二腕二手、奥手鎌・手前鎖と6コマ分銅保持を確認。",
+    "衣服の裂け形に待機との差あり。人物が待機よりわずかに大きめ。",
+    "2コマの鎖が衣装に重なり不明瞭。鎖が柄の刃側寄りに接続して見える箇所あり。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "e7eb05b392fb628b558793528a6b853eeacddb08",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "24055e2ecbc800068f9b1dfc0e212a5753315a6766aead4fb6b0ca84315e01d4",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:10:28.638914+09:00"
+}

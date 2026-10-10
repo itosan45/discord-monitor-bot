@@ -1,0 +1,36 @@
+﻿{
+  "verifiedAt": "2026-10-07T07:52:58+09:00",
+  "branch": "ccr-851ab851-t271uq",
+  "assetCommit": "dcc1894ae66edf3c5724da2099199bb4cf301d80",
+  "head": "dcc1894ae66edf3c5724da2099199bb4cf301d80",
+  "remoteTip": "dcc1894ae66edf3c5724da2099199bb4cf301d80",
+  "assets": [
+    {
+      "name": "会話肖像_本多忠勝_右向き_v1.png",
+      "sha256": "b6c8630bd1b5a9090942a1e2f4cc9bb21fde42a224762b990ca24db1b7f34364",
+      "bytes": 1600598,
+      "remoteSha256": "b6c8630bd1b5a9090942a1e2f4cc9bb21fde42a224762b990ca24db1b7f34364",
+      "ocr": "",
+      "visibleMargins": [
+        136,
+        38,
+        108,
+        35
+      ]
+    },
+    {
+      "name": "会話肖像_本多忠勝_左向き_v1.png",
+      "sha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c",
+      "bytes": 1799620,
+      "remoteSha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c",
+      "ocr": "ぐ　当",
+      "visibleMargins": [
+        67,
+        26,
+        63,
+        35
+      ]
+    }
+  ],
+  "method": "exact byte equality and SHA-256 compared with git show at remote-matched HEAD"
+}

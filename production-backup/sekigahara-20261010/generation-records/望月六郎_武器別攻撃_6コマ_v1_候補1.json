@@ -1,0 +1,71 @@
+{
+  "name": "望月六郎_武器別攻撃_6コマ_v1.png",
+  "candidate": "望月六郎_武器別攻撃_6コマ_v1_候補1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d3fd4431-5941-44ad-bf9e-714f8b3d11f1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\望月六郎_武器別攻撃_6コマ_v1_候補1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "rejected",
+  "qaResult": "visual_reject_detached_weapon_fragments",
+  "visualReview": "右手短刀を使う突き6コマ。動作と人物尺度は概ね良いが、3-4コマ目の刀身が手から離れ、隣接する空白部分に浮遊する刃先断片が出る。連続武器として不成立のため未納品。",
+  "checkResults": [
+    "30_check_strip.py: サイズ1536x256 PASS、純マゼンタ82%、人物高さ中央値81%、端余白/接地 PASS",
+    "OCR未実施: 視覚上の刀身断片を理由に候補棄却",
+    "GIF preview: 6 frames at 80ms; weapon continuity failure visible"
+  ],
+  "prompt": "Use case: stylized-concept. Asset type: production game sprite sheet, one horizontal row of exactly SIX equal 256x256 animation cells, 1536x256 PNG. Input image 1 is the exact character and scale reference: Mochizuki Rokuro from the existing idle sprite. Input image 2 is the same character outfit and equipment reference. Preserve this same lean mature mustached man, olive-brown head wrap and fitted ninja jacket, charcoal trousers, red six-coin chest badge, belt with two closed powder pouches and small bamboo powder tube, wrapped shins, sandals, short tanto and sheath. Right-facing 3/4 profile every frame, same figure height as idle reference (about 80% cell), feet grounded at y=230 consistently, body and weapon fully inside each cell >=16px margin, no overlap. Flat #FF00FF, no shadow/effects/fire/smoke/text/labels/grid. Six chronological frames: 1 ready blade low; 2 weight to rear and draw blade back; 3 push off rear foot and compact straight thrust right; 4 full thrust extension with rear heel raised and weight transfer; 5 retract and twist back; 6 recover to frame1. Keep short realistic tanto, no long katana. Maintain same character scale and style.",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "sourceBackground": "imagegen magenta variation normalized to pure #FF00FF",
+  "uniformScale": 0.5,
+  "sourceBounds": [
+    [
+      61,
+      162,
+      300,
+      582
+    ],
+    [
+      373,
+      168,
+      676,
+      583
+    ],
+    [
+      686,
+      170,
+      1049,
+      581
+    ],
+    [
+      1049,
+      172,
+      1486,
+      579
+    ],
+    [
+      1486,
+      167,
+      1801,
+      584
+    ],
+    [
+      1868,
+      161,
+      2108,
+      582
+    ]
+  ],
+  "remoteByteEqual": false,
+  "gitVerified": false,
+  "noRegeneration": "同一タスクの即時再生成を避ける。",
+  "updatedAt": "2026-10-08T10:00:00+09:00"
+}

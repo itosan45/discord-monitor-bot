@@ -1,0 +1,1381 @@
+[
+  {
+    "id": "1v1tENK6JihrgXmJ_hQk40pDP2J99oUzPEEO93ecrtog",
+    "name": "05_縮尺をそろえる指示（全ての依頼に追加）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T21:32:51.817Z",
+    "size": "1869"
+  },
+  {
+    "id": "1dWF5IVDnNOV4FrevkDIjqn-_XtvIS4eW",
+    "name": "真田幸村_歩き_8コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T21:20:05.573Z",
+    "size": "393050"
+  },
+  {
+    "id": "1pAAu7aTeqwQqE70CFt7JDZF1fOPLg3lQUZEbFjxT7bE",
+    "name": "03b_歩き作り直し依頼文・構え移動版（03の代わりに使う）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T21:04:39.060Z",
+    "size": "2346"
+  },
+  {
+    "id": "1RHe6pgWqwe80oOidP2afDfG9SxirzYihBgWHs-Hp1g0",
+    "name": "99_依頼一覧と進み具合",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T20:52:53.834Z",
+    "size": "1320"
+  },
+  {
+    "id": "1-uVfcdqGkFuFGEIwE9ReyEL4_IP86FFsTv6K3A88TCc",
+    "name": "04_手ぶら（武器なし）の動き依頼文（ChatGPT用）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T20:52:47.346Z",
+    "size": "2557"
+  },
+  {
+    "id": "1JKxl80KA3NmEl3lRD3vgA5m9sgC2ESBCFasyPLiXvQk",
+    "name": "03_歩き作り直し依頼文（ChatGPT用）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T20:50:31.946Z",
+    "size": "1778"
+  },
+  {
+    "id": "1lfxdewaybPx61HrNHSla_KtsRlAQTgVQrLqfokhzm14",
+    "name": "02_敵兵の動き依頼文（ChatGPT用）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T20:45:19.501Z",
+    "size": "3399"
+  },
+  {
+    "id": "1mfw0icz8wjIjgziqfnh7__xdwl3OtBYu",
+    "name": "02_制作完了と差替え一覧.md",
+    "mime": "text/markdown",
+    "modified": "2026-10-05T20:28:16.956Z",
+    "size": "2872"
+  },
+  {
+    "id": "19ivxH2nvtM0m0FUOgHR8wIC6Fz00CL-S",
+    "name": "小早川秀秋_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:34.021Z",
+    "size": "1661299"
+  },
+  {
+    "id": "1iw8rHCBq5k38MHnt87liqogTPfwteVU5",
+    "name": "黒田長政_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:29.367Z",
+    "size": "1423209"
+  },
+  {
+    "id": "1b_aSSfeZK24XmkCB0kl8zwlC0ET_YtOm",
+    "name": "徳川秀忠_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:25.116Z",
+    "size": "1398468"
+  },
+  {
+    "id": "1XTy4HbQd9x7-7mjZfwwdQr2kqE7t8CeS",
+    "name": "最上義光_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:19.419Z",
+    "size": "1851768"
+  },
+  {
+    "id": "174_GYN2lnZxWFKB9D49_uE1h6omirjhB",
+    "name": "石田三成_通常4_6コマ_鉄砲主武器版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:14.795Z",
+    "size": "172515"
+  },
+  {
+    "id": "1a2njvSikDFWHO90CTxl1RTwWJcw7PMb_",
+    "name": "石田三成_ジャンプ攻撃_4コマ_鉄砲主武器版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:10.861Z",
+    "size": "120337"
+  },
+  {
+    "id": "1FmwTj2-JZxwxbysJGXoCfrrPO1BvRnYS",
+    "name": "石田三成_ダッシュ_5コマ_鉄砲主武器版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:10.786Z",
+    "size": "206128"
+  },
+  {
+    "id": "1loFvgX4BUlXv6po5dbtXmGlTK4LiDVJ_",
+    "name": "武田信玄_通常4_7コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:07.524Z",
+    "size": "238451"
+  },
+  {
+    "id": "1UIot6zHGm-UQ1L_Dfhpjw3NogeMC3lL9",
+    "name": "石田三成_待機_4コマ_鉄砲主武器版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:07.086Z",
+    "size": "119881"
+  },
+  {
+    "id": "1D4ChZrzn9fNDVDsJvbCL6E-12QGlj80y",
+    "name": "石田三成_歩き_6コマ_鉄砲主武器版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:06.766Z",
+    "size": "185152"
+  },
+  {
+    "id": "1-ugqfK1sVtGtPF74rD8pZp5BKSVfNJRv",
+    "name": "織田信長_必殺_8コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:02.907Z",
+    "size": "236896"
+  },
+  {
+    "id": "1Rlo-DDY_4PjuJssZtbWRxtOAqpv3yWuR",
+    "name": "武田信玄_必殺_8コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:19:02.803Z",
+    "size": "261861"
+  },
+  {
+    "id": "1Tw-pF62S2zuqbO1FwcTgseSGhKCAmMmf",
+    "name": "宮本武蔵_ダッシュ_5コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:59.043Z",
+    "size": "139548"
+  },
+  {
+    "id": "1odKIvAUAyjpkXaKwGBMNnEb-uAFs5dzT",
+    "name": "武田信玄_ダッシュ_5コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:58.982Z",
+    "size": "213196"
+  },
+  {
+    "id": "1h5gaRTmxjYnxqLUkl_h8c4JNq9SXe8nJ",
+    "name": "宮本武蔵_通常4_5コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:55.069Z",
+    "size": "84679"
+  },
+  {
+    "id": "1ZviQU-he-BAhWKMzYq6Mmi-FVXcYLhDE",
+    "name": "宮本武蔵_通常3_5コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:48.252Z",
+    "size": "118383"
+  },
+  {
+    "id": "1a97UerA2Fk21ZKFe1bvSp4kVnLscHiLl",
+    "name": "背景_第五幕.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:45.188Z",
+    "size": "3387535"
+  },
+  {
+    "id": "1xORyOQnJd3Tjikm3OKjKPQKsl0u4c_Hl",
+    "name": "幸村_選択画面立ち絵.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:45.055Z",
+    "size": "349021"
+  },
+  {
+    "id": "1rnXgjlDi3SSVpZzssvGysUX49W6lnH8d",
+    "name": "宮本武蔵_通常1_5コマ_依頼仕様版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:44.201Z",
+    "size": "114574"
+  },
+  {
+    "id": "1YykNzZLiO43Z5Lu-U9UyeILOn7eEX3Fn",
+    "name": "幸村_HUD顔アイコン.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:40.001Z",
+    "size": "77041"
+  },
+  {
+    "id": "1Xm4SYkkJj4sIbeIKQremhS6y-FM3ivSj",
+    "name": "背景_第四幕.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:39.067Z",
+    "size": "3649990"
+  },
+  {
+    "id": "1atpDrPeVFpVLUWw5dkGuRS-uJkMPAaEj",
+    "name": "背景_第六幕.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:34.953Z",
+    "size": "3209716"
+  },
+  {
+    "id": "1b3ZFhnUv6Dv-Bj8NsnHgXzVD-UHjvAJ-",
+    "name": "背景_第三幕.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:32.029Z",
+    "size": "3243551"
+  },
+  {
+    "id": "1D7Fg1MYLYqZTukdROHiuf-kAX4UdN_ZL",
+    "name": "福島正則_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:29.269Z",
+    "size": "338939"
+  },
+  {
+    "id": "1OtYgRBcyRF2rYTtXB3A7-J6e2nd-I_qk",
+    "name": "背景_第二幕.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:26.090Z",
+    "size": "3715481"
+  },
+  {
+    "id": "1uzb4wTX6PwMw89_g9K99F9qhs5JEVCSu",
+    "name": "福島正則_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:25.299Z",
+    "size": "451354"
+  },
+  {
+    "id": "1CGgX7gdV4JhGXDGqU-yTF8gJyXs_3BKh",
+    "name": "背景_第一幕.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:21.537Z",
+    "size": "3265456"
+  },
+  {
+    "id": "1WOo_VleO6DYH-h0DMBVulgcRazjHW6to",
+    "name": "福島正則_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:20.554Z",
+    "size": "262665"
+  },
+  {
+    "id": "17bgKsekc4GxZt3mP9QRZ__xJKsfsc4zl",
+    "name": "福島正則_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:16.496Z",
+    "size": "446051"
+  },
+  {
+    "id": "1-DfXOzg_YSQMDzQFX3HEfiwIi1w-YSNi",
+    "name": "福島正則_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:12.804Z",
+    "size": "152523"
+  },
+  {
+    "id": "1Dzw_0IM01IPdtuFUex57KN08Jodu6s7I",
+    "name": "福島正則_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:18:07.220Z",
+    "size": "476023"
+  },
+  {
+    "id": "1ibJe0kAMgNUU9xZDNTSgBMJAqEpv0gBC",
+    "name": "福島正則_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:55.517Z",
+    "size": "429100"
+  },
+  {
+    "id": "1UIx3xeCbSx_IURsTYlDou9Gzyo8WnuOF",
+    "name": "黒田長政_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:51.310Z",
+    "size": "380229"
+  },
+  {
+    "id": "161t76aS__zjFxhYw13Mi0-sW7OEsgNSN",
+    "name": "黒田長政_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:45.502Z",
+    "size": "424475"
+  },
+  {
+    "id": "1-TfMcxaIQP88-qkf8cIdgN7dSQ7D8kpC",
+    "name": "黒田長政_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:41.579Z",
+    "size": "473693"
+  },
+  {
+    "id": "1PIdqfm-i8nB528b1_leEBmmcfnPTYLZR",
+    "name": "黒田長政_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:36.387Z",
+    "size": "339382"
+  },
+  {
+    "id": "1qDtFUHcTqsUDXbFpfmcdnfeyZWI0VAKJ",
+    "name": "黒田長政_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:35.578Z",
+    "size": "318770"
+  },
+  {
+    "id": "1vNiYQCuGjPe3uh8sLhBnGGovsIA41b3b",
+    "name": "黒田長政_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:32.574Z",
+    "size": "165829"
+  },
+  {
+    "id": "1sukyLrAv-XYmZxZsUSVRulqvEd29w8ph",
+    "name": "徳川秀忠_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:31.422Z",
+    "size": "254817"
+  },
+  {
+    "id": "1I1YaDFUE6qL85PsB6F8r76l0snyMStvo",
+    "name": "黒田長政_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:28.381Z",
+    "size": "385271"
+  },
+  {
+    "id": "1KldaBAJMZGle5mf2nAvG5KK_jf3qsV93",
+    "name": "徳川秀忠_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:27.560Z",
+    "size": "387667"
+  },
+  {
+    "id": "16YxgpPuLa0G3-dTsMeeLZPEzWHrLfby2",
+    "name": "徳川秀忠_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:22.558Z",
+    "size": "404917"
+  },
+  {
+    "id": "1ptSzuxIqlED-TfJ3rWfVsQClwv6irVMJ",
+    "name": "徳川秀忠_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:21.070Z",
+    "size": "210627"
+  },
+  {
+    "id": "1FshYutJlhEdGJsKnJkQ7qjl4-mDb68tz",
+    "name": "徳川秀忠_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:18.234Z",
+    "size": "351590"
+  },
+  {
+    "id": "1jFQoawPoi6EuQKogVsrAnYUxBcYZfRhM",
+    "name": "徳川秀忠_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:17.931Z",
+    "size": "127200"
+  },
+  {
+    "id": "1vd-EcfQ-fLV7K6qSiJm_nnrhWJGaVtbu",
+    "name": "小早川秀秋_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:17.058Z",
+    "size": "327727"
+  },
+  {
+    "id": "1p45kHyTW18Nsm8ibrvgxihI9k_oycV_j",
+    "name": "徳川秀忠_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:13.459Z",
+    "size": "336516"
+  },
+  {
+    "id": "1zYLDi586Gsjpj7pzbGSr9DPftNLbl8QO",
+    "name": "小早川秀秋_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:12.947Z",
+    "size": "434757"
+  },
+  {
+    "id": "1BMNQ5QR61k0EXwMVD9pqnxPZlTh4HFVn",
+    "name": "小早川秀秋_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:08.806Z",
+    "size": "318296"
+  },
+  {
+    "id": "1ewx89exDrL8ovDramxXUaxzFdMW9I1zJ",
+    "name": "小早川秀秋_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:04.512Z",
+    "size": "164669"
+  },
+  {
+    "id": "1-y0X1PazvpYG7tjj5gMk1OPx08gqJP3g",
+    "name": "小早川秀秋_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:04.324Z",
+    "size": "347448"
+  },
+  {
+    "id": "1U4NzAuLutIyY4fHaXPOk4QMdni8uDwi6",
+    "name": "最上義光_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:03.766Z",
+    "size": "314843"
+  },
+  {
+    "id": "15YoZcFRBdWnqyMZAz7LK2t6wPPe7VreC",
+    "name": "小早川秀秋_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:17:00.504Z",
+    "size": "341679"
+  },
+  {
+    "id": "1cHD3ERh9-1ueS4FJm2IniYJsYe4Y6HrU",
+    "name": "最上義光_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:59.096Z",
+    "size": "502317"
+  },
+  {
+    "id": "1pxqNm3kHIld3tBhZVV0pTO7je11gQYef",
+    "name": "小早川秀秋_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:55.249Z",
+    "size": "225585"
+  },
+  {
+    "id": "10KoXbZyQ0Ruo836hclj3TChrpkGlzaHi",
+    "name": "最上義光_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:54.856Z",
+    "size": "601542"
+  },
+  {
+    "id": "1PrlgScti21ffQPSgmK0NxB6g3Z-LZJob",
+    "name": "最上義光_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:49.820Z",
+    "size": "327708"
+  },
+  {
+    "id": "1JR6htXb-JsoUqpxxZO_UtJXsT_a6n_l8",
+    "name": "最上義光_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:45.323Z",
+    "size": "131277"
+  },
+  {
+    "id": "17bdWDj39kwLZb0Eae4FJiECAWY6eXuXU",
+    "name": "最上義光_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:44.581Z",
+    "size": "382642"
+  },
+  {
+    "id": "1sw9S754W7JToMhC84mqpYeYvHXXX2uNX",
+    "name": "本多忠勝_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:44.469Z",
+    "size": "354394"
+  },
+  {
+    "id": "11m4WEw5Cz3sDBf1G2CaGzFuC3TrtbHa9",
+    "name": "最上義光_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:39.254Z",
+    "size": "218873"
+  },
+  {
+    "id": "1K5A96_wND1XPAU_1lR9rjP2VzbW7IAa3",
+    "name": "本多忠勝_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:39.157Z",
+    "size": "246023"
+  },
+  {
+    "id": "1OCW9mvXoXzj8OlvFGdmVmNFb8BT4trX1",
+    "name": "本多忠勝_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:35.160Z",
+    "size": "293236"
+  },
+  {
+    "id": "1GQKadweIulgwaq1BLV5fHVRLxjvxeb9Z",
+    "name": "本多忠勝_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:35.138Z",
+    "size": "251400"
+  },
+  {
+    "id": "1S5BzqjpxQR0_5ce-2i4x7ySpfQh1cje1",
+    "name": "本多忠勝_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:30.882Z",
+    "size": "113548"
+  },
+  {
+    "id": "1IfcZ5-lcp5-AYjPBhpAMooLdCsRrqdZU",
+    "name": "本多忠勝_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:27.827Z",
+    "size": "178046"
+  },
+  {
+    "id": "1L3k-VkiMnNQqVOWEMcOfvlF_62KtgfrI",
+    "name": "本多忠勝_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:26.864Z",
+    "size": "285570"
+  },
+  {
+    "id": "1pvwaMPnmb2AB-YiX4di6racVKeITH56z",
+    "name": "井伊直政_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:26.256Z",
+    "size": "260080"
+  },
+  {
+    "id": "1gc6ISkD0WQmd38RApNaJfqEwz3IXokQU",
+    "name": "井伊直政_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:22.631Z",
+    "size": "120784"
+  },
+  {
+    "id": "1vFlicD3fHs05vr6OjgH0KURLN5eIQIay",
+    "name": "井伊直政_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:21.898Z",
+    "size": "157854"
+  },
+  {
+    "id": "1QgrRP9tl2IuO2DdYkwjgrWshiNg-4MJe",
+    "name": "井伊直政_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:18.359Z",
+    "size": "335580"
+  },
+  {
+    "id": "1WgGUTuu2UdBTlXHP_Jgx5hFJhj-NdYh4",
+    "name": "井伊直政_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:18.270Z",
+    "size": "65922"
+  },
+  {
+    "id": "106RMhqyKfHs3EgVcKJWrJ4H3Who1X1wk",
+    "name": "井伊直政_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:13.924Z",
+    "size": "222211"
+  },
+  {
+    "id": "1B3Yu3BWuzorpkWQc1jezshoh3cUjKrpk",
+    "name": "徳川家康_大技_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:10.533Z",
+    "size": "482517"
+  },
+  {
+    "id": "1YEPqEt8esgY1bOj3bM_zNzuU3bXOCaxU",
+    "name": "井伊直政_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:09.822Z",
+    "size": "183887"
+  },
+  {
+    "id": "10I-OYtGR1z1kE6ngeQnDvmJmnJKpRVb9",
+    "name": "徳川家康_通常攻撃_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:04.750Z",
+    "size": "308041"
+  },
+  {
+    "id": "1fa9ntnipHg2OWNp6wiixgTRYpxrbrBsb",
+    "name": "徳川家康_やられ_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:04.628Z",
+    "size": "272272"
+  },
+  {
+    "id": "1DGq-NbiIMVR9jL2ub6Rn6prB_kkYd7N3",
+    "name": "徳川家康_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:00.699Z",
+    "size": "121692"
+  },
+  {
+    "id": "1kNhoQUZo_FHbMsao2CIfpnFe3JmIJ-g_",
+    "name": "徳川家康_突進_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:16:00.134Z",
+    "size": "330711"
+  },
+  {
+    "id": "1MIHd2KtLOF5qIduacUnse-a_1hV1sTJF",
+    "name": "徳川家康_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:15:55.700Z",
+    "size": "278111"
+  },
+  {
+    "id": "1ObH1kpqNOPVH8yfEHfLsWOz8XGAk3ReP",
+    "name": "徳川家康_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T20:15:31.503Z",
+    "size": "150926"
+  },
+  {
+    "id": "1RzBQczmlYVHg-aH2qYT-L54jf158DJUX",
+    "name": "石田三成_ダッシュ_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:14:20.032Z",
+    "size": "334010"
+  },
+  {
+    "id": "1x-casFpgjG1SZmVvz4Jd1F0VijTrc7HG",
+    "name": "石田三成_ジャンプ攻撃_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:14:14.587Z",
+    "size": "363518"
+  },
+  {
+    "id": "1YJ84mJGyyhyXSlc_GUK5vV-mKr2W-Ajh",
+    "name": "武田信玄_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:13:12.863Z",
+    "size": "438159"
+  },
+  {
+    "id": "1Trf0xJtqd2XraPMsLGIXbrQYZotJZA_F",
+    "name": "武田信玄_必殺_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:13:06.643Z",
+    "size": "406752"
+  },
+  {
+    "id": "1nwTL5xfhuBAE5OoVY3v-5qKSQXOf2OS5",
+    "name": "武田信玄_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:13:02.361Z",
+    "size": "256407"
+  },
+  {
+    "id": "1rD1tB56FER3Szim4Ac_89VKpgLV401CX",
+    "name": "武田信玄_通常4_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:55.376Z",
+    "size": "380065"
+  },
+  {
+    "id": "1k4OjKLe_RPffU_-8kRm5IkwtDhvJHciD",
+    "name": "武田信玄_通常3_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:49.628Z",
+    "size": "404905"
+  },
+  {
+    "id": "1IydIYNiM-Zsrk-MJxt43WQj8SdR_DjRV",
+    "name": "武田信玄_通常2_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:44.692Z",
+    "size": "338006"
+  },
+  {
+    "id": "1jFPmJ-b8b8pw-lCRpvYbX5T3f6SbmEhB",
+    "name": "武田信玄_通常1_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:38.932Z",
+    "size": "409098"
+  },
+  {
+    "id": "1Y7towdu2RxkBJn0izdWtESWH-oi3eNLV",
+    "name": "武田信玄_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:32.694Z",
+    "size": "432317"
+  },
+  {
+    "id": "1-OOdNVqevSlRWzk_CZk_5KwHVw-fdRoz",
+    "name": "武田信玄_起き上がり_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:26.861Z",
+    "size": "388829"
+  },
+  {
+    "id": "1bbI6ZCp5EWAtQp-ZVMU0mdQJxE0dqxUS",
+    "name": "武田信玄_やられ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:21.516Z",
+    "size": "380774"
+  },
+  {
+    "id": "1JcID5IzjOYb-uhF_Nsn4bYn37tCjFGFD",
+    "name": "武田信玄_ダッシュ_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:16.742Z",
+    "size": "363123"
+  },
+  {
+    "id": "1530MVupNnl9PeuPGLupiiy4Pj7BDMA_Q",
+    "name": "武田信玄_ダウン_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:11.525Z",
+    "size": "347673"
+  },
+  {
+    "id": "1EGHLyRHhcWW9S25skLlfxzDdRAAKBT-d",
+    "name": "武田信玄_ジャンプ攻撃_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:12:05.802Z",
+    "size": "418297"
+  },
+  {
+    "id": "1M3kc_NuJkCWAAKZNwByWxfeZ-EA1iqvU",
+    "name": "武田信玄_ジャンプ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:59.814Z",
+    "size": "395795"
+  },
+  {
+    "id": "11dW4hELQzPkPbIBKLTLoOFaMzH7Ye-bq",
+    "name": "石田三成_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:51.446Z",
+    "size": "433747"
+  },
+  {
+    "id": "1ijilWII1Ia3i3xfwmUnTikb8454m2OxI",
+    "name": "石田三成_必殺_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:46.700Z",
+    "size": "429593"
+  },
+  {
+    "id": "1jbe_0hJmoyEkzfvS58kBFYVCF5ax3Qws",
+    "name": "石田三成_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:43.056Z",
+    "size": "235529"
+  },
+  {
+    "id": "1qSOi2yUXVMj8-F5M4rEVI3Pq3a_8l0xq",
+    "name": "石田三成_通常4_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:37.987Z",
+    "size": "425675"
+  },
+  {
+    "id": "1blTYm-h9N_XcgkVx1LAuUxXSD6XMnYoM",
+    "name": "石田三成_通常3_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:33.766Z",
+    "size": "392168"
+  },
+  {
+    "id": "1bW0fJGmxRMdQRKea1kp_Qf7SZSJ3W6wb",
+    "name": "石田三成_通常2_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:29.042Z",
+    "size": "411967"
+  },
+  {
+    "id": "10iGqql4E29GVT7isZ1qrgyf0HkyCue8_",
+    "name": "石田三成_通常1_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:24.533Z",
+    "size": "400842"
+  },
+  {
+    "id": "1sQqqp4IECxyob_4-mVx6KRb50ZqdMVAc",
+    "name": "石田三成_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:18.955Z",
+    "size": "386484"
+  },
+  {
+    "id": "1hAG_I3yLFc-anRgglZoBt-2MBQpa7K_X",
+    "name": "石田三成_起き上がり_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:14.193Z",
+    "size": "347049"
+  },
+  {
+    "id": "1xe5390cEfU2afqaBimgnxydxJSyGzc0q",
+    "name": "石田三成_やられ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:09.576Z",
+    "size": "322226"
+  },
+  {
+    "id": "1GK7VoSNiZWBH_77Mtjx_DS8tCHOQIwT4",
+    "name": "石田三成_ダッシュ_5コマ_鉄砲明記版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:11:00.523Z",
+    "size": "334010"
+  },
+  {
+    "id": "1MDue0fklAuJLUb3zcL53TpUiu8JR6y10",
+    "name": "石田三成_ダウン_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:55.039Z",
+    "size": "314941"
+  },
+  {
+    "id": "1kFzZiunQGAwX7c4t7wF8op2-nNXUTJ0s",
+    "name": "石田三成_ジャンプ攻撃_4コマ_鉄砲明記版.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:43.729Z",
+    "size": "363518"
+  },
+  {
+    "id": "1P32e_r2PPwNQ1gVwE-nh6NpfN2tLKGOg",
+    "name": "石田三成_ジャンプ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:39.074Z",
+    "size": "305744"
+  },
+  {
+    "id": "1g0emIK49NFTzZP1YyzuM3vRMDuRTi1Jy",
+    "name": "真田幸村_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:32.894Z",
+    "size": "434538"
+  },
+  {
+    "id": "187Bo9LTSXA_8rySgrsEofMrZrf9jpdfd",
+    "name": "真田幸村_必殺_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:27.163Z",
+    "size": "440604"
+  },
+  {
+    "id": "1XcEFP1_QYeSH7EAXe0by0ttkbTpD8LFU",
+    "name": "真田幸村_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:22.643Z",
+    "size": "239087"
+  },
+  {
+    "id": "1pg87Hf9m4866UHDZII5mBMlPZBO6_LJJ",
+    "name": "真田幸村_通常4_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:17.085Z",
+    "size": "382467"
+  },
+  {
+    "id": "1WqnQfvuHqWy92FNUDUTaB8cdQq5VQZRk",
+    "name": "真田幸村_通常3_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:12.818Z",
+    "size": "386291"
+  },
+  {
+    "id": "1ZTbculFJmRmUgow-B-PS9OxWZJqB9UtK",
+    "name": "真田幸村_通常2_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:08.300Z",
+    "size": "355280"
+  },
+  {
+    "id": "1CchkjPKpOp3Cs0hcPyCpTMAbmUYhqnwI",
+    "name": "真田幸村_通常1_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:10:04.146Z",
+    "size": "370454"
+  },
+  {
+    "id": "1dwIahmrvK3UbUzbV3_dY6lCdGjCCDALo",
+    "name": "真田幸村_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:58.164Z",
+    "size": "400424"
+  },
+  {
+    "id": "1_VptVFaQFdd-x22C5xUtv_96R73j8jn8",
+    "name": "真田幸村_起き上がり_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:53.263Z",
+    "size": "374354"
+  },
+  {
+    "id": "1CKcytqE05OXMBXJK5oSPRcBnbZUcAKdZ",
+    "name": "真田幸村_やられ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:47.992Z",
+    "size": "343484"
+  },
+  {
+    "id": "1myUNc_-lPjOqYCTRYB1WV7e3TB_TECIO",
+    "name": "真田幸村_ダッシュ_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:43.445Z",
+    "size": "268144"
+  },
+  {
+    "id": "1UDqQpDu7hxlXwacgPr9iKIlmgH8L8vIK",
+    "name": "真田幸村_ダウン_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:38.198Z",
+    "size": "331686"
+  },
+  {
+    "id": "1pgCd8YUaeyMi_RWGl4hmE8eFyoBmM-0Z",
+    "name": "真田幸村_ジャンプ攻撃_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:31.598Z",
+    "size": "288562"
+  },
+  {
+    "id": "1M-6IhGXx7GVxNeUymc_J8pTouytHn9id",
+    "name": "真田幸村_ジャンプ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:26.713Z",
+    "size": "361884"
+  },
+  {
+    "id": "1taklzREhuphT2GOBhXZ9UglpBmSrQpeT",
+    "name": "織田信長_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:20.300Z",
+    "size": "398771"
+  },
+  {
+    "id": "1camOzFXuCRaGzqyyq2PUeFktB9D6Ph23",
+    "name": "織田信長_必殺_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:15.576Z",
+    "size": "378529"
+  },
+  {
+    "id": "1ehDryRRF6nl0JNZAMmcGvJtKYfJ_OIuJ",
+    "name": "織田信長_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:11.175Z",
+    "size": "220647"
+  },
+  {
+    "id": "1ovk456jvRlzTaCtUnQJnYv2Mo5JVlgcF",
+    "name": "織田信長_通常4_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:05.765Z",
+    "size": "378938"
+  },
+  {
+    "id": "1Ap6DR0nFkLIk6ZzlaSP3vCvLFGm_YXa5",
+    "name": "織田信長_通常3_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:09:00.227Z",
+    "size": "383234"
+  },
+  {
+    "id": "1SS_xNYp7Vq8RESrqFFyO0voezKdAO1xX",
+    "name": "織田信長_通常2_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:55.974Z",
+    "size": "354357"
+  },
+  {
+    "id": "1LgpqEliESjd-TULy4xqwBGYLhxezWHMb",
+    "name": "織田信長_通常1_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:50.603Z",
+    "size": "298754"
+  },
+  {
+    "id": "1vUctZQ-3BQVuRJUqxuuYbhY2AOWAYe-n",
+    "name": "織田信長_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:44.880Z",
+    "size": "320985"
+  },
+  {
+    "id": "1Xeli_QC-dmN03o0WuZ_L1AQUhyVx74lt",
+    "name": "織田信長_起き上がり_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:39.774Z",
+    "size": "350961"
+  },
+  {
+    "id": "1YMN-CBzbMYzXSnkwMw3KbR8fYGgPFd7D",
+    "name": "織田信長_やられ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:35.239Z",
+    "size": "338086"
+  },
+  {
+    "id": "1pnwQJCfSFsz1NDi72EFZm26DPDXRBROv",
+    "name": "織田信長_ダッシュ_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:30.721Z",
+    "size": "339532"
+  },
+  {
+    "id": "1rJj4X3L7b-x9zlfo8TgEunxW76fey8rE",
+    "name": "織田信長_ダウン_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:25.221Z",
+    "size": "360019"
+  },
+  {
+    "id": "1KGIKU7fxgXvR3crSdr9XTXdff3Q7RVw9",
+    "name": "織田信長_ジャンプ攻撃_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:16.863Z",
+    "size": "375834"
+  },
+  {
+    "id": "1pGcgvoikE9ZVFxzZqThlVdYD84Txn9Av",
+    "name": "織田信長_ジャンプ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:08.181Z",
+    "size": "346096"
+  },
+  {
+    "id": "1wt3Y_j7QG6TJCU578JgduZ3v6EM4qGr9",
+    "name": "上杉景勝_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:08:02.260Z",
+    "size": "405271"
+  },
+  {
+    "id": "1FA0UrybEhNNHb7nUbAcC1i8ii0uyoUAG",
+    "name": "上杉景勝_必殺_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:57.778Z",
+    "size": "413395"
+  },
+  {
+    "id": "1AP6SXwo4qO30BbPPCM2lhRDDvoVCLY1F",
+    "name": "上杉景勝_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:53.693Z",
+    "size": "243717"
+  },
+  {
+    "id": "1gAqMVctOmvQS7P-L3oOeJ8H6sJdMJfRa",
+    "name": "上杉景勝_通常4_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:48.602Z",
+    "size": "371050"
+  },
+  {
+    "id": "17Vziq4mqH2hGml5V0wHJjSowXNygQy5n",
+    "name": "上杉景勝_通常3_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:42.339Z",
+    "size": "392149"
+  },
+  {
+    "id": "1Xq7L0nMHHNIoF4pphKJLtvwAVpX-YYT4",
+    "name": "上杉景勝_通常2_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:37.918Z",
+    "size": "383503"
+  },
+  {
+    "id": "1rYUB6p1gQ_ved9M5dYmUqIRy0AyF_BwK",
+    "name": "上杉景勝_通常1_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:33.186Z",
+    "size": "398734"
+  },
+  {
+    "id": "1QpRjuq07JQGoPwDFvm8mt6VsRS75G78f",
+    "name": "上杉景勝_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:28.609Z",
+    "size": "376053"
+  },
+  {
+    "id": "1zs_ybOv_yKddKgN5HSDa8DIBas8X039p",
+    "name": "上杉景勝_起き上がり_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:23.868Z",
+    "size": "351953"
+  },
+  {
+    "id": "1y2JdH55S09Xg8w-iZagEs3--zubwlC0p",
+    "name": "上杉景勝_やられ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:19.280Z",
+    "size": "320522"
+  },
+  {
+    "id": "12hVb3XWwIW6h4nWvRT8qADvip9-6hK_s",
+    "name": "上杉景勝_ダッシュ_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:15.021Z",
+    "size": "275059"
+  },
+  {
+    "id": "1BW2pEWMI3IsJJRBZZlJ7eMOzcnEdYelC",
+    "name": "上杉景勝_ダウン_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:09.719Z",
+    "size": "320542"
+  },
+  {
+    "id": "1vdObtFUqO8q9ypqHixZg4QMCykpAtvsC",
+    "name": "上杉景勝_ジャンプ攻撃_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:07:04.029Z",
+    "size": "359570"
+  },
+  {
+    "id": "1i_k77en78TaLsV8rOQ8Y5UgH09tVaYGA",
+    "name": "上杉景勝_ジャンプ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:58.113Z",
+    "size": "354973"
+  },
+  {
+    "id": "14m7OxyXHJY51FI_Fs8D4t287BR8U1kYu",
+    "name": "宮本武蔵_歩き_6コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:53.590Z",
+    "size": "428909"
+  },
+  {
+    "id": "1jcNgOW8LnzY-CcNwZzAa1oqLSm2eRq48",
+    "name": "宮本武蔵_必殺_8コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:48.865Z",
+    "size": "375766"
+  },
+  {
+    "id": "1ME8HW20LZ3413JLTaq2kDosAfaXIJvUA",
+    "name": "宮本武蔵_被弾_2コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:43.634Z",
+    "size": "229666"
+  },
+  {
+    "id": "1uMgE9zxyFN5metwNPfjwpKUN3dSagzB6",
+    "name": "宮本武蔵_通常5_7コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:38.970Z",
+    "size": "358107"
+  },
+  {
+    "id": "17_bhAQabjPER1wyyyctZBodqZdBFqLfO",
+    "name": "宮本武蔵_通常4_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:34.542Z",
+    "size": "313062"
+  },
+  {
+    "id": "14836c9RxqfVf5gLZ_NOCVGDekw_DbJmd",
+    "name": "宮本武蔵_通常3_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:30.211Z",
+    "size": "369316"
+  },
+  {
+    "id": "1KjpuZm6HcdFESVGF2VaPJspslUOJ4unN",
+    "name": "宮本武蔵_通常2_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:25.615Z",
+    "size": "380067"
+  },
+  {
+    "id": "1UX-4zp5mIhNYQ7YOhkt6QC--hAdr4HY9",
+    "name": "宮本武蔵_通常1_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:20.093Z",
+    "size": "361132"
+  },
+  {
+    "id": "1nBj1HCh7GndJwlrUviDToGtc7OvRcZEv",
+    "name": "宮本武蔵_待機_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:15.235Z",
+    "size": "380088"
+  },
+  {
+    "id": "1XqdeISY8NCj5vRSx3uK6KXO7OFfdYfo4",
+    "name": "宮本武蔵_起き上がり_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:11.086Z",
+    "size": "346430"
+  },
+  {
+    "id": "19DIHVjxlQx_jwgQVe3jzJnjVrkfZnPlv",
+    "name": "宮本武蔵_やられ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:06.584Z",
+    "size": "320213"
+  },
+  {
+    "id": "1lmGCWgglyRaILs2DctrcfOgFjH1wkHJ4",
+    "name": "宮本武蔵_ダッシュ_5コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:06:00.590Z",
+    "size": "314606"
+  },
+  {
+    "id": "15Lmp1O9HbMcLXiS8ggMFvkClyqmAZmEd",
+    "name": "宮本武蔵_ダウン_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:05:56.073Z",
+    "size": "292548"
+  },
+  {
+    "id": "1TornlXc23JBkY18BdZCwZ6zs54B9RsH8",
+    "name": "宮本武蔵_ジャンプ攻撃_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:05:51.517Z",
+    "size": "354647"
+  },
+  {
+    "id": "1nt9Dr6vWO3ZUCFzaqVhIVV8deki6tpFj",
+    "name": "宮本武蔵_ジャンプ_4コマ.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:05:45.183Z",
+    "size": "341451"
+  },
+  {
+    "id": "1Ujs4jStC7YbPiDekDpc9s06AY9t9O6gL",
+    "name": "幸村_UI_選択全身_512x768.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:02:36.698Z",
+    "size": "693886"
+  },
+  {
+    "id": "1OUF1gQaEcmzrpdvBMO0Zl4qrYQBH1iSL",
+    "name": "幸村_UI_HUD肖像_256.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:02:30.768Z",
+    "size": "144045"
+  },
+  {
+    "id": "1Z2Fs7F0GOhodFLKeYWlDdVdyxyhvsfUZ",
+    "name": "福島正則_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T10:01:40.879Z",
+    "size": "2790762"
+  },
+  {
+    "id": "1KcBtrwZW-8nq6SmthDkwFDaPpNb8R6js",
+    "name": "徳川家康_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:56:32.282Z",
+    "size": "2736070"
+  },
+  {
+    "id": "1QQLzuwz3RK4EV30fEaJN2rrHaeL5xaV_",
+    "name": "本多忠勝_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:53:40.578Z",
+    "size": "2507081"
+  },
+  {
+    "id": "1Mo87FKfS5FJy_wfu-HIOptdkJP9plOpe",
+    "name": "井伊直政_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:53:32.054Z",
+    "size": "2469450"
+  },
+  {
+    "id": "1OCVWKfEhJT4TUDl0uajdbVIfnwiDQAFt",
+    "name": "敵兵_8種設定シート.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:45:15.430Z",
+    "size": "2197055"
+  },
+  {
+    "id": "11rri6o3b9rMuFxotXf1sZWk-uot95Lna",
+    "name": "背景_燃える夕焼けと城.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:44:09.244Z",
+    "size": "2525526"
+  },
+  {
+    "id": "1eOipXt9AONiB4L__stTTmXh78BvqdoyW",
+    "name": "背景_長谷堂の夜戦.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:43:08.295Z",
+    "size": "2349729"
+  },
+  {
+    "id": "1c46Je_EDLz5irrHLOdbuhSl35eJNWLID",
+    "name": "背景_上田城の伏兵.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:41:48.310Z",
+    "size": "2840896"
+  },
+  {
+    "id": "1gwlRMgVHykmM-bY6fOtEOUT4eJlR9Fv8",
+    "name": "背景_笹尾山の土煙.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:41:39.097Z",
+    "size": "2585407"
+  },
+  {
+    "id": "13YVWZIvDRSMk1dT9rVgtsGxR0g0s9diZ",
+    "name": "背景_松尾山の雨.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:39:27.971Z",
+    "size": "2864844"
+  },
+  {
+    "id": "11EiP4MP8LQXUd_Woz9LjTdrKvEJb_sjk",
+    "name": "背景_関ヶ原の夜明け.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T09:39:19.037Z",
+    "size": "2651265"
+  },
+  {
+    "id": "1TYlHvaDTOM7KBE0WmcjpJwfI9oe7dPepN0x_zwuvRU4",
+    "name": "01_ボス依頼文（ChatGPT用）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T08:48:44.277Z",
+    "size": "3853"
+  },
+  {
+    "id": "1LRoJ_0UBzO2yNn7K9_lRRRQ6TPnfbV8eUlxWMCY640c",
+    "name": "00_不足分の依頼リスト（ChatGPT用）",
+    "mime": "application/vnd.google-apps.document",
+    "modified": "2026-10-05T07:56:37.579Z",
+    "size": "5209"
+  },
+  {
+    "id": "1skY7uYKu-r1klAbe2vMCGcdt57cwR-zU",
+    "name": "宮本武蔵_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T07:56:26.729Z",
+    "size": "2466597"
+  },
+  {
+    "id": "1FofjACoww2glhnKC8hlzrSpAIgoDg6jD",
+    "name": "武田信玄_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T07:55:20.630Z",
+    "size": "2756753"
+  },
+  {
+    "id": "1X5rlSqAQ0V3g-S5n2gjKGOXbyb90qYZ0",
+    "name": "織田信長_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T07:55:14.905Z",
+    "size": "2408724"
+  },
+  {
+    "id": "1RaFTBBGbYGraNK5rTnV0lAsYWhRr04Q5",
+    "name": "石田三成_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T07:52:45.686Z",
+    "size": "2391549"
+  },
+  {
+    "id": "1hHRcpoMxN21oE2c7Fxg2LEKXPBamIUX3",
+    "name": "上杉景勝_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T07:52:39.886Z",
+    "size": "2511568"
+  },
+  {
+    "id": "1smOKitwEJVZWup46QhspsvRFRnkzXoLA",
+    "name": "真田幸村_設定画.png",
+    "mime": "image/png",
+    "modified": "2026-10-05T07:49:47.296Z",
+    "size": "2397278"
+  }
+]

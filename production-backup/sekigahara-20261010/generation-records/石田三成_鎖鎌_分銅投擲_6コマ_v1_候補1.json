@@ -1,0 +1,120 @@
+{
+  "name": "石田三成_鎖鎌_分銅投擲_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-eca77766-731d-41ab-8019-501736c9965d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_鎖鎌_分銅投擲_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4988235294117647,
+  "sourceBounds": [
+    [
+      25,
+      151,
+      370,
+      575
+    ],
+    [
+      377,
+      150,
+      714,
+      575
+    ],
+    [
+      727,
+      150,
+      1072,
+      575
+    ],
+    [
+      1102,
+      151,
+      1458,
+      575
+    ],
+    [
+      1473,
+      151,
+      1817,
+      575
+    ],
+    [
+      1841,
+      150,
+      2157,
+      575
+    ]
+  ],
+  "placements": [
+    [
+      42,
+      18,
+      172,
+      212
+    ],
+    [
+      44,
+      18,
+      168,
+      212
+    ],
+    [
+      42,
+      18,
+      172,
+      212
+    ],
+    [
+      39,
+      18,
+      178,
+      212
+    ],
+    [
+      42,
+      18,
+      172,
+      212
+    ],
+    [
+      49,
+      18,
+      158,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "98e8ed6e3c33464763923b0a311b63b418615c0b54e7d3e9e60c6a9fff7a122e",
+  "prompt": "Exact Mitsunari purple gold armor fan helmet six grounded throw actor phases. Left hand retains sickle in every frame, right releases projectile. Shared outbound chain and weight separate. No effects.",
+  "char": "石田三成",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6復号フレームと待機縮尺を目視。紫金甲冑・扇兜・顔・布保持、右向き接地枠内、全コマ左手の鎌保持と二本腕、右手振りかぶり→放出→振り抜き→構え戻り確認。注意: 3コマ目で後足つま先接地が浅い、射出共通鎖分銅の動的接続未検証。",
+  "gitVerified": true,
+  "gitCommit": "f74cd4f6af28bed8ee60df5df3446d6f7b78fd23",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "98e8ed6e3c33464763923b0a311b63b418615c0b54e7d3e9e60c6a9fff7a122e",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:38:34.843839+09:00"
+}

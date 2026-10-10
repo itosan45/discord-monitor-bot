@@ -1,0 +1,25 @@
+{
+  "commit": "aeea04b1de5589e2eebe41c3cbc3ef64ca5f6d2e",
+  "remote": "aeea04b1de5589e2eebe41c3cbc3ef64ca5f6d2e",
+  "verifiedAt": "2026-10-06T17:11:03.951738+00:00",
+  "assets": [
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "石田三成_ジャンプ_4コマ_v2.png",
+      "name": "石田三成_ジャンプ_4コマ_v2.png",
+      "sha256": "8b2e1860642d52abc20b5363a3d0c70e919cc3ac4c22f2504185bfc6b40c2545",
+      "qaResult": "OK",
+      "record": "ishida-jump-v2-record.json",
+      "priorStatus": "qa_passed"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "織田信長_通常1_5コマ_v2.png",
+      "name": "織田信長_通常1_5コマ_v2.png",
+      "sha256": "87b231680b6e7732ebdc68b3ce62cb955e561340dca7fb36a32ea58462f1d6fb",
+      "qaResult": "OK",
+      "record": "oda-normal1-v2-record.json",
+      "priorStatus": "qa_passed"
+    }
+  ]
+}

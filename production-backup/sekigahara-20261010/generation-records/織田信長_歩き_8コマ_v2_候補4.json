@@ -1,0 +1,6 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-d913de3c-7f72-408b-a8ee-95f879dce201.png",
+  "prompt": "Edit exact8-frame Nobunaga strip, change ONLY FRAME5 FRONT/RIGHT FOOT. Bothlegs in5 arecorrectlyswappedrelative1; keepthatpelvis/thigh/knee/anklepose EXACTLY. The FRONT/RIGHT boot (the foot onthe RIGHT ofFRAME5) wronglypointsTOESLEFT. Turnonlythisfrontboot atankle soHEELisLEFT andTOESPOINT RIGHT, solelevelsameground, likethefrontbootsinframes1/4/8. Keep FRAME5BACK/LEFTfoot (alreadytoesRIGHT) unchanged. Keepall7otherfigures completely unchanged. Upperbodygun/cape/banner/headallunchanged. No rescale, noaddedlimbs, nootherchanges. Pureflatmagenta, no labels/borders/grids/shadows.",
+  "retries": 3,
+  "status": "candidate_pending_QA"
+}

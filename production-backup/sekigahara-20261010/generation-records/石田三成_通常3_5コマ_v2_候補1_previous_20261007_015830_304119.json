@@ -1,0 +1,12 @@
+{
+  "name": "石田三成_通常3_5コマ_v2.png",
+  "candidate": 1,
+  "status": "generation_started",
+  "source": null,
+  "reference": "石田三成_設定画.png",
+  "action": "通常3",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T01:55:44.5801473+09:00",
+  "noDuplicateGeneration": true,
+  "note": "Single candidate reserved after checking all matching records and output folders."
+}

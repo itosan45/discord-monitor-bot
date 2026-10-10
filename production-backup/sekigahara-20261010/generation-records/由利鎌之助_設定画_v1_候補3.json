@@ -1,0 +1,37 @@
+{
+  "name": "由利鎌之助_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b098ec46-38e8-467f-81b3-3605a950c632.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\由利鎌之助_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    61,
+    83,
+    1460,
+    957
+  ],
+  "placement": [
+    64,
+    80
+  ],
+  "status": "git_verified",
+  "sha256": "a99883a4c99a83405c3bcbe3fb3ae9ab64e886f35f7f7eafb8c24315aa8683cf",
+  "updatedAt": "2026-10-07T15:20:56.037537+09:00",
+  "prompt": "Precise localized edit ONLY MIDDLE RIGHT-FACING VIEW weapon chain in this image. Left/front and right/back views unchanged. Middle sickle: wooden handle runs diagonally from x700 y500 (BUTT with empty metal ring behind fist) to x810 y575 (BLADE joint). Chain currently wrongly attaches at x810 y575. REMOVE chain attachment there. Attach chain to empty butt ring at x700 y500 instead: draw continuous chain from that ring down below gripping right fist then a gentle slack U under the handle, then up to left hand chain loops at x880 y510. Keep sickle curved blade, handle, both hands, loop bundle and hanging weight exactly same. No chain attached to blade end, no empty butt ring. Face/outfit/feet and entire composition remain same. Maintain pure #FF00FF background1536x1024, no effects/text.",
+  "char": "由利鎌之助",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "candidateCount": 3,
+  "qaResult": "要注意",
+  "visualReview": "Reviewed all three normalized views: same man/costume, full sickle/chain/weight/head/feet, pure magenta margins. Candidate3 adds continuous chain from butt eyelet to left hand in middle view. Side chain overlaps blade joint visually; remaining readability caution, not perfect separation. OCR detects clothing patterns, no actual text. Static reference only; kusarigama motion phases still pending.",
+  "gitVerified": true,
+  "gitCommit": "f9ad083b518710be90b103af0e5f0436feb7a5c5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "a99883a4c99a83405c3bcbe3fb3ae9ab64e886f35f7f7eafb8c24315aa8683cf",
+  "ocrSuccess": true,
+  "ocrText": "ョ 当"
+}

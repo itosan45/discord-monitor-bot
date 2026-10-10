@@ -1,0 +1,144 @@
+{
+  "name": "本多忠勝_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-88281a92-7820-4f8d-9e11-d702ef6d2f5d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\本多忠勝_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.748780487804878,
+  "sourceBounds": [
+    [
+      41,
+      16,
+      426,
+      422
+    ],
+    [
+      487,
+      16,
+      853,
+      422
+    ],
+    [
+      924,
+      16,
+      1290,
+      422
+    ],
+    [
+      1368,
+      18,
+      1731,
+      421
+    ],
+    [
+      25,
+      454,
+      408,
+      862
+    ],
+    [
+      483,
+      452,
+      853,
+      862
+    ],
+    [
+      932,
+      453,
+      1302,
+      861
+    ],
+    [
+      1367,
+      453,
+      1743,
+      862
+    ]
+  ],
+  "placements": [
+    [
+      48,
+      42,
+      288,
+      304
+    ],
+    [
+      55,
+      42,
+      274,
+      304
+    ],
+    [
+      55,
+      42,
+      274,
+      304
+    ],
+    [
+      56,
+      44,
+      272,
+      302
+    ],
+    [
+      48,
+      40,
+      287,
+      306
+    ],
+    [
+      53,
+      39,
+      277,
+      307
+    ],
+    [
+      53,
+      40,
+      277,
+      306
+    ],
+    [
+      51,
+      40,
+      282,
+      306
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "a5ec1f8f77e1546460b96a362cc8e104e79249c1f5ca93bb6e59daa477a34a83",
+  "visualApproved": true,
+  "visualReview": "全8コマをGIF復号後に目視し、設定画と待機絵を参照。黒金鎧・鹿角前立・外套・槍の意匠を保持し、右向き、8セル分離、人物と槍の枠切れなし。1/5で支持脚が交替し、2-4/6-8にも踏み替えが見える。既存待機の人物は現行ボス規格の約307px高より小さく見えるため、旧待機との尺度互換は要注意。規格準拠の候補として納品。",
+  "ocrSuccess": true,
+  "ocrText": "/ し",
+  "updatedAt": "2026-10-08T05:43:14.603931+09:00",
+  "gitVerified": true,
+  "gitCommit": "46a42aa592d778e4a0e330f8cf3f54027917bf19",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "a5ec1f8f77e1546460b96a362cc8e104e79249c1f5ca93bb6e59daa477a34a83",
+  "prompt": "Create one 4-column by 2-row sprite atlas showing eight consecutive full-body right-facing combat-walk poses of the exact Honda Tadakatsu from the supplied setting reference. Preserve black lacquer armor with gold details, the exact face/helmet and tall gold antler crest, black cloak, and large spear. The waiting sprite is a style and pose-scale reference. Use a perfectly flat #FF00FF background. Keep each pose isolated in an invisible cell, with no borders, grid lines, labels, text, shadows, scenery, or effects. Maintain the same anatomy, armor, crest, spear, and size. Show a grounded combat advance cycle: frame 1 right-foot-forward contact; frame 2 weight transfer; frame 3 left foot passing; frame 4 left foot swinging forward; frame 5 opposite contact with left foot forward and right foot behind; frame 6 weight transfer; frame 7 right foot passing; frame 8 right foot swinging forward into frame 1. Make frame 1 and frame 5 support legs visibly alternate; keep torso and spear guard steady. Keep the full body, antlers, cloak, and spear within each cell without overlap."
+}

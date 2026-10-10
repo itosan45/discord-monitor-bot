@@ -1,0 +1,50 @@
+[
+  {
+    "name": "福島正則_会話肖像.png",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-72455eb8-1f2f-4708-9ad9-3f365658e33a.png",
+    "prompt": "Create ONE dialogue bust portrait of 福島正則, facing LEFT, chest and shoulders up. Reference1 is STRICT character identity: exactly same face, age, build, hairstyle/helmet silhouette, armor colors and crests. Reference2 is ONLY visual style, square canvas and composition: detailed gritty dramatic Japanese samurai game illustration, strong lifelike facial anatomy, rich shaded armor, full shoulders and entire helmet/hair visible. Match the existing Ieyasu dialogue portrait's1254x1254 canvas, left-facing three-quarter view, bust composition and transparent background. Character 福島正則 must retain his OWN design from reference1, no Ieyasu face, white hair or purple armor. One character, no text/labels/UI, no weapons across face, no effects, no background. Preserve helmet entire inside frame with generous transparent margins around crests and shoulders. Lower chest ends naturally as a bust silhouette. Fully transparent alpha background.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent": true,
+    "candidateCount": 1,
+    "status": "crest_correction_required"
+  },
+  {
+    "name": "小早川秀秋_会話肖像.png",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f873d3f7-e89e-4ba3-851d-b8dacd77d7c6.png",
+    "prompt": "Create ONE dialogue bust portrait of 小早川秀秋, facing LEFT, chest and shoulders up. Reference1 is STRICT character identity: exactly same face, age, build, hairstyle/helmet silhouette, armor colors and crests. Reference2 is ONLY visual style, square canvas and composition: detailed gritty dramatic Japanese samurai game illustration, strong lifelike facial anatomy, rich shaded armor, full shoulders and entire helmet/hair visible. Match the existing Ieyasu dialogue portrait's1254x1254 canvas, left-facing three-quarter view, bust composition and transparent background. Character 小早川秀秋 must retain his OWN design from reference1, no Ieyasu face, white hair or purple armor. One character, no text/labels/UI, no weapons across face, no effects, no background. Preserve helmet entire inside frame with generous transparent margins around crests and shoulders. Lower chest ends naturally as a bust silhouette. Fully transparent alpha background.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent": true,
+    "candidateCount": 1,
+    "status": "ready_for_qa"
+  },
+  {
+    "name": "徳川秀忠_会話肖像.png",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-67cc126c-bef6-4922-af59-1437cdedfbac.png",
+    "prompt": "Create ONE dialogue bust portrait of 徳川秀忠, facing LEFT, chest and shoulders up. Reference1 is STRICT character identity: exactly same face, age, build, hairstyle/helmet silhouette, armor colors and crests. Reference2 is ONLY visual style, square canvas and composition: detailed gritty dramatic Japanese samurai game illustration, strong lifelike facial anatomy, rich shaded armor, full shoulders and entire helmet/hair visible. Match the existing Ieyasu dialogue portrait's1254x1254 canvas, left-facing three-quarter view, bust composition and transparent background. Character 徳川秀忠 must retain his OWN design from reference1, no Ieyasu face, white hair or purple armor. One character, no text/labels/UI, no weapons across face, no effects, no background. Preserve helmet entire inside frame with generous transparent margins around crests and shoulders. Lower chest ends naturally as a bust silhouette. Fully transparent alpha background.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent": true,
+    "candidateCount": 1,
+    "status": "ready_for_qa"
+  },
+  {
+    "name": "最上義光_会話肖像.png",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-6b0c653f-32f0-414a-b684-2f2cd4485428.png",
+    "prompt": "Create ONE dialogue bust portrait of 最上義光, facing LEFT, chest and shoulders up. Reference1 is STRICT character identity: exactly same face, age, build, hairstyle/helmet silhouette, armor colors and crests. Reference2 is ONLY visual style, square canvas and composition: detailed gritty dramatic Japanese samurai game illustration, strong lifelike facial anatomy, rich shaded armor, full shoulders and entire helmet/hair visible. Match the existing Ieyasu dialogue portrait's1254x1254 canvas, left-facing three-quarter view, bust composition and transparent background. Character 最上義光 must retain his OWN design from reference1, no Ieyasu face, white hair or purple armor. One character, no text/labels/UI, no weapons across face, no effects, no background. Preserve helmet entire inside frame with generous transparent margins around crests and shoulders. Lower chest ends naturally as a bust silhouette. Fully transparent alpha background.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent": true,
+    "candidateCount": 1,
+    "status": "crest_correction_required"
+  }
+]

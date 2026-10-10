@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-5f8b5b45-583f-4d5e-a040-d21069529641.png",
+  "prompt": "Create a FOUR-frame death animation for exactly the blue ashigaru soldier in reference1 (idle). Reference2 supplies only the falling poses. Same small head proportions, black conical jingasa, black lamellar armor, blue tunic/hakama, straw sandals, SAME spear length as reference1. Four square cells in one horizontal row. 1 staggers backward, knees buckle, holds spear diagonally almost upright near body; 2 drops to knees, fingers release spear which falls nearly upright beside torso; 3 collapses onto rear hip with knees drawn up, spear lies diagonally across bent legs with butt near helmet and point near feet;4 on back motionless, knees bent, complete spear diagonal across body with butt beside helmet and tip near feet. Body and spear combined must occupy only central86% cellwidth and80% cellheight. Keep identical anatomy and body scale, standing equivalent80% cellheight, no shrinking crouching/falling frames. One whole soldier per cell, body faces right, no missing weapon, no shadows/text/grid, flat pure #FF00FF background. Distinct weight loss, knee drop, fall and final rest rather than rotated standing portrait.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

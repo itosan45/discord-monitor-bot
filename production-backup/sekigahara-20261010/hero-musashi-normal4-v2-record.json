@@ -1,0 +1,144 @@
+{
+  "name": "宮本武蔵_通常4_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常4_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-38221fdb-a2dc-4fbd-9cb3-f0ca81d0983b.png",
+  "status": "git_verified",
+  "scale": 0.5,
+  "standingHeightSource": 410.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        58,
+        190,
+        301,
+        600
+      ],
+      "destination": [
+        67,
+        26,
+        122,
+        205
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        353,
+        253,
+        707,
+        599
+      ],
+      "destination": [
+        39,
+        58,
+        177,
+        173
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        835,
+        207,
+        1173,
+        599
+      ],
+      "destination": [
+        43,
+        35,
+        169,
+        196
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1218,
+        234,
+        1622,
+        599
+      ],
+      "destination": [
+        27,
+        49,
+        202,
+        182
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1679,
+        191,
+        1920,
+        600
+      ],
+      "destination": [
+        68,
+        27,
+        120,
+        204
+      ],
+      "scale": 0.5,
+      "ground": 230
+    }
+  ],
+  "sha256": "2cd462a774e9a41aeefc36177e9ecc8c2d8c0f87570d82f948e0428012aeddd6",
+  "backgroundSource": [
+    243,
+    24,
+    242
+  ],
+  "sourceIndices": null,
+  "reuseSourceRecord": "musashi-normal4-record.json",
+  "reuseBytesUnchanged": true,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの76%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    18858,
+    19548,
+    17723,
+    17649,
+    11727
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_通常4_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_通常4_5コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "再OCR文字なし",
+  "qaNote": "旧縮尺修正版のPNGバイトを変更せず再利用。最新11の番号と動き、足・腰の踏み込み、予備→攻撃→振り抜き→回収、二刀の持ち手と先端、頭部・胴体を再照合。",
+  "visualReview": "最新要求で再QA。通常1長刀下降斬り、通常3二刀突き、通常4二刀上昇斬りに対応。姿勢変化・踏み込み・腰の移動・武器の回収を5コマGIF復号で目視。規格全合格、OCR空。既存縮尺修正版とPNGバイト一致。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

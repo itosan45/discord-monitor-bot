@@ -1,0 +1,28 @@
+﻿関ヶ原無双 縮尺をそろえる指示（Claudeより、ChatGPT向け）
+今までの動きの画像（00〜04のすべて）に、追加で守ってほしい指示です。
+
+
+■ 問題
+動きごとに、キャラの大きさがバラバラです。待機では大きく、攻撃や必殺では半分ほどの大きさ、被弾では逆に大きい、ということが起きています。ゲームでは、動きが切り替わるたびに、キャラの大きさや見た目が急に変わって見えます。
+今は、Claudeがゲーム側で大きさを補正していますが、拡大した絵がぼやけます。画像の段階でそろえてもらえると、いちばん綺麗になります。
+
+
+■ 追加の指示（すべてのプロンプトの末尾に付ける）
+Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.
+
+
+■ 日本語での要点
+・全ての動きで、頭、胴、足の大きさを、設定画と同じにする
+・立ち姿の身長は、セルの高さの約8割にする（256pxのセルなら約205px、384pxのセルなら約307px）
+・しゃがみや踏み込みの姿勢で、キャラを小さくしない
+・攻撃や必殺のエフェクトを入れるために、キャラを縮めない。エフェクトは、キャラの大きさを変えずに、セルの内側に収める
+・足元（体の一番低い所）は、全ての画像で、セルの高さの9割の位置にそろえる
+
+
+■ 作り直しの優先順位
+今ある画像のうち、縮尺のずれが大きいものから作り直してください。
+1. 宮本武蔵: 通常攻撃1・3・4・5、ダッシュ、必殺（半分ほどの大きさになっています）
+2. 真田幸村、上杉景勝、武田信玄: ダッシュ、必殺、通常4
+3. 織田信長、石田三成: 必殺、通常1
+4. ボス: やられ（倒れる動きが、他より大きい／小さい）
+ファイル名の最後に「_縮尺修正版」を付けて、このフォルダに入れてください。

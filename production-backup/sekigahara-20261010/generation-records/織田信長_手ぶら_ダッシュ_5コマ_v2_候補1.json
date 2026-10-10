@@ -1,0 +1,106 @@
+{
+  "name": "織田信長_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5dbba90e-b852-4daa-86f6-a58a1114190e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.42570281124497994,
+  "sourceBounds": [
+    [
+      75,
+      5,
+      452,
+      503
+    ],
+    [
+      572,
+      6,
+      881,
+      504
+    ],
+    [
+      56,
+      511,
+      458,
+      1005
+    ],
+    [
+      540,
+      512,
+      994,
+      1001
+    ],
+    [
+      76,
+      1018,
+      456,
+      1516
+    ]
+  ],
+  "placements": [
+    [
+      48,
+      18,
+      160,
+      212
+    ],
+    [
+      62,
+      18,
+      132,
+      212
+    ],
+    [
+      42,
+      20,
+      171,
+      210
+    ],
+    [
+      31,
+      22,
+      193,
+      208
+    ],
+    [
+      47,
+      18,
+      162,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "33c41d4dd10dc9079c477fcce36628159d7a094e6a45d0699685ad7afe2dd4e0",
+  "visualApproved": true,
+  "visualReview": "All five decoded frames and idle reference compared. Correct black crimson gold character, helmet, crest/banner, no weapons, empty fists, planted support foot in everyframe, full cape/banner/hands/boots and no effects. Windup, knee drive, thrust, paired fist lunge and recoil visible. Frame2/3 near/far leg exchange not clear; banner-inclusive uniform normalization makes anatomy slightly smaller than idle. OCR corresponds to banner and crest, no added UI text.",
+  "motionCaution": "Leg exchange weak; body slightly smaller than idle when full banner retained. Do not claim exact scale or complete run gait verified.",
+  "gitVerified": true,
+  "gitCommit": "8964218f9749059db7e55a690234e62301690178",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "33c41d4dd10dc9079c477fcce36628159d7a094e6a45d0699685ad7afe2dd4e0",
+  "prompt": "FIVE chronological RIGHT-facing fullbody Oda Nobunaga UNARMED DASH paired-fist thrust. Exact reference1 face thinmustachegoatee, goldcrescenthelmet, blackgoldcrimson nanbanarmor, crimsoncape, REQUIREDblackgoldcrest white 天下布武 banner and completepole in EVERY frame. Reference2 anatomicalsize only; addbanner. NOgun/sword/scabbard/weapon. Both empty closedfists.1 low rearweight anticipation fistswaist.2 rightrearfoot pushesground, leftfoot lifts infront kneebent, forwardlean fistsstartforward.3 leftfoot now supportsunderhip, RIGHTkneepassesinfront liftedboot, near/far kneelayers clearly REVERSE from2; BOTHfists thrustforward.4 rightfootplantsfront compactlunge, rearlefttoeground, TWOstackedfistsbotharmsforward.5 brakecollectrearfoot fistsretractwaist. Atleastonefooton sameground EVERYframe, no airborne. Samehead/torso/limblength scale everyframe. Reference2 anatomical equivalent205pxtall; do NOT shrinkbody for extendedarms/cape/banner. Compactlunge and shortcapehangsclosetobody, wholewidth<=head-to-soleheight. Allhorns/bannerpole/hands/feetinsidegenerousmargins. Pureflat #FF00FF, noeffects/light/flames/shadows/slash/speedlines/UI/numbers/text exceptbanner. Intermediate3x2atlas5figures rowmajor bottomrightblank, squarecells LARGEgutters NOgrid. Final1280x2565cells.",
+  "ocrSuccess": true,
+  "ocrText": "2 天 下 市 ◎ 天 下 布 武 ◎ 天 下 布 武",
+  "updatedAt": "2026-10-07T14:11:01.106140+09:00"
+}

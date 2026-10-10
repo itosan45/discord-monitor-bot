@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_攻撃_6コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-cfafb2f2-41fd-4ab8-b774-093099f5aaa6.png",
+  "prompt": "Create SIX-frame MATCHLOCK FIRING attack animation of EXACTsameblueashigarugunner inacceptedidle, samephysiquefacearmorhatgunpouchesandlonggun. Sequence1lowknees chestdiagonalready;2raisegun towardRIGHT muzzle shoulderheight rightcheekapproachesstock, leftforestockhand supports, hipsweightforward;3aim preciselyhorizontalright plantedfrontfoot shouldersstable;4FIRE small orangeMUZZLEFLASHattachedtomuzzleandcompactgraySMOKE closegun, triggerfingerpulls, no projectilefaraway;5RECOILstockpressesshoulder rightelbowrear torsoleansslightlybackweighttorearleg, smoke dissipatessmall;6recovergunlowerdiagonalchestguard andfrontfootbalance. ONEcontinuousmatchlockfullbarrelstocktriggerandburningmatchlockcord visible, samegunlengthall6. SameexactHEADTORSOLEGdimensionsall6, standing equivalent205pxin256squarecells. Gunfitsbyfoldedleftelbow/closecheek compactstance, do NOT shrinkbodyorweapon tofit; use16pxmargin inclmuzzleflash. FULLBODYfacesRIGHT andALLtoesRIGHTsideprofiles. Lowknees stablebalanced stance variedhipweightnotportraits. Onegunneroneattack6equalcells horizontalrow, pureopaque#FF00FF no textgridshadowborderfloor scenery, no giantflashorcloud.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

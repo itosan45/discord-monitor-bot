@@ -1,0 +1,117 @@
+﻿{
+  "name": "宮本武蔵_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_ダウン_4コマ_v2_候補保存_20261007_072926_520491.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a04950d5-8ce9-4332-b60f-2e73b6c9f1a6.png",
+  "status": "candidate_rejected",
+  "scale": 0.3474576271186441,
+  "standingHeightSource": 590.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        5,
+        78,
+        597,
+        614
+      ],
+      "destination": [
+        25,
+        45,
+        206,
+        186
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        498,
+        131,
+        1086,
+        614
+      ],
+      "destination": [
+        26,
+        63,
+        204,
+        168
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1045,
+        296,
+        1463,
+        623
+      ],
+      "destination": [
+        55,
+        117,
+        145,
+        114
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 227
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1522,
+        452,
+        2165,
+        637
+      ],
+      "destination": [
+        16,
+        167,
+        223,
+        64
+      ],
+      "scale": 0.3474576271186441,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 228
+    }
+  ],
+  "sha256": "c11343ab31e856625a7b5c8dbcab20c872171a185c85e4e05e6323834e84da5f",
+  "backgroundSource": [
+    242,
+    21,
+    239
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "prompt": "Create ONE production-ready horizontal four-frame sprite strip for the pending Sekigahara Ranbu asset Miyamoto Musashi DOWN, exactly four full-body poses in a single row. Four equal horizontal slots across a very wide canvas, generous clear separation so each pose can be isolated; no panel borders and no frame overlaps. In every frame he faces screen-right. One and the same rugged Japanese swordsman in his thirties: lean muscular build, tan skin, long black hair tied in a high messy knot, white cloth headband with long tails, weathered charcoal-gray sleeveless kosode, dark hakama, wrapped calves, straw sandals, red-brown belt, two sheathed/unsheathed katana matching the approved Musashi design. Maintain identical face, clothing, body scale, proportions and colors across all four poses. Frame 1: alert guarded stance, knees flexed, both swords low. Frame 2: hit reaction with torso pitching backward, shoulders recoiling, knees collapsing, both sword arms following the body naturally. Frame 3: drops to one knee and catches himself with a forearm, sword still held safely, believable balance. Frame 4: fully down on his side at ground level, facing right, legs and arms naturally bent, both swords visible beside him without clipping or becoming extra limbs. Keep the action sequence clear and physically plausible, grounded shadow kept minimal directly under each pose. Premium painterly Japanese historical action game illustration, confident dark ink contours, layered brush shading, realistic anatomy, restrained charcoal, bone-white and earth-red palette; match the detail level of an approved game character sheet, not photorealistic and not 3D. Background is perfectly flat uniform opaque RGB pure magenta #FF00FF edge-to-edge, with no color variation. No text, symbols, UI, scenery, extra people, blood, gore, smoke, motion trails, or decorations. Ensure all four full figures, headband tails, hands, feet and sword tips are inside the canvas with visible magenta gaps around every pose. This is a single unique first candidate; do not create alternate versions or extra poses.",
+  "rejectionReason": "Single generated source visually has a strong four-stage reaction, but the required uniform scale that keeps every frame at least 16px inside the 256px cell leaves the 30_check_strip.py median character height at 54% (<55%). Raising scale enough to pass makes the final horizontal two-sword pose violate the 16px margin. Keep both QA attempts in records; do not regenerate this exact task.",
+  "normalizationTrials": [
+    {
+      "standingHeightSource": 600,
+      "automaticCheck": "54% median, NG",
+      "scale": 0.3416666666666667
+    },
+    {
+      "standingHeightSource": 590,
+      "automaticCheck": "55% rounded display but still below strict threshold, NG",
+      "scale": 0.3474576271186441
+    }
+  ]
+}

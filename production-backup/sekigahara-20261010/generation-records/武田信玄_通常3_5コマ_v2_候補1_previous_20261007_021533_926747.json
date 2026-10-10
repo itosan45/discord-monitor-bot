@@ -1,0 +1,12 @@
+{
+  "name": "武田信玄_通常3_5コマ_v2.png",
+  "candidate": 1,
+  "status": "generation_started",
+  "source": null,
+  "reference": "武田信玄_設定画.png",
+  "action": "通常3",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T02:12:23.3767774+09:00",
+  "noDuplicateGeneration": true,
+  "note": "Single candidate reserved after matching output and generation history check."
+}

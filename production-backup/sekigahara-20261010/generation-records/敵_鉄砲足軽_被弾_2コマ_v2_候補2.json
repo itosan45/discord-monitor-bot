@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-a7ac93f5-85a0-473b-8814-1cf8e3dfa93d.png",
+  "prompt": "Preserve thisTWO-framegunnerhitreaction exactly. Remove newlyaddedgoldEARRING fromearinframe2: referencegunnerhasordinarybareearwithhelmetchinstrap, no jewelry. Bothframes samebareear andsame shortblackmoustachechinbeard. Keepallbodyanatomyposesarmorhatgunpouchesfootprofilesunchanged. Bothrearandfrontsandals toesRIGHTsideview, pureopaque#FF00FF no textgridshadowborder. Onefullgunnerper equalcell2horizontalrow, samephysiquedimensions.",
+  "attempt": 2,
+  "status": "candidate_repair_ear_attachment"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_攻撃_6コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-43dc9f51-1a8b-450c-88fd-a1fd6a5a27f6.png",
+  "prompt": "Create SIX-frame katana attack of EXACT attached blue ashigaru swordsman: black cone hat, stubble, rolled sleeves, no shoulder plates, black lamellar torso, blue hakama, shin guards/straw sandals, sheath. RIGHT-facing fullbody profile, two hands on katana. Distinct downward diagonal slash with body weight:1low ready both knees bent blade ahead;2draw blade OVER head behind shoulder while back leg stores force and hips rotate;3push from rear foot and turn hips bringing blade diagonally downward across front of chest;4impact low forward lunge with front knee bent, blade low ahead, rear heel raised;5follow-through hips rotated and blade near front shin, arms bend to brake;6recover feet/hips and katana to low ready. Show real blade each frame, preparation→impact→follow-through→recovery, no slash effects needed. Don't simply rotate weapon while standing still. Same character anatomy and uniform scale (standing equiv80%square), soles90%, complete curved blade/hilt/sheath and body within16px equivalent margins. Six equal square cells horizontal row, one soldier/action per cell. Opaque flat pure#FF00FF no shadow text grid borders. Compact overhead arms and footstep rather than shrinking character.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

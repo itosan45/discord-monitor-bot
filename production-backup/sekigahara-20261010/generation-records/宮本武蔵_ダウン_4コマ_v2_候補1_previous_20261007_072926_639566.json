@@ -1,0 +1,101 @@
+{
+  "name": "宮本武蔵_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a04950d5-8ce9-4332-b60f-2e73b6c9f1a6.png",
+  "status": "candidate",
+  "scale": 0.3416666666666667,
+  "standingHeightSource": 600.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        5,
+        78,
+        597,
+        614
+      ],
+      "destination": [
+        27,
+        48,
+        202,
+        183
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        498,
+        131,
+        1086,
+        614
+      ],
+      "destination": [
+        27,
+        66,
+        201,
+        165
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1045,
+        296,
+        1463,
+        623
+      ],
+      "destination": [
+        56,
+        119,
+        143,
+        112
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 227
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1522,
+        452,
+        2165,
+        637
+      ],
+      "destination": [
+        18,
+        168,
+        220,
+        63
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 228
+    }
+  ],
+  "sha256": "04c793659695d6d49f8d86e339362e676d7594b133008bc1d9994c743aab5a79",
+  "backgroundSource": [
+    242,
+    21,
+    239
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false
+}

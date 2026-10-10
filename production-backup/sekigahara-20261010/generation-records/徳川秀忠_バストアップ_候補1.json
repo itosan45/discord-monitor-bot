@@ -1,0 +1,72 @@
+{
+  "name": "徳川秀忠_バストアップ.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0d2f7a8f-dd76-4f80-9685-495546107f56.png",
+  "sourceSha256": "9648764caf6987042fc6bea3d34aab1899708e7544ddf1f1fa73e404ad85e7f1",
+  "referencePath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\徳川秀忠_設定画.png",
+  "prompt": "Use case: stylized-concept\nAsset type: 512x512 in-game boss bust portrait for Sekigahara Ranbu.\nPrimary request: Draw one fierce, slightly-right-facing head-and-shoulders portrait of Tokugawa Hidetada, matching the attached character sheet exactly.\nSubject: Preserve his mature stern face, tall paired gold horn crest, dark navy-and-gold armor, and deep blue cloak with gold Tokugawa motifs. Frame the complete crest, face, shoulders, and upper chest.\nStyle/medium: Painted anime-realistic Japanese action-game portrait, crisp dark outlines, rich lacquer and textile detail, dramatic restrained lighting.\nComposition/framing: One person, centered bust, with clear magenta margin around the crest and shoulder silhouette.\nScene/backdrop: Exactly flat pure RGB(255,0,255) / #FF00FF.\nConstraints: Keep identity, headwear, armor, and colors faithful to the reference. His weapon is a matchlock; leave it out if it would crowd this portrait.\nAvoid: Text, letters, numbers, labels, UI, border, scenery, extra people, cropped crest or shoulders, gradients, background shadow, watermark.",
+  "status": "git_verified",
+  "candidateStatus": "git_verified",
+  "createdAt": "2026-10-07",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\徳川秀忠_バストアップ.png",
+  "normalizedSha256": "d7b640e42a2ab04bc4f45f81ab0bdab914953acb11937b3cba164f39ce040aef",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "pureMagentaRatio": 0.4503,
+  "visibleBBox": [
+    0,
+    5,
+    512,
+    512
+  ],
+  "visibleMargins": [
+    0,
+    5,
+    0,
+    0
+  ],
+  "automaticCheck": {
+    "dimension": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "exactMagentaRatio": 0.4513,
+    "visibleBBox": [
+      0,
+      5,
+      512,
+      512
+    ],
+    "visibleMargins": [
+      0,
+      5,
+      0,
+      0
+    ],
+    "result": "PASS for base UI bust portrait; bust crop intentionally fills canvas."
+  },
+  "note": "One candidate only. No regeneration; preserve this source and record any QA caution.",
+  "normalizedPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_base_boss_portraits_candidate1_bgclean\\徳川秀忠_バストアップ.png",
+  "backgroundNormalization": "Flood-filled only border-connected near-magenta background to exact #FF00FF, then uniform 512x512 Lanczos resize; no subject-component edits and no recrop.",
+  "qaResult": "OK",
+  "visualReview": "紺金甲冑・青外套・三日月立物・顔の判読性を確認。胸上構図として収まる。 6枚の512x512一覧で衣装・顔・向き・背景・フレーム境界を目視。追加候補なし。",
+  "ocrReview": "Windows PowerShell 5.1 native OCR succeeded; no text detected.",
+  "attempts": 1,
+  "gitVerified": true,
+  "sha256": "d7b640e42a2ab04bc4f45f81ab0bdab914953acb11937b3cba164f39ce040aef",
+  "gitSha256": "d7b640e42a2ab04bc4f45f81ab0bdab914953acb11937b3cba164f39ce040aef",
+  "gitVerifiedAt": "2026-10-07T12:00:36+09:00",
+  "gitCommit": "6399176643864b97c1a7e297eda78f5eeebe6fb8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "919f7cf4bd0032e8b86b39ecd37b00b7723af41a",
+  "gitBytes": 341189,
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T12:00:36+09:00",
+  "qaRepairPending": false
+}

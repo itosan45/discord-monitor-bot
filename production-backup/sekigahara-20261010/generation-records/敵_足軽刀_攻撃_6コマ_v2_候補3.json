@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_攻撃_6コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-5fd48088-cb22-452e-88f3-395fc42cbaec.png",
+  "prompt": "Regenerate layout of this6-frame blue katana ashigaru attack with SIX clearly SEPARATE figures, at least one FULL head-width of uninterrupted magenta gap between every figure. Current blade4 touches soldier5 and prevents extraction. Make all6figures occupy a thinner central horizontal band, retain same anatomy/scale acrossframes. Compact frame4: frontfoot beneath frontknee, rearfootbeneathhips, torso leaned forward, hands close to waist, katana blade points STEEPLY DOWNRIGHT nearly vertical alongside front shin; blade tip below hands near foot, never extends toward soldier5. Frame5katana also steeplydownright next to shin, rearfootadvancedunderhip. Preserve1ready→2overheadwindup→3chestslash→4impact→5lowfollowthrough→6recover. Bodyweight/hip motion distinct. One complete soldier percell6squarecells horizontal, all6same physical scale as each other, pure#FF00FF background no textshadowbordergrid, all body/hilt/blade/scabbard complete. All art inside owncell with wide gaps, no overlap.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

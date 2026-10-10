@@ -1,0 +1,11 @@
+{
+  "name": "武田信玄_討死立ち絵.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e7f83c5b-9913-470b-93e0-7a1a6b6cd691.png",
+  "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 武田信玄. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing waist katana is drawn and held point-down with tip planted into ground; preserve gunbai fan in other hand, white fur mane, helmet, red/gold armor. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+  "size": [
+    512,
+    768
+  ],
+  "transparent": false,
+  "candidateCount": 1
+}

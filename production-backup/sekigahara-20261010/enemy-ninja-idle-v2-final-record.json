@@ -1,0 +1,134 @@
+{
+  "name": "敵_忍者_待機_4コマ_v2_短刀修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_忍者_待機_4コマ_v2_短刀修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-8631541a-6b5d-40f2-aa6a-d86e0c182f04.png",
+  "status": "git_verified",
+  "scale": 0.35964912280701755,
+  "standingHeightSource": 570.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        18,
+        195,
+        437,
+        679
+      ],
+      "destination": [
+        52,
+        57,
+        151,
+        174
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        511,
+        167,
+        933,
+        679
+      ],
+      "destination": [
+        52,
+        47,
+        152,
+        184
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1006,
+        195,
+        1428,
+        679
+      ],
+      "destination": [
+        52,
+        57,
+        152,
+        174
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1503,
+        195,
+        1924,
+        679
+      ],
+      "destination": [
+        52,
+        57,
+        151,
+        174
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "3862e177ac8c8c0d71c71626babf87c87f709e4c1b7d7461b499157f09044cca",
+  "backgroundSource": [
+    241,
+    24,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14773,
+    14335,
+    13653,
+    13141
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_待機_4コマ_v2_短刀修正版_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_待機_4コマ_v2_短刀修正版_GIF復号確認.png"
+  },
+  "requestedName": "敵_忍者_待機_4コマ_v2.png",
+  "qaResult": "OK",
+  "attempts": 2,
+  "retries": 1,
+  "selectedCandidate": 2,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "右手逆手武器の鞘化を露出短刀へ訂正。全4コマの柄・鍔・露出刃先と別腰鞘を拡大照合。体格姿勢は候補1と同じ。",
+  "visualReview": "規格合格・OCR空・4コマGIF確認。右手逆手短刀の露出銀刃と鋭い先端、独立腰鞘を全4コマ確認。黒覆面、巻布、低い姿勢・安定した上半身・呼吸布・右向き靴は保持。旧PNG/Gitは削除せず別名修正版。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

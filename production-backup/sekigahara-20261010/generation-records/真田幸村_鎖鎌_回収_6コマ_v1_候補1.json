@@ -1,0 +1,126 @@
+{
+  "name": "真田幸村_鎖鎌_回収_6コマ_v1.png",
+  "source": "./qa/20261007_yukimura_kusarigama_recovery/source-magenta-region.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_鎖鎌_回収_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.6153846153846154,
+  "sourceBounds": [
+    [
+      21,
+      15,
+      348,
+      345
+    ],
+    [
+      387,
+      16,
+      682,
+      345
+    ],
+    [
+      740,
+      14,
+      1025,
+      345
+    ],
+    [
+      1078,
+      15,
+      1442,
+      345
+    ],
+    [
+      1470,
+      16,
+      1805,
+      345
+    ],
+    [
+      1830,
+      14,
+      2154,
+      345
+    ]
+  ],
+  "placements": [
+    [
+      27,
+      27,
+      201,
+      203
+    ],
+    [
+      37,
+      28,
+      182,
+      202
+    ],
+    [
+      40,
+      26,
+      175,
+      204
+    ],
+    [
+      16,
+      27,
+      224,
+      203
+    ],
+    [
+      25,
+      28,
+      206,
+      202
+    ],
+    [
+      28,
+      26,
+      199,
+      204
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "af42098e886a87b2be4b242d0b768ba5a38b51b11b8c9ccfd794b2be357b80d7",
+  "prompt": "undefined\n",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "2・3コマで両手が柄を保持し、4以降奥手へ持ち替える流れを確認。",
+    "鎖の接続が柄の刃側寄りに見える箇所あり。",
+    "鎧と六文銭の細部が待機と完全一致ではない。",
+    "5コマの分銅は6コマよりやや小さめ。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "a15452fb6763ac13f6dec8642624117fdb866bf0",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "af42098e886a87b2be4b242d0b768ba5a38b51b11b8c9ccfd794b2be357b80d7",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T22:43:37.599588+09:00"
+}

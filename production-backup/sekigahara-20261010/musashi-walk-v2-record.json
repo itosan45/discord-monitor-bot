@@ -1,0 +1,170 @@
+{
+  "name": "宮本武蔵_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-59d0e09f-f39d-437e-ba9e-4c0f7602e542.png",
+  "status": "drive_verified",
+  "scale": 0.6833333333333333,
+  "standingHeightSource": 300.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        37,
+        241,
+        251,
+        512
+      ],
+      "destination": [
+        55,
+        46,
+        146,
+        185
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        304,
+        241,
+        505,
+        511
+      ],
+      "destination": [
+        59,
+        47,
+        137,
+        184
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        556,
+        241,
+        759,
+        511
+      ],
+      "destination": [
+        58,
+        47,
+        139,
+        184
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        794,
+        242,
+        1015,
+        513
+      ],
+      "destination": [
+        52,
+        46,
+        151,
+        185
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1059,
+        243,
+        1257,
+        512
+      ],
+      "destination": [
+        60,
+        47,
+        135,
+        184
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1306,
+        243,
+        1511,
+        512
+      ],
+      "destination": [
+        58,
+        47,
+        140,
+        184
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1562,
+        243,
+        1768,
+        511
+      ],
+      "destination": [
+        57,
+        48,
+        141,
+        183
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1802,
+        243,
+        2023,
+        513
+      ],
+      "destination": [
+        52,
+        47,
+        151,
+        184
+      ],
+      "scale": 0.6833333333333333,
+      "ground": 230
+    }
+  ],
+  "sha256": "3d156ad8a6214c539e1ea8b18030fb67a3d5c387f5518ea79d2dfad53311cb4f",
+  "backgroundSource": [
+    242,
+    23,
+    242
+  ],
+  "sourceIndices": null,
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedAttempt": 3,
+  "motionPass": false,
+  "automaticCheck": "全項目OK、2048x256、純マゼンタ84%、人物高中央値71%、接地230px、端16px以上",
+  "acceptanceBasis": "Latest10 best candidate after initial plus three retries",
+  "scaleReview": "Low stance head dimension approximately40px comparable to dash approximately42px; common scale0.6833 for all frames",
+  "visualReview": "自動全項目OK、OCR成功・文字なし。二刀全先端、全身右向き、全サンダル右向き、共通縮尺・接地・余白を確認。初回＋修正3回の上限後、候補4は5-7の足先が逆向きのため不採用。候補3を選択。要注意:1/5の近い腿・膝の前後交換が明瞭でなく、3/7の交差と腰の低さも弱い。動作合格とはしない。",
+  "driveId": "1rT23uoRUL3W0gjc4jwsFpItbM0npbbfj",
+  "readbackSha256": "3d156ad8a6214c539e1ea8b18030fb67a3d5c387f5518ea79d2dfad53311cb4f",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

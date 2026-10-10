@@ -1,0 +1,57 @@
+{
+  "name": "筧十蔵_武器別攻撃_6コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\筧十蔵_武器別攻撃_6コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1b41fde3-42a5-4ea4-9173-d844e9d3854a.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "kind": "sprite_motion",
+  "char": "筧十蔵",
+  "motion": "matchlock shoulder, aim, trigger, recoil, return",
+  "placements": [],
+  "candidateCount": 2,
+  "status": "git_verified",
+  "sourceNormalization": "Separated six source cells by largest connected character component, uniformly scaled standing frame to 205px and ground aligned y230.",
+  "sha256": "6f0c6f90d193ace7ef232a7408c3c83f57e03e1cc05c346bb04c4fb32af3722e",
+  "visualApproved": true,
+  "visualReview": "Setting/idle design and 205px standing scale match. All six decoded frames differ; ready, shoulder, aim, trigger tension, subtle recoil and recovery form a readable sequence. Trigger moment is visually restrained because no effects are drawn, so keep as caution.",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    17071,
+    15010,
+    14183,
+    17752,
+    15629,
+    13406
+  ],
+  "candidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261008_kakehi_attack_candidate2.png",
+  "qaResult": "要注意",
+  "gitVerified": true,
+  "gitCommit": "f27be96eacc98c2ea1b7861fbd1a43a612aff2f1",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "6f0c6f90d193ace7ef232a7408c3c83f57e03e1cc05c346bb04c4fb32af3722e",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "completedAt": "2026-10-08T06:40:22.878953+09:00",
+  "actualName": "筧十蔵_武器別攻撃_6コマ_v1.png",
+  "generationPrompt": "Kakehi Juzo 6-frame matchlock attack: low ready, shoulder stock, aim through sights, trigger with no effects, slight recoil, lower and return; exact brown armor/red headband/Sanada crest, right profile, six 256px cells, pure magenta, same scale and ground as idle."
+}

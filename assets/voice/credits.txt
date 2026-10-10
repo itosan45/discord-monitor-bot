@@ -1,0 +1,15 @@
+音声_v2 クレジット
+
+■ 断末魔・やられ声（録音素材）
+効果音ラボ（ゲームの戦闘）
+https://soundeffect-lab.info/sound/voice/game.html
+利用素材は同ページの主人公の熱血剣士（swordman-*）および盗賊の少年（thief-boy-*）。
+本パッケージでは前後無音を除去し、24 kHz/モノラル、loudnorm I=-14、1〜2秒に整音。ボス5本は低音化処理。
+効果音ラボはゲーム利用無料、クレジット表記・リンク不要。
+
+■ 紹介・討ち取り（音声合成）
+VOICEVOX: 青山龍星、玄野武宏、白上虎太郎
+VOICEVOX公式: https://voicevox.hiroshiba.jp/
+音声合成エンジン: VOICEVOX Engine 0.25.2。
+audio_queryのmora単位でピッチ・母音長・間を加工し、弱/標準/強の3段階を収録。
+■ OtoLogic素材は本バージョンでは使用していません。

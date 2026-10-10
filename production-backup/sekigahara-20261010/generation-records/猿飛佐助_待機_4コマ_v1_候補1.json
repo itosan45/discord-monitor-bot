@@ -1,0 +1,94 @@
+{
+  "name": "猿飛佐助_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-597a8321-5c9f-41ee-96f8-ef2ef5177bfe.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\猿飛佐助_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.300709219858156,
+  "sourceBounds": [
+    [
+      110,
+      19,
+      434,
+      717
+    ],
+    [
+      639,
+      18,
+      959,
+      717
+    ],
+    [
+      1174,
+      13,
+      1494,
+      718
+    ],
+    [
+      1709,
+      19,
+      2031,
+      717
+    ]
+  ],
+  "placements": [
+    [
+      79,
+      20,
+      97,
+      210
+    ],
+    [
+      80,
+      20,
+      96,
+      210
+    ],
+    [
+      80,
+      18,
+      96,
+      212
+    ],
+    [
+      79,
+      20,
+      97,
+      210
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "4127ede8d4cceb647ebb27f721188807fca7e3010bee3e166f6b90548915ed88",
+  "prompt": "Create Sarutobi Sasuke IDLE breathing animation FOUR frames in SINGLE HORIZONTAL ROW, left to right chronological. EXACT same man costume weapons as attached reference, use RIGHT-facing side view only (face nose right), charcoal ninja clothes, gray headwrap topknot, exposed face, red six coins chest, leather guards, three throwing knives belt, dark sheath left hip, same short blade in right hand angled down-forward. FOUR equal cells, whole body approx80% cellheight, every head/foot/knife/sheath/blade inside own cell ample margins. Pose: low ready knees slightly flexed, both feet fixed planted in identical ground positions every frame. 1 neutral ready exhale,2 chest gently rises inhale and knees straighten tiny amount,3 chest highest shoulders rise slightly,4 chest lowers returning toward1. Visible subtle breathing, no walking or attacks. Same anatomical size, no zoom, fixed camera. Entire blade same length allframes; hand relaxed low, left hand near belt. Gritty painted game sprite style matching reference, pure flat#FF00FF magenta background NOeffects shadow text labels grid. Output wide landscape horizontal4frames PNG. Separate all frames with clear magenta gaps, no overlap or clipping.",
+  "char": "猿飛佐助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded GIF frames reviewed against character reference: matching charcoal costume/headwrap/topknot/blade/sheath/throwing knives, right-facing, intact body/weapons, same ground230 and uniform scale. No OCR text. Breathing visible mostly in third-frame head/chest lift; motion amplitude and knee flex are shallow, caution. This delivered idle establishes own character scale for subsequent motions.",
+  "gitVerified": true,
+  "gitCommit": "d2e2ba5ee82c8b71991663c23f9d638a30496814",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "4127ede8d4cceb647ebb27f721188807fca7e3010bee3e166f6b90548915ed88",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:24:30.576390+09:00"
+}

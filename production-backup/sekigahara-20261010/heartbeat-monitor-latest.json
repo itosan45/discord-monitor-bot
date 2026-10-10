@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-06T11:45:16.0466793+09:00",
+  "assessment": "RAM空き約4GB/25%、CPU0〜25%、物理ディスク0%。継続的圧迫なし。",
+  "cleanupScope": "awaiting_user_answer",
+  "driveItems": 247,
+  "newPngCount": 13,
+  "newRequestCount": 0,
+  "productionActive": true,
+  "productionDelivered": 30,
+  "productionTotal": 198,
+  "actions": "monitoring only; no generation/upload/Git/cleanup"
+}
