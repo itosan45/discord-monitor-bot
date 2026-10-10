@@ -1,4 +1,5 @@
-// オーナー録音のセリフ(bv ボス・ev 雑魚・pk 掛け声)の復号と、ゲーム内の割当て(登場・半分・連続被弾・大技・最期→討ち取ったり)を確認
+// オーナー録音のセリフ(bv ボス・ev 雑魚・pk 掛け声)の復号と、ゲーム内の割当てを確認。
+// 登場時は喋らない・体力半分「なかなかやりおるわ」・連続被弾の振り払いは無言・起き上がりで「おのれ」・最期のセリフ→討ち取ったり
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{
  const b=await chromium.launch({executablePath:process.env.CHROME_BIN});const p=await(await b.newContext({viewport:{width:1280,height:720}})).newPage();const er=[];p.on('pageerror',e=>er.push(e.message));
@@ -20,13 +21,16 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   await new Promise(r=>setTimeout(r,900));
   G.banner=null;e.inv=0;e.hp=e.maxhp*0.45;for(let i=0;i<3;i++)stepGame();
   for(let i=0;i<7;i++){e.inv=0;e.state='idle';e.hp=Math.max(e.hp,e.maxhp*0.3);hurt(e,P,{dmg:1,kb:0});stepGame();}
+  const shakeLog=log.slice();
+  // 倒されて起き上がる時に「おのれ」(乱数を固定: 40%で言わない判定を通す)
+  const mr=Math.random;Math.random=()=>0.5;e.state='down';e.st=0;e.z=0;e.vz=0;e.lieT=0;e.inv=0;for(let i=0;i<60&&e.state!=='getup';i++)stepGame();Math.random=mr;
   for(let i=0;i<40;i++)stepGame();
   e.inv=0;e.hp=1;e.state='idle';hurt(e,P,{dmg:99,kb:4});G.slow=0;G.banner=null;
   let n=0;while(G.state==='bossdown'&&n<400){stepGame();n++;}
-  return {log,voAt:G.voAt,state:G.state};
+  return {log,shakeLog,voAt:G.voAt,state:G.state};
  });
  console.log(JSON.stringify({r,g,errors:er}));await b.close();
  const L=g.log.join(' ');const voT=+((g.log.find(x=>x.startsWith('vo@'))||'vo@-1').slice(3));
- const ok=!er.length&&r.pk===6&&r.ev.length===2&&r.pkFin.every(i=>i===2||i===3)&&r.zm&&/b:kirisute/.test(L)&&/b:nakanaka/.test(L)&&/b:onore/.test(L)&&/b:(masaka|migoto)/.test(L)&&voT>=g.voAt&&g.voAt>54;
+ const ok=!er.length&&r.pk===6&&r.ev.length===2&&r.pkFin.every(i=>i===2||i===3)&&r.zm&&!/b:kirisute@run.*b:nakanaka/.test(L)&&!g.log[0].startsWith('b:kirisute')&&/b:nakanaka/.test(L)&&!g.shakeLog.some(x=>x.startsWith('b:onore'))&&/b:onore/.test(L)&&/b:(masaka|migoto)/.test(L)&&voT>=g.voAt&&g.voAt>54;
  if(!ok){console.log('NG');process.exit(1);}console.log('OK');
 })();

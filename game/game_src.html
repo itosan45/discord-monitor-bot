@@ -700,7 +700,7 @@ function bossBgm(e){return G.stage===5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 // 雑魚の同時出現数の上限(スマホで一度に出すぎると重い、オーナー指摘)。超えた分は前の敵が倒れてから順に出る。総数は変わらない
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');setTimeout(()=>{if(G.boss===e&&e.hp>0)AU.bossLine('kirisute',e,1.7);},700);{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss)startBossStory(e);return e;}
@@ -777,6 +777,7 @@ function onKill(t,own){
  }else AU.sfx('die');
 }
 function bossDown(b,own){
+ if(b.bossDownDone)return;b.bossDownDone=true; // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
  const last=G.wi>=G.waves.length-1;
  G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
  for(const e of G.fighters)if(e.team===1&&e.hp>0){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
@@ -834,7 +835,7 @@ function doRain(f){const p=nearestAlly(f);for(let i=0;i<4;i++)fall(clamp(p.x+rnd
 /* ---------- attacks ---------- */
 const BGUARD={pz:'raise',k:'guard',dur:44,hs:2,he:38,rng:0,dmg:0},BSTEP={pz:'raise',k:'step',dur:22,hs:1,he:2,rng:0,dmg:0},BHOP={pz:'raise',k:'hop',dur:90,hs:1,he:2,rng:0,dmg:0},BSHAKE={pz:'swing',a0:-3,a1:3,r:44,dur:34,hs:8,he:16,rng:165,dmg:10,kb:10,launch:true,around:true,dep:60,sfx:'heavy'};
 function startEAct(e,d){e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=-1;}
-function startEAtk(e,i){const d=e.T.atk[i];e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=i;if(d.k==='leap'){e.leaped=false;}if(e.T.boss&&d.hs>14){AU.sfx('warn2');if(Math.random()<0.5&&G.t-(e.shineT||-999)>240){e.shineT=G.t;AU.bossLine('shine',e,1.6);}}else if(!e.T.boss&&e.team===1&&Math.random()<0.06)AU.enemyLine('shine',e,0.9);}
+function startEAtk(e,i){const d=e.T.atk[i];e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=i;if(d.k==='leap'){e.leaped=false;}if(e.T.boss&&d.hs>14){AU.sfx('warn2');if(Math.random()<0.2&&G.t-(e.shineT||-999)>900){e.shineT=G.t;AU.bossLine('shine',e,1.6);}}else if(!e.T.boss&&e.team===1&&Math.random()<0.06)AU.enemyLine('shine',e,0.9);}
 
 function bossTech(f,d){const p=nearestAlly(f);if(!p)return;const k=d.k;
  if(k==='arrows3'){for(const o of[-1,0,1])addProj({x:f.x+f.face*60,y:f.y,z:f.z+110,vx:f.face*11,vy:o*1.3,team:1,dmg:d.dmg||9,face:f.face,owner:f,k:'arrow',w:20});AU.sfx('arrow');return;}
@@ -1165,10 +1166,14 @@ function respawn(p){p.mount=G.auto&&p===G.player&&demoView.mounted?{hp:6,max:6,c
 // 画面端の跳ね返り: 主人公に吹き飛ばされた雑兵が空中で画面端に当たると、1回だけ跳ね返って戻ってくる(ファイナルファイトの壁)
 function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)return;const [el,er]=frameExt(f),L=G.camx+2-el,R=G.camx+W-2-er;if(!((f.vx<0&&f.x+f.vx<=L)||(f.vx>0&&f.x+f.vx>=R)))return;
  f.wallB=1;f.x=clamp(f.x+f.vx,L,R);f.vx=-f.vx*0.55;f.vz=Math.max(f.vz,4.5);f.jug=0;G.shake=Math.max(G.shake,6);G.hitstop=Math.max(G.hitstop,4);dust(f.x,f.y,6);AU.sfx('land');if(!((G.wallPopT||0)>G.t)){G.wallPopT=G.t+60;popup('壁！',f.x,f.y,f.z+200,'#ffd28a',24);}G.wallN=(G.wallN||0)+1;}
+// ボスが倒されて起き上がる時だけ「おのれ」。3回に1回くらい続けて「切り捨ててくれるわ」(オーナー指示: 喋りすぎない・登場時は言わない)
+// ボスと主人公の体の中心の最小距離(見た目で胴体が重ならない幅)。主人公の近接攻撃の間合い(80以上)+ボスの当たり半径(44*sc)より狭いので、押し出されても攻撃は届く
+function bodyGap(b){return 62*(b.sc||1);}
+function bossGetupLine(f){if(G.t-(f.onoreT||-9999)<720||Math.random()<0.4)return;f.onoreT=G.t;const d=AU.bossLine('onore',f,1.7);if(d&&Math.random()<0.33)setTimeout(()=>{if(f.hp>0&&!f.dying&&G.boss===f&&G.state==='run')AU.bossLine('kirisute',f,1.7);},Math.round(d*1000)+300);}
 function updDown(f){
  if(f.bowl){wallBounce(f);bowlStep(f);}
  f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;f.jug=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
- else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=40;}}}
+ else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=40;if(f.T.boss&&f.team===1)bossGetupLine(f);}}}
 }
 
 /* ---------- enemy AI ---------- */
@@ -1214,7 +1219,7 @@ function updEnemy(e){
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);
  if(e.gcd>0)e.gcd--;if(e.hitRunT>0)e.hitRunT--;else e.hitRun=0;
- if(T.boss&&e.hitRun>=6&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;/* おのれぇっ: オーナー録音(ボスごとに高さを変える。旧「ぬおおっ」sx.nuo は残してある) */startEAct(e,BSHAKE);popup('おのれぇっ！',e.x,e.y,e.z+220,'#ff9a7a',26);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);if(!AU.bossLine('onore',e,1.7))AU.sfx('roar');}
+ if(T.boss&&e.hitRun>=6&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;/* 振り払い: 声は無し(喋りすぎ対策。「おのれ」は起き上がり時に移した。旧 sx.nuo は audio.json に残してある) */startEAct(e,BSHAKE);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);AU.sfx('roar');}
  if(T.boss&&!e.enr&&e.hp<e.maxhp*0.5&&e.hp>0){e.enr=true;e.spd=T.spd*1.15;AU.sfx('roar');AU.bossLine('nakanaka',e,1.7);popup('なかなかやりおるわ',e.x,e.y,e.z+230,'#ffd27a',22);G.shake=12;ring(e.x,e.y,200,'rgba(255,60,40,0.9)',30);}
  if(T.ai==='rider'&&e.state==='walk'&&e.rp){updRider(e);return;}
  if(e.state==='held'){if(!e.heldBy||e.heldBy.state!=='grab'||e.heldBy.gt!==e){e.state='idle';e.st=0;e.heldBy=null;}return;}
@@ -1334,7 +1339,9 @@ function updWorld(){
  for(const f of G.fighters){if(f.team===0)updPlayer(f,f===p?c:partnerCtl(f));else updEnemy(f);if(G.spcScene||G.ult)return;}
  updSteeds();updHazards();checkClash();
  // separation
- for(let i=0;i<G.fighters.length;i++)for(let j=i+1;j<G.fighters.length;j++){const a=G.fighters[i],b=G.fighters[j];if(a.z>5||b.z>5||a.state==='down'||b.state==='down'||a.state==='dead'||b.state==='dead'||a.T.ai==='rider'||b.T.ai==='rider')continue;const dx=b.x-a.x,dy=b.y-a.y,mn=(a.T.boss||b.T.boss)?60:34;if(Math.abs(dx)<mn&&Math.abs(dy)<12){const pu=(mn-Math.abs(dx))*0.08*sgn(dx||Math.random()-.5);if(a.team!==0&&!a.T.boss)a.x-=pu;if(b.team!==0&&!b.T.boss)b.x+=pu;}}
+ for(let i=0;i<G.fighters.length;i++)for(let j=i+1;j<G.fighters.length;j++){const a=G.fighters[i],b=G.fighters[j];if(a.z>5||b.z>5||a.state==='down'||b.state==='down'||a.state==='dead'||b.state==='dead'||a.T.ai==='rider'||b.T.ai==='rider')continue;const dx=b.x-a.x,dy=b.y-a.y,mn=(a.T.boss||b.T.boss)?60:34;if(Math.abs(dx)<mn&&Math.abs(dy)<12){const pu=(mn-Math.abs(dx))*0.08*sgn(dx||Math.random()-.5);if(a.team!==0&&!a.T.boss)a.x-=pu;if(b.team!==0&&!b.T.boss)b.x+=pu;}
+  /* 主人公(味方)とボスは同じ列で重ならない: 体の幅ぶん押し出す(オーナー指摘: 重なってリンチになる) */
+  const h=a.team===0&&b.T.boss&&b.team===1?a:b.team===0&&a.T.boss&&a.team===1?b:null;if(h){const bo=h===a?b:a;if(bo.hp>0&&!bo.dying&&!['spc','ult','mspc','grab','throw','mega'].includes(h.state)&&!h.heldBy&&!bo.heldBy&&Math.abs(h.y-bo.y)<24){const ox=h.x-bo.x,BM=bodyGap(bo);if(Math.abs(ox)<BM){const sd=ox?sgn(ox):(h.face===bo.face?-bo.face:-h.face)||1;h.x=bo.x+sd*BM;{const ed=fighterScreenMargin(h),cx=clamp(h.x,G.camx+ed,G.camx+W-ed);if(cx!==h.x){h.x=cx;bo.x=h.x-sd*BM;}}/* 主人公が画面端なら、ボスの方を押し返す */h.bossPushN=(h.bossPushN||0)+1;G.bossPushN=(G.bossPushN||0)+1;}}}}
  // anti-stall: pull far-away stragglers in
  if(G.waveOn&&G.waveT>(G.demo?1100:2400)&&G.waveT%120===0){for(const e of G.fighters)if(e.team===1&&e.hp>0&&!e.T.boss&&e.T.ai!=='rider'&&Math.abs(e.x-p.x)>380){e.x=clamp(p.x+(e.x>p.x?1:-1)*300,G.camx+20,G.camx+W-20);e.entered=true;}}
  // remove dead
