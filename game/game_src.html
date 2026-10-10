@@ -772,7 +772,7 @@ function decap(t,dir){if(t.T.boss||t.mount||t.T.horse||t.T.ai==='rider'||t.isPro
  if(G.blood)bloodSpray(t.x+t.face*sc*cx,t.y,-sc*cy,dir,26,1.5);AU.sfx('hitH');return true;}
 function onKill(t,own){
  if(t.team===1){addScore(t.T.score);if(t.T.boss){if(!(AU.on&&AU.bvBuf&&AU.bvBuf.masaka))AU.scream(t);}else if(!(Math.random()<0.14&&AU.enemyLine('munen',t)))AU.scream(t);
-  if(Math.random()<(t.T.gen||t.T.horse?0.5:0.17)&&!t.T.boss)dropItem(t.x,t.y);
+  if(Math.random()<(t.T.gen||t.T.horse?0.5:0.17)&&!t.T.boss)dropItem(t.x,t.y,null,t.T.gen||t.T.horse?0.6:0);
   if(t.T.boss){bossDown(t,own);}
  }else AU.sfx('die');
 }
@@ -786,7 +786,7 @@ function bossDown(b,own){
  AU.stopBgm();G.victoryClearAt=0;G.victoryShift=Math.max(0,(G.voAt||54)+Math.ceil(((AU.voBuf[G.curCh]&&AU.voBuf[G.curCh].duration)||2.5)*60)+60-138)/* 討ち取ったり→次の声まで1秒 */;G.state='bossdown';G.stateT=0;G.slow=90;
 }
 function breakProp(t){AU.sfx('break');for(let i=0;i<10;i++)PT({x:t.x,y:t.y,z:30,vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:'#7a5530',k:'deb'});
- dropItem(t.x,t.y,t.drop||(Math.random()<0.85?null:'onigiri'));
+ dropItem(t.x,t.y,t.drop||(Math.random()<0.85?null:'onigiri'),0.42);
  G.props.splice(G.props.indexOf(t),1);}
 function strike(a,d){
  const dir=a.face;
@@ -1390,7 +1390,10 @@ function contStep(){G.stateT++;
  if(G.stateT%60===0&&G.stateT<600)AU.sfx('tick');
  if(G.stateT>=600){G.state='over';G.stateT=0;}}
 /* ---------- items / weapons / riders ---------- */
-function dropItem(x,y,force){let k=force;if(!k){const r=Math.random();k=r<0.22?'onigiri':r<0.31?'manju':r<0.4?'sushi':r<0.53?'sake':r<0.64?'hyorou':'w_'+pick(['odachi','naginata','teppo','yoto','yumi','ono','konbou','takeyari','kusari']);}G.items.push({x,y,k,t:0});}
+// 武器になる抽選は wpn の確率でだけ残す(武将・騎馬兵0.6、樽など0.42、雑魚0)。外れたら何も落とさない(食べ物の率は従来どおり)。雑魚から武器は出ない(友人の評価「武器ドロップ多すぎ」2026-10-10)
+function dropItem(x,y,force,wpn){let k=force;if(!k){const r=Math.random();k=r<0.22?'onigiri':r<0.31?'manju':r<0.4?'sushi':r<0.53?'sake':r<0.64?'hyorou':'w_'+pick(['odachi','naginata','teppo','yoto','yumi','ono','konbou','takeyari','kusari']);
+  // 主人公が武器を持っている間・地面に武器が残っている間は、武器を落とさない(代わりの食べ物も出さず、食べ物の数は従来どおり)
+  if(wpn!==undefined&&k.startsWith('w_')&&(Math.random()>=wpn||(G.player&&G.player.wpn)||G.items.some(it=>it.k.startsWith('w_'))))return;}G.items.push({x,y,k,t:0});}
 function pickup(p,it){
  if(it.k==='onigiri'){p.hp=Math.min(p.maxhp,p.hp+30);popup('HP +30',it.x,it.y,70,'#9f9',24);}
  else if(it.k==='hyorou'){p.hp=Math.min(p.maxhp,p.hp+70);popup('HP +70',it.x,it.y,70,'#ffe29a',26);}
@@ -1874,7 +1877,9 @@ function setDemoMount(on){const p=G.player;if(!p)return;demoView.mounted=!!on;
  if(on){p.mount={hp:6,max:6,col:MCOL[p.T.type]||'iron'};p.state='idle';p.st=0;p.cur=null;p.z=0;p.inv=0;p.flash=0;}
  else if(p.mount)dropMount(p,-p.face,false);
  keepFighterOnScreen(p);if(demoView.paused)demoView.steps=1;}
-const MATK={pz:'swing',dur:24,hs:7,he:13,rng:165,dmg:15,kb:6,launch:true,sfx:'slash'};
+const MATK={pz:'swing',dur:24,hs:7,he:13,rng:165,dmg:20,kb:7,launch:true,sfx:'slash'};
+// 騎馬突撃: 走りながら攻撃すると前へ突っ込みながら斬る(当たった敵を全員吹き飛ばす)
+const MCHG=Object.assign({},MATK,{charge:true,dur:30,hs:4,he:20,dmg:26,kb:12});
 function addSteed(x,y,face){if(!G.steeds)G.steeds=[];if(G.steeds.length>=2)return;G.steeds.push({x,y,face,t:0});}
 
 /* ---------- 刀の打ち合い（キィン！） ---------- */
@@ -1893,7 +1898,7 @@ function updSteeds(){if(!G.steeds)return;const p=G.player;
   if(h.t>60*10||h.x<G.camx-150||h.x>G.camx+W+150){addProj({k:'horse',team:-1,x:h.x,y:h.y,z:0,vx:h.face*9,face:h.face,life:90});G.steeds.splice(i,1);continue;}
   if(p&&!p.mount&&!(G.auto&&!demoView.mounted)&&p.hp>0&&(p.state==='idle'||p.state==='walk'||p.state==='jump')&&Math.abs(p.x-h.x)<70&&Math.abs(p.y-h.y)<28&&(p.jS===p.t||((G.demo||G.auto)&&h.t>45))){
    p.mount={hp:6,max:6,col:MCOL[p.T.type]||'red'};p.state='idle';p.st=0;p.z=0;p.vz=0;p.x=h.x;p.y=h.y;p.face=h.face;p.inv=Math.max(p.inv,30);
-   AU.sx('horse',0.9);AU.sfx('jump');popup('騎乗！',p.x,p.y,170,'#ffd070',30);dust(p.x,p.y,8);G.steeds.splice(i,1);}}}
+   AU.sx('horse',0.9);AU.sfx('jump');popup('騎乗！',p.x,p.y,170,'#ffd070',30);if(!G.mountTipShown){G.mountTipShown=1;popup('速く走れ、受ける傷は3分の1。走りながら攻撃で騎馬突撃',p.x,p.y,120,'#fff2c0',18);}dust(p.x,p.y,8);G.steeds.splice(i,1);}}}
 function dropMount(p,dir,thrown){const m=p.mount;if(!m)return;p.mount=null;
  if(thrown){addProj({k:'horse',team:-1,x:p.x,y:p.y,z:0,vx:-dir*9,face:-dir,life:90});knock(p,dir,5,8);popup('落馬！',p.x,p.y,150,'#ff9a7a',26);}
  else{addSteed(p.x,p.y,p.face);p.state='jump';p.st=0;p.vz=9;p.z=1;p.x-=p.face*30;}}
@@ -1904,6 +1909,7 @@ function updMount(p,c){
  if(p.wpn&&p.wpn.k==='kusari'&&c.atkH!==undefined)kusariCtl(p,c);else if(!p.wpn||p.wpn.k!=='kusari'){p.kspin=0;p.chg=0;p.kpull=null;}
  if(p.state==='hurt'){if(p.st>14){p.state='idle';p.st=0;}}
  else if(p.state==='matk'){const d=p.cur;
+  if(d.charge&&p.st<=d.he){p.x+=p.face*(p.st<d.hs?4:9);if(G.t%3===0)dust(p.x-p.face*50,p.y,2);}
   if(d.proj&&p.st===d.hs){addProj({k:d.proj,x:p.x+p.face*60,y:p.y,z:94,vx:p.face*(d.proj==='shot'?23:19),team:0,dmg:d.dmg,face:p.face,owner:p,w:18,kb:d.kb,launch:d.launch});AU.sfx(d.proj==='shot'?'gun':'arrow');if(p.wpn)useWpn(p);}
   if(!d.kth&&!d.proj&&p.st>=d.hs&&p.st<=d.he){for(const e of G.fighters){if(e.team!==1||e.hp<=0||p.hit.has(e)||e.state==='dead')continue;const dx=e.x-p.x;
     if(dx*p.face>-50&&Math.abs(dx)<d.rng&&Math.abs(e.y-p.y)<34&&e.z<120)hurt(e,p,d);}}
@@ -1914,12 +1920,12 @@ function updMount(p,c){
  else{
   const mx=(c.r?1:0)-(c.l?1:0),my=(c.d?1:0)-(c.u?1:0),sp=T.spd*1.75;
   if(mx||my){const k=(mx&&my)?0.8:1;p.x+=mx*sp*k;p.y+=my*sp*0.6*k;if(mx)p.face=mx;p.state='walk';p.wp=(p.wp||0)+sp*0.04;
-   if(mx){for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.T.boss||(e.trT||0)>G.t)continue;const dx=e.x-p.x;if(dx*mx>0&&Math.abs(dx)<70&&Math.abs(e.y-p.y)<26&&e.z<30){e.trT=G.t+40;hurt(e,p,{pz:'tackle',dmg:7,kb:6,launch:true,noDecap:true});G.trampleN=(G.trampleN||0)+1;if(!((p.trPop||0)>G.t)){p.trPop=G.t+40;popup('蹴散らし！',p.x+mx*70,p.y,230,'#ffcf6a',24);}dust(e.x,e.y,4);}}}
+   if(mx){for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.T.boss||(e.trT||0)>G.t)continue;const dx=e.x-p.x;if(dx*mx>0&&Math.abs(dx)<70&&Math.abs(e.y-p.y)<26&&e.z<30){e.trT=G.t+40;hurt(e,p,{pz:'tackle',dmg:14,kb:7,launch:true,noDecap:true});p.ki=Math.min(KMAX,(p.ki||0)+4);G.trampleN=(G.trampleN||0)+1;if(!((p.trPop||0)>G.t)){p.trPop=G.t+40;popup('蹴散らし！',p.x+mx*70,p.y,230,'#ffcf6a',24);}dust(e.x,e.y,4);}}}
    if(G.t%9===0)dust(p.x-p.face*50,p.y,2);}
   else p.state='idle';
   if(c.jumpP&&!(G.demo||G.auto)){dropMount(p,p.face,false);return;}
   if(c.spcP&&p.ki>=60){p.kspin=0;p.chg=0;p.kpull=null;p.ki-=60;p.state='mspc';G.spcScene={p,t:G.t};p.st=0;p.inv=999;AU.sfx('roar');}
-  else if(c.atkP){p.state='matk';p.st=0;p.cur=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo')?Object.assign({},MATK,{proj:p.wpn.k==='yumi'?'parrow':'shot',hs:10,he:11,rng:0,dmg:p.wpn.k==='yumi'?13:18}):MATK;p.hit=new Set();AU.sfx('slash');}}
+  else if(c.atkP){p.state='matk';p.st=0;p.cur=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo')?Object.assign({},MATK,{proj:p.wpn.k==='yumi'?'parrow':'shot',hs:10,he:11,rng:0,dmg:p.wpn.k==='yumi'?13:18}):(mx&&!(p.wpn&&p.wpn.k==='kusari')?MCHG:MATK);if(p.cur===MCHG){G.mchgN=(G.mchgN||0)+1;if(!((p.mcPop||0)>G.t)){p.mcPop=G.t+90;popup('騎馬突撃！',p.x+p.face*60,p.y,220,'#ffcf6a',26);}}p.hit=new Set();AU.sfx('slash');}}
  keepFighterOnScreen(p);p.y=clamp(p.y,YMIN,YMAX);}
 function mountedAttackProfile(f){if(!f.wpn)return'default';const w=WPN[f.wpn.k];if(f.wpn.k==='kusari')return'kusari';if(w&&w.bow)return'bow';if(w&&w.draw==='teppo')return'gun';if(w&&(w.heavy||w.blunt))return'heavy';if(w&&w.draw==='naginata')return'polearm';return'blade';}
 // 騎乗時の乗り手の位置補正(脚の長い絵は腰の切り位置を下げる)
