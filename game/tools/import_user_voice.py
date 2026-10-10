@@ -26,9 +26,9 @@ FILTERS = (
 PRESENCE = (
     "silenceremove=start_periods=1:start_duration=0.03:start_threshold=-40dB,areverse,"
     "silenceremove=start_periods=1:start_duration=0.03:start_threshold=-40dB,areverse,"
-    "highpass=f=80,afftdn=nf=-30,atempo=1.07,"  # 少しだけ詰めて、次の「えい・えい・おー」(音頭の3.2秒後)との間を0.4秒以上あける
+    "highpass=f=80,aresample=48000,arnndn=m='" + str(ROOT / "game" / "tools" / "rnnoise" / "sh.rnnn") + "':mix=1,afftdn=nf=-40,atempo=1.07,"  # RNNoise で背景ノイズを除去  # 少しだけ詰めて、次の「えい・えい・おー」(音頭の3.2秒後)との間を0.4秒以上あける
     "equalizer=f=140:t=q:w=1:g=3,equalizer=f=350:t=q:w=1.2:g=-4,equalizer=f=1500:t=q:w=1:g=3,"
-    "equalizer=f=3200:t=q:w=1.2:g=5,equalizer=f=6000:t=q:w=1.5:g=3,aexciter=amount=1.5:drive=6:freq=3500:blend=0,deesser=i=0.3,"
+    "equalizer=f=2300:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=7,equalizer=f=4200:t=q:w=1.2:g=3,equalizer=f=6000:t=q:w=1.5:g=3,aexciter=amount=1.5:drive=6:freq=3500:blend=0,deesser=i=0.3,"
     "acompressor=threshold=-22dB:ratio=3:attack=6:release=160:makeup=2dB,areverse,afade=t=in:d=0.04,areverse,"
     "aecho=0.85:0.75:90|180|300:0.22|0.13|0.07,volume=-1dB,alimiter=limit=0.92"
 )

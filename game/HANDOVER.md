@@ -229,6 +229,13 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 同じ加工を、ボスのセリフ(`bv`)と雑魚・掛け声(`ev`/`pk`)にもかけた(`game/tools/import_owner_lines.py` の `PRES`)。測定では2〜4kHzの帯域が、勝鬨で-18→-6dB、「まさか、このワシが」で-12→-8dB(全体比)に上がった。
 - 聞き比べ用: `assets/voice/user/compare_victory_before_after.mp3`(同じ録音を、従来の加工→新しい加工の順で)、`compare_boss_masaka_before_after.mp3`。未確認: 実機スピーカーでの聞こえ方(耳に痛くないか)。
 
+## 6.17 オーナー録音のノイズ除去・ハイミッド強調・「敵将」欠けの修正(2026-10-10)
+- **ノイズ除去**: すべてのオーナー録音(勝鬨の音頭 `uv.victory`、ボス `bv`、雑魚 `ev`、掛け声 `pk`、討ち取ったり `vo`)に RNNoise(ffmpeg の arnndn、モデル `game/tools/rnnoise/sh.rnnn`、出典は同フォルダの README)+ afftdn(-40dB)をかけた。背景ノイズは例えば勝鬨で -46dB → -77dB。
+- **ハイミッド**(オーナー「輪郭が欲しい」): 2.3kHz +3dB、3.2kHz +7dB、4.2kHz +3dB(討ち取ったりは 2.6k +6・3.4k +5・4.2k +2)。2〜4kHz帯の割合が約3dB上がった。
+- **「敵将」欠けの修正**: v3 の「敵将、討ち取ったり」は、録音の頭1秒を雑音として切っていたが、そこに「敵将」が入っていた(文字起こしで「討ち取ったり」しか出ないことで判明)。v4 は頭を切らず、雑音は RNNoise で消す。`game/tools/import_tekisho_vo.py`(新規)で作り、`assets/voice/vo_v4/` に保存(v3 は `vo_v3/` に残す)。長さは約3.5〜3.9秒(以前は約3.1秒)。勝鬨までの間はこの長さから自動で計算するので、1秒の間は保たれる。
+- 聞き比べ(前半が以前、後半が今回): `assets/voice/user/compare_victory_v3.mp3`、`compare_boss_masaka_v3.mp3`、`compare_tekisho_yuki_v4.mp3`。
+- 作り直す手順: `python3 game/tools/import_tekisho_vo.py && python3 game/tools/import_user_voice.py && python3 game/tools/import_owner_lines.py && cd game && python3 build.py`。未確認: 実機スピーカーで耳に痛くないか。
+
 ## 6.6 今後の構想: 大砲・大筒・その他の武具(オーナー要望 2026-10-09、急ぎではない)
 オーナーが参考画像を4枚提示: 和の武具一覧2枚(十手・鎌・金棒・大槌・刺又・袖搦・突棒・鉞・手裏剣・クナイ・撒菱・鉄扇・軍配・鎖分銅・鉄甲鉤など)、車輪付きの大砲、浮世絵の抱え大筒。
 **現状**: 大砲は第六幕のステージの仕掛け `HZ` の `cannon`(「大筒の砲撃！」、画面外から砲弾)だけ。家康(boss3)の技は 斬り払い/兵の召喚(summon)/突進突き(charge)/矢の雨(rain) の4つで、大砲は無い。拾える武器は `WPN` の9種類。サブウエポン(主武器と別に持つ物)の仕組みは無い。
