@@ -236,6 +236,12 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 聞き比べ(前半が以前、後半が今回): `assets/voice/user/compare_victory_v3.mp3`、`compare_boss_masaka_v3.mp3`、`compare_tekisho_yuki_v4.mp3`。
 - 作り直す手順: `python3 game/tools/import_tekisho_vo.py && python3 game/tools/import_user_voice.py && python3 game/tools/import_owner_lines.py && cd game && python3 build.py`。未確認: 実機スピーカーで耳に痛くないか。
 
+## 6.18 勝鬨の音頭の音量・ノイズの追加対策(2026-10-10、オーナー「勝鬨が小さい・ノイズがまだ目立つ」)
+- 勝鬨の音頭は音量をそろえる処理が抜けていて -24 LUFS(他の声より約10dB小さい)だった。-12.5 LUFS にそろえた(`import_user_voice.py` の `TARGET`)。
+- ノイズ: RNNoise を2回重ね、afftdn -50dB、8.5kHz以上をカット(スマホ録音はそこに声が無くノイズだけ)。倍音を足す aexciter はノイズの倍音も足すのでやめた。圧縮の後にゲート(-42dB以下を-40dB下げる)を入れて声の合間を無音にした。ゲートの手前で -18 LUFS にそろえる(`pregate`)ので、録音ごとの大小でゲートが声まで消さない(最初にそろえずに入れたら「おのれ」「おりゃ」が消えたため)。
+- 声の合間の残りノイズ: 例えば勝鬨 -78→約-150dB、討ち取ったり -55→約-72dB(残響の尾)。全セリフを文字起こしで確認し、言葉は残っている(「おのれ」は低く短い叫びのため文字起こし自体が不安定)。
+- 聞き比べ: `assets/voice/user/compare_victory_v4.mp3`、`compare_tekisho_yuki_v5.mp3`(前半が以前、後半が今回)。
+
 ## 6.6 今後の構想: 大砲・大筒・その他の武具(オーナー要望 2026-10-09、急ぎではない)
 オーナーが参考画像を4枚提示: 和の武具一覧2枚(十手・鎌・金棒・大槌・刺又・袖搦・突棒・鉞・手裏剣・クナイ・撒菱・鉄扇・軍配・鎖分銅・鉄甲鉤など)、車輪付きの大砲、浮世絵の抱え大筒。
 **現状**: 大砲は第六幕のステージの仕掛け `HZ` の `cannon`(「大筒の砲撃！」、画面外から砲弾)だけ。家康(boss3)の技は 斬り払い/兵の召喚(summon)/突進突き(charge)/矢の雨(rain) の4つで、大砲は無い。拾える武器は `WPN` の9種類。サブウエポン(主武器と別に持つ物)の仕組みは無い。

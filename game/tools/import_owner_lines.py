@@ -8,6 +8,7 @@ import re
 import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+MODEL_S = str(ROOT / "game" / "tools" / "rnnoise" / "sh.rnnn")  # RNNoise を2回重ねて声と重なる「サー」も減らす
 SOURCE = ROOT / "assets" / "voice" / "user" / "lines2"
 OUTPUT = ROOT / "game" / "data" / "audio.json"
 FF = os.environ.get("FFMPEG", "ffmpeg")
@@ -16,14 +17,14 @@ BOSS = {"onore": "boss_onore", "migoto": "boss_migotonari", "munen": "boss_munen
 KIAI = ["kiai_ha", "kiai_orya", "kiai_eiya", "kiai_seia", "kiai_se", "kiai_torya"]
 TRIM = ("silenceremove=start_periods=1:start_duration=0.03:start_threshold=-40dB,areverse,"
         "silenceremove=start_periods=1:start_duration=0.03:start_threshold=-40dB,areverse,"
-        "highpass=f=90,aresample=48000,arnndn=m='" + str(ROOT / "game" / "tools" / "rnnoise" / "sh.rnnn") + "':mix=1,afftdn=nf=-40,afade=t=in:d=0.01")  # RNNoise(声専用のノイズ除去)で背景の「サー」を消す
+        "highpass=f=90,aresample=48000,arnndn=m='" + str(ROOT / "game" / "tools" / "rnnoise" / "sh.rnnn") + "':mix=1,arnndn=m='" + MODEL_S + "':mix=1,afftdn=nf=-50:tn=1,lowpass=f=8500,afade=t=in:d=0.01")  # RNNoise(声専用のノイズ除去)で背景の「サー」を消す
 # 2026-10-10 ハイミッド(2.3k/3.2k/4.2k)はオーナー「輪郭が欲しい」でさらに上げた。オーナー「こもっている、プレゼンスとレゾナンスを上げたら」: 箱鳴り350Hzを削り、胸の響き140Hz・芯1.5k・張り3.2k・抜け6kを上げ、倍音を足す
 PRES = ("equalizer=f=350:t=q:w=1.2:g=-4,equalizer=f=1500:t=q:w=1:g=3,equalizer=f=2300:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=7,equalizer=f=4200:t=q:w=1.2:g=3,"
-        "equalizer=f=6000:t=q:w=1.5:g=3,aexciter=amount=1.5:drive=6:freq=3500:blend=0,deesser=i=0.3,")
+        "equalizer=f=6000:t=q:w=1.5:g=3,deesser=i=0.3,")
 BOSS_FX = ("asetrate=48000*0.9,aresample=48000,atempo=1.05,equalizer=f=140:t=q:w=1:g=4," + PRES +
-           "acompressor=threshold=-22dB:ratio=3:attack=6:release=160:makeup=2dB,areverse,afade=t=in:d=0.04,areverse,"
+           "acompressor=threshold=-22dB:ratio=3:attack=6:release=160:makeup=2dB,agate=threshold=0.008:ratio=4:attack=1:release=250:range=0.01:knee=6,areverse,afade=t=in:d=0.04,areverse,"
            "aecho=0.85:0.7:70|150:0.22|0.12")
-KIAI_FX = ("lowpass=f=11000," + PRES + "acompressor=threshold=-22dB:ratio=2.5:attack=6:release=150:makeup=2dB,areverse,afade=t=in:d=0.03,areverse,"
+KIAI_FX = ("" + PRES + "acompressor=threshold=-22dB:ratio=2.5:attack=6:release=150:makeup=2dB,agate=threshold=0.008:ratio=4:attack=1:release=250:range=0.01:knee=6,areverse,afade=t=in:d=0.03,areverse,"
            "aecho=0.9:0.8:65|130:0.14|0.08")
 
 
@@ -32,9 +33,17 @@ def loud(af, src):
     return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
 
 
+def pregate(af, measure):
+    """ゲートの手前で音量を -18 LUFS にそろえる(元の録音の大小でゲートが声まで消さないように)"""
+    if "agate" not in af:
+        return af
+    pre, post = af.split("agate", 1)
+    return pre + f"volume={-18 - measure(pre.rstrip(',')):.2f}dB,agate" + post
+
+
 def enc(name, fx, target):
     src = SOURCE / f"{name}.m4a"
-    af = TRIM + "," + fx
+    af = pregate(TRIM + "," + fx, lambda x: loud(x, src))
     g = target - loud(af, src)
     out = subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-i", str(src), "-af", f"{af},volume={g:.2f}dB,alimiter=limit=0.92",
                           "-ac", "1", "-ar", "24000", "-b:a", "64k", "-f", "mp3", "pipe:1"], check=True, capture_output=True).stdout

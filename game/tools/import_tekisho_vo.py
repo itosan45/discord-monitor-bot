@@ -23,12 +23,12 @@ def dur(p):
 def chain(r):
     end = dur(SRC) - 1.3
     # v3 は頭1秒を雑音として切っていたが、そこに「敵将」が入っていた(文字起こしで判明)。v4 は頭を切らず RNNoise で雑音だけ消す
-    return (f"atrim=start=0.05:end={end:.2f},asetpts=PTS-STARTPTS,highpass=f=95,aresample=48000,arnndn=m='{MODEL}':mix=1,afftdn=nf=-40,"
+    return (f"atrim=start=0.05:end={end:.2f},asetpts=PTS-STARTPTS,highpass=f=95,aresample=48000,arnndn=m='{MODEL}':mix=1,arnndn=m='{MODEL}':mix=1,afftdn=nf=-50:tn=1,lowpass=f=8500,"
             "silenceremove=start_periods=1:start_duration=0.03:start_threshold=-45dB,"
             f"asetrate=48000*{r},aresample=48000,"
             "equalizer=f=120:t=q:w=1:g=4,equalizer=f=350:t=q:w=1.2:g=-4,equalizer=f=1500:t=q:w=1:g=2,equalizer=f=2600:t=q:w=1:g=6,"
-            "equalizer=f=3400:t=q:w=1.2:g=5,equalizer=f=4200:t=q:w=1.2:g=2,equalizer=f=6000:t=q:w=1.5:g=2,aexciter=amount=1.2:drive=5:freq=3500:blend=0,deesser=i=0.3,"
-            "acompressor=threshold=-20dB:ratio=5:attack=5:release=180:makeup=3dB,areverse,afade=t=in:d=0.05,areverse,afade=t=in:d=0.01,"
+            "equalizer=f=3400:t=q:w=1.2:g=5,equalizer=f=4200:t=q:w=1.2:g=2,equalizer=f=6000:t=q:w=1.5:g=2,deesser=i=0.3,"
+            "acompressor=threshold=-20dB:ratio=5:attack=5:release=180:makeup=3dB,agate=threshold=0.008:ratio=4:attack=1:release=250:range=0.01:knee=6,areverse,afade=t=in:d=0.05,areverse,afade=t=in:d=0.01,"
             "aecho=0.85:0.75:80|170|290:0.22|0.13|0.07")
 
 
@@ -37,12 +37,20 @@ def loud(af):
     return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
 
 
+def pregate(af, measure):
+    """ゲートの手前で音量を -18 LUFS にそろえる(元の録音の大小でゲートが声まで消さないように)"""
+    if "agate" not in af:
+        return af
+    pre, post = af.split("agate", 1)
+    return pre + f"volume={-18 - measure(pre.rstrip(',')):.2f}dB,agate" + post
+
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     data = json.loads(OUTPUT.read_text(encoding="utf-8"))
     vo = {}
     for k, r in PITCH.items():
-        af = chain(r)
+        af = pregate(chain(r), loud)
         g = -13.5 - loud(af)
         out = OUT_DIR / f"vo_{k}.mp3"
         subprocess.run([FF, "-v", "error", "-y", "-i", str(SRC), "-af", f"{af},volume={g:.2f}dB,alimiter=limit=0.92",
