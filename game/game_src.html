@@ -1210,7 +1210,7 @@ function updEnemy(e){
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);
  if(e.gcd>0)e.gcd--;if(e.hitRunT>0)e.hitRunT--;else e.hitRun=0;
- if(T.boss&&e.hitRun>=6&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;startEAct(e,BSHAKE);popup('ぬおおっ！',e.x,e.y,e.z+220,'#ff9a7a',26);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);AU.sfx('roar');}
+ if(T.boss&&e.hitRun>=6&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;/* ぬおおっ: オーナー録音の気合(ボスごとに高さを変える) */startEAct(e,BSHAKE);popup('ぬおおっ！',e.x,e.y,e.z+220,'#ff9a7a',26);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);if(!AU.sx('nuo',1.5,{boss1:1,boss2:0.96,boss3:0.92,boss4:1.08,boss5:1.04,boss7:0.94,boss8:1,boss9:0.97}[e.T.type]||1))AU.sfx('roar');}
  if(T.boss&&!e.enr&&e.hp<e.maxhp*0.5&&e.hp>0){e.enr=true;e.spd=T.spd*1.15;AU.sfx('roar');G.shake=12;ring(e.x,e.y,200,'rgba(255,60,40,0.9)',30);}
  if(T.ai==='rider'&&e.state==='walk'&&e.rp){updRider(e);return;}
  if(e.state==='held'){if(!e.heldBy||e.heldBy.state!=='grab'||e.heldBy.gt!==e){e.state='idle';e.st=0;e.heldBy=null;}return;}
