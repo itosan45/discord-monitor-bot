@@ -132,7 +132,8 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  // 勝鬨: 選んだ声の「実際に声が終わる位置」(末尾の無音を除く)を覚え、ファンファーレをその直後に始める
  kachi(){const P=this.kdBuf;if(!(P&&P.length))return false;const b=P[Math.floor(Math.random()*P.length)];if(!this.vplay(b,1.8))return false;const c=b.getChannelData(0);let i=c.length-1;while(i>0&&Math.abs(c[i])<0.02)i--;this.kdLen=i/b.sampleRate;return true;},
  shingari(i){return this.vplay(this.shBuf&&this.shBuf[i],1.5);},
- voice(k){if(!this.on||!this.voBuf[k])return;const s=this.ac.createBufferSource();s.buffer=this.voBuf[k];const g=this.ac.createGain();g.gain.value=1.6;s.connect(g);g.connect(this.mg);s.start();},
+ // 「敵将、討ち取ったり」: 声の頭に大太鼓を一打重ねて迫力を出す(声は低く太く・残響付きの v2)
+ voice(k){if(!this.on||!this.voBuf[k])return;const s=this.ac.createBufferSource();s.buffer=this.voBuf[k];const g=this.ac.createGain();g.gain.value=1.6;s.connect(g);g.connect(this.mg);s.start();if(this.taiko)this.taiko(this.ac.currentTime,1);},
  tone(f,d,type,v,f2,dl){if(!this.on)return;const ac=this.ac,t=ac.currentTime+(dl||0),o=ac.createOscillator(),g=ac.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(Math.max(1,f2),t+d);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(v,t+0.006);g.gain.exponentialRampToValueAtTime(0.0001,t+d);o.connect(g);g.connect(this.mg);o.start(t);o.stop(t+d+0.03);},
  noise(d,v,ft,f1,f2,q,dl){if(!this.on)return;const ac=this.ac,t=ac.currentTime+(dl||0),s=ac.createBufferSource();s.buffer=this.nb;s.loop=true;const fl=ac.createBiquadFilter();fl.type=ft||'bandpass';fl.frequency.setValueAtTime(f1,t);if(f2)fl.frequency.exponentialRampToValueAtTime(f2,t+d);fl.Q.value=q||1;const g=ac.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.0001,t+d);s.connect(fl);fl.connect(g);g.connect(this.mg);s.start(t);s.stop(t+d+0.03);},
 
