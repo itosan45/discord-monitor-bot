@@ -1,0 +1,126 @@
+{
+  "name": "宮本武蔵_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-f275f352-2e0a-4a03-971a-cd50eeb2aeea.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.5520833333333334,
+  "sourceBounds": [
+    [
+      40,
+      192,
+      335,
+      551
+    ],
+    [
+      391,
+      168,
+      651,
+      552
+    ],
+    [
+      746,
+      192,
+      1075,
+      551
+    ],
+    [
+      1110,
+      222,
+      1432,
+      552
+    ],
+    [
+      1477,
+      249,
+      1806,
+      552
+    ],
+    [
+      1846,
+      192,
+      2140,
+      552
+    ]
+  ],
+  "placements": [
+    [
+      46,
+      32,
+      163,
+      198
+    ],
+    [
+      56,
+      18,
+      144,
+      212
+    ],
+    [
+      37,
+      32,
+      182,
+      198
+    ],
+    [
+      39,
+      48,
+      178,
+      182
+    ],
+    [
+      37,
+      63,
+      182,
+      167
+    ],
+    [
+      47,
+      31,
+      162,
+      199
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの77%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "31b90009ea03b698ad495b7013566490779023c7a694e5119074f0cd2b9cc1fd",
+  "prompt": "undefined\n Candidate2 fixthirdfigure nearbentchainarm andfarextendedsicklearm; otherfiveunchanged.",
+  "char": "宮本武蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "全6コマ奥手で鎌、手前手で鎖を保持、3コマ目の腕修正済み。",
+    "待機より胴が厚め。衣服の裂け形に差あり。",
+    "鎖が柄の刃側寄りに接続して見える箇所あり。",
+    "OCRは衣服等の誤認、描画文字なし。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "5f118f297ad531ec66c0a83f908ef5f72de3ae49",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "31b90009ea03b698ad495b7013566490779023c7a694e5119074f0cd2b9cc1fd",
+  "ocrSuccess": true,
+  "ocrText": "を を 第 第 姦 を",
+  "updatedAt": "2026-10-07T22:39:33.742646+09:00"
+}

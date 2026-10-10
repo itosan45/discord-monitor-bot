@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-46b21889-ecfe-470b-93a9-3891a38fd10c.png",
+  "prompt": "Create TWO-frame hit reaction for EXACT attached blue katana ashigaru: rolled sleeves, no shoulder plates, conical black hat, black torso armor, short beard, blue trousers, straw sandals. 1 body flinches backward in pain: chest recoils, back leg bends to absorb weight, arms pull katana diagonally near chest, grimace;2 recovers LOW forward-leaning combat guard both hands katana low infront. Entire sword/hilt/scabbard visible, keep weapon length; same anatomy/head/torso/limb dimensions and scale acrossboth, standing-equivalent80%cellheight, soles90%. One whole soldier per equally sized squarecell, TWOcells horizontal row, strict right-facing face and both toes. Clear knee/hip/torso motion, not rotated standing image. Fullartcentral86%widthandheight with16pxequivalentmargins, pure opaque #FF00FF no text shadows borders.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

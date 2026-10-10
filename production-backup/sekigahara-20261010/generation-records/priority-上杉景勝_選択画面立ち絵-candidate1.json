@@ -1,0 +1,30 @@
+{
+  "name": "上杉景勝_選択画面立ち絵.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a5df1cc2-9300-44db-a5b4-209640aeaedf.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_選択画面立ち絵.png",
+  "size": [
+    512,
+    768
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    63,
+    16,
+    984,
+    1462
+  ],
+  "placement": [
+    26,
+    24
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "f20a3d35288357540880dded53955f39d1bdedf0d99a4c6def092d0265099bff",
+  "updatedAt": "2026-10-07T12:07:41.007260+09:00",
+  "gitCommit": "989df23f1e96b60ffd9a6f0f9b7023483ca9abd5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "f20a3d35288357540880dded53955f39d1bdedf0d99a4c6def092d0265099bff",
+  "qaResult": "OK",
+  "visualReview": "Entire figure/equipment visible; reference design and composition checked; native OCR reviewed."
+}

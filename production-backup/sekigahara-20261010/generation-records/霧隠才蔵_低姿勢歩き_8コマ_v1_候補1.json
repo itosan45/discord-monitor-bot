@@ -1,0 +1,24 @@
+{
+  "name": "霧隠才蔵_低姿勢歩き_8コマ_v1.png",
+  "candidate": 1,
+  "status": "rejected_layout_and_motion",
+  "decision": "Do not normalize or deliver. The generator enlarged poses beyond the specified central 256px band: visible art spans about 360px vertically; outer frame silhouettes touch/cross the source canvas edge. Visual review also shows the right/left leg contact poses at frames 1 and 5 are not clearly exchanged. Since scale, edge completeness, and gait all fail, move to a different task rather than repeat this generation.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-1660d139-fe8e-4fd2-9f8d-c301a8ccd2c3.png",
+  "sourceSha256": "0e7584a2acb17314832be1bdd420960ef8b9cdd9d082ec6097fb215971463d3c",
+  "sourceDimensions": [
+    1983,
+    793
+  ],
+  "prompt": "Use case: stylized-concept\nAsset type: eight-frame 2D beat-em-up walk-cycle sprite strip for Sekigahara Ranbu\nInput images: Image 1 is the exact design sheet for Kirigakure Saizo; Image 2 is his exact in-game idle proportions, costume, scale, short katana, and painted outline.\nPrimary request: Create one continuous eight-frame low combat walk for Kirigakure Saizo. Keep EXACTLY the same face, slim body, black tied hair and indigo headband tails, dark blue-gray shinobi clothing, red six-coin chest emblem, belt pouches, leg wraps, sandals, and short katana as the references. He remains strictly right-facing in profile in every frame and advances to the right. He carries the same short katana in his right hand, angled forward/down in a steady ready guard; keep his left hand free for balance. No new armor, hood, banner, or costume details.\nAction sequence: frame 1 low combat contact, right foot forward and left foot back; frame 2 weight settles onto the right foot; frame 3 the left foot passes close by the right; frame 4 the left foot swings forward; frame 5 clear mirror contact with LEFT foot forward and RIGHT foot back, unmistakable leg exchange from frame 1; frame 6 weight settles onto left; frame 7 right foot passes close by left; frame 8 right foot swings forward and loops into frame 1. Keep hips low, knees bent, torso/head/katana steady, hands and grip consistent. Track near/far thigh overlap so the exchange in frames 1 and 5 is clearly readable. Both sandal toes point right. Each pose must be a separate readable gait phase, not repeated standing poses.\nLayout and critical scale control: The full image is a wide landscape canvas. Put all eight complete poses in ONE evenly spaced horizontal row inside a central horizontal band exactly 256px tall, spanning the full width. Keep the top and bottom areas entirely pure magenta and empty. Every character head, feet, katana, and headband tails stay inside that central band. In the final crop, each pose becomes one 256x256 square cell; draw each standing-equivalent figure about 205px tall with soles aligned at the same y within the band. Keep each pose compact and no wider than its own conceptual cell, with clear empty magenta gaps between all eight poses. Leave at least 16px of final-cell margin at the top, left, and right. Do not enlarge figures to fill the tall canvas; the central 256px band is the entire usable sprite area.\nBackdrop: uniform opaque pure RGB #FF00FF everywhere, including empty top and bottom bands; no transparency, gradient, floor, shadow, or texture.\nAvoid: text, numerals, labels, UI, grid, cell borders, motion streaks, effects, detached sword, sword crossing into neighboring poses, cropped body, feet pointing backward, repeated leg pose in frames 1 and 5, extra characters, or any changes to his design.",
+  "qaFindings": [
+    "Displayed row contains eight character poses, but source silhouettes occupy roughly 360px vertically rather than the intended 256px center band.",
+    "First and last character silhouettes touch or are clipped by the source image outer edges.",
+    "Frame 1 vs 5 does not provide a clear right/left leg exchange on visual review.",
+    "No normalized PNG, OCR, GIF, or Git delivery performed."
+  ],
+  "reviewedAt": "2026-10-08T07:34:00+09:00",
+  "referenceFiles": [
+    "finished/霧隠才蔵_設定画_v1.png",
+    "assets/sprites/霧隠才蔵_待機_4コマ_v1.png"
+  ]
+}

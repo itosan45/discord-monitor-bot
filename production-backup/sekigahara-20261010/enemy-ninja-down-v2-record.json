@@ -1,0 +1,132 @@
+{
+  "name": "敵_忍者_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_忍者_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-391c9e11-7f31-4d38-9c80-547de0f5c85d.png",
+  "status": "git_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        27,
+        176,
+        475,
+        579
+      ],
+      "destination": [
+        26,
+        47,
+        204,
+        184
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        540,
+        166,
+        1025,
+        521
+      ],
+      "destination": [
+        17,
+        34,
+        221,
+        162
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 195,
+      "verticalOffset": -35,
+      "estimatedBodyGround": 195
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1105,
+        395,
+        1586,
+        581
+      ],
+      "destination": [
+        18,
+        146,
+        219,
+        85
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1669,
+        370,
+        2128,
+        574
+      ],
+      "destination": [
+        23,
+        135,
+        209,
+        93
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 227,
+      "verticalOffset": -3,
+      "estimatedBodyGround": 227
+    }
+  ],
+  "sha256": "bc474fb5731343cce09ff99017e7883a39dd55f36d54c8764c3fbe9a981ed0c5",
+  "backgroundSource": [
+    241,
+    24,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの49%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    19484,
+    22405,
+    11921,
+    19145
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_ダウン_4コマ_v2_候補保存_20261006_123528_498240_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_ダウン_4コマ_v2_候補保存_20261006_123528_498240_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 3,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "仰向けと小反動による人物高さ中央値49%NG。頭・胴体を縮めず205/450共通縮尺。候補4は幅503rawで同縮尺時16余白を満たせず、候補3は余白・接地・空中高さ維持。2の足先は上向き寄り。",
+  "visualReview": "4コマGIF/OCR確認。被弾→後方空中→仰向け→小反動、露出短刀を右手保持、左手空、同じ体格。自然な仰向けの高さ中央値49%NG・空中の足先角度を要注意。初回+修正3回の候補3を採用、4は同縮尺で余白不足。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

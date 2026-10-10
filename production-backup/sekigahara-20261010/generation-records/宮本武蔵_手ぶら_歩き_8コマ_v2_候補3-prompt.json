@@ -1,0 +1,10 @@
+{
+  "name": "宮本武蔵_手ぶら_歩き_8コマ_v2.png",
+  "candidate": 3,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-75f23782-c4fc-42cb-b6af-418fcead7051.png",
+  "editSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-42b4ae83-d75c-424d-9e62-cfd305be5557.png",
+  "prompt": "Edit this exact 4-column by 2-row sprite atlas. Preserve the 8-cell layout, each character head, face, hair, white headband, empty hands, torso, clothing, colors, body scale, right-facing profile and flat #FF00FF background. Change ONLY the leg positions and the cloth folds immediately around the legs, to create eight clearly different consecutive walk poses in reading order. Make frame 1 right-foot-forward contact, frame 2 weight shift, frame 3 left foot passing, frame 4 left foot swinging forward, frame 5 opposite contact with left leg forward/right leg back, frame 6 weight shift, frame 7 right foot passing, frame 8 right foot swinging into frame 1. Ensure the 1/5 support-leg exchange is unmistakable. Keep one sandal planted in each frame. No weapons, effects, text, shadows, borders, or other changes.",
+  "status": "rejected_motion",
+  "reason": "Leg-only edit changed several poses, but frame 1 and frame 5 still show the same support-leg orientation; repeated generation/edit is stopped to avoid cycling similar images. Original candidate 1 and 2 are also rejected for repeated motion.",
+  "candidateCount": 3
+}

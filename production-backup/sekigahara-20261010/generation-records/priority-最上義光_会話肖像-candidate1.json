@@ -1,0 +1,34 @@
+{
+  "name": "最上義光_会話肖像.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d8f63453-d15a-4bd4-81cd-ee4251ab7962.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\最上義光_会話肖像.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sourceBounds": [
+    0,
+    86,
+    1254,
+    1193
+  ],
+  "placement": [
+    64,
+    196
+  ],
+  "candidateCount": 2,
+  "status": "git_verified",
+  "sha256": "330a31c3e2549901e9fe80dc2dc3c94cb8b98061b5c5b6b90185cf3d4b56cc79",
+  "updatedAt": "2026-10-07T12:27:27.373878+09:00",
+  "prompt": "Make a localized crest correction ONLY to reference1 dialogue portrait of 最上義光. Reference2 is the original exact character design. Preserve every aspect of reference1: left-facing face, helmet shape, armor colors, hair, shoulders, lighting, square chest-up composition and transparent alpha. The generated portrait incorrectly copied Tokugawa three-leaf aoi crests from a style reference. Replace ALL three-leaf aoi emblems on helmet/chest/shoulders with silver-white five-petal flower crests EXACTLY matching the same emblem in original character reference2. Five rounded petals around small round center, not three leaves. Match original emblem metal colors. Do not change face, expression, armor shape, pose, crop or dimensions.1254x1254 transparent PNG, no text, effects or background.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+  "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+  "qaResult": "OK",
+  "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "330a31c3e2549901e9fe80dc2dc3c94cb8b98061b5c5b6b90185cf3d4b56cc79"
+}

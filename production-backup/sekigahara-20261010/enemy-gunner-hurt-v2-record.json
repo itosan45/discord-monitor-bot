@@ -1,0 +1,93 @@
+{
+  "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-094cf872-0649-4550-b756-167597acf0ac.png",
+  "status": "drive_verified",
+  "scale": 0.2411764705882353,
+  "standingHeightSource": 850.0,
+  "standingHeightTarget": 205,
+  "n": 2,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        202,
+        120,
+        682,
+        832
+      ],
+      "destination": [
+        70,
+        59,
+        116,
+        172
+      ],
+      "scale": 0.2411764705882353,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        897,
+        129,
+        1509,
+        832
+      ],
+      "destination": [
+        54,
+        61,
+        148,
+        170
+      ],
+      "scale": 0.2411764705882353,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "f386887923e79855f5bc74f6548544b2dd3a76ca14a2fa1ed9b4823d624ae353",
+  "backgroundSource": [
+    242,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの66%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    13852,
+    13852
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_被弾_2コマ_v2_候補保存_20261006_114355_950050_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 2,
+    "durationMs": [
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_被弾_2コマ_v2_候補保存_20261006_114355_950050_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 3,
+  "retries": 2,
+  "selectedCandidate": 3,
+  "ocrReview": "OCRのョ・強などは鎧模様の誤認。2コマ目視で文字なし。",
+  "qaNote": "共通205/850で頭胴を待機に合わせた。耳元の金属飾りを除去し普通の顎紐へ修正。",
+  "visualReview": "2コマGIF復号で肩・胸の後方反動、顔の痛み、前脚への荷重回復を確認。銃を胸前で保持、全靴先右。服体格と頭胴共通倍率、全銃・接地・余白規格合格。追加耳飾りは除去。",
+  "driveId": "1_-QCxDS-sSWjti7gPnHt-m5CJxY2ipcV",
+  "readbackSha256": "f386887923e79855f5bc74f6548544b2dd3a76ca14a2fa1ed9b4823d624ae353",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

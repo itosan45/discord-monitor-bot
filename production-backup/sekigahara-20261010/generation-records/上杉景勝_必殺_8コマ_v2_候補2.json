@@ -1,0 +1,14 @@
+{
+  "name": "上杉景勝_必殺_8コマ_v2.png",
+  "candidate": 2,
+  "status": "hold_no_delivery_due_to_existing_no_regeneration_instruction",
+  "char": "上杉景勝",
+  "action": "必殺",
+  "source": null,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_待機_4コマ.png",
+  "prompt": "Edit the attached 4x2 storyboard atlas while preserving the exact same eight poses, character identity, face, navy/silver armor, gold crescent kabuto, banner, cape, katana and painterly style. Keep the character itself full-size and anatomically intact in every frame, matching the attached idle character scale; keep soles on the same baseline. Correct only the layout and lightning effect: reduce and compact the lightning arcs so they stay close to the sword/impact and do not extend beyond the character silhouette by more than a small margin. All character parts, banner, cape, sword and lightning must remain at least 16px inside their own square panel after the final panels are normalized to 256x256. Do not shrink the character to make room for effects. Keep the 4 columns x 2 rows, ordered frames 1-4 then 5-8; use clean flat #FF00FF gaps between panels, no grid or borders. Maintain the action progression from braced pose, sword raise and charge, overhead hold, downward strike, low follow-through, recovery. No lettering or extra people.",
+  "createdAt": "2026-10-08",
+  "correctionReason": "candidate1 lightning and equipment exceed safe margins at reference scale",
+  "noFurtherRegenerationPlanned": true,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8339e2d8-27e7-401a-b459-fac9bc4918aa.png"
+}

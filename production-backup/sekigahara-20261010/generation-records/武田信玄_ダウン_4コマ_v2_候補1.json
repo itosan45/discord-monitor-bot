@@ -1,0 +1,83 @@
+{
+  "name": "武田信玄_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c2d7e656-29e8-43c7-a0d9-bac2cb5a4f7f.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_ダウン_4コマ_v2.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "qa_pending",
+  "uniformScale": 0.3875432525951557,
+  "sourceBounds": [
+    [
+      144,
+      11,
+      553,
+      502
+    ],
+    [
+      892,
+      28,
+      1306,
+      500
+    ],
+    [
+      161,
+      538,
+      659,
+      958
+    ],
+    [
+      843,
+      563,
+      1421,
+      955
+    ]
+  ],
+  "placements": [
+    [
+      48,
+      40,
+      159,
+      190
+    ],
+    [
+      48,
+      47,
+      160,
+      183
+    ],
+    [
+      31,
+      67,
+      193,
+      163
+    ],
+    [
+      16,
+      78,
+      224,
+      152
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "a3a4ceb64d830cb745ca067e9b022c0cdc378791e50f8bbf8a404d9f78efa3dc",
+  "visualApproved": false,
+  "visualReview": "Candidate1 held: horizontal final pose forces whole strip smaller than idle. Compact final pose targeted edit requested; all source/QA preserved."
+}

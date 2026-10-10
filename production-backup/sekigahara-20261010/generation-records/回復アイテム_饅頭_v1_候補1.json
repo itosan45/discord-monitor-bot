@@ -1,0 +1,12 @@
+{
+  "name": "回復アイテム_饅頭_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single Sengoku-era recovery-food pickup sprite for a 2D beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce any people.\nComposition/framing: one complete food item centered in one 256x256 square cell, resting on the ground and occupying about 70-80% of the canvas, at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, natural food textures, consistent with Image 1.\nScene/backdrop: perfectly flat pure RGB(255,0,255) magenta (#FF00FF), no floor or cast shadow.\nConstraints: one recognizable pickup food item only, no characters, plate, cutlery, wrapper text, label, border, extra props or watermark.\nPrimary request: one traditional Japanese steamed manju bun as a recovery pickup. A single plump round off-white bun with a clear soft pleated seam at the crown and gently browned steam marks, set slightly on its side. It should read as a bun, not rice or dumpling soup.\nMaterials/textures: soft steamed dough, subtle flour surface and warm highlights.\nAvoid: plate, basket, multiple buns, printed marks, toothpicks, text.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-967d44fe-894b-4777-b892-bbb8da1396af.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\回復アイテム_饅頭_v1.png",
+  "sha256": "1030064581cae9de16879f26c1a811f0f055ca05adc37dbda67d943655acaf6b"
+}

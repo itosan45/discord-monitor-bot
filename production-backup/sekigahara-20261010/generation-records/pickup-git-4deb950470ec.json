@@ -1,0 +1,42 @@
+{
+  "commit": "4deb950470ec44bfd0b8b6490ab70ed2a0baa303",
+  "remote": "4deb950470ec44bfd0b8b6490ab70ed2a0baa303",
+  "verifiedAt": "2026-10-06T15:55:09.488062+00:00",
+  "assets": [
+    {
+      "taskName": "上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+      "name": "上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+      "sha256": "eceb58e37c18f9e68bf96f48af0de89fe642e6f991f2b30f54da0c23a5634a2a",
+      "qaResult": "OK",
+      "record": "jump-uesugi-record.json"
+    },
+    {
+      "taskName": "石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+      "name": "石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+      "sha256": "61868557e5d2527a1e2d46862616c71255fcd9d74522679163cafde57b2b5c9b",
+      "qaResult": "OK",
+      "record": "jump-ishida-record.json"
+    },
+    {
+      "taskName": "織田信長_ジャンプ攻撃_4コマ_追加v1.png",
+      "name": "織田信長_ジャンプ攻撃_4コマ_追加v1.png",
+      "sha256": "20204d1263498e70bf54a6d091917319339f77fa16c2be308057e01bb8962d1c",
+      "qaResult": "OK",
+      "record": "jump-oda-record.json"
+    },
+    {
+      "taskName": "武田信玄_ジャンプ攻撃_4コマ_追加v1.png",
+      "name": "武田信玄_ジャンプ攻撃_4コマ_追加v1.png",
+      "sha256": "2c61d0a62b37cfd98521b0d5df1328b29629b3654cdc9ad5a7565de804295a86",
+      "qaResult": "OK",
+      "record": "jump-shingen-record.json"
+    },
+    {
+      "taskName": "宮本武蔵_ジャンプ攻撃_4コマ_追加v1.png",
+      "name": "宮本武蔵_ジャンプ攻撃_4コマ_追加v1.png",
+      "sha256": "f4e277fb78ce678217822279bd7a2cbbb4e8fa3a3c6430da47e660cc1c8c7218",
+      "qaResult": "OK",
+      "record": "jump-musashi-record.json"
+    }
+  ]
+}

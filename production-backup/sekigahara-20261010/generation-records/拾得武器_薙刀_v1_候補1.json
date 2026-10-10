@@ -1,0 +1,12 @@
+{
+  "name": "拾得武器_薙刀_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce any people.\nComposition/framing: one complete object centered in one square 256x256 game cell, resting on the ground and occupying about 70-80% of the canvas, at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, period materials, consistent with Image 1.\nScene/backdrop: perfectly flat pure RGB(255,0,255) magenta (#FF00FF), no floor or cast shadow.\nConstraints: one pickup only, fully visible and physically plausible; no hands/characters, no text/letters/numbers/labels, border, extra props, glow, or watermark.\nPrimary request: a practical Japanese Sengoku naginata laid diagonally, with a long dark oak shaft, restrained metal ferrule, and a single moderately curved steel blade securely mounted at one end. Keep the blade and shaft in realistic proportions; show clear sharpened edge and small guard collar. Grip end at lower-left, blade at upper-right.\nMaterials/textures: aged lacquered wood, forged steel with a subtle hamon, simple iron fittings.\nAvoid: oversized fantasy blade, ornate fittings, additional weapons, sparks, blood.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-566beddf-b6a6-4513-b230-2e9451897e9c.png",
+  "status": "qa_passed",
+  "qaResult": "要注意",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_薙刀_v1.png",
+  "sha256": "7ddf3eb7f81f05269d4e6713b18f7a53290c69f01b6b1db10ae0bed28b03f193"
+}

@@ -1,0 +1,145 @@
+{
+  "name": "徳川秀忠_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e37924d0-0ff2-413c-8436-e9d81ac06db7.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\徳川秀忠_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.7506112469437652,
+  "sourceBounds": [
+    [
+      31,
+      58,
+      363,
+      467
+    ],
+    [
+      415,
+      58,
+      743,
+      464
+    ],
+    [
+      794,
+      58,
+      1127,
+      466
+    ],
+    [
+      1175,
+      58,
+      1509,
+      462
+    ],
+    [
+      33,
+      543,
+      362,
+      947
+    ],
+    [
+      416,
+      543,
+      743,
+      948
+    ],
+    [
+      793,
+      543,
+      1130,
+      947
+    ],
+    [
+      1175,
+      543,
+      1515,
+      949
+    ]
+  ],
+  "placements": [
+    [
+      67,
+      39,
+      249,
+      307
+    ],
+    [
+      69,
+      41,
+      246,
+      305
+    ],
+    [
+      67,
+      40,
+      250,
+      306
+    ],
+    [
+      66,
+      43,
+      251,
+      303
+    ],
+    [
+      68,
+      43,
+      247,
+      303
+    ],
+    [
+      69,
+      42,
+      245,
+      304
+    ],
+    [
+      65,
+      43,
+      253,
+      303
+    ],
+    [
+      64,
+      41,
+      255,
+      305
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "db2e5278606dcce8ad79776bb43127e8f8bf0b329afa632f81fecb239b4851a7",
+  "visualApproved": true,
+  "visualReview": "GIF復号後に8コマを目視し、設定画・待機と比較。青金鎧・兜・青陣羽織・鉄砲を保持し、右向き、発砲効果なし。1/5の支持脚交替と通過/踏み出しの差あり。人物、銃身、体の枠切れなし。OCR空。既存待機絵の人物尺度は現行ボス規格の約307px高より小さく見えるため、尺度互換は要注意。",
+  "cautionSummary": "旧待機絵の人物尺度と現行ボス歩き規格に差がある。",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gitVerified": true,
+  "gitCommit": "b009f27f4e8c05a0ef7982f812f7042f6e432e98",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "db2e5278606dcce8ad79776bb43127e8f8bf0b329afa632f81fecb239b4851a7",
+  "prompt": "Create an 8-pose right-facing combat-walk sprite atlas for Tokugawa Hidetada, precisely matching the references. Preserve the same black/navy and gold armor, crescent helmet crest, face, blue mantle, and matchlock gun. Reference 1 is the design source, reference 2 the existing sprite style and scale. Exactly eight full-body poses, arranged 4 columns by 2 rows, on perfectly flat #FF00FF pure magenta. Hold the matchlock at a steady ready carry angle; do not aim, fire, add muzzle flash, smoke, sparks, effects, or recoil. No text, labels, grid, borders, shadows or scenery. Make a clear grounded walk cycle: frame 1 right-foot-forward contact; 2 weight transfer; 3 left foot passing; 4 left foot swinging forward; frame 5 opposite contact with left foot forward/right foot back; 6 weight transfer; 7 right foot passing; 8 right foot swinging into frame 1. Clearly alternate support legs between frames 1 and 5. Keep torso and gun guard steady. Same anatomy, armor and body scale in all panels. Keep helmet crest, mantle, hands, matchlock and feet fully inside each invisible cell and leave clear gaps between poses.",
+  "updatedAt": "2026-10-08T06:00:35.100594+09:00"
+}

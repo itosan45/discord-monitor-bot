@@ -1,0 +1,8 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-853d98a0-32a5-45ab-a671-6448f914e373.png",
+  "prompt": "Edit this same eight-frame low ashigaru yari walk. Keep exact black jingasa, blue clothes, black armor, same anatomy and upper bodies, same continuous straight spear in both hands angled only slightly upward. Two precise fixes: (1) last spearhead at far right is cropped. Re-layout ALL8 complete figures at equal centers, uniformly slightly smaller on raw canvas, leaving at least32px pure magenta at whole canvas edges and clear gaps so EVERY spear butt AND blade tip is visible, no change of anatomy between frames. (2) Frames5-8 repeat first half legs. Horizontally mirror ONLY the LOWER BODY below waist of frame1 into5,2into6,3into7,4into8. Include pelvis thighs knees and shins but keep upperbody and hands/spear facing RIGHT. Then REPAINT mirrored sandals with heels LEFT and toes RIGHT. All boot tips must face right including rear boots. Knee guard/near shin on opposite side at1 and5; legs close/cross in3 and7 with opposite near/far occlusion. Low bent knees, stable upperbody and weapon, not upright walk. Do NOT mirror whole figures or spear. No new knee emblems, keep reference's simple existing shin/knee guards. One row exactly8 full bodies, pure flat magenta blank top/bottom. No labels numbers grids shadow floor or floating parts.",
+  "status": "candidate_needs_sandal_direction_fix",
+  "attempt": 2,
+  "retries": 1,
+  "visualReview": "5-7下半身の前後交換は改善、サンダル5-7も左向きに反転。8穂先外周余白不足。候補3では脚形は保ち足先のみ右向きと外周余白を指定。"
+}

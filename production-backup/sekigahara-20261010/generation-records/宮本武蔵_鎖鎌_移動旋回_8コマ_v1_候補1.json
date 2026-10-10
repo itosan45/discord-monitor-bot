@@ -1,0 +1,205 @@
+{
+  "name": "宮本武蔵_鎖鎌_移動旋回_8コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_鎖鎌_移動旋回_8コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-57dff033-76f6-4cc5-8530-3d913b2b0128.png",
+  "status": "git_verified",
+  "scale": 0.5616438356164384,
+  "standingHeightSource": 365.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        18,
+        267,
+        253,
+        639
+      ],
+      "destination": [
+        62,
+        22,
+        132,
+        209
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        252,
+        260,
+        468,
+        639
+      ],
+      "destination": [
+        67,
+        18,
+        121,
+        213
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        458,
+        316,
+        696,
+        639
+      ],
+      "destination": [
+        61,
+        50,
+        134,
+        181
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        670,
+        319,
+        887,
+        639
+      ],
+      "destination": [
+        67,
+        51,
+        122,
+        180
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        876,
+        315,
+        1104,
+        639
+      ],
+      "destination": [
+        64,
+        49,
+        128,
+        182
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1128,
+        317,
+        1323,
+        639
+      ],
+      "destination": [
+        73,
+        50,
+        110,
+        181
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1332,
+        314,
+        1571,
+        639
+      ],
+      "destination": [
+        61,
+        48,
+        134,
+        183
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1551,
+        268,
+        1766,
+        639
+      ],
+      "destination": [
+        67,
+        23,
+        121,
+        208
+      ],
+      "scale": 0.5616438356164384,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "1b2dbd1e2b0b7d5bbdfe151d73769600fa7f974ff828443e45d83f843815985b",
+  "backgroundSource": [
+    240,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "111,333,554,776,998,1220,1441,1663",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "visualApproved": true,
+  "gitVerified": true,
+  "gitCommit": "afabb7a8e33ff7f834a3c9c687f08c3068fcaaec",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "1b2dbd1e2b0b7d5bbdfe151d73769600fa7f974ff828443e45d83f843815985b",
+  "candidateCount": 1,
+  "qaResult": "PASS",
+  "checkResults": [
+    "30_check_strip.py: 2048x256, 8 cells, pure magenta 85%, median height 71%, no clipping/ground failure.",
+    "Native OCR successful; no recognized text.",
+    "GIF decoded: 8 frames at 80ms; all frames inspected visually; distinct walking and one-orbit chain-weight phases."
+  ],
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "visualReview": "右向き。武蔵の白鉢巻、黒髪、無鎧の灰褐色破れ着物、脚絆、草鞋を保ち、二刀を鎖鎌に持ち替え。分銅は手元から連続して一周、全8コマで歩行支持脚が交替。セル外へのはみ出し、効果、影、可読文字なし。",
+  "updatedAt": "2026-10-08T07:49:34+09:00"
+}

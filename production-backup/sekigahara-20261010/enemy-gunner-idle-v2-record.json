@@ -1,0 +1,135 @@
+{
+  "name": "敵_鉄砲足軽_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-2d62a620-c16c-49cd-907f-1ce3e841f2c5.png",
+  "status": "drive_verified",
+  "scale": 0.29285714285714287,
+  "standingHeightSource": 700.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        24,
+        72,
+        536,
+        672
+      ],
+      "destination": [
+        53,
+        55,
+        150,
+        176
+      ],
+      "scale": 0.29285714285714287,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        566,
+        68,
+        1077,
+        672
+      ],
+      "destination": [
+        53,
+        54,
+        150,
+        177
+      ],
+      "scale": 0.29285714285714287,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1107,
+        74,
+        1617,
+        672
+      ],
+      "destination": [
+        53,
+        56,
+        149,
+        175
+      ],
+      "scale": 0.29285714285714287,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1650,
+        72,
+        2158,
+        672
+      ],
+      "destination": [
+        53,
+        55,
+        149,
+        176
+      ],
+      "scale": 0.29285714285714287,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "612c3d761997837fd9425f3777437f6eb0739705f5b3f1417c013f495f82ec93",
+  "backgroundSource": [
+    235,
+    23,
+    229
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    10986,
+    11210,
+    11004,
+    11312
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 2,
+  "retries": 1,
+  "selectedCandidate": 2,
+  "ocrReview": "OCR文字認識を目視照合し、装備模様以外に文字なし。",
+  "qaNote": "共通縮尺205/700。頭胴と低い膝を同一寸法、鉄砲は胸前斜め。後ろ足の正面向きは候補2で右側面へ修正。",
+  "visualReview": "4コマGIF復号で肩と胸の微小呼吸、銃角度安定を確認。膝を曲げ両靴先右向き、鉄砲の銃口・火縄・銃床完全、全身接地と余白合格。設定の服と体格・銃を維持。",
+  "driveId": "1IfzeRYpN6Bzcdrr_t0sK7JkQs7WIAOYN",
+  "readbackSha256": "612c3d761997837fd9425f3777437f6eb0739705f5b3f1417c013f495f82ec93",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

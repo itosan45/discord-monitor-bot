@@ -1,0 +1,115 @@
+{
+  "name": "真田幸村_歩き_8コマ_構え移動.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_歩き_8コマ_構え移動.png",
+  "status": "drive_verified",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-57d5218e-6683-4e06-a1a3-78d0bccf017e.png",
+  "placements": [
+    {
+      "frame": 1,
+      "bounds": [
+        50,
+        17,
+        206,
+        231
+      ],
+      "sourceFrame": 1,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "bounds": [
+        51,
+        16,
+        204,
+        231
+      ],
+      "sourceFrame": 2,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "bounds": [
+        51,
+        17,
+        204,
+        231
+      ],
+      "sourceFrame": 3,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "bounds": [
+        53,
+        16,
+        203,
+        231
+      ],
+      "sourceFrame": 4,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "bounds": [
+        52,
+        17,
+        204,
+        231
+      ],
+      "sourceFrame": 5,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "bounds": [
+        54,
+        17,
+        202,
+        231
+      ],
+      "sourceFrame": 6,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "bounds": [
+        52,
+        17,
+        204,
+        231
+      ],
+      "sourceFrame": 7,
+      "scale": 0.498,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "bounds": [
+        53,
+        16,
+        203,
+        231
+      ],
+      "sourceFrame": 4,
+      "scale": 0.498,
+      "ground": 230
+    }
+  ],
+  "sourceBackground": [
+    240,
+    22,
+    241
+  ],
+  "scale": 0.498,
+  "sha256": "02c864560af08bdccff96845fd5f74a282442ea446cb8c10e6b7c7cc229ff617",
+  "note": "Entire frame4 reused as frame8 because both poses bring feet close; no upper-body/weapon compositing.",
+  "visualReview": "全8コマ右向き・低い構え・1と5の脚交代・槍先と布の欠けなし・全身16px以上余白・足元230px。OCRの000は旗の六文銭の誤認で、ラベルや番号なし。4と8は足が寄る共通姿勢として全身コマを再利用。",
+  "driveId": "1nmFmlTUKP7i895tg2-E_aeYRZjoG29kg",
+  "driveReadbackSha256": "02c864560af08bdccff96845fd5f74a282442ea446cb8c10e6b7c7cc229ff617"
+}

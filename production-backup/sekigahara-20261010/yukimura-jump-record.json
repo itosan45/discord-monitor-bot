@@ -1,0 +1,140 @@
+{
+  "name": "真田幸村_ジャンプ攻撃_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_ジャンプ攻撃_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d9d6327a-6dd6-470b-a43d-6998915e1d9e.png",
+  "status": "git_verified",
+  "scale": 0.3138876129229827,
+  "standingHeightSource": 653.1,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        5,
+        129,
+        446,
+        718
+      ],
+      "destination": [
+        59,
+        46,
+        138,
+        185
+      ],
+      "scale": 0.3138876129229827,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        413,
+        18,
+        953,
+        631
+      ],
+      "destination": [
+        43,
+        19,
+        169,
+        192
+      ],
+      "scale": 0.3138876129229827,
+      "ground": 210,
+      "verticalOffset": -20,
+      "estimatedBodyGround": 210
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        849,
+        138,
+        1469,
+        654
+      ],
+      "destination": [
+        30,
+        49,
+        195,
+        162
+      ],
+      "scale": 0.3138876129229827,
+      "ground": 210,
+      "verticalOffset": -20,
+      "estimatedBodyGround": 208
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1404,
+        202,
+        1978,
+        716
+      ],
+      "destination": [
+        38,
+        70,
+        180,
+        161
+      ],
+      "scale": 0.3138876129229827,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "22f1f880a361f543c4f29bae4864f056f592a36f334a8f82d12c71aaa78dd2a4",
+  "backgroundSource": [
+    236,
+    22,
+    238
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    18191,
+    16135,
+    17868,
+    16359
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\真田幸村_ジャンプ攻撃_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\真田幸村_ジャンプ攻撃_4コマ_v2_GIF復号確認.png"
+  },
+  "actualName": "真田幸村_ジャンプ攻撃_4コマ_v2.png",
+  "qaResult": "OK",
+  "visualReview": "目視確認: 幸村の赤備え・鹿角兜・六文銭と両手槍を維持。設定画の真田旗印は全コマで背面装備として一貫。槍筋と穂先、全身の余白、6コマの低位置から振り上げ、または4コマの溜め→跳躍→斬り下ろし→着地を確認。OCR後GIF復号画像でも同じ動きを確認。",
+  "ocrReview": {
+    "name": "真田幸村_ジャンプ攻撃_4コマ_v2.png",
+    "text": "",
+    "success": true
+  },
+  "reviewDate": "2026-10-07",
+  "manualVisualException": false,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d9d6327a-6dd6-470b-a43d-6998915e1d9e.png",
+  "weaponAction": "槍の斬り下ろしを行う4コマ武器別ジャンプ攻撃。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

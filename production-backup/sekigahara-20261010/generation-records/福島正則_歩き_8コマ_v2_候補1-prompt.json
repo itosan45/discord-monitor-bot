@@ -1,0 +1,18 @@
+{
+  "name": "福島正則_歩き_8コマ_v2",
+  "candidate": 1,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-14c929fa-473c-4276-9bd9-afa901459172.png",
+  "references": [
+    "assets/sprites/福島正則_設定画.png",
+    "assets/sprites/福島正則_待機_4コマ.png"
+  ],
+  "prompt": "Create an 8-pose right-facing combat-walk sprite atlas for Fukushima Masanori, matching the references. Preserve the exact muscular build, reddish brown/gold armor, horned helmet, fierce face, ragged red cape and long curved naginata. Reference 1 defines character and polearm; reference 2 defines existing sprite style and ready carry. Exactly eight full-body poses in a 4-column by 2-row invisible grid, pure flat #FF00FF magenta. Carry the naginata horizontally in a steady two-handed ready guard as in the idle reference. No attack swing, no blade effects, no light, smoke, sparks, text, border, grid, shadow or scenery. Show a clearly readable grounded combat-walk cycle: frame 1 right-foot-forward contact; frame 2 weight transfer; frame 3 left foot passing; frame 4 left foot swings forward; frame 5 opposite contact, left foot forward/right foot behind; frame 6 weight transfer; frame 7 right foot passing; frame 8 right foot swings into frame 1. Support legs visibly alternate between frames 1 and 5. Keep torso and weapon guard stable. Preserve identical anatomy and body scale, and keep all horns, cape, both hands, the entire polearm and feet inside their own cell without overlap.",
+  "promptProvenance": "This is the submitted built-in image generation prompt text.",
+  "normalization": "Each pose separated by source component, uniformly scaled into a 384px cell and placed on pure magenta background; 8 cells in one horizontal row.",
+  "result": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\福島正則_歩き_8コマ_v2.png",
+  "qa": "要注意",
+  "warnings": [
+    "Existing idle image depicts a smaller body scale than current 384px boss-walk specification.",
+    "OCR false-positive fragments visually inspected; no readable text."
+  ]
+}

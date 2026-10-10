@@ -1,0 +1,6 @@
+{
+  "name": "敵_足軽槍_攻撃_6コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-23d0cdc9-525f-4bb0-880b-0959a58f8177.png",
+  "prompt": "Use attached four-frame idle as exact enemy character model, ONE identical blue cloth black-lacquer-armored ashigaru with iron cone hat, shoulders armor, darkgreaves,strawsandals. Strict right-facing side profile, painted anime-realistic detailed arcade sprite. Generate ONLY ONE horizontal strip of 6 equally spaced SQUARE cells; each cell ONE full character, no contact sheet. Motion: spear thrust:1low ready,2draw shaft toward rear hip,3extend hands and point forward,4maximum forward thrust with shallow step,5retract,6return ready. Spear must be short enough to remain entirely in its OWN square cell with full steel point and butt, never shrink soldier for spear. First frame gives standing scale anchor: helmettop-to-sole205px of256height; same anatomical head/torso/limbs across all frames, crouches and lying bodies NOT smaller. Weapons/effects must fit by compact posing not character shrink. Feet/lowestbodypoint ground230px. Full hat, weapon, clothes, body inside owncell with generous margins and gaps, no neighboring overlap. EXACT solid flat pure#FF00FF background, no groundshadow/gradient/text/captions/grid/borders. No other enemy.",
+  "status": "candidate_pending_QA"
+}

@@ -1,0 +1,120 @@
+{
+  "name": "上杉景勝_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-2cd868dc-7bc5-470e-9b9d-ca2c87ab1866.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.6436781609195402,
+  "sourceBounds": [
+    [
+      21,
+      197,
+      348,
+      522
+    ],
+    [
+      371,
+      194,
+      692,
+      521
+    ],
+    [
+      729,
+      197,
+      1047,
+      521
+    ],
+    [
+      1099,
+      195,
+      1447,
+      522
+    ],
+    [
+      1476,
+      197,
+      1815,
+      522
+    ],
+    [
+      1844,
+      195,
+      2139,
+      521
+    ]
+  ],
+  "placements": [
+    [
+      23,
+      21,
+      210,
+      209
+    ],
+    [
+      24,
+      20,
+      207,
+      210
+    ],
+    [
+      25,
+      21,
+      205,
+      209
+    ],
+    [
+      16,
+      20,
+      224,
+      210
+    ],
+    [
+      19,
+      21,
+      218,
+      209
+    ],
+    [
+      33,
+      20,
+      190,
+      210
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "9e992453291cfe108253e60141a8eadf13c58a1acebdafc038a229373003aaa2",
+  "prompt": "Exact Kagekatsu navy gold armor crescent helmet six chain-haul phases reach-bend-pull to ribs-pull behind waist-reach-pull. Rear knee bends front leg straightens hips retreat, left sickle retained, outbound chain separate, grounded no effects.",
+  "char": "上杉景勝",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6GIF復号と待機比較目視。紺金甲冑・三日月兜・顔・外套保持、右向き接地枠内、二本腕・左鎌保持。右前方把持→肋元→腰への引き→再把持を確認。注意: 最大引きで後ろ膝の曲がりが浅く、鎖の柄尻接続が一部不明瞭。共通鎖の動的接続・敵反応未検証。",
+  "gitVerified": true,
+  "gitCommit": "f28ee08adc70c7901f5884e950e34c1f6569243d",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9e992453291cfe108253e60141a8eadf13c58a1acebdafc038a229373003aaa2",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:57:55.083482+09:00"
+}

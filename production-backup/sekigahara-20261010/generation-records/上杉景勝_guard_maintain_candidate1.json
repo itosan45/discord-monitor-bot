@@ -1,0 +1,151 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1407caed-88c9-4194-8be7-3e6bcd3080c7.png",
+  "sourceSha256": "20895a849d70e955bd9816ae78db62fdec4d023c47090c2ecd14d6cc1ff1a174",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: 上杉景勝_ガード維持_4コマ_v2.png. Use the setting sheet and same-character guard pose for identity, weapon, and scale. Four distinct but subtle held-guard phases; full-body, right-facing, same baseline and central placement, exact magenta key, all weapon parts inside cells. No attack, dodge, text, or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/上杉景勝_設定画.png",
+    "assets/sprites/上杉景勝_ガード構え_2コマ_v2.png"
+  ],
+  "requestedName": "上杉景勝_ガード維持_4コマ_v2.png",
+  "actualName": "上杉景勝_ガード維持_4コマ_v2_candidate1-final-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_ガード維持_4コマ_v2_candidate1-final-normalized.png",
+  "sha256": "8aaccf877b10e5d9cfb652dc96af1e5c24b93e5d7a27bf46afb2353195652266",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellSize": [
+      543,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": null,
+    "placement": "Each frame cropped to its keyed subject bounds, uniformly scaled using one common scale for all four cells, horizontally centered and feet aligned to y=228. Background set to exact RGB(255,0,255); >=16px margins."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        16,
+        53,
+        240,
+        229
+      ],
+      "heightPx": 176,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 53
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        272,
+        52,
+        495,
+        229
+      ],
+      "heightPx": 177,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 16,
+        "right": 17,
+        "top": 52
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        528,
+        53,
+        752,
+        229
+      ],
+      "heightPx": 176,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 53
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        784,
+        53,
+        1007,
+        229
+      ],
+      "heightPx": 176,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 16,
+        "right": 17,
+        "top": 53
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    17320,
+    17336,
+    16713
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "ノ を 心",
+    "postReview": "OCR誤認「ノ を 心」は鎧装飾/刀の形状。復号シート全4コマ目視で文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\uesugi_80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "f44bf1e5356021020d988a0ae1ff3614cd0d0b91360286d412248efd01f3a448",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\uesugi_gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "三日月前立てと青銀甲冑、右向き全身。長刀の保持・刀身連続性を確認。人物高中央値68%の低い構えで、OCR「ノ を 心」は装飾由来の誤認、目視で文字なし。要注意。 GIF4コマ80ms復号・全コマ目視済み。",
+  "qaResult": "要注意",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "gitCommit": "4ddf13cfb22c5622606fc9a257739a7e93c1cf38",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "0b66b25b706fdb7525166d687a62026a4dbe0bdf",
+  "remoteSha256": "8aaccf877b10e5d9cfb652dc96af1e5c24b93e5d7a27bf46afb2353195652266",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 183228,
+  "completedAt": "2026-10-07T10:48:05+09:00"
+}

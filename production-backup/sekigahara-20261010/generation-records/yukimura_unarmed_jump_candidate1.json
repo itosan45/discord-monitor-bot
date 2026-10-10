@@ -1,0 +1,212 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c2e8aaf3-2081-4192-94ec-7e77e527dacf.png",
+  "sourceSha256": "9a1d29e564c27cf09e212078b935d0cbfcd590b96b8477827d627747f8b099c1",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: 4-frame unarmed Yukimura jump, crouch → take-off → tucked apex → falling with legs lowered/extended, exact four-cell horizontal strip. Identity/style refs were the setting sheet and unarmed idle strip. Both hands empty; no banner or weapon. Match 256px sprite specs, pure magenta and 16px margins.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/真田幸村_設定画.png",
+    "assets/sprites/真田幸村_手ぶら_待機_4コマ_v2.png"
+  ],
+  "requestedName": "真田幸村_手ぶら_ジャンプ_4コマ_v2.png",
+  "actualName": "真田幸村_手ぶら_ジャンプ_4コマ_v2_candidate1-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_手ぶら_ジャンプ_4コマ_v2_candidate1-normalized.png",
+  "sha256": "6ed15c5594091fbe9bc751192d97c2a2f72507234b70399445ccad468c8cd1a4",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellSize": [
+      543,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.35359116022099446,
+    "placement": "Each equal source cell scaled uniformly to 192x256 and centered in its 256px output cell; apex lowered 8px for >=16px top clearance. Background key converted to exact RGB(255,0,255)."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        51,
+        71,
+        187,
+        232
+      ],
+      "heightPx": 160,
+      "bottomY": 231,
+      "marginsPx": {
+        "left": 51,
+        "right": 69,
+        "top": 71
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        52,
+        26,
+        196,
+        232
+      ],
+      "heightPx": 205,
+      "bottomY": 231,
+      "marginsPx": {
+        "left": 52,
+        "right": 60,
+        "top": 26
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        56,
+        16,
+        197,
+        167
+      ],
+      "heightPx": 150,
+      "bottomY": 166,
+      "marginsPx": {
+        "left": 56,
+        "right": 59,
+        "top": 16
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        54,
+        20,
+        198,
+        227
+      ],
+      "heightPx": 206,
+      "bottomY": 226,
+      "marginsPx": {
+        "left": 54,
+        "right": 58,
+        "top": 20
+      }
+    }
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_jump_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_jump_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。全コマ拡大目視でも文字・ラベルなし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_jump_candidate1\\strip-preview-80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "c918bd0d049c9056c06a4bea9568d8156c28d3b26019b01ec3cdb6cd23194cc8",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_jump_candidate1\\gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "4フレームを復号コンタクトシートで目視。幸村の赤備え・鹿角兜・右向き・素手の拳を確認。低いしゃがみ→踏切→脚を畳んだ頂点→脚を下ろした降下の順で読み取れる。人物縮尺一定、空中の足位置も自然。フレームごとの全身・セル分離・上左右16px余白を確認。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの71%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "framePlacementReview": [
+    {
+      "frame": 1,
+      "bbox": [
+        51,
+        71,
+        187,
+        232
+      ],
+      "heightPx": 160,
+      "bottomY": 231,
+      "marginsPx": {
+        "left": 51,
+        "right": 69,
+        "top": 71
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        52,
+        26,
+        196,
+        232
+      ],
+      "heightPx": 205,
+      "bottomY": 231,
+      "marginsPx": {
+        "left": 52,
+        "right": 60,
+        "top": 26
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        56,
+        16,
+        197,
+        167
+      ],
+      "heightPx": 150,
+      "bottomY": 166,
+      "marginsPx": {
+        "left": 56,
+        "right": 59,
+        "top": 16
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        54,
+        20,
+        198,
+        227
+      ],
+      "heightPx": 206,
+      "bottomY": 226,
+      "marginsPx": {
+        "left": 54,
+        "right": 58,
+        "top": 20
+      }
+    }
+  ],
+  "gitCommit": "69b32d34c46338bbe7c9a03a303178e09493a438",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "e3532d1c06e14f2a634596fcf2f39ec44136230d",
+  "remoteSha256": "6ed15c5594091fbe9bc751192d97c2a2f72507234b70399445ccad468c8cd1a4",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 136013,
+  "completedAt": "2026-10-07T09:45:21+09:00"
+}

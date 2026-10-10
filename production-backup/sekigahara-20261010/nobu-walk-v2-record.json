@@ -1,0 +1,164 @@
+{
+  "name": "織田信長_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-d913de3c-7f72-408b-a8ee-95f879dce201.png",
+  "status": "drive_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        2,
+        131,
+        279,
+        585
+      ],
+      "destination": [
+        65,
+        24,
+        126,
+        207
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        255,
+        135,
+        553,
+        582
+      ],
+      "destination": [
+        60,
+        27,
+        136,
+        204
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        522,
+        134,
+        820,
+        589
+      ],
+      "destination": [
+        60,
+        24,
+        136,
+        207
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        784,
+        136,
+        1087,
+        581
+      ],
+      "destination": [
+        59,
+        28,
+        138,
+        203
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1071,
+        131,
+        1364,
+        585
+      ],
+      "destination": [
+        61,
+        24,
+        133,
+        207
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1340,
+        135,
+        1644,
+        583
+      ],
+      "destination": [
+        59,
+        27,
+        138,
+        204
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1615,
+        133,
+        1903,
+        591
+      ],
+      "destination": [
+        62,
+        22,
+        131,
+        209
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1872,
+        129,
+        2161,
+        584
+      ],
+      "destination": [
+        62,
+        24,
+        132,
+        207
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    }
+  ],
+  "sha256": "b82d06c9e05a512717486b6a0392456ad8800d6e218dae4786416c3b3a6af6f5",
+  "backgroundSource": [
+    233,
+    23,
+    238
+  ],
+  "sourceIndices": null,
+  "qaResult": "OK",
+  "attempts": 4,
+  "retries": 3,
+  "automaticCheck": "全項目OK・純マゼンタ82%・高さ80%",
+  "visualReview": "全8コマ右向き、銃の両手構え、腰と膝、黒赤金の鎧と旗を確認。1/5で近い腿・膝の前後が交換し、5の両ブーツのつま先も右を向くことを確認。3/7は幅が狭まる。銃口/尻、余白16px、純背景、接地230px、同一縮尺。OCRは旗意匠/甲冑のみでラベルなし。",
+  "driveId": "16mIe0sbUzfmemVc4eiORqWKAF06k7c5a",
+  "readbackSha256": "b82d06c9e05a512717486b6a0392456ad8800d6e218dae4786416c3b3a6af6f5"
+}

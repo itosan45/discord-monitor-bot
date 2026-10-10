@@ -1,0 +1,16 @@
+{
+  "weapon": "刀",
+  "name": "織田信長_勝鬨_4コマ_v1.png",
+  "char": "織田信長",
+  "status": "qa_passed_ready_to_push",
+  "candidateCount": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_待機_4コマ.png",
+  "prompt": "Use the exact same 織田信長 from 織田信長_待機_4コマ.png: preserve 同じ顔、長い黒髪、黒金と深紅の鎧、旗、兜飾り、刀, exact painterly game style. Four full-body poses facing right 3/4, same standing character size and exact planted feet baseline as reference. Left hand holds his usual 刀 lowered beside body in every pose; right hand is empty and clenched. Sequence: 1 chest proud, fist gathered before chest; 2 fist raised vertically overhead, mouth open silently cheering; 3 fist lowered beside face; 4 fist highest overhead, slight backward lean and mouth open triumphantly. Keep same full equipment, flag, helmet, ornaments and armor details present in all frames; only slight natural cloth/banner flutter in frame4. Four distinct separated poses across one horizontal row, with flat pure #FF00FF background. No text/bubbles/shadows/effects/glow/borders/grid/extra people/cropping/neighbor fragments. Do not give weapon to right hand; no second hand weapon.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-82ca2897-d1e3-47b9-8c08-75e855169ceb.png",
+  "sourceSize": [
+    2170,
+    725
+  ],
+  "visualReview": "Four poses visible. Black-gold/deep-red armor, helmet, flag, sheathed swords consistent. Right fist raised, no text/effects. QA pending. Normalized 1024x256; checker passed; GIF 4/4 frames decoded; final contact inspected; OCR runtime unavailable.",
+  "ocrReview": "Windows OCR (Windows PowerShell 5.1) success; no recognized text."
+}

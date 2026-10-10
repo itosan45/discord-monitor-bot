@@ -1,0 +1,5 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-98546439-4e3a-49af-b745-5050d58f8260.png",
+  "prompt": "Edit exact eight-frame sprite strip. KEEP ALL armor, cape/banner, head, torso, katana and hands unchanged. Fix ONLY legs and feet in FRAMES5,6,7,8 (right half). Frame1 has anatomical RIGHT/NEAR leg forward and LEFT/FAR behind. Frame5 MUST have anatomical RIGHT/NEAR leg clearly behind to LEFT, LEFT/FAR leg extended FORWARD to RIGHT. Swap which knee/boot connects to the near hip: visible NEAR right thigh comes down toward rear-left knee; FAR left thigh travels forward-right, partly occluded at hip. Frame6weightfarleftfront, rightrearheelraised. Frame7nearRIGHTpassesFORWARD of farLEFTknees. Frame8nearRIGHTswingsahead farLEFTsupportsrear. Frame3 already leftpassing; do NOTrepeat3as7. KEEP1-4exactly. Character facesRIGHTthroughout, same lowcombatguard, consistentbodysize. Add no limbs. Need two distinct phase halves instead repeating near leg alwaysforward. Same flat magenta background and same eightfullcells. No text/borders.",
+  "status": "candidate_pending_QA"
+}

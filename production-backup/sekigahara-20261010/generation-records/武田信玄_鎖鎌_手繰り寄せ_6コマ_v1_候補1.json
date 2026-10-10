@@ -1,0 +1,125 @@
+{
+  "name": "武田信玄_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-7fceb1b7-2cd8-4b8f-9a2a-e63b16d2b3d3.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.6024096385542169,
+  "sourceBounds": [
+    [
+      26,
+      198,
+      351,
+      527
+    ],
+    [
+      401,
+      196,
+      716,
+      528
+    ],
+    [
+      779,
+      197,
+      1072,
+      527
+    ],
+    [
+      1093,
+      217,
+      1433,
+      528
+    ],
+    [
+      1465,
+      198,
+      1795,
+      528
+    ],
+    [
+      1847,
+      197,
+      2154,
+      528
+    ]
+  ],
+  "placements": [
+    [
+      30,
+      32,
+      196,
+      198
+    ],
+    [
+      33,
+      30,
+      190,
+      200
+    ],
+    [
+      39,
+      31,
+      177,
+      199
+    ],
+    [
+      25,
+      43,
+      205,
+      187
+    ],
+    [
+      28,
+      31,
+      199,
+      199
+    ],
+    [
+      35,
+      31,
+      185,
+      199
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの77%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "5df44d997578f9a3e21c5d432d33195b739e426d2953e6fd7cd1f3960a6001be",
+  "prompt": "Six Shingen kusarigama hauling phases: compact poses same canonical armor white mane helmet face; left hand sickle right hand pulls visible handlebutt chain; planted feet, rear knee deeply bent strongest backward pull; pure magenta no effects.",
+  "char": "武田信玄",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "1・5コマの鎖が柄の刃側寄りに接続して見える。",
+    "4コマは後傾が明瞭だが後ろ膝の曲げと腰後退が不足。",
+    "鎧の装飾線に待機との差あり。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "5c8221afcd39f24f565b98650320c5a9a29fae1b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "5df44d997578f9a3e21c5d432d33195b739e426d2953e6fd7cd1f3960a6001be",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T22:10:26.388511+09:00"
+}

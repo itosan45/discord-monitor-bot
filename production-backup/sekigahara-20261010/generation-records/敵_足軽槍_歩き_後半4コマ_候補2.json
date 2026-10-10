@@ -1,0 +1,9 @@
+{
+  "name": "敵_足軽槍_歩き_後半4コマ_候補2",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-ce18eec1-5e43-461b-bc80-fb0ee9819a3e.png",
+  "prompt": "Use this exact ashigaru spearman design, blue clothes black armor, conical jingasa, same scale/head/upperbody/hands/rigid spear shapeandangle. Draw ONLY FOUR full-body RIGHT-facing profile poses for the SECOND HALF of this walking animation. Essential correction: ANATOMICAL LEFT LEG on FAR side is now FORWARD, and anatomical RIGHT LEG on NEAR side is BACK. In first pose of your FOUR frames the BRIGHT HIGHLIGHTED foreground RIGHT SHIN must visibly be at the LEFT/back of figure, while darker shaded far LEFT SHIN is at RIGHT/front. Do not repeat the first reference pose with bright right shin in front. Preserve the near-leg armor highlight in allframes to identify anatomy; no costume changes. Sequence5 farleftfoot clearlyinfront, nearrightclearlybehind;6 leftfoot slidesahead,rightheel risingbehind;7 nearrightfoot draws forward towardleft passing in FRONT of farleftshin;8 feetclose withnearrightshin foreground. Knees bent hip low, no highknee lift, upperbodyheadhandsandspear virtually fixed, bodyface always RIGHT (never flip entirecharacter). Both shoulder plates always present. Four whole figures inONErow separatedbyverygenerousmagenta gaps, complete spearhead/tails and wholefeet, extra outer margins. Spears nevercropped orforeshortened. Flatpure#FF00FF,no shadow/text/labels/numbers/grid/borders. Matchreferenceproportionssevenheadstanding-equivalent. This is leg-halfcycle correction, NOT bodymirror or backwards-facing soldier.",
+  "referencePaths": [
+    "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-3677812f-0fd4-4bfd-81db-927cf9a6f543.png"
+  ],
+  "status": "candidate_pending_QA"
+}

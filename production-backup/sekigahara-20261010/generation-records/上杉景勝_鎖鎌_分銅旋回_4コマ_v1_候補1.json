@@ -1,0 +1,94 @@
+{
+  "name": "上杉景勝_鎖鎌_分銅旋回_4コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-ffdeacf8-55b3-4ac2-be1f-c74c30ad111d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_鎖鎌_分銅旋回_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4472573839662447,
+  "sourceBounds": [
+    [
+      73,
+      131,
+      485,
+      604
+    ],
+    [
+      610,
+      131,
+      1016,
+      605
+    ],
+    [
+      1151,
+      131,
+      1566,
+      604
+    ],
+    [
+      1689,
+      131,
+      2104,
+      605
+    ]
+  ],
+  "placements": [
+    [
+      36,
+      18,
+      184,
+      212
+    ],
+    [
+      37,
+      18,
+      182,
+      212
+    ],
+    [
+      35,
+      18,
+      186,
+      212
+    ],
+    [
+      35,
+      18,
+      186,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "027ace5a3d891c96021d6af078092787c1ed4f38fff57c0a13e74bb42c440890",
+  "prompt": "Exact Kagekatsu navy armor crescent helmet; kusarigama chain attaches handle butt via slack chain to hand; compact four-phase clockwise above-right-below-left weight spin; planted feet; no effects.",
+  "char": "上杉景勝",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全4コマ復号と待機比較を目視。紺金甲冑、三日月兜、顔、外套を保持。右向き接地枠内、分銅は上下左右の一周、鎌柄尻から手元への鎖接続。注意: 旋回半径の変動、分銅前景と肩の重なり。全身静止ループのみ、移動合成と投擲以降は未完。",
+  "gitVerified": true,
+  "gitCommit": "92f181f9429b43ef5c3b05d3cc8d30df0037a1e8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "027ace5a3d891c96021d6af078092787c1ed4f38fff57c0a13e74bb42c440890",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:05:36.935287+09:00"
+}

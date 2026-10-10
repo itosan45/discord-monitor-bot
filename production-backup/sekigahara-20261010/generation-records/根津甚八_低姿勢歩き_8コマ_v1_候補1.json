@@ -1,0 +1,84 @@
+{
+  "name": "根津甚八_低姿勢歩き_8コマ_v1.png",
+  "kind": "ten_braves_sprite_motion",
+  "reference": "根津甚八_設定画_v1.png",
+  "idleReference": "根津甚八_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d898be14-ba16-476b-963d-d7b8d24b1ccb.png",
+  "sourceSha256": "a4e606c0d0b979d75ea0347f3ba1670c8fe7ae651d50e156b4031a75109f7cd3",
+  "prompt": "Create eight distinct consecutive battle-walk poses of the exact Nezu Jinhachi shown in the references. Preserve the same weathered adult face, tied dark hair, dark brown-black light armor, red waist cloth, six-coin chest mark, trousers, sandals, and single sheathed katana secured on his back. Right-facing three-quarter view, full body. This is a low, guarded combat walk: knees bent and hips low in all frames, upper body steady and ready, not upright strolling and not attacking. Show a genuine 8-step gait cycle with alternating lead/support legs: frame 1 right foot leads, frame 2 weight transfers, frame 3 left leg passes through, frame 4 plants; frame 5 left foot leads, frame 6 transfers, frame 7 right leg passes through, frame 8 plants into a ready low walk pose that is not a duplicate of frame 1. Make the feet and knees visibly change positions in each frame while preserving body/head scale and keeping the sheathed sword fixed in the same back mount. Lowest foot points align on one ground line; standing-equivalent height about 80% of each cell. Each of eight full isolated characters is centered in an equal-width horizontal cell, with clear gaps so no body or sword touches the next figure. All sword parts and body parts remain inside their own cell. Pure flat #FF00FF background, no shadows, no effects, no text, no borders, no extra characters.",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_低姿勢歩き_8コマ_v1.png",
+  "candidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\根津甚八_低姿勢歩き_8コマ_v1_scale3.png",
+  "status": "git_verified_caution",
+  "attempts": 1,
+  "normalizationRecord": "generation-records/根津甚八_低姿勢歩き_8コマ_v1_候補1_scale3.json",
+  "scaleNormalizationTrials": [
+    {
+      "standingHeight": 420,
+      "top": 3,
+      "result": "rejected_top_margin",
+      "frame": 1
+    },
+    {
+      "standingHeight": 446,
+      "top": 15,
+      "result": "rejected_top_margin",
+      "frame": 2
+    },
+    {
+      "standingHeight": 450,
+      "result": "pass",
+      "note": "uniform scale 0.4556, 16px margins"
+    }
+  ],
+  "size": [
+    2048,
+    256
+  ],
+  "mode": "RGB",
+  "sha256": "d2ca788bd865f0f3b84cea4bb3502e77b095d9e15a74b6fe99f6a02a6916b392",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "visualApproved": true,
+  "visualReview": "Eight decoded frames show successive low guarded walking poses. Rear/lead legs change support between frames 1 and 5; frames 3 and 7 differ clearly, with sheath and back-mounted katana fixed. No body or sword clipping or neighboring-frame bleed. Character scale and floor line consistent. Caution: some transitional steps are subtle; overall silhouette median 83% versus idle 80%.",
+  "lowerBodyComparison": [
+    {
+      "iou": 0.681,
+      "frames": "1/5"
+    },
+    {
+      "iou": 0.744,
+      "frames": "2/6"
+    },
+    {
+      "iou": 0.658,
+      "frames": "3/7"
+    },
+    {
+      "iou": 0.775,
+      "frames": "4/8"
+    }
+  ],
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "gitVerified": true,
+  "gitCommit": "86e05b9d766da4f1a43924cb4aa564d6e4a49648",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "d2ca788bd865f0f3b84cea4bb3502e77b095d9e15a74b6fe99f6a02a6916b392",
+  "qaResult": "30 checker PASS; 2048x256 RGB; pure magenta 84%; silhouette median 83%; 16px margin; OCR blank; GIF8/80ms decoded and visually reviewed; remote SHA/bytes match. Caution: transitional gait steps are modest."
+}

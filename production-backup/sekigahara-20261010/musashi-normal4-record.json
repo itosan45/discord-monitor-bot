@@ -1,0 +1,109 @@
+{
+  "name": "宮本武蔵_通常4_5コマ_縮尺修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常4_5コマ_縮尺修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-38221fdb-a2dc-4fbd-9cb3-f0ca81d0983b.png",
+  "status": "drive_verified",
+  "scale": 0.5,
+  "standingHeightSource": 410.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        58,
+        190,
+        301,
+        600
+      ],
+      "destination": [
+        67,
+        26,
+        122,
+        205
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        353,
+        253,
+        707,
+        599
+      ],
+      "destination": [
+        39,
+        58,
+        177,
+        173
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        835,
+        207,
+        1173,
+        599
+      ],
+      "destination": [
+        43,
+        35,
+        169,
+        196
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1218,
+        234,
+        1622,
+        599
+      ],
+      "destination": [
+        27,
+        49,
+        202,
+        182
+      ],
+      "scale": 0.5,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1679,
+        191,
+        1920,
+        600
+      ],
+      "destination": [
+        68,
+        27,
+        120,
+        204
+      ],
+      "scale": 0.5,
+      "ground": 230
+    }
+  ],
+  "sha256": "2cd462a774e9a41aeefc36177e9ecc8c2d8c0f87570d82f948e0428012aeddd6",
+  "backgroundSource": [
+    243,
+    24,
+    242
+  ],
+  "sourceIndices": null,
+  "visualReview": "二刀の低い振りかぶりから上昇斬り、高い前方構え、復帰。各コマ同倍率0.5、立ち姿205px、低姿勢は身体各部を縮めず高さだけ変化。余白16px以上、全剣先・両手あり、足元230px、文字なし。",
+  "driveId": "1Ltt-rRyKjS_FeiJ1_Jkuo2uWdKYv0OB5",
+  "driveReadbackSha256": "2CD462A774E9A41AEEFC36177E9ECC8C2D8C0F87570D82F948E0428012AEDDD6"
+}

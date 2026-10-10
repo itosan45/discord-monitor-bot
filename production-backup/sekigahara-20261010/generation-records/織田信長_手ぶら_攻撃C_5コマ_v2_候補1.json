@@ -1,0 +1,105 @@
+{
+  "name": "織田信長_手ぶら_攻撃C_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5eb1fdd2-98f9-4073-a709-9cb0e9ca82e7.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_手ぶら_攻撃C_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5638297872340425,
+  "sourceBounds": [
+    [
+      119,
+      10,
+      470,
+      380
+    ],
+    [
+      779,
+      8,
+      1148,
+      380
+    ],
+    [
+      1473,
+      7,
+      1839,
+      380
+    ],
+    [
+      143,
+      401,
+      514,
+      777
+    ],
+    [
+      804,
+      406,
+      1169,
+      777
+    ]
+  ],
+  "placements": [
+    [
+      29,
+      21,
+      198,
+      209
+    ],
+    [
+      24,
+      20,
+      208,
+      210
+    ],
+    [
+      25,
+      20,
+      206,
+      210
+    ],
+    [
+      23,
+      18,
+      209,
+      212
+    ],
+    [
+      25,
+      21,
+      206,
+      209
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 71%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "3590323573e41dc733650fee05382d09568325e40d4ce1f97f46c32f6470b4f8",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison: low rear windup, rising swing, high finish then recovery. Black red gold armor, gold horn helmet, red gold-edged cape and black Oda 天下布武 banner retained, EMPTY hands, grounded soles230px, right-facing, no effects/clipping. Shared uniform scale with bent-knee changes in apparent height. Native OCR reviewed: A detects permitted existing banner characters and ornament, no unwanted labels or UI; C empty.",
+  "gitVerified": true,
+  "gitCommit": "58fe880a07af25adbd17adab969e5841baec04a6",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "3590323573e41dc733650fee05382d09568325e40d4ce1f97f46c32f6470b4f8",
+  "prompt": "FIVE chronological game animation frames: Oda Nobunaga UNARMED two-hand upward diagonal swing. Image1 sole authority for exact face, black-red-gold armor, tall gold horn helmet, red gold-trimmed cape, REQUIRED black back banner with gold Oda flower and white 天下布武. Image2 ONLY anatomy scale/ready stance; do NOT copy its absent banner. EVERY figure MUST visibly include black sashimono cloth and full pole behind shoulder. NO gun/sword/scabbard/stick/weapon; both hands EMPTY clenched fists close in imaginary two-handed grip.1 low combat guard fists waist;2 deep crouch, fists wind LOW beside rear hip;3 rotate hips, rise knees and swing fists diagonally UP across chest toward RIGHT;4 high finish both fists above FRONT shoulder upper-right, both feet stay grounded;5 recoil waist guard. All RIGHT-facing, same anatomy/head/torso/limb size, real weight transfer and distinct arm positions. Full horn helmet, banner, cape, hands, boots inside each frame. No effects/light/slash arcs/flames/shadow/UI/labels/numbers. Solid pure #FF00FF. Intermediate3columns x2rows ATLAS,5 figures row-major, bottom-right blank magenta. Equal square cells, large gutters, NO grid lines. Body helmet-to-sole80%cellheight, soles90%. Do not shrink character. Output to pack1280x256.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:15:46.187522+09:00"
+}

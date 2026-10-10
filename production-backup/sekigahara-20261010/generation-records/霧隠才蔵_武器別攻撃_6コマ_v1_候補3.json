@@ -1,0 +1,120 @@
+{
+  "name": "霧隠才蔵_武器別攻撃_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-a5e440c3-232d-4513-a864-49d4b9c949f9.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_武器別攻撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.47216035634743875,
+  "sourceBounds": [
+    [
+      90,
+      152,
+      294,
+      579
+    ],
+    [
+      397,
+      129,
+      630,
+      578
+    ],
+    [
+      695,
+      189,
+      1083,
+      577
+    ],
+    [
+      1084,
+      232,
+      1483,
+      578
+    ],
+    [
+      1518,
+      177,
+      1813,
+      578
+    ],
+    [
+      1899,
+      152,
+      2105,
+      579
+    ]
+  ],
+  "placements": [
+    [
+      80,
+      28,
+      96,
+      202
+    ],
+    [
+      73,
+      18,
+      110,
+      212
+    ],
+    [
+      36,
+      47,
+      183,
+      183
+    ],
+    [
+      34,
+      67,
+      188,
+      163
+    ],
+    [
+      58,
+      41,
+      139,
+      189
+    ],
+    [
+      79,
+      28,
+      97,
+      202
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの76%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "9fc7639d183844b9bb165f50f803367bfefc94c91a1d1e94d58cb767b34d7ab5",
+  "prompt": "Localized correction ONLY FIFTH warrior in this SIX-frame row. His recovery pose is correct but he is drawn too small. Enlarge fifth warrior uniformly about10 percent around planted soles/ground, preserving exact face/clothes/blade/sheath and same recovery pose: right hand at waist drawing blade back, blade downforward, bent knees. Match fifth HEAD SIZE, shoulder width, torso length and thigh thickness to figures3/4, NOT standing height (knees bent). Keep soles at sameground. Fifth top of head should be about sameheight as figure3 head; NOT as low as current fifth. Whole fifth weapon/feet remain inside same spacious fifth region; no overlap. Figures1,2,3,4,6 unchanged, pureflat#FF00FF background same canvas, no text/effects/shadow.",
+  "char": "霧隠才蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6コマおよび待機比較を目視。構え、振り上げ、斬り下ろし、低い追撃、腰への戻し、構え復帰。右向き、接地、枠内、効果なし。5コマ目の体格修正を確認。注意: 刃の見かけ長さが角度で変わり、六文銭は側面で読み取りにくい。",
+  "gitVerified": true,
+  "gitCommit": "d938d239842933093208a9c0a1df72948347e1a9",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9fc7639d183844b9bb165f50f803367bfefc94c91a1d1e94d58cb767b34d7ab5",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T20:46:05.503549+09:00"
+}

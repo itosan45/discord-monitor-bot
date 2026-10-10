@@ -1,0 +1,257 @@
+[
+  {
+    "motion": "通常1",
+    "char": "宮本武蔵",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "name": "宮本武蔵_通常1_5コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_通常1_5コマ.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常1_5コマ_縮尺修正版.png",
+    "sha256": "baaf9bcb8407e326c31e1bf7ba643ece28fffb88d0d710c0cddb2060921db65b",
+    "driveId": "1rwwTdCSFCHSvsEynhEPZ3qh-h6DfoBSa"
+  },
+  {
+    "motion": "通常3",
+    "char": "宮本武蔵",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "name": "宮本武蔵_通常3_5コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_通常3_5コマ.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常3_5コマ_縮尺修正版.png",
+    "sha256": "15d78c2c6e4b9d0e056db3d8d50f61b417c95dd751ac813077224087c7359458",
+    "driveId": "1ccOKAQhRhtJxQey9sARWcGrH5zUXb6rc"
+  },
+  {
+    "motion": "通常4",
+    "char": "宮本武蔵",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "name": "宮本武蔵_通常4_5コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_通常4_5コマ.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常4_5コマ_縮尺修正版.png",
+    "sha256": "2cd462a774e9a41aeefc36177e9ecc8c2d8c0f87570d82f948e0428012aeddd6",
+    "driveId": "1Ltt-rRyKjS_FeiJ1_Jkuo2uWdKYv0OB5"
+  },
+  {
+    "motion": "通常5",
+    "char": "宮本武蔵",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "name": "宮本武蔵_通常5_7コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_通常5_7コマ.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常5_7コマ_縮尺修正版.png",
+    "sha256": "df6d092b5d2b68dd0e0a0d2a20e01955e7d128683913cfddb9e9e48dc28a9cad",
+    "driveId": "16bqiyhmupNQ7kBKY7so6jv3OV-24EiNl"
+  },
+  {
+    "motion": "ダッシュ",
+    "char": "宮本武蔵",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "name": "宮本武蔵_ダッシュ_5コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_ダッシュ_5コマ.png"
+  },
+  {
+    "motion": "必殺",
+    "char": "宮本武蔵",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "name": "宮本武蔵_必殺_8コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_必殺_8コマ.png"
+  },
+  {
+    "motion": "ダッシュ",
+    "char": "真田幸村",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+    "name": "真田幸村_ダッシュ_5コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_ダッシュ_5コマ.png"
+  },
+  {
+    "motion": "必殺",
+    "char": "真田幸村",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+    "name": "真田幸村_必殺_8コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_必殺_8コマ.png"
+  },
+  {
+    "motion": "通常4",
+    "char": "真田幸村",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+    "name": "真田幸村_通常4_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_通常4_7コマ.png"
+  },
+  {
+    "motion": "ダッシュ",
+    "char": "上杉景勝",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+    "name": "上杉景勝_ダッシュ_5コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_ダッシュ_5コマ.png"
+  },
+  {
+    "motion": "必殺",
+    "char": "上杉景勝",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+    "name": "上杉景勝_必殺_8コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_必殺_8コマ.png"
+  },
+  {
+    "motion": "通常4",
+    "char": "上杉景勝",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+    "name": "上杉景勝_通常4_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_通常4_7コマ.png"
+  },
+  {
+    "motion": "ダッシュ",
+    "char": "武田信玄",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_設定画.png",
+    "name": "武田信玄_ダッシュ_5コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_ダッシュ_5コマ.png"
+  },
+  {
+    "motion": "必殺",
+    "char": "武田信玄",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_設定画.png",
+    "name": "武田信玄_必殺_8コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_必殺_8コマ.png"
+  },
+  {
+    "motion": "通常4",
+    "char": "武田信玄",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_設定画.png",
+    "name": "武田信玄_通常4_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_通常4_7コマ.png"
+  },
+  {
+    "motion": "必殺",
+    "char": "織田信長",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_設定画.png",
+    "name": "織田信長_必殺_8コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_必殺_8コマ.png"
+  },
+  {
+    "motion": "通常1",
+    "char": "織田信長",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_設定画.png",
+    "name": "織田信長_通常1_5コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_通常1_5コマ.png"
+  },
+  {
+    "motion": "必殺",
+    "char": "石田三成",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+    "name": "石田三成_必殺_8コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_必殺_8コマ.png"
+  },
+  {
+    "motion": "通常1",
+    "char": "石田三成",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+    "name": "石田三成_通常1_5コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_通常1_5コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "井伊直政",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\井伊直政_設定画.png",
+    "name": "井伊直政_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\井伊直政_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "本多忠勝",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\本多忠勝_設定画.png",
+    "name": "本多忠勝_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\本多忠勝_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "徳川家康",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\徳川家康_設定画.png",
+    "name": "徳川家康_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\徳川家康_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "最上義光",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\最上義光_設定画.png",
+    "name": "最上義光_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\最上義光_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "徳川秀忠",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\徳川秀忠_設定画.png",
+    "name": "徳川秀忠_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\徳川秀忠_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "黒田長政",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\黒田長政_設定画.png",
+    "name": "黒田長政_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\黒田長政_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "小早川秀秋",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\小早川秀秋_設定画.png",
+    "name": "小早川秀秋_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\小早川秀秋_やられ_7コマ.png"
+  },
+  {
+    "motion": "やられ",
+    "char": "福島正則",
+    "scaleInstruction": "Scale consistency (very important): draw the character at EXACTLY the same scale as in the attached reference sheet and the same scale in every strip. The standing character's total height (from the top of the helmet to the soles of the feet) must be about 80% of the cell height in every strip (about 205 px tall in a 256 px cell, and about 307 px tall in a 384 px cell). The head, torso and legs must have the same size in every frame, regardless of the pose: a crouching or lunging pose must not make the character smaller, and an attack or special effect must not shrink the character to make room. Keep effects (flames, lightning, slash trails) inside the cell without changing the character's size. The feet (or the lowest point of the body) must be on the same ground line at 90% of the cell height in every strip.",
+    "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\福島正則_設定画.png",
+    "name": "福島正則_やられ_7コマ_縮尺修正版.png",
+    "status": "pending",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\福島正則_やられ_7コマ.png"
+  }
+]

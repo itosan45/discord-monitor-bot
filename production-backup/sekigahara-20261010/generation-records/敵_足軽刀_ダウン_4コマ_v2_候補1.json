@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-100c816c-53e5-405d-8d79-c28ff873dae1.png",
+  "prompt": "Create FOUR-frame knockdown of EXACT attached blue katana ashigaru: black conical hat, short beard, rolled sleeves no shoulderplates, black torso armor, blue trousers, shin guards straw sandals. 1struck, torso recoils and front knee loosens, katana held near chest;2knocked BACKWARD AIRBORNE, hips lifted, knees folded toward stomach, arms spread but RIGHT hand retains katana diagonally alongside body;3lands on BACK with knees folded, sword held diagonally up-right near chest;4small rebound of shoulders and soles, still lying on back, not forward-folding death and not motionless. Distinct physical weight/hips/arm reaction, don't rotate standingportrait. Same anatomical dimensions across4, standing equivalent80%cellheight; frame1lowestsole90%, frame2airborne visiblyhigher,3ground90%,4smallbounce. Complete blade/hilt/scabbard, compactarmsknees tofit central86%width and16pxmargins, no shrinking body or sword. ONE whole soldier per equal squarecell FOURcells horizontalrow, faceandtoesright, pure opaque #FF00FF no shadows/text/grid/borders.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

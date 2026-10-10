@@ -1,0 +1,9 @@
+{
+  "name": "真田幸村_手ぶら_待機_4コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-19828a49-dd50-4b1b-bda5-ce6f00bea72a.png",
+  "prompt": "ONLY right-facing profile Sanada Yukimura fromreference. FOUR full-body frames one row of UNARMED combatready IDLE breathing loop. Exact face/crimson armor/golden antlers/redscarf/white sash/brown hakama/redgreaves/strawsandals/sixcoin backbanner. REMOVE all handheld weapons entirely, no sword/spear/rod/fan/gun, no translucentimaginaryweapon. Both hands CLOSED EMPTY grippingfists as holding longpole: anatomical RIGHT nearforeground fist FORWARD at right, anatomicalLEFT far fist BEHIND at left, constant distance and imaginarypole angle. Near rightforearm reaches ahead acrosschest; far leftarm stays behind, plausibleelbows. Knees bent hipslow, battlealert, subtlebreathing/scarf andbanner sway only. Hands/head/torso almoststationary all4, no stepping or attacks. Backflagandpole remain allowed, waist sheathed decorationsallowed. Physical sevenhead standingequivalent205px in256cells; bodyparts constant inallposes, feet230px. Whole antlers/scarf/banner/body with16px margin and generous puremagenta gaps/outside margins. Pureflat#FF00FF no tint/shadow/text/numbers/borders/grid. Onepersononemotion no front/back reference views.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png"
+  ],
+  "status": "candidate_pending_QA"
+}

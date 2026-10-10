@@ -1,0 +1,108 @@
+{
+  "name": "宮本武蔵_通常1_5コマ_縮尺修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常1_5コマ_縮尺修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-f0cd3b14-7d23-4d99-baf2-1a4c4c72ccde.png",
+  "status": "drive_verified",
+  "scale": 0.41330645161290325,
+  "standingHeightSource": 496.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        68,
+        184,
+        361,
+        680
+      ],
+      "destination": [
+        67,
+        26,
+        121,
+        205
+      ],
+      "scale": 0.41330645161290325,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        410,
+        163,
+        780,
+        675
+      ],
+      "destination": [
+        51,
+        19,
+        153,
+        212
+      ],
+      "scale": 0.41330645161290325,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        761,
+        238,
+        1201,
+        675
+      ],
+      "destination": [
+        37,
+        50,
+        182,
+        181
+      ],
+      "scale": 0.41330645161290325,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1200,
+        272,
+        1638,
+        675
+      ],
+      "destination": [
+        37,
+        64,
+        181,
+        167
+      ],
+      "scale": 0.41330645161290325,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1646,
+        184,
+        1937,
+        680
+      ],
+      "destination": [
+        68,
+        26,
+        120,
+        205
+      ],
+      "scale": 0.41330645161290325,
+      "ground": 230
+    }
+  ],
+  "sha256": "baaf9bcb8407e326c31e1bf7ba643ece28fffb88d0d710c0cddb2060921db65b",
+  "backgroundSource": [
+    241,
+    23,
+    239
+  ],
+  "visualReview": "全5コマ二刀・右手長刀、左手短刀、長刀の下降斬り。全コマ同じ倍率0.413306、立ち姿205px、足元230px。姿勢で低くなるコマは倍率を変えず。文字なし・余白16px以上・全武器先端あり。",
+  "driveId": "1rwwTdCSFCHSvsEynhEPZ3qh-h6DfoBSa",
+  "driveReadbackSha256": "baaf9bcb8407e326c31e1bf7ba643ece28fffb88d0d710c0cddb2060921db65b"
+}

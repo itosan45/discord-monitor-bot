@@ -1,0 +1,53 @@
+{
+  "name": "根津甚八_起き上がり_4コマ_v1.png",
+  "requestedName": "根津甚八_起き上がり_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_起き上がり_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d08bd991-b278-4327-8c13-a6d829b6606a.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "kind": "sprite_motion",
+  "char": "根津甚八",
+  "motion": "side-lying recovery to kneeling brace, crouched rise, upright ready stance",
+  "placements": [],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sourceNormalization": "Four largest connected character-and-sword silhouettes isolated in source order; uniform scale 0.377 based on standing frame; lowest point aligned to y=230; each silhouette centered in its own 256px cell. Ground check uses air mode because the recovery begins lying down.",
+  "sha256": "9d1eae9129a318db2df562c64c3b4c7428ba5bba57ec65d008b798401c37288f",
+  "visualApproved": true,
+  "visualReview": "Four distinct consecutive recovery poses. Matches Nezu Jinpachi idle: weathered face and topknot, dark brown/indigo lamellar armor, red six-coin crest, maroon sash, katana/scabbard, right-facing profile. No effects, text, clipped body or weapon, cell overlap, or ground-color bleed.",
+  "generationPrompt": "Create one four-frame horizontal sprite strip for Nezu Jinpachi using idle sprite and setting sheet as exact design/style references. Same face, topknot, dark brown/indigo lamellar armor, red six-coin chest mark, maroon sash, shin wraps, sandals, katana and scabbard. Right-facing side view. Sequence: lying on side after fall with katana held low; rolls to one knee and braces; rises through low crouch with sword controlled; stands in upright ready profile. 4 equal 256px cells, pure magenta, same anatomical scale, no effects or scenery.",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの57%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14587,
+    15504,
+    14128,
+    15304
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "gitVerified": true,
+  "gitCommit": "5f5e242d222823c35ee0da2644988afa0190805b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9d1eae9129a318db2df562c64c3b4c7428ba5bba57ec65d008b798401c37288f",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "qaResult": "OK",
+  "completedAt": "2026-10-08T07:04:26+09:00",
+  "actualName": "根津甚八_起き上がり_4コマ_v1.png"
+}

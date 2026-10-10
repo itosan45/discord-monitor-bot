@@ -1,0 +1,192 @@
+{
+  "name": "望月六郎_低姿勢歩き_8コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\望月六郎_低姿勢歩き_8コマ_v1_候補1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-13ca41ae-6ba3-48d6-b8cd-89efc34ff796.png",
+  "status": "rejected_posture",
+  "scale": 0.4659090909090909,
+  "standingHeightSource": 440.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        6,
+        223,
+        256,
+        665
+      ],
+      "destination": [
+        70,
+        25,
+        116,
+        206
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        237,
+        223,
+        395,
+        665
+      ],
+      "destination": [
+        91,
+        25,
+        74,
+        206
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        449,
+        224,
+        607,
+        665
+      ],
+      "destination": [
+        91,
+        26,
+        74,
+        205
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        632,
+        223,
+        870,
+        663
+      ],
+      "destination": [
+        72,
+        26,
+        111,
+        205
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 228
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        868,
+        223,
+        1136,
+        665
+      ],
+      "destination": [
+        65,
+        25,
+        125,
+        206
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1120,
+        223,
+        1278,
+        665
+      ],
+      "destination": [
+        91,
+        25,
+        74,
+        206
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1312,
+        223,
+        1483,
+        665
+      ],
+      "destination": [
+        88,
+        25,
+        80,
+        206
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1516,
+        223,
+        1768,
+        663
+      ],
+      "destination": [
+        69,
+        26,
+        117,
+        205
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 228
+    }
+  ],
+  "sha256": "2d68ca6751a5554b31c6f710e4fed39c99c6d69075b80c7fb13db0ab5479f8db",
+  "backgroundSource": [
+    241,
+    24,
+    242
+  ],
+  "sourceIndices": null,
+  "groupCenters": "111,333,554,776,998,1220,1441,1663",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "char": "望月六郎",
+  "kind": "ten_braves_sprite_motion",
+  "candidateNumber": 1,
+  "candidateCount": 1,
+  "attempts": 1,
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "sourceSha256": "268e6bc73b82ec67c656684a29c1ab951e9778fa68ee8528c6698bcb353129b5",
+  "normalizedSha256": "2d68ca6751a5554b31c6f710e4fed39c99c6d69075b80c7fb13db0ab5479f8db",
+  "checkResults": [
+    "30_check_strip.py PASS; exact 2048x256 RGB, pure magenta 86%, median character height 80%, ground y=230, cell margins pass."
+  ],
+  "visualReview": "Eight independent poses with the rightward foot cycles largely alternating and the same tanto, headband, olive-brown outfit, closed belt pouches and red six-coin chest crest. Reject as low-stance walk: knees/hips remain too high and torso too upright in most frames, so it reads like a normal walk rather than the specified combat advance."
+}

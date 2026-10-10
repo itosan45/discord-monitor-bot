@@ -1,0 +1,152 @@
+{
+  "name": "穴山小助_ダウン_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\穴山小助_ダウン_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4a525a8c-7492-4a13-b5d1-17cd86d33834.png",
+  "status": "git_verified",
+  "scale": 0.3761467889908257,
+  "standingHeightSource": 545.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        37,
+        111,
+        534,
+        642
+      ],
+      "destination": [
+        34,
+        31,
+        187,
+        200
+      ],
+      "scale": 0.3761467889908257,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        515,
+        77,
+        1011,
+        541
+      ],
+      "destination": [
+        34,
+        38,
+        187,
+        175
+      ],
+      "scale": 0.3761467889908257,
+      "ground": 212,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 210
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1048,
+        203,
+        1494,
+        645
+      ],
+      "destination": [
+        44,
+        65,
+        168,
+        166
+      ],
+      "scale": 0.3761467889908257,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 228
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1544,
+        304,
+        2139,
+        650
+      ],
+      "destination": [
+        16,
+        96,
+        224,
+        130
+      ],
+      "scale": 0.3761467889908257,
+      "ground": 225,
+      "verticalOffset": -5,
+      "estimatedBodyGround": 222
+    }
+  ],
+  "sha256": "b3a566bd4b33d1d5d497d06ad2ad862e49411a5b228f08bd00eb32a285737d7d",
+  "backgroundSource": [
+    241,
+    22,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "270,715,1185,1735",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの66%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    18319,
+    18432,
+    15920,
+    20385
+  ],
+  "char": "穴山小助",
+  "kind": "ten_braves_sprite_motion",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\穴山小助_ダウン_4コマ_v1_候補4.png",
+  "sourceSha256": "38b1cc678b2ae230b57e0ff6420e69c18edc8ae62d799319885e18bd2953bb4f",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "candidateNumber": 4,
+  "candidateCount": 4,
+  "attempts": 4,
+  "prompt": "Use case: stylized-concept. Asset type: four-frame 256px Sengoku beat-'em-up sprite strip. Image 1 is the exact pose sequence guide; Image 2 is the exact character identity; Image 3 is the reference character/body scale. Recreate the same four-stage Anayama Kosuke down animation and correct the yari angle. Exactly 4 separate right-facing full-body poses in a horizontal row: 1 recoil with feet just lifting from the hit, torso still mostly upright; 2 thrown backward in air with both knees bent; 3 impacts on his back with torso/helmet low and both bent shins/feet lifted nearly vertical above the waist (clear springy silhouette); 4 settles flatter onto his back with the legs lowered and shoulders relaxed. Frame 3 must differ clearly from frame 4. Keep the same lean body size as the idle reference; do not scale him down. Same young face, black kabuto, red-black armor, sashimono bearing six black circles, sheath and footwear in all frames. Spear handling is critical: frame 1 hold the intact long yari horizontally across the belt/hips, with its point extending only a little forward and never rising above the helmet; no vertical spear and no upward-pointing spear in frame 1. In frames 2-4 keep the intact yari steeply angled close beside the torso so the long shaft does not stretch the horizontal silhouette. Do not cut, shorten, bend or lose the spear. Each complete pose including flag and weapon must fit within its own square crop with >=16px top/left/right magenta margin; leave generous gaps between the four poses. Pure flat #FF00FF background. No text, labels, symbols other than the six-coin flags, border, shadow, ground, effect, or extra characters. Preserve every limb, banner, spear tip and butt.",
+  "checkResults": [
+    "30_check_strip.py PASS (air); 1024x256 RGB; pure magenta 84%; median silhouette height 66%; safe edge margins pass.",
+    "Windows PowerShell 5.1 OCR success, no recognized text.",
+    "GIF decoded 4 frames at 80ms; decoded contact sheet visually reviewed."
+  ],
+  "visualReview": "Anayama Kosuke retains the setting/idle design: black kabuto, red-black armor, Sanada six-coin sashimono, sheath, long yari and sandals. Four frames read as recoil with feet lifting, backward airborne fall, back impact with legs kicked up, and flatter settling pose. Frame 3 differs from frame 4. The whole yari, banner and all limbs fit within each cell. A single uniform scale of 0.376 was used across all frames; the upright body height/helmet-to-soles matches the existing idle reference, while down/air poses naturally have lower full-silhouette height.",
+  "qaResult": "OK",
+  "gitVerified": true,
+  "gitCommit": "5976b5c897b86d12f6908a2c9fc5d4c8f684d0cb",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b3a566bd4b33d1d5d497d06ad2ad862e49411a5b228f08bd00eb32a285737d7d",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "updatedAt": "2026-10-08T10:38:53+09:00"
+}

@@ -1,0 +1,185 @@
+{
+  "name": "織田信長_通常4_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_通常4_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4c45897f-42d2-4db0-9aa2-3cbf4d112a40.png",
+  "status": "git_verified",
+  "scale": 0.3740875912408759,
+  "standingHeightSource": 548.0,
+  "standingHeightTarget": 205,
+  "n": 6,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        5,
+        88,
+        319,
+        655
+      ],
+      "destination": [
+        69,
+        19,
+        117,
+        212
+      ],
+      "scale": 0.3740875912408759,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        299,
+        83,
+        680,
+        653
+      ],
+      "destination": [
+        56,
+        18,
+        143,
+        213
+      ],
+      "scale": 0.3740875912408759,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        627,
+        85,
+        1034,
+        653
+      ],
+      "destination": [
+        52,
+        19,
+        152,
+        212
+      ],
+      "scale": 0.3740875912408759,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        991,
+        85,
+        1446,
+        653
+      ],
+      "destination": [
+        43,
+        19,
+        170,
+        212
+      ],
+      "scale": 0.3740875912408759,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1375,
+        83,
+        1802,
+        653
+      ],
+      "destination": [
+        48,
+        18,
+        160,
+        213
+      ],
+      "scale": 0.3740875912408759,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1759,
+        85,
+        2155,
+        653
+      ],
+      "destination": [
+        54,
+        19,
+        148,
+        212
+      ],
+      "scale": 0.3740875912408759,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "eaeef0aaa577524d8f2f061995dd13de4d3da141c948f3885252d298b0369339",
+  "backgroundSource": [
+    230,
+    23,
+    236
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    16214,
+    15877,
+    17170,
+    17709,
+    15172,
+    16906
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\織田信長_通常4_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\織田信長_通常4_6コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "rawSourceSha256": "9122e1b51ca10bfb035c578589727c1991164dd3f559d56b1bdd1a46391f6bb3",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_設定画.png",
+  "action": "matchlock one-shot attack, 6 frames",
+  "promptSummary": "Reference-faithful single-candidate game sprite strip; separated poses, pure magenta background and 205px standing-height target.",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "oda-normal4-v2-record.json",
+  "qaNote": "信長の火縄銃一発射撃6段階。30規格PASS、OCR文字なし、GIF 6コマ復号80ms、復号後目視OK。",
+  "visualReview": "黒赤金の装備と織田家紋を維持。火縄銃を上げて照準→一発発砲→小反動→構えの6段階。発砲エフェクトはセル内、他フレームと非接触。規格PASS、OCR文字なし、GIF復号6枚を目視。",
+  "ocrReview": "OCR成功、文字列なし",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

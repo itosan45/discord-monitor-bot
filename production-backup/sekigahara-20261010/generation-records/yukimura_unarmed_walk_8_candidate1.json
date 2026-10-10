@@ -1,0 +1,144 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ea218063-a9e0-4f63-af5d-cc7a831b142a.png",
+  "prompt": "Single generation candidate, one row of exactly 8 full-body right-facing unarmed combat-walk poses for Sanada Yukimura. Keep a low combat stance, empty hands with right fist forward and left fist back, animate right-foot contact and weight transfer, left-foot pass and swing, then left-foot contact/right-foot rear with the reverse overlap, weight transfer, right-foot pass and swing into frame 1. Keep stable body proportions, identical scale, complete silhouette, pure magenta background, and no text or weapons.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "sourceSha256": "225b4b5a87e96acc13aecb9e502fe2024e58cea396dfc0b522f6ba72fe358315",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_手ぶら_歩き_8コマ_v2_candidate1-normalized.png",
+  "actualName": "真田幸村_手ぶら_歩き_8コマ_v2.png",
+  "sha256": "9c6aac90e773fde334aa2213ef2430eb99f058d825645d9779efe5e1a8928f56",
+  "n": 8,
+  "cell": 256,
+  "outputDimensions": [
+    2048,
+    256
+  ],
+  "colorMode": "RGB",
+  "references": [
+    "assets/sprites/真田幸村_設定画.png",
+    "finished/真田幸村_手ぶら_待機_4コマ_v2.png"
+  ],
+  "normalization": {
+    "description": "Key near-magenta background to alpha, crop each full-body silhouette without changing pose parts, apply uniform height normalization per pose, align ground to y=230, composite all poses on persistent magenta canvas. No generated preview was overwritten.",
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "finalSize": [
+      2048,
+      256
+    ],
+    "strongMaskHeightPixels": [
+      394,
+      390,
+      393,
+      393,
+      393,
+      390,
+      393,
+      394
+    ],
+    "placedStrongHeightPixels": 205,
+    "groundLine": 230
+  },
+  "placements": [
+    {
+      "frame": 1,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 5,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 6,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 7,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 8,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    }
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_unarmed_walk_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_unarmed_walk_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": ""
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_unarmed_walk_candidate1\\strip-preview-80ms.gif",
+    "frameCount": 8,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "daea0d66924190bef90342dea40f6235bb598b258822282914283c8466b1f755",
+    "decodedSuccessfully": true
+  },
+  "visualReview": "全8コマに完全な全身像、右向き、空手、純マゼンタ余白を確認。文字・字幕・欠けなし。輪郭と縮尺は安定。目視で1〜4コマの歩行位相が5〜8コマに繰り返され、左右脚の交代が弱いので要注意として記録。",
+  "qaResult": "要注意",
+  "supersededLocalPreview": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_手ぶら_歩き_8コマ_v2.png",
+    "sha256": "9a457bb01af1833871566d661f4f198a8096c188b3913f0d639a5f96f340c487",
+    "status": "superseded_not_delivered",
+    "reason": "Initial composition order placed each opaque-magenta cell layer over prior frames; frames 1-7 were hidden. Preserved unchanged; corrected candidate uses direct alpha compositing."
+  },
+  "automaticCheck": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14870,
+    15491,
+    15822,
+    15126,
+    14771,
+    15583,
+    15700,
+    14707
+  ],
+  "gitCommit": "26b2593c09758e6e29f203b70be6ed0eb72cd08b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "ade4b98a271eca2d2ded42b50ad2ee8e41a19225",
+  "remoteSha256": "9c6aac90e773fde334aa2213ef2430eb99f058d825645d9779efe5e1a8928f56",
+  "remoteByteMatch": true,
+  "commitContainsOnlyTargetPng": true,
+  "completedAt": "2026-10-07T08:58:43+09:00"
+}

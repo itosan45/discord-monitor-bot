@@ -1,0 +1,45 @@
+{
+  "automation_id": "automation",
+  "automation_name": "関ヶ原無双の素材・毎時確認",
+  "status": "ACTIVE",
+  "rrule": "FREQ=HOURLY;INTERVAL=1",
+  "drive_folder_id": "170jdeI3Dau5OXnuyz_galuFMnIdocA_N",
+  "pc_auto_cleanup_scope": "awaiting_user_answer",
+  "default_cleanup_not_enabled": true,
+  "last_sample_local": "2026-10-06T08:23:56.7616219+09:00",
+  "os_total_ram_gb": 15.93,
+  "os_free_ram_gb": 4.46,
+  "os_free_ram_percent": 28.0,
+  "cpu_pct_samples": [
+    1,
+    56,
+    18,
+    4
+  ],
+  "physical_disk_busy_pct_samples": [
+    0,
+    50,
+    0,
+    0
+  ],
+  "drives_free_gb": {
+    "C": 43.17,
+    "D": 19.51,
+    "G": 41.01
+  },
+  "top_process_grouped_private_memory_gb": {
+    "ChatGPT": 4.08,
+    "claude": 1.31,
+    "chrome": 1.2
+  },
+  "actions_this_turn": [
+    "read-only PC performance sampling",
+    "hourly Drive heartbeat updated to include PC read-only measurements"
+  ],
+  "not_done": [
+    "no files deleted or moved",
+    "no app/process stopped",
+    "auto-cleanup thresholds and scope await user answer"
+  ],
+  "assessment": "RAM空き約28%、CPU/ディスクの上昇は単発後低下。継続的圧迫の通知条件なし。整理範囲/閾値は未回答、整理なし。"
+}

@@ -1,0 +1,94 @@
+{
+  "name": "真田幸村_鎖鎌_分銅旋回_4コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-4046ce87-6340-4b15-8f77-388670246a72.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_鎖鎌_分銅旋回_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.462882096069869,
+  "sourceBounds": [
+    [
+      77,
+      125,
+      483,
+      583
+    ],
+    [
+      582,
+      125,
+      986,
+      583
+    ],
+    [
+      1123,
+      125,
+      1527,
+      583
+    ],
+    [
+      1666,
+      125,
+      2070,
+      583
+    ]
+  ],
+  "placements": [
+    [
+      34,
+      18,
+      188,
+      212
+    ],
+    [
+      34,
+      18,
+      187,
+      212
+    ],
+    [
+      34,
+      18,
+      187,
+      212
+    ],
+    [
+      34,
+      18,
+      187,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "73c6ef199a76f4cc3acede9d51e2f4cf018110f955693c99598a11f9b6ce64c5",
+  "prompt": "Preserve exact Yukimura and sickle; chain attaches to handle butt, clockwise weight orbit above-right-below-left, compact orbit within helmet height, fixed lower body.",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "規格/OCR/GIF4コマ復号/待機との頭身縮尺/全身枠内/鎖の柄尻接続を確認。分銅は上右下左の一周。注意: 半径が横方向で短く、全身静止ループのみ。移動との上下身合成素材・投擲以降は未完。",
+  "gitVerified": true,
+  "gitCommit": "d0bf9d4ecf3275581095a38a06213fe7c63f630b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "73c6ef199a76f4cc3acede9d51e2f4cf018110f955693c99598a11f9b6ce64c5",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:03:00.392617+09:00"
+}

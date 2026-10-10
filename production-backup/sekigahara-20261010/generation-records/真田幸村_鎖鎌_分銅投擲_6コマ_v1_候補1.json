@@ -1,0 +1,120 @@
+{
+  "name": "真田幸村_鎖鎌_分銅投擲_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-a7bcaf31-898c-40e4-b436-140822fd2914.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_鎖鎌_分銅投擲_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.48623853211009177,
+  "sourceBounds": [
+    [
+      10,
+      133,
+      362,
+      569
+    ],
+    [
+      373,
+      135,
+      724,
+      569
+    ],
+    [
+      710,
+      135,
+      1069,
+      569
+    ],
+    [
+      1086,
+      136,
+      1476,
+      569
+    ],
+    [
+      1453,
+      144,
+      1833,
+      569
+    ],
+    [
+      1804,
+      136,
+      2160,
+      569
+    ]
+  ],
+  "placements": [
+    [
+      42,
+      18,
+      171,
+      212
+    ],
+    [
+      42,
+      19,
+      171,
+      211
+    ],
+    [
+      40,
+      19,
+      175,
+      211
+    ],
+    [
+      33,
+      19,
+      190,
+      211
+    ],
+    [
+      35,
+      23,
+      185,
+      207
+    ],
+    [
+      41,
+      19,
+      173,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "ceb6f1eec8eac481d8cbcf1a2ba2342c7e06fc9c27907e138b5e85e83b3d6580",
+  "prompt": "Exact Yukimura red armor antler helmet, six grounded throw phases ready-windup-step-release-followthrough-hold. Actor layer only; outbound chain and weight separately to reach seven character widths. Left sickle hand and short slack chain. No effects.",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6GIF復号、待機縮尺比較、顔甲冑兜布、右向き接地枠内、二本腕を確認。構え→振りかぶり→前方伸展→開手放出→振り抜き→構え戻り。注意: 6は伸展保持でなく構え復帰。射出鎖・分銅は別素材未納品、七体分射程未完成。",
+  "gitVerified": true,
+  "gitCommit": "2a52061d5a75af816c307159688309056a000e43",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "ceb6f1eec8eac481d8cbcf1a2ba2342c7e06fc9c27907e138b5e85e83b3d6580",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:24:01.843187+09:00"
+}

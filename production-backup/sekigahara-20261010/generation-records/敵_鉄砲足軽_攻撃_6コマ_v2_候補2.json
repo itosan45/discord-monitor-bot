@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_攻撃_6コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-11e54b93-a2e0-493c-8bda-aca0106255d9.png",
+  "prompt": "Repairthis6framegunnerfiring sequence keepingexactallbodyposesgunanatomyfeet. SAMEgunner FACE asacceptedidle: shortBLACKmoustache andchinSTUBBLE all6, currentfacialhairtoo faint. Restore characteridentity notyoungcleanface. Inframe4 firingSMOKE currentlyovermiddlebarrelincorrect: primarycompactsmokepuffmustEMERGEfromMUZZLE atRIGHTEND immediatelybehind/aroundorangeflash, travelingrightthenup; removegraycloudabovebarrelmiddle. Tinyprimerpanpuffneartriggerallowed but notbigmidbarrelcloud. Flameofmatchcordsmallorangeglowonlynotgiantfire. Frame5recoilshoulderpressstock, guntiltsup andsmallmuzzlesmoke, frame6returnsready. Preserveall6fullbodiesgunlengthscale, bothfeetrightsideprofile, pureopaque#FF00FF no textsgridsborderfloor shadows. Allflashsmokeinsideown16margin.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

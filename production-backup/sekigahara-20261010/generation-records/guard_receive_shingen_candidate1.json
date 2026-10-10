@@ -1,0 +1,132 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-505b9b08-ce1a-4d90-b59b-c669a2a757cf.png",
+  "sourceSha256": "fefaf1c7cf95cbc36ddac148a7796afa984d957d2fd4f71abdfc225afa48f08e",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "prompt": "One candidate only. Use the three supplied same-character references for identity, armor, weapons and scale. Two-frame guard-impact reaction: frame 1 braced guard; frame 2 compress knees and lift/angle the held weapon to deflect. Full-body, right-facing, stable baseline, strong readable pose change; plain exact magenta background; no attacker, projectile, effects, text, watermark, or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/武田信玄_設定画.png",
+    "assets/sprites/武田信玄_ガード構え_2コマ_v2.png",
+    "assets/sprites/武田信玄_ガード維持_4コマ_v2.png"
+  ],
+  "requestedName": "武田信玄_ガード受け止め_2コマ_v2.png",
+  "actualName": "武田信玄_ガード受け止め_2コマ_v2_candidate1-final-edgeclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_ガード受け止め_2コマ_v2_candidate1-final-edgeclean.png",
+  "sha256": "9595e5a07f1eb2a059b78c0b353ffb301d7a809e257925570448d205e1ab5772",
+  "n": 2,
+  "cell": 256,
+  "outputDimensions": [
+    512,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "sourceCellSize": [
+      887,
+      887
+    ],
+    "finalSize": [
+      512,
+      256
+    ],
+    "commonScale": 0.27586206896551724,
+    "placement": "Two cells keyed with exact magenta; tiny disconnected components touching the inter-frame seam and below 2% of the main subject were removed where present; one uniform scale, centered per 256px cell, baseline at y=229; RGB(255,0,255) background."
+  },
+  "sourceFrameBboxes": [
+    [
+      67,
+      75,
+      879,
+      815
+    ],
+    [
+      74,
+      113,
+      791,
+      815
+    ]
+  ],
+  "removedSeamComponents": [
+    [],
+    []
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        16,
+        26,
+        240,
+        229
+      ],
+      "heightPx": 204,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 26
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        29,
+        36,
+        227,
+        229
+      ],
+      "heightPx": 194,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 29,
+        "right": 29,
+        "top": 36
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    26856
+  ],
+  "qaResult": "OK",
+  "checker": [
+    "OK 純マゼンタの割合 67%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの77%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.6724,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "第 F 」",
+    "postReview": "装飾紋様のOCR誤認。拡大目視で実文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\武田信玄_ガード受け止め_2コマ_v2_candidate1-final-edgeclean.gif",
+    "frameCount": 2,
+    "durationsMs": [
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\decoded-contact.png"
+  },
+  "visualReview": "2コマを目視。設定画に沿う鎧・武器・顔・右向き、受け止め前後の姿勢差、両足接地、セル分離、16px余白、純マゼンタ背景を確認。セル境界の小さな断片のみ連結成分で除去。再生成なし。",
+  "gitCommit": "ff64352450e32dfd53e3e5a4b13481aec082fbfe",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "421f151eccfa0ab266d05f9f61407b4adbcdcf95",
+  "gitSha256": "9595e5a07f1eb2a059b78c0b353ffb301d7a809e257925570448d205e1ab5772",
+  "remoteSha256Matches": true,
+  "gitBytes": 116742,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:03:00+09:00"
+}

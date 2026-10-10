@@ -1,0 +1,24 @@
+{
+  "name": "武田信玄_手ぶら_歩き_8コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_layout",
+  "decision": "Reject and do not deliver. The generated strip is 2172x724 rather than 2048x256; the first and last poses are cropped at the source canvas edges, and stray fragments from adjacent poses appear inside other cells. Full sprite bodies and banner cannot be recovered by permitted scale/layout normalization without inventing or deleting art. Do not regenerate this task immediately; proceed to another pending asset.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-cbcaee6a-118a-4a7e-911c-90a57e23cbf6.png",
+  "sourceSha256": "96aecc2c6abf91b2f69e6054995b505bcdd628a1537debb65eea60ad750f5409",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "promptSummary": "Eight-frame Takeda Shingen unarmed combat walk, exact character sheet + unarmed idle references, right-facing, low stance, explicit right-foot lead frame 1 / left-foot lead frame 5, empty imaginary weapon grip, exact 2048x256 horizontal strip requested.",
+  "qaFindings": [
+    "Visual review: frame 1 and frame 8 cut through character/banners at the source canvas edges.",
+    "Visual review: detached hand/boot fragments from neighboring pose visible in multiple cells.",
+    "Source aspect ratio is incompatible with eight square 256x256 cells; per-cell normalization would preserve the cutoffs and fragments.",
+    "No final PNG, OCR, GIF, or Git delivery performed."
+  ],
+  "reviewedAt": "2026-10-08T07:16:00+09:00",
+  "referenceFiles": [
+    "武田信玄_設定画.png",
+    "武田信玄_手ぶら_待機_4コマ_v2.png"
+  ]
+}

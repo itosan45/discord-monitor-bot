@@ -1,0 +1,70 @@
+{
+  "name": "三好伊三入道_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-24a948ab-f954-4b7b-aaae-6b9fb50f3d4a.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好伊三入道_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3150074294205052,
+  "sourceBounds": [
+    [
+      256,
+      104,
+      645,
+      777
+    ],
+    [
+      1130,
+      139,
+      1509,
+      777
+    ]
+  ],
+  "placements": [
+    [
+      66,
+      18,
+      123,
+      212
+    ],
+    [
+      68,
+      29,
+      119,
+      201
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "9649e7eb8a6c1fbb213abca1b704f437bb26c0e3e4e02be2bc3adefe6319e151",
+  "prompt": "Canonical Miyoshi Isa Nyudo bald lean monk grey robe prayerbeads red sash, plain wooden staff farhand, two grounded recoil frames, free neararm across torso, rightfacing magenta.",
+  "char": "三好伊三入道",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "待機より肩幅と数珠が大きく、衣服・木棍端部に細部差。2腕、木棍保持、接地、被弾動作を確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "4d4642b6351d09e515bf9caeb4d05563a24e28b7",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9649e7eb8a6c1fbb213abca1b704f437bb26c0e3e4e02be2bc3adefe6319e151",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:46:50.038800+09:00"
+}

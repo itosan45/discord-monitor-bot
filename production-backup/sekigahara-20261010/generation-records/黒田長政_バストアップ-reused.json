@@ -1,0 +1,37 @@
+{
+  "name": "黒田長政_バストアップ.png",
+  "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\黒田長政_会話肖像.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\黒田長政_バストアップ.png",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    19,
+    29,
+    1230,
+    1235
+  ],
+  "placement": [
+    64,
+    66
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "0a37773a5b47a8b5b4bf8ebe35db4e0b071082febb92d205b7bac521222cba22",
+  "updatedAt": "2026-10-07T12:54:39.949564+09:00",
+  "kind": "ui",
+  "char": "黒田長政",
+  "derivedFromApprovedPortrait": true,
+  "generationCalls": 0,
+  "prompt": "Reuse approved dialogue portrait; uniform resize and composite on pure magenta, no design changes.",
+  "gitVerified": true,
+  "gitCommit": "f06ec611457288847d08e25081f1068e692495ee",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "qaResult": "OK",
+  "visualReview": "Approved identical character, full helmet and shoulders within margins, pure magenta and native OCR reviewed.",
+  "ocrSuccess": true,
+  "ocrText": ""
+}

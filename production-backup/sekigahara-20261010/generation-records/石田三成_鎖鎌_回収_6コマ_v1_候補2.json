@@ -1,0 +1,15 @@
+{
+  "name": "石田三成_鎖鎌_回収_6コマ_v1.png",
+  "char": "石田三成",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-f02885d9-b9e5-4183-915f-f25d8c9c30d5.png",
+  "initialSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-0e88cdba-f020-4d65-91a0-3d5f8b7a5e66.png",
+  "prompt": "undefined\n Candidate2 adds missing sickle1/3 butcreatesextraarms.",
+  "status": "held_visual_failure",
+  "visualApproved": false,
+  "gitVerified": false,
+  "candidateCount": 2,
+  "warnings": [
+    "1・3コマの修正で腕が3本になったため納品禁止。"
+  ],
+  "nextAction": "1・3コマは新しく描いた低い鎌腕を残し、余分な腰の曲げ腕を除去。二腕の肩接続と持ち手を確認。再生成は候補履歴確認してから。"
+}

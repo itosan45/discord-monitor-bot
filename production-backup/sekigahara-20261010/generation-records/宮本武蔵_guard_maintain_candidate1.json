@@ -1,0 +1,151 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-cccc5005-2a84-4282-b6eb-8b3755dd828f.png",
+  "sourceSha256": "38bb8ecff1705eb4265b6bf06bb6c79bea866a99f07a73de716dde66a7a35e8c",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: 宮本武蔵_ガード維持_4コマ_v2.png. Use the setting sheet and same-character guard pose for identity, weapon, and scale. Four distinct but subtle held-guard phases; full-body, right-facing, same baseline and central placement, exact magenta key, all weapon parts inside cells. No attack, dodge, text, or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/宮本武蔵_設定画.png",
+    "assets/sprites/宮本武蔵_ガード構え_2コマ_v2.png"
+  ],
+  "requestedName": "宮本武蔵_ガード維持_4コマ_v2.png",
+  "actualName": "宮本武蔵_ガード維持_4コマ_v2_candidate1-final-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_ガード維持_4コマ_v2_candidate1-final-normalized.png",
+  "sha256": "6d5ced72922fc75d47fac31907cddecf73079d3399b22b417a240abe0f92b39c",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellSize": [
+      543,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": null,
+    "placement": "Each frame cropped to its keyed subject bounds, uniformly scaled using one common scale for all four cells, horizontally centered and feet aligned to y=228. Background set to exact RGB(255,0,255); >=16px margins."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        17,
+        16,
+        239,
+        229
+      ],
+      "heightPx": 213,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 17,
+        "right": 17,
+        "top": 16
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        273,
+        16,
+        495,
+        229
+      ],
+      "heightPx": 213,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 17,
+        "right": 17,
+        "top": 16
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        529,
+        17,
+        751,
+        229
+      ],
+      "heightPx": 212,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 17,
+        "right": 17,
+        "top": 17
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        788,
+        16,
+        1004,
+        229
+      ],
+      "heightPx": 213,
+      "bottomY": 228,
+      "marginsPx": {
+        "left": 20,
+        "right": 20,
+        "top": 16
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    19237,
+    19716,
+    20566
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。復号シート全4コマ目視で文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\musashi_80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "3963d1eb27fded65b776f430114cb1d4833041db969c0fcc14d22ce0bddce835",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_maintain_candidate1\\musashi_gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "鉢巻と野良着の右向き全身。大小二刀を両手で保持し、刀身・柄・手の連続性を確認。 GIF4コマ80ms復号・全コマ目視済み。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 71%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "gitCommit": "4ddf13cfb22c5622606fc9a257739a7e93c1cf38",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "5a97301f61fd8708b2d99db3eeb1567890bb901f",
+  "remoteSha256": "6d5ced72922fc75d47fac31907cddecf73079d3399b22b417a240abe0f92b39c",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 214044,
+  "completedAt": "2026-10-07T10:48:05+09:00"
+}

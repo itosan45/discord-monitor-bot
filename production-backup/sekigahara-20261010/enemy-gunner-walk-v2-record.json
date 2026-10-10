@@ -1,0 +1,219 @@
+{
+  "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-716092f1-559e-4672-b2ed-690cf28ff36e.png",
+  "status": "drive_verified",
+  "scale": 0.5694444444444444,
+  "standingHeightSource": 360.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        17,
+        302,
+        253,
+        608
+      ],
+      "destination": [
+        61,
+        57,
+        134,
+        174
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        244,
+        303,
+        472,
+        608
+      ],
+      "destination": [
+        63,
+        57,
+        130,
+        174
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        466,
+        303,
+        686,
+        610
+      ],
+      "destination": [
+        65,
+        56,
+        125,
+        175
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        651,
+        304,
+        900,
+        608
+      ],
+      "destination": [
+        57,
+        58,
+        142,
+        173
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        874,
+        304,
+        1114,
+        609
+      ],
+      "destination": [
+        59,
+        57,
+        137,
+        174
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1104,
+        304,
+        1329,
+        609
+      ],
+      "destination": [
+        64,
+        57,
+        128,
+        174
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1324,
+        304,
+        1542,
+        610
+      ],
+      "destination": [
+        66,
+        57,
+        124,
+        174
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1510,
+        302,
+        1755,
+        610
+      ],
+      "destination": [
+        58,
+        56,
+        140,
+        175
+      ],
+      "scale": 0.5694444444444444,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "2d0416aa1e94a5a4f54f6397b2d8fd6b481f2db99d8133c7f4f3b562c6eaf88c",
+  "backgroundSource": [
+    239,
+    27,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 87%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    11601,
+    11306,
+    12919,
+    10806,
+    10569,
+    10870,
+    13035,
+    11231
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_歩き_8コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 8,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_歩き_8コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCRを全8コマ目視照合し文字なし。",
+  "qaNote": "3修正後の最良候補4。自動規格合格。1/5の近遠脚交換が弱く5が左脚接地姿勢になりきらない。3/7通過姿勢は改善。頭胴共通205/360で待機に合わせたが銃の長さが待機よりやや短い点も要注意。",
+  "visualReview": "GIF復号8コマで低い膝、3/7の通過、4/8の足振出、全靴先右と安定した胸前銃を確認。1/5の脚交換不足と待機との銃長差を要注意。全身・銃口・銃床は各セルに収まり接地・余白規格合格。",
+  "driveId": "1mzstK-yow0eSGAhRx0hauQ7KIw4JKKMX",
+  "readbackSha256": "2d0416aa1e94a5a4f54f6397b2d8fd6b481f2db99d8133c7f4f3b562c6eaf88c",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

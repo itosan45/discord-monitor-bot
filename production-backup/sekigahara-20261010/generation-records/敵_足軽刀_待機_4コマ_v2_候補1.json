@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_待機_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-844fdbec-0457-487d-9184-55e15c1443e1.png",
+  "prompt": "Create ONLY the foot-soldier with katana from TOP ROW SECOND character in reference sheet. Conical black jingasa, blue tunic sleeves rolled at elbows, black lamellar torso armor, indigo trousers, black shin guards, straw sandals, plain waist rope, short stubble, NO shoulder armor plates (match second soldier), katana both hands low in front with curved blade rising diagonally right. FOUR-frame breathing idle loop. Low combat stance, bent knees, hips lowered, slightly forward torso, both toes right. Stable two-hand katana guard; subtle distinct chest breath, shoulders and cloth changes in frames1,2,3,4; fourth returns toward first but not identical copy. Uniform anatomy/scale, standing equivalent80%cellheight, soles90%, whole body blade hilt/scabbard within own square16px margins. ONE identical soldier per cell, FOUR equal square cells in single horizontal row. Pure opaque solid #FF00FF background, no text/shadows/borders/labels. Do not include any other of eight characters.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

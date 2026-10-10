@@ -1,0 +1,18 @@
+[
+  {
+    "name": "真田幸村_槍投げ_8コマ_v1.png",
+    "char": "真田幸村",
+    "action": "主武器つかみ投げ：刺突→持上げ→背後放り投げ",
+    "kind": "sprite_motion",
+    "n": 8,
+    "cell": 256,
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_槍投げ_8コマ_v1.png",
+    "sha256": "fa5c8c8b0e780baef28311139164ac08bf8e6a1b887e910206650c2f5db3dad9",
+    "status": "git_verified",
+    "qaRecord": "generation-records/yuki-spear-throw-v1.json",
+    "qaResult": "OK",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "gitVerified": true,
+    "gitCommit": "c556135c27c68a2aea1f64daec889d4bdbf23ebb"
+  }
+]

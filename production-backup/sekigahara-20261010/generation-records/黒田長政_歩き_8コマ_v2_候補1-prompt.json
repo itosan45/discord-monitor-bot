@@ -1,0 +1,18 @@
+{
+  "name": "黒田長政_歩き_8コマ_v2",
+  "candidate": 1,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-2fc38eab-676b-4319-8366-3304fa0b30f8.png",
+  "references": [
+    "assets/sprites/黒田長政_設定画.png",
+    "assets/sprites/黒田長政_待機_4コマ.png"
+  ],
+  "prompt": "Create an 8-pose right-facing combat walk sprite atlas for Kuroda Nagamasa, matching the references exactly. Preserve navy-blue armor with pale gold floral emblems, crescent helmet crest, long dark ponytail, cape, face, and TWO swords. Reference 1 sets his design and dual swords; reference 2 sets the game's existing sprite appearance. Exactly 8 full-body poses in a clear 4-column by 2-row arrangement on perfectly flat #FF00FF pure magenta. No grid lines, borders, text, labels, effects, shadows, scenery, or attack. Keep one sword in each hand in the same ready guard; blades must remain inside each cell. Show an unmistakable grounded 8-frame combat walk: frame 1 right-foot-forward contact; 2 weight transfer; 3 left foot passing; 4 left foot swinging forward; frame 5 opposite contact with left foot forward/right foot back; 6 weight transfer; 7 right foot passing; 8 right foot swinging into frame 1. Clearly alternate the support legs between frames 1 and 5. Stable torso and weapon guard. Maintain same scale and anatomy; keep all hair, crescent crest, cape, hands, both swords and feet fully inside each cell with gaps between adjacent poses.",
+  "promptProvenance": "This is the submitted built-in image generation prompt text.",
+  "normalization": "Each pose separated by source component, uniformly scaled into a 384px cell and placed on pure magenta background; 8 cells in one horizontal row.",
+  "result": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\黒田長政_歩き_8コマ_v2.png",
+  "qa": "要注意",
+  "warnings": [
+    "Existing idle image depicts a smaller body scale than current 384px boss-walk specification.",
+    "OCR false-positive text fragments visually inspected; no readable text."
+  ]
+}

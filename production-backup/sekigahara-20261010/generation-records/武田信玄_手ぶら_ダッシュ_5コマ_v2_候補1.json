@@ -1,0 +1,106 @@
+{
+  "name": "武田信玄_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e9475f39-0cd6-40b8-b0ee-5a8bdaed16be.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5233644859813084,
+  "sourceBounds": [
+    [
+      128,
+      11,
+      449,
+      374
+    ],
+    [
+      790,
+      9,
+      1142,
+      375
+    ],
+    [
+      1480,
+      9,
+      1842,
+      375
+    ],
+    [
+      111,
+      402,
+      539,
+      768
+    ],
+    [
+      819,
+      402,
+      1133,
+      767
+    ]
+  ],
+  "placements": [
+    [
+      44,
+      40,
+      168,
+      190
+    ],
+    [
+      36,
+      38,
+      184,
+      192
+    ],
+    [
+      33,
+      38,
+      189,
+      192
+    ],
+    [
+      16,
+      38,
+      224,
+      192
+    ],
+    [
+      46,
+      39,
+      164,
+      191
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "24a8ade968ddaf0eadb76dc103a4fdbc2ceeee4384dfec12f7de16be101346a7",
+  "visualApproved": true,
+  "visualReview": "All decoded frames and idle comparison reviewed: identity, empty paired fists, banner, ground, margins and no effects retained. Forward lunge and fist extension visible; alternating leg exchange remains weak. Not verified as a cyclic run.",
+  "motionCaution": "Alternating leg exchange weak; dash lunge rather than full running cycle.",
+  "gitVerified": true,
+  "gitCommit": "d3ed37acb657a77fff40f1d0e4d68c18a06049c5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "24a8ade968ddaf0eadb76dc103a4fdbc2ceeee4384dfec12f7de16be101346a7",
+  "prompt": "FIVE chronological full-body frames: Takeda Shingen UNARMED RUNNING DASH THRUST. Exact reference1 stocky muscular warrior face, red-gold armor/tiger surcoat/gold horn helmet/white lion mane, REQUIRED black gold four-diamond 風林火山 back banner and completepole visibleEVERYframe. Reference2 anatomy scale only, ignore absentbanner. NO gunbai/fan/sword/scabbard/stick/weapon; EMPTY paired clenched fists. All faceRIGHT.1 heavy low anticipation rearweight fistswaist.2 rear FAR foot pushesground, NEAR knee drivesforward with liftedboot, heavy torsoleansright, fistsstartextend.3 NEAR foot planted underhip and FAR knee swingspast tofront with liftedboot, distinctly exchange legs, BOTH fists thrustright.4 FAR foot plants compact frontlunge, NEAR footbehind heelraised/toesgrounded, BOTH arms extend with TWO close stacked fists.5 brake/collectrearfoot/recoilwaistguard. AtleastONE supportingfoot grounded samebaseline eachframe; NO airborne leap/roll. Real push and leg passage, not5same lunge. Identical anatomy size, heavy credibleweight. Compactstride, mane/surcoatclosebehind, widthinclhands<=head-to-soleheight. Fullhorns/flag/mane/hands/feet inside everyframe. Pure #FF00FF, noeffects/speedlines/shadows/light/flames/UI/labels/numbers. Intermediate3x2 atlas5figures row-major bottom-rightblank, squarecells largegutters NOgrid. Body80%height, ground90%, pack1280x256.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:49:43.419919+09:00"
+}

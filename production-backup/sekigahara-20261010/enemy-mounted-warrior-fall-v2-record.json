@@ -1,0 +1,135 @@
+{
+  "name": "敵_騎馬武者_落馬_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬武者_落馬_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-882253d1-75ed-4d29-a046-52027c2080d8.png",
+  "status": "git_verified",
+  "scale": 0.614,
+  "standingHeightSource": 500.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        31,
+        94,
+        395,
+        592
+      ],
+      "destination": [
+        80,
+        41,
+        223,
+        306
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        459,
+        157,
+        1033,
+        590
+      ],
+      "destination": [
+        16,
+        81,
+        352,
+        266
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1023,
+        219,
+        1609,
+        605
+      ],
+      "destination": [
+        12,
+        110,
+        360,
+        237
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1585,
+        218,
+        2128,
+        608
+      ],
+      "destination": [
+        25,
+        108,
+        333,
+        239
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "41807ff6f9f2fe52ae14e73c6b1f689e8e490111a370f5e935c80733fd56f088",
+  "backgroundSource": [
+    231,
+    27,
+    236
+  ],
+  "sourceIndices": null,
+  "groupCenters": "215,765,1320,1860",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 12,
+  "layoutException": true,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ3: 絵がセルの端から16px以内にある（はみ出し）",
+    "OK 人物の高さ（中央値）はセルの65%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    52676,
+    46173,
+    39175,
+    49281
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_落馬_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_落馬_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCR空、目視文字なし。",
+  "qaNote": "初回+修正3回の最良候補4。全画素を保持して馬と離れた騎手を1組へ割当。後傾→左へ空中→背面着地→小反動。人物と馬は同じ頭胴尺度。3の左右余白12pxで規格16px未達、柄の姿勢間長さと馬蹄/外套の床高差が残るため要注意。体格を縮めず保持。",
+  "visualReview": "4コマ復号目視。馬残存、騎手の後方空中から仰向け着地、同一頭胴・金角兜青外套、全身右向き。3余白12pxNG、柄長さ連続性と馬蹄/外套床高差は要注意。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

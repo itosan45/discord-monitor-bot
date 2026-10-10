@@ -1,0 +1,26 @@
+{
+  "name": "霧隠才蔵_やられ_4コマ_v1.png",
+  "char": "霧隠才蔵",
+  "kind": "sprite_motion",
+  "status": "git_verified",
+  "candidateCount": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\霧隠才蔵_設定画_v1.png",
+  "prompt": "Use exact Kirigakure Saizo from reference: same lean face, navy-gray practical shinobi clothes, dark blue headband and tied hair, red six-coin chest crest, brown belt/bracers, kunai pouches, sandals and standard-length katana. Right-facing 3/4 full-body, painterly game style. Four hit-reaction poses: 1 guarded stance with sword lowered; 2 sudden impact recoil, shoulders twist and free hand shields; 3 stagger backward one grounded step, bent torso and strained face; 4 recover into guarded low stance. Sword stays held and intact in same hand throughout; all costume and gear consistent. No blood, wounds, enemy, projectile, flashes, shadows, text, or VFX. Match standing height and planted sole baseline of reference after uniform scaling. Exactly four separate cell-ready poses in one horizontal row, full figure and sword inside their clear magenta-separated zones, pure flat #FF00FF background.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c361d8b0-4632-4683-9a5c-6f78ae474f25.png",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "visualReview": "Four full-body hit reaction poses; navy-gray ninja design, red six-coins crest and standard sword consistent. Boundary QA pending.",
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "sha256": "27e19a8c4fc3ca6b2e7fae5651d3401b06159575cea4c25ae9654ed52f436ed5",
+  "qaResult": "30_check_strip PASS; pure magenta82%; median figure height77%; planted soles y230; 80ms GIF4/4 decoded; Windows OCR success/no text; visual reviewed.",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitCommit": "5788478a8e307aafb35e4a257c45098ec4c290ca",
+  "remoteByteEqual": true
+}

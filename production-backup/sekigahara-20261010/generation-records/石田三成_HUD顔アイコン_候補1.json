@@ -1,0 +1,54 @@
+{
+  "name": "石田三成_HUD顔アイコン.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e09294f5-ed53-4dcf-90f9-f764c50a6c69.png",
+  "sourceSha256": "715910af56264b00abd1774b2ec9dd6a9670b83eaa2fd33f31dd8dddffcdf912",
+  "status": "git_verified",
+  "kind": "hud",
+  "cell": 256,
+  "size": [
+    256,
+    256
+  ],
+  "mode": "RGB",
+  "sourceForegroundBounds": [
+    0,
+    9,
+    1254,
+    1254
+  ],
+  "matteBackground": [
+    217,
+    23,
+    179
+  ],
+  "destinationOrigin": [
+    8,
+    9
+  ],
+  "contentSize": [
+    240,
+    238
+  ],
+  "pureMagentaRatio": 0.47943115234375,
+  "sha256": "d5b446bff2e2bc846af8d6499ec5250c3df73f92993c3193683df23c8ab54092",
+  "method": "finish_sprites.py HUD crop/thumbnail logic; only this new candidate processed",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_HUD顔アイコン.png",
+  "dimensions": [
+    256,
+    256
+  ],
+  "specification": "HUD static icon: 256x256 RGB, magenta matte, >=8px padding",
+  "qaResult": "要注意",
+  "ocrResult": {
+    "success": true,
+    "text": ""
+  },
+  "visualReview": "Ishida Mitsunari face, gold fan crest, purple/gold armor are legible at 256px; 8px min padding and solid magenta pass. More photorealistic than the existing Yukimura HUD, recorded as caution.",
+  "ocrReview": "Windows OCR success, no text; post-OCR visual review completed.",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64",
+  "prompt": "Create ONE square 1:1 HUD face icon for Sekigahara Ranbu featuring Ishida Mitsunari. Dark, restrained painted historical game character art with the same crisp shaded finish and strong silhouette as a premium Sengoku action-game portrait. Mitsunari is a lean, stern Japanese commander in his 30s, long straight black hair, narrow cool eyes, a fine moustache and short pointed goatee. He wears the approved design: dark iron and muted gold samurai armor, ivory sleeves, rich purple over-robe, and a distinctive tall gold folding-fan crest mounted on his helmet; frame his face, helmet and upper shoulders, no handheld fan or weapon. Three-quarter facing right, gaze slightly right, composed calculating expression. Center the head and shoulders, keep the complete helmet crest and shoulders inside the square with at least 8 percent breathing room. Flat perfectly uniform pure magenta #FF00FF background filling every pixel outside the character, no shadows on the background. ONE person only. No text, labels, calligraphy, seal, border, scenery, effects, extra figures, cropping, or photorealism. Make the face large and instantly readable at 256x256 HUD size.",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task"
+}

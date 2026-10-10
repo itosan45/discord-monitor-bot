@@ -1,0 +1,120 @@
+{
+  "name": "織田信長_鎖鎌_分銅投擲_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c2a98303-ddbf-496d-ac12-a04ff3b77df1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_鎖鎌_分銅投擲_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.49261083743842365,
+  "sourceBounds": [
+    [
+      16,
+      168,
+      369,
+      574
+    ],
+    [
+      381,
+      168,
+      726,
+      574
+    ],
+    [
+      715,
+      171,
+      1056,
+      574
+    ],
+    [
+      1078,
+      169,
+      1456,
+      574
+    ],
+    [
+      1453,
+      170,
+      1798,
+      574
+    ],
+    [
+      1816,
+      168,
+      2158,
+      574
+    ]
+  ],
+  "placements": [
+    [
+      41,
+      30,
+      174,
+      200
+    ],
+    [
+      43,
+      30,
+      170,
+      200
+    ],
+    [
+      44,
+      31,
+      168,
+      199
+    ],
+    [
+      35,
+      30,
+      186,
+      200
+    ],
+    [
+      43,
+      31,
+      170,
+      199
+    ],
+    [
+      44,
+      30,
+      168,
+      200
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "cfd898f66eb3af376228e20adbf81ed6d4477826e711633b3177c848c3718a60",
+  "prompt": "Exact Nobunaga black red gold armor crescent helmet red cape six grounded kusarigama throw actor phases. Left hand retains sickle every frame. Shared outbound chain and weight separate, no effects.",
+  "char": "織田信長",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6GIF復号と待機比較を目視。黒赤金甲冑・兜・赤外套、右向き接地枠内、二本腕と左手鎌保持、右手投擲連続確認。高さ200で待機一致。注意: 胸の金円紋内部が参照と異なる、鎖弛みは短い輪状。共通射出部品の動的接続とゲーム射程は未検証。",
+  "gitVerified": true,
+  "gitCommit": "5266ba6e111dd798bd6ca748fd606dae88b50601",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "cfd898f66eb3af376228e20adbf81ed6d4477826e711633b3177c848c3718a60",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:41:57.602001+09:00"
+}

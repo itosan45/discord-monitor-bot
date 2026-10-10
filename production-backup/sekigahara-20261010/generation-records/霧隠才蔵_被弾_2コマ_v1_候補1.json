@@ -1,0 +1,70 @@
+{
+  "name": "霧隠才蔵_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-e823338f-e820-4b8b-862f-c8235096c72e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3402889245585875,
+  "sourceBounds": [
+    [
+      372,
+      147,
+      732,
+      770
+    ],
+    [
+      1101,
+      194,
+      1483,
+      770
+    ]
+  ],
+  "placements": [
+    [
+      66,
+      18,
+      123,
+      212
+    ],
+    [
+      63,
+      34,
+      130,
+      196
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "9b19010c99e93659bd165d1de4423eeff31a8d2ccd1bfbe2b3063c3ea6294169",
+  "prompt": "Two damage reactions from canonical Saizo idle. Same ninja design, grounded, blade retained.",
+  "char": "霧隠才蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "待機絵と比べ衣服のしわ、腰道具と刀の輪郭に細部差。被弾のけぞり、接地、武器保持は確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "5c6d8bf3541aa86e9312df9c44dc0056214accbb",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9b19010c99e93659bd165d1de4423eeff31a8d2ccd1bfbe2b3063c3ea6294169",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:34:16.092617+09:00"
+}

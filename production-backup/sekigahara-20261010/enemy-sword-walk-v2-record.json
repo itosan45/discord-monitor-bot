@@ -1,0 +1,210 @@
+{
+  "name": "敵_足軽刀_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-92f9fd4e-5bd6-4970-bd7f-4ca1a454508b.png",
+  "status": "drive_verified",
+  "scale": 0.5394736842105263,
+  "standingHeightSource": 380.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        9,
+        204,
+        337,
+        544
+      ],
+      "destination": [
+        39,
+        48,
+        177,
+        183
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        286,
+        204,
+        611,
+        544
+      ],
+      "destination": [
+        40,
+        48,
+        175,
+        183
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        592,
+        204,
+        878,
+        548
+      ],
+      "destination": [
+        51,
+        45,
+        154,
+        186
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        820,
+        204,
+        1144,
+        544
+      ],
+      "destination": [
+        40,
+        48,
+        175,
+        183
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1086,
+        204,
+        1409,
+        544
+      ],
+      "destination": [
+        41,
+        48,
+        174,
+        183
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1361,
+        204,
+        1673,
+        544
+      ],
+      "destination": [
+        44,
+        48,
+        168,
+        183
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1655,
+        204,
+        1938,
+        548
+      ],
+      "destination": [
+        51,
+        45,
+        153,
+        186
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1873,
+        204,
+        2162,
+        544
+      ],
+      "destination": [
+        50,
+        48,
+        156,
+        183
+      ],
+      "scale": 0.5394736842105263,
+      "ground": 230,
+      "verticalOffset": 0
+    }
+  ],
+  "sha256": "7f625266bbc8b9371f9676a2bb5ab9a188f8961c7da01aad5e3742c1ee30328d",
+  "backgroundSource": [
+    239,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの71%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    12303,
+    14440,
+    14407,
+    11567,
+    11845,
+    13962,
+    14665,
+    13090
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_歩き_8コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 8,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_歩き_8コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "成功。『。 第 ふ 一 ・ ン』検出は鎧の模様等の誤認、目視で文字・字幕なし",
+  "visualReview": "GIF8コマ目視。低い両手刀構え、3/7通過、全刀先・全身右向き・共通縮尺・余白確認。修正上限後の候補4。1/5脚遮蔽交換弱、8武器が上がる。自動全項目OKと動作合格は別。",
+  "driveId": "1nx1c2o7SnK89Z-r_d_fOcr_-wZMa3VoB",
+  "readbackSha256": "7f625266bbc8b9371f9676a2bb5ab9a188f8961c7da01aad5e3742c1ee30328d",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

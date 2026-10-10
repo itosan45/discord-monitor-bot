@@ -1,0 +1,56 @@
+{
+  "name": "拾得武器_竹槍_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_竹槍_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-94fb4558-2696-41b9-a294-4d11f2c8d814.png",
+  "status": "git_verified",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.17854077253218884,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    44,
+    57,
+    1209,
+    1177
+  ],
+  "destination": [
+    24,
+    30,
+    208,
+    200
+  ],
+  "backgroundSource": [
+    240,
+    23,
+    240
+  ],
+  "foregroundPixels": 70977,
+  "sha256": "96efd6df5e16be91a5b685103579d3c94f87d2bf1a5a92c385fc4d379bc92a42",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 96%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ1: 空、または小さすぎる"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    0
+  ],
+  "manualVisualException": true,
+  "manualVisualExceptionReason": "30_check_strip.pyのforeground 3000px最低閾値は人物向けで、細長い武器単体には不適用。竹槍は全長208x200px、先端と節の見分けがつき、現実的な細さと16px以上の余白を保つため要注意で採用。",
+  "kind": "pickup_weapon",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "qaResult": "要注意",
+  "visualReview": "竹槍の拾得物を目視し、向き・寸法・全体表示を確認。 30_check_strip.pyのforeground 3000px最低閾値は人物向けで、細長い武器単体には不適用。竹槍は全長208x200px、先端と節の見分けがつき、現実的な細さと16px以上の余白を保つため要注意で採用。",
+  "ocrReview": "Windows OCR成功・検出文字なし。",
+  "sourceCandidateRecord": "generation-records/拾得武器_竹槍_v1_候補1.json",
+  "gitVerified": true,
+  "gitCommit": "858b57927107361310e5c23134302aa57eb8a324",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

@@ -1,0 +1,55 @@
+{
+  "name": "拾得武器_妖刀_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_妖刀_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0445b62b-61e5-4715-91b7-b69e6698a0d1.png",
+  "status": "git_verified",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.1827768014059754,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    58,
+    75,
+    1196,
+    1166
+  ],
+  "destination": [
+    24,
+    31,
+    208,
+    199
+  ],
+  "backgroundSource": [
+    240,
+    24,
+    241
+  ],
+  "foregroundPixels": 123374,
+  "sha256": "6ac2c0fa412ee78dbf87278654c680e9b7e6e83ca6a66854d06fdb1b09be9b1f",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 93%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの77%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    0
+  ],
+  "kind": "pickup_weapon",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "qaResult": "OK",
+  "visualReview": "長剣と識別できる黒鉄と控えめな赤紫の刃文。全体、鍔、柄、純マゼンタ背景・余白・地面線を確認。 目視で単一の拾得物と物理的な向き・寸法を確認。",
+  "ocrReview": "Windows OCR成功・検出文字なし。",
+  "sourceCandidateRecord": "generation-records/拾得武器_妖刀_v1_候補1.json",
+  "gitVerified": true,
+  "gitCommit": "5ff2c4ac20b1b93e0f8725a6ac53604c7be0afda",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

@@ -1,0 +1,108 @@
+{
+  "name": "織田信長_手ぶら_攻撃B_5コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-64302d8e-4be8-40fa-8f9a-454b1c9ba626.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_手ぶら_攻撃B_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.5578947368421052,
+  "sourceBounds": [
+    [
+      140,
+      13,
+      475,
+      383
+    ],
+    [
+      822,
+      13,
+      1170,
+      381
+    ],
+    [
+      1457,
+      13,
+      1832,
+      384
+    ],
+    [
+      179,
+      395,
+      515,
+      775
+    ],
+    [
+      822,
+      396,
+      1170,
+      774
+    ]
+  ],
+  "placements": [
+    [
+      34,
+      24,
+      187,
+      206
+    ],
+    [
+      31,
+      25,
+      194,
+      205
+    ],
+    [
+      23,
+      23,
+      209,
+      207
+    ],
+    [
+      34,
+      18,
+      187,
+      212
+    ],
+    [
+      31,
+      19,
+      194,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 71%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "dd10c7a6d446cc756f700b79eceb48961f3985fe98f14f7ad84de03777c2705b",
+  "visualApproved": true,
+  "visualWarnings": [
+    "甲冑の紋と金装飾、旗の文字形状に細部差。前突き両拳と接地、人物縮尺改善を確認済み。"
+  ],
+  "visualReview": "Candidate3 reduced frame4 cape and lunge width; uniform scale increased .4638 to .5579. Body now approx195px comparable to idle198px. All five decoded frames reviewed.",
+  "gitVerified": true,
+  "gitCommit": "b9c55e06d2a5e6b1c11fad6f6a4c2423adf6b592",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "dd10c7a6d446cc756f700b79eceb48961f3985fe98f14f7ad84de03777c2705b",
+  "prompt": "Targeted candidate3 frame4 compact stance and hanging cape. Preserve both empty fists thrust, canonical Nobunaga armor helmet banner. Fix width without shrinking body.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-08T00:00:24.724447+09:00"
+}

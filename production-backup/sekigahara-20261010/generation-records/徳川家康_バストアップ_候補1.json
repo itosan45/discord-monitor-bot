@@ -1,0 +1,72 @@
+{
+  "name": "徳川家康_バストアップ.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-fd456fa1-b9e3-430b-be7a-afa723c81626.png",
+  "sourceSha256": "e4363de9528d26027376dcf76bb8c5a1c27954a620156236051bd1d64ab49eea",
+  "referencePath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\徳川家康_設定画.png",
+  "prompt": "Use case: stylized-concept\nAsset type: 512x512 in-game final-boss bust portrait for Sekigahara Ranbu.\nPrimary request: Draw one fierce, slightly-right-facing head-and-shoulders portrait of Tokugawa Ieyasu.\nSubject: He is the final boss: elderly, broad and heavy-set, with silver-white hair tied in a practical samurai topknot, white-grey moustache and beard, no helmet. Cold calculating eyes, compressed stern mouth, human dignity with ominous menace. Preserve black-and-gold armor, deep purple cloak, and the upright Tokugawa hollyhock crest on the armor.\nStyle/medium: Painted anime-realistic Japanese action-game portrait, crisp dark outlines, deep charcoal shadow and rich subdued gold-purple detail; keep his face clear and imposing.\nComposition/framing: One centered bust; keep topknot, both shoulders, and upper chest fully inside the square with visible magenta margin on every edge.\nScene/backdrop: Exactly flat pure RGB(255,0,255) / #FF00FF.\nConstraints: Apply the user's latest white-haired, helmet-free final-boss direction over the older helmeted reference. Match the existing Ieyasu face/build/armor identity.\nAvoid: Helmet, horns, glowing eyes, monster features, text, letters, numbers, labels, UI, border, scenery, extra people, cropped hair or shoulders, gradients, background shadow, watermark.",
+  "status": "git_verified",
+  "candidateStatus": "git_verified",
+  "createdAt": "2026-10-07",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\徳川家康_バストアップ.png",
+  "normalizedSha256": "5b550e817c6481db312a749cde82bdbe2bce7c2a9e02092a877e1b69bde8d962",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "pureMagentaRatio": 0.3434,
+  "visibleBBox": [
+    0,
+    8,
+    512,
+    512
+  ],
+  "visibleMargins": [
+    0,
+    8,
+    0,
+    0
+  ],
+  "automaticCheck": {
+    "dimension": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "exactMagentaRatio": 0.3453,
+    "visibleBBox": [
+      0,
+      8,
+      512,
+      512
+    ],
+    "visibleMargins": [
+      0,
+      8,
+      0,
+      0
+    ],
+    "result": "PASS for base UI bust portrait; bust crop intentionally fills canvas."
+  },
+  "note": "One candidate only. No regeneration; preserve this source and record any QA caution.",
+  "normalizedPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_base_boss_portraits_candidate1_bgclean\\徳川家康_バストアップ.png",
+  "backgroundNormalization": "Flood-filled only border-connected near-magenta background to exact #FF00FF, then uniform 512x512 Lanczos resize; no subject-component edits and no recrop.",
+  "qaResult": "OK",
+  "visualReview": "白髪・兜なし・黒金甲冑・紫外套・葵紋、老将の威圧感を確認。端まで大きい胸上構図。 6枚の512x512一覧で衣装・顔・向き・背景・フレーム境界を目視。追加候補なし。",
+  "ocrReview": "Windows PowerShell 5.1 native OCR detected 'ー 第 ツ レ'; reviewed at native size and contact sheet, all detections are armor/family-crest decoration, no letters or labels.",
+  "attempts": 1,
+  "gitVerified": true,
+  "sha256": "5b550e817c6481db312a749cde82bdbe2bce7c2a9e02092a877e1b69bde8d962",
+  "gitSha256": "5b550e817c6481db312a749cde82bdbe2bce7c2a9e02092a877e1b69bde8d962",
+  "gitVerifiedAt": "2026-10-07T12:00:36+09:00",
+  "gitCommit": "6399176643864b97c1a7e297eda78f5eeebe6fb8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "d1edb6e07d9e9a0aaa0530a717c4275845b4d9ae",
+  "gitBytes": 404931,
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T12:00:36+09:00",
+  "qaRepairPending": false
+}

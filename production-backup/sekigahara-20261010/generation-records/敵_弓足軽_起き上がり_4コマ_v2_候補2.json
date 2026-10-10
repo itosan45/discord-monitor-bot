@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_起き上がり_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-342ed27c-b481-4cb0-aa46-f0086f9c1cb9.png",
+  "prompt": "Repairthis4framearchergetup. Preserve EXACTanatomy andsequence lyingback→rightpalmpush→oneknee→lowready. Correct ALLsandals strictsideprofile toesRIGHT: frame3rearfoot currentlyshowssolecamera, redrawheellefttoesrightwithkneestillgrounded; frame4backfoot facesviewer, rotateONLYfootdrawingtosideprofiletoesright. Referenceidle quiver is DARK BROWN LEATHER withsamefeatheredarrows, NOT BLUEtube: replacebluequivercolor/design in1/3withsamebrownleatherquiverasin2/4; all4samequiverstrap. Keepbowandstringcomplete. Frame1and2 bowtiltmoreforwardtopnearhelmet+100rawpx sofitswithoutbodyscalechange; frame3/4bowalsoforwardtilttoavoidexcessheight. Exactsameheadtorsoandlimbsizesall4, noshrink. Wholefigures horizontal4equalcells, pureopaque#FF00FF no textshadowgrid.",
+  "attempt": 2,
+  "status": "candidate_repair_feet"
+}

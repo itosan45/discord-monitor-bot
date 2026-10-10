@@ -1,0 +1,135 @@
+{
+  "name": "敵_足軽刀_起き上がり_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_起き上がり_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-bb10971f-e5d7-4811-a175-5e2e1519d943.png",
+  "status": "drive_verified",
+  "scale": 0.41836734693877553,
+  "standingHeightSource": 490.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        37,
+        260,
+        542,
+        587
+      ],
+      "destination": [
+        22,
+        94,
+        211,
+        137
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        588,
+        199,
+        1022,
+        583
+      ],
+      "destination": [
+        37,
+        70,
+        182,
+        161
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1124,
+        189,
+        1643,
+        583
+      ],
+      "destination": [
+        19,
+        66,
+        217,
+        165
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1689,
+        141,
+        2134,
+        588
+      ],
+      "destination": [
+        35,
+        44,
+        186,
+        187
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "57c018fc272ce41b1d226d5ddc4d75e7f65cc9c1ca4bd7b8b708c0348440c700",
+  "backgroundSource": [
+    242,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの63%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    16599,
+    18436,
+    15853,
+    19445
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_起き上がり_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_起き上がり_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "成功・文字なし",
+  "qaNote": "頭部胴幅と最終構えを待機と比較。全コマ共通倍率。",
+  "visualReview": "4コマGIF目視。仰向けから左手を地面へ→左手で支持し臀部を起こす→片膝から両手刀へ→低い待機。刀を持ったまま回復、全刀先鞘、右向き、身体接地230px、共通倍率と規格全項目OK。",
+  "driveId": "1p6AorGJIuaK1L8kClUewYYD_28gHBtX9",
+  "readbackSha256": "57c018fc272ce41b1d226d5ddc4d75e7f65cc9c1ca4bd7b8b708c0348440c700",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

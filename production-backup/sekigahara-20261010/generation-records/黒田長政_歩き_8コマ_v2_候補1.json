@@ -1,0 +1,145 @@
+{
+  "name": "黒田長政_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-2fc38eab-676b-4319-8366-3304fa0b30f8.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\黒田長政_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.7994791666666666,
+  "sourceBounds": [
+    [
+      29,
+      37,
+      439,
+      419
+    ],
+    [
+      474,
+      37,
+      872,
+      419
+    ],
+    [
+      901,
+      36,
+      1307,
+      419
+    ],
+    [
+      1338,
+      36,
+      1745,
+      419
+    ],
+    [
+      30,
+      456,
+      439,
+      840
+    ],
+    [
+      473,
+      456,
+      872,
+      840
+    ],
+    [
+      902,
+      460,
+      1307,
+      840
+    ],
+    [
+      1342,
+      456,
+      1746,
+      840
+    ]
+  ],
+  "placements": [
+    [
+      28,
+      41,
+      328,
+      305
+    ],
+    [
+      33,
+      41,
+      318,
+      305
+    ],
+    [
+      29,
+      40,
+      325,
+      306
+    ],
+    [
+      29,
+      40,
+      325,
+      306
+    ],
+    [
+      28,
+      39,
+      327,
+      307
+    ],
+    [
+      32,
+      39,
+      319,
+      307
+    ],
+    [
+      30,
+      42,
+      324,
+      304
+    ],
+    [
+      30,
+      39,
+      323,
+      307
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "fe54d965d7bd4285d5de8c6c10306ea559d26645f1f1dcd30429abed16c1406b",
+  "visualApproved": true,
+  "visualReview": "GIF復号後に8コマを目視。右向き、紺金鎧・三日月前立・長髪・外套と二刀を維持。1/5で支持脚交替、移動相の違いあり。刀身や体の枠切れなし、セル境界を越えない。OCR文字断片「査 第 第 第」は模様由来の誤検出で、可読文字/ラベルなし。既存待機絵の人物尺度は現行ボス規格の約307px高より小さく見えるため、旧待機との尺度互換は要注意。",
+  "cautionSummary": "旧待機絵の人物尺度と現行ボス歩き規格に差がある。",
+  "ocrSuccess": true,
+  "ocrText": "査 第 第 第",
+  "gitVerified": true,
+  "gitCommit": "fd8a9fe9ae64e171314a6adadd8dfb38b03d1d8f",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "fe54d965d7bd4285d5de8c6c10306ea559d26645f1f1dcd30429abed16c1406b",
+  "prompt": "Create an 8-pose right-facing combat walk sprite atlas for Kuroda Nagamasa, matching the references exactly. Preserve navy-blue armor with pale gold floral emblems, crescent helmet crest, long dark ponytail, cape, face, and TWO swords. Reference 1 sets his design and dual swords; reference 2 sets the game's existing sprite appearance. Exactly 8 full-body poses in a clear 4-column by 2-row arrangement on perfectly flat #FF00FF pure magenta. No grid lines, borders, text, labels, effects, shadows, scenery, or attack. Keep one sword in each hand in the same ready guard; blades must remain inside each cell. Show an unmistakable grounded 8-frame combat walk: frame 1 right-foot-forward contact; 2 weight transfer; 3 left foot passing; 4 left foot swinging forward; frame 5 opposite contact with left foot forward/right foot back; 6 weight transfer; 7 right foot passing; 8 right foot swinging into frame 1. Clearly alternate the support legs between frames 1 and 5. Stable torso and weapon guard. Maintain same scale and anatomy; keep all hair, crescent crest, cape, hands, both swords and feet fully inside each cell with gaps between adjacent poses.",
+  "updatedAt": "2026-10-08T05:52:23.628542+09:00"
+}

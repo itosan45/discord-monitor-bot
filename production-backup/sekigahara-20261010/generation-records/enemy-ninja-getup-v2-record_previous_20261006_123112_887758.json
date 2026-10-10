@@ -1,0 +1,123 @@
+{
+  "name": "敵_忍者_起き上がり_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_起き上がり_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-6e2d5b3a-61ae-4598-af8a-cd415b649b19.png",
+  "status": "candidate",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        73,
+        396,
+        540,
+        564
+      ],
+      "destination": [
+        21,
+        154,
+        213,
+        77
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        612,
+        311,
+        1047,
+        566
+      ],
+      "destination": [
+        29,
+        115,
+        198,
+        116
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1158,
+        209,
+        1526,
+        566
+      ],
+      "destination": [
+        44,
+        68,
+        168,
+        163
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1749,
+        209,
+        2059,
+        576
+      ],
+      "destination": [
+        57,
+        64,
+        141,
+        167
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "5be872ba1cf358d7770a30e3cdd6310cc07f28595695f7627c0b110a188a2c39",
+  "backgroundSource": [
+    243,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの54%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    14050,
+    18476,
+    16839,
+    18040
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_起き上がり_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_起き上がり_4コマ_v2_GIF復号確認.png"
+  }
+}

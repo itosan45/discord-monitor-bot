@@ -1,0 +1,145 @@
+{
+  "name": "小早川秀秋_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e107d0fa-5b54-4ccb-83fc-9204206f6cfe.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\小早川秀秋_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.748780487804878,
+  "sourceBounds": [
+    [
+      44,
+      54,
+      393,
+      463
+    ],
+    [
+      421,
+      53,
+      768,
+      463
+    ],
+    [
+      802,
+      54,
+      1133,
+      464
+    ],
+    [
+      1177,
+      53,
+      1512,
+      462
+    ],
+    [
+      28,
+      539,
+      382,
+      948
+    ],
+    [
+      422,
+      540,
+      766,
+      947
+    ],
+    [
+      804,
+      540,
+      1134,
+      948
+    ],
+    [
+      1168,
+      538,
+      1515,
+      948
+    ]
+  ],
+  "placements": [
+    [
+      61,
+      40,
+      261,
+      306
+    ],
+    [
+      62,
+      39,
+      260,
+      307
+    ],
+    [
+      68,
+      39,
+      248,
+      307
+    ],
+    [
+      66,
+      40,
+      251,
+      306
+    ],
+    [
+      59,
+      40,
+      265,
+      306
+    ],
+    [
+      63,
+      41,
+      258,
+      305
+    ],
+    [
+      68,
+      40,
+      247,
+      306
+    ],
+    [
+      62,
+      39,
+      260,
+      307
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "c73fb5c66532502ceb83f902226cd347c2e9e3aa00e2b2026d5a3b78cd71c661",
+  "visualApproved": true,
+  "visualReview": "修正後のGIF8コマと待機絵を目視。紫煙/発光なし、刀身の紫色のみ。緑金鎧・兜・外套・妖刀の位置と右向きが一貫し、1/5の支持脚交替、通過/踏み出しの差あり。人物・刀身の枠切れと隣セルへの越境なし。OCR空。旧待機絵の人物尺度は現行384pxボス規格より小さく見えるため、尺度互換は要注意。",
+  "cautionSummary": "旧待機絵の人物尺度と現行ボス歩き規格に差がある。",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gitVerified": true,
+  "gitCommit": "6074056992b872592fb2c8f940c49b60d4724d4e",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c73fb5c66532502ceb83f902226cd347c2e9e3aa00e2b2026d5a3b78cd71c661",
+  "prompt": "Create an 8-pose right-facing combat walk sprite atlas for the exact same Kobayakawa Hideaki shown in the references. Preserve his youthful anxious face, green and gold armor, tall distinctive helmet, green floral cape, and single cursed katana with its purple-colored blade. Reference 1 defines design; reference 2 defines existing game sprite scale/style. The sword may retain a purple blade, but draw NO magical aura, smoke, glow, light, particles or attack effects. Exactly 8 full-body poses arranged in 4 columns by 2 rows on perfectly flat #FF00FF pure magenta. No grid, borders, text, labels, shadows or scenery. Real grounded combat walk: frame 1 right-foot-forward contact; 2 weight transfer; 3 left foot passing; 4 left foot swinging forward; frame 5 opposite contact with left foot forward/right foot behind; 6 weight transfer; 7 right foot passing; 8 right foot swinging into frame 1. Make support-leg exchange visible between frames 1 and 5, keep the katana in a steady ready carry, and maintain identical anatomy and body scale. Keep helmet, cape, hands, sword and feet wholly within each invisible cell; no neighboring overlap.",
+  "updatedAt": "2026-10-08T05:58:09.369536+09:00"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "本多忠勝_会話肖像.png",
+  "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\会話肖像_本多忠勝_左向き_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\本多忠勝_会話肖像.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "candidateCount": 0,
+  "reusedVerifiedCandidate": true,
+  "status": "git_verified",
+  "sha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c",
+  "qaResult": "OK",
+  "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+  "ocrText": "ぐ 当",
+  "ocrSuccess": true,
+  "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+  "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c"
+}

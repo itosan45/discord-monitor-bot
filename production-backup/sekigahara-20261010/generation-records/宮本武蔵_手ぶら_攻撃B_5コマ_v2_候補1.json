@@ -1,0 +1,16 @@
+{
+  "name": "宮本武蔵_手ぶら_攻撃B_5コマ_v2.png",
+  "candidate": 1,
+  "status": "qa_passed",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-33182de5-78ce-4cb4-a76a-3863bea1db3b.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+  "action": "手ぶら攻撃B・両拳の直線突き5コマ",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "rawSourceSha256": "c80f718cd94c58c706a084e3a0643b4b211c1f9d550a08b9d4c4b04d12dc273a",
+  "outputSha256": "23dd95f1349ac3d455a94ba45654986e76502e7db0232935dcf160e169250fb5",
+  "prompt": "Create exactly one horizontal five-frame animation sprite strip of Miyamoto Musashi, using only the RIGHT-facing side-view character from the attached reference sheet. Exact canvas 1280x256 px: five equal 256x256 cells in one row, no gaps or borders. Full-body profile facing right in every cell. Keep the same lean Japanese swordsman, tied-back rough black hair, white headband with long tails, stubble, worn charcoal gray-brown kimono with right sleeve off, wrapped forearms and calves, straw sandals. Unarmed overlay version: remove both swords and all scabbards completely, with no weapon anywhere; both hands are empty closed fists in a consistent two-handed long-weapon grip, right hand forward and left hand behind it. Motion is a straight unarmed thrust: frame 1 low ready grip; frame 2 pull both fists close to the waist and turn shoulders slightly; frame 3 drive hips and lead foot forward while the paired empty fists begin extending; frame 4 full forward thrust with both fists aligned toward the right, arms extended and weight on the bent lead leg; frame 5 recoil both fists and return to ready. Keep one continuous attack, no punch combo and no weapon. Character scale and head/torso/limbs stay constant in all five frames. Feet stay grounded on y=230; standing-equivalent body height about205px. Center one pose per cell, at least16px top, left and right margin; no hand or foot crosses a cell boundary. Painted anime-realistic Sengoku beat-em-up art, crisp dark contour, matching reference color and line style. Background perfectly uniform pure magenta RGB(255,0,255), no shadow, floor, gradient, vignette, text, UI, extra characters, scenery, weapons, or disconnected effects.",
+  "qaRecord": "musashi-unarmed-thrust-v2-record.json",
+  "qaResult": "OK",
+  "visualReview": "設定画の右向き武蔵を目視確認。全コマで二刀・鞘を持たず、空の拳で構え→腰へ引き→前方へ伸ばし→突き切り→回収。手足・頭身・接地・服装を確認。"
+}

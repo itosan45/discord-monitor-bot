@@ -1,0 +1,16 @@
+{
+  "weapon": "刀",
+  "name": "上杉景勝_勝鬨_4コマ_v1.png",
+  "prompt": "Use the exact same Uesugi Kagekatsu from 上杉景勝_待機_4コマ.png: same face, body, dark indigo-black armor, gold crescent kabuto, silver trim, navy cape and sashimono, exact painterly game style. Four poses, full body, facing right in same 3/4 direction. Left hand holds the same katana lowered beside body; right hand is empty and clenched. Sequence: 1 proud chest, fist gathered before chest; 2 punch-fist held straight overhead and mouth open in silent shout; 3 fist lowered beside face; 4 fist highest overhead, slight backward lean, mouth open in triumphant shout. Keep the sword, flag, kabuto crest and all armor details visible and identical in every pose; cape/banner flutter only a little in frame4. Feet planted at one identical baseline and same standing character scale as reference; use slight knee/hip bend for headroom, never shrink. Exactly four separate full-body poses arranged left-to-right for 4 equal 256x256 cells. Source may be wide 3:1, keep all poses in one centered horizontal band; pure flat #FF00FF everywhere else. No text, speech balloons, shadow, effects, flare, borders, grid lines or extra people; do not crop weapon, body, flag or ornament.",
+  "candidateCount": 1,
+  "char": "上杉景勝",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_待機_4コマ.png",
+  "status": "qa_hold_user_spec_mismatch",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5edd37ff-d45c-487d-acf0-e29a82e54f08.png",
+  "sourceSize": [
+    2172,
+    724
+  ],
+  "visualReview": "Four beats visible. Same navy armor, gold crescent helmet, cape, banner and katana across frames. Right fist raised, sword lowered. No effects/text. Hold: Kagekatsu fist motion too small in one beat; Musashi left-hand sword hold not evidenced, current existing design shows right-held blade. No repeat generation pending user steering.",
+  "ocrReview": "Windows OCR (Windows PowerShell 5.1) success; no recognized text."
+}

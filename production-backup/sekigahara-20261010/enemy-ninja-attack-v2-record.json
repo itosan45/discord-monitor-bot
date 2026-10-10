@@ -1,0 +1,175 @@
+{
+  "name": "敵_忍者_攻撃_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_忍者_攻撃_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-e8b2a017-7d23-4918-a43a-b9da5b5564ef.png",
+  "status": "git_verified",
+  "scale": 0.5540540540540541,
+  "standingHeightSource": 370.0,
+  "standingHeightTarget": 205,
+  "n": 6,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        33,
+        226,
+        352,
+        545
+      ],
+      "destination": [
+        39,
+        54,
+        177,
+        177
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        372,
+        242,
+        679,
+        545
+      ],
+      "destination": [
+        43,
+        63,
+        170,
+        168
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        646,
+        220,
+        1025,
+        543
+      ],
+      "destination": [
+        23,
+        52,
+        210,
+        179
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1066,
+        185,
+        1409,
+        541
+      ],
+      "destination": [
+        33,
+        34,
+        190,
+        197
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1451,
+        171,
+        1735,
+        533
+      ],
+      "destination": [
+        49,
+        30,
+        157,
+        201
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1836,
+        233,
+        2135,
+        545
+      ],
+      "destination": [
+        45,
+        58,
+        166,
+        173
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "7ba5e114303eb781521cf998ae45e5746e89ccf5b6baaec03ab8d3ca9703f9f1",
+  "backgroundSource": [
+    240,
+    22,
+    239
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの69%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    17861,
+    20385,
+    19456,
+    16488,
+    18299,
+    18146
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_攻撃_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_攻撃_6コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "構え→後ろ脚に荷重→踏み込み横斬り→上昇斬り→振り抜き→回収。4/5の刀角度を立てて体格を縮めずセル内に収めた。4/5上体が背中側へ強く回り、5後ろ足先の向きは要注意。",
+  "visualReview": "6コマGIF規格OCR確認。低い足の踏み込みと腰回転から短刀が横→上へ斬る、布と頭の反応、回収あり。修正3回後、4/5上体の背面寄りと5後ろ足先が残るため要注意。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

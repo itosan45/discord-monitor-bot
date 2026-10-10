@@ -1,0 +1,94 @@
+{
+  "name": "石田三成_鎖鎌_分銅旋回_4コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-bbafd641-b380-4442-9a6a-fac0e6198ecd.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_鎖鎌_分銅旋回_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4732142857142857,
+  "sourceBounds": [
+    [
+      101,
+      132,
+      476,
+      579
+    ],
+    [
+      644,
+      131,
+      1021,
+      579
+    ],
+    [
+      1185,
+      132,
+      1561,
+      579
+    ],
+    [
+      1702,
+      132,
+      2104,
+      579
+    ]
+  ],
+  "placements": [
+    [
+      39,
+      18,
+      177,
+      212
+    ],
+    [
+      39,
+      18,
+      178,
+      212
+    ],
+    [
+      39,
+      18,
+      178,
+      212
+    ],
+    [
+      33,
+      18,
+      190,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "1106ec14455db0169a59e8bc40a772559cb04929031e530571e6f0d579c964f3",
+  "prompt": "Preserve exact Mitsunari purple gold armor fan helmet face; four-phase above-right-below-left complete weight orbit, chain connects sickle handle butt via slack to hand; fixed feet; no effects.",
+  "char": "石田三成",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "GIF全4コマ、待機縮尺、紫金甲冑・扇兜・顔・布、接地と枠内、鎌柄尻への鎖接続を目視。分銅上下左右の一周。注意: 半径の変動と4コマ目の胸前への重なり。静止全身ループのみ、移動合成・投擲以降未完。",
+  "gitVerified": true,
+  "gitCommit": "6f875605bf62646ec9c82de2cbc2eabdabc4afc7",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "1106ec14455db0169a59e8bc40a772559cb04929031e530571e6f0d579c964f3",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:08:35.711275+09:00"
+}

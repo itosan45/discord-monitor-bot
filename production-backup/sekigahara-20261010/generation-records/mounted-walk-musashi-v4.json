@@ -1,0 +1,81 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-aed6f625-27cb-48c1-aa03-0f9ed136893d.png",
+  "path": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\馬上歩行_宮本武蔵_8コマ_v4.png",
+  "uniformScale": 0.6114285714285714,
+  "sourceBounds": [
+    [
+      33,
+      109,
+      343,
+      457
+    ],
+    [
+      25,
+      107,
+      338,
+      457
+    ],
+    [
+      22,
+      107,
+      336,
+      455
+    ],
+    [
+      15,
+      108,
+      339,
+      455
+    ],
+    [
+      31,
+      34,
+      345,
+      379
+    ],
+    [
+      30,
+      34,
+      342,
+      380
+    ],
+    [
+      18,
+      34,
+      339,
+      380
+    ],
+    [
+      18,
+      34,
+      338,
+      380
+    ]
+  ],
+  "checks": [
+    "OK 純マゼンタの割合 71%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "ocr": "HE AE AR AE OR OR BF AE",
+  "gifDecodedFrames": 8,
+  "sha256": "0a38181240b01c0798ce87ebd86caacccdf05f815c627593ceddf9788e08e120",
+  "status": "git_verified",
+  "visualReview": "Eight decoded frames show lifted passing hoof and front/rear pair changes; OCR hits are horse/rider shapes, no rendered text. Four legs preserved, margins clear.",
+  "name": "馬上歩行_宮本武蔵_8コマ_v4.png",
+  "kind": "mounted_walk",
+  "gitVerified": true,
+  "gitCommit": "17263c324a8452a948417e2a6221dbcf2b0c24d9",
+  "remoteByteEqual": true,
+  "visualApproved": true,
+  "qaResult": "OK",
+  "androidVerified": true,
+  "androidEvidence": {
+    "device": "A101KC",
+    "serial": "58822184660",
+    "deploymentCommit": "add8dccdac5278d5d4417bb4cffc3febf974545c",
+    "scope": "Mounted Musashi walking only, left/right; 12 second device recording plus eight step-button screenshots. Front/rear passing and support changes inspected. Not attack or the other five heroes.",
+    "video": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\android-device\\actual-gait-20261009.mp4",
+    "stepContact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\android-device\\actual-gait-step-contact.png"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "回復アイテム_酒_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\回復アイテム_酒_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c7f6dfca-8461-41a9-a37e-f44821c61576.png",
+  "status": "git_verified",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.24129930394431554,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    343,
+    191,
+    952,
+    1053
+  ],
+  "destination": [
+    54,
+    22,
+    147,
+    208
+  ],
+  "backgroundSource": [
+    240,
+    22,
+    241
+  ],
+  "foregroundPixels": 343379,
+  "sha256": "e8c3f6e964279b8eb6233c8c83737fa6eeefe8461b73172db4ed54a9231fb817",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 69%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    0
+  ],
+  "kind": "healing_item",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "qaResult": "OK",
+  "visualReview": "酒の拾得物を目視し、向き・寸法・全体表示を確認。",
+  "ocrReview": "Windows OCR成功・検出文字なし。",
+  "sourceCandidateRecord": "generation-records/回復アイテム_酒_v1_候補1.json",
+  "gitVerified": true,
+  "gitCommit": "536bdf4548c6609ba4c24243c8a06217b4950be9",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

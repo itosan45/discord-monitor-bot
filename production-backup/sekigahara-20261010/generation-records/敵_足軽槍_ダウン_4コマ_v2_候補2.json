@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-7fd3326e-4401-49a3-910e-e4c0f1813f78.png",
+  "prompt": "Repair only dropped spear orientation in frames3 and4 of this FOUR-frame knocked-down ashigaru strip. Keep exact character and four poses, face, anatomy, clothes, armor and weapon length. In frames3and4 spear rests diagonally beside body, butt near helmet, complete tip near right foot, inside body's horizontal bounds. Complete spear on all fourframes. Bend knees tightly if needed, do not shrink character. Frame2 is airborne with feet clearly above ground; frame3 back landing;4 small shoulder/leg rebound, differs from motionless death. Uniform anatomy scale, standing equivalent80%cellheight; central86%cellwidth with16pxequivalent margins. Four square cells horizontal, right-facing, pure solid #FF00FF opaque background no text shadow borders. Preserve weight-driven knockback and impact.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

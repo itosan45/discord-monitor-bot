@@ -1,0 +1,37 @@
+{
+  "name": "三好清海入道_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5b77f279-8507-4b68-a2ea-9abf95697de1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好清海入道_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    79,
+    86,
+    1439,
+    944
+  ],
+  "placement": [
+    64,
+    72
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "351d288c2cc8af0ebaba1863bcbf24b84367ac3738756417b323f42ee808c32c",
+  "updatedAt": "2026-10-07T15:04:22.795192+09:00",
+  "prompt": "Create original Miyoshi Seikai Nyudo character reference for Sengoku action game. THREE separate fullbody views FRONT, RIGHT SIDE, BACK, identical man costume and weapon, aligned feet and equal scale. Input is ONLY gritty painted game style and layout reference; do not copy samurai armor or firearm. Seikai: formidable large muscular stocky Japanese warrior monk age45, shaved bald head, dark thick eyebrows, short dark beard, stern dignified expression. Practical worn ochre-brown sleeveless monk robe over charcoal undergarment, dark red sash, large wooden prayer beads around neck, strong exposed forearms, simple leather wrist guards, cloth shin wraps and straw sandals. Small six-red-coins badge two rows of three on sash. WEAPON a plausible two-handed iron staff about1.5m (roughly85% his height), slender dark iron round shaft 3cm diameter, modest slightly thicker striking end, NO huge fantasy spikes/oversized club. Hold upright beside body, butt near ground, top below head height. Same length/thickness every view. Full bald head, weapon top and butt, all fingers and feet within generous margins, views do not touch. Pure flat #FF00FF magenta background no cast shadow, text, labels, UI, effects or scenery. Landscape1536x1024 PNG. Original physically credible tough warrior monk design.",
+  "char": "三好清海入道",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "OK",
+  "visualReview": "All three views reviewed: same bald muscular monk, ochre robe, beads, red sash and six coins; practical iron staff below head height, same length and diameter, complete top and butt, intact hands/feet, generous margins. OCR 00 is coin emblem, no actual text. Static reference only; motion not yet produced.",
+  "gitVerified": true,
+  "gitCommit": "9117d820f0f42e2ca85afdc1a8a6a181ecfe52a9",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "351d288c2cc8af0ebaba1863bcbf24b84367ac3738756417b323f42ee808c32c",
+  "ocrSuccess": true,
+  "ocrText": "00"
+}

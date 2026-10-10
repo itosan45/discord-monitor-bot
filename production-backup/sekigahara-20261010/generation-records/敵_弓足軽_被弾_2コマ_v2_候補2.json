@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-af568a8d-3b60-40bb-9a2c-292195f80777.png",
+  "prompt": "Repair this two-frame archer hit animation. BOTH feet of BOTH figures must be strict side-view straw sandals pointing RIGHT: heel onleft, toes onright; current rear feet point at viewer, incorrect for side-scroller. Redraw rear feet side-on pointingright while keeping exactlysamelegbone lengths and shinangles. Preserve backward recoil in1 and forward recovery in2, allcharacter anatomy costume bow quiver and hands. No additionalfigures. Same scale bothframes horizontalrow, pureopaque#FF00FF no text shadowgrid. Bow complete with margin, toesright allfeet.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

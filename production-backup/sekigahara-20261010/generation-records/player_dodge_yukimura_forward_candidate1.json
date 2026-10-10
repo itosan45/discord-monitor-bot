@@ -1,0 +1,364 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b3244c43-896c-4ce7-b8c7-55f00a5189ed.png",
+  "sourceSha256": "90ad21571799109e00b02fcfbd1bd5eba66d6d03a0b1e2afaa5be1a5646a3fd5",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "sourceCellEdges": [
+    0,
+    434,
+    869,
+    1303,
+    1738,
+    2172
+  ],
+  "prompt": "One candidate only. Preserve identity, armor, colors, face, right-facing orientation and cross-spear using the three references. Exact 5-frame left-to-right animation: ready crouch, duck and tuck weapon, drive forward right, pass through low airborne phase, land and recover. Same character scale and visual finish in every equal 256px cell. Keep the entire body and weapon inside each cell. Exact flat magenta background. No additional characters, attacker, projectiles, text, watermark or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/真田幸村_設定画.png",
+    "assets/sprites/真田幸村_ガード構え_2コマ_v2.png",
+    "assets/sprites/真田幸村_ガード解除_2コマ_v2.png"
+  ],
+  "requestedName": "真田幸村_前方回避_5コマ_v2.png",
+  "actualName": "真田幸村_前方回避_5コマ_v2_candidate1-final-componentclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_前方回避_5コマ_v2_candidate1-final-componentclean.png",
+  "sha256": "c0840acd7d4cd713e55e6b49079857a5197dffa88fce24442d18fab06ce5b75d",
+  "n": 5,
+  "cell": 256,
+  "outputDimensions": [
+    1280,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellEdges": [
+      0,
+      434,
+      869,
+      1303,
+      1738,
+      2172
+    ],
+    "finalSize": [
+      1280,
+      256
+    ],
+    "commonScale": 0.5149425287356322,
+    "placement": "Common uniform scale; separate source cells by magenta key; remove disconnected components smaller than 10% of main figure; center each figure in its cell. Grounded frames baseline y=229; airborne frames raised to y=204; exact RGB(255,0,255) key background."
+  },
+  "sourceFrameBboxes": [
+    [
+      7,
+      189,
+      434,
+      560
+    ],
+    [
+      7,
+      290,
+      378,
+      556
+    ],
+    [
+      0,
+      224,
+      394,
+      527
+    ],
+    [
+      0,
+      270,
+      435,
+      501
+    ],
+    [
+      23,
+      213,
+      433,
+      565
+    ]
+  ],
+  "removedSmallComponents": [
+    [],
+    [
+      {
+        "pixels": 314,
+        "fractionOfMain": 0.0059,
+        "bbox": [
+          0,
+          219,
+          28,
+          246
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 969,
+        "fractionOfMain": 0.0183,
+        "bbox": [
+          396,
+          293,
+          435,
+          360
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 3,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          64,
+          325,
+          67,
+          326
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          433,
+          331,
+          435,
+          335
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 219,
+        "fractionOfMain": 0.0041,
+        "bbox": [
+          415,
+          382,
+          435,
+          395
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 3149,
+        "fractionOfMain": 0.0594,
+        "bbox": [
+          360,
+          461,
+          435,
+          556
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 13,
+        "fractionOfMain": 0.0003,
+        "bbox": [
+          429,
+          300,
+          434,
+          304
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 859,
+        "fractionOfMain": 0.017,
+        "bbox": [
+          376,
+          312,
+          434,
+          346
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 26,
+        "fractionOfMain": 0.0005,
+        "bbox": [
+          426,
+          345,
+          434,
+          349
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 109,
+        "fractionOfMain": 0.0022,
+        "bbox": [
+          421,
+          373,
+          434,
+          392
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 3212,
+        "fractionOfMain": 0.0635,
+        "bbox": [
+          335,
+          451,
+          434,
+          526
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [],
+    [
+      {
+        "pixels": 361,
+        "fractionOfMain": 0.0062,
+        "bbox": [
+          0,
+          439,
+          37,
+          452
+        ],
+        "touchesCellEdge": true
+      }
+    ]
+  ],
+  "airborneFrames": [
+    3,
+    4
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        18,
+        39,
+        238,
+        229
+      ],
+      "heightPx": 191,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 18,
+        "right": 18,
+        "top": 39
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        32,
+        93,
+        223,
+        229
+      ],
+      "heightPx": 137,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 32,
+        "right": 33,
+        "top": 93
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        26,
+        49,
+        229,
+        204
+      ],
+      "heightPx": 156,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 26,
+        "right": 27,
+        "top": 49
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        16,
+        86,
+        240,
+        204
+      ],
+      "heightPx": 119,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 86
+      }
+    },
+    {
+      "frame": 5,
+      "bbox": [
+        22,
+        49,
+        233,
+        229
+      ],
+      "heightPx": 181,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 22,
+        "right": 23,
+        "top": 49
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    21166,
+    20606,
+    18802,
+    19568
+  ],
+  "qaResult": "OK",
+  "checkerMode": "air",
+  "checker": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの61%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.779,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\真田幸村_前方回避_5コマ_v2_candidate1-final-componentclean.gif",
+    "frameCount": 5,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\decoded-contact.png"
+  },
+  "visualReview": "全コマ目視。後退または前方回避の姿勢連続性、右向き、武器・手持ち、接地/浮き、16px余白、セル間の他ポーズの断片がないこと、純マゼンタ背景を確認。",
+  "gitCommit": "83ad4822a95f476b99817cb516e78f1c3ba40bcf",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "fd8d47107748fcd7b4ee8da55e8c2d836ba66c92",
+  "gitSha256": "c0840acd7d4cd713e55e6b49079857a5197dffa88fce24442d18fab06ce5b75d",
+  "remoteSha256Matches": true,
+  "gitBytes": 204661,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:33:07+09:00"
+}

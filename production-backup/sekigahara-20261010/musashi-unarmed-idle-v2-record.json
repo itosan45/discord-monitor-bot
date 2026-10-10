@@ -1,0 +1,138 @@
+{
+  "name": "宮本武蔵_手ぶら_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5271cd8e-542e-4444-a399-95ba5b938422.png",
+  "status": "git_verified",
+  "scale": 0.29796511627906974,
+  "standingHeightSource": 688.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        61,
+        17,
+        457,
+        705
+      ],
+      "destination": [
+        69,
+        26,
+        118,
+        205
+      ],
+      "scale": 0.29796511627906974,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        579,
+        10,
+        1007,
+        705
+      ],
+      "destination": [
+        64,
+        24,
+        128,
+        207
+      ],
+      "scale": 0.29796511627906974,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1157,
+        18,
+        1535,
+        705
+      ],
+      "destination": [
+        71,
+        26,
+        113,
+        205
+      ],
+      "scale": 0.29796511627906974,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1691,
+        17,
+        2082,
+        705
+      ],
+      "destination": [
+        69,
+        26,
+        117,
+        205
+      ],
+      "scale": 0.29796511627906974,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "ca083e1a035c169c03d178056fabef5e3b1865513ffa9ef219e841413725eef4",
+  "backgroundSource": [
+    235,
+    24,
+    236
+  ],
+  "sourceIndices": null,
+  "groupCenters": "260,790,1345,1885",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_手ぶら_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_手ぶら_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14484,
+    14717,
+    13539,
+    12991
+  ],
+  "qaResult": "OK",
+  "qaRecord": "musashi-unarmed-idle-v2-record.json",
+  "candidate": 1,
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "visualReview": "設定画の右向き武蔵を目視照合。両刀と腰武器は完全になく、空の両拳は持ち替え用の前後グリップ位置を維持。4コマに呼吸・布・鉢巻の差分、頭身・接地・衣装と側面向きを確認。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  },
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

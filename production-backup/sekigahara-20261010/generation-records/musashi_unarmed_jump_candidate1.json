@@ -1,0 +1,131 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1c61ffa4-2628-445f-8c54-3226f7e0db9b.png",
+  "sourceSha256": "2b063677f5fbc707b1e6c6036b308451284cc16031684e58e61b5da5178d6951",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: 宮本武蔵_手ぶら_ジャンプ_4コマ_v2.png; unarmed jump: low crouch, take-off, tucked apex, descending pose with legs lowered/extended. Follow the provided character setting sheet and unarmed idle sprite style. No weapon or banner; exact four-cell horizontal sprite strip.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/宮本武蔵_設定画.png",
+    "assets/sprites/宮本武蔵_手ぶら_待機_4コマ_v2.png"
+  ],
+  "requestedName": "宮本武蔵_手ぶら_ジャンプ_4コマ_v2.png",
+  "actualName": "宮本武蔵_手ぶら_ジャンプ_4コマ_v2_candidate1-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_ジャンプ_4コマ_v2_candidate1-normalized.png",
+  "sha256": "5852d3804b7f902e068481b9fdaa6d7cc06d9e1a37f06358e94cabf2b71057ed",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellSize": [
+      543,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.35359116022099446,
+    "yOffsets": [
+      -4,
+      -3,
+      2,
+      -3
+    ],
+    "description": "Four equal-width source cells uniformly scaled to 192x256 and centered in 256x256 output cells; pose-specific vertical translation preserves the jump arc and >=16px apex clearance. Magenta-family background converted to exact RGB(255,0,255)."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        57,
+        77,
+        187,
+        230
+      ],
+      "heightPx": 153,
+      "bottomY": 229
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        65,
+        32,
+        192,
+        231
+      ],
+      "heightPx": 199,
+      "bottomY": 230
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        62,
+        16,
+        181,
+        168
+      ],
+      "heightPx": 152,
+      "bottomY": 167
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        57,
+        31,
+        202,
+        231
+      ],
+      "heightPx": 200,
+      "bottomY": 230
+    }
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_jumps_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_jumps_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。復号コンタクトシート全4コマを目視し、文字・字幕なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_jumps_candidate1\\宮本武蔵_手ぶら_ジャンプ_4コマ_v2_80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "aeb64e67f8e459955d7f85f8d39a64be51da024e69a2670089f56c521bd84219",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_jumps_candidate1\\宮本武蔵_手ぶら_ジャンプ_4コマ_v2_gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "深いしゃがみ→踏切→膝を畳んだ頂点→片脚を前下へ伸ばす降下。白鉢巻・野良着の宮本武蔵、右向き、素手を確認。GIF復号全4コマで縮尺・輪郭・セル分離を確認。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%",
+    "OK 人物の高さ（中央値）はセルの68%。ジャンプ動作のため通常立ち姿より低いコマを含む。",
+    "OK 全項目。セル分離、16px余白、文字有無は復号コマで目視確認。"
+  ],
+  "automaticPass": true,
+  "gitCommit": "caf9b742f7001288178ab2b42416a04876217a81",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteSha256": "5852d3804b7f902e068481b9fdaa6d7cc06d9e1a37f06358e94cabf2b71057ed",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 139107,
+  "completedAt": "2026-10-07T10:16:23+09:00"
+}

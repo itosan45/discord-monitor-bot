@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-60b2bca8-5344-4bbd-b15a-5ace18059895.png",
+  "prompt": "Repairtwoerrors inthis4framegunnergetup. FRAME2 seatedpalmpush currentlyTHREEHANDS: rightpalmontheground behindhip, leftforestockhand, andEXTRAHANDatgunstockwaist. REMOVEEXTRAHANDATWAIST/GUNSTOCK anditsduplicatedforearm. ExactlyTWOARMS: RIGHTshoulder→armdownback→RIGHTPALMground; LEFTshoulder→LEFTforearmforward→LEFTHANDforestockholdinggun. Gunstockrestsagainstlapwithoutthirdhand. FRAME3 kneelingrearfoot atlowerLEFT pointsLEFTincorrect: redrawstrictSIDEPROFILEtoeRIGHT heelLEFT, ankletosandal toRIGHT, no frontrowtoescamera. Keepkneegrounded sameleglength. Allbodyheadarmorhatpouchesgun scaleand4poses unchanged. SameblackmoustachechinSTUBBLE all4, noearrings. Fourcompletefigures horizontalequalcells pureopaque#FF00FF no textgridshadowborder.",
+  "attempt": 2,
+  "status": "candidate_extra_hand_not_resolved"
+}

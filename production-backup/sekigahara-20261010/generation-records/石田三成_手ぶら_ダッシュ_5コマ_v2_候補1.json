@@ -1,0 +1,106 @@
+{
+  "name": "石田三成_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8ebb27f9-3de4-4e61-8206-8ea7f3f1f10d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5125858123569794,
+  "sourceBounds": [
+    [
+      105,
+      15,
+      393,
+      427
+    ],
+    [
+      646,
+      15,
+      989,
+      422
+    ],
+    [
+      1254,
+      15,
+      1658,
+      427
+    ],
+    [
+      74,
+      467,
+      511,
+      861
+    ],
+    [
+      706,
+      463,
+      1001,
+      861
+    ]
+  ],
+  "placements": [
+    [
+      54,
+      19,
+      148,
+      211
+    ],
+    [
+      40,
+      21,
+      176,
+      209
+    ],
+    [
+      24,
+      19,
+      207,
+      211
+    ],
+    [
+      16,
+      28,
+      224,
+      202
+    ],
+    [
+      52,
+      26,
+      151,
+      204
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "4e48aba166c3b601a453ac787113f15f08e0d6f774201245d997fd5dcf4f7628",
+  "visualApproved": true,
+  "visualReview": "All decoded frames and idle comparison reviewed: identity, empty paired fists, banner, ground, margins and no effects retained. Forward lunge and fist extension visible; alternating leg exchange remains weak. Not verified as a cyclic run.",
+  "motionCaution": "Alternating leg exchange weak; dash lunge rather than full running cycle.",
+  "gitVerified": true,
+  "gitCommit": "4af87271d42ab5a2a8ce080516f589f682c2bcdf",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "4e48aba166c3b601a453ac787113f15f08e0d6f774201245d997fd5dcf4f7628",
+  "prompt": "FIVE chronological full-body frames of Ishida Mitsunari UNARMED RUNNING DASH THRUST. Exact reference1 face/gold fan HELMET crest/purple-gold surcoat/olive armor/cream sleeves, REQUIRED cream bamboo-mounted back banner 大一大万大吉 visible EVERY frame. Reference2 anatomy scale only, ignore its absent banner. No gun/handfan/sword/scabbard/stick/weapon, EMPTY paired clenched fists. ALL face RIGHT.1 low anticipation rear weight, fists waist.2 rear FAR foot pushes ground, NEAR knee drives forward with lifted boot, torso leans right, fists start extending.3 NEAR foot now planted under hip and FAR knee swings past to front with lifted boot: visibly exchange near/far legs, both fists thrust right.4 FAR foot plants in compact front lunge, NEAR foot behind heel raised/toes onground; BOTH arms extended TWO stacked close fists.5 brake and collect rearfoot, recoil waist guard. At leastONE supporting foot touches sameground in each frame, no airborne leap. Real leg passage/hips weight transfer, not same lunge5times. Identical head/torso/limb scale. Compact stride, cloak/cloth stay close, width inclhands<=head-to-sole height. Full crest/flag/hands/feet in separate frames. Pure #FF00FF, no effects/speedlines/shadows/flames/UI/labels/numbers. Intermediate3x2 atlas5figures row-major bottom-rightblank, squarecells largegutters NOgrid. Body80%height, ground90%, pack1280x256.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:49:39.378442+09:00"
+}

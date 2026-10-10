@@ -1,0 +1,28 @@
+{
+  "commit": "858b57927107361310e5c23134302aa57eb8a324",
+  "remote": "858b57927107361310e5c23134302aa57eb8a324",
+  "verifiedAt": "2026-10-06T15:24:14.569088+00:00",
+  "assets": [
+    {
+      "taskName": "拾得武器_弓矢_v1.png",
+      "name": "拾得武器_弓矢_v1.png",
+      "sha256": "09a696b56dac285453545b724f9d1b4e8a748bf5c0a3338831ea15a2be3364a4",
+      "qaResult": "OK",
+      "record": "pickup-bow-arrows-record.json"
+    },
+    {
+      "taskName": "拾得武器_斧_v1.png",
+      "name": "拾得武器_斧_v1.png",
+      "sha256": "02d499a2406f2bf7e6cef4eaaee8d2af262b751e64b2aee241910600c25f7951",
+      "qaResult": "OK",
+      "record": "pickup-axe-record.json"
+    },
+    {
+      "taskName": "拾得武器_竹槍_v1.png",
+      "name": "拾得武器_竹槍_v1.png",
+      "sha256": "96efd6df5e16be91a5b685103579d3c94f87d2bf1a5a92c385fc4d379bc92a42",
+      "qaResult": "要注意",
+      "record": "pickup-bamboo-spear-record.json"
+    }
+  ]
+}

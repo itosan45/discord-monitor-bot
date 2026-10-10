@@ -1,0 +1,105 @@
+{
+  "name": "石田三成_手ぶら_攻撃C_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-2d2218f3-398e-4d08-8694-5d685a0ff01e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_手ぶら_攻撃C_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4491525423728814,
+  "sourceBounds": [
+    [
+      76,
+      22,
+      429,
+      487
+    ],
+    [
+      591,
+      85,
+      968,
+      487
+    ],
+    [
+      1072,
+      23,
+      1464,
+      487
+    ],
+    [
+      63,
+      525,
+      445,
+      997
+    ],
+    [
+      588,
+      533,
+      941,
+      998
+    ]
+  ],
+  "placements": [
+    [
+      48,
+      21,
+      159,
+      209
+    ],
+    [
+      43,
+      49,
+      169,
+      181
+    ],
+    [
+      40,
+      22,
+      176,
+      208
+    ],
+    [
+      42,
+      18,
+      172,
+      212
+    ],
+    [
+      48,
+      21,
+      159,
+      209
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "166726de13dd4b029e8e5c2cc3fc8cf76c0470f7afa004486c4bd2523f13da38",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison: low rear windup, rising swing, high finish and guard recovery. Gold fan helmet crest, purple gold surcoat, olive armor, cream sleeves and cream bamboo-mounted back banner retained, EMPTY hands, right-facing, grounded soles230px, no effects/clipping/neighbor contamination. Common anatomical scale; bent knees and foreshortening change silhouette height. OCR empty.",
+  "gitVerified": true,
+  "gitCommit": "4366d988de90f68d705f5ddcd866ef4108778fb5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "166726de13dd4b029e8e5c2cc3fc8cf76c0470f7afa004486c4bd2523f13da38",
+  "prompt": "FIVE-frame game animation of Ishida Mitsunari UNARMED two-handed upward diagonal swing. Reference1 exact face/physique/gold fan-shaped HELMET crest, purple-gold surcoat, olive armor, cream sleeves and cream back banner with its existing black emblem. Reference2 existing unarmed idle anatomy and scale. Hands EMPTY clenched fists together like imaginary two-handed sword grip, NO gun, fan in hand, sword, stick or weapon.1 low combat ready fists near waist;2 crouch and wind both fists LOW beside rear hip;3 straighten knees and swing paired fists diagonally UP across chest toward RIGHT;4 strong HIGH finish with both fists above front shoulder upper-right, both soles still grounded;5 recoil hands waist and settle guard. All face RIGHT, feet on ground in every pose, no jumping. Weight transfer and shoulders/hips turn, distinct low-high arm positions, same anatomical size. Entire helmet crest, back banner, surcoat, hands and boots inside each frame. Pure #FF00FF, no effects, light, slash arcs, flames, shadow, numbers, labels or UI. FIVE full-body figures arranged intermediate3columns x2rows ATLAS, row-major order, last bottom-right slot blank. Square cells, generous blank gutters, NO grid lines. Helmet-to-sole80%cellheight, soles90%. Will pack into1280x256.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:10:10.590847+09:00"
+}

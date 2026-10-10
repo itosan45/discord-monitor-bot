@@ -1,0 +1,126 @@
+{
+  "name": "敵_足軽槍_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-fc725fa8-c96c-4cf4-bfc6-5674d3036930.png",
+  "status": "drive_verified",
+  "scale": 0.41836734693877553,
+  "standingHeightSource": 490.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        76,
+        100,
+        377,
+        604
+      ],
+      "destination": [
+        65,
+        20,
+        126,
+        211
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        618,
+        190,
+        945,
+        614
+      ],
+      "destination": [
+        59,
+        54,
+        137,
+        177
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1095,
+        383,
+        1582,
+        610
+      ],
+      "destination": [
+        26,
+        136,
+        204,
+        95
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1624,
+        429,
+        2141,
+        617
+      ],
+      "destination": [
+        20,
+        152,
+        216,
+        79
+      ],
+      "scale": 0.41836734693877553,
+      "ground": 230
+    }
+  ],
+  "sha256": "c12450ee1f407e18e5c881e0275db2570ab1484d8aa30b84427d1ab1e7721757",
+  "backgroundSource": [
+    242,
+    24,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの53%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    16638,
+    16324,
+    12649,
+    17173
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽槍_やられ_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽槍_やられ_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "成功・文字なし",
+  "acceptanceBasis": "修正上限後の最良案。高さ中央値53%NG。倒れた体を拡大せず全コマ共通縮尺維持。槍の置き方と持ち替えの連続性は要注意。",
+  "visualReview": "GIF4コマ目視。後傾よろめき→槍放して膝崩れ→臀部から倒れる→仰向け静止。全槍先端、全身右向き、共通縮尺、余白16pxを確認。高さ中央値53%NG。槍が身体上へ来る連続性は要注意。",
+  "driveId": "1Bf--My7G3kjh9Ex4kjy_HSHErfaBhzRX",
+  "readbackSha256": "c12450ee1f407e18e5c881e0275db2570ab1484d8aa30b84427d1ab1e7721757",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

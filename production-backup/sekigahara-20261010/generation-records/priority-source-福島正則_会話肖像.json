@@ -1,0 +1,11 @@
+{
+  "name": "福島正則_会話肖像.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-dca4e7e2-1897-4e41-9dad-90ef2681ad13.png",
+  "prompt": "Make a localized crest correction ONLY to reference1 dialogue portrait of 福島正則. Reference2 is the original exact character design. Preserve every aspect of reference1: left-facing face, helmet shape, armor colors, hair, shoulders, lighting, square chest-up composition and transparent alpha. The generated portrait incorrectly copied Tokugawa three-leaf aoi crests from a style reference. Replace ALL three-leaf aoi emblems on helmet/chest/shoulders with gold five-petal plum blossom crests EXACTLY matching the same emblem in original character reference2. Five rounded petals around small round center, not three leaves. Match original emblem metal colors. Do not change face, expression, armor shape, pose, crop or dimensions.1254x1254 transparent PNG, no text, effects or background.",
+  "size": [
+    1254,
+    1254
+  ],
+  "transparent": true,
+  "candidateCount": 2
+}

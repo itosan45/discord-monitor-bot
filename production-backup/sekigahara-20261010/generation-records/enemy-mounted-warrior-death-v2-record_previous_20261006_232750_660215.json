@@ -1,0 +1,125 @@
+{
+  "name": "敵_騎馬武者_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-6ca46cd6-7618-4889-b21a-97280ba36914.png",
+  "status": "candidate",
+  "scale": 0.614,
+  "standingHeightSource": 500.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        16,
+        229,
+        544,
+        510
+      ],
+      "destination": [
+        30,
+        174,
+        324,
+        173
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        568,
+        274,
+        1079,
+        505
+      ],
+      "destination": [
+        35,
+        205,
+        314,
+        142
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1100,
+        246,
+        1605,
+        508
+      ],
+      "destination": [
+        37,
+        186,
+        310,
+        161
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 344
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1637,
+        318,
+        2154,
+        505
+      ],
+      "destination": [
+        33,
+        232,
+        317,
+        115
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 343
+    }
+  ],
+  "sha256": "e9ec53d42b9870f94e389d0cb6ebf256369698123155bc81c8dfd2ec6e154a63",
+  "backgroundSource": [
+    242,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "groupCenters": "240,765,1330,1860",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの39%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    36131,
+    28577,
+    28061,
+    36991
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_やられ_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_やられ_4コマ_v2_GIF復号確認.png"
+  }
+}

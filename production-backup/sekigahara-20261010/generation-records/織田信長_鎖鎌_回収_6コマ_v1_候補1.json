@@ -1,0 +1,126 @@
+{
+  "name": "織田信長_鎖鎌_回収_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-7bb433a2-4de6-4e9f-9a78-de981badfcc7.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_鎖鎌_回収_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.503562945368171,
+  "sourceBounds": [
+    [
+      30,
+      154,
+      379,
+      574
+    ],
+    [
+      396,
+      154,
+      725,
+      574
+    ],
+    [
+      729,
+      154,
+      1070,
+      575
+    ],
+    [
+      1077,
+      154,
+      1409,
+      574
+    ],
+    [
+      1433,
+      154,
+      1773,
+      574
+    ],
+    [
+      1791,
+      154,
+      2133,
+      574
+    ]
+  ],
+  "placements": [
+    [
+      40,
+      19,
+      176,
+      211
+    ],
+    [
+      45,
+      19,
+      166,
+      211
+    ],
+    [
+      42,
+      18,
+      172,
+      212
+    ],
+    [
+      44,
+      19,
+      167,
+      211
+    ],
+    [
+      42,
+      19,
+      171,
+      211
+    ],
+    [
+      42,
+      19,
+      172,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "c1c99d2a39b3014586261d6058ce5ce1546174b0ae9922f6deeec6e220a192cc",
+  "prompt": "undefined\n Candidate2 chainconnection repair only.",
+  "char": "織田信長",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "二腕二手、奥手鎌・手前鎖を全6コマ確認。",
+    "胸の円紋内部が待機の意匠と異なる。人物が待機よりわずかに大きめ。",
+    "6コマで分銅を握らず吊った状態。旋回接続に調整余地。",
+    "鎖が柄の刃側寄りに接続して見える箇所あり。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "a89b097b84eddd2ba93f3f2098c187d411111c1e",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c1c99d2a39b3014586261d6058ce5ce1546174b0ae9922f6deeec6e220a192cc",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:01:57.347131+09:00"
+}

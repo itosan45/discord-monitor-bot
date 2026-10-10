@@ -1,0 +1,166 @@
+{
+  "name": "敵_鉄砲足軽_攻撃_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_攻撃_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-cfafb2f2-41fd-4ab8-b774-093099f5aaa6.png",
+  "status": "candidate",
+  "scale": 0.47674418604651164,
+  "standingHeightSource": 430.0,
+  "standingHeightTarget": 205,
+  "n": 6,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        42,
+        205,
+        345,
+        572
+      ],
+      "destination": [
+        56,
+        56,
+        144,
+        175
+      ],
+      "scale": 0.47674418604651164,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        376,
+        197,
+        718,
+        572
+      ],
+      "destination": [
+        46,
+        52,
+        163,
+        179
+      ],
+      "scale": 0.47674418604651164,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        723,
+        203,
+        1078,
+        572
+      ],
+      "destination": [
+        43,
+        55,
+        169,
+        176
+      ],
+      "scale": 0.47674418604651164,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1091,
+        203,
+        1479,
+        572
+      ],
+      "destination": [
+        35,
+        55,
+        185,
+        176
+      ],
+      "scale": 0.47674418604651164,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1482,
+        190,
+        1826,
+        572
+      ],
+      "destination": [
+        46,
+        49,
+        164,
+        182
+      ],
+      "scale": 0.47674418604651164,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1835,
+        204,
+        2139,
+        572
+      ],
+      "destination": [
+        55,
+        56,
+        145,
+        175
+      ],
+      "scale": 0.47674418604651164,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "6887126f8cf590f6bf228727e9b0bf2febd9327597f4560e09b608d6b0275bc4",
+  "backgroundSource": [
+    243,
+    21,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    13817,
+    12435,
+    13698,
+    15584,
+    13865,
+    11489
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_攻撃_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_攻撃_6コマ_v2_GIF復号確認.png"
+  }
+}

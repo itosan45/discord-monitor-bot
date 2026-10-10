@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-c9197727-0dcd-4c8d-bd84-062dcf08aae8.png",
+  "prompt": "Edit this blue armored ashigaru spear soldier TWO-frame hit-reaction animation. Preserve exact face, anatomy, black cone helmet, black lamellar armor, blue cloth, straw sandals. Frame1 impact flinch with chest leaning backward and knees absorbing force, both hands holding complete spear; frame2 recovers low combat guard, torso leaned forward, weight stable. Keep spear inclined only about25 degrees above horizontal, below helmet-top height, full blade and butt inside own square. Do not shrink soldier or shorten weapon to fit. Same body anatomy/scale in both frames, standing equivalent80% cellheight. Two equally spaced square cells horizontal, one whole soldier/action per cell, all face and toe tips right, generous16px equivalent margins, pure solid #FF00FF opaque background no text shadows border. Actual hit-and-recovery movement in hips/knees/arms, not rotated portrait.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "回復アイテム_酒_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce any people.\nComposition/framing: one complete object centered in one square 256x256 game cell, resting on the ground and occupying about 70-80% of the canvas, at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, period materials, consistent with Image 1.\nScene/backdrop: perfectly flat pure RGB(255,0,255) magenta (#FF00FF), no floor or cast shadow.\nConstraints: one pickup only, fully visible and physically plausible; no hands/characters, no text/letters/numbers/labels, border, extra props, glow, or watermark.\nPrimary request: one small traditional ceramic sake flask (tokkuri) as a Sengoku game recovery pickup, sealed with a plain cork or cloth stopper and a simple cord loop. Use a squat durable shape and restrained glaze colors so it reads immediately as sake carried by a warrior.\nMaterials/textures: warm brown glazed ceramic with a few natural highlights, dark stopper, short cord.\nAvoid: cup or extra vessel, modern bottle, label, writing, spills, text.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c7f6dfca-8461-41a9-a37e-f44821c61576.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\回復アイテム_酒_v1.png",
+  "sha256": "e8c3f6e964279b8eb6233c8c83737fa6eeefe8461b73172db4ed54a9231fb817"
+}

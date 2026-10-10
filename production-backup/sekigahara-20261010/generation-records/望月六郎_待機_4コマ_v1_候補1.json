@@ -1,0 +1,94 @@
+{
+  "name": "望月六郎_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-516296a3-ee87-4590-87b4-2ed088acddc5.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\望月六郎_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.31689088191330345,
+  "sourceBounds": [
+    [
+      139,
+      48,
+      429,
+      695
+    ],
+    [
+      675,
+      41,
+      965,
+      695
+    ],
+    [
+      1211,
+      26,
+      1503,
+      695
+    ],
+    [
+      1750,
+      46,
+      2041,
+      695
+    ]
+  ],
+  "placements": [
+    [
+      82,
+      25,
+      92,
+      205
+    ],
+    [
+      82,
+      23,
+      92,
+      207
+    ],
+    [
+      81,
+      18,
+      93,
+      212
+    ],
+    [
+      82,
+      24,
+      92,
+      206
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "9670fa0b1b542b8a90d49e2d3cd3ccf4bc5962bc8de8c2c60db7ae0dc632ff60",
+  "prompt": "Mochizuki Rokuro idle breathing sprite FOUR chronological frames SINGLE HORIZONTAL ROW. EXACT same man/outfit/gear as reference middle RIGHT-facing side: mature thinmustache face, olivebrown headwrap tiedhair, worn olivebrown ninja jacket charcoalpants, red6coins chest, leatherguards wrappedshins sandals, TWOclosed leather powderpouches and bamboo cylinder atbelt, dark sheath left hip, same short steelblade held right hand low angled down-forward. Keep reference blade dimensions and every beltitem allframes. Fixedcamera samebody scale/footpositions/ground, bentknees guarded stance. 1 exhale shoulders low,2 chest expands inhale,3 peak inhale shoulders/head rise2%bodyheight feetfixed,4 settlesnear1. Visible gentle torso breathing, no walk/attack/pouchhandling. Four equal cells amplemagenta gaps, fullhead/blade/pouches/feet within owncell no overlap orclipping. Wholebody~80%cellheight. WidehorizontalPNG pureflat#FF00FF background grittypaintedgameart matchingreference, no effects/fire/smoke/shadow/text/grid/scenery.",
+  "char": "望月六郎",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames reviewed against reference: olive-brown ninja costume/headwrap, pouches and bamboo container, short blade/sheath, right-facing, full head/feet/weapons with margins. Uniform scale and planted ground, inhale2-3/exhale4. OCR detections clothing patterns, no actual text. Blade visually shorter than reference, knee flex shallow and face stubble subtle; cautions recorded. Own idle scale established.",
+  "gitVerified": true,
+  "gitCommit": "343c0080f0535e4370c55d2789fede7f83831c42",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9670fa0b1b542b8a90d49e2d3cd3ccf4bc5962bc8de8c2c60db7ae0dc632ff60",
+  "ocrSuccess": true,
+  "ocrText": "烹 ふ い 一 ザ",
+  "updatedAt": "2026-10-07T15:50:06.870608+09:00"
+}

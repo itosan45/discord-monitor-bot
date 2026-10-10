@@ -1,0 +1,36 @@
+{
+  "name": "拾得武器_斧_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\拾得武器_斧_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3ee2e34c-df52-4e9c-813d-445b0a47b980.png",
+  "status": "candidate",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.17962003454231434,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    48,
+    81,
+    1206,
+    1158
+  ],
+  "destination": [
+    24,
+    37,
+    208,
+    193
+  ],
+  "backgroundSource": [
+    240,
+    23,
+    241
+  ],
+  "foregroundPixels": 204615,
+  "sha256": "02d499a2406f2bf7e6cef4eaaee8d2af262b751e64b2aee241910600c25f7951"
+}

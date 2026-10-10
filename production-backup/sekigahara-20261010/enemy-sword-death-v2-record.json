@@ -1,0 +1,135 @@
+{
+  "name": "敵_足軽刀_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-fa64e5f2-6b07-43e3-8c15-1d891bcb3c86.png",
+  "status": "drive_verified",
+  "scale": 0.44565217391304346,
+  "standingHeightSource": 460.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        83,
+        193,
+        496,
+        568
+      ],
+      "destination": [
+        36,
+        64,
+        184,
+        167
+      ],
+      "scale": 0.44565217391304346,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        607,
+        239,
+        1060,
+        552
+      ],
+      "destination": [
+        27,
+        92,
+        202,
+        139
+      ],
+      "scale": 0.44565217391304346,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 227
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1088,
+        356,
+        1581,
+        551
+      ],
+      "destination": [
+        18,
+        144,
+        220,
+        87
+      ],
+      "scale": 0.44565217391304346,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 226
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1707,
+        382,
+        2130,
+        548
+      ],
+      "destination": [
+        33,
+        157,
+        189,
+        74
+      ],
+      "scale": 0.44565217391304346,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 226
+    }
+  ],
+  "sha256": "f71196f456310b08b03f869e1935ffcd8410d76a6610db0a005cadcf5d736b56",
+  "backgroundSource": [
+    238,
+    24,
+    239
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの44%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    14655,
+    14779,
+    12106,
+    16854
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_やられ_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_やられ_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 3,
+  "retries": 2,
+  "selectedCandidate": 3,
+  "ocrReview": "成功・文字なし",
+  "qaNote": "高さ中央値44%NG。前折れ、膝、伏せ、横向きに畳む姿勢。立たせたり倒れコマだけ拡大せず共通倍率を維持。落とした刀の接地線修正。",
+  "visualReview": "4コマGIF目視。痛みで前折れ→両膝崩れて刀を落とす→前腕から伏せる→膝と肘を畳み右横向き静止。槍兵と別の倒れ方。共通縮尺、刀鞘全先端、身体最低点226-230px、余白16px確認。高さ中央値44%NGで要注意。",
+  "driveId": "13_kh3NYjD2_6IjjiG6XZWwrot3B9IXk0",
+  "readbackSha256": "f71196f456310b08b03f869e1935ffcd8410d76a6610db0a005cadcf5d736b56",
+  "deliveryRole": "superseded_reference",
+  "supersededByName": "敵_足軽刀_やられ_4コマ_v2_再生成版.png",
+  "supersededByDriveId": "1jhfVedlq4DBSz-x0I0nenTXWzU3opva0"
+}

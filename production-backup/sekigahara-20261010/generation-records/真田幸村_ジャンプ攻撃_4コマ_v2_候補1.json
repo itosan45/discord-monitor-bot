@@ -1,0 +1,21 @@
+{
+  "name": "真田幸村_ジャンプ攻撃_4コマ_v2.png",
+  "candidate": 1,
+  "status": "qa_passed",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d9d6327a-6dd6-470b-a43d-6998915e1d9e.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+  "action": "槍の斬り下ろしを行う4コマ武器別ジャンプ攻撃。",
+  "candidateCount": 1,
+  "createdAt": "2026-10-06T16:27:29.029394+00:00",
+  "noDuplicateGeneration": true,
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_ジャンプ攻撃_4コマ_v2.png",
+  "sha256": "22f1f880a361f543c4f29bae4864f056f592a36f334a8f82d12c71aaa78dd2a4",
+  "qaRecord": "yukimura-jump-record.json",
+  "qaResult": "OK",
+  "visualReview": "目視確認: 幸村の赤備え・鹿角兜・六文銭と両手槍を維持。設定画の真田旗印は全コマで背面装備として一貫。槍筋と穂先、全身の余白、6コマの低位置から振り上げ、または4コマの溜め→跳躍→斬り下ろし→着地を確認。OCR後GIF復号画像でも同じ動きを確認。",
+  "ocrReview": {
+    "name": "真田幸村_ジャンプ攻撃_4コマ_v2.png",
+    "text": "",
+    "success": true
+  }
+}

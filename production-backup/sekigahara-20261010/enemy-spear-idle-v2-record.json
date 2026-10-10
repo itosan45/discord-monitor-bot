@@ -1,0 +1,111 @@
+{
+  "name": "敵_足軽槍_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-6764095c-2607-416c-83c4-14087f098bd1.png",
+  "status": "drive_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        42,
+        129,
+        499,
+        582
+      ],
+      "destination": [
+        24,
+        25,
+        208,
+        206
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        579,
+        128,
+        1045,
+        582
+      ],
+      "destination": [
+        22,
+        24,
+        212,
+        207
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1125,
+        130,
+        1588,
+        582
+      ],
+      "destination": [
+        22,
+        25,
+        211,
+        206
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1668,
+        129,
+        2127,
+        582
+      ],
+      "destination": [
+        23,
+        25,
+        209,
+        206
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    }
+  ],
+  "sha256": "dc3c85ad09d645edd84f8a1f750c2bed03d06b3c9dcad1aafdebbc065a3443cc",
+  "backgroundSource": [
+    243,
+    23,
+    243
+  ],
+  "sourceIndices": null,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    12260,
+    11993,
+    12246,
+    11915
+  ],
+  "qaResult": "OK",
+  "motionPass": true,
+  "attempts": 1,
+  "retries": 0,
+  "scaleReview": "Same head/torso dimensions as previous QA idle; common multiplier0.45556 across all4, head/shoulders breathe1-2px; feet230",
+  "visualReview": "4コマ全て微差あり、胸と肩の上下1-2px・布の微揺れ。4→1も同一画像ではなく自然に復帰。黒い陣笠、青服、黒甲冑、両手の槍、右向きと全身・槍先を設定画と比較。自動全項目OK・OCR成功文字なし。全コマ共通縮尺、足元230px、端16px以上、全外周純マゼンタ。",
+  "driveId": "1mgKsstrBT59kXohZNKIbKGMJDQizPZ6x",
+  "readbackSha256": "dc3c85ad09d645edd84f8a1f750c2bed03d06b3c9dcad1aafdebbc065a3443cc",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

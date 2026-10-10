@@ -1,0 +1,268 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0dfa1845-abcc-415d-b9b9-2cc2b023b917.png",
+  "sourceSha256": "872750efa2640cbab15eab812534e22930fe154b005dc9ee706ab90647fb31a0",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "sourceCellEdges": [
+    0,
+    543,
+    1086,
+    1629,
+    2172
+  ],
+  "prompt": "One candidate only. Preserve identity, armor, colors, face, right-facing orientation and katana using the three references. Exact 4-frame left-to-right animation: ready crouch, shift weight and lean back, hop backward left while facing right, land in low stable guard. Same character scale and visual finish in every equal 256px cell. Keep the entire body and weapon inside each cell. Exact flat magenta background. No additional characters, attacker, projectiles, text, watermark or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/織田信長_設定画.png",
+    "assets/sprites/織田信長_ガード構え_2コマ_v2.png",
+    "assets/sprites/織田信長_ガード解除_2コマ_v2.png"
+  ],
+  "requestedName": "織田信長_後退回避_4コマ_v2.png",
+  "actualName": "織田信長_後退回避_4コマ_v2_candidate1-final-componentclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_後退回避_4コマ_v2_candidate1-final-componentclean.png",
+  "sha256": "c9ce7b09f736361674ae19203cb060871b972a6e81a0e19825536c292e6025a1",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellEdges": [
+      0,
+      543,
+      1086,
+      1629,
+      2172
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.4202626641651032,
+    "placement": "Common uniform scale; separate source cells by magenta key; remove disconnected components smaller than 10% of main figure; center each figure in its cell. Grounded frames baseline y=229; airborne frames raised to y=204; exact RGB(255,0,255) key background."
+  },
+  "sourceFrameBboxes": [
+    [
+      14,
+      160,
+      533,
+      641
+    ],
+    [
+      4,
+      142,
+      524,
+      638
+    ],
+    [
+      0,
+      79,
+      533,
+      501
+    ],
+    [
+      0,
+      229,
+      528,
+      645
+    ]
+  ],
+  "removedSmallComponents": [
+    [],
+    [
+      {
+        "pixels": 372,
+        "fractionOfMain": 0.0036,
+        "bbox": [
+          535,
+          240,
+          543,
+          301
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 929,
+        "fractionOfMain": 0.0102,
+        "bbox": [
+          503,
+          377,
+          543,
+          424
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 2635,
+        "fractionOfMain": 0.0289,
+        "bbox": [
+          497,
+          414,
+          543,
+          521
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 5,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          541,
+          487,
+          543,
+          491
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 56,
+        "fractionOfMain": 0.0006,
+        "bbox": [
+          537,
+          530,
+          543,
+          544
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 1423,
+        "fractionOfMain": 0.0156,
+        "bbox": [
+          504,
+          589,
+          543,
+          645
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    []
+  ],
+  "airborneFrames": [
+    3
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        19,
+        28,
+        237,
+        229
+      ],
+      "heightPx": 202,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 19,
+        "right": 19,
+        "top": 28
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        18,
+        22,
+        237,
+        229
+      ],
+      "heightPx": 208,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 18,
+        "right": 19,
+        "top": 22
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        16,
+        28,
+        240,
+        204
+      ],
+      "heightPx": 177,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 28
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        17,
+        55,
+        239,
+        229
+      ],
+      "heightPx": 175,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 17,
+        "right": 17,
+        "top": 55
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    23873,
+    23743,
+    23458
+  ],
+  "qaResult": "OK",
+  "checkerMode": "air",
+  "checker": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの74%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.7347,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\織田信長_後退回避_4コマ_v2_candidate1-final-componentclean.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\decoded-contact.png"
+  },
+  "visualReview": "全コマ目視。後退または前方回避の姿勢連続性、右向き、武器・手持ち、接地/浮き、16px余白、セル間の他ポーズの断片がないこと、純マゼンタ背景を確認。",
+  "gitCommit": "83ad4822a95f476b99817cb516e78f1c3ba40bcf",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "a0c6b8ef56636937584adde21e097ce30f77d017",
+  "gitSha256": "c9ce7b09f736361674ae19203cb060871b972a6e81a0e19825536c292e6025a1",
+  "remoteSha256Matches": true,
+  "gitBytes": 193679,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:33:07+09:00"
+}

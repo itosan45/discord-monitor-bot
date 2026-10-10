@@ -1,0 +1,17 @@
+{
+  "name": "織田信長_ダッシュ_5コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_scale_bounds",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-7b16b798-e212-4eea-b1ba-380347593dd1.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_設定画.png",
+  "action": "ダッシュ",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07",
+  "noDuplicateGeneration": true,
+  "rawSourceSha256": "786a13ae77538f660cec9bd0ef3efae53624f8baa6e2d27ef1149f5bc5e54cbe",
+  "sourceDimensions": "1983x793",
+  "prompt": "Create exactly ONE game-ready horizontal sprite strip for Oda Nobunaga, using the attached setting sheet strictly as character design reference. Image dimensions exactly 1280x256: five equal 256x256 square cells in one row. One full-body Oda in each cell, facing right in strict side view. Preserve the same adult face, black kabuto with gold crescent crest, black lacquer armor with crimson lacing and gold trim, red cape, black banner with gold crest and white vertical 天下布武, black trousers and greaves, painted dark red-black-gold arcade beat-em-up style. Five-frame DASH with a drawn katana thrust forward, not gun attack: 1 low ready lean with katana drawn and trailing; 2 push-off and forward knee rises; 3 low running lunge, rightward katana thrust at full extension; 4 follow-through with leading foot landing and cape trailing; 5 recover into low forward-ready run pose, flowing toward frame 1. Keep anatomy and head/torso/limb size constant. Entire silhouette, banner, cape and sword inside each cell with 16px clearance. Feet y=230 in all cells; standing-equivalent person height about205px. Flat pure #FF00FF background, no floor, shadow, gradients, extra characters/objects/text/labels, or cross-cell overlap.",
+  "rejectionReason": "候補1は、人物の立ち姿相当205pxへ正規化すると旗を含む全景が約238px高となり、地面y=230と上端16px余白を同時に守れない。全体を縮小すると人物自体が他の信長素材より小さくなるため不採用。再生成しない。",
+  "visualReview": "5姿勢・刀・旗・衣装・右向きは確認。幅広い前方突きと高い旗を含む連結シルエットが256pxセルの16px余白内に収まらず、規格縮尺を維持できない。",
+  "noRegeneration": true
+}

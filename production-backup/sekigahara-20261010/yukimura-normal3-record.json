@@ -1,0 +1,182 @@
+{
+  "name": "真田幸村_通常3_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常3_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0a752924-ee5e-494c-82d6-4f742201edde.png",
+  "status": "git_verified",
+  "scale": 0.3451178451178451,
+  "standingHeightSource": 594.0,
+  "standingHeightTarget": 205,
+  "n": 6,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        9,
+        254,
+        354,
+        664
+      ],
+      "destination": [
+        68,
+        90,
+        119,
+        141
+      ],
+      "scale": 0.3451178451178451,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        357,
+        192,
+        784,
+        664
+      ],
+      "destination": [
+        54,
+        68,
+        147,
+        163
+      ],
+      "scale": 0.3451178451178451,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        704,
+        91,
+        1115,
+        664
+      ],
+      "destination": [
+        57,
+        33,
+        142,
+        198
+      ],
+      "scale": 0.3451178451178451,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1049,
+        56,
+        1524,
+        664
+      ],
+      "destination": [
+        46,
+        21,
+        164,
+        210
+      ],
+      "scale": 0.3451178451178451,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1421,
+        133,
+        1935,
+        664
+      ],
+      "destination": [
+        39,
+        48,
+        177,
+        183
+      ],
+      "scale": 0.3451178451178451,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1722,
+        153,
+        2165,
+        664
+      ],
+      "destination": [
+        51,
+        55,
+        153,
+        176
+      ],
+      "scale": 0.3451178451178451,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "2c3c3f0a8686e4efd90364ab9c94e49724b28e70a2bb0b402fd16070e40f68f3",
+  "backgroundSource": [
+    232,
+    26,
+    234
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    13003,
+    12445,
+    16119,
+    16599,
+    14136,
+    12601
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\真田幸村_通常3_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\真田幸村_通常3_6コマ_v2_GIF復号確認.png"
+  },
+  "actualName": "真田幸村_通常3_6コマ_v2.png",
+  "qaResult": "OK",
+  "visualReview": "目視確認: 幸村の赤備え・鹿角兜・六文銭と両手槍を維持。設定画の真田旗印は全コマで背面装備として一貫。槍筋と穂先、全身の余白、6コマの低位置から振り上げ、または4コマの溜め→跳躍→斬り下ろし→着地を確認。OCR後GIF復号画像でも同じ動きを確認。",
+  "ocrReview": {
+    "name": "真田幸村_通常3_6コマ_v2.png",
+    "text": "",
+    "success": true
+  },
+  "reviewDate": "2026-10-07",
+  "manualVisualException": false,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0a752924-ee5e-494c-82d6-4f742201edde.png",
+  "weaponAction": "低く後ろへ構えた槍を前上方へ振り上げる6コマ通常3。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

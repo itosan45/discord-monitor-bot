@@ -1,0 +1,52 @@
+{
+  "hero": "shin",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8714c9b7-dae6-450f-b670-492eadd5da1c.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\mounted-gait-v5-shin\\武田信玄_馬上歩行_4コマ_v5.png",
+  "sourceBounds": [
+    [
+      47,
+      75,
+      501,
+      577
+    ],
+    [
+      44,
+      71,
+      496,
+      578
+    ],
+    [
+      45,
+      72,
+      497,
+      577
+    ],
+    [
+      46,
+      73,
+      496,
+      578
+    ]
+  ],
+  "scale": 0.42209072978303747,
+  "checks": [
+    "OK 純マゼンタの割合 71%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "status": "git_delivered",
+  "gitVerified": true,
+  "motionFullApproved": false,
+  "sha256": "205c02abd4d67045c82a0d7701349f582e95c69cac942fa0161214bed566ac73",
+  "name": "武田信玄_馬上歩行_4コマ_v5.png",
+  "gitCommit": "dc6512c7d2e4d49785e0456399f1b7c50da60913",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "scope": "Four alternating fore/hind support poses and equipment continuity reviewed in decoded GIF and actual mounted scene. Temporal smoothness and idle/attack body continuity remain under review.",
+  "updatedAt": "2026-10-09T08:37:23.256935+09:00"
+}

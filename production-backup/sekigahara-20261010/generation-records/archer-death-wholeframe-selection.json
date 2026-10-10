@@ -1,0 +1,10 @@
+{
+  "sourceFrames": [
+    "candidate4 frame1",
+    "candidate4 frame2",
+    "candidate3 frame3",
+    "candidate3 frame4"
+  ],
+  "operation": "Whole frames only, no character part edits, one common body scale",
+  "attempts": 4
+}

@@ -1,0 +1,137 @@
+{
+  "name": "敵_弓足軽_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_やられ_4コマ_v2.png",
+  "source": "pose-guides\\archer-death-best-wholeframes-4-4-3-3.png",
+  "status": "drive_verified",
+  "scale": 0.4939759036144578,
+  "standingHeightSource": 415.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        80,
+        169,
+        450,
+        568
+      ],
+      "destination": [
+        36,
+        34,
+        183,
+        197
+      ],
+      "scale": 0.4939759036144578,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        599,
+        189,
+        1015,
+        568
+      ],
+      "destination": [
+        25,
+        44,
+        205,
+        187
+      ],
+      "scale": 0.4939759036144578,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1112,
+        381,
+        1605,
+        586
+      ],
+      "destination": [
+        6,
+        130,
+        244,
+        101
+      ],
+      "scale": 0.4939759036144578,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1666,
+        433,
+        2140,
+        586
+      ],
+      "destination": [
+        11,
+        155,
+        234,
+        76
+      ],
+      "scale": 0.4939759036144578,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "15801773dd45aa363445bb0ac10621ac812eb66a15a053fd9fc58e7a39ec4f1e",
+  "backgroundSource": [
+    242,
+    22,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 4,
+  "layoutException": true,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ3: 絵がセルの端から16px以内にある（はみ出し）",
+    "NG コマ4: 絵がセルの端から16px以内にある（はみ出し）",
+    "OK 人物の高さ（中央値）はセルの56%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "NG 外周余白が純マゼンタではない"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    18175,
+    19681,
+    14169,
+    20115
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_弓足軽_やられ_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_弓足軽_やられ_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCRを全4コマ目視照合。装備模様以外に文字なし。",
+  "qaNote": "3修正後、全コマ単位で最良選択（候補4の1/2、候補3の3/4）。部位合成なし、全身共通205/415。寝姿の弓が広く左右余白6/11pxで16px規格NG。人物縮小を避けた最良候補。3/4足先が正面寄り、弓と体の接地差も要注意。",
+  "visualReview": "GIF復号でよろめき、弓を離す、側面へ倒れる、横向き静止を確認。ダウンの仰向けと区別。頭胴同一倍率を保持、弓欠けなし。寝姿の左右余白不足と足先正面寄り・弓体接地差を要注意として記録。",
+  "driveId": "1iu1H-rvoyoqD1gX9GzscXkkoc-WwroEp",
+  "readbackSha256": "15801773dd45aa363445bb0ac10621ac812eb66a15a053fd9fc58e7a39ec4f1e",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

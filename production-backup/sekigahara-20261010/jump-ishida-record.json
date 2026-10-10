@@ -1,0 +1,147 @@
+{
+  "name": "石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3829a035-5dfe-4637-862c-17fa3e45466b.png",
+  "status": "git_verified",
+  "scale": 0.3182735600062102,
+  "standingHeightSource": 644.1,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        32,
+        138,
+        532,
+        694
+      ],
+      "destination": [
+        48,
+        54,
+        159,
+        177
+      ],
+      "scale": 0.3182735600062102,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        572,
+        28,
+        976,
+        635
+      ],
+      "destination": [
+        63,
+        20,
+        129,
+        193
+      ],
+      "scale": 0.3182735600062102,
+      "ground": 212,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 212
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1092,
+        63,
+        1698,
+        618
+      ],
+      "destination": [
+        31,
+        36,
+        193,
+        177
+      ],
+      "scale": 0.3182735600062102,
+      "ground": 212,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 211
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1621,
+        216,
+        2153,
+        694
+      ],
+      "destination": [
+        43,
+        79,
+        169,
+        152
+      ],
+      "scale": 0.3182735600062102,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "61868557e5d2527a1e2d46862616c71255fcd9d74522679163cafde57b2b5c9b",
+  "backgroundSource": [
+    236,
+    23,
+    237
+  ],
+  "sourceIndices": null,
+  "groupCenters": "260,800,1350,1910",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの69%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    20287,
+    20477,
+    22530,
+    18380
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_ジャンプ攻撃_4コマ_追加v1_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_ジャンプ攻撃_4コマ_追加v1_GIF復号確認.png"
+  },
+  "actualName": "石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+  "qaResult": "OK",
+  "visualReview": "目視確認: 三成の紫金甲冑・扇形前立を保持。指定通り左手の鉄扇打ち、火縄銃は腰に保持。溜め→跳躍→扇打ち→着地。初回候補は別人物・刀になったため破棄し、修正版1回を採用。",
+  "ocrReview": {
+    "name": "石田三成_ジャンプ攻撃_4コマ_追加v1.png",
+    "text": "",
+    "success": true
+  },
+  "reviewDate": "2026-10-07",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3829a035-5dfe-4637-862c-17fa3e45466b.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "weaponAction": "left-hand iron-war-fan strike; holstered matchlock retained",
+  "firstGenerationOnly": false,
+  "manualVisualException": false,
+  "rejectedInitialCandidate": {
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c49442ea-3163-4963-9c8a-7bf3b4c81cd3.png",
+    "reason": "人物取り違え、赤甲冑と刀。要求する三成の扇と一致しないため未採用。"
+  },
+  "gitVerified": true,
+  "gitCommit": "4deb950470ec44bfd0b8b6490ab70ed2a0baa303",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

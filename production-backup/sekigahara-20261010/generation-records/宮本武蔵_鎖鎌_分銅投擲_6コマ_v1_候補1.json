@@ -1,0 +1,120 @@
+{
+  "name": "宮本武蔵_鎖鎌_分銅投擲_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-07582696-e157-4ae7-8eb9-4bee5d9d112a.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_鎖鎌_分銅投擲_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.56657223796034,
+  "sourceBounds": [
+    [
+      24,
+      318,
+      258,
+      671
+    ],
+    [
+      256,
+      318,
+      510,
+      671
+    ],
+    [
+      498,
+      318,
+      748,
+      671
+    ],
+    [
+      756,
+      320,
+      1018,
+      671
+    ],
+    [
+      1014,
+      321,
+      1276,
+      671
+    ],
+    [
+      1295,
+      318,
+      1525,
+      671
+    ]
+  ],
+  "placements": [
+    [
+      61,
+      30,
+      133,
+      200
+    ],
+    [
+      56,
+      30,
+      144,
+      200
+    ],
+    [
+      57,
+      30,
+      142,
+      200
+    ],
+    [
+      54,
+      31,
+      148,
+      199
+    ],
+    [
+      54,
+      32,
+      148,
+      198
+    ],
+    [
+      63,
+      30,
+      130,
+      200
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "8179133efe9bb0e13c4e6f0d5a658309e3013823541ff0951f4121ba7fe44f60",
+  "prompt": "Exact Musashi muscular bare arms tattered gray robe white headband six grounded throw phases. Left hand retains sickle, right winds up releases follows through recovers. Separate shared outbound chain and weight, no effects.",
+  "char": "宮本武蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6GIF復号と待機縮尺を目視。髪顔鉢巻灰色破れ衣素腕体格保持、右向き接地枠内、二本腕・左手鎌保持。右腕構え→振りかぶり→伸展→開手放出→振り抜き→戻りを確認。人物投擲素材としてOK。共通射出部品の動的接続・ゲーム射程は未検証、移動合成以降別作業。",
+  "gitVerified": true,
+  "gitCommit": "c66f6445283aa1a8e18114c892aca3980c547164",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "8179133efe9bb0e13c4e6f0d5a658309e3013823541ff0951f4121ba7fe44f60",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:50:48.807919+09:00"
+}

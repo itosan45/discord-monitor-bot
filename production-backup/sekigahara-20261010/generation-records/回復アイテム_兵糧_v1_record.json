@@ -1,0 +1,36 @@
+{
+  "name": "回復アイテム_兵糧_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\回復アイテム_兵糧_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8990f562-d1d3-4953-86ed-5e57390463dd.png",
+  "status": "candidate",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.19366852886405958,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    90,
+    242,
+    1164,
+    1029
+  ],
+  "destination": [
+    24,
+    78,
+    208,
+    152
+  ],
+  "backgroundSource": [
+    240,
+    21,
+    239
+  ],
+  "foregroundPixels": 583001,
+  "sha256": "c2c782dd2b519fe15243dd7a420a9e34ef276c4ad8acf88a5c7813f15edde600"
+}

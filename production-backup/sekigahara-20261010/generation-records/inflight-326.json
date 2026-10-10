@@ -1,0 +1,8 @@
+{
+  "cellId": 326,
+  "name": "敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+  "attempt": 4,
+  "prompt": "FINALREPAIR ONLYthirdfigure REAR SANDAL atlowerleftbehindkneelingleg. ItsTOEcurrentlypointsLEFT. REDRAWtoeRIGHT: sandalHEEL atLEFTend, longfrontTOE atRIGHTend. SoleHORIZONTAL, toesRIGHTtowardkneelingknee, heelLEFTawayfromknee. Keepankleattachedatrearshinwithsamebone lengths andfootposition. Do notmirrorbodyorotherleg. Allotherbodypartsandframes1/2/4unchanged. Preserveframe2correctTWOHANDSonegroundonegunstock (NOforestockhand). Thirdfigure left hand mayrestfrontforestock naturallyreturningbothhands ifvisible, exactlytwoarms. Sameexactphysiqueclothesgunsonehorizontalrow4equallysizedcells pureopaque#FF00FF no textgridshadow.",
+  "reference": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-ddacad5a-4bd2-4923-beb7-770cbf2c54ce.png",
+  "status": "generation_in_flight"
+}

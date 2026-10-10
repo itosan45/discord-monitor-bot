@@ -1,0 +1,204 @@
+{
+  "name": "武田信玄_鎖鎌_移動旋回_8コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\武田信玄_鎖鎌_移動旋回_8コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-7d027ed7-a430-411f-9fbe-5067a6251c3c.png",
+  "status": "git_verified",
+  "scale": 0.5857142857142857,
+  "standingHeightSource": 350.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        30,
+        182,
+        279,
+        545
+      ],
+      "destination": [
+        55,
+        18,
+        146,
+        213
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        299,
+        180,
+        539,
+        544
+      ],
+      "destination": [
+        57,
+        18,
+        141,
+        213
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        563,
+        186,
+        837,
+        545
+      ],
+      "destination": [
+        48,
+        21,
+        160,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        834,
+        186,
+        1087,
+        545
+      ],
+      "destination": [
+        54,
+        21,
+        148,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1091,
+        186,
+        1351,
+        544
+      ],
+      "destination": [
+        52,
+        21,
+        152,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1364,
+        186,
+        1625,
+        544
+      ],
+      "destination": [
+        51,
+        21,
+        153,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1645,
+        186,
+        1906,
+        545
+      ],
+      "destination": [
+        51,
+        21,
+        153,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1907,
+        181,
+        2161,
+        544
+      ],
+      "destination": [
+        53,
+        18,
+        149,
+        213
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "b531b6def41c853ccdaf7c996d9087a4a89877edbf3e83d2877555980dc13e60",
+  "backgroundSource": [
+    238,
+    26,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "135,407,679,951,1223,1495,1767,2039",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "visualApproved": true,
+  "gitVerified": true,
+  "gitCommit": "e1d3ced724e7627f6ce94782e249ab8534dd42ac",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b531b6def41c853ccdaf7c996d9087a4a89877edbf3e83d2877555980dc13e60",
+  "qaResult": "PASS; expected banner text OCR",
+  "ocrSuccess": true,
+  "ocrText": "風 体 火 風 火 ミ す",
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "checkResults": [
+    "30_check_strip.py PASS: 2048x256, pure magenta, median height within limits, cell margin and ground checks pass.",
+    "Native OCR successful; detected fragments are from intended banner design.",
+    "8 GIF frames decoded at 80ms and visually reviewed."
+  ],
+  "updatedAt": "2026-10-08T07:59:54+09:00",
+  "visualReview": "右向き。信玄の赤茶金鎧、金の角前立、白い毛並み、黒旗を維持。分銅一周と歩行位相の変化あり。余白・接地・鎖接続・コマ独立を確認。"
+}

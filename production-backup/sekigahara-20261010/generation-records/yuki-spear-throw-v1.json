@@ -1,0 +1,135 @@
+{
+  "status": "git_verified",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1bed030c-3f18-443d-a33e-793e50a304ed.png",
+  "firstRejectedSource": "exec-271a8635-aade-4aeb-96c5-0dc6c65f5228.png",
+  "reasonForCorrection": "spear tip too high; uniform same-body scale did not fit cells",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_槍投げ_8コマ_v1.png",
+  "qa": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\yuki-spear-throw-v1",
+  "scale": 0.5520361990950227,
+  "sourceBounds": [
+    [
+      3,
+      261,
+      338,
+      594
+    ],
+    [
+      275,
+      264,
+      609,
+      594
+    ],
+    [
+      545,
+      250,
+      856,
+      594
+    ],
+    [
+      814,
+      251,
+      1073,
+      594
+    ],
+    [
+      1094,
+      237,
+      1335,
+      594
+    ],
+    [
+      1354,
+      249,
+      1620,
+      594
+    ],
+    [
+      1618,
+      259,
+      1911,
+      594
+    ],
+    [
+      1907,
+      222,
+      2158,
+      594
+    ]
+  ],
+  "sourceFootAnchors": [
+    126.0,
+    388.0,
+    666.0,
+    946.0,
+    1235.0,
+    1520.0,
+    1797.0,
+    2037.0
+  ],
+  "placements": [
+    [
+      50,
+      46,
+      185,
+      184
+    ],
+    [
+      56,
+      48,
+      184,
+      182
+    ],
+    [
+      51,
+      40,
+      172,
+      190
+    ],
+    [
+      45,
+      41,
+      143,
+      189
+    ],
+    [
+      40,
+      33,
+      133,
+      197
+    ],
+    [
+      26,
+      40,
+      147,
+      190
+    ],
+    [
+      19,
+      45,
+      162,
+      185
+    ],
+    [
+      46,
+      25,
+      139,
+      205
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの74%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifFrames": 8,
+  "sha256": "fa5c8c8b0e780baef28311139164ac08bf8e6a1b887e910206650c2f5db3dad9",
+  "visualReview": "GIF8コマ・装備連続性・接地・体格とゲームの持ち上げ/背後投擲を確認。初回の槍上端超過を1回だけ修正。runtime162条件、入力/中断/致死/着地巻き込み/高空の地上誤命中なし。",
+  "ocr": {
+    "text": "",
+    "success": true
+  },
+  "runtimeCases": 162,
+  "debugCases": 24,
+  "gitCommit": "c556135c27c68a2aea1f64daec889d4bdbf23ebb",
+  "gitSha256": "fa5c8c8b0e780baef28311139164ac08bf8e6a1b887e910206650c2f5db3dad9"
+}

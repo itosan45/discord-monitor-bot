@@ -1,0 +1,126 @@
+{
+  "name": "上杉景勝_鎖鎌_回収_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-b77fa241-94b0-48f7-ba31-cdb6f4694a53.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_鎖鎌_回収_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.6503067484662577,
+  "sourceBounds": [
+    [
+      22,
+      218,
+      358,
+      522
+    ],
+    [
+      380,
+      196,
+      672,
+      522
+    ],
+    [
+      710,
+      196,
+      1054,
+      522
+    ],
+    [
+      1091,
+      196,
+      1396,
+      522
+    ],
+    [
+      1456,
+      196,
+      1762,
+      521
+    ],
+    [
+      1821,
+      196,
+      2132,
+      522
+    ]
+  ],
+  "placements": [
+    [
+      18,
+      32,
+      219,
+      198
+    ],
+    [
+      33,
+      18,
+      190,
+      212
+    ],
+    [
+      16,
+      18,
+      224,
+      212
+    ],
+    [
+      29,
+      18,
+      198,
+      212
+    ],
+    [
+      28,
+      19,
+      199,
+      211
+    ],
+    [
+      27,
+      18,
+      202,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 74%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "4ed9dfbfbf57a69b402658dcbe0d45dd3c46bd20409cc37dfdac648ace778e6b",
+  "prompt": "undefined\n",
+  "char": "上杉景勝",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "奥手の鎌保持は全6コマ連続。",
+    "手前腕の伸び縮みが控えめで回収動作は弱い。",
+    "5コマの分銅が小さく、6コマとサイズ差あり。",
+    "鎖の柄尻接続と鎧装飾の細部に差あり。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "a5ae50a77eecf1f3df7939ffa5884608d2fbea9d",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "4ed9dfbfbf57a69b402658dcbe0d45dd3c46bd20409cc37dfdac648ace778e6b",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T22:47:22.428001+09:00"
+}

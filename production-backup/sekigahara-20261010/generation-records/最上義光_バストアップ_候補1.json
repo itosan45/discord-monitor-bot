@@ -1,0 +1,72 @@
+{
+  "name": "最上義光_バストアップ.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8a419a64-067c-405f-9057-c1facc9c412f.png",
+  "sourceSha256": "70b5471a77dc145da5290a486f0758f51e1d221605660fcd95fb6ae3d35da55e",
+  "referencePath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\最上義光_設定画.png",
+  "prompt": "Use case: stylized-concept\nAsset type: 512x512 in-game boss bust portrait for Sekigahara Ranbu.\nPrimary request: Draw one fierce, slightly-right-facing head-and-shoulders portrait of Mogami Yoshiaki, matching the attached character sheet exactly.\nSubject: Preserve his mature moustached face, dark kabuto with upright gold crescent-like crest, black-gold armor, and rich purple cloak with gold botanical motifs. Frame the entire crest, face, shoulders, and upper chest.\nStyle/medium: Painted anime-realistic Japanese action-game portrait, crisp dark outlines, detailed lacquer and silk, dramatic restrained lighting.\nComposition/framing: One person, centered bust, fill most of the square but leave visible flat-magenta margin around the full silhouette.\nScene/backdrop: Exactly flat pure RGB(255,0,255) / #FF00FF.\nConstraints: Keep identity, helmet, armor ornament and colors faithful to the reference. His weapon is a bow; no need to force it into this crop.\nAvoid: Text, letters, numbers, labels, UI, border, scenery, extra people, cropped crest or shoulders, gradients, background shadow, watermark.",
+  "status": "git_verified",
+  "candidateStatus": "git_verified",
+  "createdAt": "2026-10-07",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\最上義光_バストアップ.png",
+  "normalizedSha256": "cd6dd018e85c7f49efd4f370a633a41f0bf82207a0e15de81aa1fd095caf78e7",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "pureMagentaRatio": 0.3351,
+  "visibleBBox": [
+    0,
+    3,
+    512,
+    512
+  ],
+  "visibleMargins": [
+    0,
+    3,
+    0,
+    0
+  ],
+  "automaticCheck": {
+    "dimension": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "exactMagentaRatio": 0.3355,
+    "visibleBBox": [
+      0,
+      3,
+      512,
+      512
+    ],
+    "visibleMargins": [
+      0,
+      3,
+      0,
+      0
+    ],
+    "result": "PASS for base UI bust portrait; bust crop intentionally fills canvas."
+  },
+  "note": "One candidate only. No regeneration; preserve this source and record any QA caution.",
+  "normalizedPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_base_boss_portraits_candidate1_bgclean\\最上義光_バストアップ.png",
+  "backgroundNormalization": "Flood-filled only border-connected near-magenta background to exact #FF00FF, then uniform 512x512 Lanczos resize; no subject-component edits and no recrop.",
+  "qaResult": "要注意",
+  "visualReview": "紫外套・黒金甲冑・顔を確認。兜の大きな金立物が上端に接近するため要注意。 6枚の512x512一覧で衣装・顔・向き・背景・フレーム境界を目視。追加候補なし。",
+  "ocrReview": "Windows PowerShell 5.1 native OCR detected 'を い ミ'; reviewed at native size and contact sheet, all detections are armor/family-crest decoration, no letters or labels.",
+  "attempts": 1,
+  "gitVerified": true,
+  "sha256": "cd6dd018e85c7f49efd4f370a633a41f0bf82207a0e15de81aa1fd095caf78e7",
+  "gitSha256": "cd6dd018e85c7f49efd4f370a633a41f0bf82207a0e15de81aa1fd095caf78e7",
+  "gitVerifiedAt": "2026-10-07T12:00:36+09:00",
+  "gitCommit": "6399176643864b97c1a7e297eda78f5eeebe6fb8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "cd2a3208a4840d1c7240dbd04881afc073d0f4cd",
+  "gitBytes": 427625,
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T12:00:36+09:00",
+  "qaRepairPending": false
+}

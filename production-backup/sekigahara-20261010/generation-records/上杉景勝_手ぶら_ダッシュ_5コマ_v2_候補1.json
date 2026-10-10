@@ -1,0 +1,106 @@
+{
+  "name": "上杉景勝_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-837a6208-57c2-4b2b-85d4-c538ca4212a7.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4851258581235698,
+  "sourceBounds": [
+    [
+      44,
+      167,
+      384,
+      604
+    ],
+    [
+      405,
+      168,
+      716,
+      599
+    ],
+    [
+      773,
+      171,
+      1158,
+      604
+    ],
+    [
+      1165,
+      178,
+      1593,
+      604
+    ],
+    [
+      1615,
+      168,
+      1950,
+      604
+    ]
+  ],
+  "placements": [
+    [
+      45,
+      18,
+      165,
+      212
+    ],
+    [
+      52,
+      21,
+      151,
+      209
+    ],
+    [
+      34,
+      20,
+      187,
+      210
+    ],
+    [
+      24,
+      23,
+      208,
+      207
+    ],
+    [
+      46,
+      18,
+      163,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 74%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "216e1ce19fc12ba4b4d56aa51606fa46f71335355e7f9a627ed8965865bf0f8d",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison. Exact character helmet/armor/cape/banner retained; full empty fists extend during forward lunge, rear push/heel lift and body lean then recoil. Right-facing, same ground230px, anatomy scale retained with low forward lean. All horns/flag/feet/hands inside margins, no effects/cropping/neighbor contamination, OCR empty. Caution: passing-step leg exchange is weak; this is a short burst lunge rather than convincing alternating running stride.",
+  "motionCaution": "Weak leg-phase exchange; do not claim cyclic run motion verified. Preserve candidate1 and deliver reviewed caution without repeated generation.",
+  "gitVerified": true,
+  "gitCommit": "68351733617ba9b3f6106b6aa87d1957fd4e7786",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "216e1ce19fc12ba4b4d56aa51606fa46f71335355e7f9a627ed8965865bf0f8d",
+  "prompt": "FIVE chronological gameplay frames: Uesugi Kagekatsu UNARMED DASH ATTACK, rapid forward driving step plus two-hand thrust, not static guard variants. Image1 exact identity/navy silver armor/gold crescent helmet/dark blue cape/REQUIRED navy Bishamonten back banner and pole. Image2 approved empty-hand anatomy and rendering scale. NO sword/scabbard/stick/weapon, both hands EMPTY close clenched fists in imaginary two-hand grip.1 low anticipation hips rear and fists waist;2 strong rear-foot push, front knee drives RIGHT, torso leans forward and both fists start extending;3 passing step, front foot plants and other knee advances, BOTH fists thrust forward;4 compact front lunge, BOTH arms fully extend with TWO distinct stacked fists, rear heel raised but toes grounded;5 brake on front foot, rear foot collects, recoil fists waist guard. All RIGHT-facing, same head/torso/limb size, clear leg-phase changes and torso weight transfer. At leastone foot or toes grounded each frame, no jump. Keep cape close, moderate compact stride, total width inclfists/cape<=helmet-to-soleheight. Full crescent/flag/hands/boots within each frame. Pure #FF00FF backdrop, no effects/speedlines/shadows/flames/light/UI/labels/numbers. Intermediate3columns x2rows atlas,5 figures row-major, bottom-right blank. Square cells, generous gutters, NO grid. Helmet-to-sole80%cellheight, ground90%. Pack1280x256 later.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:40:12.988429+09:00"
+}

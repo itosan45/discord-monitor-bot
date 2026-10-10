@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-0b8ac9fe-37aa-4c82-8e8e-5033883cf1bf.png",
+  "prompt": "Create FOUR-frame defeated/death animation of exactsame blue ashigaru archer withblackconicalhat,brownbackquiver,rolledupbluesleeves,chestarmor,blackshinguardsstrawsandals. SAMEheadtorsoandlimbdimensionsallframes. Distinctfromknockdown:1staggers forward onweakknees facepain bowleft angledforward;2kneesdropping leftfingersopen and bowtipping fromhand towardground infront, right handclutcheschest;3collapses onRIGHTSIDE kneesfolded, rightforearmunderbody, bowlyingdiagonallyon SAMEgroundbesidefrontfeet;4lies motionless onside curled compactly withheadfacingright andbothshoesright, bowinexactsamegroundposition as3. Onebowperframe, do not duplicateorloseweapon. Darkbrownquiversecure samearrows. Keepbodyandbowlowestpoints SAMEgroundline no floatingbodyduebowbelow. Fullbowcurve stringbothends complete compactdiagonalorientation within16pxmargin, no shrinkchar tofit. Standing equivalent205in256squarecell. Fourisolatedfullfigures equalcells horizontalrow, pureopaque#FF00FF no textlabelsgridshadowsbordersfloor effectscenery or gore. LastposebodyonSIDE notonback, distinctirreversiblecollapse. AlltoesRIGHT strictsideprofile.",
+  "attempt": 1,
+  "status": "candidate_repair_feet_ground_lastpose"
+}

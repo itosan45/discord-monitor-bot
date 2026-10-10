@@ -1,0 +1,8 @@
+{
+  "automationId": "automation",
+  "name": "関ヶ原無双の素材・毎時確認",
+  "status": "ACTIVE",
+  "frequency": "hourly",
+  "destination": "thread",
+  "folder": "https://drive.google.com/drive/folders/170jdeI3Dau5OXnuyz_galuFMnIdocA_N"
+}

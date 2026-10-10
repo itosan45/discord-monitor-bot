@@ -1,0 +1,156 @@
+﻿{
+  "name": "真田幸村_手ぶら_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_手ぶら_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-37772aed-8eb9-4475-92f3-0d82c6ed1220.png",
+  "status": "git_verified",
+  "scale": 0.328,
+  "standingHeightSource": 625.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        17,
+        19,
+        516,
+        666
+      ],
+      "destination": [
+        46,
+        19,
+        164,
+        212
+      ],
+      "scale": 0.328,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        551,
+        17,
+        1053,
+        666
+      ],
+      "destination": [
+        45,
+        18,
+        165,
+        213
+      ],
+      "scale": 0.328,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1108,
+        23,
+        1599,
+        666
+      ],
+      "destination": [
+        47,
+        20,
+        161,
+        211
+      ],
+      "scale": 0.328,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1633,
+        18,
+        2136,
+        666
+      ],
+      "destination": [
+        45,
+        18,
+        165,
+        213
+      ],
+      "scale": 0.328,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "1f000c4843e2fd0dfac37e768f530bb0ad871685ad51f4f79609ebbda7a00f2b",
+  "backgroundSource": [
+    238,
+    20,
+    238
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    17011,
+    17082,
+    16690,
+    16675
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\真田幸村_手ぶら_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\真田幸村_手ぶら_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "actualName": "真田幸村_手ぶら_待機_4コマ_v2.png",
+  "dimensions": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "sourceGeneration": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-37772aed-8eb9-4475-92f3-0d82c6ed1220.png",
+  "sourceGenerationSha256": "4debbfdce68c8851b17e8655ed64d5a18f03f893a093b35b14e4cef00e52bf77",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+  "prompt": "Create ONE production-ready wide horizontal sprite sheet for Sekigahara Ranbu: exactly four separate full-body frames of Sanada Yukimura's unarmed idle loop, arranged left-to-right in a single row with generous blank gaps and no borders. Each pose is a different frame of the same character at identical scale, facing screen-right in a low ready stance. Match the approved Yukimura setting art: Japanese warrior in his thirties, stern rugged face, black hair, red kabuto with gold six-coin crest and distinctive antler-like gold side ornaments, rich red lacquered lamellar armor over black sleeves, red shoulder guards, white waist sash, dark brown hakama, red shin guards, straw sandals, flowing red cape. Remove the banner, spear, swords and every other weapon completely. Both hands are visibly empty, closed fists in the exact ready gripping pose: right fist forward, left fist back, as if a long weapon could be overlaid later. Keep face, armor, colors, proportions and body scale identical. Frame 1: compact guard stance. Frame 2: slight inhale, chest and shoulders lift by a few pixels. Frame 3: subtle exhale, elbows settle, cape edge shifts gently. Frame 4: returns close to the opening guard while still visibly a distinct frame. Loopable idle only, no stepping, no attack, no jump, no kneeling. Both feet stay planted on one common ground line at about 90% of cell height. Each complete figure including helmet ornaments, cape, hands and sandals fits inside its own quarter of the canvas; no pose or cape overlaps an adjacent pose. Professional painterly Japanese historical action game sprite art with confident ink contours, layered rich red and charcoal shading, warm gold armor details, realistic anatomy, clean edge separation. Background is perfectly flat opaque RGB pure magenta #FF00FF edge-to-edge, no texture, no shadows outside the small footprint under each pose. No text, calligraphy, captions, UI, scenery, extra people, aura, motion trails or decorative effects. Create one candidate only.",
+  "candidateCount": 1,
+  "selectedCandidate": 1,
+  "firstGenerationOnly": true,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "qaResult": "OK",
+  "ocrResult": {
+    "name": "真田幸村_手ぶら_待機_4コマ_v2.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR success, no recognized text. Post-OCR contact-sheet review confirms no lettering or UI; the six-coin crest and armor details are pictorial motifs.",
+  "visualReview": "復号後の全4コマを目視。赤備え・鹿角前立て・六文銭・黒髪・赤外套を維持。武器と旗はなく両拳を空で構え、呼吸と外套の微差があり待機ループとして認識可能。全身輪郭、16px以上のセル余白、接地線と同一縮尺を確認。",
+  "reviewDate": "2026-10-07",
+  "cellSpecificationApplicable": true,
+  "gitVerified": true,
+  "gitCommit": "7ab8449aa5290b19795840f4cf7e2196f836776c",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "7ab8449aa5290b19795840f4cf7e2196f836776c",
+  "gitVerifiedAt": "2026-10-07T07:38:14+09:00",
+  "gitSha256Verified": "1f000c4843e2fd0dfac37e768f530bb0ad871685ad51f4f79609ebbda7a00f2b"
+}

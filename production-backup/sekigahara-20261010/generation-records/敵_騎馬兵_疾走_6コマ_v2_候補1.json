@@ -1,0 +1,8 @@
+{
+  "name": "敵_騎馬兵_疾走_6コマ_v2.png",
+  "attempt": 1,
+  "prompt": "UseexactconeJINGASA cavalryLANCER bluegraytunicblackARMOR brownhorseBLUEcaparisonblackmane/tail NOwhitelegsocks fromidle. BOTHHANDSkeepLONG LANCE diagonalFORWARDreadyaround25degrees steelpointaroundconehelmetheight, samephysicalpolebladelenandratio.  EXACTSAMEHORSE/riderHEADSIZEandtorsolegboneanatomyasidle all6, no shrinkingforstride. SIXFRAME RIGHTWARD GALLOP CYCLE ALLFOUR HORSELEGS mustmove:1 rearhindlegspushback underhorse whilefrontlegsreachFORWARD low, 2 suspensionforelegsextendedforwardhindlegssweepFORWARDfromback, 3 frontforehoofcontactsgroundfront shoulderabsorbsbothhindknessGATHERUNDERBELLY, 4 collectedsuspension all4legsbentCLOSEunderbelly, 5 hindhoovescontactunderrearhipsandpush chestforward frontlegsreachagain, 6 hindlegsextendBACK propellingforelegsFORWARD closes1. Distinctnear/farquadrupedlegocclusion FOURLEGS fourhooves only, no extra/sharinglegs. Horsebodymusclesanatomyheadlengthsteady, mane/tailstreamBACK changingnaturally, riderLOWleansFORWARD fromHIP bracelegsintheSADDLE notuprightcasualsit andnotfloatingoffhorse. WeaponkeptREADYandsteady. Fullhorse/riderweaponinclALLhoovestail/ears/points inside16margin each, compactstridepose NOTshrunkbody. Mountedstandinganatomyequivalent307per384squarecell, floor346exceptairphases2/4. OneHORSEoneRIDERper6equalsquarecellsONEhorizontalrow RIGHTSIDEprofile. PureopaqueRGB#FF00FF no textlabelsgridbordersfloor/shadoworscenery.",
+  "reference": "C:/Users/user/Desktop/output/sekigahara-new-20261006/finished/敵_騎馬兵_待機_4コマ_v2.png",
+  "status": "generated",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-ecc46638-0d09-4b7d-b69d-10986320b2e5.png"
+}

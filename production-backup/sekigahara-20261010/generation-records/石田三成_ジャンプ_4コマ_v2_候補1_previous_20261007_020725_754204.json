@@ -1,0 +1,12 @@
+{
+  "name": "石田三成_ジャンプ_4コマ_v2.png",
+  "candidate": 1,
+  "status": "generation_started",
+  "source": null,
+  "reference": "石田三成_設定画.png",
+  "action": "ジャンプ",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T02:04:11.3354359+09:00",
+  "noDuplicateGeneration": true,
+  "note": "Single candidate reserved after searching matching candidate records and output files."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "真田幸村_通常4_7コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_unusable_layout",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-25df80f5-9d34-430e-938d-f3a2bf25a7b6.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+  "action": "360度の全身旋回槍 sweep。7コマ。",
+  "candidateCount": 1,
+  "createdAt": "2026-10-06T16:27:29.007797+00:00",
+  "noDuplicateGeneration": true,
+  "rejectionReason": "大きな旋回軌跡が複数コマを連結し、7つの全身ポーズを独立して規格化できない。"
+}
