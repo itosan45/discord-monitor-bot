@@ -17,10 +17,13 @@ KIAI = ["kiai_ha", "kiai_orya", "kiai_eiya", "kiai_seia", "kiai_se", "kiai_torya
 TRIM = ("silenceremove=start_periods=1:start_duration=0.03:start_threshold=-40dB,areverse,"
         "silenceremove=start_periods=1:start_duration=0.03:start_threshold=-40dB,areverse,"
         "highpass=f=90,afftdn=nf=-30,afade=t=in:d=0.01")
-BOSS_FX = ("asetrate=48000*0.9,aresample=48000,atempo=1.05,equalizer=f=140:t=q:w=1:g=4,equalizer=f=3000:t=q:w=1.5:g=2,"
+# 2026-10-10 オーナー「こもっている、プレゼンスとレゾナンスを上げたら」: 箱鳴り350Hzを削り、胸の響き140Hz・芯1.5k・張り3.2k・抜け6kを上げ、倍音を足す
+PRES = ("equalizer=f=350:t=q:w=1.2:g=-4,equalizer=f=1500:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=5,"
+        "equalizer=f=6000:t=q:w=1.5:g=3,aexciter=amount=1.5:drive=6:freq=3500:blend=0,deesser=i=0.3,")
+BOSS_FX = ("asetrate=48000*0.9,aresample=48000,atempo=1.05,equalizer=f=140:t=q:w=1:g=4," + PRES +
            "acompressor=threshold=-22dB:ratio=3:attack=6:release=160:makeup=2dB,areverse,afade=t=in:d=0.04,areverse,"
            "aecho=0.85:0.7:70|150:0.22|0.12")
-KIAI_FX = ("lowpass=f=9000,acompressor=threshold=-22dB:ratio=2.5:attack=6:release=150:makeup=2dB,areverse,afade=t=in:d=0.03,areverse,"
+KIAI_FX = ("lowpass=f=11000," + PRES + "acompressor=threshold=-22dB:ratio=2.5:attack=6:release=150:makeup=2dB,areverse,afade=t=in:d=0.03,areverse,"
            "aecho=0.9:0.8:65|130:0.14|0.08")
 
 
