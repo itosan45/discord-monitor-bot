@@ -833,7 +833,9 @@ function doSummon(f){for(const s of[-1,1]){const e=spawnEn('spear',s);e.x=f.x+s*
 function doRain(f){const p=nearestAlly(f);for(let i=0;i<4;i++)fall(clamp(p.x+rnd(-260,260),G.camx+40,G.camx+W-40),rnd(YMIN+10,YMAX),1,9,80,30+i*24,f);}
 
 /* ---------- attacks ---------- */
-const BGUARD={pz:'raise',k:'guard',dur:44,hs:2,he:38,rng:0,dmg:0},BSTEP={pz:'raise',k:'step',dur:22,hs:1,he:2,rng:0,dmg:0},BHOP={pz:'raise',k:'hop',dur:90,hs:1,he:2,rng:0,dmg:0},BSHAKE={pz:'swing',a0:-3,a1:3,r:44,dur:34,hs:8,he:16,rng:165,dmg:10,kb:10,launch:true,around:true,dep:60,sfx:'heavy'};
+const BGUARD={pz:'raise',k:'guard',dur:44,hs:2,he:38,rng:0,dmg:0},BSTEP={pz:'raise',k:'step',dur:22,hs:1,he:2,rng:0,dmg:0},BHOP={pz:'raise',k:'hop',dur:90,hs:1,he:2,rng:0,dmg:0},
+// 大跳躍(オーナー「反対側まで飛んで行けるぐらいダイナミックに」): しゃがんでため→画面の反対側の端まで高く跳ぶ→着地の衝撃波で周りを吹き飛ばす。8人のボス共通
+BLEAP={pz:'raise',k:'bleap',dur:200,hs:16,he:17,rng:210,dmg:22,kb:10,launch:true,dep:80,around:true},BSHAKE={pz:'swing',a0:-3,a1:3,r:44,dur:34,hs:8,he:16,rng:165,dmg:10,kb:10,launch:true,around:true,dep:60,sfx:'heavy'};
 function startEAct(e,d){e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=-1;}
 function startEAtk(e,i){const d=e.T.atk[i];e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=i;if(d.k==='leap'){e.leaped=false;}if(e.T.boss&&d.hs>14){AU.sfx('warn2');if(Math.random()<0.2&&G.t-(e.shineT||-999)>900){e.shineT=G.t;AU.bossLine('shine',e,1.6);}}else if(!e.T.boss&&e.team===1&&Math.random()<0.06)AU.enemyLine('shine',e,0.9);}
 
@@ -853,6 +855,15 @@ function updAtk(f){
  if(d.k==='hop'){if(st===1){const p=nearestAlly(f),vz=bossLeapSpeed(f),T=2*vz/GR,side=sgn(p.x-f.x)||-f.face,m=bossScreenMargin(f)+10,tx=clamp(p.x+side*280,G.camx+m,G.camx+W-m);f.vz=vz;f.vx=clamp((tx-f.x)/T,-20,20);f.face=side;f.hopped=false;AU.sfx('jump');dust(f.x,f.y,6);popup('とうっ！',f.x,f.y,f.z+220,'#cfe',22);G.hopN=(G.hopN||0)+1;}
   if(!f.hopped){f.x+=f.vx;f.vz-=GR;f.z+=f.vz;f.inv=Math.max(f.inv,2);if(f.z<=0&&f.vz<0){f.z=0;f.vz=0;f.vx=0;f.hopped=true;f.hopEnd=st;dust(f.x,f.y,8);AU.sfx('land');}}
   if(f.hopped&&st>=f.hopEnd+8){f.state='idle';f.st=0;f.face=-f.face;f.cool=Math.min(f.cool,10);}return;}
+ if(d.k==='bleap'){const g=GR*0.55;
+  if(st===1){popup('とおっ！',f.x,f.y,f.z+230,'#ffcf6a',26);AU.sfx('warn2');f.blDone=false;}
+  if(st<d.hs&&st%3===0)dust(f.x,f.y,2);
+  if(st===d.hs){const p=nearestAlly(f)||G.player,m=bossScreenMargin(f)+10,side=sgn(p.x-f.x)||f.face,tx=side>0?G.camx+W-m:G.camx+m,J=SPR['bjump_'+f.T.type],head=J&&J.ready?Math.max(...J.a.jump.map(q=>-q[5]*f.sc)):260,apex=clamp(Math.min(f.y,p.y)-head-12,120,320),vz=Math.sqrt(2*g*apex),T=2*vz/g;/* 頂点で頭が画面上端の少し下に来る高さ */
+   f.vz=vz;f.vx=(tx-f.x)/T;f.vy=clamp((p.y-f.y)/T,-4,4);f.face=side;f.blTx=tx;f.blTy=clamp(f.y+f.vy*T,YMIN,YMAX);AU.sfx('jump');dust(f.x,f.y,12);G.shake=Math.max(G.shake,8);G.bleapN=(G.bleapN||0)+1;}
+  if(st>d.hs&&!f.blDone){f.x+=f.vx;f.y=clamp(f.y+f.vy,YMIN,YMAX);f.vz-=g;f.z+=f.vz;if(st%10===0)ring(f.blTx,f.blTy,80,'rgba(255,70,50,0.75)',12);
+   if(f.z<=0&&f.vz<0){f.z=0;f.vz=0;f.vx=0;f.blDone=true;f.blEnd=st;f.hit.clear();strike(f,d);G.shake=24;G.flashT=Math.max(G.flashT||0,3);ring(f.x,f.y,230,'rgba(255,220,160,0.95)',30);ring(f.x,f.y,140,'rgba(255,120,60,0.9)',20);dust(f.x,f.y,18);AU.sfx('boom');}}
+  if(f.blDone&&st>=f.blEnd+16){f.state='idle';f.st=0;f.cool=rndi(30,60);}
+  return;}
  if(d.k==='leap'){
   if(st===d.hs){f.vz=f.T.boss?bossLeapSpeed(f):15;const p=nearestAlly(f),lv=f.T.ai2==='archer'?18:9;f.vx=clamp((p.x-f.x)/30,-lv,lv);f.vy=clamp((p.y-f.y)/30,-3,3);AU.sfx('jump');}
   if(st>d.hs&&!f.leaped){f.x+=f.vx;f.y=clamp(f.y+f.vy,YMIN,YMAX);f.vz-=GR;f.z+=f.vz;if(f.z<=0&&f.vz<0){f.z=0;f.vz=0;f.leaped=true;f.hit.clear();strike(f,d);G.shake=18;ring(f.x,f.y,170,'rgba(255,220,160,0.9)',28);dust(f.x,f.y,12);AU.sfx('boom');}}
@@ -1021,7 +1032,7 @@ function updSpc(p){
  if(p.spLv===2&&st===p.cur.dur-2){for(const sd of[1,-1])addProj({x:p.x+sd*30,y:p.y,z:6,vx:sd*11,team:0,dmg:20,face:sd,owner:p,k:'wave',w:56,life:50,launch:true,kb:7,pierce:99});G.shake=16;ring(p.x,p.y,240,'rgba(255,220,120,0.95)',30);AU.sfx('boom');}
  if(st>=p.cur.dur){p.state='idle';p.st=0;p.inv=20;}
 }
-function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk'&&!(f.state==='atk'&&f.cur&&(f.cur.k==='leap'||f.cur.k==='hop'))){f.vz-=GR;f.z+=f.vz;if(f.z<=0){f.z=0;f.vz=0;}}}
+function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk'&&!(f.state==='atk'&&f.cur&&(f.cur.k==='leap'||f.cur.k==='hop'||f.cur.k==='bleap'))){f.vz-=GR;f.z+=f.vz;if(f.z<=0){f.z=0;f.vz=0;}}}
 const CHG=40;
 const CKNAME={iai:'居合',spin:'回転斬り',quake:'地割れ',bigshot:'溜め撃ち',triarrow:'三本矢',gale:'疾風',gou:'号令'};
 function chargeKind(p){const w=p.wpn&&p.wpn.k,o=p.T.wp;
@@ -1234,6 +1245,7 @@ function updEnemy(e){
    else if(T.ai==='ranged'){const cornered=(dx>0&&e.x<G.camx+90)||(dx<0&&e.x>G.camx+W-90);if(adx<T.keep-130&&!cornered)mx=-sgn(dx)*0.5;else if(adx>T.keep+100)mx=sgn(dx);if(ady>10)my=sgn(dy);if(e.cool<=0&&ady<16&&adx<760&&adx>180&&e.entered&&eProj()<2)startEAtk(e,0);}
    else if(T.ai==='boss'){
     if(p.state==='atk'&&p.cur&&p.st===2&&adx<240&&ady<34&&!(e.gcd>0)&&sgn(dx)===e.face&&Math.random()<(e.enr?0.55:0.35)){e.gcd=80;if(T.ai2==='archer'||Math.random()<0.35){const bm=bossScreenMargin(e)+24,cn=(dx>0&&e.x<G.camx+bm)||(dx<0&&e.x>G.camx+W-bm);if(T.ai2==='archer'&&cn&&!(e.hopCd>G.t)){e.hopCd=G.t+150;startEAct(e,BHOP);break;}startEAct(e,BSTEP);popup('ふっ！',e.x,e.y,e.z+200,'#cfe',20);}else{startEAct(e,BGUARD);}break;}
+    if(e.cool<=0&&e.inv<=0&&e.entered&&!(e.bleapCd>G.t)&&Math.random()<(e.enr?0.5:0.3)){e.bleapCd=G.t+(e.enr?420:600);startEAct(e,BLEAP);break;}
     if(T.ai2==='archer'){const edge=bossScreenMargin(e)+24,cornered=(dx>0&&e.x<G.camx+edge)||(dx<0&&e.x>G.camx+W-edge);if(cornered&&adx<300&&ady<60&&!(e.hopCd>G.t)&&e.inv<=0){e.hopCd=G.t+150;startEAct(e,BHOP);break;}if(adx<T.keep-80&&!cornered)mx=-sgn(dx);else if(adx>T.keep+140)mx=sgn(dx);if(ady>9)my=sgn(dy);
      if(e.cool<=0&&e.inv<=0){if(adx<200){if(Math.random()<0.7){if(cornered){e.hopCd=G.t+150;startEAct(e,BHOP);}else startEAct(e,BSTEP);}else startEAtk(e,pick(T.near));}else if(ady<40)startEAtk(e,pick(T.far));}}
     else{const rg=T.atk[0].rng;if(adx>rg*0.7)mx=sgn(dx);else if(adx<rg*0.4)mx=-sgn(dx)*0.5;if(ady>9)my=sgn(dy);
@@ -1787,10 +1799,12 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
  // 勝鬨: 呼びかけ録音の発話終端+0.8秒後に拳を突き上げる
  if(G.state==='bossdown'&&!G.demo&&f===G.player&&G.stateT-(G.victoryShift||0)>=330){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.stateT-(G.victoryShift||0),i=t<366?0:t<402?1:t<438?2:t<474?1:t<510?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
+ // ボスの跳躍(大跳躍・跳びかかり・跳び越し)は専用のジャンプ4コマ(しゃがみ/上昇/頂点/下降)
+ if(f.T&&f.T.boss&&f.state==='atk'&&f.cur&&(f.cur.k==='bleap'||f.cur.k==='leap'||f.cur.k==='hop')){const J=SPR['bjump_'+f.T.type];if(J&&J.ready&&J.a.jump){const i=f.z<=2?0:f.vz>3?1:f.vz>-3?2:3;S=J;sp={arr:J.a.jump,pos:i,loop:false,hard:true};}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
  const A0=arr[i0],A1=sp.loop?arr[(i0+1)%n]:arr[Math.min(n-1,i0+1)];if(!A0)return false;
- const fl=(f.flash>0&&(f.flash&2))||((f.chg||0)>=CHG&&(vt&4)),moving=(f.state==='atk'&&f.cur&&(f.cur&&(f.cur.base||f.cur))===f.T.dash)||f.state==='dodge'||f.state==='mega'||(f.state==='spc'&&f.st<20);
+ const fl=(f.flash>0&&(f.flash&2))||((f.chg||0)>=CHG&&(vt&4)),moving=(f.state==='atk'&&f.cur&&(f.cur&&(f.cur.base||f.cur))===f.T.dash)||f.state==='dodge'||f.state==='mega'||(f.state==='spc'&&f.st<20)||(f.state==='atk'&&f.cur&&f.cur.k==='bleap'&&f.z>2);
  // ghosts (afterimages) for fast moves
  if(moving&&!G.lowq&&(!G.spcScene||G.spcScene.p===f)){f.gh=f.gh||[];if(vt%2===0){f.gh.push({fr:A0,img:S.img,x:f.x,y:f.y-f.z,face:f.face,a:0.22});if(f.gh.length>4)f.gh.shift();}}
  else if(f.gh&&f.gh.length)f.gh.length=0;
@@ -2445,10 +2459,10 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];if(h==='yuki')b.push('yukithrow1','yukiattack2');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^boss\d/.test(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]));
  if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>w.boss);
-  return base.concat(bs,heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
+  return base.concat(bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';
 function syncSprWant(){if(SPR_ALL){for(const k in SPR_RAW)sprRequest(k);return;}
