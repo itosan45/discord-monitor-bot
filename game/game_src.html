@@ -1218,7 +1218,7 @@ function fighterScreenMargin(f){
  if(f.mount)S=SPR['mountfull4_'+f.T.type]||SPR['mountfull3_'+f.T.type]||SPR['mountbody3_'+f.T.type]||SPR['mountatk2_'+f.T.type]||S;
  let extent=70;
  if(f.T.type==='yuki'&&SPR.yukithrow1&&SPR.yukithrow1.ready)extent=138;
- for(const [U,on] of [[SPR.yukirokudan1,!f.mount&&!f.wpn&&f.T.type==='yuki'],[SPR['atk3_'+f.T.type],!f.mount&&!f.wpn&&f.team===0],[SPR['mountwhirl2_'+f.T.type],!!f.mount&&!f.wpn&&f.team===0]])if(on&&U&&U.ready)for(const arr of Object.values(U.a))for(const q of arr)extent=Math.max(extent,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));
+ for(const [U,on] of [[SPR.yukirokudan1,!f.mount&&!f.wpn&&f.T.type==='yuki'],[SPR['atk3_'+f.T.type],!f.mount&&!f.wpn&&f.team===0],[SPR['mountwhirl2_'+f.T.type],!!f.mount&&!f.wpn&&f.team===0],[SPR['mountnorm_'+f.T.type],!!f.mount&&!f.wpn&&f.team===0]])if(on&&U&&U.ready)for(const arr of Object.values(U.a))for(const q of arr)extent=Math.max(extent,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));
  if(!f.mount&&f.T.type==='yuki'&&!f.wpn&&SPR.yukiattack2&&SPR.yukiattack2.ready){for(const arr of Object.values(SPR.yukiattack2.a))for(const q of arr)extent=Math.max(extent,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));}
  if(S&&S.ready){if(S.screenExtent===undefined){let w=0;for(const arr of Object.values(S.a))if(Array.isArray(arr))for(const q of arr)if(Array.isArray(q)&&q.length>=6)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));S.screenExtent=w;}extent=Math.max(extent,S.screenExtent);}
  if(f.wpn&&f.wpn.k!=='kusari'){const w=WPN[f.wpn.k];if(w)extent=Math.max(extent,(w.tip||100)*1.15+72);}
@@ -1925,6 +1925,8 @@ function setDemoMount(on){const p=G.player;if(!p)return;demoView.mounted=!!on;
  keepFighterOnScreen(p);if(demoView.paused)demoView.steps=1;}
 const MATK={pz:'swing',dur:24,hs:7,he:13,rng:165,dmg:20,kb:7,launch:true,sfx:'slash'};
 // 騎馬突撃: 走りながら攻撃すると前へ突っ込みながら斬る(当たった敵を全員吹き飛ばす)
+// 馬上の通常攻撃は3連撃(攻撃ボタンを重ねて押す)。1・2段目は軽く、3段目で打ち上げる(従来の1発と同じ締め)。鎖鎌・弓・鉄砲は従来の1発。
+const MATK1=Object.assign({},MATK,{stage:1,dur:21,hs:6,he:11,dmg:14,kb:3,launch:false}),MATK2=Object.assign({},MATK,{stage:2,dur:21,hs:6,he:11,dmg:15,kb:3,launch:false}),MATK3=Object.assign({},MATK,{stage:3,dur:26,hs:7,he:13,dmg:22,kb:8,launch:true}),MCOMBO=[MATK1,MATK2,MATK3];
 const MCHG=Object.assign({},MATK,{charge:true,dur:30,hs:4,he:20,dmg:26,kb:12});
 // 旋風突撃(オーナー「槍を360度豪快に振り回しながら敵陣に突っ込む」): 突撃ボタン。約1.2秒、前へ進みながら槍を頭上で振り回し、
 // 前後とも周りの敵を8更新ごとに斬る(最後の一撃で吹き飛ばす)。専用の絵(依頼A-004)が届くまでは、馬上攻撃の振りのコマを繰り返し、向きを小刻みに切り替えて回転に見せる
@@ -1965,7 +1967,8 @@ function updMount(p,c){
   if(d.proj&&p.st===d.hs){addProj({k:d.proj,x:p.x+p.face*60,y:p.y,z:94,vx:p.face*(d.proj==='shot'?23:19),team:0,dmg:d.dmg,face:p.face,owner:p,w:18,kb:d.kb,launch:d.launch});AU.sfx(d.proj==='shot'?'gun':'arrow');if(p.wpn)useWpn(p);}
   if(!d.kth&&!d.proj&&!d.whirl&&p.st>=d.hs&&p.st<=d.he){for(const e of G.fighters){if(e.team!==1||e.hp<=0||p.hit.has(e)||e.state==='dead')continue;const dx=e.x-p.x;
     if(dx*p.face>-50&&Math.abs(dx)<d.rng&&Math.abs(e.y-p.y)<34&&e.z<120)hurt(e,p,d);}}
-  if(p.st>=d.dur){if(d.lastUse&&p.wpn&&p.wpn.k==='kusari')useWpn(p);p.state='idle';p.st=0;p.cur=null;}}
+  if(d.stage){if(c.atkP&&p.st>=2)p.mbuf=true;if(p.mbuf&&d.stage<3&&p.st>d.he){p.mbuf=false;p.cur=MCOMBO[d.stage];p.st=0;p.hit=new Set();AU.sfx('slash');}}
+  if(p.st>=d.dur){if(d.lastUse&&p.wpn&&p.wpn.k==='kusari')useWpn(p);p.mbuf=false;p.state='idle';p.st=0;p.cur=null;}}
  else if(p.state==='mspc'){if(p.st===16){G.shake=16;AU.sfx('boom');dust(p.x+p.face*40,p.y,14);
    for(const e of G.fighters){if(e.team!==1||e.hp<=0)continue;if(Math.abs(e.x-p.x)<190&&Math.abs(e.y-p.y)<60)hurt(e,p,{pz:'tackle',dmg:22,kb:8,launch:true});}}
   if(p.st>=40){p.state='idle';p.st=0;p.inv=0;}}
@@ -1978,7 +1981,7 @@ function updMount(p,c){
   if(c.jumpP&&!(G.demo||G.auto)){dropMount(p,p.face,false);return;}
   if(c.spcP&&p.ki>=60){p.kspin=0;p.chg=0;p.kpull=null;p.ki-=60;p.state='mspc';G.spcScene={p,t:G.t};p.st=0;p.inv=999;AU.sfx('roar');}
   else if(c.gdP&&!(p.wpn&&(p.wpn.k==='kusari'||p.wpn.k==='yumi'||p.wpn.k==='teppo'))&&!((p.whCd||0)>G.t)){p.state='matk';p.st=0;p.cur=MWHIRL;p.whCd=G.t+90;G.whirlN=(G.whirlN||0)+1;p.hit=new Set();AU.sfx('slash');AU.kiai&&AU.kiai(p,true);}
-  else if(c.atkP){p.state='matk';p.st=0;p.cur=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo')?Object.assign({},MATK,{proj:p.wpn.k==='yumi'?'parrow':'shot',hs:10,he:11,rng:0,dmg:p.wpn.k==='yumi'?13:18}):(mx&&!(p.wpn&&p.wpn.k==='kusari')?MCHG:MATK);if(p.cur===MCHG){G.mchgN=(G.mchgN||0)+1;}p.hit=new Set();AU.sfx('slash');}}
+  else if(c.atkP){p.state='matk';p.st=0;p.cur=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo')?Object.assign({},MATK,{proj:p.wpn.k==='yumi'?'parrow':'shot',hs:10,he:11,rng:0,dmg:p.wpn.k==='yumi'?13:18}):(p.wpn&&p.wpn.k==='kusari'?(mx?MCHG:MATK):(mx?MCHG:MATK1));p.mbuf=false;if(p.cur===MCHG){G.mchgN=(G.mchgN||0)+1;}p.hit=new Set();AU.sfx('slash');}}
  keepFighterOnScreen(p);p.y=clamp(p.y,YMIN,YMAX);}
 function mountedAttackProfile(f){if(!f.wpn)return'default';const w=WPN[f.wpn.k];if(f.wpn.k==='kusari')return'kusari';if(w&&w.bow)return'bow';if(w&&w.draw==='teppo')return'gun';if(w&&(w.heavy||w.blunt))return'heavy';if(w&&w.draw==='naginata')return'polearm';return'blade';}
 // 騎乗時の乗り手の位置補正(脚の長い絵は腰の切り位置を下げる)
@@ -2002,6 +2005,8 @@ function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk
  const C=SPR['mountfull4_'+f.T.type]||SPR['mountfull3_'+f.T.type],kind=f.wpn?f.wpn.k:'default',full=attacking&&!(f.cur&&f.cur.kth)&&C&&C.ready&&C.a[kind],fq=full&&full[phase];
  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(vface*f.sc*WHOLE_MOUNT_SCALE,f.sc*WHOLE_MOUNT_SCALE);
  // 旋風突撃の専用絵(幸村の主武器だけ納品済み): 6コマを3更新ずつ回し、向きの左右切り替えはしない
+ // 馬上の通常3連撃の専用絵(主武器のみ・全6人): 命中のコマ(hf=2)を hs に合わせる
+ const MN=f.state==='matk'&&f.cur&&f.cur.stage&&!f.wpn&&SPR['mountnorm_'+f.T.type];if(MN&&MN.ready&&MN.a['n'+f.cur.stage]){const ar=MN.a['n'+f.cur.stage],nn=ar.length,cc=f.cur,hf=2,fi=f.st<cc.hs?Math.min(hf-1,Math.floor(f.st/cc.hs*hf)):Math.min(nn-1,hf+Math.floor((f.st-cc.hs)/Math.max(1,cc.dur-cc.hs)*(nn-hf))),mq=ar[Math.max(0,fi)];ctx.drawImage(fl?sprWhite(MN):MN.img,mq[0],mq[1],mq[2],mq[3],mq[4],mq[5],mq[2],mq[3]);ctx.restore();return true;}
  const WH=whirl&&!f.wpn&&SPR['mountwhirl2_'+f.T.type];if(WH&&WH.ready){const wn=WH.a.whirl.length,wq=WH.a.whirl[f.st<f.cur.hs?0:f.st>f.cur.he?wn-1:1+Math.floor((f.st-f.cur.hs)/3)%(wn-2)];ctx.scale(vface*f.face,1);ctx.drawImage(fl?sprWhite(WH):WH.img,wq[0],wq[1],wq[2],wq[3],wq[4],wq[5],wq[2]*(wq[6]||1),wq[3]*(wq[6]||1));ctx.restore();drawWhirlFx(f);return true;}
  if(fq){ctx.drawImage(fl?sprWhite(C):C.img,fq[0],fq[1],fq[2],fq[3],fq[4],fq[5],fq[2]*(fq[6]||1),fq[3]*(fq[6]||1));ctx.restore();drawWhirlFx(f);return true;}
  ctx.drawImage(fl?sprWhite(B):B.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));
@@ -2374,7 +2379,7 @@ const HT_STEPS=[
  {cap:'防御',sub:'防御ボタンを押している間、前からの攻撃を防ぐ。スティックを倒しながら押すと回避',dur:150,setup(){htReset(500);const e=htDummy(615,585,'spear');e.cool=20;e.htStay=true;},btn:t=>[t>=5?'gd':''],ctl(t){for(const e of G.fighters)if(e.team===1&&e.cool>40)e.cool=40;return{gd:t>=5};}},
  {cap:'武器を拾う',sub:'落ちている武器の上で攻撃ボタン。拾った武器で戦える（使うと壊れる）',dur:170,setup(){htReset(420);G.player.grabCd=9999;G.items.push({x:462,y:HTY,k:'w_odachi',t:0});htDummy(700,585);},btn:t=>[(t>=4&&t<12)||(t>=50&&t<70)?'dir':'',(t>=26&&t<34)||(t>=86&&t<94)||(t>=104&&t<112)||(t>=122&&t<130)?'atk':''],ctl(t){const p=G.player;p.grabCd=9999;p.run=0;return{r:(t>=4&&t<12)||(t>=50&&t<70),atkP:t===26||t===86||t===104||t===122};}},
  {cap:'つかみ・投げ',sub:'敵に向かって押し込むとつかむ。攻撃でひざ蹴り、方向＋攻撃で投げ',dur:160,setup(){htReset(470);const e=htDummy(540,585);},btn:t=>['dir',(t>=40&&t<46)||(t>=52&&t<58)||(t>=70&&t<76)?'atk':''],ctl(t){return{r:t<34||(t>=68&&t<72),l:false,atkP:t===40||t===52||t===70};}},
- {cap:'馬に乗る',sub:'馬上は受ける傷が3分の1。攻撃＝振り下ろし、走って攻撃＝騎馬突撃、突撃ボタン＝旋風突撃',dur:230,setup(){htReset(280);G.player.mount={hp:6,max:6,col:'red'};htDummy(430,585);htDummy(500,575);const b=htDummy(140,580);b.face=1;},btn:t=>[t>=60&&t<100?'dir':'',(t>=10&&t<18)||(t>=76&&t<84)?'atk':'',t>=150&&t<160?'gd':''],ctl(t){return{r:t>=60&&t<100,atkP:t===10||t===76,gdP:t===150};}},
+ {cap:'馬に乗る',sub:'馬上は傷が3分の1。攻撃連打＝3連撃、走って攻撃＝騎馬突撃、突撃ボタン＝旋風突撃',dur:230,setup(){htReset(280);G.player.mount={hp:6,max:6,col:'red'};htDummy(430,585);htDummy(500,575);const b=htDummy(140,580);b.face=1;},btn:t=>[t>=100&&t<130?'dir':'',(t>=10&&t<14)||(t>=22&&t<26)||(t>=36&&t<40)||(t>=108&&t<114)?'atk':'',t>=170&&t<180?'gd':''],ctl(t){return{r:t>=100&&t<130,atkP:t===10||(t>=20&&t<=27)||(t>=34&&t<=44)||t===108,gdP:t===170};}},
  {cap:'必殺技',sub:'ゲージが1本以上たまったら必殺ボタン。2本でさらに強い技',dur:150,setup(){htReset(420);G.player.ki=100;htDummy(600,585);htDummy(660,575);},btn:t=>[t>=10&&t<20?'spc':''],ctl(t){return{spcP:t===10};}},
  {cap:'奥義',sub:'ゲージが3本たまると、武将ごとの奥義で味方の軍勢が援護',dur:330,setup(){htReset(420);G.player.ki=300;htDummy(640,585);htDummy(720,575);htDummy(800,590);},btn:t=>[t>=10&&t<20?'spc':''],ctl(t){return{spcP:t===10};}},
  {cap:'同時押し',sub:'攻撃＋跳躍の同時押しで周囲を吹き飛ばす（体力を少し使う）',dur:120,setup(){htReset(560);htDummy(470,585);htDummy(650,580);},btn:t=>t>=10&&t<20?['atk','jump']:[],ctl(t){return{atkP:t===10,jumpP:t===10};}},
@@ -2512,7 +2517,7 @@ function sprRequest(k){const S=SPR_RAW[k];if(!S||S.want)return;S.want=true;if(S.
 function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.ready=false;S.loading=false;S.white=null;const im=S.img;im.onload=im.onerror=null;im.removeAttribute('src');S.img=new Image();
  for(const id in _tint)if(id==='red|'+k||id.startsWith(k+'|'))delete _tint[id];}
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
-function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'atk3_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');return b.filter(k=>SPR_RAW[k]);}
+function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
 function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]));

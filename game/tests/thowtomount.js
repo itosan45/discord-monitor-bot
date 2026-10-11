@@ -7,7 +7,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   const idx=HT_STEPS.findIndex(s=>s.cap==='馬に乗る');const caps=HT_STEPS.map(s=>s.cap);const seen={whirl:false,mchg:false,matk:false,mountedAll:true};let nextMount=null,hits=0;
   const oh=window.hurt;window.hurt=function(t,a,d){if(a===G.player&&d&&G.ht&&HT_STEPS[G.ht.i]&&HT_STEPS[G.ht.i].cap==='馬に乗る')hits++;return oh(t,a,d);};
   let guard=0;while(G.ht.i<idx&&guard++<4000){stepHowto();}
-  const shots=[];for(let i=0;i<260&&G.mode==='howto'&&G.ht.i===idx;i++){stepHowto();const c=G.player.cur;if(c===MWHIRL)seen.whirl=true;if(c===MCHG)seen.mchg=true;if(c===MATK)seen.matk=true;if(G.ht.i===idx&&!G.player.mount)seen.mountedAll=false;if([14,70,156].includes(G.ht.t))shots.push(G.ht.t);}
+  const shots=[];for(let i=0;i<260&&G.mode==='howto'&&G.ht.i===idx;i++){stepHowto();const c=G.player.cur;if(c===MWHIRL)seen.whirl=true;if(c===MCHG)seen.mchg=true;if(c===MATK||c===MATK1||c===MATK2||c===MATK3)seen.matk=true;if(G.ht.i===idx&&!G.player.mount)seen.mountedAll=false;if([14,70,156].includes(G.ht.t))shots.push(G.ht.t);}
   const after=G.ht.i;let mountAfter=null;if(G.mode==='howto'){stepHowto();mountAfter=!!G.player.mount;}
   return {idx,caps,seen,hits,after,mountAfter};});
  console.log(JSON.stringify(r));

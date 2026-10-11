@@ -129,4 +129,21 @@ for i, c in enumerate(cs):
 meta.setdefault('atk3_mitsu', {})['fan'] = arr
 print('atk3_mitsu', atlas.size, webp(atlas, SPRITES / 'atlas_atk3_mitsu.webp'), 'KB')
 
+# 4. 馬上の通常攻撃1〜3段(主武器、6コマ×3、全6人) -> mountnorm_<hero> {n1,n2,n3}。原点は旋風と同じ(ひづめの線y=384・セル中央x=288)
+for h, jp in HERO.items():
+    seq = [cells(f'馬上通常{n}_{jp}_主武器_6コマ_v1.png', 6) for n in (1, 2, 3)]
+    crop = union([c for cs in seq for c in cs])
+    out, rows = {}, []
+    for n, cs in enumerate(seq, 1):
+        atlas, arr = pack(cs, (288, 384), crop=crop)
+        rows.append((f'n{n}', atlas, arr))
+    big = Image.new('RGBA', (rows[0][1].width, sum(a.height + 2 for _, a, _ in rows)), (0, 0, 0, 0))
+    y = 0
+    for nm, a, arr in rows:
+        big.paste(a, (0, y))
+        out[nm] = [[q[0], q[1] + y, q[2], q[3], q[4], q[5], q[6]] for q in arr]
+        y += a.height + 2
+    meta[f'mountnorm_{h}'] = out
+    print(f'mountnorm_{h}', big.size, webp(big, SPRITES / f'atlas_mountnorm_{h}.webp'), 'KB')
+
 (SPRITES / 'sprmeta.json').write_text(json.dumps(meta), encoding='utf-8')

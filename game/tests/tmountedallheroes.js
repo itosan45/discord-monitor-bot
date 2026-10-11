@@ -8,9 +8,9 @@ const f=mk(hero,640,y,0);f.mount={hp:6,max:6,col:'iron'};f.wpn=weapon?{k:weapon,
 for(const mode of ['idle','walk','attack','special']){f.x=640;f.state='idle';f.st=0;f.cur=null;f.ki=300;if(mode==='attack')updPlayer(f,{atkP:true});if(mode==='special')updPlayer(f,{spcP:true});
 const N=mode==='walk'?64:mode==='special'?40:24;for(let t=0;t<N;t++){
 keys=[];coords=[];ctx.clearRect(0,0,1280,720);drawFighter(f);
-const walkKey='mountwalk5_'+hero;const expected=f.state==='walk'?walkKey:(f.state==='matk'||f.state==='mspc')&&hero==='musashi'?'mountfull4_musashi':'mountbody3_'+hero;
+const walkKey='mountwalk5_'+hero;const expected=f.state==='walk'?walkKey:(f.state==='matk'&&!f.wpn&&f.cur&&f.cur.stage)?'mountnorm_'+hero:(f.state==='matk'||f.state==='mspc')&&hero==='musashi'?'mountfull4_musashi':'mountbody3_'+hero;
 if(!keys.includes(expected)||keys.includes(hero)||keys.includes(hero+'_u'))bad.push({hero,weapon,mode,t,keys,expected});
-for(const [k,c] of coords){if(k===walkKey)walk.add(c);if(k==='mountbody3_'+hero||k==='mountfull4_'+hero)attack.add(c);}
+for(const [k,c] of coords){if(k===walkKey)walk.add(c);if(k==='mountbody3_'+hero||k==='mountfull4_'+hero||k==='mountnorm_'+hero)attack.add(c);}
 if(!weapon&&face===1&&y===570&&low&&t===12&&mode!=='special'){renderWorld();shots.push({name:hero+'-'+mode,png:cv.toDataURL().split(',')[1]});}
 updPlayer(f,mode==='walk'?(face===1?{r:true}:{l:true}):{});G.t++;
 }}
