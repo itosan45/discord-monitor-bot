@@ -619,6 +619,7 @@ function drawStory(){const S=G.story;if(!S)return;const bb=S.bg!=null&&BGIMG[S.b
 const FACE={},STAND={},FALL={};for(const k of ['yuki','kage','mitsu','nobu','shin','musashi']){FACE[k]=new Image();FACE[k].src='gfx/face_'+k+'.webp';STAND[k]=new Image();STAND[k].src='gfx/stand_'+k+'.webp';FALL[k]=new Image();FALL[k].src='gfx/fall_'+k+'.webp';}
 const imgOK=im=>im&&im.complete&&im.naturalWidth>0;
 const YKB=new Image();YKB.src='gfx/yk_bust.webp';const PIMG={boss3:new Image()};PIMG.boss3.src='gfx/ieyasu_bust.webp';for(const b of ['boss1','boss2','boss4','boss5','boss7','boss8','boss9','masayuki']){PIMG[b]=new Image();PIMG[b].src='gfx/port_'+b+'.webp';}
+const TSPEAR=new Image();if(DATA.img&&DATA.img.title_spear1)TSPEAR.src=DATA.img.title_spear1;
 function drawBust(x,y,sz,a){if(!(YKB.complete&&YKB.naturalWidth))return false;ctx.save();ctx.globalAlpha=a;ctx.drawImage(YKB,x,y,sz,sz);ctx.restore();return true;}
 const OPN=[
  {bg:0,d:360,big:['慶長五年　九月十五日'],sm:['美濃国　関ヶ原']},
@@ -673,6 +674,12 @@ function stepTitle(){G.ttlT++;const n=TMENU.length;
   if(G.ttlSel===0){G.mode='diff';G.diffSel=G.diff??1;AU.bgm(4);G.camx=0;}else if(G.ttlSel===2){setInspectionMode(true);}else{demoView.motion='auto';startAuto('yuki',0);}return;}
  if(G.ttlIdle>60*28){G.ttlIdle=0;const i=G.demoNext||0;G.demoNext=(i+1)%DEMO_PLAN.length;startDemo(i);}}
 function titleHit(y){for(let i=0;i<TMENU.length;i++){const yy=505+i*58;if(Math.abs(y-yy)<26)return i;}return -1;}
+// 幸村の十文字槍(タイトル用の一枚絵): 赤い帯の上・題字の下に斜めに渡す。帯からはみ出す石突と穂先が見える。入りで右上へ滑り込み、穂先に周期的な光
+function drawTitleSpear(t){if(!(TSPEAR.complete&&TSPEAR.naturalWidth))return;{const ta=Math.min(1,Math.max(0,(t-4)/22)),ease=1-Math.pow(1-ta,3),ang=-0.12,L=840,sl=(1-ease)*-360;
+  ctx.save();ctx.globalAlpha=ta;ctx.translate(850+Math.cos(ang)*sl,212+Math.sin(ang)*sl);ctx.rotate(ang);const sh=L*TSPEAR.naturalHeight/TSPEAR.naturalWidth;
+  ctx.shadowColor='rgba(0,0,0,0.7)';ctx.shadowBlur=18;ctx.shadowOffsetY=8;ctx.drawImage(TSPEAR,-L/2,-sh*0.42,L,sh);ctx.shadowColor='transparent';
+  const gp=(t%220)/60;if(ta>=1&&gp<1){ctx.globalCompositeOperation='lighter';const gx=L*0.3+gp*L*0.16,gg=ctx.createRadialGradient(gx,-sh*0.04,2,gx,-sh*0.04,70);gg.addColorStop(0,'rgba(255,255,240,0.9)');gg.addColorStop(1,'rgba(255,255,240,0)');ctx.fillStyle=gg;ctx.fillRect(gx-70,-sh*0.04-70,140,140);}
+  ctx.restore();}}
 function drawTitle(){const t=G.ttlT;
  const bi=BGIMG[5];ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
  if(bi&&bi.complete&&bi.naturalWidth){ctx.save();const z=1.08;ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-W/2,-H/2);drawBGimg(bi,t*0.25);ctx.restore();}
@@ -685,7 +692,7 @@ function drawTitle(){const t=G.ttlT;
  ctx.save();ctx.globalCompositeOperation='lighter';for(const e of G.emb2){e.x+=e.vx+Math.sin((e.l++)*0.05)*0.3;e.y+=e.vy;ctx.fillStyle=`rgba(255,${120+Math.floor(e.s*30)},40,${Math.max(0,0.8-e.l/500)})`;ctx.fillRect(e.x,e.y,e.s,e.s);}ctx.restore();G.emb2=G.emb2.filter(e=>e.y>-10&&e.l<500);
  // logo: red brush band + gold calligraphy
  const la=Math.min(1,Math.max(0,(t-10)/30)),ls=1+Math.max(0,1-(t-10)/18)*0.6;
- ctx.save();ctx.globalAlpha=la;ctx.fillStyle='rgba(150,14,10,0.78)';ctx.beginPath();ctx.moveTo(470,150);ctx.quadraticCurveTo(840,118,1250,140);ctx.lineTo(1235,272);ctx.quadraticCurveTo(860,292,490,262);ctx.closePath();ctx.fill();
+ ctx.save();ctx.globalAlpha=la;ctx.fillStyle='rgba(150,14,10,0.78)';ctx.beginPath();ctx.moveTo(470,150);ctx.quadraticCurveTo(840,118,1250,140);ctx.lineTo(1235,272);ctx.quadraticCurveTo(860,292,490,262);ctx.closePath();ctx.fill();drawTitleSpear(t);
  ctx.translate(860,206);ctx.scale(ls,ls);ctx.font=`bold 138px ${FJ}`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineWidth=14;ctx.strokeStyle='#1a0402';ctx.strokeText('関ヶ原乱舞',0,0);
  const lg=ctx.createLinearGradient(0,-70,0,70);lg.addColorStop(0,'#fff6d0');lg.addColorStop(0.45,'#f2c95a');lg.addColorStop(0.55,'#c8902a');lg.addColorStop(1,'#fff0b0');ctx.fillStyle=lg;ctx.shadowColor='rgba(255,170,60,0.8)';ctx.shadowBlur=24;ctx.fillText('関ヶ原乱舞',0,0);ctx.restore();
  if(t>35){ctx.globalAlpha=Math.min(1,(t-35)/30);txt('SEKIGAHARA RANBU',860,318,34,'#e8c35a','center','#000',5,'Arial Black,Impact,sans-serif');txt('— 天下分け目、もう一つの関ヶ原 —',860,368,28,'#fff1d6','center','#000',5);ctx.globalAlpha=1;}
@@ -1044,16 +1051,19 @@ function updSpc(p){
 }
 function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk'&&!(f.state==='atk'&&f.cur&&(f.cur.k==='leap'||f.cur.k==='hop'||f.cur.k==='bleap'))){f.vz-=GR;f.z+=f.vz;if(f.z<=0){f.z=0;f.vz=0;}}}
 const CHG=40;
-const CKNAME={iai:'居合',spin:'回転斬り',quake:'地割れ',bigshot:'溜め撃ち',triarrow:'三本矢',gale:'疾風',gou:'号令'};
+const CKNAME={rokudan:'六段突き',iai:'居合',spin:'回転斬り',quake:'地割れ',bigshot:'溜め撃ち',triarrow:'三本矢',gale:'疾風',gou:'号令'};
 function chargeKind(p){const w=p.wpn&&p.wpn.k,o=p.T.wp;
  if(w==='odachi'||w==='yoto'||(!w&&o==='katana'))return 'iai';if(w==='naginata')return 'spin';if(w==='ono'||w==='konbou')return 'quake';
- if(w==='teppo')return 'bigshot';if(w==='yumi')return 'triarrow';if(!w&&o==='fan')return 'gale';if(!w&&o==='gunbai')return 'gou';return 'rush';}
-function startCk(p,ck){const T=p.T,b=(ck==='quake'?T.atk[3]:ck==='spin'?T.atk[1]:T.atk[0])||T.atk[0],DU={spin:[40,6,30],quake:[40,14,16],bigshot:[30,10,11],triarrow:[28,9,10],gale:[34,10,12],gou:[40,12,14]}[ck];
+ if(w==='teppo')return 'bigshot';if(w==='yumi')return 'triarrow';if(!w&&o==='fan')return 'gale';if(!w&&o==='gunbai')return 'gou';if(!w&&o==='jumonji'&&!p.mount)return 'rokudan';return 'rush';}
+function startCk(p,ck){const T=p.T,b=(ck==='quake'?T.atk[3]:ck==='spin'?T.atk[1]:T.atk[0])||T.atk[0],DU={rokudan:[66,8,57],spin:[40,6,30],quake:[40,14,16],bigshot:[30,10,11],triarrow:[28,9,10],gale:[34,10,12],gou:[40,12,14]}[ck];
  p.cur=Object.assign({},b,{base:b,ck,k:undefined,proj:null,rng:0,dmg:0,lunge:0,dur:DU[0],hs:DU[1],he:DU[2],sfx:null,chg:true,pz:(ck==='bigshot'||ck==='triarrow')?'shoot':b.pz});
  p.state='atk';p.combo=95;p.st=0;p.hit.clear();p.buf=false;p.inv=Math.max(p.inv,16);ring(p.x,p.y,100,'rgba(255,220,150,0.85)',16);}
 function chargeStep(f,d,st){const dir=f.face,wdm=f.wpn?(WPN[f.wpn.k].dm||1):1;
  if(st===d.hs)popup(CKNAME[d.ck]||'',f.x,f.y,210,'#ffe7a8',26);
  if(d.ck==='spin'){if(st===d.hs)d.f0=f.face;if(st>=d.hs&&st<=d.he){if(st%4===0)f.face*=-1;if((st-d.hs)%8===0){f.hit.clear();strike(f,{rng:160,dmg:Math.round(12*wdm),kb:6,launch:st>=d.he-8,around:true,dep:52});AU.sfx('slash');ring(f.x,f.y,160,'rgba(255,235,190,0.8)',14);}}if(st===d.he+1&&d.f0)f.face=d.f0;return;}
+ if(d.ck==='rokudan'){const k=Math.floor((st-d.hs)/9);if(st>=d.hs&&k<6&&(st-d.hs)%9===3){const last=k===5;f.hit.clear();f.x=clamp(f.x+dir*5,G.camx+40,G.camx+W-40);
+  strike(f,{rng:200,dmg:last?18:9,kb:last?11:2,launch:last,dep:46});AU.sfx(last?'heavy':'slash');if(last)G.shake=Math.max(G.shake,8);
+  G.parts.push({k:'cut',x:f.x+dir*150,y:f.y,z:f.z+100+rnd(-10,10),vx:0,vy:0,vz:0,g:0,life:8,max:8,sz:last?230:170,w:last?12:7,ang:0,col:'rgba(255,236,190,0.9)',fr:1});}return;}
  if(st!==d.hs)return;
  if(d.ck==='quake'){G.shake=Math.max(G.shake,16);dust(f.x+dir*40,f.y,14);AU.sfx('boom');f.hit.clear();strike(f,{rng:90,dmg:Math.round(14*wdm),kb:7,launch:true,around:true,dep:50});
   for(let i=0;i<3;i++)addProj({x:f.x+dir*(50+i*10),y:f.y,z:6,vx:dir*(8+i*1.5),team:0,dmg:Math.round(16*wdm),face:dir,owner:f,k:'wave',w:44+i*6,life:44+i*6,launch:true,kb:7,pierce:99});ring(f.x+dir*60,f.y,120,'rgba(255,200,140,0.9)',22);}
@@ -1208,6 +1218,7 @@ function fighterScreenMargin(f){
  if(f.mount)S=SPR['mountfull4_'+f.T.type]||SPR['mountfull3_'+f.T.type]||SPR['mountbody3_'+f.T.type]||SPR['mountatk2_'+f.T.type]||S;
  let extent=70;
  if(f.T.type==='yuki'&&SPR.yukithrow1&&SPR.yukithrow1.ready)extent=138;
+ for(const [U,on] of [[SPR.yukirokudan1,!f.mount&&!f.wpn],[SPR.mountwhirl1_yuki,!!f.mount&&!f.wpn]])if(on&&f.T.type==='yuki'&&U&&U.ready)for(const arr of Object.values(U.a))for(const q of arr)extent=Math.max(extent,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));
  if(!f.mount&&f.T.type==='yuki'&&!f.wpn&&SPR.yukiattack2&&SPR.yukiattack2.ready){for(const arr of Object.values(SPR.yukiattack2.a))for(const q of arr)extent=Math.max(extent,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));}
  if(S&&S.ready){if(S.screenExtent===undefined){let w=0;for(const arr of Object.values(S.a))if(Array.isArray(arr))for(const q of arr)if(Array.isArray(q)&&q.length>=6)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));S.screenExtent=w;}extent=Math.max(extent,S.screenExtent);}
  if(f.wpn&&f.wpn.k!=='kusari'){const w=WPN[f.wpn.k];if(w)extent=Math.max(extent,(w.tip||100)*1.15+72);}
@@ -1798,7 +1809,8 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
  if(f.state==='throw'&&f.spearThrow){const U=SPR.yukithrow1;if(U&&U.ready){S=U;sp={arr:U.a.throw,pos:yukiThrowFrame(f),loop:false,hard:true};}}
- if(f.T.type==='yuki'&&!f.wpn&&f.state==='atk'&&f.cur){const U=SPR.yukiattack2,idx=f.T.atk.indexOf(f.cur.base||f.cur);if(U&&U.ready&&idx>=0&&idx<2){const times=idx===0?[0,3,5,9,13]:[0,3,5,10,13];let frame=0;while(frame<4&&f.st>=times[frame+1])frame++;S=U;sp={arr:U.a['a'+(idx+1)],pos:frame,loop:false,hard:true};}}
+ if(f.state==='atk'&&f.cur&&f.cur.ck==='rokudan'){const U=SPR.yukirokudan1;if(U&&U.ready){const c=f.cur,k=Math.floor((f.st-c.hs)/9),fr=f.st<c.hs?0:k>=6?11:2*k+((f.st-c.hs)%9>=3?1:0);S=U;sp={arr:U.a.thrust,pos:fr,loop:false,hard:true};}}
+ else if(f.T.type==='yuki'&&!f.wpn&&f.state==='atk'&&f.cur){const U=SPR.yukiattack2,idx=f.T.atk.indexOf(f.cur.base||f.cur);if(U&&U.ready&&idx>=0&&idx<2){const times=idx===0?[0,3,5,9,13]:[0,3,5,10,13];let frame=0;while(frame<4&&f.st>=times[frame+1])frame++;S=U;sp={arr:U.a['a'+(idx+1)],pos:frame,loop:false,hard:true};}}
  if(f.wpn&&f.team===0&&f.state==='walk'){const U=SPR['walkbody3_'+f.T.type];if(U&&U.ready&&U.a.walk){S=U;sp=sprPos(f,U);}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
   if(f.kspin>0&&f.state==='walk'&&K.a.kwalk){S=K;sp={arr:K.a.kwalk,pos:(f.t/4)%K.a.kwalk.length,loop:true,hard:true};kart='spin';}
@@ -1981,6 +1993,8 @@ function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk
  const i=attacking?seq[phase]:walking?Math.floor(((f.wp||0)/TAU*B.a.all.length)%B.a.all.length):0,q=B.a.all[i],hand=B.a.handAll[i],fl=f.flash>0&&(f.flash&2);
  const C=SPR['mountfull4_'+f.T.type]||SPR['mountfull3_'+f.T.type],kind=f.wpn?f.wpn.k:'default',full=attacking&&!(f.cur&&f.cur.kth)&&C&&C.ready&&C.a[kind],fq=full&&full[phase];
  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(vface*f.sc*WHOLE_MOUNT_SCALE,f.sc*WHOLE_MOUNT_SCALE);
+ // 旋風突撃の専用絵(幸村の主武器だけ納品済み): 6コマを3更新ずつ回し、向きの左右切り替えはしない
+ const WH=whirl&&!f.wpn&&SPR['mountwhirl1_'+f.T.type];if(WH&&WH.ready){const wq=WH.a.whirl[f.st<f.cur.hs||f.st>f.cur.he?0:Math.floor((f.st-f.cur.hs)/3)%6];ctx.scale(vface*f.face,1);ctx.drawImage(fl?sprWhite(WH):WH.img,wq[0],wq[1],wq[2],wq[3],wq[4],wq[5],wq[2]*(wq[6]||1),wq[3]*(wq[6]||1));ctx.restore();drawWhirlFx(f);return true;}
  if(fq){ctx.drawImage(fl?sprWhite(C):C.img,fq[0],fq[1],fq[2],fq[3],fq[4],fq[5],fq[2]*(fq[6]||1),fq[3]*(fq[6]||1));ctx.restore();drawWhirlFx(f);return true;}
  ctx.drawImage(fl?sprWhite(B):B.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));
  const wk=f.wpn?WPN[f.wpn.k]:{draw:f.T.wp,tip:f.T.tip,heavy:f.T.wp==='gunbai'},hx=hand[0],hy=hand[1];
@@ -2483,7 +2497,7 @@ function sprRequest(k){const S=SPR_RAW[k];if(!S||S.want)return;S.want=true;if(S.
 function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.ready=false;S.loading=false;S.white=null;const im=S.img;im.onload=im.onerror=null;im.removeAttribute('src');S.img=new Image();
  for(const id in _tint)if(id==='red|'+k||id.startsWith(k+'|'))delete _tint[id];}
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
-function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];if(h==='yuki')b.push('yukithrow1','yukiattack2');return b.filter(k=>SPR_RAW[k]);}
+function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1','mountwhirl1_yuki');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
 function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]));
