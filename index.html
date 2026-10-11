@@ -1432,7 +1432,7 @@ function updWorld(){
  // 画面端の拾得品: 主人公は端から余白(武器の長さ分)より外へ行けないので、そこに落ちた物は足元へ届かない。届く所まで滑らせて寄せる
  const itEdge=p&&p.hp>0?fighterScreenMargin(p):0;
  for(let i=G.items.length-1;i>=0;i--){const it=G.items[i];it.t++;if(it.x<G.camx-50){G.items.splice(i,1);continue;}
-  if(itEdge){const rc=(it.k.startsWith('w_')?48:40)-8,lo=G.camx+itEdge-rc,hi=G.camx+W-itEdge+rc;if(it.x<lo)it.x=Math.min(lo,it.x+6);else if(it.x>hi)it.x=Math.max(hi,it.x-6);}const isW=it.k.startsWith('w_');if(p.hp>0&&p.state!=='dead'&&Math.abs(it.x-p.x)<(isW?48:40)&&Math.abs(it.y-p.y)<(isW?30:26)&&p.z<14&&(!isW||(G.t-(p.aT??-99)<=2&&(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.st<=1))))){if(isW){p.state='idle';p.cur=null;p.st=0;p.combo=0;}pickup(p,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}
+  const isW=it.k.startsWith('w_');/* 画面の端に落ちた物: 動かさず(幽霊のように寄ってくる動きはやめた)、端で足が届かない分だけ拾う判定を端の内側へ寄せる */let ix=it.x;if(itEdge){const rc=(isW?48:40)-8;ix=clamp(it.x,G.camx+itEdge-rc,G.camx+W-itEdge+rc);}if(p.hp>0&&p.state!=='dead'&&Math.abs(ix-p.x)<(isW?48:40)&&Math.abs(it.y-p.y)<(isW?30:26)&&p.z<14&&(!isW||(G.t-(p.aT??-99)<=2&&(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.st<=1))))){if(isW){p.state='idle';p.cur=null;p.st=0;p.combo=0;}pickup(p,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}
  for(const pr of G.props)if(pr.shk>0)pr.shk--;
  updProj();
  // camera
