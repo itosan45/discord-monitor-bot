@@ -157,7 +157,8 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
   lp.type='lowpass';lp.frequency.setValueAtTime(900,t);lp.frequency.linearRampToValueAtTime(2400,t+0.08);lp.Q.value=1.2;
   g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(v,t+0.04);g.gain.setValueAtTime(v,t+d*0.8);g.gain.exponentialRampToValueAtTime(0.0001,t+d+0.12);
   o.connect(lp);o2.connect(lp);lp.connect(g);g.connect(this.mg);for(const x of [o,o2,lfo]){x.start(t);x.stop(t+d+0.15);}},
- fanfare(){if(!this.on)return;this.stopBgm();if(this.ffBuf){const s=this.ac.createBufferSource();s.buffer=this.ffBuf;const g=this.ac.createGain();g.gain.value=1.1;s.connect(g);g.connect(this.mg);s.start(this.ac.currentTime+0.05);return;}const t0=this.ac.currentTime+0.05,b=0.2,A=this;
+ ffStop(){try{if(this.ffG&&this.ffSrc){const s=this.ffSrc;this.ffG.gain.setTargetAtTime(0,this.ac.currentTime,0.12);setTimeout(()=>{try{s.stop();}catch(e){}},700);}}catch(e){}this.ffSrc=null;this.ffG=null;},
+ fanfare(){if(!this.on)return;this.stopBgm();if(this.ffBuf){const s=this.ac.createBufferSource();s.buffer=this.ffBuf;const g=this.ac.createGain();g.gain.value=1.1;s.connect(g);g.connect(this.mg);s.start(this.ac.currentTime+0.05);this.ffSrc=s;this.ffG=g;return;}const t0=this.ac.currentTime+0.05,b=0.2,A=this;
   [[0,.9],[2,.9],[3,.7],[3.5,.7],[4,1]].forEach(([x,v])=>A.taiko(t0+x*b,v));
   const D4=293.66,F4=349.23,G4=392,A4=440,C5=523.25,D5=587.33,F5=698.46;
   [[A4,4,1],[C5,5,1],[D5,6,2],[C5,8,1],[D5,9,1],[F5,10,2],[D5,12,1],[C5,13,.5],[A4,13.5,.5],[D5,14,5]].forEach(([f,x,d])=>A.horn(f,t0+x*b,d*b*0.95,0.16));
@@ -980,10 +981,10 @@ function drawUlt(){const u=G.ult;if(!u)return;const t=u.t,p=u.p,nm=ULT[p.T.type]
   ctx.save();ctx.beginPath();ctx.moveTo(0,180);ctx.lineTo(W,140);ctx.lineTo(W,420);ctx.lineTo(0,460);ctx.closePath();ctx.clip();
   if(p.T.type==='yuki'&&YKB.complete&&YKB.naturalWidth)ctx.drawImage(YKB,-200+k*200+out*200,80,560,560);else drawPort(p.T.type,220+k*60,560,1.9,1,false);ctx.restore();
   ctx.save();ctx.globalCompositeOperation='lighter';ctx.fillStyle='rgba(255,220,150,0.15)';for(let i=0;i<14;i++){const y=150+((i*53+t*37)%300);ctx.fillRect(0,y,W,2);}ctx.restore();
-  const tx=W-80-(1-k)*400;txt(nm[0],tx,250,76,'#fff3c8','right','#3a0600',10);txt(nm[1],tx,345,42,'#ffd070','right','#000',7);ctx.restore();}
+  ctx.restore();} // 奥義名の文字は出さない(顔の切り込み帯だけ)
  drawTroops(u);
  if(u.sl){ctx.save();ctx.globalCompositeOperation='lighter';for(const sl of u.sl){sl.t++;if(sl.t>12)continue;const a=1-sl.t/12;ctx.strokeStyle=`rgba(255,240,210,${a})`;ctx.lineWidth=10*a+2;ctx.beginPath();const cx=sl.x-G.camx,cy=sl.y-90;ctx.moveTo(cx-Math.cos(sl.a)*260,cy-Math.sin(sl.a)*260);ctx.lineTo(cx+Math.cos(sl.a)*260,cy+Math.sin(sl.a)*260);ctx.stroke();}ctx.restore();}
- if(t>=104&&t<120){ctx.fillStyle=`rgba(255,240,220,${(120-t)/16*0.8})`;ctx.fillRect(0,0,W,H);txt('斬！',W/2,H/2,180,'#b0100a','center','#fff',12);}}
+ if(t>=104&&t<120){ctx.fillStyle=`rgba(255,240,220,${(120-t)/16*0.8})`;ctx.fillRect(0,0,W,H);}}
 
 // 信長の必殺Lv2「魔王の火刑」: 画面内の敵(最大6体、近い順)の足元から火柱が立ち、燃やし続けたあと爆ぜる
 function kakeiStep(p,st){const once=p._kst!==st;p._kst=st; // 当たった瞬間の一時停止中は同じ st で何度も呼ばれるので、節目の処理は1回だけ
@@ -1383,7 +1384,10 @@ function updWorld(){
  // trails
  for(const f of G.fighters){if(f.trailOn)f.trailOn=false;else if(f.trail.length)f.trail.shift();}
  // items
- for(let i=G.items.length-1;i>=0;i--){const it=G.items[i];it.t++;if(it.x<G.camx-50){G.items.splice(i,1);continue;}const isW=it.k.startsWith('w_');if(p.hp>0&&p.state!=='dead'&&Math.abs(it.x-p.x)<(isW?48:40)&&Math.abs(it.y-p.y)<(isW?30:26)&&p.z<14&&(!isW||(G.t-(p.aT??-99)<=2&&(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.st<=1))))){if(isW){p.state='idle';p.cur=null;p.st=0;p.combo=0;}pickup(p,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}
+ // 画面端の拾得品: 主人公は端から余白(武器の長さ分)より外へ行けないので、そこに落ちた物は足元へ届かない。届く所まで滑らせて寄せる
+ const itEdge=p&&p.hp>0?fighterScreenMargin(p):0;
+ for(let i=G.items.length-1;i>=0;i--){const it=G.items[i];it.t++;if(it.x<G.camx-50){G.items.splice(i,1);continue;}
+  if(itEdge){const rc=(it.k.startsWith('w_')?48:40)-8,lo=G.camx+itEdge-rc,hi=G.camx+W-itEdge+rc;if(it.x<lo)it.x=Math.min(lo,it.x+6);else if(it.x>hi)it.x=Math.max(hi,it.x-6);}const isW=it.k.startsWith('w_');if(p.hp>0&&p.state!=='dead'&&Math.abs(it.x-p.x)<(isW?48:40)&&Math.abs(it.y-p.y)<(isW?30:26)&&p.z<14&&(!isW||(G.t-(p.aT??-99)<=2&&(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.st<=1))))){if(isW){p.state='idle';p.cur=null;p.st=0;p.combo=0;}pickup(p,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}
  for(const pr of G.props)if(pr.shk>0)pr.shk--;
  updProj();
  // camera
@@ -1394,8 +1398,8 @@ function updWorld(){
  if(G.goT>0)G.goT++;if(G.goT>300)G.goT=0;
  if(G.waveOn||G.state!=='run')G.goT=0;
  // state flow
- if(G.state==='bossdown'){G.stateT++;if(!G.demo&&G.stateT===(G.voAt||54))AU.voice(G.curCh);const kt=G.stateT-(G.demo?0:(G.victoryShift||0));if(!G.demo){if(kt===60)kgunInit();kgunStep(kt);const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===330){G.kdOK=AU.kachi();G.ffAt=G.kdOK?330+Math.max(60,Math.ceil(((AU.kdLen||3)-0.3)*60)):420;}if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);}if(kt===330&&!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');if(kt===360&&!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);G.shake=12;}}if(!G.demo&&kt===(G.ffAt||630)){AU.fanfare();G.victoryClearAt=G.stateT+Math.ceil(((AU.ffBuf&&AU.ffBuf.duration)||5)*60)+12;}if(G.stateT>(G.demo?170:(G.victoryClearAt||99999))){G.state='clear';G.kgun=null;G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
- else if(G.state==='clear'){G.stateT++;const lim=G.demo?260:330;if(G.stateT>lim||(!G.demo&&G.stateT>60&&anyKey())){
+ if(G.state==='bossdown'){G.stateT++;if(!G.demo&&G.stateT===(G.voAt||54))AU.voice(G.curCh);const kt=G.stateT-(G.demo?0:(G.victoryShift||0));if(!G.demo){if(kt===60)kgunInit();kgunStep(kt);const KR={yuki:1,kage:0.95,mitsu:1.05,nobu:1.03,shin:0.9,musashi:1};if(kt===138){if(AU.on)AU.taiko(AU.ac.currentTime,0.9);AU.kc('call',KR[G.curCh]||1,1.7);}if(kt===330){G.kdOK=AU.kachi();G.ffAt=G.kdOK?330+Math.max(60,Math.ceil(((AU.kdLen||3)-0.3)*60)):420;}if(kt===180||kt===214){if(AU.on)AU.taiko(AU.ac.currentTime,0.85);}if(kt===330&&!G.kdOK&&!AU.kc('ei',1,1.5))AU.crowd('ei');if(kt===360&&!G.kdOK&&!AU.kc('oo',1,1.6))AU.crowd('oo');if(kt===250){if(AU.on)AU.taiko(AU.ac.currentTime,1);G.shake=12;}}if(!G.demo&&kt===(G.ffAt||630)){AU.fanfare();G.clearLim=Math.ceil(((AU.ffBuf&&AU.ffBuf.duration)||5)*60)+12;}if(G.demo?G.stateT>170:kt>=(G.ffAt||630)){G.state='clear';G.kgun=null;G.stateT=0;G.vo=null;if(G.demo)AU.sfx('clear');G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;if(!G.demo){G.timeBonus=Math.floor(G.time/60)*10;addScore(G.bonus+2000+G.timeBonus);}}}
+ else if(G.state==='clear'){G.stateT++;const lim=G.demo?260:(G.clearLim||330);if(G.stateT>lim||(!G.demo&&G.stateT>60&&anyKey())){if(!G.demo)AU.ffStop();
    if(G.demo){startDemo(G.demoI+1);}
    else if(G.stage<STG.length-1){startStage(G.stage+1,G.curCh,false,{hp:p.hp,ki:p.ki});if(!G.noStory)startStory('s'+G.stage);}
    else{G.newUnlock=!G.unlocked;G.unlocked=true;try{localStorage.setItem('sekigahara_unlock','1');}catch(e){}AU.bgm(11);const fin=()=>{G.mode='end';G.stateT=0;};if(G.noStory)fin();else startStory('end',fin);}}}
@@ -1819,7 +1823,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
   else if(f.state==='atk'&&f.cur&&!f.cur.kth&&!f.cur.chg&&K.a.kslash){S=K;sp={arr:K.a.kslash,pos:Math.min(0.999,f.st/Math.max(1,f.cur.dur))*K.a.kslash.length,loop:false,hard:true};kart='slash';}
   else if(f.state==='atk'&&f.cur&&f.cur.kth&&K.a.kthrow){S=K;sp={arr:K.a.kthrow,pos:Math.min(0.999,f.st/Math.max(1,f.cur.he+8))*K.a.kthrow.length,loop:false,hard:true};kart='throw';}}}
  // 勝鬨: 呼びかけ録音の発話終端+0.8秒後に拳を突き上げる
- if(G.state==='bossdown'&&!G.demo&&f===G.player&&G.stateT-(G.victoryShift||0)>=330){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.stateT-(G.victoryShift||0),i=t<366?0:t<402?1:t<438?2:t<474?1:t<510?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
+ if(((G.state==='bossdown'&&G.stateT-(G.victoryShift||0)>=330)||G.state==='clear')&&!G.demo&&f===G.player){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.state==='clear'?999:G.stateT-(G.victoryShift||0),i=t<366?0:t<402?1:t<438?2:t<474?1:t<510?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
  // ボスの跳躍(大跳躍・跳びかかり・跳び越し)は専用のジャンプ4コマ(しゃがみ/上昇/頂点/下降)
  if(f.T&&f.T.boss&&f.state==='atk'&&f.cur&&(f.cur.k==='bleap'||f.cur.k==='leap'||f.cur.k==='hop')){const J=SPR['bjump_'+f.T.type];if(J&&J.ready&&J.a.jump){const i=f.z<=2?0:f.vz>3?1:f.vz>-3?2:3;S=J;sp={arr:J.a.jump,pos:i,loop:false,hard:true};}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
@@ -2237,10 +2241,7 @@ function drawOverlays(){drawSays();drawRear();drawKachi();drawUlt();
   if(b.boss){ctx.fillStyle='rgba(110,0,0,0.64)';ctx.fillRect(0,196,W,266);ctx.fillStyle='#b01818';ctx.fillRect(0,196,W,5);ctx.fillRect(0,457,W,5);txt('— WARNING —',W/2,226,22,'#ff9a8a','center','#000',4,'Arial Black,Impact,sans-serif');txt(b.jp,W/2,290,78,'#fff','center','#600',9);if(b.kana)txt(b.kana,W/2,342,22,'#ffd9d0','center','#000',4);if(b.role)txt(b.role,W/2,380,28,'#ffd27a','center','#000',5);if(b.desc){txt(b.desc[0],W/2,416,19,'#fff','center','#000',4);txt(b.desc[1],W/2,440,19,'#fff','center','#000',4);}}
   else{ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,240,W,150);txt(b.jp,W/2,282,34,'#e8c35a','center','#000',5);txt(b.title,W/2,336,66,'#fff','center','#300',8);txt(b.en,W/2,376,18,'#ddd','center','#000',3,'Arial');}ctx.globalAlpha=1;}}}
  // special cut-in
- // 必殺技のカットイン: 技名だけを細い帯で一瞬見せる(アクションゲームの定番。一言の副題は出さない)
- if(G.cut){const c=G.cut;c.t++;if(c.t>44||G.vo)G.cut=null;else{const s=c.t<6?c.t/6:1,a=c.t>34?1-(c.t-34)/10:1,H0=96,y0=296-H0/2;ctx.globalAlpha=a;const col=TY[c.type].trail;ctx.fillStyle='rgba(0,0,0,0.62)';ctx.fillRect(0,y0+H0*(1-s)/2,W,H0*s);ctx.globalCompositeOperation='lighter';const g=ctx.createLinearGradient(0,0,W,0);g.addColorStop(0,`rgba(${col},0)`);g.addColorStop(.5,`rgba(${col},0.32)`);g.addColorStop(1,`rgba(${col},0)`);ctx.fillStyle=g;ctx.fillRect(0,y0+H0*(1-s)/2,W,H0*s);ctx.globalCompositeOperation='source-over';
-  const off=(1-eo(Math.min(1,c.t/9)))*360;txt(c.name,W/2+off,y0+H0/2+22,62,'#fff','center',`rgb(${col})`,9);
-  ctx.strokeStyle=`rgba(${col},0.85)`;ctx.lineWidth=2;for(let i=0;i<8;i++){const y=y0+6+((i*29+c.t*14)%(H0-12));ctx.beginPath();ctx.moveTo(((i*191+c.t*70)%W),y);ctx.lineTo(((i*191+c.t*70)%W)+140,y);ctx.stroke();}ctx.globalAlpha=1;}}
+ if(G.cut){G.cut.t++;if(G.cut.t>44||G.vo)G.cut=null;} // 必殺の文字カットインは出さない(オーナー指示 2026-10-11)。タイマーだけ残す
  // 敵将討ち取ったり
  if(G.vo){const v=G.vo;v.t++;const L=v.small?110:(v.name&&!G.demo?132:260);if(v.t>L)G.vo=null;else{const s=v.t<12?1+(1-v.t/12)*1.2:1,a=v.t>L-20?(L-v.t)/20:1;ctx.save();ctx.globalAlpha=a;ctx.translate(W/2,v.small?230:300);ctx.scale(s,s);const fs=v.small?64:96;
   ctx.fillStyle='rgba(10,0,0,0.65)';ctx.fillRect(-W/2,-fs*0.8,W,fs*1.6);ctx.fillStyle='#b01818';ctx.fillRect(-W/2,-fs*0.8,W,6);ctx.fillRect(-W/2,fs*0.8-6,W,6);
@@ -2354,16 +2355,17 @@ function drawRear(){const R=G.rear;if(!R)return;const q=R.q,p=G.player;
 const HT_BTN=[['atk','攻撃','Z'],['jump','跳躍','X'],['spc','必殺','C'],['gd','防御','V']];
 const HTY=520;
 function htDummy(x,y,ty){y=HTY+(y-585);const e=mk(ty||'sword',x,y,1);e.entered=true;e.face=-1;e.maxhp=e.hp=600;e.cool=9999;G.fighters.push(e);return e;}
-function htReset(px){G.fighters=G.fighters.filter(f=>f===G.player);G.proj=[];G.decals=[];G.parts=[];G.items=[];G.props=[];const p=G.player;p.x=px||420;p.y=HTY;p.z=0;p.grabCd=0;p.pushT=0;p.dcd=0;p.vz=0;p.face=1;p.state='idle';p.st=0;p.cur=null;p.chg=0;p.wpn=null;p.inv=0;p.hp=p.maxhp;p.ki=0;p.gt=null;}
+function htReset(px){G.fighters=G.fighters.filter(f=>f===G.player);G.proj=[];G.decals=[];G.parts=[];G.items=[];G.props=[];const p=G.player;p.x=px||420;p.y=HTY;p.z=0;p.grabCd=0;p.pushT=0;p.dcd=0;p.vz=0;p.face=1;p.state='idle';p.st=0;p.cur=null;p.chg=0;p.wpn=null;p.inv=0;p.hp=p.maxhp;p.ki=0;p.gt=null;p.mount=null;p.mA=null;}
 const HT_STEPS=[
  {cap:'移動',sub:'方向キー（左のスティック）で8方向に移動',dur:150,btn:t=>['dir'],setup(){htReset(520);},ctl(t){return{r:t<40,u:t>=40&&t<62,l:t>=62&&t<110,d:t>=110&&t<132};}},
  {cap:'攻撃',sub:'攻撃ボタンを連打すると連続技',dur:130,setup(){htReset(420);htDummy(560,585);htDummy(600,570);},btn:t=>[t%12<6&&t>5&&t<70?'atk':''],ctl(t){return{atkP:[6,18,30,44,58].includes(t)};}},
  {cap:'ジャンプ　／　ジャンプ攻撃',sub:'跳躍ボタンでジャンプ、空中で攻撃ボタン',dur:140,setup(){htReset(420);htDummy(590,585);},btn:t=>[(t>=8&&t<16)||(t>=70&&t<78)?'jump':'',(t>=24&&t<32)||(t>=84&&t<92)?'atk':''],ctl(t){return{jumpP:t===8||t===70,atkP:t===24||t===84,r:t>=70&&t<100};}},
  {cap:'ダッシュ攻撃',sub:'走りながら攻撃ボタンで突進攻撃',dur:110,setup(){htReset(260);htDummy(720,585);htDummy(770,575);},btn:t=>['dir',t>=30&&t<40?'atk':''],ctl(t){return{r:t<34,atkP:t===30};}},
- {cap:'溜め攻撃',sub:'攻撃ボタンを長押し → 点滅したら離す。技は武器で変わる(刀は居合・槍は突進など)',dur:140,setup(){htReset(300);htDummy(620,585);htDummy(680,575);htDummy(740,590);},btn:t=>[t>=5&&t<58?'atk':''],ctl(t){return{atkH:t>=5&&t<58};}},
+ {cap:'溜め攻撃',sub:'攻撃ボタンを長押し → 点滅したら離す。技は武将・武器で変わる（刀は居合、幸村の槍は六段突きなど）',dur:140,setup(){htReset(300);htDummy(620,585);htDummy(680,575);htDummy(740,590);},btn:t=>[t>=5&&t<58?'atk':''],ctl(t){return{atkH:t>=5&&t<58};}},
  {cap:'防御',sub:'防御ボタンを押している間、前からの攻撃を防ぐ。スティックを倒しながら押すと回避',dur:150,setup(){htReset(500);const e=htDummy(615,585,'spear');e.cool=20;e.htStay=true;},btn:t=>[t>=5?'gd':''],ctl(t){for(const e of G.fighters)if(e.team===1&&e.cool>40)e.cool=40;return{gd:t>=5};}},
  {cap:'武器を拾う',sub:'落ちている武器の上で攻撃ボタン。拾った武器で戦える（使うと壊れる）',dur:170,setup(){htReset(420);G.player.grabCd=9999;G.items.push({x:462,y:HTY,k:'w_odachi',t:0});htDummy(700,585);},btn:t=>[(t>=4&&t<12)||(t>=50&&t<70)?'dir':'',(t>=26&&t<34)||(t>=86&&t<94)||(t>=104&&t<112)||(t>=122&&t<130)?'atk':''],ctl(t){const p=G.player;p.grabCd=9999;p.run=0;return{r:(t>=4&&t<12)||(t>=50&&t<70),atkP:t===26||t===86||t===104||t===122};}},
  {cap:'つかみ・投げ',sub:'敵に向かって押し込むとつかむ。攻撃でひざ蹴り、方向＋攻撃で投げ',dur:160,setup(){htReset(470);const e=htDummy(540,585);},btn:t=>['dir',(t>=40&&t<46)||(t>=52&&t<58)||(t>=70&&t<76)?'atk':''],ctl(t){return{r:t<34||(t>=68&&t<72),l:false,atkP:t===40||t===52||t===70};}},
+ {cap:'馬に乗る',sub:'馬上は受ける傷が3分の1。攻撃＝振り下ろし、走って攻撃＝騎馬突撃、突撃ボタン＝旋風突撃',dur:230,setup(){htReset(280);G.player.mount={hp:6,max:6,col:'red'};htDummy(430,585);htDummy(500,575);const b=htDummy(140,580);b.face=1;},btn:t=>[t>=60&&t<100?'dir':'',(t>=10&&t<18)||(t>=76&&t<84)?'atk':'',t>=150&&t<160?'gd':''],ctl(t){return{r:t>=60&&t<100,atkP:t===10||t===76,gdP:t===150};}},
  {cap:'必殺技',sub:'ゲージが1本以上たまったら必殺ボタン。2本でさらに強い技',dur:150,setup(){htReset(420);G.player.ki=100;htDummy(600,585);htDummy(660,575);},btn:t=>[t>=10&&t<20?'spc':''],ctl(t){return{spcP:t===10};}},
  {cap:'奥義',sub:'ゲージが3本たまると、武将ごとの奥義で味方の軍勢が援護',dur:330,setup(){htReset(420);G.player.ki=300;htDummy(640,585);htDummy(720,575);htDummy(800,590);},btn:t=>[t>=10&&t<20?'spc':''],ctl(t){return{spcP:t===10};}},
  {cap:'同時押し',sub:'攻撃＋跳躍の同時押しで周囲を吹き飛ばす（体力を少し使う）',dur:120,setup(){htReset(560);htDummy(470,585);htDummy(650,580);},btn:t=>t>=10&&t<20?['atk','jump']:[],ctl(t){return{atkP:t===10,jumpP:t===10};}},
