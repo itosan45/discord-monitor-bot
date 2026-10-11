@@ -146,4 +146,43 @@ for h, jp in HERO.items():
     meta[f'mountnorm_{h}'] = out
     print(f'mountnorm_{h}', big.size, webp(big, SPRITES / f'atlas_mountnorm_{h}.webp'), 'KB')
 
+# 5. 敵の新しい動き(足軽): 受け流し反撃(刀)・横薙ぎ(槍)・装填(鉄砲)。256x384のコマ、原点は足元(128,360)。
+#    身長は既存の敵の通常攻撃1コマ目の描画高さにそろえる。
+ENEMY = [('sword', 'parry', '敵_足軽刀_受け流し反撃_6コマ_v1.png', 6), ('spear', 'sweep', '敵_足軽槍_横薙ぎ_6コマ_v1.png', 6), ('gun', 'reload', '敵_鉄砲足軽_装填_8コマ_v1.png', 8)]
+out, rows = {}, []
+for ty, nm, fn, n in ENEMY:
+    ref = meta[ty]['a1'][0]
+    cs = cells(fn, n)
+    b0 = bbox(cs[0])
+    sc = ref[3] * ref[6] / (b0[3] - b0[1])
+    atlas, arr = pack(cs, (128, 360), sc)
+    rows.append((nm, atlas, arr))
+    print('enemy', ty, nm, 'scale', round(sc, 3))
+AW = max(a.width for _, a, _ in rows)
+big = Image.new('RGBA', (AW, sum(a.height + 2 for _, a, _ in rows)), (0, 0, 0, 0))
+y = 0
+for nm, a, arr in rows:
+    big.paste(a, (0, y))
+    out[nm] = [[q[0], q[1] + y, q[2], q[3], q[4], q[5], q[6]] for q in arr]
+    y += a.height + 2
+meta['enemyx1'] = out
+print('enemyx1', big.size, webp(big, SPRITES / 'atlas_enemyx1.webp'), 'KB')
+
+# 6. 戦場の仕掛け: 竹柵・木盾(健全/損傷/崩壊)、焚火(3コマの揺れ)。512x384のコマ、原点(256,360)、倍率0.63(足軽と同じ縮尺)
+PROPS = [('fence', '戦場_竹柵_破壊_3コマ_v1.png', 3), ('mshield', '戦場_木盾_破壊_3コマ_v1.png', 3), ('fire', '戦場_焚火_燃焼_3コマ_v1.png', 3)]
+out, rows = {}, []
+for nm, fn, n in PROPS:
+    cs = cells(fn, n)
+    atlas, arr = pack(cs, (256, 360), 0.63)
+    rows.append((nm, atlas, arr))
+AW = max(a.width for _, a, _ in rows)
+big = Image.new('RGBA', (AW, sum(a.height + 2 for _, a, _ in rows)), (0, 0, 0, 0))
+y = 0
+for nm, a, arr in rows:
+    big.paste(a, (0, y))
+    out[nm] = [[q[0], q[1] + y, q[2], q[3], q[4], q[5], q[6]] for q in arr]
+    y += a.height + 2
+meta['props1'] = out
+print('props1', big.size, webp(big, SPRITES / 'atlas_props1.webp'), 'KB')
+
 (SPRITES / 'sprmeta.json').write_text(json.dumps(meta), encoding='utf-8')
