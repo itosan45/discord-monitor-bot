@@ -426,7 +426,7 @@ TY.nezu={type:'nezu',name:'根津甚八',en:'NEZU JINPACHI',role:'真田十勇�
  atk:[{pz:'swing',a0:-2.2,a1:0.8,r:34,dur:20,hs:7,he:12,rng:102,dmg:12,kb:3,lunge:2,sfx:'slash'}],
  dash:{pz:'thrust',dur:24,hs:7,he:16,rng:116,dmg:12,kb:6,launch:true,lunge:8,dep:34,sfx:'thrust'},jatk:{pz:'dive',rng:100,dmg:12,kb:3,dep:34}};
 const WPN={odachi:{n:'長剣',draw:'odachi',tip:140,dm:1.7,rng:38,uses:26},naginata:{n:'薙刀',draw:'naginata',tip:150,dm:1.4,rng:60,uses:30},teppo:{n:'火縄銃',draw:'teppo',tip:78,uses:10},yoto:{n:'妖刀',draw:'odachi',tip:128,dm:2.1,rng:30,uses:18,s:'斬るたびに体力を吸う'},ono:{n:'斧',draw:'odachi',tip:118,dm:2.2,rng:18,uses:16,heavy:true,s:'一撃で吹き飛ばす'},konbou:{n:'棍棒',draw:'odachi',tip:108,dm:1.6,rng:20,uses:32,blunt:true},takeyari:{n:'竹槍',draw:'naginata',tip:180,dm:1.15,rng:78,uses:36},kusari:{n:'鎖鎌',draw:'naginata',tip:118,isc:0.6,dm:1.35,rng:30,uses:28,s:'長押しで分銅回し・離して投げ'},yumi:{n:'弓矢',draw:'teppo',tip:120,uses:14,bow:true}};
-const ITEMS={onigiri:{n:'おにぎり',s:'HP回復',c:'#b8f5a8'},hyorou:{n:'兵糧',s:'HP大回復',c:'#ffe29a'},sake:{n:'酒',s:'必殺ゲージ回復',c:'#9fd8ff'},w_odachi:{n:'長剣',s:'攻撃ボタンで拾う',c:'#ffb070'},sushi:{n:'寿司',s:'HP回復',c:'#b8f5a8'},manju:{n:'饅頭',s:'HP・必殺回復',c:'#ffd8a8'},w_yoto:{n:'妖刀',s:'攻撃ボタンで拾う',c:'#ff8aa0'},w_ono:{n:'斧',s:'攻撃ボタンで拾う',c:'#ffb070'},w_konbou:{n:'棍棒',s:'攻撃ボタンで拾う',c:'#ffb070'},w_takeyari:{n:'竹槍',s:'攻撃ボタンで拾う',c:'#ffb070'},w_kusari:{n:'鎖鎌',s:'攻撃ボタンで拾う',c:'#ffb070'},w_yumi:{n:'弓矢',s:'攻撃ボタンで拾う',c:'#ffb070'},w_naginata:{n:'薙刀',s:'攻撃ボタンで拾う',c:'#ffb070'},w_teppo:{n:'火縄銃',s:'攻撃ボタンで拾う',c:'#ffb070'}};
+const ITEMS={onigiri:{n:'おにぎり',s:'HP回復',c:'#b8f5a8'},hyorou:{n:'兵糧',s:'HP大回復',c:'#ffe29a'},sake:{n:'酒',s:'必殺ゲージ回復',c:'#9fd8ff'},w_odachi:{n:'長剣',s:'攻撃ボタンで拾う',c:'#ffb070'},sushi:{n:'寿司',s:'HP回復',c:'#b8f5a8'},manju:{n:'干し柿',s:'HP・必殺回復',c:'#ffd8a8'},w_yoto:{n:'妖刀',s:'攻撃ボタンで拾う',c:'#ff8aa0'},w_ono:{n:'斧',s:'攻撃ボタンで拾う',c:'#ffb070'},w_konbou:{n:'棍棒',s:'攻撃ボタンで拾う',c:'#ffb070'},w_takeyari:{n:'竹槍',s:'攻撃ボタンで拾う',c:'#ffb070'},w_kusari:{n:'鎖鎌',s:'攻撃ボタンで拾う',c:'#ffb070'},w_yumi:{n:'弓矢',s:'攻撃ボタンで拾う',c:'#ffb070'},w_naginata:{n:'薙刀',s:'攻撃ボタンで拾う',c:'#ffb070'},w_teppo:{n:'火縄銃',s:'攻撃ボタンで拾う',c:'#ffb070'}};
 
 /* ===================== LEVEL ===================== */
 const LV=[
@@ -1401,7 +1401,7 @@ function pickup(p,it){
  else if(it.k==='hyorou'){p.hp=Math.min(p.maxhp,p.hp+70);popup('HP +70',it.x,it.y,70,'#ffe29a',26);}
  else if(it.k==='sake'){p.ki=Math.min(KMAX,p.ki+100);p.hp=Math.min(p.maxhp,p.hp+10);popup('必殺ゲージ +150',it.x,it.y,70,'#8cf',22);}
  else if(it.k==='sushi'){p.hp=Math.min(p.maxhp,p.hp+45);popup('HP +45',it.x,it.y,70,'#9f9',24);}
- else if(it.k==='manju'){p.hp=Math.min(p.maxhp,p.hp+20);p.ki=Math.min(KMAX,p.ki+40);popup('HP +20  必殺 +60',it.x,it.y,70,'#ffd8a8',22);}
+ else if(it.k==='manju'){p.hp=Math.min(p.maxhp,p.hp+20);p.ki=Math.min(KMAX,p.ki+40);popup('HP +20  必殺 +40',it.x,it.y,70,'#ffd8a8',22);}
  else{const k=it.k.slice(2);p.wpn={k,uses:WPN[k].uses};popup(WPN[k].n+' 入手！'+(WPN[k].s?'　'+WPN[k].s:''),it.x,it.y,80,'#ffb070',26);}
 }
 function useWpn(f){f.wpn.uses--;if(f.wpn.uses<=0){popup(WPN[f.wpn.k].n+'が壊れた',f.x,f.y,110,'#ccc',22);f.wpn=null;}}

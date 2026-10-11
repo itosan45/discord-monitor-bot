@@ -2,7 +2,7 @@ import os,numpy as np,json,io
 from PIL import Image
 from mk import keyim
 S=os.path.join(os.path.dirname(os.path.abspath(__file__)),'../../assets/sprites/')
-IT={'onigiri':'回復アイテム_おにぎり_v1.png','hyorou':'回復アイテム_兵糧_v1.png','sushi':'回復アイテム_寿司_v1.png','sake':'回復アイテム_酒_v1.png','manju':'回復アイテム_饅頭_v1.png',
+IT={'onigiri':'回復アイテム_おにぎり_v1.png','hyorou':'回復アイテム_兵糧_v1.png','sushi':'回復アイテム_寿司_v1.png','sake':'回復アイテム_酒_v1.png','manju':'回復アイテム_干し柿_v1.png',
  'w_yoto':'拾得武器_妖刀_v1.png','w_yumi':'拾得武器_弓矢_v1.png','w_ono':'拾得武器_斧_v1.png','w_konbou':'拾得武器_棍棒_v1.png','w_takeyari':'拾得武器_竹槍_v1.png','w_naginata':'拾得武器_薙刀_v1.png','w_kusari':'拾得武器_鎖鎌_v1.png','w_odachi':'拾得武器_長剣_v1.png'}
 items=[];meta={}
 for k,f in IT.items():
@@ -11,7 +11,7 @@ for k,f in IT.items():
     d1=(xs-x0)+(y1-ys);i1=np.argmin(d1);d2=(x1-xs)+(ys-y0);i2=np.argmin(d2)
     g=(xs[i1]-x0,ys[i1]-y0);t=(xs[i2]-x0,ys[i2]-y0)
     if k=='w_kusari':g=(int((x1-x0)*0.12),int((y1-y0)*0.9))
-    im=Image.fromarray(a[y0:y1,x0:x1],'RGBA');sc=1.0 if k.startswith('w_') else 0.5
+    im=Image.fromarray(a[y0:y1,x0:x1],'RGBA');sc=1.0 if k.startswith('w_') else (0.25 if f.endswith('干し柿_v1.png') else 0.5)  # 干し柿は原画が512pxなので他の食べ物と同じ大きさにそろえる
     im=im.resize((round(im.width*sc),round(im.height*sc)),Image.LANCZOS);items.append((k,im,[round(g[0]*sc),round(g[1]*sc),round(t[0]*sc),round(t[1]*sc)]))
 AW=1024;x=y=rh=0;atl=[]
 for k,im,gt in items:
