@@ -88,6 +88,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  get on(){return !!this.ac&&this.ac.state==='running'&&!this.muted;},
  async dec(s){if(s.startsWith('gfx/')){const r=await fetch(s);return await this.ac.decodeAudioData(await r.arrayBuffer());}const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return await this.ac.decodeAudioData(u.buffer);},
  async load(){if(this.loaded)return;this.loaded=true;
+  try{this.nrBuf=[];for(const x of (DATA.nr||[]))this.nrBuf.push(await this.dec(x));}catch(e){console.warn('narration decode',e);this.nrBuf=null;}this.nrReady=true;
   try{await this.ensureBgm(this.want);this.ensureBgm(4);}catch(e){console.warn('bgm decode',e);}
   try{for(const k in DATA.vo)this.voBuf[k]=await this.dec(DATA.vo[k]);}catch(e){console.warn('vo decode',e);}
   try{for(let i=0;i<(DATA.sc||[]).length;i++)this.scBuf[i]=await this.dec(DATA.sc[i]);}catch(e){console.warn('sc decode',e);}
@@ -108,6 +109,8 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
     const s=this.ac.createBufferSource();s.buffer=pool[i];s.playbackRate.value=boss?rnd(0.97,1.0):rnd(0.93,1.08);const g=this.ac.createGain();g.gain.value=boss?1.3:1.0;const p=this.ac.createStereoPanner?this.ac.createStereoPanner():null;
     if(p){p.pan.value=clamp((t.x-G.camx-W/2)/(W/2),-0.7,0.7);s.connect(g);g.connect(p);p.connect(this.mg);}else{s.connect(g);g.connect(this.mg);}s.start();return;}}
   if(!this.on||!this.scBuf.length)return;const now=this.ac.currentTime;if(now-this.lastSc<0.2)return;this.lastSc=now;const s=this.ac.createBufferSource();s.buffer=boss?(this.scBuf[5]||this.scBuf[0]):this.scBuf[Math.floor(Math.random()*Math.min(5,this.scBuf.length))];s.playbackRate.value=boss?0.8:rnd(0.9,1.25);const g=this.ac.createGain();g.gain.value=boss?1.5:0.9;s.connect(g);g.connect(this.mg);s.start();},
+ narr(i){if(!this.on||!this.nrBuf||!this.nrBuf[i])return;this.narrStop();const ac=this.ac,s=ac.createBufferSource();s.buffer=this.nrBuf[i];const g=ac.createGain();g.gain.value=1.3;s.connect(g);g.connect(this.mg);const t=ac.currentTime;this.bg.gain.cancelScheduledValues(t);this.bg.gain.setTargetAtTime(0.32,t,0.15);s.onended=()=>{if(this.nrSrc===s){this.nrSrc=null;const u=this.ac.currentTime;this.bg.gain.cancelScheduledValues(u);this.bg.gain.setTargetAtTime(0.62,u,0.5);}};s.start();this.nrSrc=s;},
+ narrStop(){const s=this.nrSrc;if(!s)return;this.nrSrc=null;try{s.stop();}catch(e){}if(this.ac){const u=this.ac.currentTime;this.bg.gain.cancelScheduledValues(u);this.bg.gain.setTargetAtTime(0.62,u,0.3);}},
  bgm(i){this.want=i;},
  async ensureBgm(i){ // 曲は必要になった時だけ展開する(1曲約17MB。使い終わった古い曲は捨ててメモリを節約)
   if(i<0||i>=DATA.bgm.length||this.bgmBuf[i]||(this.bgmBusy&&this.bgmBusy[i]))return;
@@ -653,14 +656,21 @@ const OPN=[
  {bg:1,d:560,hero:1,big:['もしも　あの男が','関ヶ原にいたならば'],sm:['父・昌幸の命を受け、赤備えは中山道を駆けた']},
  {bg:-1,d:360,red:['歴史は　塗り替えられる']},
 ];
-function startOpening(){G.mode='opening';G.opT=0;AU.bgm(8);}
+function startOpening(){G.mode='opening';G.opT=0;G.opWait=0;G.opDur=null;G.opNi=-1;AU.bgm(8);}
+function opD(i){return (G.opDur&&G.opDur[i])||OPN[i].d;}
 function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);startOpening();}}
 function drawGate(){const t=G.gateT||0;ctx.fillStyle='#050307';ctx.fillRect(0,0,W,H);const bi=BGIMG[0];if(bi&&bi.complete&&bi.naturalWidth){ctx.globalAlpha=0.35;drawBGimg(bi,t*0.3);ctx.globalAlpha=1;}
  txt('関ヶ原乱舞',W/2,H/2-70,88,'#f3e3b0','center','#3a0a06',10);txt('— 天下分け目、もう一つの関ヶ原 —',W/2,H/2+10,26,'#e8c35a','center','#000',4);
  if((t>>5)&1||t<20)txt(TOUCH?'画面をタップして開始':'クリック／キーを押して開始',W/2,H/2+110,34,'#fff','center','#000',5);
  txt('♪ 音が出ます（スマホは音量・マナーモードをご確認ください）',W/2,H/2+165,20,'rgba(255,255,255,0.75)','center','#000',3);}
-function stepOpening(){G.opT++;let T=0;for(const c of OPN)T+=c.d;if(G.opT>T||(G.opT>20&&anyKey())){startTitle();}}
-function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=OPN[i].d){t-=OPN[i].d;i++;}if(i>=OPN.length)return;const c=OPN[i],k=t/c.d,fa=Math.min(1,t/45,(c.d-t)/40);
+function stepOpening(){
+ // ナレーション: 声の準備ができるまで最大3秒だけ待ち、各カードの長さは「声の長さ+余韻」と元の長さの長いほうにする
+ if(!G.opDur){if(DATA.nr&&!AU.nrReady&&!AU.muted&&(G.opWait||0)<180){G.opWait=(G.opWait||0)+1;if(anyKey()){startTitle();}return;}
+  G.opDur=OPN.map((c,i)=>Math.max(c.d,!AU.muted&&AU.nrBuf&&AU.nrBuf[i]?Math.ceil(20+AU.nrBuf[i].duration*60+45):0));}
+ G.opT++;let T=0;for(let i=0;i<OPN.length;i++)T+=opD(i);
+ if(G.opT>T||(G.opT>20&&anyKey())){startTitle();return;}
+ {let t=G.opT,i=0;while(i<OPN.length&&t>=opD(i)){t-=opD(i);i++;}if(i<OPN.length&&i!==G.opNi&&t>=20){G.opNi=i;AU.narr(i);}}}
+function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=opD(i)){t-=opD(i);i++;}if(i>=OPN.length)return;const c=OPN[i],cd=opD(i),k=t/cd,fa=Math.min(1,t/45,(cd-t)/40);
  ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
  if(c.bg>=0){const bi=BGIMG[c.bg];ctx.globalAlpha=fa*0.75;if(bi&&bi.complete&&bi.naturalWidth){ctx.save();const z=1.05+k*0.06;ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-W/2,-H/2);drawBGimg(bi,400+k*260);ctx.restore();}ctx.globalAlpha=1;
   const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(0,0,0,0.55)');g.addColorStop(0.5,'rgba(0,0,0,0.25)');g.addColorStop(1,'rgba(0,0,0,0.75)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);}
@@ -688,7 +698,7 @@ function stepDiff(){const n=DIFF.length;G.camx+=0.5;if(pressed.ArrowUp||pressed.
  drawBG(G.camx,G.t);ctx.fillStyle='rgba(8,6,16,0.62)';ctx.fillRect(0,0,W,H);txt('難易度を選べ',W/2,120,52,'#f4f0e0','center','#7a1010',8);txt(TOUCH?'タップで決定':'↑↓ 選択　Z / ENTER 決定　ESC：戻る',W/2,170,18,'#e8c35a','center','#000',3);
  DIFF.forEach((it,i)=>{const on=G.diffSel===i,y=DFY[i];ctx.save();ctx.fillStyle=on?'rgba(110,26,18,0.92)':'rgba(15,12,22,0.82)';ctx.fillRect(W/2-260,y-44,520,88);ctx.strokeStyle=on?'#ffe070':'#6a5a40';ctx.lineWidth=on?5:2;ctx.strokeRect(W/2-260,y-44,520,88);ctx.restore();txt(it.n,W/2,y-10,40,on?it.col:'#bbb','center','#000',6);txt(it.d,W/2,y+26,16,on?'#f4e8c0':'#999','center','#000',3);});
  {const bx=24,by=118,bw=120,bh=40;ctx.save();ctx.fillStyle='rgba(20,14,30,0.85)';ctx.fillRect(bx,by,bw,bh);ctx.strokeStyle='#a08a50';ctx.lineWidth=2;ctx.strokeRect(bx,by,bw,bh);ctx.restore();txt('◀ 戻る',bx+bw/2,by+bh/2+1,18,'#f4e8c0','center','#000',3);}}
-function startTitle(){G.pause=false;G.auto=false;G.mode='title';G.ttlT=0;G.ttlSel=G.ttlSel||0;G.emb2=[];G.ttlIdle=0;AU.bgm(4);}
+function startTitle(){AU.narrStop&&AU.narrStop();G.pause=false;G.auto=false;G.mode='title';G.ttlT=0;G.ttlSel=G.ttlSel||0;G.emb2=[];G.ttlIdle=0;AU.bgm(4);}
 function stepTitle(){G.ttlT++;const n=TMENU.length;
  if(pressed.ArrowUp||pressed.KeyW){G.ttlSel=(G.ttlSel+n-1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
  if(pressed.ArrowDown||pressed.KeyS){G.ttlSel=(G.ttlSel+1)%n;AU.sfx('ui');G.ttlT=Math.max(G.ttlT,80);G.ttlIdle=0;}
