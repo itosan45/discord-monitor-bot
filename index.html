@@ -450,10 +450,10 @@ function burst(x,y,z,n,col,sp,life){for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rn
 function dust(x,y,n){for(let i=0;i<(n||4);i++)PT({x:x+rnd(-10,10),y,z:2,vx:rnd(-1.2,1.2),vz:rnd(0.3,1.2),life:rndi(16,28),sz:rnd(8,16),col:'rgba(160,140,110,0.5)',k:'smoke'});}
 function popup(s,x,y,z,col,sz){PT({x,y,z,vz:1.2,life:42,k:'text',s,col:col||'#fff',sz:sz||22,vx:rnd(-.3,.3)});}
 // 剣閃: 会心・反撃・一閃の決着で、刃が通った線を一瞬描く(素材は増やさない)
-// 刃物の当たり: 攻撃の向きに沿う1本+違う角度で交差する1〜3本の斬り線(オーナー「色んな向きで線が入るやつ」)
-function hitCuts(x,y,z,face,d,col,big){const thrust=d&&(d.pz==='thrust'||d.k==='charge'),base=thrust?rnd(-0.12,0.12):(d&&d.a1!==undefined&&d.a0!==undefined&&d.a1<d.a0?0.75:-0.75)+rnd(-0.2,0.2),n=big?4:rndi(2,3),len=big?230:rnd(150,185);
- const angs=[base];for(let i=1;i<n;i++)angs.push(base+(i%2?1:-1)*rnd(0.9,1.5)+rnd(-0.25,0.25));
- angs.forEach((an,i)=>G.parts.push({k:'cut',x:x+rnd(-8,8),y,z:z+rnd(-10,10),vx:0,vy:0,vz:0,g:0,life:(i?9:11)+(big?3:0),max:(i?9:11)+(big?3:0),sz:i?len*rnd(0.7,0.9):len,w:big?13:i?7:10,ang:face>0?an:Math.PI-an,col:col||'rgba(255,214,140,0.85)',fr:1}));}
+// 刃物の当たり: 斬り線を1本だけ、毎回ランダムな向きで(オーナー「2、3本の交差より1本ずつランダムな方向の方が自然」2026-10-11)
+// 前回とほぼ同じ向き(25度以内)は避ける。会心・打ち上げ・ボスへの大ダメージは長く太く
+function hitCuts(x,y,z,face,d,col,big){let an=rnd(0,Math.PI);if(G.lastCutAng!==undefined){let df=Math.abs(an-G.lastCutAng)%Math.PI;if(Math.min(df,Math.PI-df)<0.45)an=(an+Math.PI/2)%Math.PI;}G.lastCutAng=an;
+ const len=big?240:rnd(160,195),life=big?14:11;G.parts.push({k:'cut',x:x+rnd(-6,6),y,z:z+rnd(-8,8),vx:0,vy:0,vz:0,g:0,life,max:life,sz:len,w:big?13:9,ang:an,col:col||'rgba(255,214,140,0.85)',fr:1});}
 function slashFx(x,y,z,face,len,life,col,ang){G.parts.push({k:'slash',x,y,z,vx:0,vy:0,vz:0,g:0,life:life||16,max:life||16,sz:len||170,ang:ang??(-0.3+rnd(-0.14,0.14)),face:face||1,col:col||'#fff',fr:1});}
 function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
@@ -745,7 +745,7 @@ function hurt(t,a,d){
  if(t.team===0&&own.team===1&&!G.demo)t.ki=Math.min(KMAX,(t.ki||0)+dmg*0.8);
  const hx=t.x-dir*10,hy=t.y,hz=t.z+55+rnd(-10,15);
  if(t.team===1)bloodSpray(hx,hy,hz,dir,d.launch?24:12,d.launch?1.5:1);else bloodSpray(hx,hy,hz,dir,5,0.7);if(d.launch&&t.team===1)addDecal(t.x+dir*rnd(10,40),t.y+rnd(-4,6),rnd(7,13),0.6);
- if(!a.owner&&bladeAtk(own,d)){hitCuts(hx,hy,hz,dir,own.cur||d,t.team===0?'rgba(255,110,80,0.85)':crit||ctr?'rgba(255,120,60,0.9)':undefined,crit||d.launch||(t.T&&t.T.boss&&dmg>=20));PT({x:hx,y:hy,z:hz,life:5,k:'star',sz:d.launch?34:22,col:'#fff'});}else PT({x:hx,y:hy,z:hz,life:7,k:'star',sz:d.launch?46:30,col:'#fff'});burst(hx,hy,hz,d.launch?14:8,t.team===0?'#ff8a6a':'#ffe9a0',d.launch?9:6);
+ if(!a.owner&&bladeAtk(own,d)){hitCuts(hx,hy,hz,dir,own.cur||d,t.team===0?'rgba(255,110,80,0.85)':crit||ctr?'rgba(255,120,60,0.9)':undefined,crit||d.launch||(t.T&&t.T.boss&&dmg>=20));}else PT({x:hx,y:hy,z:hz,life:7,k:'star',sz:d.launch?46:30,col:'#fff'});burst(hx,hy,hz,d.launch?14:8,t.team===0?'#ff8a6a':'#ffe9a0',d.launch?9:6);
  if(own.team===0&&!a.owner&&own.T&&own.T.atk&&own.hit&&own.hit.size===1){const ci=own.T.atk.indexOf(own.cur&&(own.cur.base||own.cur));if(ci>=2)AU.kiai(own,ci===own.T.atk.length-1);}
  {const BL=['fan','gunbai','kanabo','iron','bow'],blade=d.pz!=='kick'&&d.pz!=='tackle'&&d.proj!=='shot'&&(own.wpn&&!a.owner?!['teppo','yumi','konbou'].includes(own.wpn.k):!BL.includes(own.T&&own.T.wp));if(blade&&AU.cut(t.hp<=0&&t.team===1,t.x)){if(d.launch)AU.sfx('hit');}else AU.sfx(d.launch?'hitH':'hit');}G.hitstop=Math.max(G.hitstop,d.launch?8:4);G.shake=Math.max(G.shake,d.launch?8:3);
  popup(String(Math.round(dmg)),t.x,t.y,t.z+100,t.team===0?'#ff6a5a':'#ffe27a',t.team===0?24:20);
