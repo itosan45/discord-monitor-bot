@@ -1022,7 +1022,7 @@ function drawUlt(){const u=G.ult;if(!u)return;const t=u.t,p=u.p,nm=ULT[p.T.type]
  if(t<52){const k=Math.min(1,t/10),out=t>42?(t-42)/10:0;ctx.save();ctx.globalAlpha=1-out;
   ctx.fillStyle='rgba(150,14,10,0.92)';ctx.beginPath();ctx.moveTo(0,180);ctx.lineTo(W,140);ctx.lineTo(W,420);ctx.lineTo(0,460);ctx.closePath();ctx.fill();
   ctx.save();ctx.beginPath();ctx.moveTo(0,180);ctx.lineTo(W,140);ctx.lineTo(W,420);ctx.lineTo(0,460);ctx.closePath();ctx.clip();
-  if(p.T.type==='yuki'&&YKB.complete&&YKB.naturalWidth)ctx.drawImage(YKB,-200+k*200+out*200,80,560,560);else drawPort(p.T.type,220+k*60,560,1.9,1,false);ctx.restore();
+  {const UC=SPR.cutin,UQ=UC&&UC.ready&&UC.a[p.T.type]&&UC.a[p.T.type][0];/* 新しい細帯の絵(全6人)を帯いっぱいに。無ければ従来の胸像・立ち絵 */if(UQ){const w=1120,h=w*UQ[3]/UQ[2];ctx.drawImage(UC.img,UQ[0],UQ[1],UQ[2],UQ[3],-260+k*260+out*260,300-h/2,w,h);}else if(p.T.type==='yuki'&&YKB.complete&&YKB.naturalWidth)ctx.drawImage(YKB,-200+k*200+out*200,80,560,560);else drawPort(p.T.type,220+k*60,560,1.9,1,false);}ctx.restore();
   ctx.save();ctx.globalCompositeOperation='lighter';ctx.fillStyle='rgba(255,220,150,0.15)';for(let i=0;i<14;i++){const y=150+((i*53+t*37)%300);ctx.fillRect(0,y,W,2);}ctx.restore();
   ctx.restore();} // 奥義名の文字は出さない(顔の切り込み帯だけ)
  drawTroops(u);
