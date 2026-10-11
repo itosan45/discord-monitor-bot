@@ -403,9 +403,9 @@ TY.bomber=Object.assign(JSON.parse(JSON.stringify(TY.archer)),{name:'焙烙兵',
 TY.brute=Object.assign(JSON.parse(JSON.stringify(TY.sword)),{name:'荒法師',hp:120,spd:1.55,sc:1.32,spr:'sword',armor:true,score:600,gen:true,atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:44,hs:22,he:27,rng:120,dmg:16,kb:7,launch:true,sfx:'heavy',lunge:2},{pz:'raise',k:'grab',unblock:true,dur:46,hs:18,he:19,rng:95,dmg:0,gd:20,sfx:'roar'}]});
 TY.shield=Object.assign(JSON.parse(JSON.stringify(TY.spear)),{name:'盾足軽',hp:46,spd:1.7,spr:'spear',shield:true,score:300});
 // 2026-10-12 A-006の新しい敵4種(絵は移動・転倒・死亡まで揃い済み)。spr省略時は種類名のアトラス(monk/kunoichi/yoroi/akabi)
-TY.monk={name:'鉄球大僧',hp:130,spd:1.35,ai:'melee',wp:'sword',tip:90,two:false,gap:14,helm:'jingasa',score:700,gen:true,armor:true,tack:true,col:{armor:'#5a4a6a',armor2:'#3a2c46',trim:'#d9d0b8',cloth:'#6a5a7a',skin:'#d9a070'},banner:null,
- atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:62,hs:31,he:37,rng:140,dmg:18,kb:8,launch:true,sfx:'heavy',fx:'quake'},
-  {pz:'swing',a0:-1,a1:1,r:40,k:'charge',move:10,dur:56,hs:22,he:40,rng:105,dmg:14,kb:11,launch:true,sfx:'heavy'}]};
+TY.monk={name:'鉄球大僧',hp:195,sc:2,spd:1.35,ai:'melee',wp:'sword',tip:90,two:false,gap:14,helm:'jingasa',score:700,gen:true,armor:true,tack:true,col:{armor:'#5a4a6a',armor2:'#3a2c46',trim:'#d9d0b8',cloth:'#6a5a7a',skin:'#d9a070'},banner:null,
+ atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:62,hs:31,he:37,rng:260,dmg:18,kb:8,launch:true,sfx:'heavy',fx:'quake'},
+  {pz:'swing',a0:-1,a1:1,r:40,k:'charge',move:10,dur:56,hs:22,he:40,rng:200,dmg:14,kb:11,launch:true,sfx:'heavy'}]};
 TY.kunoichi={name:'仮面のくノ一',hp:34,spd:3.5,ai:'melee',wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
  atk:[{pz:'swing',a0:-1.6,a1:0.9,r:30,dur:30,hs:10,he:14,hs2:20,he2:24,rng:86,dmg:7,kb:2.5,lunge:3,sfx:'slash'},
   {pz:'throw',kj:true,dur:44,hs:22,he:23,rng:0,proj:'kunai',dmg:9,kb:3,sfx:'arrow'}]};
@@ -864,7 +864,7 @@ function fireProj(f,d){
 }
 // 素手の通常攻撃の演出(信長=妖刀の妖気、三成=鉄扇の風の刃と扇投げ、信玄=風林火山)。first=技の出始め
 function heroFx(f,d,first){const k=d.fx,dir=f.face,me=f.team===0;
- if(k==='quake'){if(first){PT({k:'qfx',x:f.x+dir*112,y:f.y+1,z:0,life:24,sz:1,face:dir});G.shake=Math.max(G.shake,9);AU.sfx('boom');dust(f.x+dir*112,f.y,6);}return;}
+ if(k==='quake'){if(first){PT({k:'qfx',x:f.x+dir*112*(f.sc||1),y:f.y+1,z:0,life:24,sz:f.sc||1,face:dir});G.shake=Math.max(G.shake,9);AU.sfx('boom');dust(f.x+dir*112*(f.sc||1),f.y,6);}return;}
  if(k==='yoki'){for(let i=0;i<(G.lowq?3:6);i++)PT({x:f.x+dir*rnd(25,125),y:f.y+rnd(-5,5),z:f.z+rnd(50,170),vx:dir*rnd(0.5,3),vz:rnd(0.4,2),life:rndi(12,24),sz:rnd(14,26),col:i%3===0?'rgba(20,0,30,0.8)':i%3===1?'rgba(160,40,230,0.75)':'rgba(230,140,255,0.6)',k:'flame'});
   if(first){PT({x:f.x+dir*75,y:f.y,z:f.z+110,life:10,k:'star',sz:70,col:'#b070ff'});ring(f.x+dir*70,f.y,60,'rgba(170,60,255,0.85)',14);}return;}
  if(!first)return;
@@ -1312,7 +1312,7 @@ function updEnemy(e){
     else{const rg=T.atk[0].rng;if(adx>rg*0.7)mx=sgn(dx);else if(adx<rg*0.4)mx=-sgn(dx)*0.5;if(ady>9)my=sgn(dy);
     if(e.cool<=0&&e.inv<=0){const pool=adx<230?T.near:T.far;startEAtk(e,pick(pool));}}}
    else{const rg=T.atk[0].rng,sx=rg*0.72;if(adx>sx+8)mx=sgn(dx);else if(adx<sx-34)mx=-sgn(dx)*0.5;if(ady>8)my=sgn(dy);
-    if(T.tack&&adx>200&&adx<285&&ady<18&&e.cool<=0&&e.entered&&atkers()<2)startEAtk(e,1);
+    if(T.tack&&adx>250&&adx<400&&ady<18&&e.cool<=0&&e.entered&&atkers()<2)startEAtk(e,1);
     else if(T.atk[1]&&T.atk[1].proj&&adx>300&&ady<18&&e.cool<=0&&e.entered&&eProj()<2)startEAtk(e,1);
     else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.atk.length>1&&!T.atk[1].proj&&!T.tack?rndi(0,1):0);
     else if(atkers()>=2&&e.state!=='atk'){const side=e.x<p.x?-1:1,tx=p.x+side*205,ty=clamp(p.y+(e.flk??(e.flk=rnd(-55,55))),YMIN,YMAX);mx=Math.abs(tx-e.x)>16?sgn(tx-e.x)*0.75:0;my=Math.abs(ty-e.y)>8?sgn(ty-e.y):0;}}
@@ -2241,7 +2241,7 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
 function drawParts(){
  for(const p of G.parts){const x=p.x-G.camx,y=p.y-p.z,a=clamp(p.life/p.max,0,1);
   switch(p.k){
-   case'qfx':{const QS=SPR.monkfx,QA=QS&&QS.ready&&QS.a.quake;if(QA){const qi=Math.min(QA.length-1,Math.floor((1-a)*QA.length)),Q=QA[qi];ctx.globalAlpha=Math.min(1,a*2.2);ctx.drawImage(QS.img,Q[0],Q[1],Q[2],Q[3],x+Q[4],y+Q[5],Q[2],Q[3]);ctx.globalAlpha=1;}break;}
+   case'qfx':{const QS=SPR.monkfx,QA=QS&&QS.ready&&QS.a.quake;if(QA){const qi=Math.min(QA.length-1,Math.floor((1-a)*QA.length)),Q=QA[qi];ctx.globalAlpha=Math.min(1,a*2.2);ctx.drawImage(QS.img,Q[0],Q[1],Q[2],Q[3],x+Q[4]*p.sz,y+Q[5]*p.sz,Q[2]*p.sz,Q[3]*p.sz);ctx.globalAlpha=1;}break;}
    case'spark':ctx.strokeStyle=p.col;ctx.globalAlpha=a;ctx.lineWidth=p.sz;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-p.vx*2.2,y+p.vz*2.2-p.vy*0.6);ctx.stroke();ctx.globalAlpha=1;break;
    case'blood':{const ang=Math.atan2(-p.vz+p.vy*0.3,p.vx);ctx.save();ctx.translate(x,y);ctx.rotate(ang);ctx.globalAlpha=Math.min(1,a*1.6);ctx.fillStyle=p.col;ctx.beginPath();ctx.ellipse(0,0,p.sz*1.5+Math.hypot(p.vx,p.vz)*0.55,p.sz*0.85,0,0,TAU);ctx.fill();ctx.fillStyle='rgba(255,150,150,0.5)';ctx.beginPath();ctx.ellipse(-p.sz*0.2,-p.sz*0.3,p.sz*0.55,p.sz*0.25,0,0,TAU);ctx.fill();ctx.restore();break;}
    case'head':ctx.save();ctx.globalAlpha=Math.min(1,p.life/30);ctx.translate(x,y);ctx.rotate(p.rot);ctx.scale(p.face,1);ctx.drawImage(p.img,p.sx,p.sy,p.sw,p.sh,-p.dw/2,-p.dh/2,p.dw,p.dh);ctx.restore();break;
