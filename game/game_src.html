@@ -1036,7 +1036,7 @@ function kakeiStep(p,st){const once=p._kst!==st;p._kst=st; // 当たった瞬間
    e.x+=0;e.vx=0;if(once&&st%8===0&&st<50)hurt(e,{x:e.x-p.face,face:p.face,team:0,owner:p,hit:null},{dmg:3,kb:0,launch:false,unblock:true,pz:'fire'});}
   if(st===50&&once){hurt(e,{x:e.x-p.face,face:p.face,team:0,owner:p,hit:null},{dmg:12,kb:7,launch:true,unblock:true,pz:'fire'});ring(e.x,e.y,110,'rgba(255,140,60,0.95)',26);for(let i=0;i<16;i++)PT({x:e.x+rnd(-30,30),y:e.y+rnd(-8,8),z:rnd(0,80),vx:rnd(-4,4),vz:rnd(2,7),life:rndi(16,30),sz:rnd(14,30),col:i<9?'#ffa040':'rgba(70,60,60,0.6)',k:i<9?'flame':'smoke'});}}
  if(st===50&&once){G.shake=Math.max(G.shake,16);AU.sfx('boom');p.kakei=null;}}
-function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.spcScene={p,t:G.t};{const S2=p.spLv===2&&SPC2[p.type];G.cut={t:0,name:S2?S2[0]:p.T.spcName+(p.spLv===2?'・極':''),sub:S2?S2[1]:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv};}if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');AU.spv&&AU.spv(p.type);setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
+function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.spcScene={p,t:G.t};{const S2=p.spLv===2&&SPC2[p.type];G.cut={t:0,name:S2?S2[0]:p.T.spcName+(p.spLv===2?'・極':''),sub:S2?S2[1]:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv,mine:p===G.player};}if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');AU.spv&&AU.spv(p.type);setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
 // 必殺Lv2で別の技になる武将(信長: Lv1=鉄砲、Lv2=火刑)
 const SPC2={nobu:['魔王の火刑','我に逆らう者、灰となれ']};
 const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36}};
@@ -2051,7 +2051,7 @@ function updMount(p,c){
    if(G.t%9===0)dust(p.x-p.face*50,p.y,2);}
   else p.state='idle';
   if(c.jumpP&&!(G.demo||G.auto)){dropMount(p,p.face,false);return;}
-  if(c.spcP&&p.ki>=60){p.kspin=0;p.chg=0;p.kpull=null;p.ki-=60;p.state='mspc';G.spcScene={p,t:G.t};p.st=0;p.inv=999;AU.sfx('roar');}
+  if(c.spcP&&p.ki>=60){p.kspin=0;p.chg=0;p.kpull=null;p.ki-=60;p.state='mspc';G.spcScene={p,t:G.t};G.cut={t:0,type:p.type,lv:1,mine:p===G.player};p.st=0;p.inv=999;AU.sfx('roar');}
   else if(c.gdP&&!(p.wpn&&(p.wpn.k==='kusari'||p.wpn.k==='yumi'||p.wpn.k==='teppo'))&&!((p.whCd||0)>G.t)){p.state='matk';p.st=0;p.cur=MWHIRL;p.whCd=G.t+90;G.whirlN=(G.whirlN||0)+1;p.hit=new Set();AU.sfx('slash');AU.kiai&&AU.kiai(p,true);}
   else if(c.atkP){p.state='matk';p.st=0;p.cur=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo')?Object.assign({},MATK,{proj:p.wpn.k==='yumi'?'parrow':'shot',hs:10,he:11,rng:0,dmg:p.wpn.k==='yumi'?13:18}):(p.wpn&&p.wpn.k==='kusari'?(mx?MCHG:MATK):(mx?MCHG:MATK1));p.mbuf=false;if(p.cur===MCHG){G.mchgN=(G.mchgN||0)+1;}p.hit=new Set();AU.sfx('slash');}}
  keepFighterOnScreen(p);p.y=clamp(p.y,YMIN,YMAX);}
@@ -2329,7 +2329,9 @@ function drawOverlays(){drawSays();drawRear();drawKachi();drawUlt();
   if(b.boss){ctx.fillStyle='rgba(110,0,0,0.64)';ctx.fillRect(0,196,W,266);ctx.fillStyle='#b01818';ctx.fillRect(0,196,W,5);ctx.fillRect(0,457,W,5);txt('— WARNING —',W/2,226,22,'#ff9a8a','center','#000',4,'Arial Black,Impact,sans-serif');txt(b.jp,W/2,290,78,'#fff','center','#600',9);if(b.kana)txt(b.kana,W/2,342,22,'#ffd9d0','center','#000',4);if(b.role)txt(b.role,W/2,380,28,'#ffd27a','center','#000',5);if(b.desc){txt(b.desc[0],W/2,416,19,'#fff','center','#000',4);txt(b.desc[1],W/2,440,19,'#fff','center','#000',4);}}
   else{ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,240,W,150);txt(b.jp,W/2,282,34,'#e8c35a','center','#000',5);txt(b.title,W/2,336,66,'#fff','center','#300',8);txt(b.en,W/2,376,18,'#ddd','center','#000',3,'Arial');}ctx.globalAlpha=1;}}}
  // special cut-in
- if(G.cut){G.cut.t++;if(G.cut.t>44||G.vo)G.cut=null;} // 必殺の文字カットインは出さない(オーナー指示 2026-10-11)。タイマーだけ残す
+ // 必殺のカットイン: 文字なしの細帯(画像担当の納品)。左から滑り込み→少し止まり→消える。主人公本人の必殺だけ・画面の左上寄り(HUDと打点を避ける)
+ if(G.cut&&G.cut.mine&&G.cut.t<=44){const CS=SPR.cutin,CQ=CS&&CS.ready&&CS.a[G.cut.type]&&CS.a[G.cut.type][0];if(CQ){const t=G.cut.t,k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(1,(44-t)/10),w=700,h=w*CQ[3]/CQ[2],x=-w+ex*(w+60),y=150;ctx.save();ctx.globalAlpha=a;ctx.drawImage(CS.img,CQ[0],CQ[1],CQ[2],CQ[3],x,y,w,h);ctx.restore();}}
+ if(G.cut){G.cut.t++;if(G.cut.t>44||G.vo)G.cut=null;} // 必殺の文字カットインは出さない(文字なしの細帯だけ。オーナー指示 2026-10-11)
  // 敵将討ち取ったり
  if(G.vo){const v=G.vo;v.t++;const L=v.small?110:(v.name&&!G.demo?132:260);if(v.t>L)G.vo=null;else{const s=v.t<12?1+(1-v.t/12)*1.2:1,a=v.t>L-20?(L-v.t)/20:1;ctx.save();ctx.globalAlpha=a;ctx.translate(W/2,v.small?230:300);ctx.scale(s,s);const fs=v.small?64:96;
   ctx.fillStyle='rgba(10,0,0,0.65)';ctx.fillRect(-W/2,-fs*0.8,W,fs*1.6);ctx.fillStyle='#b01818';ctx.fillRect(-W/2,-fs*0.8,W,6);ctx.fillRect(-W/2,fs*0.8-6,W,6);
