@@ -6,7 +6,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  await p.goto(process.argv[2]||process.env.GAME_URL);await p.waitForFunction(()=>sprAllReady(),null,{timeout:120000});
  const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;
   const seen=new Map();const od=CanvasRenderingContext2D.prototype.drawImage;CanvasRenderingContext2D.prototype.drawImage=function(img,...a){if(seen.has(img))seen.get(img).add(a[0]);return od.call(this,img,...a);};
-  const R=SPR.yukirokudan1,M=SPR.mountwhirl1_yuki;seen.set(R.img,new Set());seen.set(M.img,new Set());seen.set(TSPEAR,new Set());
+  const R=SPR.yukirokudan1,M=SPR.mountwhirl2_yuki;seen.set(R.img,new Set());seen.set(M.img,new Set());seen.set(TSPEAR,new Set());
   const setup=(hero,face,mount)=>{startGame(hero,null);G.waveOn=false;G.waves=[{x:999999,en:[]}];G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;const P=G.player;P.wpn=null;P.mount=mount?{hp:6,max:6,col:'red'}:null;P.x=G.camx+640;P.y=570;P.face=face;P.state='idle';P.inv=999;return P;};
   const foe=(x)=>{const e=mk('sword',x,570,1);e.entered=true;e.hp=e.maxhp=999;e.cool=999;G.fighters.push(e);return e;};
   let lh=0;const oh=window.hurt;window.hurt=function(t,a,d){if(d&&d.launch&&a===G.player&&a.cur&&a.cur.ck==='rokudan')lh++;return oh(t,a,d);};
@@ -22,7 +22,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  console.log(JSON.stringify(r));
  const bad=[];for(const o of r.rows){if(o.ck!=='rokudan'||o.hits!==6||o.launched!==1||o.farHit||o.frames!==12)bad.push('rokudan'+o.face);}
  if(r.others.yuki_naginata!=='spin'||r.others.kage!=='iai')bad.push('others');
- for(const o of r.whirl){if(o.hero==='yuki'?o.frames!==6:o.frames!==0)bad.push('whirl'+o.hero+o.face);}
+ for(const o of r.whirl){if(o.hero==='yuki'?o.frames!==8:o.frames!==0)bad.push('whirl'+o.hero+o.face);}
  if(!r.title)bad.push('title');
  if(process.env.QA_OUT){const fs=require('fs');fs.mkdirSync(process.env.QA_OUT,{recursive:true});
   for(const [name,st] of [['rokudan_thrust',30],['rokudan_last',57]])await p.evaluate(st=>{startGame('yuki',null);G.waveOn=false;G.waves=[{x:999999,en:[]}];G.banner=null;G.fighters=G.fighters.filter(f=>f.team===0);const P=G.player;P.wpn=null;P.x=G.camx+560;P.y=570;P.face=1;P.inv=999;for(const dx of [150,190]){const e=mk('sword',P.x+dx,570+(dx-170),1);e.entered=true;e.hp=e.maxhp=999;e.cool=999;G.fighters.push(e);}

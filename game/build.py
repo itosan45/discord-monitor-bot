@@ -32,6 +32,9 @@ for hero in ('yuki','kage','mitsu','nobu','shin','musashi'):
         data['spr'].pop('mountatk2_'+hero,None)
     if 'mountwalk5_'+hero in data['spr']:
         data['spr'].pop('mountwalk4_'+hero,None)
+    # 旋風突撃: 幸村は歩行版(6コマ)より全力疾走版(8コマ)を使う
+    if 'mountwhirl2_'+hero in data['spr']:
+        data['spr'].pop('mountwhirl1_'+hero,None)
 data['sm']=json.load(open(os.path.join(H,'sprites','sprmeta.json')));data['hands']=json.load(open(os.path.join(H,'sprites','hands.json')))
 miss=sorted(set(data['spr'])-set(data['sm']))
 if miss:raise SystemExit('sprmeta.json に位置データが無い画像があります: %s'%miss)
