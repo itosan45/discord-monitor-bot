@@ -1344,7 +1344,7 @@ function demoCtl(p,follow){
  const P0=G.player;
  const stick=()=>{const tx=P0.x-70*(P0.face||1),dxp=tx-p.x;if(Math.abs(dxp)>36)(dxp>0?c.r=1:c.l=1);const dyp=P0.y+26-p.y;if(Math.abs(dyp)>14)(dyp>0?c.d=1:c.u=1);return c;};
  if(['dead','down','getup','hurt','spc'].includes(p.state))return c;
- if(p===G.player&&!p.mount&&!(G.auto&&!demoView.mounted)&&G.steeds&&G.steeds.length){const h=G.steeds[0];if(Math.abs(h.x-p.x)<420){if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);return c;}}
+ if(p===G.player&&!p.mount&&!(G.auto&&!demoView.mounted&&demoView.motion!=='auto')&&G.steeds&&G.steeds.length){const hs=G.steeds.filter(h=>h.x>G.camx-60&&h.x<G.camx+W+60).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x)),h=hs[0];if(h){/* 馬が見えたら距離に関係なく必ず乗りに行く */if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);if(Math.abs(h.x-p.x)<110&&Math.abs(h.y-p.y)<40&&p.z===0&&Math.random()<0.25)c.jumpP=1;return c;}}
  const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,ranged=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo'),rg=ranged?280:T.atk[0].rng;
  for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
  // 見切り: 自動デモの主人公は、正面の敵が斬りかかる直前に時々防御を合わせる(見切りの実演)
@@ -1356,9 +1356,23 @@ function demoCtl(p,follow){
   const edge=fighterScreenMargin(p),vis=G.items.filter(q=>{const reach=q.k.startsWith('w_')?48:40;return q.x>G.camx+50&&q.x<G.camx+W-50&&q.x>=G.camx+edge-reach&&q.x<=G.camx+W-edge+reach&&Math.abs(q.x-p.x)<520;});if(vis.length){c.r=0;c.l=0;c.u=0;c.d=0;const it=vis[0];if(Math.abs(it.x-p.x)>20)(it.x>p.x?c.r=1:c.l=1);if(Math.abs(it.y-p.y)>10)(it.y>p.y?c.d=1:c.u=1);if(it.k.startsWith('w_')&&Math.abs(it.x-p.x)<40&&Math.abs(it.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}}
   const pr=G.props.find(q=>q.x>p.x-60&&q.x<p.x+260);if(pr&&G.camx>=G.camMax-4){}
   return c;}
- const foot=en.filter(e=>e.T.ai!=='rider');let tg=null,bd=1e9;for(const e of (foot.length?foot:en)){const d=Math.abs(e.x-p.x)+Math.abs(e.y-p.y)*2-(e.T.boss?150:0);if(d<bd){bd=d;tg=e;}}
+ // 戦闘中でも、武器を持っていなければ落ちている武器を拾いに行く(攻撃が来そうな時は後回し)
+ if(p===G.player&&!p.isPartner&&!p.mount&&!p.wpn&&(p.state==='idle'||p.state==='walk')&&!en.some(e=>e.state==='atk'&&e.cur&&!e.cur.proj&&Math.abs(e.x-p.x)<(e.cur.rng||80)+80&&Math.abs(e.y-p.y)<34)){
+  const ed=fighterScreenMargin(p),wi=G.items.filter(q=>q.k.startsWith('w_')&&q.x>G.camx+30&&q.x<G.camx+W-30&&q.x>=G.camx+ed-48&&q.x<=G.camx+W-ed+48&&Math.abs(q.x-p.x)<600).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x))[0];
+  if(wi){if(Math.abs(wi.x-p.x)>20)(wi.x>p.x?c.r=1:c.l=1);if(Math.abs(wi.y-p.y)>10)(wi.y>p.y?c.d=1:c.u=1);if(Math.abs(wi.x-p.x)<40&&Math.abs(wi.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}return c;}}
+ // 馬に乗っていなければ、馬の乗り手(騎馬)を優先して倒し、馬を手に入れる
+ const rid=(p===G.player&&!p.isPartner&&!p.mount)?en.filter(e=>e.T.horse&&e.hp>0&&e.state!=='dead'):[];
+ const foot=rid.length?rid:en.filter(e=>e.T.ai!=='rider');let tg=null,bd=1e9;for(const e of (foot.length?foot:en)){const d=Math.abs(e.x-p.x)+Math.abs(e.y-p.y)*2-(e.T.boss?150:0);if(d<bd){bd=d;tg=e;}}
  const dx=tg.x-p.x,dy=tg.y-p.y,adx=Math.abs(dx),ady=Math.abs(dy),want=rg*0.72,dir=dx===0?p.face:sgn(dx);
  if(tg.T.ai==='rider'){const on=tg.x>G.camx-60&&tg.x<G.camx+W+60;if(!on){if(p.x<G.camx+W*0.4)c.r=1;else if(p.x>G.camx+W*0.5)c.l=1;if(Math.abs(tg.y-p.y)>10)(tg.y>p.y?c.d=1:c.u=1);return c;}}
+ // 溜め攻撃: 間合いに入ったら攻撃ボタンを長押し→離す(デモの主人公は積極的に出す)。鎖鎌以外の近接。攻撃を受けそうなら取りやめる
+ const canChg=p===G.player&&!p.mount&&!p.isPartner&&!ranged&&!(p.wpn&&p.wpn.k==='kusari');
+ if(canChg){c.atkH=0;
+  if((p.aiChgT||0)>G.t){if(p.state==='hurt'||p.state==='down'||p.state==='dead'||p.state==='guard'||en.some(e=>e.state==='atk'&&e.cur&&!e.cur.proj&&e.cur.hs-e.st<=8&&Math.abs(e.x-p.x)<(e.cur.rng||80)+30&&Math.abs(e.y-p.y)<30&&sgn(p.x-e.x)===e.face)){p.aiChgT=0;}
+   else{c.atkH=1;p.face=dir;if(ady>9)(dy>0?c.d=1:c.u=1);return c;}}
+  else if((p.state==='idle'||p.state==='walk')&&adx>rg*0.4&&adx<rg*2.2&&ady<22&&p.face===dir&&!((p.aiChgCd||0)>G.t)&&Math.random()<0.3){p.aiChgT=G.t+CHG+10;p.aiChgCd=G.t+75;}}
+ // 馬上: ときどき旋風突撃(馬上の溜め技)
+ if(p===G.player&&p.mount&&!p.isPartner&&adx<320&&ady<44&&!((p.aiWhCd||0)>G.t)&&Math.random()<0.03){c.gdP=1;p.aiWhCd=G.t+170;}
  if(ady>9){if(dy>0)c.d=1;else c.u=1;}
  if(ranged&&adx<90&&(p.state==='idle'||p.state==='walk')){if(dir>0)c.l=1;else c.r=1;return c;}
  if(adx>want)(dir>0?c.r=1:c.l=1);else if(p.state==='idle'||p.state==='walk')p.face=dir;
@@ -2005,7 +2019,7 @@ function updSteeds(){if(!G.steeds)return;const p=G.player;
  for(let i=G.steeds.length-1;i>=0;i--){const h=G.steeds[i];h.t++;
   if(h.t<40){h.x+=h.face*(40-h.t)*0.12;}else if(h.t%120<30){h.x+=h.face*0.6;}
   if(h.t>60*10||h.x<G.camx-150||h.x>G.camx+W+150){addProj({k:'horse',team:-1,x:h.x,y:h.y,z:0,vx:h.face*9,face:h.face,life:90});G.steeds.splice(i,1);continue;}
-  if(p&&!p.mount&&!(G.auto&&!demoView.mounted)&&p.hp>0&&(p.state==='idle'||p.state==='walk'||p.state==='jump')&&Math.abs(p.x-h.x)<70&&Math.abs(p.y-h.y)<28&&(p.jS===p.t||((G.demo||G.auto)&&h.t>45))){
+  if(p&&!p.mount&&!(G.auto&&!demoView.mounted&&demoView.motion!=='auto')&&p.hp>0&&(p.state==='idle'||p.state==='walk'||p.state==='jump')&&Math.abs(p.x-h.x)<70&&Math.abs(p.y-h.y)<28&&(p.jS===p.t||((G.demo||G.auto)&&h.t>45))){
    p.mount={hp:6,max:6,col:MCOL[p.T.type]||'red'};p.state='idle';p.st=0;p.z=0;p.vz=0;p.x=h.x;p.y=h.y;p.face=h.face;p.inv=Math.max(p.inv,30);
    AU.sx('horse',0.9);AU.sfx('jump');if(!G.mountTipShown){G.mountTipShown=1;popup('速く走れ、受ける傷は3分の1。突撃ボタンで馬ごと突っ込め',p.x,p.y,120,'#fff2c0',18);}dust(p.x,p.y,8);G.steeds.splice(i,1);}}}
 function dropMount(p,dir,thrown){const m=p.mount;if(!m)return;p.mount=null;
