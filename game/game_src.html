@@ -399,6 +399,17 @@ const TY={
 TY.bomber=Object.assign(JSON.parse(JSON.stringify(TY.archer)),{name:'焙烙兵',hp:30,keep:340,spr:'archer',score:220,atk:[{pz:'bow',dur:70,hs:40,he:41,rng:0,proj:'bomb',dmg:16,kb:7,launch:true,sfx:'jump'}]});
 TY.brute=Object.assign(JSON.parse(JSON.stringify(TY.sword)),{name:'荒法師',hp:120,spd:1.55,sc:1.32,spr:'sword',armor:true,score:600,gen:true,atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:44,hs:22,he:27,rng:120,dmg:16,kb:7,launch:true,sfx:'heavy',lunge:2},{pz:'raise',k:'grab',unblock:true,dur:46,hs:18,he:19,rng:95,dmg:0,gd:20,sfx:'roar'}]});
 TY.shield=Object.assign(JSON.parse(JSON.stringify(TY.spear)),{name:'盾足軽',hp:46,spd:1.7,spr:'spear',shield:true,score:300});
+// 2026-10-12 A-006の新しい敵4種(絵は移動・転倒・死亡まで揃い済み)。spr省略時は種類名のアトラス(monk/kunoichi/yoroi/akabi)
+TY.monk={name:'鉄球大僧',hp:130,spd:1.35,ai:'melee',wp:'sword',tip:90,two:false,gap:14,helm:'jingasa',score:700,gen:true,armor:true,tack:true,col:{armor:'#5a4a6a',armor2:'#3a2c46',trim:'#d9d0b8',cloth:'#6a5a7a',skin:'#d9a070'},banner:null,
+ atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:62,hs:31,he:37,rng:140,dmg:18,kb:8,launch:true,sfx:'heavy',fx:'quake'},
+  {pz:'swing',a0:-1,a1:1,r:40,k:'charge',move:10,dur:56,hs:22,he:40,rng:105,dmg:14,kb:11,launch:true,sfx:'heavy'}]};
+TY.kunoichi={name:'仮面のくノ一',hp:34,spd:3.5,ai:'melee',wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
+ atk:[{pz:'swing',a0:-1.6,a1:0.9,r:30,dur:30,hs:10,he:14,hs2:20,he2:24,rng:86,dmg:7,kb:2.5,lunge:3,sfx:'slash'},
+  {pz:'throw',kj:true,dur:44,hs:22,he:23,rng:0,proj:'kunai',dmg:9,kb:3,sfx:'arrow'}]};
+TY.yoroi={name:'鎧武者',hp:90,spd:1.9,ai:'melee',wp:'naginata',tip:135,two:true,gap:34,helm:'horn',score:450,gen:true,armor:true,col:{armor:'#4a5a3a',armor2:'#2c3622',trim:'#a0904a',cloth:'#3a4a2a',skin:'#e0b48c'},banner:null,
+ atk:[{pz:'swing',a0:-2.5,a1:0.9,r:40,dur:54,hs:20,he:32,rng:155,dmg:13,kb:5,lunge:1.5,sfx:'slash'}]};
+TY.akabi={name:'赤備槍武者',hp:62,spd:2.4,ai:'melee',wp:'yari',tip:140,two:false,gap:30,helm:'horn',score:400,col:{armor:'#b21f2d',armor2:'#7d1220',trim:'#e8c35a',cloth:'#2a3a6a',skin:'#e0b48c'},banner:null,
+ atk:[{pz:'thrust',dur:48,hs:18,he:28,rng:175,dmg:11,kb:4,lunge:3,sfx:'thrust'}]};
 
 const cb=(base,o)=>Object.assign(JSON.parse(JSON.stringify(TY[base])),o);
 TY.boss4=cb('boss3',{name:'小早川秀秋',info:{kana:'こばやかわ ひであき',role:'松尾山の裏切り　—　戦局を決した寝返り',desc:['西軍に属しながら松尾山で動かず、開戦後に','東軍へ寝返って、大谷吉継の陣へ襲いかかった。']},hp:300,sc:1.35,spd:2.5,helm:'tall',wp:'goldsword',tip:104,score:6000,cape:'#1d3a30',col:{armor:'#2d5a4c',armor2:'#14302a',trim:'#e0c060',cloth:'#1d3a30',skin:'#e6d2bc'}});
@@ -433,6 +444,10 @@ const WPN={odachi:{n:'長剣',draw:'odachi',tip:140,dm:1.7,rng:38,uses:26},nagin
 const ITEMS={onigiri:{n:'おにぎり',s:'HP回復',c:'#b8f5a8'},hyorou:{n:'兵糧',s:'HP大回復',c:'#ffe29a'},sake:{n:'酒',s:'必殺ゲージ回復',c:'#9fd8ff'},w_odachi:{n:'長剣',s:'攻撃ボタンで拾う',c:'#ffb070'},sushi:{n:'寿司',s:'HP回復',c:'#b8f5a8'},manju:{n:'干し柿',s:'HP・必殺回復',c:'#ffd8a8'},w_yoto:{n:'妖刀',s:'攻撃ボタンで拾う',c:'#ff8aa0'},w_ono:{n:'斧',s:'攻撃ボタンで拾う',c:'#ffb070'},w_konbou:{n:'棍棒',s:'攻撃ボタンで拾う',c:'#ffb070'},w_takeyari:{n:'竹槍',s:'攻撃ボタンで拾う',c:'#ffb070'},w_kusari:{n:'鎖鎌',s:'攻撃ボタンで拾う',c:'#ffb070'},w_yumi:{n:'弓矢',s:'攻撃ボタンで拾う',c:'#ffb070'},w_naginata:{n:'薙刀',s:'攻撃ボタンで拾う',c:'#ffb070'},w_teppo:{n:'火縄銃',s:'攻撃ボタンで拾う',c:'#ffb070'}};
 
 /* ===================== LEVEL ===================== */
+// 新しい敵の登場(絵はステージごとに必要な分だけ読む)。無いステージは従来どおり
+const NEWEN=[[],['yoroi'],['monk'],['kunoichi'],['kunoichi','akabi'],['monk','yoroi','akabi','kunoichi']];
+const NEWKEYS=['monk','kunoichi','yoroi','akabi','monkfx'];
+function newEnKeys(si){const t=NEWEN[si]||[];const k=t.slice();if(t.includes('monk')||t.includes('kunoichi'))k.push('monkfx');return k;}
 const LV=[
  {waves:[{gap:620,en:[['spear',0,1],['spear',30,-1],['sword',70,1]]},{gap:850,en:[['sword',0,1],['archer',20,-1],['spear',60,1],['sword',90,-1]]},{gap:850,en:[['spear',0,1],['sword',10,-1],['horsearcher',60,1],['rider',140,-1],['sword',130,1]]},{gap:800,en:[['samurai',0,1],['rider',60,-1],['spear',60,-1],['sword',160,-1]]},{gap:800,boss:'boss9',en:[['spear',240,-1],['sword',320,1]]}]},
  {waves:[{gap:620,en:[['sword',0,1],['gun',30,-1],['spear',50,1]]},{gap:850,en:[['sword',0,1],['spear',20,-1],['sword',50,1],['gun',90,-1]]},{gap:850,en:[['samurai',0,1],['rider',60,-1],['spear',40,-1],['sword',70,1]]},{gap:800,en:[['ninja',0,1],['ninja',20,-1],['horsearcher',80,1],['sword',90,-1]]},{gap:800,boss:'boss4',en:[['spear',260,-1],['sword',320,1]]}]},
@@ -470,6 +485,7 @@ function startStage(si,ch,demo,keep){
    const add=1+Math.floor(i/3)+(i%3===2?1:0);for(let k=0;k<add;k++){const ty=ex[(i+k+si)%ex.length];en.push([ty,120+k*90+rndi(0,50),(i+k)%2?1:-1]);}
    if(i===4||i===8)en.push(['samurai',60,1],['samurai',160,-1]);
    if(i>=1&&i%3===1)en.push(['bomber',150,i%2?-1:1]);if(si>=1&&i%4===3)en.push(['brute',90,i%2?1:-1]);if(si>=2&&i>0&&i%3===0)en.push(['shield',40,1],['shield',70,-1]);if(si===0&&i===6)en.push(['brute',120,-1]);
+   {const ne=NEWEN[si];if(ne&&ne.length&&i%3===2){const k=(i/3)|0;en.push([ne[k%ne.length],110,i%2?1:-1]);if(i>=8)en.push([ne[(k+1)%ne.length],210,i%2?-1:1]);}}
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   ws=out.concat(bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
@@ -746,6 +762,8 @@ function hurt(t,a,d){
    const hx=t.x+t.face*24,hz=t.z+70;for(let i=0;i<(big?14:8);i++)PT({x:hx,y:t.y,z:hz+rnd(-20,20),vx:t.face*rnd(1,5),vz:rnd(-1,4),life:rnd(8,16),sz:rnd(2,4),col:i%2?'#fff6c0':'#ffd060',k:'spark'});PT({x:hx,y:t.y,z:hz,life:8,k:'star',sz:big?52:36,col:'#fff'});
    AU.sfx('block');G.hitstop=Math.max(G.hitstop,big?6:3);G.shake=Math.max(G.shake,big?5:2);own.ki=own.ki;t.ki=Math.min(100,(t.ki||0)+3);gunbaiCounter(t,own,a);return;}}
  if(t.T&&t.T.shield&&t.shieldOn!==false&&t.team===1&&!d.unblock&&!d.launch&&a.x!==undefined&&sgn(a.x-t.x)===t.face&&t.state!=='atk'&&t.state!=='down'){t.flash=3;AU.sfx('block');G.hitstop=Math.max(G.hitstop,3);t.blk=(t.blk||0)+1;t.x-=t.face*4;if(t.blk>=3){t.shieldOn=false;burst(t.x+t.face*30,t.y,80,14,'#a07850',8);AU.sfx('break');}return;}
+ // 仮面のくノ一: 立っているときの通常攻撃を、低い横滑りでかわして反撃へつなぐ(打ち上げ・不可避技・背後・連続は受ける)
+ if(t.team===1&&t.T.dodger&&!t.isProp&&t.hp>0&&(t.state==='idle'||t.state==='walk')&&!d.unblock&&!d.launch&&a.x!==undefined&&!(t.dgcd>G.t)&&Math.random()<0.45){const dd=sgn(a.x-t.x)||t.face;t.state='dodge';t.st=0;t.dback=true;t.dgcd=G.t+170;t.vx=-dd*5.5;t.face=dd;t.cur=null;t.inv=Math.max(t.inv,16);AU.sfx('dodge');dust(t.x,t.y,4);return;}
  if(t.team===1&&!t.isProp&&t.state==='atk'&&t.cur&&t.cur.parry&&t.st>=t.cur.p0&&t.st<=t.cur.p1&&!d.unblock&&!d.launch&&a.x!==undefined&&sgn(a.x-t.x)===t.face){t.parried=true;t.flash=3;AU.sfx('block');G.hitstop=Math.max(G.hitstop,5);G.shake=Math.max(G.shake,3);ring(t.x+t.face*34,t.y,50,'rgba(255,240,200,0.9)',10);for(let i=0;i<8;i++)PT({x:t.x+t.face*34,y:t.y,z:t.z+90+rnd(-20,20),vx:t.face*rnd(1,5),vz:rnd(-1,4),life:rnd(8,16),sz:rnd(2,4),col:'#fff6c0',k:'spark'});t.st=Math.max(t.st,t.cur.p1+1);return;}
  if(t.guarding&&!d.unblock){const front=a.x===undefined||sgn(a.x-t.x)===t.face;if(front){t.flash=4;AU.sfx('block');for(let i=0;i<8;i++)PT({x:t.x+t.face*40,y:t.y,z:t.z+90+rnd(-20,20),vx:t.face*rnd(1,5),vz:rnd(-1,4),life:rnd(8,16),sz:rnd(2,4),col:'#fff6c0',k:'spark'});G.hitstop=Math.max(G.hitstop,4);if(!t.ctr){t.ctr=true;setTimeout(()=>{if(t.hp>0&&t.state==='atk'&&t.cur&&t.cur.k==='guard'){t.ctr=false;t.guarding=false;startEAtk(t,0);t.st=Math.max(0,t.cur.hs-6);}else t.ctr=false;},250);}return;}}
  if(t.isProp){t.hp-=1+(d.dmg>12?1:0);t.shk=8;AU.sfx('hit');burst(t.x,t.y,40,6,'#c9a','4');G.hitstop=Math.max(G.hitstop,3);if(t.hp<=0)breakProp(t);return;}
@@ -831,10 +849,12 @@ function fireProj(f,d){
   f.x-=dir*10;G.shake=Math.max(G.shake,7);}
  else if(d.proj==='bomb'){const p=nearestAlly(f),T=40,tx=p?p.x+rnd(-20,20):f.x+dir*200,ty=p?p.y:f.y;addProj({x:f.x+dir*30,y:f.y,z:f.z+90,vx:(tx-f.x)/T,vy:(ty-f.y)/T,vz:0.5*0.6*T-90/T,tx,ty,team:1,dmg:d.dmg,face:dir,owner:f,k:'bomb',w:0,life:T+30,kb:7,launch:true,nohit:true});}
  else if(d.proj==='parrow'){addProj({x:f.x+dir*50,y:f.y,z:f.z+82,vx:dir*19,team:0,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:18,launch:false,kb:4,life:60,pierce:2});}
+ else if(d.proj==='kunai'){addProj({x:f.x+dir*44,y:f.y,z:f.z+108,vx:dir*10,vz:-2.0,team:1,dmg:d.dmg,face:dir,owner:f,k:'kunai',w:12,life:70});}
  else if(d.proj==='shuriken'){for(const o of[0])addProj({x:f.x+dir*30,y:f.y,z:f.z+70,vx:dir*8,vy:o*1.5,team:1,dmg:d.dmg,face:dir,owner:f,k:'shuriken',w:14});}
 }
 // 素手の通常攻撃の演出(信長=妖刀の妖気、三成=鉄扇の風の刃と扇投げ、信玄=風林火山)。first=技の出始め
 function heroFx(f,d,first){const k=d.fx,dir=f.face,me=f.team===0;
+ if(k==='quake'){if(first){PT({k:'qfx',x:f.x+dir*112,y:f.y+1,z:0,life:24,sz:1,face:dir});G.shake=Math.max(G.shake,9);AU.sfx('boom');dust(f.x+dir*112,f.y,6);}return;}
  if(k==='yoki'){for(let i=0;i<(G.lowq?3:6);i++)PT({x:f.x+dir*rnd(25,125),y:f.y+rnd(-5,5),z:f.z+rnd(50,170),vx:dir*rnd(0.5,3),vz:rnd(0.4,2),life:rndi(12,24),sz:rnd(14,26),col:i%3===0?'rgba(20,0,30,0.8)':i%3===1?'rgba(160,40,230,0.75)':'rgba(230,140,255,0.6)',k:'flame'});
   if(first){PT({x:f.x+dir*75,y:f.y,z:f.z+110,life:10,k:'star',sz:70,col:'#b070ff'});ring(f.x+dir*70,f.y,60,'rgba(170,60,255,0.85)',14);}return;}
  if(!first)return;
@@ -895,13 +915,15 @@ function updAtk(f){
   if(st>=d.dur&&f.z<=0){f.state='idle';f.st=0;f.cool=rndi(35,70);}return;}
  if(d.k==='step'){const arc=f.T.ai2==='archer';if(arc&&st===1&&f.z<=0){f.vz=Math.min(7.5,bossLeapSpeed(f));AU.sfx('jump');}if(st<12){f.x-=f.face*(10-st*0.6)*(arc?2:1);if(st%3===0)dust(f.x+f.face*20,f.y,1);}f.inv=Math.max(f.inv,st<10?2:0);}
  if(d.lunge&&st>=Math.max(0,d.hs-3)&&st<=d.he)f.x+=f.face*d.lunge;
+ if(d.kj&&st>=10&&st<=33)f.x-=f.face*1.6; /* くノ一のジャンプ投げ: 絵に跳躍の高さがあるので、位置は後ろへ少し退くだけ */
  if(d.chg&&st>=d.hs&&st<=d.he){if(st%2===0)dust(f.x-f.face*24,f.y,1);if(st%3===0)PT({x:f.x+f.face*rnd(40,140),y:f.y+rnd(-8,8),z:rnd(40,110),life:9,k:'star',sz:rnd(30,60),col:'#ffe6a0'});if(st===d.hs+8)f.hit.clear();}
  if(d.k==='charge'&&st>=d.hs&&st<=d.he){f.x+=f.face*d.move;if(st%2===0)dust(f.x-f.face*20,f.y,1);if(st%6===0)f.hit.clear();}
  if(d.fx&&st>=d.hs&&st<=d.he)heroFx(f,d,st===d.hs);
  if(st===d.hs){if(d.sfx)AU.sfx(d.sfx);if((d.proj==='shot'||d.proj==='parrow')&&f.wpn&&(f.wpn.k==='teppo'||f.wpn.k==='yumi'))useWpn(f);if(d.proj)fireProj(f,d);if(d.k==='wave')spawnWaves(f,d);if(d.k==='wave1'){addProj({x:f.x+f.face*50,y:f.y,z:6,vx:f.face*8,team:f.team,dmg:12,face:f.face,owner:f,k:'wave',w:46,life:46,launch:true,kb:5,pierce:99});G.shake=Math.max(G.shake,8);ring(f.x+f.face*60,f.y,90,'rgba(160,220,255,0.9)',20);}if(d.k==='summon')doSummon(f);if(d.k==='rain')doRain(f);bossTech(f,d);}
  if(d.k==='quake'&&(st===d.hs||st===d.hs+14||st===d.hs+28)){const i=(st-d.hs)/14;addProj({x:f.x+f.face*(60+i*40),y:f.y,z:6,vx:f.face*(7+i),team:1,dmg:d.dmg,face:f.face,owner:f,k:'wave',w:46+i*8,life:70,launch:true,kb:6,pierce:99});G.shake=Math.max(G.shake,10+i*3);dust(f.x+f.face*60,f.y,8);if(i)AU.sfx('boom');}
  f.guarding=d.k==='guard'&&st>=d.hs&&st<=d.he;
- if(d.rng&&st>=d.hs&&st<=d.he)strike(f,d);
+ if(d.hs2&&st===d.hs2){f.hit.clear();AU.sfx('slash');}
+ if(d.rng&&((st>=d.hs&&st<=d.he)||(d.hs2&&st>=d.hs2&&st<=d.he2)))strike(f,d);
  if(st>=d.dur&&f.T.boss&&f.team===1&&d.k!=='guard'&&d.k!=='step'&&d!==BSHAKE){const p=nearestAlly(f);if(p&&Math.abs(p.x-f.x)<280&&(f.comboN||0)<(f.enr?2:1)&&Math.random()<(f.enr?0.55:0.38)){f.comboN=(f.comboN||0)+1;const pool=f.T.near.filter(i=>i!==f.atkI);startEAtk(f,pool.length?pick(pool):pick(f.T.near));f.face=sgn(p.x-f.x)||f.face;return;}f.comboN=0;}
  if(st>=d.dur){if(d.lastUse&&f.wpn&&f.wpn.k==='kusari')useWpn(f);f.state='idle';f.st=0;if(f.team===1&&f.T.type==='gun'&&d.proj)f.reloadT=60;if(f.team===1)f.cool=rndi(d.cd0||(f.T.boss?18:f.T.ai==='ranged'?110:50),d.cd1||(f.T.boss?44:f.T.ai==='ranged'?200:100))*(f.enr?0.7:1)*(G.partner?0.8:1);if(f.T.ai2==='archer'&&d.k==='step')f.cool=4;}
 }
@@ -1217,7 +1239,7 @@ function updDown(f){
 }
 
 /* ---------- enemy AI ---------- */
-function eProj(){let n=0;for(const q of G.proj)if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'))n++;return n;}
+function eProj(){let n=0;for(const q of G.proj)if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'))n++;return n;}
 function atkers(){let n=0;for(const e of G.fighters)if(e.team===1&&e.state==='atk'&&!e.T.boss)n++;return n;}
 function fighterScreenMargin(f){
  if(f.T.boss)return bossScreenMargin(f);
@@ -1280,8 +1302,9 @@ function updEnemy(e){
     else{const rg=T.atk[0].rng;if(adx>rg*0.7)mx=sgn(dx);else if(adx<rg*0.4)mx=-sgn(dx)*0.5;if(ady>9)my=sgn(dy);
     if(e.cool<=0&&e.inv<=0){const pool=adx<230?T.near:T.far;startEAtk(e,pick(pool));}}}
    else{const rg=T.atk[0].rng,sx=rg*0.72;if(adx>sx+8)mx=sgn(dx);else if(adx<sx-34)mx=-sgn(dx)*0.5;if(ady>8)my=sgn(dy);
-    if(T.atk[1]&&T.atk[1].proj&&adx>300&&ady<18&&e.cool<=0&&e.entered&&eProj()<2)startEAtk(e,1);
-    else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.atk.length>1&&!T.atk[1].proj?rndi(0,1):0);
+    if(T.tack&&adx>200&&adx<285&&ady<18&&e.cool<=0&&e.entered&&atkers()<2)startEAtk(e,1);
+    else if(T.atk[1]&&T.atk[1].proj&&adx>300&&ady<18&&e.cool<=0&&e.entered&&eProj()<2)startEAtk(e,1);
+    else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.atk.length>1&&!T.atk[1].proj&&!T.tack?rndi(0,1):0);
     else if(atkers()>=2&&e.state!=='atk'){const side=e.x<p.x?-1:1,tx=p.x+side*205,ty=clamp(p.y+(e.flk??(e.flk=rnd(-55,55))),YMIN,YMAX);mx=Math.abs(tx-e.x)>16?sgn(tx-e.x)*0.75:0;my=Math.abs(ty-e.y)>8?sgn(ty-e.y):0;}}
    if(e.reloadT>0){e.reloadT--;mx=0;my=0;}/* 鉄砲足軽は撃った後、その場で弾込め */
    if(e.state==='idle'||e.state==='walk'){e.x+=mx*e.spd;e.y+=my*e.spd*0.6;e.state=(mx||my)?'walk':'idle';if(mx||my)e.wp+=e.spd*0.08;}
@@ -1290,6 +1313,7 @@ function updEnemy(e){
   case'hurt':e.x+=e.vx;e.vx*=0.8;if(e.st>=e.hurtT){e.state='idle';e.st=0;}break;
   case'down':updDown(e);break;
   case'getup':if(e.st>=20){e.state='idle';e.st=0;}break;
+  case'dodge':e.x+=e.vx;e.vx*=0.88;if(e.st>=18){e.state='idle';e.st=0;e.vx=0;e.cool=Math.min(e.cool,4);/* かわした直後に反撃 */}break;
   case'dead':break;
  }
  const edge=combatScreenMargin(e),entry=edge;
@@ -1306,7 +1330,7 @@ function demoCtl(p,follow){
  if(['dead','down','getup','hurt','spc'].includes(p.state))return c;
  if(p===G.player&&!p.mount&&!(G.auto&&!demoView.mounted)&&G.steeds&&G.steeds.length){const h=G.steeds[0];if(Math.abs(h.x-p.x)<420){if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);return c;}}
  const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,ranged=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo'),rg=ranged?280:T.atk[0].rng;
- for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
+ for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
  // 見切り: 自動デモの主人公は、正面の敵が斬りかかる直前に時々防御を合わせる(見切りの実演)
  if(p===G.player&&!p.mount&&!p.isPartner){if((p.aiGd||0)>G.t&&(p.state==='guard'||p.state==='idle'||p.state==='walk')){c.gd=1;return c;}
   if((p.state==='idle'||p.state==='walk')&&!((p.aiGdCd||0)>G.t)){const e=en.find(e=>e.state==='atk'&&e.cur&&!e.cur.unblock&&!e.cur.proj&&e.cur.hs-e.st>=1&&e.cur.hs-e.st<=7&&sgn(p.x-e.x)===e.face&&Math.abs(e.x-p.x)<(e.cur.rng||60)+40&&Math.abs(e.y-p.y)<30);
@@ -1351,11 +1375,12 @@ function updProj(onlyOwner){
    if(G.t%2===0)PT({x:q.x,y:q.y,z:q.z,life:9,sz:rnd(6,12),col:'rgba(200,150,255,0.6)',k:'flame',vx:0});}
   if(q.k==='cavghost'&&G.t%2===0)PT({x:q.x-q.face*40,y:q.y+rnd(-6,6),z:rnd(10,90),vx:-q.face*rnd(1,3),vz:rnd(0.3,1.2),life:16,sz:rnd(12,24),col:'rgba(255,120,50,0.5)',k:'flame'});
   if(q.k==='kaze'&&G.t%2===0)PT({x:q.x,y:q.y,z:q.z+rnd(-20,20),vx:-q.face*rnd(0.5,1.5),vz:0,life:8,sz:rnd(5,9),col:`rgba(${q.col||'210,180,255'},0.6)`,k:'flame'});
+  if(q.k==='kunai'){q.z+=q.vz;if(q.z<=2){G.proj.splice(i,1);dust(q.x,q.y,1);continue;}}
   q.x+=q.vx;q.y+=(q.vy||0);
   if(q.life<=0||q.x<G.camx-120||q.x>G.camx+W+120){G.proj.splice(i,1);continue;}
   if(q.k==='wave'&&q.life%2===0)PT({x:q.x,y:q.y+rnd(-8,8),z:rnd(0,30),vx:-q.face*rnd(.5,2),vz:rnd(0.5,2),life:16,sz:rnd(10,20),col:q.team===0?'rgba(160,220,255,0.7)':'rgba(255,220,150,0.6)',k:'flame'});
   if(q.k==='shot'||q.k==='bullet')PT({x:q.x,y:q.y,z:q.z,life:7,sz:5,col:q.team===0?'#e0b8ff':'#ffd89a',k:'flame',vx:0});
-  if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='shot')&&q.vx){let blk=false;for(const pr of G.props){if((pr.k!=='fence'&&pr.k!=='mshield')||pr.broken)continue;const ahead=sgn(pr.x-q.x)===sgn(q.vx),hw=pr.k==='fence'?72:42;if(ahead&&Math.abs(pr.x-q.x)<hw&&Math.abs(pr.y-q.y)<30&&q.z<(pr.k==='fence'?115:130)){pr.hp-=1;pr.shk=8;AU.sfx('block');burst(q.x,q.y,50,6,'#a98','4');if(pr.hp<=0)breakProp(pr);G.proj.splice(i,1);blk=true;break;}}if(blk)continue;}
+  if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'||q.k==='shot')&&q.vx){let blk=false;for(const pr of G.props){if((pr.k!=='fence'&&pr.k!=='mshield')||pr.broken)continue;const ahead=sgn(pr.x-q.x)===sgn(q.vx),hw=pr.k==='fence'?72:42;if(ahead&&Math.abs(pr.x-q.x)<hw&&Math.abs(pr.y-q.y)<30&&q.z<(pr.k==='fence'?115:130)){pr.hp-=1;pr.shk=8;AU.sfx('block');burst(q.x,q.y,50,6,'#a98','4');if(pr.hp<=0)breakProp(pr);G.proj.splice(i,1);blk=true;break;}}if(blk)continue;}
   const list=q.team===0?G.fighters.concat(G.props):G.fighters;let hitN=0;
   for(const t of list){if(q.hit.has(t))continue;if(t.isProp&&t.broken)continue;if(q.team===1&&t.team!==0)continue;if(q.team===0&&!(t.team===1||t.isProp))continue;
    if(!t.isProp&&(t.hp<=0||t.inv>0||t.state==='down'||t.state==='dead'||t.state==='getup'))continue;
@@ -2193,6 +2218,7 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
  if(q.k==='arrow'){ctx.scale(q.face,1);line(-22,0,18,0,2.5,'#d8c8a0');poly([[18,-4],[28,0],[18,4]],'#ddd');poly([[-22,0],[-28,-4],[-18,0]],'#c33');poly([[-22,0],[-28,4],[-18,0]],'#c33');}
  else if(q.k==='bullet'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);const g=ctx.createLinearGradient(-30,0,8,0);g.addColorStop(0,'rgba(255,200,100,0)');g.addColorStop(1,q.team===0?'rgba(220,170,255,1)':'rgba(255,220,130,1)');ctx.fillStyle=g;ctx.fillRect(-30,-3,38,6);circ(8,0,5,'#fff');}
  else if(q.k==='horse'){const S=SPR.mount_blue;if(S&&S.ready){ctx.translate(-x,-y);drawMounted({T:{},x:q.x,y:q.y,z:0,face:q.face,sc:1,t:G.t+((q.x|0)%7),state:'walk',flash:0},S,true);}else{ctx.scale(q.face,1);drawHorse(G.t*0.55,G.t);}}
+ else if(q.k==='kunai'){const KS=SPR.monkfx,KQ=KS&&KS.ready&&KS.a.kunai&&KS.a.kunai[0];ctx.scale(q.face,1);ctx.rotate(Math.atan2(-q.vz,Math.abs(q.vx)));if(KQ)ctx.drawImage(KS.img,KQ[0],KQ[1],KQ[2],KQ[3],KQ[4],KQ[5],KQ[2],KQ[3]);else{line(-14,0,16,0,3,'#cfd6de');}}
  else if(q.k==='shuriken'){ctx.rotate(G.t*0.5);ctx.fillStyle='#cfd6de';for(let i=0;i<4;i++){ctx.rotate(Math.PI/2);poly([[0,0],[14,-3],[16,0],[14,3]],'#cfd6de',OUT,1);}circ(0,0,2,'#222');}
  else if(q.k==='wave'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);const c=q.team===0?'160,220,255':'255,210,130';const g=ctx.createRadialGradient(0,0,4,0,0,60);g.addColorStop(0,`rgba(${c},0.9)`);g.addColorStop(1,`rgba(${c},0)`);ctx.fillStyle=g;ctx.save();ctx.scale(0.5,1);ctx.beginPath();ctx.arc(0,-18,60,0,TAU);ctx.fill();ctx.restore();ctx.strokeStyle=`rgba(255,255,255,0.9)`;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-6,0);ctx.quadraticCurveTo(14,-34,-2,-62);ctx.stroke();}
  else if(q.k==='kaze'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);const c=q.col||'210,180,255',a=Math.min(1,q.life/8);ctx.strokeStyle=`rgba(${c},${0.9*a})`;ctx.lineWidth=6;ctx.beginPath();ctx.arc(-18,0,34,-1.1,1.1);ctx.stroke();ctx.strokeStyle=`rgba(255,255,255,${0.8*a})`;ctx.lineWidth=2;ctx.beginPath();ctx.arc(-14,0,30,-0.9,0.9);ctx.stroke();}
@@ -2205,6 +2231,7 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
 function drawParts(){
  for(const p of G.parts){const x=p.x-G.camx,y=p.y-p.z,a=clamp(p.life/p.max,0,1);
   switch(p.k){
+   case'qfx':{const QS=SPR.monkfx,QA=QS&&QS.ready&&QS.a.quake;if(QA){const qi=Math.min(QA.length-1,Math.floor((1-a)*QA.length)),Q=QA[qi];ctx.globalAlpha=Math.min(1,a*2.2);ctx.drawImage(QS.img,Q[0],Q[1],Q[2],Q[3],x+Q[4],y+Q[5],Q[2],Q[3]);ctx.globalAlpha=1;}break;}
    case'spark':ctx.strokeStyle=p.col;ctx.globalAlpha=a;ctx.lineWidth=p.sz;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-p.vx*2.2,y+p.vz*2.2-p.vy*0.6);ctx.stroke();ctx.globalAlpha=1;break;
    case'blood':{const ang=Math.atan2(-p.vz+p.vy*0.3,p.vx);ctx.save();ctx.translate(x,y);ctx.rotate(ang);ctx.globalAlpha=Math.min(1,a*1.6);ctx.fillStyle=p.col;ctx.beginPath();ctx.ellipse(0,0,p.sz*1.5+Math.hypot(p.vx,p.vz)*0.55,p.sz*0.85,0,0,TAU);ctx.fill();ctx.fillStyle='rgba(255,150,150,0.5)';ctx.beginPath();ctx.ellipse(-p.sz*0.2,-p.sz*0.3,p.sz*0.55,p.sz*0.25,0,0,TAU);ctx.fill();ctx.restore();break;}
    case'head':ctx.save();ctx.globalAlpha=Math.min(1,p.life/30);ctx.translate(x,y);ctx.rotate(p.rot);ctx.scale(p.face,1);ctx.drawImage(p.img,p.sx,p.sy,p.sw,p.sh,-p.dw/2,-p.dh/2,p.dw,p.dh);ctx.restore();break;
@@ -2536,10 +2563,10 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!NEWKEYS.includes(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]));
  if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>w.boss);
-  return base.concat(bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
+  return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';
 function syncSprWant(){if(SPR_ALL){for(const k in SPR_RAW)sprRequest(k);return;}
