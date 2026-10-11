@@ -24,9 +24,9 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    {const f=setup(hero);press('ArrowRight');step(22);const end=f.state;press('ArrowRight');const again=f.state;keys.ArrowRight=false;
     const f2=setup(hero);press('ArrowRight');step(19+18);press('ArrowRight');const later=f2.state;keys.ArrowRight=false;
     rows.push({hero,endState:end,againSoon:again,againLater:later});if(again==='dodge'||later!=='dodge')bad.push({hero,again,later});}
-   // 騎乗中は防御ボタンが「突撃」: 止まったまま押しても騎馬突撃が出て前へ突っ込み、敵に当たる
+   // 騎乗中は防御ボタンが「突撃」: 止まったまま押すと旋風突撃(MWHIRL、2026-10-11 オーナー要望で騎馬突撃から変更)が出て前へ突っ込み、敵に当たる
    {const f=setup(hero);f.mount={hp:6,max:6,col:'red'};const e=mk('sword',f.x+150,570,1);e.hp=e.maxhp=500;e.entered=true;e.face=-1;e.cool=9999;G.fighters=[f,e];
-    step(1);const label=document.getElementById('bG').textContent,x0=f.x;setKey('KeyV',true);step(1);setKey('KeyV',false);const st=f.state,chg=f.cur===MCHG;step(30);
+    step(1);const label=document.getElementById('bG').textContent,x0=f.x;setKey('KeyV',true);step(1);setKey('KeyV',false);const st=f.state,chg=f.cur===MWHIRL;step(30);
     const dx=Math.round(f.x-x0),hit=e.hp<500;rows.push({hero,mountLabel:label,st,chg,dx,hit});if(label!=='突撃'||!chg||dx<100||!hit)bad.push({hero,mountLabel:label,st,chg,dx,hit});
     f.mount=null;step(1);if(document.getElementById('bG').textContent!=='防御')bad.push({hero,footLabel:document.getElementById('bG').textContent});}
   }
