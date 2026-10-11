@@ -11,7 +11,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   const foe=(x)=>{const e=mk('sword',x,570,1);e.entered=true;e.hp=e.maxhp=999;e.cool=999;G.fighters.push(e);return e;};
   let lh=0;const oh=window.hurt;window.hurt=function(t,a,d){if(d&&d.launch&&a===G.player&&a.cur&&a.cur.ck==='rokudan')lh++;return oh(t,a,d);};
   const rows=[];
-  for(const face of [1,-1]){const P=setup('yuki',face,false),near=foe(P.x+face*150),far=foe(P.x+face*330);lh=0;seen.get(R.img).clear();
+  for(const face of [1,-1]){const P=setup('yuki',face,false),near=foe(P.x+face*150),far=foe(P.x+face*520);lh=0;seen.get(R.img).clear();
    startCharge(P);const ck=P.cur&&P.cur.ck;let hits=0,last=near.hp,n=0;
    for(;n<120&&P.state==='atk';n++){G.t++;updPlayer(P,{});near.cool=far.cool=999;if(near.hp<last){hits++;last=near.hp;}drawFighter(P);}
    rows.push({face,ck,hits,launched:lh,farHit:far.hp<far.maxhp,frames:seen.get(R.img).size,dur:n});}

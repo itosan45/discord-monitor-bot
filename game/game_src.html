@@ -470,7 +470,7 @@ function startStage(si,ch,demo,keep){
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   ws=out.concat(bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
- G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.7));G.over=null;G.partner=null;
+ G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.zm=1;G.zp=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.7));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;
  if(!demo&&G.partnerType){const q=mk(G.partnerType,90,590,0);q.isPartner=true;q.dm=1.3;q.inv=60;G.partner=q;G.fighters.push(q);if(G.partnerFell){G.partnerFell=false;say(q,'しぶとく生き延びておったわ！',200);setTimeout(()=>{if(G.player)say(G.player,'生きておったか！',150);},3600);}}else G.partner=null;
@@ -1062,7 +1062,7 @@ function startCk(p,ck){const T=p.T,b=(ck==='quake'?T.atk[3]:ck==='spin'?T.atk[1]
 function chargeStep(f,d,st){const dir=f.face,wdm=f.wpn?(WPN[f.wpn.k].dm||1):1;
  // 技名の文字表示はしない(2026-10-11 オーナー「旋風突撃とか文字いらん」)
  if(d.ck==='spin'){if(st===d.hs)d.f0=f.face;if(st>=d.hs&&st<=d.he){if(st%4===0)f.face*=-1;if((st-d.hs)%8===0){f.hit.clear();strike(f,{rng:160,dmg:Math.round(12*wdm),kb:6,launch:st>=d.he-8,around:true,dep:52});AU.sfx('slash');ring(f.x,f.y,160,'rgba(255,235,190,0.8)',14);}}if(st===d.he+1&&d.f0)f.face=d.f0;return;}
- if(d.ck==='rokudan'){const k=Math.floor((st-d.hs)/9);if(st>=d.hs&&k<6&&(st-d.hs)%9===3){const last=k===5;f.hit.clear();f.x=clamp(f.x+dir*5,G.camx+40,G.camx+W-40);
+ if(d.ck==='rokudan'){const k=Math.floor((st-d.hs)/9),ph=(st-d.hs)%9;if(st>=d.hs&&k<6&&ph>=1&&ph<=4){const m=fighterScreenMargin(f);f.x=clamp(f.x+dir*6,G.camx+m,G.camx+W-m);}if(st>=d.hs&&k<6&&ph===3){const last=k===5;f.hit.clear();
   strike(f,{rng:200,dmg:last?18:9,kb:last?11:2,launch:last,dep:46});AU.sfx(last?'heavy':'slash');if(last)G.shake=Math.max(G.shake,8);
   G.parts.push({k:'cut',x:f.x+dir*150,y:f.y,z:f.z+100+rnd(-10,10),vx:0,vy:0,vz:0,g:0,life:8,max:8,sz:last?230:170,w:last?12:7,ang:0,col:'rgba(255,236,190,0.9)',fr:1});}return;}
  if(st!==d.hs)return;
@@ -1133,7 +1133,7 @@ function updPlayer(p,c){
  switch(p.state){
   case'idle':case'walk':{
    const mx=(c.r?1:0)-(c.l?1:0),my=(c.d?1:0)-(c.u?1:0);
-   if(c.gdP&&(mx||my)&&!p.isPartner&&!(p.dcd>0)){p.state='dodge';p.st=0;p.ddir=mx;p.ddy=my;p.dback=mx!==0&&mx!==p.face;p.inv=Math.max(p.inv,p.dback?16:14);AU.sfx('dodge');dust(p.x,p.y,2);break;}
+   if(c.gdP&&(mx||my)&&!p.isPartner&&!(p.dcd>0)){p.state='dodge';p.st=0;p.ddir=mx;p.ddy=my;p.dback=mx!==0&&mx!==p.face;p.inv=Math.max(p.inv,p.dback?16:14);AU.sfx('dodge');dust(p.x,p.y,2);dodgeBurst(p);break;}
    if(mx||my){const k=(mx&&my)?0.8:1;p.x+=mx*T.spd*k;p.y+=my*T.spd*0.62*k;if(mx)p.face=mx;p.state='walk';p.wp+=T.spd*0.05;p.run=(p.run||0)+1;}else{p.state='idle';p.run=0;}
    if(c.gd&&!p.isPartner){p.state='guard';p.st=0;p.gst=0;p.gT0=G.t;break;}
    if(mx&&mx===p.face&&!(p.grabCd>0)){const e=G.fighters.find(e=>e.team===1&&e.hp>0&&!e.T.boss&&!e.T.horse&&e.T.ai!=='rider'&&(e.state==='idle'||e.state==='walk'||e.state==='hurt')&&e.entered&&Math.abs(e.x-p.x)<48&&Math.abs(e.y-p.y)<14&&sgn(e.x-p.x)===p.face&&(e.z||0)<4);
@@ -1173,12 +1173,12 @@ function updPlayer(p,c){
    if(p.st>=34){p.state='idle';p.st=0;}break;}
   case'guard':{if(p.gst>0)p.gst--;p.x+=p.gvx||0;p.gvx=(p.gvx||0)*0.8;
    const my=(c.d?1:0)-(c.u?1:0);if(my)p.y+=my*T.spd*0.3;
-   if((c.lP||c.rP)&&!(p.dcd>0)&&p.gst<=0){const dir=c.rP?1:-1;p.state='dodge';p.st=0;p.ddir=dir;p.ddy=0;p.dback=dir!==p.face;p.inv=Math.max(p.inv,p.dback?16:14);AU.sfx('dodge');dust(p.x,p.y,2);break;}
+   if((c.lP||c.rP)&&!(p.dcd>0)&&p.gst<=0){const dir=c.rP?1:-1;p.state='dodge';p.st=0;p.ddir=dir;p.ddy=0;p.dback=dir!==p.face;p.inv=Math.max(p.inv,p.dback?16:14);AU.sfx('dodge');dust(p.x,p.y,2);dodgeBurst(p);break;}
    if(c.atkP&&p.st>4){startPAtk(p,0);break;}
    if(!c.gd&&p.gst<=0){p.state=SPR[p.T.spr||p.T.type]&&SPR[p.T.spr||p.T.type].a.gend?'gend':'idle';p.st=0;}
    break;}
   case'gend':{if(c.atkP){startPAtk(p,0);break;}if(c.gd){p.state='guard';p.st=6;p.gst=0;break;}if(p.st>=7){p.state='idle';p.st=0;}break;}
-  case'dodge':{const L=p.dback?18:20,k=1-p.st/L;p.x+=p.ddir*(p.dback?11:10)*Math.max(0.15,k);p.y+=(p.ddy||0)*7*Math.max(0.15,k);if(p.st%3===0)PT({x:p.x-p.ddir*20,y:p.y,z:rnd(6,30),life:14,sz:rnd(8,16),col:'rgba(200,190,170,0.4)',k:'smoke'});
+  case'dodge':{const L=p.dback?18:20,k=1-p.st/L;p.x+=p.ddir*(p.dback?14:13)*Math.max(0.15,k);p.y+=(p.ddy||0)*8*Math.max(0.15,k);if(p.st%2===0)dodgeStreak(p);if(p.st%3===0)PT({x:p.x-p.ddir*20,y:p.y,z:rnd(6,30),life:14,sz:rnd(8,16),col:'rgba(200,190,170,0.4)',k:'smoke'});
    if(p.st>=L){p.dcd=18;p.state=c.gd?'guard':'idle';p.st=0;p.gst=0;}
    break;}
   case'hurt':p.x+=p.vx;p.vx*=0.8;if(p.st>=p.hurtT){p.state='idle';p.st=0;p.inv=Math.max(p.inv,14);}break;
@@ -2135,6 +2135,10 @@ function drawFighterP(f){
    f.trail.push({x1:m.a*tx+m.c*ty+m.e+G.camx,y1:m.b*tx+m.d*ty+m.f,x2:m.a*mx+m.c*my+m.e+G.camx,y2:m.b*mx+m.d*my+m.f});if(f.trail.length>9)f.trail.shift();f.trailOn=true;}}
  ctx.restore();
 }
+// 回避の見せ方: 出だしの輪と風切り線、動いている間の残像
+function dodgeStreak(p){const horiz=!!p.ddir,an=horiz?0:Math.PI/2;G.parts.push({k:'cut',x:p.x-(p.ddir||0)*30+rnd(-6,6),y:p.y+(horiz?0:-(p.ddy||0)*30),z:p.z+rnd(30,110),vx:0,vy:0,vz:0,g:0,life:7,max:7,sz:rnd(90,150),w:4,ang:an,col:'rgba(235,245,255,0.6)',fr:1});}
+function dodgeBurst(p){ring(p.x,p.y,80,'rgba(235,245,255,0.7)',10);for(let i=0;i<3;i++)dodgeStreak(p);}
+function drawDodgeGhosts(e){const ox=e.x,oy=e.y,dx=e.ddir||0,dy=e.ddy||0;for(const k of [2,1]){e.x=ox-dx*k*40;e.y=oy-dy*k*20;ctx.save();ctx.globalAlpha=k===1?0.3:0.15;drawFighter(e);ctx.restore();}e.x=ox;e.y=oy;}
 function drawTrail(f){const tr=f.trail;if(tr.length<2)return;const col=f.T.trail||'255,255,255';ctx.globalCompositeOperation='lighter';
  for(let i=1;i<tr.length;i++){const a=tr[i-1],b=tr[i],al=(i/tr.length)*0.75;ctx.fillStyle=`rgba(${col},${al})`;ctx.beginPath();ctx.moveTo(a.x1-G.camx,a.y1);ctx.lineTo(b.x1-G.camx,b.y1);ctx.lineTo(b.x2-G.camx,b.y2);ctx.lineTo(a.x2-G.camx,a.y2);ctx.fill();ctx.strokeStyle=`rgba(255,255,255,${al*0.8})`;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(a.x1-G.camx,a.y1);ctx.lineTo(b.x1-G.camx,b.y1);ctx.stroke();}ctx.globalCompositeOperation='source-over';}
 function drawItem(it){
@@ -2458,8 +2462,13 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
  if(m==='story')B('会話とばす',()=>endStory());
  B('閉じる',()=>{demoView.settings=false;});}
 /* ===================== MAIN ===================== */
+// 必殺・奥義の間は、使った本人へ向けて画面をズームインする(文字のカットインの代わり)。終わるとゆっくり元の大きさへ戻る。
+// 本人を中心に拡大するので画面端でも全面が埋まる。反対側の敵が切れすぎないよう、中心は画面の真ん中へ4割寄せる。HUDと演出の帯は拡大の外。
+function worldZoom(){const sc=G.spcScene,own=(G.ult&&G.ult.p)||(sc&&sc.p),p=own&&own.hp>0?own:null;let tz=1;if(p)tz=G.ult?1.2:(p.spLv===2?1.34:1.26);
+ let z=G.zm||1;z+=(tz-z)*(tz>z?0.22:0.1);if(Math.abs(z-tz)<0.003)z=tz;G.zm=z;if(z<=1.002||!(G.zp||p))return;if(p)G.zp={x:p.x,y:p.y,z:p.z||0};
+ const fx=(G.zp.x-G.camx)*0.6+W/2*0.4,fy=clamp(G.zp.y-G.zp.z-80,200,520);ctx.translate(fx,fy);ctx.scale(z,z);ctx.translate(-fx,-fy);}
 function renderWorld(){
- const sh=G.shake>0.5?G.shake:0;ctx.save();if(sh)ctx.translate(rnd(-sh,sh)*0.6,rnd(-sh,sh)*0.5);
+ const sh=G.shake>0.5?G.shake:0;ctx.save();if(sh)ctx.translate(rnd(-sh,sh)*0.6,rnd(-sh,sh)*0.5);worldZoom();
  drawBG(G.camx,G.t);drawDecals();
  const list=[];for(const f of G.fighters)list.push(f);for(const p of G.props)list.push(p);for(const i of G.items)list.push(i);for(const q of G.proj)if(q.k!=='fall')list.push(q);if(G.kgun&&G.state==='bossdown')for(const k of G.kgun)list.push(k);
  // soft contact shadows
@@ -2468,7 +2477,7 @@ function renderWorld(){
  for(const q of G.proj)if(q.k==='fall')drawProj(q);
  drawHazards();drawSteeds();
  list.sort((a,b)=>a.y-b.y);
- for(const e of list){if(e.kg)drawKgun(e);else if(e.T)drawFighter(e);else if(e.isProp)drawProp(e);else if(e.hit)drawProj(e);else drawItem(e);}
+ for(const e of list){if(e.kg)drawKgun(e);else if(e.T){if(e.state==='dodge'&&e.team===0&&!e.isPartner&&e.st>1)drawDodgeGhosts(e);drawFighter(e);}else if(e.isProp)drawProp(e);else if(e.hit)drawProj(e);else drawItem(e);}
  for(const q of G.proj)if(q.k==='fall'&&q.wait<=0)drawProj(q);
  for(const f of G.fighters)drawTrail(f);drawWarn();
  drawParts();drawIai();if(G.partner&&G.partner.state!=='dead'){const q=G.partner;txt('▼味方',q.x-G.camx,q.y-q.z-186,13,'#9f9','center','#000',3);}drawFG(G.camx,G.t);drawWeather();
