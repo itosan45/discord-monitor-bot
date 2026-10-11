@@ -611,10 +611,10 @@ function storyLines(key){const h=G.curCh,y=h==='yuki';let k=key;if(key==='pro'&&
   if(TY[h]&&s===TY[h].name)continue;
   out.push([s,t.replace('{H}',SHORT[h]||'')]);}
  return out;}
-function startStory(key,next){G.mode='story';if(key==='pro')AU.bgm(8);else if(key!=='end')AU.bgm(STG[G.stage].bgm);G.story={L:storyLines(key),i:0,c:0,t:0,next,right:null,bg:key==='pro'&&G.curCh==='yuki'?3:null};}
+function startStory(key,next){bustFor(G.curCh);G.mode='story';if(key==='pro')AU.bgm(8);else if(key!=='end')AU.bgm(STG[G.stage].bgm);G.story={L:storyLines(key),i:0,c:0,t:0,next,right:null,bg:key==='pro'&&G.curCh==='yuki'?3:null};}
 const BOSS_CHALLENGE={boss9:'ここまで来たか！　この正則が、まとめて叩き潰してくれる！',boss4:'松尾山は渡さぬ……！　この秀秋が相手だ！',boss8:'兵を退け。ここからは、この長政が相手をしよう。',boss5:'上田の屈辱、今こそ晴らす！　覚悟せよ！',boss2:'長谷堂は抜かせぬ。鬼の義光の武勇、思い知れ！',boss1:'赤備えの名にかけて、この直政は退かぬ！',boss7:'蜻蛉切の間合いに入ったな。いざ、勝負！',boss3:'よくぞ辿り着いた。だが天下を掴むのは、この家康よ。'};
 const HERO_CHALLENGE={yuki:'真田の槍、受けていただこう。いざ、参る！',kage:'……義のために、この刃を振るう。',mitsu:'豊臣の天下、ここで守り抜く！',nobu:'面白い。余を止められるか、試してみよ。',shin:'風林火山の旗にかけて、押し通る！',musashi:'御託はいい。どちらが強いか、斬り合おう。'};
-function startBossStory(e){const type=e.T.type;if(!BOSS_CHALLENGE[type]||G.noStory||G.demo)return;G.mode='story';G.story={L:[[e.T.name,BOSS_CHALLENGE[type]],['@',HERO_CHALLENGE[G.curCh]||'ここで決着をつける。いざ、勝負！']],i:0,c:0,t:0,next:null,right:type,bg:null};}
+function startBossStory(e){const type=e.T.type;if(!BOSS_CHALLENGE[type]||G.noStory||G.demo)return;G.mode='story';G.story={L:[[e.T.name,BOSS_CHALLENGE[type]],['@',HERO_CHALLENGE[G.curCh]||'ここで決着をつける。いざ、勝負！']],i:0,c:0,t:0,next:null,right:type,bg:null,inStage:true};}
 function endStory(){const n=G.story.next;G.story=null;G.mode='play';if(n)n();if(G.mode==='play'&&G.state==='run'&&(G.runT||0)<5)AU.sx('crowd',0.75,1);}
 function stepStory(){const S=G.story;if(!S)return;S.t++;const ln=S.L[S.i];if(!ln){endStory();return;}const len=ln[1].length;
  S.c=Math.min(len,S.c+(ln[0]==='h'?1.1:1.4));
@@ -635,7 +635,7 @@ function drawStory(){const S=G.story;if(!S)return;const bb=S.bg!=null&&BGIMG[S.b
  else if(sp==='t'){const a=Math.min(1,S.t/30);ctx.globalAlpha=a;const L=wrapJ(tx,22);L.forEach((l,i)=>txt(l,W/2,H/2-((L.length-1)*30)+i*62,46,'#ff4a3a','center','#000',7));ctx.globalAlpha=1;}
  else if(sp==='n'){const L=wrapJ(shown,28);L.forEach((l,i)=>txt(l,W/2,H/2-((wrapJ(tx,28).length-1)*26)+i*54,36,'#f4efe0','center','#000',5));}
  else{const me=sp==='@',name=me?(TY[h]?TY[h].name:''):sp,pk=me?h:PORT[sp];if(!me&&pk)S.right=pk;
-  if(!(h==='yuki'&&drawBust(20,H-640,560,me?1:0.45)))drawPort(h,300,560,1.55,1,!me);if(S.right){const pi=PIMG[S.right];if(pi&&pi.complete&&pi.naturalWidth){ctx.save();ctx.globalAlpha=me?0.45:1;ctx.translate(W-300,H-640);ctx.scale(-(PORTRAIT_FACING[S.right]||-1),1);ctx.drawImage(pi,-280,0,560,560);ctx.restore();}else drawPort(S.right,W-300,560,1.55,-1,me);}
+  if(!(!S.inStage&&drawBustH(h,20,H-640,560,me?1:0.45))&&!(h==='yuki'&&drawBust(20,H-640,560,me?1:0.45)))drawPort(h,300,560,1.55,1,!me);if(S.right){const pi=PIMG[S.right];if(pi&&pi.complete&&pi.naturalWidth){ctx.save();ctx.globalAlpha=me?0.45:1;ctx.translate(W-300,H-640);ctx.scale(-(PORTRAIT_FACING[S.right]||-1),1);ctx.drawImage(pi,-280,0,560,560);ctx.restore();}else drawPort(S.right,W-300,560,1.55,-1,me);}
   ctx.fillStyle='rgba(10,8,14,0.9)';ctx.fillRect(80,H-200,W-160,170);ctx.strokeStyle=me?'#d23a2a':'#c9a24a';ctx.lineWidth=3;ctx.strokeRect(80,H-200,W-160,170);
   ctx.fillStyle=me?'#8e1a14':'#4a3a1c';ctx.fillRect(100,H-226,Math.max(200,name.length*34+50),46);txt(name,125,H-203,30,'#fff','left','#000',3);
   wrapJ(shown,30).forEach((l,i)=>txt(l,120,H-150+i*50,34,'#fff','left','#000',4));}
@@ -646,6 +646,10 @@ const FACE={},STAND={},FALL={};for(const k of ['yuki','kage','mitsu','nobu','shi
 const imgOK=im=>im&&im.complete&&im.naturalWidth>0;
 const YKB=new Image();YKB.src='gfx/yk_bust.webp';const PIMG={boss3:new Image()};PIMG.boss3.src='gfx/ieyasu_bust.webp';for(const b of ['boss1','boss2','boss4','boss5','boss7','boss8','boss9','masayuki']){PIMG[b]=new Image();PIMG[b].src='gfx/port_'+b+'.webp';}
 const TSPEAR=new Image();if(DATA.img&&DATA.img.title_spear1)TSPEAR.src=DATA.img.title_spear1;
+// 兜なしの会話用の胸像(ステージ外の会話・オープニング用)。ストーリー/オープニングの開始時に先読みする
+const BUSTH={};function bustFor(h){if(!h||!['yuki','kage','mitsu','nobu','shin','musashi'].includes(h))return null;if(!BUSTH[h]){const im=new Image();im.src='gfx/bust_'+h+'.webp';BUSTH[h]=im;}return BUSTH[h];}
+// 胸像の画像は下端そろえで、高さは幅の約65〜80%。下端が560角の枠の下に来る(既存の yk_bust と同じ置き方)
+function drawBustH(h,x,y,sz,a){const im=bustFor(h);if(!im||!(im.complete&&im.naturalWidth))return false;ctx.save();ctx.globalAlpha=a;ctx.drawImage(im,x,y,sz,sz);ctx.restore();return true;}
 function drawBust(x,y,sz,a){if(!(YKB.complete&&YKB.naturalWidth))return false;ctx.save();ctx.globalAlpha=a;ctx.drawImage(YKB,x,y,sz,sz);ctx.restore();return true;}
 const OPN=[
  {bg:0,d:360,big:['慶長五年　九月十五日'],sm:['美濃国　関ヶ原']},
@@ -656,7 +660,7 @@ const OPN=[
  {bg:1,d:560,hero:1,big:['もしも　あの男が','関ヶ原にいたならば'],sm:['父・昌幸の命を受け、赤備えは中山道を駆けた']},
  {bg:-1,d:360,red:['歴史は　塗り替えられる']},
 ];
-function startOpening(){G.mode='opening';G.opT=0;G.opWait=0;G.opDur=null;G.opNi=-1;AU.bgm(8);}
+function startOpening(){bustFor('yuki');G.mode='opening';G.opT=0;G.opWait=0;G.opDur=null;G.opNi=-1;AU.bgm(8);}
 function opD(i){return (G.opDur&&G.opDur[i])||OPN[i].d;}
 function stepGate(){G.gateT=(G.gateT||0)+1;if(G.gateT>10&&anyKey()){AU.init();AU.bgm(8);startOpening();}}
 function drawGate(){const t=G.gateT||0;ctx.fillStyle='#050307';ctx.fillRect(0,0,W,H);const bi=BGIMG[0];if(bi&&bi.complete&&bi.naturalWidth){ctx.globalAlpha=0.35;drawBGimg(bi,t*0.3);ctx.globalAlpha=1;}
@@ -675,7 +679,7 @@ function drawOpening(){let t=G.opT,i=0;while(i<OPN.length&&t>=opD(i)){t-=opD(i);
  if(c.bg>=0){const bi=BGIMG[c.bg];ctx.globalAlpha=fa*0.75;if(bi&&bi.complete&&bi.naturalWidth){ctx.save();const z=1.05+k*0.06;ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-W/2,-H/2);drawBGimg(bi,400+k*260);ctx.restore();}ctx.globalAlpha=1;
   const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(0,0,0,0.55)');g.addColorStop(0.5,'rgba(0,0,0,0.25)');g.addColorStop(1,'rgba(0,0,0,0.75)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);}
  if(c.hero){const S=SPR.yuki;ctx.save();ctx.globalAlpha=fa;ctx.globalCompositeOperation='lighter';const rg=ctx.createRadialGradient(330,400,20,330,400,380);rg.addColorStop(0,'rgba(255,60,30,0.45)');rg.addColorStop(1,'rgba(255,60,30,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);ctx.restore();
-  {const z=600+k*40;if(!drawBust(40-k*20,H-z+20,z,fa)){ctx.save();ctx.globalAlpha=fa;drawPort('yuki',330+k*20,660,2.2,1,false);ctx.restore();}}}
+  {const z=600+k*40;if(!drawBustH('yuki',40-k*20,H-z+20,z,fa)&&!drawBust(40-k*20,H-z+20,z,fa)){ctx.save();ctx.globalAlpha=fa;drawPort('yuki',330+k*20,660,2.2,1,false);ctx.restore();}}}
  ctx.globalAlpha=fa;const cx=c.hero?820:W/2;
  if(c.red){const s=1+k*0.08;ctx.save();ctx.translate(W/2,H/2);ctx.scale(s,s);c.red.forEach((l,j)=>txt(l,0,(j-(c.red.length-1)/2)*80,64,'#ff3b2a','center','#000',8));ctx.restore();}
  if(c.big){const y0=(c.sm&&c.sm.length?H/2-90:H/2)-(c.big.length-1)*34;c.big.forEach((l,j)=>txt(l,cx,y0+j*72,c.hero?48:52,'#f6f0de','center','#000',7));
