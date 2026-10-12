@@ -3,7 +3,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 const OUT=process.env.OUTDIR||require('os').tmpdir();
 (async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:1280,height:720}})).newPage();const er=[];p.on('pageerror',e=>er.push(e.message));
 await p.goto('http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
-const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;window.dropItem=()=>{};const res={},imgs=[];
+const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;window.__noGuard=true;/* 敵のガード(ランダム)で検査が揺れないように */window.dropItem=()=>{};const res={},imgs=[];
  for(const h of['kage','nobu','musashi','yuki']){G.noStory=true;startGame(h,null);for(let i=0;i<10;i++)stepGame();const pl=G.player;
   G.fighters=G.fighters.filter(f=>f===pl);pl.x=G.camx+250;pl.y=600;pl.face=1;pl.inv=0;
   const es=[150,260,380,500].map((dx,i)=>{const e=mk('spear',pl.x+dx,pl.y+(i%2?6:-6),1);e.entered=true;e.hp=e.maxhp=500;e.cool=9999;e.face=-1;G.fighters.push(e);return e;});

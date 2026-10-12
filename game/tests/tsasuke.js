@@ -9,7 +9,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   out.opts=(()=>{G.heroPick='yuki';return partnerOpts();})();if(!out.opts.includes('sasuke')||!out.opts.includes('saizo'))bad('選択肢');
   G.heroPick='kage';if(partnerOpts().includes('sasuke'))bad('幸村以外には出ない');
   const setup=(pk)=>{startGame('yuki',pk);G.waveOn=false;G.waves=[{x:999999,en:[]}];G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;G.props=[];G.deco=[];G.proj=[];G.items=[];const P=G.player;P.x=G.camx+300;P.y=570;P.face=1;P.inv=999;P.hp=P.maxhp=9999;const Q=G.partner;Q.x=G.camx+380;Q.y=570;Q.face=1;Q.inv=0;Q.hp=Q.maxhp=9999;return [P,Q];};
-  const enemy=(P,dx,dy)=>{const e=mk('sword',P.x+dx,570+(dy||0),1);e.entered=true;e.hp=e.maxhp=9999;e.cool=9999;e.face=-1;G.fighters.push(e);return e;};
+  const enemy=(P,dx,dy)=>{const e=mk('sword',P.x+dx,570+(dy||0),1);e.entered=true;e.hp=e.maxhp=9999;e.cool=9999;e.face=-1;e.gcrash=1e9;/* ガードしない(ガードは tguardwake で検査) */G.fighters.push(e);return e;};
   const step=(n,Q,fn)=>{for(let i=0;i<n;i++){G.t++;G.player.inv=999;G.player.hp=G.player.maxhp;for(const f of G.fighters)if(f.team===1){f.cool=9999;if(f.state==='idle')f.st=0;}fn&&fn(i);for(const f of G.fighters){if(f.team===0)updPlayer(f,f===G.player?{}:(Q.ctl?Q.ctl(f):{}));else updEnemy(f);}updProj();ctx.setTransform(RS,0,0,RS,0,0);}};
   const draw=(e)=>{ctx.setTransform(RS,0,0,RS,0,0);drawFighter(e);};
   const used=new Map();const od=CanvasRenderingContext2D.prototype.drawImage;CanvasRenderingContext2D.prototype.drawImage=function(img,...a){const rec=used.get(img);if(rec)rec.add(a[0]+','+a[1]);return od.call(this,img,...a);};

@@ -2,7 +2,7 @@
 const {chromium}=require('playwright'),fs=require('fs');
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});try{
  const p=await b.newPage({viewport:{width:802,height:360},isMobile:true,hasTouch:true}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
- const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);G.auto=false;G.demo=false;G.camx=0;const bad=[],shots=[];let cases=0;
+ const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;window.__noGuard=true;/* 敵のガード(ランダム)で検査が揺れないように */AU.muted=true;G.noStory=true;startGame('yuki',null);G.auto=false;G.demo=false;G.camx=0;const bad=[],shots=[];let cases=0;
  for(const h of ['yuki','kage','mitsu','nobu','shin','musashi'])for(const mounted of [false,true])for(const face of [-1,1])for(const y of [YMIN,570,YMAX])for(const low of [false,true]){
   G.state='run';G.lowq=low;G.parts=[];G.items=[];G.props=[];G.proj=[];G.t=0;const f=mk(h,640,y,0);f.face=face;f.inv=999;f.wpn={k:'kusari',uses:99};if(mounted)f.mount={hp:6,max:6,col:'iron'};G.player=f;G.fighters=[f];
   const tick=c=>{G.t++;updPlayer(f,c);ctx.clearRect(0,0,1280,720);drawFighter(f);};

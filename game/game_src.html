@@ -792,7 +792,7 @@ function hurt(t,a,d){
  // 仮面のくノ一: 立っているときの通常攻撃を、低い横滑りでかわして反撃へつなぐ(打ち上げ・不可避技・背後・連続は受ける)
  if(t.team===1&&t.T.dodger&&!t.isProp&&t.hp>0&&(t.state==='idle'||t.state==='walk')&&!d.unblock&&!d.launch&&a.x!==undefined&&!(t.dgcd>G.t)&&Math.random()<0.7){const dd=sgn(a.x-t.x)||t.face;t.state='dodge';t.st=0;t.dback=true;t.dgcd=G.t+80;t.vx=-dd*5.5;t.face=dd;t.cur=null;t.inv=Math.max(t.inv,16);AU.sfx('dodge');dust(t.x,t.y,4);return;}
  // 汎用の敵ガード(オーナー「ガードをもう少し多く・3発当てるとガードクラッシュ」): 立っている敵が、正面からの通常攻撃を時々受け止める。3回受け止めたらガードクラッシュで大きな隙。
- if(t.team===1&&!t.isProp&&t.hp>0&&(t.state==='idle'||t.state==='walk')&&t.entered&&!t.T.shield&&!d.unblock&&!d.launch&&a.x!==undefined&&sgn(a.x-t.x)===t.face&&!(t.gcrash>G.t)&&(t.gdOn>G.t||Math.random()<(t.T.boss?0.22:0.34))){
+ if(t.team===1&&!t.isProp&&t.hp>0&&(t.state==='idle'||t.state==='walk')&&t.entered&&!t.T.shield&&!d.unblock&&!d.launch&&a.x!==undefined&&!a.k&&!window.__noGuard&&sgn(a.x-t.x)===t.face&&!(t.gcrash>G.t)&&(t.gdOn>G.t||Math.random()<(t.T.boss?0.22:0.34))){
   if(!(t.gdOn>G.t))t.gdOn=G.t+36;t.gcnt=(G.t-(t.glast||-999)>150?0:(t.gcnt||0))+1;t.glast=G.t;t.flash=4;t.x-=t.face*5;AU.sfx('block');G.hitstop=Math.max(G.hitstop,4);
   for(let i=0;i<8;i++)PT({x:t.x+t.face*40,y:t.y,z:t.z+90+rnd(-20,20),vx:t.face*rnd(1,5),vz:rnd(-1,4),life:rnd(8,16),sz:rnd(2,4),col:'#fff6c0',k:'spark'});
   if(t.gcnt>=3){t.gcnt=0;t.gdOn=0;t.gcrash=G.t+(t.T.boss?70:90);t.state='hurt';t.st=0;t.hurtT=t.T.boss?70:90;t.cur=null;t.vx=-t.face*3;t.inv=0;AU.sfx('break');G.shake=Math.max(G.shake,6);G.hitstop=Math.max(G.hitstop,8);ring(t.x+t.face*30,t.y,80,'rgba(255,200,90,0.95)',16);burst(t.x+t.face*30,t.y,80,14,'#ffe090',8);}
@@ -1285,7 +1285,7 @@ function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)
 function bodyGap(b){return 62*(b.sc||1);}
 function bossGetupLine(f){if(G.t-(f.onoreT||-9999)<720||Math.random()<0.4)return;f.onoreT=G.t;const d=AU.bossLine('onore',f,1.7);if(d&&Math.random()<0.33)setTimeout(()=>{if(f.hp>0&&!f.dying&&G.boss===f&&G.state==='run')AU.bossLine('kirisute',f,1.7);},Math.round(d*1000)+300);}
 // 敵が起き上がる時は、囲まれて袋叩きにされないよう、周りの味方側を吹き飛ばす(ボス・雑魚とも。オーナー「起き上がりに無敵時間と吹き飛ばし」)
-function wakeBlast(f){const R=f.T.boss?130:100;let hit=false;for(const t of G.fighters){if(t.team!==0||t.hp<=0||t.state==='dead'||t.state==='down'||t.dying)continue;if(Math.abs(t.x-f.x)<R&&Math.abs(t.y-f.y)<46&&t.z<60){const dd=sgn(t.x-f.x)||1;t.inv=0;f.hit&&f.hit.delete(t);hurt(t,{x:f.x,face:dd,team:1,owner:f,hit:null},{dmg:f.T.boss?5:3,kb:9,launch:true,unblock:true,noDecap:true});hit=true;}}
+function wakeBlast(f){if(window.__noGuard)return;const R=f.T.boss?130:100;let hit=false;for(const t of G.fighters){if(t.team!==0||t.hp<=0||t.state==='dead'||t.state==='down'||t.dying)continue;if(Math.abs(t.x-f.x)<R&&Math.abs(t.y-f.y)<46&&t.z<60){const dd=sgn(t.x-f.x)||1;t.inv=0;f.hit&&f.hit.delete(t);hurt(t,{x:f.x,face:dd,team:1,owner:f,hit:null},{dmg:f.T.boss?5:3,kb:9,launch:true,unblock:true,noDecap:true});hit=true;}}
  ring(f.x,f.y,R*1.2,'rgba(255,255,255,0.9)',18);for(let i=0;i<10;i++)PT({x:f.x+rnd(-R*0.5,R*0.5),y:f.y,z:rnd(0,50),vx:rnd(-4,4),vz:rnd(1,5),life:rndi(10,18),sz:rnd(8,16),col:'rgba(255,240,200,0.8)',k:'flame'});if(hit||f.T.boss){AU.sfx('boom');G.shake=Math.max(G.shake,hit?7:3);}}
 function updDown(f){
  if(f.bowl){wallBounce(f);bowlStep(f);}

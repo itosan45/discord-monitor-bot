@@ -7,7 +7,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   const used=new Map();const od=CanvasRenderingContext2D.prototype.drawImage;CanvasRenderingContext2D.prototype.drawImage=function(img,...a){if(used.has(img)){used.get(img).add(a[0]+','+a[1]);}return od.call(this,img,...a);};
   for(const hero of ['yuki','kage','mitsu','nobu','shin','musashi'])for(const face of [1,-1])for(const mode of ['combo','single','weapon']){
    startGame(hero,null);G.waveOn=false;G.waves=[{x:999999,en:[]}];G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;const P=G.player;P.mount={hp:6,max:6,col:'red'};P.wpn=mode==='weapon'?{k:'odachi',uses:9}:null;P.x=G.camx+640;P.y=570;P.face=face;P.inv=999;P.state='idle';
-   const e=mk('sword',P.x+face*120,570,1);e.entered=true;e.hp=e.maxhp=9999;e.cool=9999;G.fighters.push(e);
+   const e=mk('sword',P.x+face*120,570,1);e.entered=true;e.hp=e.maxhp=9999;e.cool=9999;e.gcrash=1e9;G.fighters.push(e);
    const S=SPR['mountnorm_'+hero];const set=new Set();used.set(S.img,set);let lh=0;const oh=window.hurt;window.hurt=function(t,a,d){if(a===G.player&&d&&d.launch)lh++;return oh(t,a,d);};
    const stages=[];let first=true,hits=0,lasthp=e.hp;
    G.t++;updMount(P,{atkP:true});stages.push(P.cur&&P.cur.stage||0);

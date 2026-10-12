@@ -4,7 +4,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright'),fs=require('fs');
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  try{const p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true,hasTouch:true})).newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
- const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;const bad=[],rows=[],shots=[];
+ const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;window.__noGuard=true;/* 敵のガード(ランダム)で検査が揺れないように */AU.muted=true;G.noStory=true;const bad=[],rows=[],shots=[];
   const setup=(hero,n,dist)=>{startGame(hero,null);G.state='run';G.waveOn=false;G.waves=[{x:1e9,en:[]}];G.wi=0;G.items=[];G.props=[];G.proj=[];G.steeds=[];G.hzT=99999;
    const f=G.player;f.x=G.camx+380;f.y=570;f.face=1;f.hp=f.maxhp=999;f.inv=0;G.partner=null;const es=[];
    for(let i=0;i<n;i++){const e=mk('sword',f.x+dist+i*60,570+((i%3)-1)*30,1);e.hp=e.maxhp=500;e.entered=true;e.face=-1;e.cool=9999;es.push(e);}G.fighters=[f,...es];return {f,es};};

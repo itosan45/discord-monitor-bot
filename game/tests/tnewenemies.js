@@ -29,7 +29,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   // 4) 仮面のくノ一: 立ち姿の通常攻撃は低い回避でかわして反撃(打ち上げは受ける)
   {const P=setup();const e=enemy('kunoichi',P,90);e.cool=999;e.state='idle';const orr=Math.random;Math.random=()=>0;const hp0=e.hp;hurt(e,P,{dmg:10,kb:2});const dodged=e.state==='dodge'&&e.hp===hp0;const set=new Set();used.set(SPR.kunoichi.img,set);for(let i=0;i<30;i++){G.t++;updEnemy(e);draw(e);if(e.state==='idle')break;}
    const e2=enemy('kunoichi',P,90);e2.cool=999;e2.state='idle';const h2=e2.hp;hurt(e2,P,{dmg:10,kb:2,launch:true});Math.random=orr;
-   out.dodge={dodged,frames:set.size,launchHurts:e2.hp<h2,cdBlocks:(()=>{const e3=enemy('kunoichi',P,90);e3.state='idle';e3.dgcd=G.t+100;const h=e3.hp;Math.random=()=>0;hurt(e3,P,{dmg:10,kb:2});Math.random=orr;return e3.hp<h;})()};used.delete(SPR.kunoichi.img);}
+   out.dodge={dodged,frames:set.size,launchHurts:e2.hp<h2,cdBlocks:(()=>{const e3=enemy('kunoichi',P,90);e3.state='idle';e3.dgcd=G.t+100;e3.gcrash=1e9;const h=e3.hp;Math.random=()=>0;hurt(e3,P,{dmg:10,kb:2});Math.random=orr;return e3.hp<h;})()};used.delete(SPR.kunoichi.img);}
   // 5) くノ一のクナイ: 遠くから当たる・地面に落ちる・落ちたあとは残らない・柵で止まる
   {const P=setup();const e=enemy('kunoichi',P,400);e.face=-1;startEAtk(e,1);const php=P.hp;let hit=false,minZ=999,drew=false;for(let i=0;i<110;i++){G.t++;P.inv=0;e.state==='atk'||(e.cool=999);updEnemy(e);updProj();for(const q of G.proj)if(q.k==='kunai')minZ=Math.min(minZ,q.z);if(P.hp<php)hit=true;if(i===30){const k=G.proj.find(q=>q.k==='kunai');if(k){const ok=ctx.drawImage;ctx.setTransform(RS,0,0,RS,0,0);drawProj(k);drew=true;}}if(P.state==='hurt'||P.state==='down'){P.state='idle';P.st=0;}}
    out.kunai={hit,left:G.proj.filter(q=>q.k==='kunai').length,stuck:G.stuck.length,drew};

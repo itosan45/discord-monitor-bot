@@ -4,7 +4,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  try{const p=await(await b.newContext({viewport:{width:802,height:360},isMobile:true,hasTouch:true})).newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.argv[2]||process.env.GAME_URL||'http://127.0.0.1:8876/index.html');await p.waitForFunction(()=>sprAllReady());
- const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;const bad=[],rows=[];
+ const r=await p.evaluate(()=>{requestAnimationFrame=()=>0;window.__noGuard=true;/* 敵のガード(ランダム)で検査が揺れないように */AU.muted=true;G.noStory=true;const bad=[],rows=[];
   const setup=hero=>{startGame(hero,null);G.state='run';G.waveOn=false;G.waves=[{x:1e9,en:[]}];G.wi=0;G.items=[];G.props=[];G.proj=[];G.steeds=[];G.hzT=99999;G.sq=[];G.slow=0;G.hitstop=0;
    const f=G.player;f.x=G.camx+500;f.y=570;f.face=1;f.hp=f.maxhp=999;f.inv=0;f.dcd=0;G.partner=null;G.fighters=[f];for(const k in keys)keys[k]=false;for(const k in pressed)delete pressed[k];return f;};
   const step=n=>{for(let i=0;i<n;i++){G.t++;stepGame();for(const k in pressed)delete pressed[k];}};
