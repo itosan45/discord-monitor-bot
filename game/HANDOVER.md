@@ -490,6 +490,17 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 検査用の旗: `window.__noGuard=true` を立てると、敵のガードと起き上がりの吹き飛ばしを止める(既存の `tfeel/theromoves/tkusarimounted/tmountcombo/tcharge/tiai/tkusari*/tki/tsaizo/tsasuke` は、ランダムなガードや吹き飛ばしで結果が揺れないようこれを立てている)。ガードは飛び道具(`a.k`あり)には効かない。
 - 未確認: 実機でのガード頻度の体感(多すぎ・少なすぎ)、起き上がりの吹き飛ばしが理不尽に感じないか、家康戦の難易度、大入道のジャンプの避けやすさ。全編通し。調整は `hurt` の確率(0.34/0.22)、`wakeBlast` の半径・ダメージ、`leapCd` で行える。
 
+## 6.50 「敵将、討ち取ったり」「者ども、勝鬨をあげよう」をGemini音声に差し替え(2026-10-13、オーナー「この2つのセリフを生成して導入して」)
+- 素材: Google AI Studio の音声生成(Gemini TTS、声 Algenib)で作った `assets/voice/gemini_lines_20261013/`(敵将3テイク・勝鬨2テイク。生成条件は同フォルダの README.md)。
+- 取り込み: `python3 game/tools/import_generated_lines.py [teki_?] [kachi_?]` → `cd game && python3 build.py`。引数なしは `teki_b`・`kachi_b`。
+  - `vo`(6人の「討ち取ったり」): 主人公ごとに音の高さを変える(比率は従来の v5 と同じ)。残響・ノイズ除去なし(元がきれいなため)。-13.5 LUFS。出力は `assets/voice/vo_gemini_20261013/`。長さは約2.2〜2.5秒(従来は約3.1〜3.6秒)。突き上げ・勝鬨の間隔は声の実長から決めるので、声が短くなった分だけ全体が早く進む。
+  - `uv.victory`(勝鬨の音頭): 次の「えい・えい・おー」(3.2秒後)に被らないよう、3.01秒→速度×1.11で約2.76秒に詰めた(従来の2.78秒と同じ枠)。-12.5 LUFS。残響なし(6.46 の方針のまま)。
+  - 音量は従来とほぼ同じ(vo -13.2/-12.9 LUFS、victory -12.5 LUFS)。
+- **オーナー録音は消していない**。元に戻す手順は `assets/voice/gemini_lines_20261013/README.md`(`import_tekisho_vo.py` と `import_user_voice.py` を再実行して再ビルド)。差し替え直前の勝鬨の音頭は `assets/voice/old_vo/uv_victory_owner_20261012.mp3`、旧「討ち取ったり」は `assets/voice/vo_v5/`。**逆に、この2つのスクリプトを再実行すると Gemini 版が消えてオーナー録音版に戻る**ので、Gemini 版を使い続けるなら再実行しない(した場合は `import_generated_lines.py` をもう一度)。`audio.json` の `gen_lines` は、どのテイクを入れたかの記録。
+- 聴き比べ用: `compare_tekisho_yuki_old_b_a_c.mp3`(旧→b→a→c、幸村)、`tekisho_6heroes_new.mp3`(6人)、`compare_kachidoki_old_b_a.mp3`(旧→b→a)。
+- テスト: `tvoice.js`・`tvoicelines.js`・`tnarration.js`・`tbgm.js` 合格。`tgruntvoice.js` は読み込み待ちで1回目だけ8本止まり(6.46 に書いた既知のゆらぎ)、再実行で10本合格。`tkachitiming.js` は今回の変更前のビルドでも同じ箇所(ファンファーレの後4秒以上スコア画面が出ない、の判定)で不合格、声の長さに関わる他の判定(討ち取ったり→勝鬨の音頭の間隔、音頭→突き上げの192更新、ファンファーレの開始)は合格。`tkachi.js` はこの環境に Playwright 同梱の Chromium が無く起動できず未実行。
+- 未確認: 実際の聞こえ方(作った側は聴けない。音の高さ・速さ・迫力・6人の声の区別は耳での確認が必要)、実機(Android)での再生、速度を上げた勝鬨の音頭の自然さ。「敵将、討ち取ったり」の生成時のスタイル指示文は記録し忘れた(README に明記)。
+
 ## 6.6 今後の構想: 大砲・大筒・その他の武具(オーナー要望 2026-10-09、急ぎではない)
 オーナーが参考画像を4枚提示: 和の武具一覧2枚(十手・鎌・金棒・大槌・刺又・袖搦・突棒・鉞・手裏剣・クナイ・撒菱・鉄扇・軍配・鎖分銅・鉄甲鉤など)、車輪付きの大砲、浮世絵の抱え大筒。
 **現状**: 大砲は第六幕のステージの仕掛け `HZ` の `cannon`(「大筒の砲撃！」、画面外から砲弾)だけ。家康(boss3)の技は 斬り払い/兵の召喚(summon)/突進突き(charge)/矢の雨(rain) の4つで、大砲は無い。拾える武器は `WPN` の9種類。サブウエポン(主武器と別に持つ物)の仕組みは無い。
