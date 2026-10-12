@@ -1,4 +1,4 @@
-"""「敵将、討ち取ったり」(オーナー録音)を6人分の声に加工して audio.json の vo に格納し、assets/voice/vo_v4/ にも保存する。
+"""「敵将、討ち取ったり」(オーナー録音)を6人分の声に加工して audio.json の vo に格納し、assets/voice/vo_v5/ にも保存する。
 v4(2026-10-10): v3 の加工に RNNoise(声専用のノイズ除去)と、こもり取り(プレゼンス・レゾナンス)を追加。v3 は assets/voice/vo_v3/ に残す。"""
 import base64
 import json
@@ -9,7 +9,7 @@ import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SRC = ROOT / "assets" / "voice" / "user" / "tekisho_uchitottari_owner.m4a"
-OUT_DIR = ROOT / "assets" / "voice" / "vo_v4"
+OUT_DIR = ROOT / "assets" / "voice" / "vo_v5"
 OUTPUT = ROOT / "game" / "data" / "audio.json"
 FF = os.environ.get("FFMPEG", "ffmpeg")
 MODEL = ROOT / "game" / "tools" / "rnnoise" / "sh.rnnn"
@@ -28,8 +28,7 @@ def chain(r):
             f"asetrate=48000*{r},aresample=48000,"
             "equalizer=f=120:t=q:w=1:g=4,equalizer=f=350:t=q:w=1.2:g=-4,equalizer=f=1500:t=q:w=1:g=2,equalizer=f=2600:t=q:w=1:g=6,"
             "equalizer=f=3400:t=q:w=1.2:g=5,equalizer=f=4200:t=q:w=1.2:g=2,equalizer=f=6000:t=q:w=1.5:g=2,deesser=i=0.3,"
-            "acompressor=threshold=-20dB:ratio=5:attack=5:release=180:makeup=3dB,agate=threshold=0.008:ratio=4:attack=1:release=250:range=0.01:knee=6,areverse,afade=t=in:d=0.05,areverse,afade=t=in:d=0.01,"
-            "aecho=0.85:0.75:80|170|290:0.22|0.13|0.07")
+            "acompressor=threshold=-20dB:ratio=5:attack=5:release=180:makeup=3dB,agate=threshold=0.008:ratio=4:attack=1:release=250:range=0.01:knee=6,areverse,afade=t=in:d=0.05,areverse,afade=t=in:d=0.01")  # v5: オーナー指示で残響(aecho)なし
 
 
 def loud(af):
@@ -58,7 +57,7 @@ def main():
         vo[k] = base64.b64encode(out.read_bytes()).decode("ascii")
     data["vo"] = vo
     OUTPUT.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print("vo v4:", {k: round(dur(OUT_DIR / f"vo_{k}.mp3"), 2) for k in PITCH})
+    print("vo v5:", {k: round(dur(OUT_DIR / f"vo_{k}.mp3"), 2) for k in PITCH})
 
 
 if __name__ == "__main__":

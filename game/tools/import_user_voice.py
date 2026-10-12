@@ -32,7 +32,7 @@ PRESENCE = (
     "equalizer=f=140:t=q:w=1:g=3,equalizer=f=350:t=q:w=1.2:g=-4,equalizer=f=1500:t=q:w=1:g=3,"
     "equalizer=f=2300:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=7,equalizer=f=4200:t=q:w=1.2:g=3,equalizer=f=6000:t=q:w=1.5:g=3,deesser=i=0.3,"
     "acompressor=threshold=-22dB:ratio=3:attack=6:release=160:makeup=2dB,agate=threshold=0.008:ratio=4:attack=1:release=250:range=0.01:knee=6,areverse,afade=t=in:d=0.04,areverse,"
-    "aecho=0.85:0.75:90|180|300:0.22|0.13|0.07,volume=-1dB,alimiter=limit=0.92"
+    "volume=-1dB,alimiter=limit=0.92"  # 2026-10-12 オーナー指示で勝鬨の音頭の残響(aecho)をなくした
 )
 FILTER_FOR = {"victory": PRESENCE}
 # 音量をそろえる目標(LUFS)。勝鬨の音頭は以前 -24 LUFS で他の声より約10dB小さかった(オーナー指摘)
