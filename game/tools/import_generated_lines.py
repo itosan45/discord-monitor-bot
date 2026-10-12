@@ -3,8 +3,8 @@
 - uv.victory(勝鬨の音頭): kachi_*.wav を、次の「えい・えい・おー」(音頭の3.2秒後)に被らないよう 2.7 秒以内に速度をそろえる。-12.5 LUFS。残響なし。
 元の素材はきれいなので、オーナー録音用のノイズ除去・こもり取りはしない(前後の無音除去・低域カット・軽い音色調整・圧縮・音量そろえのみ)。
 オーナー録音は assets/voice/user/ に残してある。元に戻すには import_tekisho_vo.py と import_user_voice.py を実行する(README 参照)。
-使い方: python3 game/tools/import_generated_lines.py [teki_a|teki_b|teki_c|teki_nobi_a|teki_nobi_b] [kachi_a|kachi_b]  → cd game && python3 build.py
-引数なしは teki_nobi_a(語尾を長く伸ばした版)と kachi_b。何度実行しても同じ結果になる。"""
+使い方: python3 game/tools/import_generated_lines.py [teki_a|teki_b|teki_c|teki_nobi_a|teki_nobi_b|teki_blk_a|teki_blk_b] [kachi_a|kachi_b]  → cd game && python3 build.py
+引数なしは teki_blk_a(敵将は短く平坦、語尾だけ長く伸ばした版)と kachi_b。何度実行しても同じ結果になる。"""
 import base64
 import json
 import os
@@ -65,7 +65,7 @@ def mp3_dur(b):
 
 
 def main():
-    teki = sys.argv[1] if len(sys.argv) > 1 else "teki_nobi_a"
+    teki = sys.argv[1] if len(sys.argv) > 1 else "teki_blk_a"
     kachi = sys.argv[2] if len(sys.argv) > 2 else "kachi_b"
     teki_wav, kachi_wav = SRC / f"{teki}.wav", SRC / f"{kachi}.wav"
     assert teki_wav.exists() and kachi_wav.exists(), (teki_wav, kachi_wav)
