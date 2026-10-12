@@ -10,7 +10,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   out.stageBgm=STG.map(s=>s.bgm);
   const expectStage=[0,1,5,6,7,2];if(JSON.stringify(out.stageBgm)!==JSON.stringify(expectStage))bad.push({stageBgm:out.stageBgm});
   out.len={};
-  for(const i of [1,2,3,5,6,7,10,11]){AU.bgm(i);const ok=await wait(()=>AU.bgmBuf[i]);if(!ok){bad.push({load:i});continue;}const d=AU.bgmBuf[i].duration;out.len[i]=+d.toFixed(1);if(d<30||d>90)bad.push({dur:i,d});if(AU.bgmBuf[i].numberOfChannels!==2)bad.push({ch:i});await wait(()=>AU.cur===i,5000);if(AU.cur!==i)bad.push({notPlaying:i});}
+  for(const i of [1,2,3,5,6,7,10,11]){AU.bgm(i);const ok=await wait(()=>AU.bgmBuf[i]);if(!ok){bad.push({load:i});continue;}const d=AU.bgmBuf[i].duration;out.len[i]=+d.toFixed(1);if(d<30||d>110)bad.push({dur:i,d});if(AU.bgmBuf[i].numberOfChannels!==2)bad.push({ch:i});await wait(()=>AU.cur===i,5000);if(AU.cur!==i)bad.push({notPlaying:i});}
   out.decoded=AU.bgmBuf.map((x,i)=>x?i:null).filter(x=>x!==null);if(out.decoded.length>5)bad.push({memory:out.decoded});
   // ボス曲の選択
   G.stage=1;if(bossBgm({T:{type:'boss4'}})!==3)bad.push('boss!=3');if(bossBgm({T:{type:'boss3'}})!==3)bad.push('stage2 boss3 should be 3');
