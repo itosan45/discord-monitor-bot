@@ -492,14 +492,15 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 
 ## 6.50 「敵将、討ち取ったり」「者ども、勝鬨をあげよう」をGemini音声に差し替え(2026-10-13、オーナー「この2つのセリフを生成して導入して」)
 - 素材: Google AI Studio の音声生成(Gemini TTS、声 Algenib)で作った `assets/voice/gemini_lines_20261013/`(敵将3テイク・勝鬨2テイク。生成条件は同フォルダの README.md)。
-- 取り込み: `python3 game/tools/import_generated_lines.py [teki_?] [kachi_?]` → `cd game && python3 build.py`。引数なしは `teki_blk_a`・`kachi_b`。
+- 取り込み: `python3 game/tools/import_generated_lines.py [teki_?] [kachi_?]` → `cd game && python3 build.py`。引数なしは `teki_blk_b`・`kachi_b`。
 - **同日追加(オーナー「うちとったりーーー 語尾を伸ばす」)**: 「討ち取ったり」を語尾を長く伸ばした版(`teki_nobi_a`、約1.5秒の伸ばし)に差し替えた。2回目の `teki_nobi_b`(語尾約1.9秒)も控えてある。伸ばす前は `teki_b`。
 - **さらに同日(オーナー「抑揚がありすぎる。最初の敵将が『てぇぇきしょう』に聞こえる」)**: `teki_nobi_a` は「敵将」が約0.95秒と長かった(波形の長さ)ので、Geminiの発話ブロックを2つに分け(ブロック1「敵将、」=短く平坦、ブロック2「討ち取ったりーーー！」=語尾だけ伸ばす)て作り直し、`teki_blk_a` に差し替えた。敵将は約0.7秒、語尾の伸ばしは約1.3秒、全体約4.1秒(6人の声は3.6〜4.1秒)。単一ブロックで「抑揚を抑えて」と指示した版は、敵将は縮んだが語尾が伸びなかったので不採用。**抑揚そのものは数値で測れていない**(音程の自動追跡がこの低くざらついた声でオクターブを取り違えるため、根拠にしていない)。短くした効果は耳での確認待ち。実測の流れ: 幸村は声3.67秒、音頭は声の終わりの約1秒後(481更新目)、突き上げは192更新後、ファンファーレ835更新目。
+- **採用テイクの最終版(オーナー「後者採用」)**: ブロック分けの2回目 `teki_blk_b` を採用(敵将0.7秒、敵将と討ち取ったりの間約0.9秒、全体4.56秒。6人の声は3.9〜4.5秒)。実測の流れ: 幸村は声4.08秒、音頭は声の終わりの約1秒後(505更新目)、突き上げは192更新後(697)、ファンファーレ859更新目。`tvoice.js`・`tvoicelines.js`・`tnarration.js` 合格。
   - `vo`(6人の「討ち取ったり」): 主人公ごとに音の高さを変える(比率は従来の v5 と同じ)。残響・ノイズ除去なし(元がきれいなため)。-13.5 LUFS。出力は `assets/voice/vo_gemini_20261013/`。長さは語尾を伸ばした版で約3.8〜4.4秒(伸ばす前は約2.2〜2.5秒、オーナー録音版は約3.1〜3.6秒)。突き上げ・勝鬨の間隔は声の実長から決めるので、声の長さに合わせて全体がずれる(実測: 幸村は声の終わりの約1秒後に勝鬨の音頭、そこから192更新後に突き上げ。声3.98秒で音頭は500更新目、ファンファーレ854更新目)。
   - `uv.victory`(勝鬨の音頭): 次の「えい・えい・おー」(3.2秒後)に被らないよう、3.01秒→速度×1.11で約2.76秒に詰めた(従来の2.78秒と同じ枠)。-12.5 LUFS。残響なし(6.46 の方針のまま)。
   - 音量は従来とほぼ同じ(vo -13.2/-12.9 LUFS、victory -12.5 LUFS)。
 - **オーナー録音は消していない**。元に戻す手順は `assets/voice/gemini_lines_20261013/README.md`(`import_tekisho_vo.py` と `import_user_voice.py` を再実行して再ビルド)。差し替え直前の勝鬨の音頭は `assets/voice/old_vo/uv_victory_owner_20261012.mp3`、旧「討ち取ったり」は `assets/voice/vo_v5/`。**逆に、この2つのスクリプトを再実行すると Gemini 版が消えてオーナー録音版に戻る**ので、Gemini 版を使い続けるなら再実行しない(した場合は `import_generated_lines.py` をもう一度)。`audio.json` の `gen_lines` は、どのテイクを入れたかの記録。
-- 聴き比べ用: `compare_tekisho_yuki_prev_blkA_blkB.mp3`(直前の伸ばしa→ブロック分けa→ブロック分けb)、`tekisho_6heroes_blk.mp3`(6人)、`compare_tekisho_nobi_yuki_owner_b_nobiA_nobiB.mp3`(オーナー録音→伸ばす前→伸ばしa→伸ばしb)、`compare_tekisho_yuki_old_b_a_c.mp3`、`compare_kachidoki_old_b_a.mp3`(勝鬨 旧→b→a)。
+- 聴き比べ用: `compare_tekisho_yuki_prev_blkA_blkB.mp3`(直前の伸ばしa→ブロック分けa→ブロック分けb)、`tekisho_6heroes_blk_b.mp3`(採用中の6人)、`compare_tekisho_nobi_yuki_owner_b_nobiA_nobiB.mp3`(オーナー録音→伸ばす前→伸ばしa→伸ばしb)、`compare_tekisho_yuki_old_b_a_c.mp3`、`compare_kachidoki_old_b_a.mp3`(勝鬨 旧→b→a)。
 - テスト: `tvoice.js`・`tvoicelines.js`・`tnarration.js`・`tbgm.js` 合格。`tgruntvoice.js` は読み込み待ちで1回目だけ8本止まり(6.46 に書いた既知のゆらぎ)、再実行で10本合格。`tkachitiming.js` は今回の変更前のビルドでも同じ箇所(ファンファーレの後4秒以上スコア画面が出ない、の判定)で不合格、声の長さに関わる他の判定(討ち取ったり→勝鬨の音頭の間隔、音頭→突き上げの192更新、ファンファーレの開始)は合格。`tkachi.js` はこの環境に Playwright 同梱の Chromium が無く起動できず未実行。
 - 未確認: 実際の聞こえ方(作った側は聴けない。音の高さ・速さ・迫力・6人の声の区別は耳での確認が必要)、実機(Android)での再生、速度を上げた勝鬨の音頭の自然さ。「敵将、討ち取ったり」の生成時のスタイル指示文は記録し忘れた(README に明記)。
 
