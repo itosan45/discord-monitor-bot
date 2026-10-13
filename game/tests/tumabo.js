@@ -47,6 +47,21 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    const w=wallsOf()[0],P=G.player;P.hp=P.maxhp=99999;P.inv=999;G.wi=2;G.camMax=G.waves[2].x;G.camx=G.waves[1].x;P.x=G.waves[1].x+500;P.y=570;P.wx=null;
    let t=0,tb=-1;for(;t<4000&&!G.waveOn;t++){G.t++;P.inv=999;updWorld();if(tb<0&&w.broken)tb=t;}
    out.auto={broken:!!w.broken,tBroken:tb,waveOn:G.waveOn,t};G.auto=false;}
+  // 柵の向こうの鉄砲隊: 柵が画面に入ると右側(向こう側)に並ぶ/柵の隙間から撃つので弾は柵を通り柵を壊さない/柵がない幕・デモには出ない
+  {out.garrNone=[0,1].map(si=>{startStage(si,'yuki',false);G.camx=1e5;garrisonStep();return G.fighters.filter(f=>f.hold).length;});
+   startStage(2,'yuki',true);G.camx=1e5;garrisonStep();out.garrDemo=G.fighters.filter(f=>f.hold).length;
+   startStage(2,'yuki',false);G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;G.partner=null;G.state='run';G.waveOn=false;
+   const w=wallsOf()[0],P=G.player;G.camMax=1e9;G.camx=w.x-900;garrisonStep();out.garrEarly=G.fighters.filter(f=>f.hold).length;
+   G.camx=w.x-470;garrisonStep();garrisonStep();const gs=G.fighters.filter(f=>f.hold);out.garr={n:gs.length,minDx:Math.round(Math.min(...gs.map(e=>e.x-w.x))),onScreen:gs.every(e=>e.x>G.camx&&e.x<G.camx+W)};
+   // 弾: 柵の向こうから撃った弾は柵を通る(柵のHPは減らない)。柵を壊したあとは通常の威力・柵に止められる
+   const e=gs[0];P.x=w.x-60;P.y=e.y;P.wx=null;wallClamp();P.inv=0;P.hp=P.maxhp;const hw0=w.hp;G.proj.length=0;e.cool=0;e.cur=TY.gun.atk[0];fireProj(e,TY.gun.atk[0]);const q0=G.proj[0];out.garrBullet={fpass:!!(q0&&q0.fpass),dmg:q0&&q0.dmg};
+   for(let i=0;i<30;i++){G.t++;updProj();}out.garrBullet.fenceHp=hw0-w.hp;out.garrBullet.heroHit=P.hp<P.maxhp;
+   w.broken=true;w.hp=0;G.proj.length=0;fireProj(e,TY.gun.atk[0]);out.garrBulletAfter={fpass:!!(G.proj[0]&&G.proj[0].fpass),dmg:G.proj[0]&&G.proj[0].dmg};
+   // 実際の戦い: 柵を壊すまでに受ける傷(自動プレイ・無敵なし)。壊す間も生き延び、体力の半分は残る
+   startStage(2,'yuki',false);G.auto=true;G.demo=false;G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;G.partner=null;G.state='run';G.waveOn=false;
+   const w2=wallsOf()[0],P2=G.player;G.wi=2;G.camMax=G.waves[2].x;G.camx=G.waves[1].x;P2.x=G.waves[1].x+500;P2.y=570;P2.wx=null;P2.inv=0;P2.hp=P2.maxhp;P2.dm=1.4;
+   let t2=0,tb2=-1,dead=false;for(;t2<5000&&!w2.broken;t2++){G.t++;if(P2.hp<=0){dead=true;break;}updWorld();}
+   out.fight={broken:!!w2.broken,dead,t:t2,hpLeft:Math.round(P2.hp),maxhp:P2.maxhp,garr:G.fighters.filter(f=>f.hold).length};G.auto=false;}
   return out;});
  const bad=[];
  if(!r.ready)bad.push('umabo の絵が読めない');
@@ -65,6 +80,12 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  if(r.afterBreakX<0)bad.push('倒壊後も通れない '+r.afterBreakX);
  if(r.walk.waveOn||Math.abs(r.walk.x+30)>2||r.walk.camMaxGap<300)bad.push('歩き続けても柵の手前で止まらない '+JSON.stringify(r.walk));
  if(!r.auto.broken||!r.auto.waveOn)bad.push('自動プレイが柵を壊せない '+JSON.stringify(r.auto));
+ if(r.garrNone.some(n=>n)||r.garrDemo)bad.push('柵のない幕・デモに鉄砲隊がいる '+JSON.stringify([r.garrNone,r.garrDemo]));
+ if(r.garrEarly)bad.push('柵が画面に入る前に鉄砲隊が出た '+r.garrEarly);
+ if(r.garr.n<3||r.garr.minDx<100||!r.garr.onScreen)bad.push('鉄砲隊の配置 '+JSON.stringify(r.garr));
+ if(!r.garrBullet.fpass||r.garrBullet.fenceHp!==0||r.garrBullet.dmg!==Math.round(r.garrBulletAfter.dmg*0.7))bad.push('柵の向こうの弾 '+JSON.stringify(r.garrBullet));
+ if(r.garrBulletAfter.fpass||!(r.garrBulletAfter.dmg>=5))bad.push('柵を壊した後の弾 '+JSON.stringify(r.garrBulletAfter));
+ if(!r.fight.broken||r.fight.dead||r.fight.hpLeft<r.fight.maxhp*0.5)bad.push('柵を壊すまでの戦い '+JSON.stringify(r.fight));
  if(!r.walk2.waveOn||r.walk2.x<30)bad.push('柵を壊しても先へ進めない '+JSON.stringify(r.walk2));
  if(process.env.QA_OUT){const fs=require('fs');fs.mkdirSync(process.env.QA_OUT,{recursive:true});
   for(const [name,hp] of [['healthy',12],['damaged',5],['broken',0]]){await p.evaluate(hp=>{startStage(2,'yuki',false);G.waveOn=false;G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;G.parts=[];G.decals=[];G.items=[];G.deco=[];

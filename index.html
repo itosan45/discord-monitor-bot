@@ -891,7 +891,7 @@ function addProj(o){const p=Object.assign({x:0,y:0,z:50,vx:0,vz:0,team:1,dmg:7,w
 function fireProj(f,d){
  const dir=f.face;
  if(d.proj==='arrow')addProj({x:f.x+dir*40,y:f.y,z:f.z+75,vx:dir*9,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:20});
- else if(d.proj==='bullet'){addProj({x:f.x+dir*80,y:f.y,z:f.z+72,vx:dir*17,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'bullet',w:16,launch:false,kb:4});for(let i=0;i<8;i++)PT({x:f.x+dir*84,y:f.y,z:f.z+74,vx:dir*rnd(2,6),vz:rnd(-1,2),life:14,sz:rnd(8,16),col:i<3?'#ffd070':'rgba(200,200,200,0.5)',k:i<3?'flame':'smoke'});}
+ else if(d.proj==='bullet'){const gp=!!(f.hold&&!f.hold.broken);addProj({x:f.x+dir*80,y:f.y,z:f.z+72,vx:dir*17,team:f.team,dmg:gp?Math.round(d.dmg*0.7):d.dmg,face:dir,owner:f,k:'bullet',w:16,launch:false,kb:4,fpass:gp});for(let i=0;i<8;i++)PT({x:f.x+dir*84,y:f.y,z:f.z+74,vx:dir*rnd(2,6),vz:rnd(-1,2),life:14,sz:rnd(8,16),col:i<3?'#ffd070':'rgba(200,200,200,0.5)',k:i<3?'flame':'smoke'});}
  else if(d.proj==='shot'){addProj({x:f.x+dir*52,y:f.y,z:f.z+80,vx:dir*20,team:0,dmg:d.dmg,face:dir,owner:f,k:'bullet',w:18,launch:true,kb:6,life:60,pierce:3});for(let i=0;i<8;i++)PT({x:f.x+dir*56,y:f.y,z:f.z+82,vx:dir*rnd(2,7),vz:rnd(-1,2),life:14,sz:rnd(8,18),col:i<4?'#d6a8ff':'rgba(200,200,200,0.5)',k:i<4?'flame':'smoke'});}
  else if(d.proj==='scatter'){ // 信長の散弾: 5発が扇状に広がり、近いほど多く当たる
   for(const vy of[-2.4,-1.2,0,1.2,2.4])addProj({x:f.x+dir*60,y:f.y,z:f.z+78,vx:dir*rnd(17,21),vy,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'bullet',w:14,launch:true,kb:d.kb,life:18,pierce:1});
@@ -1485,7 +1485,7 @@ function updProj(onlyOwner){
   if(q.life<=0||q.x<G.camx-120||q.x>G.camx+W+120){G.proj.splice(i,1);continue;}
   if(q.k==='wave'&&q.life%2===0)PT({x:q.x,y:q.y+rnd(-8,8),z:rnd(0,30),vx:-q.face*rnd(.5,2),vz:rnd(0.5,2),life:16,sz:rnd(10,20),col:q.col?'rgba('+q.col+',0.7)':q.team===0?'rgba(160,220,255,0.7)':'rgba(255,220,150,0.6)',k:'flame'});
   if(q.k==='shot'||q.k==='bullet')PT({x:q.x,y:q.y,z:q.z,life:7,sz:5,col:q.team===0?'#e0b8ff':'#ffd89a',k:'flame',vx:0});
-  if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'||q.k==='shot')&&q.vx){let blk=false;for(const pr of G.props){if((pr.k!=='fence'&&pr.k!=='mshield'&&pr.k!=='umabo')||pr.broken)continue;const ahead=sgn(pr.x-q.x)===sgn(q.vx),hw=pr.k==='fence'?72:pr.k==='umabo'?36:42;if(ahead&&Math.abs(pr.x-q.x)<hw&&(pr.k==='umabo'||Math.abs(pr.y-q.y)<30)&&q.z<(pr.k==='fence'?115:130)){pr.hp-=1;pr.shk=8;AU.sfx('block');burst(q.x,q.y,50,6,'#a98','4');if(pr.hp<=0)breakProp(pr);G.proj.splice(i,1);blk=true;break;}}if(blk)continue;}
+  if(q.team===1&&!q.fpass&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'||q.k==='shot')&&q.vx){let blk=false;for(const pr of G.props){if((pr.k!=='fence'&&pr.k!=='mshield'&&pr.k!=='umabo')||pr.broken)continue;const ahead=sgn(pr.x-q.x)===sgn(q.vx),hw=pr.k==='fence'?72:pr.k==='umabo'?36:42;if(ahead&&Math.abs(pr.x-q.x)<hw&&(pr.k==='umabo'||Math.abs(pr.y-q.y)<30)&&q.z<(pr.k==='fence'?115:130)){pr.hp-=1;pr.shk=8;AU.sfx('block');burst(q.x,q.y,50,6,'#a98','4');if(pr.hp<=0)breakProp(pr);G.proj.splice(i,1);blk=true;break;}}if(blk)continue;}
   const list=q.team===0?G.fighters.concat(G.props):G.fighters;let hitN=0;
   for(const t of list){if(q.hit.has(t))continue;if(t.isProp&&t.broken)continue;if(q.team===1&&t.team!==0)continue;if(q.team===0&&!(t.team===1||t.isProp))continue;
    if(!t.isProp&&(t.hp<=0||t.inv>0||t.state==='down'||t.state==='dead'||t.state==='getup'))continue;
@@ -1500,6 +1500,8 @@ function wallClamp(){for(const w of G.props){if(w.k!=='umabo'||w.broken||w.hp<=0
   const s0=sgn(px-w.x)||-1,d=f.x-w.x;
   if(Math.abs(d)<UMABO_HW||sgn(d)!==s0){f.x=w.x+s0*UMABO_HW;if(sgn(f.vx||0)===-s0)f.vx=0;if(f===G.player&&!w.hinted&&!G.demo){w.hinted=1;popup('柵を壊して進め！',f.x,f.y,150,'#ffe08a',24);}}
   m.set(w,f.x);}}}
+/* 馬防柵の向こうの鉄砲隊(オーナー「その柵があるときだけ鉄砲隊を配備したほうがリアル」): 柵が画面に入ると、柵の右側(向こう側)に鉄砲足軽が並ぶ。柵の隙間から撃つので、柵があっても弾は通る(柵は壊さない・威力は7割)。柵を壊すと、ふつうの鉄砲足軽として戦う */
+function garrisonStep(){for(const w of G.props){if(w.k!=='umabo'||w.garr||w.broken)continue;if(G.camx+W<w.x+420)continue;w.garr=true;const n=G.stage>=4?4:3,ys=[505,585,650,545];for(let k=0;k<n;k++){const e=mk('gun',w.x+130+k*95+rnd(-12,12),ys[k%4]+rnd(-8,8),1);e.entered=true;e.face=-1;e.hold=w;G.fighters.push(e);}popup('柵の向こうに鉄砲隊！',w.x+200,520,160,'#ffd070',24);}}
 function updWorld(){
  const p=G.player;
  // controls
@@ -1539,7 +1541,7 @@ function updWorld(){
   {const q=G.partner;if(q&&!isW&&allyWants(q,it)){const qe=fighterScreenMargin(q),rc=32;let qx=it.x;if(qe)qx=clamp(it.x,G.camx+qe-rc,G.camx+W-qe+rc);if(Math.abs(qx-q.x)<40&&Math.abs(it.y-q.y)<26&&q.z<14){pickup(q,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}}}
  for(const pr of G.props)if(pr.shk>0)pr.shk--;
  updProj();
- wallClamp();
+ wallClamp();garrisonStep();
  // camera
  const tgt=clamp(p.x-440,G.camx,G.camMax);G.camx+=(tgt-G.camx)*0.12;if(G.camMax-G.camx<1.5&&tgt>=G.camMax-1)G.camx=G.camMax;
  // Separation and camera movement happen after individual AI updates. Clamp
