@@ -405,7 +405,7 @@ TY.shield=Object.assign(JSON.parse(JSON.stringify(TY.spear)),{name:'盾足軽',h
 // 2026-10-12 A-006の新しい敵4種(絵は移動・転倒・死亡まで揃い済み)。spr省略時は種類名のアトラス(monk/kunoichi/yoroi/akabi)
 TY.monk={name:'鉄球大僧',hp:195,sc:2,spd:1.35,ai:'melee',wp:'sword',tip:90,two:false,gap:14,helm:'jingasa',score:700,gen:true,armor:true,tack:true,col:{armor:'#5a4a6a',armor2:'#3a2c46',trim:'#d9d0b8',cloth:'#6a5a7a',skin:'#d9a070'},banner:null,
  atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:62,hs:31,he:37,rng:260,dmg:18,kb:8,launch:true,sfx:'heavy',fx:'quake'},
-  {pz:'swing',a0:-1,a1:1,r:40,k:'charge',move:10,dur:56,hs:22,he:40,rng:200,dmg:14,kb:11,launch:true,sfx:'heavy'},
+  {pz:'swing',a0:-1,a1:1,r:40,k:'charge',edge:true,move:20,dur:160,hs:46,he:114,rng:200,dep:40,dmg:14,kb:11,launch:true,sfx:'heavy'},/* 画面の端から端まで走る突進: 構え46コマ(赤い道筋・最後の14コマは列を固定)→移動→端で激突→44コマの隙 */
   {pz:'raise',k:'leap',dur:96,hs:22,he:40,rng:250,dmg:20,kb:11,launch:true,dep:80,around:true,fx:'quake',panim:'a1',sfx:'heavy'}],leap:true};
 TY.kunoichi={name:'仮面のくノ一',hp:34,spd:6.2,ai:'melee',skirm:true,runAnim:true,wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
  atk:[{pz:'swing',a0:-1.6,a1:0.9,r:30,dur:30,hs:10,he:14,hs2:20,he2:24,rng:86,dmg:7,kb:2.5,lunge:3,sfx:'slash',cd0:22,cd1:45},
@@ -918,6 +918,8 @@ function bossTech(f,d){const p=nearestAlly(f);if(!p)return;const k=d.k;
  else if(k==='volley'){const n=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.T.type==='gun').length;for(let i=0;i<Math.min(3,4-n);i++){const sd=i%2?1:-1;const e=spawnEn('gun',sd);e.entered=true;e.x=sd>0?G.camx+W-60:G.camx+60;e.y=clamp(YMIN+20+i*60,YMIN,YMAX);e.cool=40+i*20;}}
  else if(k==='pincer'){for(const sd of[-1,1]){const e=spawnEn(sd>0?'ninja':'sword',sd);e.entered=true;e.x=sd>0?G.camx+W-50:G.camx+50;e.y=clamp(p.y+rnd(-30,30),YMIN,YMAX);ring(e.x,e.y,60,'rgba(255,255,255,0.8)',18);}}
  else if(k==='cavalry'){const n=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.T.ai==='rider').length;for(let i=0;i<Math.min(2,2-n);i++){const e=spawnEn(i?'lancer':'rider',i?-1:1);e.rt=30+i*50;}}}
+function rushMargin(f){const S=SPR[f.T.spr||f.T.type];if(!S||!S.ready||!S.a||!S.a.a2)return 260;if(S.rushExtent===undefined){let w=0;for(const q of S.a.a2)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));S.rushExtent=w;}return Math.ceil(S.rushExtent*f.sc*1.04)+8;}/* 突進中は、突進のコマだけが画面に収まる位置まで走れる(他の技の絵の幅は使わない) */
+function rushEdgeX(f){const m=rushMargin(f);return f.face>0?G.camx+W-m:G.camx+m;}
 function updAtk(f){
  const d=f.cur,st=f.st;
  if(d.iai)iaiStep(f,d,st);
@@ -951,7 +953,12 @@ function updAtk(f){
  if(d.lunge&&st>=Math.max(0,d.hs-3)&&st<=d.he)f.x+=f.face*d.lunge;
  if(d.kj&&st>=10&&st<=33)f.x-=f.face*1.6; /* くノ一のジャンプ投げ: 絵に跳躍の高さがあるので、位置は後ろへ少し退くだけ */
  if(d.chg&&st>=d.hs&&st<=d.he){if(st%2===0)dust(f.x-f.face*24,f.y,1);if(st%3===0)PT({x:f.x+f.face*rnd(40,140),y:f.y+rnd(-8,8),z:rnd(40,110),life:9,k:'star',sz:rnd(30,60),col:'#ffe6a0'});if(st===d.hs+8)f.hit.clear();}
- if(d.k==='charge'&&st>=d.hs&&st<=d.he){f.x+=f.face*d.move;if(st%2===0)dust(f.x-f.face*20,f.y,1);if(st%6===0)f.hit.clear();}
+ if(d.edge){const ex=rushEdgeX(f);f.rushEdge=ex;
+  if(st===1){f.rushDone=false;AU.sfx('warn2');}
+  if(st<d.hs){const p=nearestAlly(f);if(p&&st<d.hs-14){f.y=clamp(f.y+clamp(p.y-f.y,-2.4,2.4),YMIN,YMAX);}if(st%4===0)dust(f.x-f.face*30,f.y,2);if(st%12===0){G.shake=Math.max(G.shake,3);AU.sfx('land');}}
+  else if(!f.rushDone){f.x+=f.face*d.move;if(st%2===0)dust(f.x-f.face*30,f.y,2);if(st%5===0){f.hit.clear();AU.sfx('land');}
+   if((f.face>0?f.x>=ex:f.x<=ex)||st>=d.he){f.x=f.face>0?Math.min(f.x,ex):Math.max(f.x,ex);f.rushDone=true;f.st=d.he+1;G.shake=Math.max(G.shake,20);G.flashT=Math.max(G.flashT||0,2);ring(f.x,f.y,200,'rgba(255,220,160,0.95)',26);ring(f.x,f.y,120,'rgba(255,120,60,0.9)',18);dust(f.x,f.y,18);PT({k:'qfx',x:f.x,y:f.y+1,z:0,life:26,sz:(f.sc||1)*1.3,face:-f.face});AU.sfx('boom');G.rushN=(G.rushN||0)+1;}}}
+ if(d.k==='charge'&&!d.edge&&st>=d.hs&&st<=d.he){f.x+=f.face*d.move;if(st%2===0)dust(f.x-f.face*20,f.y,1);if(st%6===0)f.hit.clear();}
  if(d.fx&&st>=d.hs&&st<=d.he)heroFx(f,d,st===d.hs);
  if(st===d.hs){if(d.sfx)AU.sfx(d.sfx);if((d.proj==='shot'||d.proj==='parrow')&&f.wpn&&(f.wpn.k==='teppo'||f.wpn.k==='yumi'))useWpn(f);if(d.proj)fireProj(f,d);if(d.k==='wave')spawnWaves(f,d);if(d.k==='wave1'){addProj({x:f.x+f.face*50,y:f.y,z:6,vx:f.face*8,team:f.team,dmg:12,face:f.face,owner:f,k:'wave',w:46,life:46,launch:true,kb:5,pierce:99});G.shake=Math.max(G.shake,8);ring(f.x+f.face*60,f.y,90,'rgba(160,220,255,0.9)',20);}if(d.k==='summon')doSummon(f);if(d.k==='rain')doRain(f);bossTech(f,d);}
  if(d.k==='quake'&&(st===d.hs||st===d.hs+14||st===d.hs+28)){const i=(st-d.hs)/14;addProj({x:f.x+f.face*(60+i*40),y:f.y,z:6,vx:f.face*(7+i),team:1,dmg:d.dmg,face:f.face,owner:f,k:'wave',w:46+i*8,life:70,launch:true,kb:6,pierce:99});G.shake=Math.max(G.shake,10+i*3);dust(f.x+f.face*60,f.y,8);if(i)AU.sfx('boom');}
@@ -959,7 +966,7 @@ function updAtk(f){
  if(d.hs2&&st===d.hs2){f.hit.clear();AU.sfx('slash');}
  if(d.rng&&((st>=d.hs&&st<=d.he)||(d.hs2&&st>=d.hs2&&st<=d.he2)))strike(f,d);
  if(st>=d.dur&&f.T.boss&&f.team===1&&d.k!=='guard'&&d.k!=='step'&&d!==BSHAKE){const p=nearestAlly(f);if(p&&Math.abs(p.x-f.x)<280&&(f.comboN||0)<(f.enr?2:1)&&Math.random()<(f.enr?0.55:0.38)){f.comboN=(f.comboN||0)+1;const pool=f.T.near.filter(i=>i!==f.atkI);startEAtk(f,pool.length?pick(pool):pick(f.T.near));f.face=sgn(p.x-f.x)||f.face;return;}f.comboN=0;}
- if(st>=d.dur){if(d.lastUse&&f.wpn&&f.wpn.k==='kusari')useWpn(f);f.state='idle';f.st=0;if(f.team===1&&f.T.type==='gun'&&d.proj)f.reloadT=60;if(f.team===1)f.cool=rndi(d.cd0||(f.T.boss?18:f.T.ai==='ranged'?110:50),d.cd1||(f.T.boss?44:f.T.ai==='ranged'?200:100))*(f.enr?0.7:1)*(G.partner?0.8:1);if(f.T.ai2==='archer'&&d.k==='step')f.cool=4;}
+ if(st>=d.dur){if(d.lastUse&&f.wpn&&f.wpn.k==='kusari')useWpn(f);if(d.edge)f.outBack=true;f.state='idle';f.st=0;if(f.team===1&&f.T.type==='gun'&&d.proj)f.reloadT=60;if(f.team===1)f.cool=rndi(d.cd0||(f.T.boss?18:f.T.ai==='ranged'?110:50),d.cd1||(f.T.boss?44:f.T.ai==='ranged'?200:100))*(f.enr?0.7:1)*(G.partner?0.8:1);if(f.T.ai2==='archer'&&d.k==='step')f.cool=4;}
 }
 function startGrab(p,e){p.state='grab';p.st=0;p.gt=e;p.knee=0;p.kneeT=0;p.kbuf=false;p.kdir=0;p.pushT=0;e.state='held';e.st=0;e.cur=null;e.trail&&(e.trail.length=0);e.face=-p.face;e.heldBy=p;AU.sfx('heavy');G.hitstop=Math.max(G.hitstop,3);}
 // A short stab, lift over the head, then release behind the original facing.
@@ -1310,7 +1317,7 @@ function fighterScreenMargin(f){
  return Math.min(W/2-40,Math.max(70,Math.ceil(extent*f.sc*1.06)+24));
 }
 // NPCs may not retreat into a strip the hero's weapon margin makes unreachable.
-function combatScreenMargin(f){const own=fighterScreenMargin(f),p=G.player;return f.team===1&&p&&p!==f&&p.hp>0?Math.max(own,fighterScreenMargin(p)):own;}
+function combatScreenMargin(f){if(f.cur&&f.cur.edge&&f.state==='atk')return rushMargin(f);const own=fighterScreenMargin(f),p=G.player;return f.team===1&&p&&p!==f&&p.hp>0?Math.max(own,fighterScreenMargin(p)):own;}
 // 吹き飛び中の体の半幅(倒れ絵の幅から)。壁はこの位置=体が画面端に触れる所にする
 function bodyScreenMargin(f){const S=SPR[f.T.spr||f.T.type];if(!S||!S.ready||!S.a)return 60*(f.sc||1);
  if(S.bodyExt===undefined){let w=0;for(const an of ['down','dead','hit'])for(const q of S.a[an]||[]){if(q)w=Math.max(w,Math.abs(q[4]),Math.abs(q[4]+q[2]*(q[6]||1)));}S.bodyExt=w||60;}
@@ -1363,7 +1370,7 @@ function updEnemy(e){
     if(ady>9)my=sgn(dy);
     if(e.cool<=0&&e.entered&&atkers()<3){if(adx<130&&ady<22){e.rush=0;startEAtk(e,0);}else if(!(e.rush>0)&&ady<20&&adx>170&&adx<650&&eProj()<3&&Math.random()<0.08)startEAtk(e,1);}}
    else{const rg=T.atk[0].rng,sx=rg*0.72;if(adx>sx+8)mx=sgn(dx);else if(adx<sx-34)mx=-sgn(dx)*0.5;if(ady>8)my=sgn(dy);
-    if(T.tack&&adx>250&&adx<400&&ady<18&&e.cool<=0&&e.entered&&atkers()<2)startEAtk(e,1);
+    if(T.tack&&adx>230&&ady<70&&e.cool<=0&&e.entered&&!(e.rushCd>G.t)&&atkers()<2&&Math.random()<0.03){e.rushCd=G.t+480;startEAtk(e,1);}
     else if(T.atk[1]&&T.atk[1].proj&&adx>300&&ady<18&&e.cool<=0&&e.entered&&eProj()<2)startEAtk(e,1);
     else if(T.leap&&adx>150&&adx<480&&ady<42&&e.cool<=0&&e.entered&&!(e.leapCd>G.t)&&atkers()<2&&Math.random()<0.025){e.leapCd=G.t+420;startEAtk(e,2);}
     else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.atk.length>1&&!T.atk[1].proj&&!T.tack?rndi(0,1):0);
@@ -1580,6 +1587,7 @@ function updRider(e){
  else{const dd=(p.x-e.x)*e.dir;if(dd<330&&dd>200&&!e.mA&&!e.swung){e.mA={k:'a1',t:0,dur:26};e.swung=true;AU.sfx('slash');}if(dd<185&&dd>-30)strike(e,{rng:175,dmg:7,kb:5,launch:false,dep:34});}
  if((e.dir>0&&e.x>=G.camx+W-edge)||(e.dir<0&&e.x<=G.camx+edge)){e.pass++;dismount(e,true);keepFighterOnScreen(e);}
 }
+function drawRushLane(){for(const e of G.fighters){const d=e.cur;if(e.team!==1||e.state!=='atk'||!d||!d.edge||e.st>=d.hs||e.hp<=0)continue;const x0=e.x-G.camx,x1=rushEdgeX(e)-G.camx,lock=e.st>=d.hs-14,al=lock?(G.t&4?0.5:0.3):0.2+0.08*Math.sin(G.t*0.5);const a=Math.min(x0,x1),b=Math.max(x0,x1);ctx.save();ctx.fillStyle=`rgba(255,40,30,${al})`;ctx.fillRect(a,e.y-34,b-a,68);ctx.fillStyle=`rgba(255,200,120,${al+0.2})`;ctx.fillRect(a,e.y-34,b-a,3);ctx.fillRect(a,e.y+31,b-a,3);const dir=e.face,tx=x1;ctx.fillStyle=`rgba(255,60,40,${al+0.35})`;for(let k=0;k<4;k++){const ax=x0+dir*(120+((G.t*9+k*150)%Math.max(200,Math.abs(x1-x0)-120)));ctx.beginPath();ctx.moveTo(ax+dir*22,e.y);ctx.lineTo(ax-dir*8,e.y-18);ctx.lineTo(ax-dir*8,e.y+18);ctx.closePath();ctx.fill();}ctx.restore();}}
 function drawWarn(){for(const e of G.fighters){if(e.T.ai==='rider'&&e.rp==='wait'&&e.rt<55&&e.rt>0&&(G.t&4)){const x=e.dir>0?40:W-40,y=e.ry-40;ctx.fillStyle='rgba(255,40,30,0.92)';ctx.beginPath();ctx.moveTo(x+e.dir*26,y);ctx.lineTo(x-e.dir*10,y-22);ctx.lineTo(x-e.dir*10,y+22);ctx.closePath();ctx.fill();txt('！',x-e.dir*30,y,30,'#fff','center','#800',5);}}}
 
 function drawHorse(ph,t){
@@ -1904,7 +1912,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'dead':return P('dead',f.st/9);
   case'jatk':return P('jatk',f.cur&&f.cur.dur?prog(f.cur,4):Math.min(3,f.st/6));
   case'spc':return P('spc',f.st/((SPD[T.type]||{dur:60}).dur/8));
-  case'atk':{const c=f.cur&&(f.cur.base||f.cur);if(c){const i=T.atk.indexOf(c);if(c===T.dash)return P('dash',prog(c,5));if(i>=0){const nm=c.panim||'a'+(i+1),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}}return P('a1',0);}
+  case'atk':{const c=f.cur&&(f.cur.base||f.cur);if(c){const i=T.atk.indexOf(c);if(c===T.dash)return P('dash',prog(c,5));if(c.edge){const arr=A.a2||A.a1,n=arr.length;let pos;if(f.st<c.hs)pos=f.st<c.hs-26?0:1;else if(!f.rushDone)pos=2+Math.floor(f.st/3)%4;else pos=f.st<c.he+16?6:7;return {arr,pos:Math.min(pos,n-1),loop:false};}if(i>=0){const nm=c.panim||'a'+(i+1),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}}return P('a1',0);}
   default:return P('idle',f.t/13,true);}}
 function drawKama(x,y,a,fl){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.lineCap='round';ctx.strokeStyle='#1a0e06';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(44,0);ctx.stroke();ctx.strokeStyle=fl?'#fff':'#6a4626';ctx.lineWidth=4.5;ctx.stroke();ctx.beginPath();ctx.moveTo(42,-2);ctx.quadraticCurveTo(46,22,26,34);ctx.quadraticCurveTo(38,16,36,-1);ctx.closePath();ctx.fillStyle=fl?'#fff':metalG(26,-2,46,34,'#dfe6ee');ctx.fill();ctx.strokeStyle='#222';ctx.lineWidth=1;ctx.stroke();ctx.restore();}
 function drawIcon(key,x,y,ang,len,fl,gf){gf=gf??0.13;const I=SPR.items;if(!I||!I.ready||!I.a.icons)return false;const q=I.a.icons[key];if(!q)return false;const [qx,qy,w,h,gx,gy,tx,ty]=q;const ax=Math.atan2(ty-gy,tx-gx),full=Math.hypot(tx-gx,ty-gy),px=gx+(tx-gx)*gf,py=gy+(ty-gy)*gf,s=len/full;
@@ -2619,7 +2627,7 @@ function renderWorld(){
   for(const e of list){if(!G.lowq||e.k==='wave'||e.k==='horse'||e.gone)continue;const z=e.z||0,w=(e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300));ctx.fillStyle='rgba(0,0,0,0.38)';ctx.beginPath();ctx.ellipse(e.x-G.camx,e.y+3,w,w*0.27,0,0,TAU);ctx.fill();}
  if(!G.lowq)for(const e of list){if(e.k==='wave'||e.k==='horse'||e.gone)continue;const z=e.z||0,w=(e.T&&e.T.horse&&e.state==='walk'?66:e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300)),al=0.55*(1-Math.min(0.6,z/260));ctx.save();ctx.translate(e.x-G.camx,e.y+3);ctx.scale(1,0.27);const sg=ctx.createRadialGradient(0,0,0,0,0,w);sg.addColorStop(0,`rgba(0,0,0,${al})`);sg.addColorStop(0.6,`rgba(0,0,0,${al*0.55})`);sg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(0,0,w,0,TAU);ctx.fill();ctx.restore();}
  for(const q of G.proj)if(q.k==='fall')drawProj(q);
- drawHazards();drawSteeds();
+ drawHazards();drawSteeds();drawRushLane();
  list.sort((a,b)=>a.y-b.y);
  for(const e of list){if(e.kg)drawKgun(e);else if(e.T){if(e.state==='dodge'&&e.team===0&&!e.isPartner&&e.st>1)drawDodgeGhosts(e);drawFighter(e);}else if(e.isProp)drawProp(e);else if(e.hit)drawProj(e);else drawItem(e);}
  for(const q of G.proj)if(q.k==='fall'&&q.wait<=0)drawProj(q);
