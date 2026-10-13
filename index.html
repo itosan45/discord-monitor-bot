@@ -802,7 +802,7 @@ function hurt(t,a,d){
  if(t.isProp){t.hp-=1+(d.dmg>12?1:0);t.shk=8;AU.sfx('hit');burst(t.x,t.y,40,6,'#c9a','4');G.hitstop=Math.max(G.hitstop,3);if(t.hp<=0)breakProp(t);return;}
  if(own.state==='spc'&&own.spLv===2)dmg*=1.6;
  if(t.team===1&&t.gcrash>G.t)dmg*=1.35;
- if(t.team===0&&G.demo)dmg*=0.15;if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
+ if(t.team===0&&G.demo)dmg*=(window.__demoDmg??0.15);/* 自動デモの主人公は受けるダメージ15%(ほぼ死なない)。検査用にwindow.__demoDmgで変えられる */if(t.isPartner)dmg*=0.55;if(own.team===1&&G.partner&&!G.demo)dmg*=1.2;if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
  const air=t.team===1&&own.team===0&&t.state==='down'&&t.z>0&&!t.T.boss;if(air){dmg*=0.7;t.jug=(t.jug||0)+1;}
  let mh=false;if(t.mount){mh=true;if(!(G.auto&&t===G.player&&demoView.mounted))t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
  let ctr=false;if(own.team===0&&t.team===1&&t.state==='atk'&&t.cur&&t.st<(t.cur.hs||0)){ctr=true;dmg*=1.3;G.ctrN=(G.ctrN||0)+1;if(!((G.ctrFxT||0)>G.t)){G.ctrFxT=G.t+45;G.hitstop=Math.max(G.hitstop,9);G.shake=Math.max(G.shake,7);slashFx(t.x,t.y,t.z+80,dir,180,16,'#dff6ff');}}
@@ -1401,7 +1401,7 @@ function demoCtl(p,follow){
  const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,ranged=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo'),rg=ranged?280:T.atk[0].rng;
  for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
  // 見切り: 自動デモの主人公は、正面の敵が斬りかかる直前に時々防御を合わせる(見切りの実演)
- if(p===G.player&&!p.mount&&!p.isPartner){if((p.aiGd||0)>G.t&&(p.state==='guard'||p.state==='idle'||p.state==='walk')){c.gd=1;return c;}
+ if(p===G.player&&!p.mount&&!p.isPartner&&window.__demoGuard!==false){if((p.aiGd||0)>G.t&&(p.state==='guard'||p.state==='idle'||p.state==='walk')){c.gd=1;return c;}
   if((p.state==='idle'||p.state==='walk')&&!((p.aiGdCd||0)>G.t)){const e=en.find(e=>e.state==='atk'&&e.cur&&!e.cur.unblock&&!e.cur.proj&&e.cur.hs-e.st>=1&&e.cur.hs-e.st<=7&&sgn(p.x-e.x)===e.face&&Math.abs(e.x-p.x)<(e.cur.rng||60)+40&&Math.abs(e.y-p.y)<30);
    if(e){p.aiGdCd=G.t+90;if(Math.random()<0.7){p.face=sgn(e.x-p.x)||p.face;p.aiGd=G.t+14;c.gd=1;return c;}}}}
  if(follow&&P0&&(P0.state==='dead'||Math.abs(P0.x-p.x)>460))return stick();
