@@ -1,5 +1,5 @@
 // 2026-10-14 A-016 馬防柵(画面の上から下まで続く、壊せる柵)。第3幕から波の間に置く(前の波の画面の外・次の波の画面の外)/壊すまで全レーンを遮る(吹き飛ばしでも抜けない)/
-// どのレーンからの攻撃・飛び道具も当たる/敵の飛び道具は通らない/HPで健全→損傷→倒壊の絵/倒壊後は通れる/画面の全高(0〜719)に描く/デモには置かない。
+// どのレーンからの攻撃・飛び道具も当たる/敵の飛び道具は通らない/HPで健全→損傷→倒壊の絵/倒壊後は通れる/ゲームの奥行き(最下端y≈690・最上端y>340、空まで伸ばさない)に描く/デモには置かない。
 // QA_OUTがあれば Android相当(802×360) の画面を保存する。
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN});
@@ -60,7 +60,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  if(r.projHit<1)bad.push('自分の飛び道具が当たらない '+r.projHit);
  if(!r.enemyProj.removed||r.enemyProj.hpLost<1)bad.push('敵の飛び道具が柵を通る '+JSON.stringify(r.enemyProj));
  if(!r.d0||r.d0.f!==0||r.d1.f!==1||r.d1b.f!==1||!r.d2||r.d2.f!==2)bad.push('絵の選択 '+JSON.stringify([r.d0,r.d1,r.d1b,r.d2]));
- if(r.d0&&(r.d0.dy<-1||r.d0.dy>1||r.d0.dy+r.d0.h<719||r.d0.dy+r.d0.h>722))bad.push('柵が画面の全高に描かれていない '+JSON.stringify(r.d0));
+ if(r.d0&&(r.d0.dy<340||r.d0.dy+r.d0.h<670||r.d0.dy+r.d0.h>700||r.d0.h>340))bad.push('柵がゲームの奥行きに収まっていない(空まで伸びる/高すぎる) '+JSON.stringify(r.d0));
  if(!r.broken||r.breakHits<4||r.breakHits>16)bad.push('壊れるまでの回数 '+r.breakHits+' '+r.broken);
  if(r.afterBreakX<0)bad.push('倒壊後も通れない '+r.afterBreakX);
  if(r.walk.waveOn||Math.abs(r.walk.x+30)>2||r.walk.camMaxGap<300)bad.push('歩き続けても柵の手前で止まらない '+JSON.stringify(r.walk));

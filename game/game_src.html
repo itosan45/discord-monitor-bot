@@ -1646,7 +1646,7 @@ function drawHorse(ph,t){
  leg(-30,ph,body);leg(58,ph+2.4+Math.PI,body);
 }
 function drawProp(p){
- if(p.k==='umabo'){const US=SPR.umabo,ar=US&&US.ready&&US.a.wall;if(!ar)return;const q=ar[(p.broken||p.hp<=0)?2:p.hp>(p.maxhp||UMABO_HP)*0.5?0:1],sx=Math.round(p.x-G.camx+(p.shk?Math.sin(p.shk*2)*3:0));ctx.drawImage(US.img,q[0],q[1],q[2],q[3],sx+q[4],q[5]-24,q[2],q[3]);return;}/* 柵の中心x・セル上端を画面y-24(健全の柵列が画面の全高0〜719) */
+ if(p.k==='umabo'){const US=SPR.umabo,ar=US&&US.ready&&US.a.wall;if(!ar)return;const q=ar[(p.broken||p.hp<=0)?2:p.hp>(p.maxhp||UMABO_HP)*0.5?0:1],sx=Math.round(p.x-G.camx+(p.shk?Math.sin(p.shk*2)*3:0));ctx.drawImage(US.img,q[0],q[1],q[2],q[3],sx+q[4],q[5],q[2],q[3]);return;}/* 柵の中心x・画面の絶対y(取り込み時に奥行きに合わせて縮小済み: 手前の接地y690、最上端 約y359) */
  ctx.save();ctx.translate(Math.round(p.x-G.camx+(p.shk?Math.sin(p.shk*2)*3:0)),Math.round(p.y));
  if(p.k==='fence'||p.k==='mshield'||p.k==='fire'){const PS=SPR.props1,ar=PS&&PS.ready&&PS.a[p.k];if(ar){const fr=p.k==='fire'?Math.floor(G.t/5+(p.x|0)*0.01)%ar.length:(p.broken||p.hp<=0)?2:p.hp>(p.maxhp||8)*0.5?0:1,q=ar[fr];ctx.drawImage(PS.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();return;}ctx.restore();return;}
  if(p.k==='barrel'){
