@@ -404,7 +404,7 @@ TY.brute=Object.assign(JSON.parse(JSON.stringify(TY.sword)),{name:'荒法師',hp
 TY.shield=Object.assign(JSON.parse(JSON.stringify(TY.spear)),{name:'盾足軽',hp:46,spd:1.7,spr:'spear',shield:true,score:300});
 // 2026-10-12 A-006の新しい敵4種(絵は移動・転倒・死亡まで揃い済み)。spr省略時は種類名のアトラス(monk/kunoichi/yoroi/akabi)
 TY.monk={name:'鉄球大僧',hp:195,sc:2,spd:1.35,ai:'melee',wp:'sword',tip:90,two:false,gap:14,helm:'jingasa',score:700,gen:true,armor:true,tack:true,col:{armor:'#5a4a6a',armor2:'#3a2c46',trim:'#d9d0b8',cloth:'#6a5a7a',skin:'#d9a070'},banner:null,
- atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:62,hs:31,he:37,rng:260,dmg:18,kb:8,launch:true,sfx:'heavy',fx:'quake'},
+ atk:[{pz:'swing',a0:-2.4,a1:0.8,r:40,dur:62,hs:31,he:37,rng:260,dmg:18,kb:8,launch:true,sfx:'heavy',fx:'quake',panim:'smash'},/* 叩きつけは12コマ(frame6〜7が着弾=hs31〜37) */
   {pz:'swing',a0:-1,a1:1,r:40,k:'charge',edge:true,move:20,dur:160,hs:46,he:114,rng:200,dep:40,dmg:14,kb:11,launch:true,sfx:'heavy'},/* 画面の端から端まで走る突進: 構え46コマ(赤い道筋・最後の14コマは列を固定)→移動→端で激突→44コマの隙 */
   {pz:'raise',k:'leap',dur:96,hs:22,he:40,rng:250,dmg:20,kb:11,launch:true,dep:80,around:true,fx:'quake',panim:'a1',sfx:'heavy'}],leap:true};
 TY.kunoichi={name:'仮面のくノ一',hp:34,spd:6.2,ai:'melee',skirm:true,runAnim:true,wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
@@ -1896,6 +1896,7 @@ function applyHFIX(){for(const key in HFIX){const A=DATA.sm&&DATA.sm[key];if(!A|
 function loadSPR(){if(!DATA.spr)return;applyHFIX();for(const h in DATA.spr){const im=new Image(),S=SPR_RAW[h]={img:im,a:DATA.sm[h],ready:false,white:null,hand:DATA.hands&&DATA.hands[h]};for(const k in S.a)if(Array.isArray(S.a[k]))S.a[k]._an=k;if(UMAP[h]){const src={};for(const k in S.a)src[k]=S.a[k];const hs={};if(S.hand)for(const k in S.hand)hs[k]=S.hand[k];for(const [k,v0] of Object.entries(UMAP[h])){const v=v0.split('|').find(x=>src[x]);if(!v)continue;S.a[k]=src[v].slice();S.a[k]._an=k;if(S.hand&&hs[v])S.hand[k]=hs[v];}}S.url=DATA.spr[h].startsWith('gfx/')?DATA.spr[h]:'data:image/webp;base64,'+DATA.spr[h];}}
 loadSPR();
 function sprWhite(S){if(S.white)return S.white;const c=document.createElement('canvas');c.width=S.img.naturalWidth;c.height=S.img.naturalHeight;const x=c.getContext('2d');x.drawImage(S.img,0,0);x.globalCompositeOperation='source-atop';x.fillStyle='rgba(255,250,235,0.5)';x.fillRect(0,0,c.width,c.height);return S.white=c;}
+function downPos8(f){if(f.z>0.6||f.vz>0){if(f.bounced)return f.vz>0?5:6;if(f.vz>0)return f.st<4?0:f.st<8?1:f.st<12?2:3;return 4;}return !f.bounced&&(f.lieT||0)<3?5:7;}
 function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.idle;return {arr,pos:loop?((pos%arr.length)+arr.length)%arr.length:clamp(pos,0,arr.length-1),loop:!!loop,hard:!!hard};};
  const prog=(d,n)=>clamp(f.st/Math.max(1,d.dur),0,0.999)*n;
  if(A.big){const c=f.cur;switch(f.state){
@@ -1917,7 +1918,8 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'dodge':{const L=f.dback?18:20;if(f.dback&&A.dodgeB)return P('dodgeB',f.st/L*A.dodgeB.length);if(!f.dback&&A.dodgeF)return P('dodgeF',f.st/L*A.dodgeF.length);return P(A.dash&&!f.dback?'dash':'jump',f.dback?1:f.st/L*4);}
   case'jump':return P('jump',f.st<4?0:f.vz>3?1:f.vz>-3?2:3);
   case'hurt':return P('hit',f.st<7?0:1);
-  case'down':return P('down',f.z>0.6||f.vz>0?(f.vz>0?0:1):2); // 打ち上げ直後の止まり中(z≒0・上向き速度)は寝そべりでなく、のけぞりを見せる
+  case'down':if(A.down&&A.down.length>=8)return P('down',downPos8(f)); // 8コマの転倒(鉄球大僧): 0・1のけぞり/2離地/3吹き飛ぶ/4落下/5初接地/6弾み/7寝姿
+   return P('down',f.z>0.6||f.vz>0?(f.vz>0?0:1):2); // 打ち上げ直後の止まり中(z≒0・上向き速度)は寝そべりでなく、のけぞりを見せる
   case'getup':return P('getup',f.st/5);
   case'dead':return P('dead',f.st/9);
   case'jatk':return P('jatk',f.cur&&f.cur.dur?prog(f.cur,4):Math.min(3,f.st/6));
