@@ -1297,7 +1297,7 @@ function wakeBlast(f){if(window.__noGuard)return;const R=f.T.boss?130:100;let hi
 function updDown(f){
  if(f.bowl){wallBounce(f);bowlStep(f);}
  f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;f.jug=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
- else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=f.team===1?(f.T.boss?75:50):40;if(f.team===1)wakeBlast(f);if(f.T.boss&&f.team===1)bossGetupLine(f);}}}
+ else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=(f.team===1&&f.T.boss)?75:40;if(f.team===1&&f.T.boss)wakeBlast(f);/* 起き上がりの吹き飛ばしと長めの無敵はボスだけ(雑魚は従来どおり) */if(f.T.boss&&f.team===1)bossGetupLine(f);}}}
 }
 
 /* ---------- enemy AI ---------- */
@@ -1509,7 +1509,9 @@ function updWorld(){
  // 画面端の拾得品: 主人公は端から余白(武器の長さ分)より外へ行けないので、そこに落ちた物は足元へ届かない。届く所まで滑らせて寄せる
  const itEdge=p&&p.hp>0?fighterScreenMargin(p):0;
  for(let i=G.items.length-1;i>=0;i--){const it=G.items[i];it.t++;if(it.x<G.camx-50){G.items.splice(i,1);continue;}
-  const isW=it.k.startsWith('w_');/* 画面の端に落ちた物: 動かさず(幽霊のように寄ってくる動きはやめた)、端で足が届かない分だけ拾う判定を端の内側へ寄せる */let ix=it.x;if(itEdge){const rc=(isW?48:40)-8;ix=clamp(it.x,G.camx+itEdge-rc,G.camx+W-itEdge+rc);}if(p.hp>0&&p.state!=='dead'&&Math.abs(ix-p.x)<(isW?48:40)&&Math.abs(it.y-p.y)<(isW?30:26)&&p.z<14&&(!isW||(G.t-(p.aT??-99)<=2&&(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.st<=1))))){if(isW){p.state='idle';p.cur=null;p.st=0;p.combo=0;}pickup(p,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}
+  const isW=it.k.startsWith('w_');/* 画面の端に落ちた物: 動かさず(幽霊のように寄ってくる動きはやめた)、端で足が届かない分だけ拾う判定を端の内側へ寄せる */let ix=it.x;if(itEdge){const rc=(isW?48:40)-8;ix=clamp(it.x,G.camx+itEdge-rc,G.camx+W-itEdge+rc);}if(p.hp>0&&p.state!=='dead'&&Math.abs(ix-p.x)<(isW?48:40)&&Math.abs(it.y-p.y)<(isW?30:26)&&p.z<14&&(!isW||(G.t-(p.aT??-99)<=2&&(p.state==='idle'||p.state==='walk'||(p.state==='atk'&&p.st<=1))))){if(isW){p.state='idle';p.cur=null;p.st=0;p.combo=0;}pickup(p,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);continue;}
+  /* 味方NPC(お供)も、足元の回復アイテムを取る。武器は取らない。主人公のほうが傷ついていて近くにいるときは譲る */
+  {const q=G.partner;if(q&&!isW&&allyWants(q,it)){const qe=fighterScreenMargin(q),rc=32;let qx=it.x;if(qe)qx=clamp(it.x,G.camx+qe-rc,G.camx+W-qe+rc);if(Math.abs(qx-q.x)<40&&Math.abs(it.y-q.y)<26&&q.z<14){pickup(q,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}}}
  for(const pr of G.props)if(pr.shk>0)pr.shk--;
  updProj();
  // camera
@@ -1542,9 +1544,13 @@ function updParts(){
 function addScore(n){G.score+=n;if(G.demo)return;while(G.score>=G.nextLife){G.lives=Math.min(9,G.lives+1);G.nextLife+=100000;G.oneUp=150;AU.sfx('clear');}}
 function nearestFoe(p){let b=null,bd=1e9;for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying||e.state==='dead'||!e.entered)continue;const d=Math.abs(e.x-p.x)+Math.abs(e.y-p.y)*2+(sgn(e.x-p.x)===p.face?0:300);if(d<bd){bd=d;b=e;}}return b;}
 function nearestAlly(e){if(G.auto&&demoView.motion!=='auto'&&e.debugEnemy){const d=mk('yuki',e.x+e.face*180,e.y,0);d.inv=999;return d;}if(G.rear&&G.rear.ph==='call'&&e.team===1)return G.rear.q;let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==0||f.hp<=0||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}
-function partnerCtl(f){const c=demoCtl(f,!f.rear);
+function partnerCtl(f){let c=demoCtl(f,!f.rear);f.seeking=false;
+ // 傷ついているお供は、近くの回復アイテムを取りに行く(攻撃が来そうな時は後回し)
+ if(!f.mount&&(f.state==='idle'||f.state==='walk')&&f.hp<f.maxhp*0.65&&!G.items.every(q=>q.k.startsWith('w_'))&&!G.fighters.some(e=>e.team===1&&e.state==='atk'&&e.cur&&!e.cur.proj&&e.hp>0&&Math.abs(e.x-f.x)<(e.cur.rng||80)+80&&Math.abs(e.y-f.y)<34)){
+  const ed=fighterScreenMargin(f),it=G.items.filter(q=>!q.k.startsWith('w_')&&allyWants(f,q)&&q.x>G.camx+30&&q.x<G.camx+W-30&&Math.abs(q.x-f.x)<520).sort((a,b)=>Math.abs(a.x-f.x)+Math.abs(a.y-f.y)*2-Math.abs(b.x-f.x)-Math.abs(b.y-f.y)*2)[0];
+  if(it){const n={l:0,r:0,u:0,d:0,atkP:0,jumpP:0,spcP:0},tx=clamp(it.x,G.camx+ed,G.camx+W-ed);if(Math.abs(tx-f.x)>18)(tx>f.x?n.r=1:n.l=1);if(Math.abs(it.y-f.y)>9)(it.y>f.y?n.d=1:n.u=1);c=n;f.seeking=true;}}
  // 才蔵: 離れた敵にジャンプしてクナイを投げる(ジャンプ→空中で攻撃)
- if((f.type==='saizo'||f.type==='sasuke')&&!f.mount){
+ if((f.type==='saizo'||f.type==='sasuke')&&!f.mount&&!f.seeking){
   if(f.state==='jump'&&f.jkWant&&f.st>7){c.atkP=1;f.jkWant=false;}
   else if((f.state==='idle'||f.state==='walk')&&f.z===0&&!((f.jkCd||0)>G.t)){const e=nearestFoe(f);if(e&&Math.abs(e.y-f.y)<46&&Math.abs(e.x-f.x)>150&&Math.abs(e.x-f.x)<460&&Math.random()<0.06){f.face=sgn(e.x-f.x)||f.face;c.jumpP=1;f.jkWant=true;f.jkCd=G.t+150;}}
   if(f.state!=='jump'&&f.state!=='idle'&&f.state!=='walk')f.jkWant=false;}
@@ -1561,6 +1567,10 @@ function contStep(){G.stateT++;
 function dropItem(x,y,force,wpn){let k=force;if(!k){const r=Math.random();k=r<0.22?'onigiri':r<0.31?'manju':r<0.4?'sushi':r<0.53?'sake':r<0.64?'hyorou':'w_'+pick(['odachi','naginata','teppo','yoto','yumi','ono','konbou','takeyari','kusari']);
   // 主人公が武器を持っている間・地面に武器が残っている間は、武器を落とさない(代わりの食べ物も出さず、食べ物の数は従来どおり)
   if(wpn!==undefined&&k.startsWith('w_')&&(Math.random()>=wpn||(G.player&&G.player.wpn)||G.items.some(it=>it.k.startsWith('w_'))))return;}G.items.push({x,y,k,t:0});}
+/* お供が、その回復アイテムを取りたいか(傷ついている/ゲージが足りない)。主人公のほうがより傷ついていて近くにいるときは譲る */
+function allyWants(q,it){if(!q||q.hp<=0||q.state==='dead'||q.dying||q.state==='held')return false;const k=it.k;if(k.startsWith('w_'))return false;
+ const rq=q.hp/q.maxhp;let need=false;if(k==='onigiri'||k==='sushi'||k==='hyorou')need=rq<0.75;else if(k==='manju')need=rq<0.8||(q.ki||0)<260;else if(k==='sake')need=(q.ki||0)<200||rq<0.6;if(!need)return false;
+ const P=G.player;if(P&&P.hp>0&&P.state!=='dead'&&P.hp/P.maxhp<rq&&Math.abs(P.x-it.x)<320&&Math.abs(P.y-it.y)<120)return false;return true;}
 function pickup(p,it){
  if(it.k==='onigiri'){p.hp=Math.min(p.maxhp,p.hp+30);popup('HP +30',it.x,it.y,70,'#9f9',24);}
  else if(it.k==='hyorou'){p.hp=Math.min(p.maxhp,p.hp+70);popup('HP +70',it.x,it.y,70,'#ffe29a',26);}
