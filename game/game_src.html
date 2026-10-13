@@ -521,10 +521,13 @@ function startStage(si,ch,demo,keep){
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;
  if(!demo&&G.partnerType){const q=mk(G.partnerType,90,590,0);q.isPartner=true;q.dm=1.3;q.inv=60;G.partner=q;G.fighters.push(q);if(G.partnerFell){G.partnerFell=false;say(q,'しぶとく生き延びておったわ！',200);setTimeout(()=>{if(G.player)say(G.player,'生きておったか！',150);},3600);}}else G.partner=null;
+ // 馬防柵(2026-10-14 A-016): 第3幕から、波と波の間に画面の上から下まで続く柵を置く(壊すまで全レーンが通れない)。柵は前の波の画面の外(右)・次の波の画面の外(左)に置くため、その波の間だけ道のりを1900pxまで延ばす
+ const umX=[];if(si>=2&&!demo)for(const i of(si>=4?[2,4]:[2])){if(i>=G.waves.length)continue;const gap=G.waves[i].x-G.waves[i-1].x,ext=Math.max(0,UMABO_GAP-gap);if(ext)for(let j=i;j<G.waves.length;j++)G.waves[j].x+=ext;umX.push(G.waves[i].x-520);}
  for(let i=1;i<G.waves.length;i++){const bx=G.waves[i].x-540+rnd(-60,60);G.props.push({isProp:true,team:2,x:bx,y:rnd(520,630),z:0,hp:3,shk:0,k:i%2?'barrel':'crate',drop:i===G.waves.length-1?'sake':null});}
  G.props.push({isProp:true,team:2,x:G.waves[0].x-240,y:560,z:0,hp:3,shk:0,k:'barrel',drop:null});
  // 陣地の仕掛け(2026-10-11): 第2幕から、波の手前に竹柵・置き盾(壊せる。敵の飛び道具はこれの向こうからは通らない)。焚火は飾り(一つおきの幕、中ほどの波の手前)
  if(si>=1&&!demo)for(let i=1;i<G.waves.length;i++)if(i%2===0)G.props.push({isProp:true,team:2,x:G.waves[i].x-330+rnd(-40,40),y:rnd(540,612),z:0,hp:8,maxhp:8,shk:0,k:(i+si)%4<2?'fence':'mshield',drop:null});
+ for(const ux of umX)G.props.push({isProp:true,team:2,x:ux,y:470,z:0,hp:UMABO_HP,maxhp:UMABO_HP,shk:0,k:'umabo',drop:null});
  if(si%2===0&&!demo)G.deco.push({isProp:true,deco:true,team:2,k:'fire',x:G.waves[Math.max(1,G.waves.length>>1)].x-470,y:602,z:0,hp:1});
  G.items.push({x:430,y:575,k:'w_'+['takeyari','kusari','ono','naginata','yoto','odachi'][si%6],t:0});G.items.push({x:G.waves[0].x-120,y:600,k:'onigiri',t:0});
  G.banner={t:0,jp:STG[si].jp,title:STG[si].title,en:STG[si].en};
@@ -867,7 +870,8 @@ function bossDown(b,own){
  if(!last){G.slow=60;G.boss=null;AU.bgm(STG[G.stage].bgm);return;}
  AU.stopBgm();G.victoryClearAt=0;G.victoryShift=Math.max(0,(G.voAt||54)+Math.ceil(((AU.voBuf[G.curCh]&&AU.voBuf[G.curCh].duration)||2.5)*60)+60-138)/* 討ち取ったり→次の声まで1秒 */;G.state='bossdown';G.stateT=0;G.slow=90;
 }
-function breakProp(t){if(t.k==='fence'||t.k==='mshield'){/* 壊れても残骸の絵が残る。もう当たらない・飛び道具も防がない */t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,4);for(let i=0;i<14;i++)PT({x:t.x+rnd(-40,40),y:t.y,z:rnd(10,70),vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:t.k==='fence'?'#6a7a32':'#7a5530',k:'deb'});return;}AU.sfx('break');for(let i=0;i<10;i++)PT({x:t.x,y:t.y,z:30,vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:'#7a5530',k:'deb'});
+function breakProp(t){if(t.k==='umabo'){t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,9);G.hitstop=Math.max(G.hitstop,5);for(let i=0;i<46;i++)PT({x:t.x+rnd(-50,50),y:rnd(YMIN,YMAX),z:rnd(10,130),vx:rnd(-4,4),vy:rnd(-.6,.6),vz:rnd(2,7),g:0.35,life:rndi(28,46),sz:rnd(3,7),col:i%3?'#6a5a34':'#a08a58',k:'deb'});popup('柵が壊れた！',t.x,t.y+60,150,'#ffe08a',22);return;}
+ if(t.k==='fence'||t.k==='mshield'){/* 壊れても残骸の絵が残る。もう当たらない・飛び道具も防がない */t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,4);for(let i=0;i<14;i++)PT({x:t.x+rnd(-40,40),y:t.y,z:rnd(10,70),vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:t.k==='fence'?'#6a7a32':'#7a5530',k:'deb'});return;}AU.sfx('break');for(let i=0;i<10;i++)PT({x:t.x,y:t.y,z:30,vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:'#7a5530',k:'deb'});
  dropItem(t.x,t.y,t.drop||(Math.random()<0.85?null:'onigiri'),0.42);
  G.props.splice(G.props.indexOf(t),1);}
 function strike(a,d){
@@ -877,7 +881,7 @@ function strike(a,d){
   if(t===a||a.hit.has(t))continue;if(t.isProp&&t.broken)continue;
   if(a.team===0&&!(t.team===1||t.isProp))continue;if(a.team===1&&t.team!==0)continue;
   if(!t.isProp){const jug=a.team===0&&t.team===1&&t.state==='down'&&t.z>24&&t.hp>0&&!t.dying&&!t.T.boss&&(t.jug||0)<2;if(t.hp<=0||t.inv>0||(t.state==='down'&&!jug)||t.state==='getup'||t.state==='dead')continue;}
-  const dx=(t.x-a.x),dy=Math.abs(t.y-a.y),rad=t.T&&t.T.rad?t.T.rad:(t.T&&t.T.boss?44*t.sc:18*(t.sc||1));
+  const dx=(t.x-a.x),dy=t.k==='umabo'?0:Math.abs(t.y-a.y),rad=t.T&&t.T.rad?t.T.rad:(t.T&&t.T.boss?44*t.sc:18*(t.sc||1));
   const reach=d.around?(Math.abs(dx)<d.rng+rad):(dx*dir>-14&&dx*dir<d.rng+rad);
   if(!reach||dy>(d.dep||28)+(t.T&&(t.T.boss||t.T.rad)?24:0)||Math.abs((t.z||0)-a.z)>70)continue;
   hurt(t,a,d);
@@ -1419,6 +1423,8 @@ function demoCtl(p,follow){
  if(follow&&P0&&(P0.state==='dead'||Math.abs(P0.x-p.x)>460))return stick();
  if(!en.length){if(follow)return stick();if(G.camx<G.camMax-4||!G.waveOn)c.r=1;if(p.y<548)c.d=1;else if(p.y>592)c.u=1;
   const edge=fighterScreenMargin(p),vis=G.items.filter(q=>{const reach=q.k.startsWith('w_')?48:40;return q.x>G.camx+50&&q.x<G.camx+W-50&&q.x>=G.camx+edge-reach&&q.x<=G.camx+W-edge+reach&&Math.abs(q.x-p.x)<520;});if(vis.length){c.r=0;c.l=0;c.u=0;c.d=0;const it=vis[0];if(Math.abs(it.x-p.x)>20)(it.x>p.x?c.r=1:c.l=1);if(Math.abs(it.y-p.y)>10)(it.y>p.y?c.d=1:c.u=1);if(it.k.startsWith('w_')&&Math.abs(it.x-p.x)<40&&Math.abs(it.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}}
+  // 馬防柵(壊すまで通れない): 近くまで歩いて、柵に向かって攻撃を繰り返す
+  if(!vis.length){const um=G.props.find(q=>q.k==='umabo'&&!q.broken&&q.hp>0&&q.x>p.x-10&&q.x-p.x<1100);if(um){c.l=0;c.u=0;c.d=0;if(um.x-p.x>UMABO_HW+34){c.r=1;}else{c.r=0;if(p.state==='idle'&&(p.pk=(p.pk||0)+1)%7===0)c.atkP=1;}}}
   const pr=G.props.find(q=>q.x>p.x-60&&q.x<p.x+260);if(pr&&G.camx>=G.camMax-4){}
   return c;}
  // 戦闘中でも、武器を持っていなければ落ちている武器を拾いに行く(攻撃が来そうな時は後回し)
@@ -1479,14 +1485,21 @@ function updProj(onlyOwner){
   if(q.life<=0||q.x<G.camx-120||q.x>G.camx+W+120){G.proj.splice(i,1);continue;}
   if(q.k==='wave'&&q.life%2===0)PT({x:q.x,y:q.y+rnd(-8,8),z:rnd(0,30),vx:-q.face*rnd(.5,2),vz:rnd(0.5,2),life:16,sz:rnd(10,20),col:q.col?'rgba('+q.col+',0.7)':q.team===0?'rgba(160,220,255,0.7)':'rgba(255,220,150,0.6)',k:'flame'});
   if(q.k==='shot'||q.k==='bullet')PT({x:q.x,y:q.y,z:q.z,life:7,sz:5,col:q.team===0?'#e0b8ff':'#ffd89a',k:'flame',vx:0});
-  if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'||q.k==='shot')&&q.vx){let blk=false;for(const pr of G.props){if((pr.k!=='fence'&&pr.k!=='mshield')||pr.broken)continue;const ahead=sgn(pr.x-q.x)===sgn(q.vx),hw=pr.k==='fence'?72:42;if(ahead&&Math.abs(pr.x-q.x)<hw&&Math.abs(pr.y-q.y)<30&&q.z<(pr.k==='fence'?115:130)){pr.hp-=1;pr.shk=8;AU.sfx('block');burst(q.x,q.y,50,6,'#a98','4');if(pr.hp<=0)breakProp(pr);G.proj.splice(i,1);blk=true;break;}}if(blk)continue;}
+  if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'||q.k==='shot')&&q.vx){let blk=false;for(const pr of G.props){if((pr.k!=='fence'&&pr.k!=='mshield'&&pr.k!=='umabo')||pr.broken)continue;const ahead=sgn(pr.x-q.x)===sgn(q.vx),hw=pr.k==='fence'?72:pr.k==='umabo'?36:42;if(ahead&&Math.abs(pr.x-q.x)<hw&&(pr.k==='umabo'||Math.abs(pr.y-q.y)<30)&&q.z<(pr.k==='fence'?115:130)){pr.hp-=1;pr.shk=8;AU.sfx('block');burst(q.x,q.y,50,6,'#a98','4');if(pr.hp<=0)breakProp(pr);G.proj.splice(i,1);blk=true;break;}}if(blk)continue;}
   const list=q.team===0?G.fighters.concat(G.props):G.fighters;let hitN=0;
   for(const t of list){if(q.hit.has(t))continue;if(t.isProp&&t.broken)continue;if(q.team===1&&t.team!==0)continue;if(q.team===0&&!(t.team===1||t.isProp))continue;
    if(!t.isProp&&(t.hp<=0||t.inv>0||t.state==='down'||t.state==='dead'||t.state==='getup'))continue;
-   const hh=q.k==='wave'?60:110;if(Math.abs(t.x-q.x)<q.w+12&&Math.abs(t.y-q.y)<(q.yr||(q.k==='wave'?36:22))&&q.z+10>=(t.z||0)&&q.z-10<(t.z||0)+hh){
+   const hh=q.k==='wave'?60:110;if(Math.abs(t.x-q.x)<q.w+12&&(t.k==='umabo'||Math.abs(t.y-q.y)<(q.yr||(q.k==='wave'?36:22)))&&q.z+10>=(t.z||0)&&q.z-10<(t.z||0)+hh){
     hurt(t,q,{dmg:q.dmg,kb:q.kb,launch:q.launch});hitN++;q.pierce=(q.pierce||1)-1;if(q.pierce<=0){G.proj.splice(i,1);break;}}}
  }
 }
+/* 馬防柵(k:'umabo'): 壊れるまで全レーンを遮る。柵のどちら側にいたかを覚え、反対側へ入りかけたら元の側へ戻す(吹き飛ばし・突進でも抜けない) */
+const UMABO_HW=30,UMABO_HP=12,UMABO_GAP=1900;
+function wallClamp(){for(const w of G.props){if(w.k!=='umabo'||w.broken||w.hp<=0)continue;
+ for(const f of G.fighters){if(f.gone||f.isProp)continue;const m=f.wx||(f.wx=new Map()),px=m.get(w);if(px===undefined){m.set(w,f.x);continue;}
+  const s0=sgn(px-w.x)||-1,d=f.x-w.x;
+  if(Math.abs(d)<UMABO_HW||sgn(d)!==s0){f.x=w.x+s0*UMABO_HW;if(sgn(f.vx||0)===-s0)f.vx=0;if(f===G.player&&!w.hinted&&!G.demo){w.hinted=1;popup('柵を壊して進め！',f.x,f.y,150,'#ffe08a',24);}}
+  m.set(w,f.x);}}}
 function updWorld(){
  const p=G.player;
  // controls
@@ -1526,6 +1539,7 @@ function updWorld(){
   {const q=G.partner;if(q&&!isW&&allyWants(q,it)){const qe=fighterScreenMargin(q),rc=32;let qx=it.x;if(qe)qx=clamp(it.x,G.camx+qe-rc,G.camx+W-qe+rc);if(Math.abs(qx-q.x)<40&&Math.abs(it.y-q.y)<26&&q.z<14){pickup(q,it);AU.sfx('pick');burst(it.x,it.y,30,10,'#fff',5);G.items.splice(i,1);}}}}
  for(const pr of G.props)if(pr.shk>0)pr.shk--;
  updProj();
+ wallClamp();
  // camera
  const tgt=clamp(p.x-440,G.camx,G.camMax);G.camx+=(tgt-G.camx)*0.12;if(G.camMax-G.camx<1.5&&tgt>=G.camMax-1)G.camx=G.camMax;
  // Separation and camera movement happen after individual AI updates. Clamp
@@ -1632,6 +1646,7 @@ function drawHorse(ph,t){
  leg(-30,ph,body);leg(58,ph+2.4+Math.PI,body);
 }
 function drawProp(p){
+ if(p.k==='umabo'){const US=SPR.umabo,ar=US&&US.ready&&US.a.wall;if(!ar)return;const q=ar[(p.broken||p.hp<=0)?2:p.hp>(p.maxhp||UMABO_HP)*0.5?0:1],sx=Math.round(p.x-G.camx+(p.shk?Math.sin(p.shk*2)*3:0));ctx.drawImage(US.img,q[0],q[1],q[2],q[3],sx+q[4],q[5]-24,q[2],q[3]);return;}/* 柵の中心x・セル上端を画面y-24(健全の柵列が画面の全高0〜719) */
  ctx.save();ctx.translate(Math.round(p.x-G.camx+(p.shk?Math.sin(p.shk*2)*3:0)),Math.round(p.y));
  if(p.k==='fence'||p.k==='mshield'||p.k==='fire'){const PS=SPR.props1,ar=PS&&PS.ready&&PS.a[p.k];if(ar){const fr=p.k==='fire'?Math.floor(G.t/5+(p.x|0)*0.01)%ar.length:(p.broken||p.hp<=0)?2:p.hp>(p.maxhp||8)*0.5?0:1,q=ar[fr];ctx.drawImage(PS.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();return;}ctx.restore();return;}
  if(p.k==='barrel'){
@@ -2649,8 +2664,8 @@ function renderWorld(){
  drawBG(G.camx,G.t);drawDecals();
  const list=[];for(const f of G.fighters)list.push(f);for(const p of G.props)list.push(p);for(const p of (G.deco||[]))list.push(p);for(const i of G.items)list.push(i);for(const q of G.proj)if(q.k!=='fall')list.push(q);if(G.kgun&&G.state==='bossdown')for(const k of G.kgun)list.push(k);
  // soft contact shadows
-  for(const e of list){if(!G.lowq||e.k==='wave'||e.k==='horse'||e.gone)continue;const z=e.z||0,w=(e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300));ctx.fillStyle='rgba(0,0,0,0.38)';ctx.beginPath();ctx.ellipse(e.x-G.camx,e.y+3,w,w*0.27,0,0,TAU);ctx.fill();}
- if(!G.lowq)for(const e of list){if(e.k==='wave'||e.k==='horse'||e.gone)continue;const z=e.z||0,w=(e.T&&e.T.horse&&e.state==='walk'?66:e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300)),al=0.55*(1-Math.min(0.6,z/260));ctx.save();ctx.translate(e.x-G.camx,e.y+3);ctx.scale(1,0.27);const sg=ctx.createRadialGradient(0,0,0,0,0,w);sg.addColorStop(0,`rgba(0,0,0,${al})`);sg.addColorStop(0.6,`rgba(0,0,0,${al*0.55})`);sg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(0,0,w,0,TAU);ctx.fill();ctx.restore();}
+  for(const e of list){if(!G.lowq||e.k==='wave'||e.k==='horse'||e.k==='umabo'||e.gone)continue;const z=e.z||0,w=(e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300));ctx.fillStyle='rgba(0,0,0,0.38)';ctx.beginPath();ctx.ellipse(e.x-G.camx,e.y+3,w,w*0.27,0,0,TAU);ctx.fill();}
+ if(!G.lowq)for(const e of list){if(e.k==='wave'||e.k==='horse'||e.k==='umabo'||e.gone)continue;const z=e.z||0,w=(e.T&&e.T.horse&&e.state==='walk'?66:e.sc?32*e.sc:e.isProp?28:14)*(1-Math.min(0.5,z/300)),al=0.55*(1-Math.min(0.6,z/260));ctx.save();ctx.translate(e.x-G.camx,e.y+3);ctx.scale(1,0.27);const sg=ctx.createRadialGradient(0,0,0,0,0,w);sg.addColorStop(0,`rgba(0,0,0,${al})`);sg.addColorStop(0.6,`rgba(0,0,0,${al*0.55})`);sg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(0,0,w,0,TAU);ctx.fill();ctx.restore();}
  for(const q of G.proj)if(q.k==='fall')drawProj(q);
  drawHazards();drawSteeds();drawRushLane();
  list.sort((a,b)=>a.y-b.y);
