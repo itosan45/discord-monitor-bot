@@ -870,7 +870,7 @@ function bossDown(b,own){
  if(!last){G.slow=60;G.boss=null;AU.bgm(STG[G.stage].bgm);return;}
  AU.stopBgm();G.victoryClearAt=0;G.victoryShift=Math.max(0,(G.voAt||54)+Math.ceil(((AU.voBuf[G.curCh]&&AU.voBuf[G.curCh].duration)||2.5)*60)+60-138)/* 討ち取ったり→次の声まで1秒 */;G.state='bossdown';G.stateT=0;G.slow=90;
 }
-function breakProp(t){if(t.k==='umabo'){t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,9);G.hitstop=Math.max(G.hitstop,5);for(let i=0;i<46;i++)PT({x:t.x+rnd(-50,50),y:rnd(YMIN,YMAX),z:rnd(10,130),vx:rnd(-4,4),vy:rnd(-.6,.6),vz:rnd(2,7),g:0.35,life:rndi(28,46),sz:rnd(3,7),col:i%3?'#6a5a34':'#a08a58',k:'deb'});popup('柵が壊れた！',t.x,t.y+60,150,'#ffe08a',22);return;}
+function breakProp(t){if(t.k==='umabo'){t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,9);G.hitstop=Math.max(G.hitstop,5);for(let i=0;i<46;i++)PT({x:t.x+rnd(-50,50),y:rnd(YMIN,YMAX),z:rnd(10,130),vx:rnd(-4,4),vy:rnd(-.6,.6),vz:rnd(2,7),g:0.35,life:rndi(28,46),sz:rnd(3,7),col:i%3?'#6a5a34':'#a08a58',k:'deb'});return;}
  if(t.k==='fence'||t.k==='mshield'){/* 壊れても残骸の絵が残る。もう当たらない・飛び道具も防がない */t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,4);for(let i=0;i<14;i++)PT({x:t.x+rnd(-40,40),y:t.y,z:rnd(10,70),vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:t.k==='fence'?'#6a7a32':'#7a5530',k:'deb'});return;}AU.sfx('break');for(let i=0;i<10;i++)PT({x:t.x,y:t.y,z:30,vx:rnd(-3,3),vy:rnd(-.5,.5),vz:rnd(2,6),g:0.35,life:rndi(25,40),sz:rnd(3,6),col:'#7a5530',k:'deb'});
  dropItem(t.x,t.y,t.drop||(Math.random()<0.85?null:'onigiri'),0.42);
  G.props.splice(G.props.indexOf(t),1);}
@@ -1498,10 +1498,10 @@ const UMABO_HW=30,UMABO_HP=12,UMABO_GAP=1900;
 function wallClamp(){for(const w of G.props){if(w.k!=='umabo'||w.broken||w.hp<=0)continue;
  for(const f of G.fighters){if(f.gone||f.isProp)continue;const m=f.wx||(f.wx=new Map()),px=m.get(w);if(px===undefined){m.set(w,f.x);continue;}
   const s0=sgn(px-w.x)||-1,d=f.x-w.x;
-  if(Math.abs(d)<UMABO_HW||sgn(d)!==s0){f.x=w.x+s0*UMABO_HW;if(sgn(f.vx||0)===-s0)f.vx=0;if(f===G.player&&!w.hinted&&!G.demo){w.hinted=1;popup('柵を壊して進め！',f.x,f.y,150,'#ffe08a',24);}}
+  if(Math.abs(d)<UMABO_HW||sgn(d)!==s0){f.x=w.x+s0*UMABO_HW;if(sgn(f.vx||0)===-s0)f.vx=0;}
   m.set(w,f.x);}}}
 /* 馬防柵の向こうの鉄砲隊(オーナー「その柵があるときだけ鉄砲隊を配備したほうがリアル」): 柵が画面に入ると、柵の右側(向こう側)に鉄砲足軽が並ぶ。柵の隙間から撃つので、柵があっても弾は通る(柵は壊さない・威力は7割)。柵を壊すと、ふつうの鉄砲足軽として戦う */
-function garrisonStep(){for(const w of G.props){if(w.k!=='umabo'||w.garr||w.broken)continue;if(G.camx+W<w.x+420)continue;w.garr=true;const n=G.stage>=4?4:3,ys=[505,585,650,545];for(let k=0;k<n;k++){const e=mk('gun',w.x+130+k*95+rnd(-12,12),ys[k%4]+rnd(-8,8),1);e.entered=true;e.face=-1;e.hold=w;G.fighters.push(e);}popup('柵の向こうに鉄砲隊！',w.x+200,520,160,'#ffd070',24);}}
+function garrisonStep(){for(const w of G.props){if(w.k!=='umabo'||w.garr||w.broken)continue;if(G.camx+W<w.x+420)continue;w.garr=true;const n=G.stage>=4?4:3,ys=[505,585,650,545];for(let k=0;k<n;k++){const e=mk('gun',w.x+130+k*95+rnd(-12,12),ys[k%4]+rnd(-8,8),1);e.entered=true;e.face=-1;e.hold=w;G.fighters.push(e);}}}
 function updWorld(){
  const p=G.player;
  // controls
