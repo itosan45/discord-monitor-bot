@@ -1953,7 +1953,7 @@ function drawKChain(f,S,q,arr,i,front){if(!q||!arr||S!==SPR[f.T.type])return;con
  ctx.strokeStyle='#9a9aa4';ctx.lineWidth=1.3*s;ctx.setLineDash([2.6*s,2.6*s]);ctx.stroke();ctx.restore();}
 // 2026-10-11 納品の新しい攻撃絵(主武器のみ・徒歩): どの攻撃で使うか。hf=命中の瞬間に当たるコマ番号。
 // 景勝: 居合(溜め)=居合斬り、4段目=踏み込み一文字 / 武蔵: 2段目=左右交互二刀連撃 / 信玄: 3段目=軍配押し打ち / 信長: 2段目=片手大薙ぎ
-const ATK3={kage:[{test:c=>c.iai,arr:'iai',hf:2},{idx:3,arr:'ichi',hf:2}],musashi:[{idx:1,arr:'nito',hf:1}],shin:[{idx:2,arr:'push',hf:3},{idx:1,arr:'turn',hf:2,key:'atk3b_shin'}],nobu:[{idx:1,arr:'sweep',hf:2}]};
+const ATK3={kage:[{test:c=>c.iai,arr:'iai',hf:2},{idx:3,arr:'ichi',hf:2}],musashi:[{idx:1,arr:'nito',hf:1}],shin:[{idx:2,arr:'push',hf:3},{idx:1,arr:'turn',hf:2,key:'atk3b_shin'}],nobu:[{idx:1,arr:'sweep',hf:2}],yuki:[{idx:3,arr:'spin',hf:4}]};/* 幸村の通常4(旋回槍7コマ v2): hs14の前に0〜3、14〜20の命中に4、その後5・6 */
 // 敵の新しい動き(2026-10-11 画像担当): 刀足軽の受け流し反撃・槍足軽の横薙ぎ(攻撃定義の exa/exT)、鉄砲足軽の装填(撃った後 reloadT)
 function exPick(f){const S=SPR.enemyx1;if(!S||!S.ready||f.T.boss)return null;
  if(f.state==='atk'&&f.cur&&f.cur.exa&&S.a[f.cur.exa]){const T=f.cur.exT,n=S.a[f.cur.exa].length;let i=0;while(i<n-1&&f.st>=T[i+1])i++;return {arr:f.cur.exa,pos:i};}
