@@ -305,14 +305,25 @@ function drawDecor(A,cam,t){
   if(d.t==='nobori')dNobori(x,b,d.s,d.v,t);else if(d.t==='fence')dFence(x,b,d.s);else if(d.t==='stake')dStake(x,b,d.s);else if(d.t==='jin')dJin(x,b+2,d.s,d.v,t);else if(d.t==='fire')dFire(x,b,d.s,t);else dHay(x,b,d.s);}
 }
 const BGIMG={};
-function loadBG(){if(!DATA.bg)return;for(const k in DATA.bg){const i=new Image();i.onerror=()=>{i.failed=true;};i.src=DATA.bg[k].startsWith('gfx/')?DATA.bg[k]:'data:image/webp;base64,'+DATA.bg[k];BGIMG[k]=i;}}
+function loadBG(){if(!DATA.bg)return;for(const k in DATA.bg){if(k.startsWith('honmaru_'))continue;/* 本丸の背景はボス戦のある幕を始めるときに読む */const i=new Image();i.onerror=()=>{i.failed=true;};i.src=DATA.bg[k].startsWith('gfx/')?DATA.bg[k]:'data:image/webp;base64,'+DATA.bg[k];BGIMG[k]=i;}}
 loadBG();
 function drawBGimg(img,cam){const off=((cam*0.35)%2560+2560)%2560;
  for(let k=-1;k<3;k++){const x=k*1280-off+(off>=1280?0:0);const idx=Math.floor((k*1280+off)/1280);}
  const base=Math.floor(off/1280),ox=off-base*1280;
  for(let k=0;k<3;k++){const n=base+k,x=k*1280-ox,flip=n%2===1;ctx.save();if(flip){ctx.translate(x+1280,0);ctx.scale(-1,1);ctx.drawImage(img,0,0);}else ctx.drawImage(img,x,0);ctx.restore();}
  const g=ctx.createLinearGradient(0,470,0,720);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,0.28)');ctx.fillStyle=g;ctx.fillRect(0,470,W,250);}
+/* 2026-10-14 A-017 ボス戦の舞台: 敵武将が出ている間だけ、その武将の本丸(1枚絵・固定)へ約50コマで切り替える。画像はその幕のボスの分だけ幕の開始時に読む。前のボスがいれば前の本丸から重ねて切り替える */
+const HONMARU={};
+function loadHonmaru(k){if(HONMARU[k]||!DATA.bg)return;const u=DATA.bg['honmaru_'+k];if(!u)return;const i=new Image();i.onerror=()=>{i.failed=true;};i.src=u.startsWith('gfx/')?u:'data:image/webp;base64,'+u;HONMARU[k]=i;}
+function setHonmaru(k){loadHonmaru(k);G.hon={k,prev:G.hon?G.hon.k:null,t0:G.t};}
+function honImg(k){const i=k&&HONMARU[k];return i&&i.complete&&i.naturalWidth?i:null;}
+function drawHonImg(im){ctx.drawImage(im,0,0,W,H);const g=ctx.createLinearGradient(0,470,0,720);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,0.28)');ctx.fillStyle=g;ctx.fillRect(0,470,W,250);}
 function drawBG(cam,t){
+ const h=G.hon,im=h&&!G.howto?honImg(h.k):null;
+ if(!im){drawBGbase(cam,t);return;}
+ const a=clamp((G.t-h.t0)/50,0,1);
+ if(a<1){const pv=honImg(h.prev);if(pv)drawHonImg(pv);else drawBGbase(cam,t);ctx.globalAlpha=a;drawHonImg(im);ctx.globalAlpha=1;}else drawHonImg(im);}
+function drawBGbase(cam,t){
  if(G.howto){ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);const g=ctx.createRadialGradient(W/2,600,20,W/2,600,520);g.addColorStop(0,'rgba(120,100,80,0.35)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,300,W,H-300);ctx.fillStyle='rgba(255,240,200,0.05)';ctx.beginPath();ctx.ellipse(W/2,590,520,70,0,0,TAU);ctx.fill();return;}
  const A=ART,S=A.S,bi=BGIMG[G.stage];
  if(bi&&bi.complete&&bi.naturalWidth){drawBGimg(bi,cam);return;}
@@ -505,6 +516,7 @@ function startStage(si,ch,demo,keep){
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   ws=out.concat(bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
+ G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>w.boss));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
  G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.deco=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.zm=1;G.zp=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.35));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;
@@ -760,7 +772,7 @@ function bossBgm(e){return G.stage===5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 // 雑魚の同時出現数の上限(スマホで一度に出すぎると重い、オーナー指摘)。超えた分は前の敵が倒れてから順に出る。総数は変わらない
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss)startBossStory(e);return e;}
