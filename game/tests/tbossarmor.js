@@ -31,7 +31,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    if(out.monkSmash0||!out.monkSmash1||out.monkSmash2)bad.push('中ボスの通常攻撃の無敵の範囲 '+[out.monkSmash0,out.monkSmash1,out.monkSmash2]);
    const a=hit(e2);e2.inv=0;e2.state='idle';e2.cur=null;const l2=hit(e2);out.monkPinv=e2.pinv;if(e2.pinv!==5)bad.push('中ボスの被弾後の無敵が5でない '+e2.pinv);}
   // ⑥ ボスの隙(削りダメージ): 普段は5割・隙(技のあと/ガードクラッシュ/のけぞり)は1.2倍・必殺はいつでも通常。中ボスは7割。
-  {const P=setup();const dmgOf=(e)=>{e.inv=0;e.pinv=0;const d=hit(e,10);e.inv=0;e.pinv=0;return d;};
+  {const P=setup();const _rnd=Math.random;Math.random=()=>0.5;/* 被ダメにゆらぎ(乱数)があり比率が不安定になるため、この区間だけ固定 */const dmgOf=(e)=>{e.inv=0;e.pinv=0;const d=hit(e,10);e.inv=0;e.pinv=0;return d;};
    const e=mkE('boss7',120);e.state='idle';e.cur=null;const base=dmgOf(e);
    const ai=e.T.atk.findIndex(d=>d.hs>=14&&d.k!=='guard'&&!d.edge);startEAtk(e,ai);e.st=e.cur.he+6;e.state='atk';const rec=dmgOf(e);
    e.state='idle';e.cur=null;e.gcrash=G.t+50;const gc=dmgOf(e);e.gcrash=0;
@@ -42,6 +42,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    if(Math.abs(rec/ult-1.2)>0.03)bad.push('技のあとの隙が通常の1.2倍でない '+(rec/ult));
    if(Math.abs(gc/ult-1.2*1.35)>0.04)bad.push('ガードクラッシュ中が隙(1.2倍×既存の被ダメ1.35倍)でない '+(gc/ult));
    
+   Math.random=_rnd;
    if(Math.abs(mBase/mOpen-0.7)>0.05)bad.push('中ボスの削りが7割でない '+(mBase/mOpen));}
   // ⑤ くノ一: 速さ13、ジャンプ投げで跳躍(頂点98px)・着地で0
   {const P=setup();const k=mk('kunoichi',P.x+400,570,1);k.entered=true;k.hp=k.maxhp=99999;k.face=-1;G.fighters.push(k);out.kunoSpd=k.spd;if(k.spd<12)bad.push('くノ一の速さ '+k.spd);

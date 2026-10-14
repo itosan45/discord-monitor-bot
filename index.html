@@ -890,11 +890,13 @@ function strike(a,d){
   hurt(t,a,d);
  }
 }
+/* 斜め射撃(オーナー「飛び道具が斜めにも撃てて、斜めの相手に当たる」): 敵の弾は発射時の相手の列(y)へ向かって飛ぶ。上下は最大でも横速度の約4割(ほぼ横向きのまま) */
+function aimVy(f,dir,sp,off){if(!f||f.team!==1)return 0;const p=nearestAlly(f);if(!p)return 0;const dx=(p.x-(f.x+dir*off))*dir;if(dx<80)return 0;return clamp((p.y-f.y)/(dx/sp),-sp*0.42,sp*0.42);}
 function addProj(o){const p=Object.assign({x:0,y:0,z:50,vx:0,vz:0,team:1,dmg:7,w:22,life:120,k:'arrow',hit:new Set(),face:1,launch:false,kb:3},o);if(o.owner&&(o.owner.state==='spc'||o.owner.state==='ult'))p.sp=true;G.proj.push(p);return p;}
 function fireProj(f,d){
  const dir=f.face;
- if(d.proj==='arrow')addProj({x:f.x+dir*40,y:f.y,z:f.z+75,vx:dir*9,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:20});
- else if(d.proj==='bullet'){const gp=!!(f.hold&&!f.hold.broken);addProj({x:f.x+dir*80,y:f.y,z:f.z+72,vx:dir*17,team:f.team,dmg:gp?Math.round(d.dmg*0.7):d.dmg,face:dir,owner:f,k:'bullet',w:16,launch:false,kb:4,fpass:gp});PT({x:f.x+dir*84,y:f.y,z:f.z+74,life:6,sz:60,col:'rgba(255,190,70,0.95)',k:'muz',face:dir});for(let i=0;i<5;i++)PT({x:f.x+dir*84,y:f.y,z:f.z+74,vx:dir*rnd(1,4),vz:rnd(0,1.4),life:rndi(16,26),sz:rnd(6,12),col:'rgba(200,200,200,0.5)',k:'smoke'});}
+ if(d.proj==='arrow'){const avy=aimVy(f,dir,9,40);addProj({x:f.x+dir*40,y:f.y,z:f.z+75,vx:dir*9,vy:avy,yr:avy?30:0,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:20});}
+ else if(d.proj==='bullet'){const gp=!!(f.hold&&!f.hold.broken);const avy=aimVy(f,dir,17,80);addProj({x:f.x+dir*80,y:f.y,z:f.z+72,vx:dir*17,vy:avy,yr:avy?30:0,team:f.team,dmg:gp?Math.round(d.dmg*0.7):d.dmg,face:dir,owner:f,k:'bullet',w:16,launch:false,kb:4,fpass:gp});PT({x:f.x+dir*84,y:f.y,z:f.z+74,life:6,sz:60,col:'rgba(255,190,70,0.95)',k:'muz',face:dir});for(let i=0;i<5;i++)PT({x:f.x+dir*84,y:f.y,z:f.z+74,vx:dir*rnd(1,4),vz:rnd(0,1.4),life:rndi(16,26),sz:rnd(6,12),col:'rgba(200,200,200,0.5)',k:'smoke'});}
  else if(d.proj==='shot'){addProj({x:f.x+dir*52,y:f.y,z:f.z+80,vx:dir*20,team:0,dmg:d.dmg,face:dir,owner:f,k:'bullet',w:18,launch:true,kb:6,life:60,pierce:3});PT({x:f.x+dir*56,y:f.y,z:f.z+82,life:6,sz:70,col:'rgba(190,130,255,0.95)',k:'muz',face:dir});for(let i=0;i<5;i++)PT({x:f.x+dir*56,y:f.y,z:f.z+82,vx:dir*rnd(1,5),vz:rnd(0,1.4),life:rndi(16,26),sz:rnd(7,14),col:'rgba(200,200,200,0.5)',k:'smoke'});}
  else if(d.proj==='scatter'){ // 信長の散弾: 5発が扇状に広がり、近いほど多く当たる
   for(const vy of[-2.4,-1.2,0,1.2,2.4])addProj({x:f.x+dir*60,y:f.y,z:f.z+78,vx:dir*rnd(17,21),vy,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'bullet',w:14,launch:true,kb:d.kb,life:18,pierce:1});
@@ -902,7 +904,7 @@ function fireProj(f,d){
   f.x-=dir*10;G.shake=Math.max(G.shake,7);}
  else if(d.proj==='bomb'){const p=nearestAlly(f),T=40,tx=p?p.x+rnd(-20,20):f.x+dir*200,ty=p?p.y:f.y;addProj({x:f.x+dir*30,y:f.y,z:f.z+90,vx:(tx-f.x)/T,vy:(ty-f.y)/T,vz:0.5*0.6*T-90/T,tx,ty,team:1,dmg:d.dmg,face:dir,owner:f,k:'bomb',w:0,life:T+30,kb:7,launch:true,nohit:true});}
  else if(d.proj==='parrow'){addProj({x:f.x+dir*50,y:f.y,z:f.z+82,vx:dir*19,team:0,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:18,launch:false,kb:4,life:60,pierce:2});}
- else if(d.proj==='kunai'){for(const vy of[0,-1.3,1.3])addProj({x:f.x+dir*44,y:f.y,z:108,vx:dir*11,vy,vz:-2.1,team:1,dmg:vy?5:d.dmg,face:dir,owner:f,k:'kunai',w:12,life:70});}
+ else if(d.proj==='kunai'){{const avy=aimVy(f,dir,11,44);for(const vy0 of[0,-1.3,1.3]){const vy=vy0+avy;addProj({x:f.x+dir*44,y:f.y,z:108,vx:dir*11,vy,vz:-2.1,team:1,dmg:vy0?5:d.dmg,face:dir,owner:f,k:'kunai',w:12,life:70,yr:avy?30:0});}}}
  else if(d.proj==='shuriken'){for(const o of[0])addProj({x:f.x+dir*30,y:f.y,z:f.z+70,vx:dir*8,vy:o*1.5,team:1,dmg:d.dmg,face:dir,owner:f,k:'shuriken',w:14});}
 }
 // 素手の通常攻撃の演出(信長=妖刀の妖気、三成=鉄扇の風の刃と扇投げ、信玄=風林火山)。first=技の出始め
@@ -931,7 +933,7 @@ function startEAct(e,d){e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=-1;}
 function startEAtk(e,i){const d=e.T.atk[i];e.state='atk';e.cur=d;e.st=0;e.hit.clear();e.atkI=i;if(d.k==='leap'){e.leaped=false;}if(e.T.boss&&d.hs>14){AU.sfx('warn2');if(Math.random()<0.2&&G.t-(e.shineT||-999)>900){e.shineT=G.t;AU.bossLine('shine',e,1.6);}}else if(!e.T.boss&&e.team===1&&Math.random()<0.06)AU.enemyLine('shine',e,0.9);}
 
 function bossTech(f,d){const p=nearestAlly(f);if(!p)return;const k=d.k;
- if(k==='arrows3'){for(const o of[-1,0,1])addProj({x:f.x+f.face*60,y:f.y,z:f.z+110,vx:f.face*11,vy:o*1.3,team:1,dmg:d.dmg||9,face:f.face,owner:f,k:'arrow',w:20});AU.sfx('arrow');return;}
+ if(k==='arrows3'){{const avy=aimVy(f,f.face,11,60);for(const o of[-1,0,1])addProj({x:f.x+f.face*60,y:f.y,z:f.z+110,vx:f.face*11,vy:o*1.3+avy,yr:30,team:1,dmg:d.dmg||9,face:f.face,owner:f,k:'arrow',w:20});}AU.sfx('arrow');return;}
  if(k==='grab'){if(Math.abs(p.x-f.x)<105&&Math.abs(p.y-f.y)<24&&p.z<20&&p.hp>0&&!(p.inv>0)){f.hit.add(p);hurt(p,f,{dmg:d.gd||20,kb:9,launch:true,pz:'tackle',unblock:true});G.shake=18;AU.sfx('boom');}}
  else if(k==='warp'){/* 瞬身は updEAtk の段階処理で行う(消える→背後に予告→現れる→斬る) */}
  else if(k==='volley'){const n=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.T.type==='gun').length;for(let i=0;i<Math.min(3,4-n);i++){const sd=i%2?1:-1;const e=spawnEn('gun',sd);e.entered=true;e.x=sd>0?G.camx+W-60:G.camx+60;e.y=clamp(YMIN+20+i*60,YMIN,YMAX);e.cool=40+i*20;}}
@@ -1332,6 +1334,10 @@ function atkInv(e){const d=e.cur,T=e.T;if(!d||e.state!=='atk'||!(T.boss||T.mid))
  if(d.edge)return !e.rushDone&&e.st>=1;const hs=d.hs||0;if(T.boss)return hs>=14&&e.st>=Math.max(1,hs-10)&&e.st<=d.he;return hs>=20&&e.st>=hs-8&&e.st<=d.he;}
 function canAct(e){return e.inv<=0||(e.pinv>0&&e.inv<=e.pinv);}
 function armorFx(t,a,d){if(G.t-(t.afxT||-99)<8)return;t.afxT=G.t;AU.sfx('block');t.flash=3;const dir=a.face||sgn(t.x-a.x)||1,hx=t.x-dir*10,hz=t.z+(t.T.boss?95:80);for(let i=0;i<6;i++)PT({x:hx,y:t.y,z:hz+rnd(-22,22),vx:-dir*rnd(1,5),vz:rnd(-1,4),life:rnd(8,14),sz:rnd(2,3.4),col:i%2?'#fff6c0':'#ffffff',k:'spark'});PT({x:hx,y:t.y,z:hz,life:7,k:'star',sz:34,col:'#fff'});}
+/* 列取り(オーナー「ボスが同じライン上でしか動かない」): 主人公の列(y)からずらした『斜めの位置』を一定時間ごとに選ぶ。範囲外なら反対側へ */
+function laneOff(e,p,a0,a1,t0,t1){if(!(e.loT>G.t)){e.loT=G.t+rndi(t0,t1);e.lo=(Math.random()<0.5?-1:1)*rnd(a0,a1);}let ty=p.y+e.lo;if(ty<YMIN+6||ty>YMAX-6)ty=p.y-e.lo;return clamp(ty,YMIN,YMAX);}
+/* 飛び道具兵の跳び退き: 詰められたら後ろへ(隅なら斜め横へ)抜けて間合いを取り直す。直後は冷却を縮めて撃ち返す */
+function rangedBack(e,p){const dx=p.x-e.x,cn=(dx>0&&e.x<G.camx+110)||(dx<0&&e.x>G.camx+W-110);let sy=p.y<e.y?1:-1;if((e.y+sy*60<YMIN||e.y+sy*60>YMAX))sy=-sy;e.state='dodge';e.st=0;e.dback=true;e.dgcd=G.t+150;e.cur=null;e.face=sgn(dx)||e.face;e.vx=cn?0:-sgn(dx)*(e.T.boss?9:8);e.dvy=sy*(cn?7:3);AU.sfx('dodge');dust(e.x,e.y,3);}
 function eProj(){let n=0;for(const q of G.proj)if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'))n++;return n;}
 function atkers(){let n=0;for(const e of G.fighters)if(e.team===1&&e.state==='atk'&&!e.T.boss)n++;return n;}
 function fighterScreenMargin(f){
@@ -1386,20 +1392,30 @@ function updEnemy(e){
    if(!p||p.hp<=0||p.state==='dead'){e.state='idle';break;}
    const dx=p.x-e.x,dy=p.y-e.y,adx=Math.abs(dx),ady=Math.abs(dy);e.face=dx>=0?1:-1;let mx=0,my=0;
    if(!e.entered){mx=e.x<G.camx+W/2?1:-1;}
-   else if(T.ai==='ranged'){const cornered=(dx>0&&e.x<G.camx+90)||(dx<0&&e.x>G.camx+W-90);if(adx<T.keep-130&&!cornered)mx=-sgn(dx)*0.5;else if(adx>T.keep+100)mx=sgn(dx);if(ady>10)my=sgn(dy);if(e.cool<=0&&ady<16&&adx<760&&adx>180&&e.entered&&eProj()<2)startEAtk(e,0);}
+   else if(T.ai==='ranged'){const cornered=(dx>0&&e.x<G.camx+90)||(dx<0&&e.x>G.camx+W-90);
+    /* 距離を取る: 近づかれたら全速で退き、詰められたら跳び退く。主人公と同じ列に並ばず、斜めの位置から撃つ(弾は相手の列へ斜めに飛ぶ) */
+    if(adx<T.keep-130&&!cornered)mx=-sgn(dx)*1.5;else if(adx>T.keep+100)mx=sgn(dx);
+    const ty=laneOff(e,p,60,150,110,230);if(Math.abs(ty-e.y)>10)my=sgn(ty-e.y);
+    if(adx<170&&ady<110&&e.entered&&!(e.dgcd>G.t)&&!e.hold){rangedBack(e,p);break;}
+    if(e.cool<=0&&ady<190&&adx<760&&adx>220&&e.entered&&eProj()<2)startEAtk(e,0);}
    else if(T.ai==='boss'){
-    if(p.state==='atk'&&p.cur&&p.st===2&&adx<240&&ady<34&&!(e.gcd>0)&&sgn(dx)===e.face&&Math.random()<(e.enr?0.55:0.35)){e.gcd=80;if(T.ai2==='archer'||Math.random()<0.35){const bm=bossScreenMargin(e)+24,cn=(dx>0&&e.x<G.camx+bm)||(dx<0&&e.x>G.camx+W-bm);if(T.ai2==='archer'&&cn&&!(e.hopCd>G.t)){e.hopCd=G.t+150;startEAct(e,BHOP);break;}startEAct(e,BSTEP);}else{startEAct(e,BGUARD);}break;}
-    if(e.cool<=0&&canAct(e)&&e.entered&&!(e.bleapCd>G.t)&&Math.random()<(e.enr?0.5:0.3)){e.bleapCd=G.t+(e.enr?420:600);startEAct(e,BLEAP);break;}
-    if(T.ai2==='archer'){const edge=bossScreenMargin(e)+24,cornered=(dx>0&&e.x<G.camx+edge)||(dx<0&&e.x>G.camx+W-edge);if(cornered&&adx<300&&ady<60&&!(e.hopCd>G.t)&&canAct(e)){e.hopCd=G.t+150;startEAct(e,BHOP);break;}if(adx<T.keep-80&&!cornered)mx=-sgn(dx);else if(adx>T.keep+140)mx=sgn(dx);if(ady>9)my=sgn(dy);
-     if(e.cool<=0&&canAct(e)){if(adx<200){if(Math.random()<0.7){if(cornered){e.hopCd=G.t+150;startEAct(e,BHOP);}else startEAct(e,BSTEP);}else startEAtk(e,pick(T.near));}else if(ady<40)startEAtk(e,pick(T.far));}}
-    else{const rg=T.atk[0].rng;if(adx>rg*0.7)mx=sgn(dx);else if(adx<rg*0.4)mx=-sgn(dx)*0.5;if(ady>9)my=sgn(dy);
+    if(p.state==='atk'&&p.cur&&p.st===2&&adx<240&&ady<34&&!(e.gcd>0)&&sgn(dx)===e.face&&Math.random()<(e.enr?0.55:0.35)){e.gcd=80;if(T.ai2==='archer'||Math.random()<0.35){const bm=Math.max(bossScreenMargin(e),combatScreenMargin(e))+24,cn=(dx>0&&e.x<G.camx+bm)||(dx<0&&e.x>G.camx+W-bm);if(T.ai2==='archer'&&cn&&!(e.hopCd>G.t)){e.hopCd=G.t+150;startEAct(e,BHOP);break;}startEAct(e,BSTEP);}else{startEAct(e,BGUARD);}break;}
+    if(e.cool<=0&&canAct(e)&&e.entered&&!(e.bleapCd>G.t)&&Math.random()<(e.enr?0.5:0.3)*(T.ai2==='archer'?0.3:1)/* 弓の大将は主人公に跳びかかるのが稀(距離を保つ) */){e.bleapCd=G.t+(e.enr?420:600);startEAct(e,BLEAP);break;}
+    if(T.ai2==='archer'){const edge=Math.max(bossScreenMargin(e),combatScreenMargin(e))+24,cornered=(dx>0&&e.x<G.camx+edge)||(dx<0&&e.x>G.camx+W-edge);if(cornered&&adx<300&&ady<120&&!(e.hopCd>G.t)&&canAct(e)){e.hopCd=G.t+150;startEAct(e,BHOP);break;}if(adx<T.keep-80&&!cornered)mx=-sgn(dx);else if(adx>T.keep+140)mx=sgn(dx);{const ty=laneOff(e,p,70,170,100,210);if(Math.abs(ty-e.y)>9)my=sgn(ty-e.y);}/* 斜めの位置どり: 主人公と同じ列に並ばず、斜めから撃つ */
+     if(e.cool<=0&&canAct(e)){if(adx<200){if(Math.random()<0.7){if(cornered){e.hopCd=G.t+150;startEAct(e,BHOP);}else startEAct(e,BSTEP);}else startEAtk(e,pick(T.near));}else if(ady<200){const fi=pick(T.far);if(ady<40||T.atk[fi].k==='arrows3'||T.atk[fi].k==='rain')startEAtk(e,fi);}}}
+    else{const rg=T.atk[0].rng;if(adx>rg*0.7)mx=sgn(dx);else if(adx<rg*0.4)mx=-sgn(dx)*0.5;
+    /* 遠いうちは斜めに回り込み、間合いに近づくほど主人公の列へ寄せる(オーナー「同じライン上でしか動かない」) */
+    {const lo=laneOff(e,p,50,140,100,200),k=clamp((adx-rg*1.1)/320,0,1),ty=p.y+(lo-p.y)*k;if(Math.abs(ty-e.y)>9)my=sgn(ty-e.y);}
     if(e.cool<=0&&canAct(e)){const pool=adx<230?T.near:T.far;startEAtk(e,pick(pool));}}}
    else if(T.skirm){ // 仮面のくノ一: 速く動き回り、近づかれると逃げ(隅なら横をすり抜け)、距離をとってジャンプクナイ、隙を見て斬りかかる
     const cn=(dx>0&&e.x<G.camx+170)||(dx<0&&e.x>G.camx+W-170);
+    /* 見切り(機動力): 主人公が近くで攻撃し始めたら、攻撃が出る前に斜めへ跳んでかわす */
+    if(p.state==='atk'&&p.cur&&adx<200&&ady<70&&!(e.dgcd>G.t)&&e.entered&&Math.random()<0.5){const sy=(e.y<p.y?-1:1);e.state='dodge';e.st=0;e.dback=true;e.dgcd=G.t+70;e.cur=null;e.face=sgn(dx)||e.face;e.vx=-sgn(dx)*(cn?-4:12);e.dvy=((e.y+sy*80<YMIN||e.y+sy*80>YMAX)?-sy:sy)*11;e.inv=Math.max(e.inv,14);AU.sfx('dodge');dodgeBurst(e);break;}
     if(e.rush>0){e.rush--;mx=sgn(dx)*1.6;}
     else if(adx<210&&e.cool>0)mx=cn?sgn(dx):-sgn(dx);else if(adx>420)mx=sgn(dx)*0.8;else if(e.cool<=0&&adx>150&&adx<520&&Math.random()<0.012)e.rush=34;/* 一気に踏み込んで斬る */
-    if(ady>9)my=sgn(dy);
-    if(e.cool<=0&&e.entered&&atkers()<3){if(adx<130&&ady<22){e.rush=0;startEAtk(e,0);}else if(!(e.rush>0)&&ady<20&&adx>170&&adx<650&&eProj()<3&&Math.random()<0.08)startEAtk(e,1);}}
+    /* 縦の動き: 冷却中は主人公のまわりを斜めにジグザグに駆け回り、斬りかかる/踏み込む時だけ列を合わせる(クナイは斜めに撃つので列合わせ不要) */
+    e.zz=(e.zz||rnd(0,6))+1;const aligned=e.rush>0||(e.cool<=0&&adx<230),ty=aligned?p.y:clamp(p.y+Math.sin(e.zz*0.08)*130,YMIN,YMAX);if(Math.abs(ty-e.y)>9)my=sgn(ty-e.y)*(aligned?1:1.4);
+    if(e.cool<=0&&e.entered&&atkers()<3){if(adx<130&&ady<22){e.rush=0;startEAtk(e,0);}else if(!(e.rush>0)&&ady<150&&adx>170&&adx<650&&eProj()<3&&Math.random()<0.08)startEAtk(e,1);}}
    else{const rg=T.atk[0].rng,sx=rg*0.72;if(adx>sx+8)mx=sgn(dx);else if(adx<sx-34)mx=-sgn(dx)*0.5;if(ady>8)my=sgn(dy);
     if(T.atk[3]&&T.atk[3].k==='ballthrow'&&adx>330&&adx<760&&ady<26&&e.cool<=0&&e.entered&&!(e.ballCd>G.t)&&atkers()<2&&eProj()<2&&Math.random()<0.012){e.ballCd=G.t+520;startEAtk(e,3);}
     else if(T.tack&&adx>230&&ady<70&&e.cool<=0&&e.entered&&!(e.rushCd>G.t)&&atkers()<2&&Math.random()<0.03){e.rushCd=G.t+480;startEAtk(e,1);}
@@ -1408,13 +1424,13 @@ function updEnemy(e){
     else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.atk.length>1&&!T.atk[1].proj&&!T.tack?rndi(0,1):0);
     else if(atkers()>=2&&e.state!=='atk'){const side=e.x<p.x?-1:1,tx=p.x+side*205,ty=clamp(p.y+(e.flk??(e.flk=rnd(-55,55))),YMIN,YMAX);mx=Math.abs(tx-e.x)>16?sgn(tx-e.x)*0.75:0;my=Math.abs(ty-e.y)>8?sgn(ty-e.y):0;}}
    if(e.reloadT>0){e.reloadT--;mx=0;my=0;}/* 鉄砲足軽は撃った後、その場で弾込め */
-   if(e.state==='idle'||e.state==='walk'){e.x+=mx*e.spd;e.y+=my*e.spd*0.6;e.state=(mx||my)?'walk':'idle';if(mx||my)e.wp+=Math.min(e.spd*0.08,0.62);}
+   if(e.state==='idle'||e.state==='walk'){const ox=e.x,oy=e.y;e.x+=mx*e.spd;e.y+=my*e.spd*0.6;if(T.skirm&&Math.hypot(e.x-ox,e.y-oy)>8){/* 速さが目に見えるように: 横に走る白い筋と、かげの煙 */if(G.t%2===0)dodgeStreak({ddir:sgn(e.x-ox)||sgn(e.y-oy)||1,ddy:0,x:e.x,y:e.y,z:e.z||0});if(G.t%3===0)PT({x:ox,y:oy,z:rnd(25,75),vx:0,vz:0.3,life:12,sz:rnd(14,22),col:'rgba(150,215,215,0.3)',k:'smoke'});}e.state=(mx||my)?'walk':'idle';if(mx||my)e.wp+=Math.min(e.spd*0.08,0.62);}
    break;}
-  case'atk':updAtk(e);break;
+  case'atk':{if(e.team===1&&e.T.ai==='ranged'&&!e.hold&&e.cur&&e.cur.proj&&e.st<e.cur.hs-8&&!(e.dgcd>G.t)&&p&&p.hp>0){const q=p;if(Math.abs(q.x-e.x)<130&&Math.abs(q.y-e.y)<90){rangedBack(e,q);break;}}updAtk(e);break;}
   case'hurt':e.x+=e.vx;e.vx*=0.8;if(e.st>=e.hurtT){e.state='idle';e.st=0;}break;
   case'down':updDown(e);break;
   case'getup':if(e.st>=20){e.state='idle';e.st=0;}break;
-  case'dodge':e.x+=e.vx;e.vx*=0.88;if(e.st>=18){e.state='idle';e.st=0;e.vx=0;e.cool=Math.min(e.cool,4);/* かわした直後に反撃 */}break;
+  case'dodge':e.x+=e.vx;e.vx*=0.88;if(e.dvy){e.y+=e.dvy;e.dvy*=0.88;}if(e.st>=18){e.state='idle';e.st=0;e.vx=0;e.dvy=0;e.cool=Math.min(e.cool,4);/* かわした直後に反撃 */}break;
   case'dead':break;
  }
  const edge=combatScreenMargin(e),entry=edge;
@@ -2421,8 +2437,8 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
  if(q.k==='rock'){ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.rotate(q.rot||0);ctx.fillStyle='#6f6558';ctx.strokeStyle='#241e18';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-16,-4);ctx.lineTo(-8,-15);ctx.lineTo(8,-13);ctx.lineTo(17,-2);ctx.lineTo(10,12);ctx.lineTo(-9,13);ctx.closePath();ctx.fill();ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.18)';ctx.beginPath();ctx.moveTo(-10,-8);ctx.lineTo(-2,-12);ctx.lineTo(2,-4);ctx.closePath();ctx.fill();ctx.restore();return;}
  if(q.k==='bomb'){ctx.save();ctx.strokeStyle=`rgba(255,60,40,${0.5+0.4*Math.sin(G.t*0.5)})`;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(q.tx-G.camx,q.ty,70,20,0,0,TAU);ctx.stroke();ctx.restore();ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.fillStyle='#2a2420';ctx.beginPath();ctx.arc(0,0,11,0,TAU);ctx.fill();ctx.strokeStyle='#000';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.25)';ctx.beginPath();ctx.arc(-3,-4,4,0,TAU);ctx.fill();ctx.strokeStyle='#c8a060';ctx.beginPath();ctx.moveTo(4,-9);ctx.quadraticCurveTo(10,-18,6,-22);ctx.stroke();ctx.restore();return;}
  const x=q.x-G.camx,y=q.y-q.z;ctx.save();ctx.translate(x,y);
- if(q.k==='arrow'){ctx.scale(q.face,1);line(-22,0,18,0,2.5,'#d8c8a0');poly([[18,-4],[28,0],[18,4]],'#ddd');poly([[-22,0],[-28,-4],[-18,0]],'#c33');poly([[-22,0],[-28,4],[-18,0]],'#c33');}
- else if(q.k==='bullet'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);const g=ctx.createLinearGradient(-30,0,8,0);g.addColorStop(0,'rgba(255,200,100,0)');g.addColorStop(1,q.team===0?'rgba(220,170,255,1)':'rgba(255,220,130,1)');ctx.fillStyle=g;ctx.fillRect(-30,-3,38,6);circ(8,0,5,'#fff');}
+ if(q.k==='arrow'){ctx.scale(q.face,1);if(q.vy)ctx.rotate(Math.atan2(q.vy,Math.abs(q.vx)));line(-22,0,18,0,2.5,'#d8c8a0');poly([[18,-4],[28,0],[18,4]],'#ddd');poly([[-22,0],[-28,-4],[-18,0]],'#c33');poly([[-22,0],[-28,4],[-18,0]],'#c33');}
+ else if(q.k==='bullet'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);if(q.vy)ctx.rotate(Math.atan2(q.vy,Math.abs(q.vx)));const g=ctx.createLinearGradient(-30,0,8,0);g.addColorStop(0,'rgba(255,200,100,0)');g.addColorStop(1,q.team===0?'rgba(220,170,255,1)':'rgba(255,220,130,1)');ctx.fillStyle=g;ctx.fillRect(-30,-3,38,6);circ(8,0,5,'#fff');}
  else if(q.k==='horse'){const S=SPR.mount_blue;if(S&&S.ready){ctx.translate(-x,-y);drawMounted({T:{},x:q.x,y:q.y,z:0,face:q.face,sc:1,t:G.t+((q.x|0)%7),state:'walk',flash:0},S,true);}else{ctx.scale(q.face,1);drawHorse(G.t*0.55,G.t);}}
  else if(q.k==='kunai'){const KS=SPR.monkfx,KQ=KS&&KS.ready&&KS.a.kunai&&KS.a.kunai[0];ctx.scale(q.face,1);ctx.rotate(Math.atan2(-q.vz,Math.abs(q.vx)));if(KQ)ctx.drawImage(KS.img,KQ[0],KQ[1],KQ[2],KQ[3],KQ[4],KQ[5],KQ[2],KQ[3]);else{line(-14,0,16,0,3,'#cfd6de');}}
  else if(q.k==='shuriken'){ctx.rotate(G.t*0.5);ctx.fillStyle='#cfd6de';for(let i=0;i<4;i++){ctx.rotate(Math.PI/2);poly([[0,0],[14,-3],[16,0],[14,3]],'#cfd6de',OUT,1);}circ(0,0,2,'#222');}

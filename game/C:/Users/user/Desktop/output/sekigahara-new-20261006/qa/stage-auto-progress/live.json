@@ -1,0 +1,148 @@
+{
+  "hero": "musashi",
+  "mounted": true,
+  "start": 0,
+  "bosses": [
+    "boss9"
+  ],
+  "expectedBosses": [
+    "boss9"
+  ],
+  "ticks": 12149,
+  "events": [
+    {
+      "t": 1,
+      "key": "story:run:0:",
+      "x": 259,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 1054,
+      "key": "play:run:0:",
+      "x": 259,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 1465,
+      "key": "play:run:1:",
+      "x": 1227,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 2164,
+      "key": "play:run:2:",
+      "x": 1984,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 3077,
+      "key": "play:run:3:",
+      "x": 3725,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 3699,
+      "key": "play:run:4:",
+      "x": 4049,
+      "hp": 114.14999999999999,
+      "lives": 99
+    },
+    {
+      "t": 4525,
+      "key": "play:run:5:",
+      "x": 5666,
+      "hp": 112.74999999999999,
+      "lives": 99
+    },
+    {
+      "t": 5160,
+      "key": "play:run:6:",
+      "x": 6679,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 5998,
+      "key": "play:run:7:",
+      "x": 7216,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 7216,
+      "key": "play:run:8:",
+      "x": 8306,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 8130,
+      "key": "play:run:9:",
+      "x": 9824,
+      "hp": 115.55,
+      "lives": 99
+    },
+    {
+      "t": 8878,
+      "key": "play:run:10:",
+      "x": 10764,
+      "hp": 112.74999999999999,
+      "lives": 99
+    },
+    {
+      "t": 9014,
+      "key": "story:run:10:boss9",
+      "x": 11300,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 9223,
+      "key": "play:run:10:boss9",
+      "x": 11300,
+      "hp": 118,
+      "lives": 99
+    },
+    {
+      "t": 11128,
+      "key": "play:bossdown:10:boss9",
+      "x": 10900,
+      "hp": 83.74999999999999,
+      "lives": 99
+    },
+    {
+      "t": 11836,
+      "key": "play:clear:10:boss9",
+      "x": 10900,
+      "hp": 83.74999999999999,
+      "lives": 99
+    },
+    {
+      "t": 12149,
+      "key": "story:run:0:",
+      "x": 259,
+      "hp": 118,
+      "lives": 99
+    }
+  ],
+  "bossSeen": true,
+  "conversationSeen": true,
+  "clearSeen": true,
+  "stage": 1,
+  "mode": "story",
+  "state": "run",
+  "wave": 0,
+  "player": {
+    "x": 259,
+    "y": 570,
+    "state": "idle",
+    "hp": 118,
+    "weapon": null
+  },
+  "enemies": []
+}
