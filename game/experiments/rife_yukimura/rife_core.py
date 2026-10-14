@@ -122,3 +122,40 @@ def interp(net, a, b, t):
     with torch.no_grad():
         o = net(i0, i1, ts, div, grid, net.encode(i0), net.encode(i1))
     return (o[0, :, :h, :w].permute(1, 2, 0).clamp(0, 1) * 255).round().byte().numpy()
+
+
+def interp_with_flow(net, a, b, t):
+    """interp と同じだが、(補間画像, 両方向フロー(2,H,W)x2) も返す。動きの大きさの測定用"""
+    h, w = a.shape[:2]
+    ph, pw = ((h - 1) // 32 + 1) * 32, ((w - 1) // 32 + 1) * 32
+
+    def tt(x):
+        x = torch.from_numpy(np.ascontiguousarray(x)).permute(2, 0, 1).float().unsqueeze(0) / 255
+        return F.pad(x, (0, pw - w, 0, ph - h), mode="replicate")
+
+    img0, img1 = tt(a), tt(b)
+    div = torch.tensor([(pw - 1) / 2, (ph - 1) / 2])
+    gx = torch.linspace(-1, 1, pw).view(1, 1, 1, pw).expand(-1, -1, ph, -1)
+    gy = torch.linspace(-1, 1, ph).view(1, 1, ph, 1).expand(-1, -1, -1, pw)
+    grid = torch.cat([gx, gy], 1)
+    ts = torch.full([1, 1, ph, pw], float(t))
+    with torch.no_grad():
+        f0, f1 = net.encode(img0), net.encode(img1)
+        w0, w1 = img0, img1
+        flow = mask = feat = None
+        blocks = [net.block0, net.block1, net.block2, net.block3, net.block4]
+        for i in range(5):
+            if flow is None:
+                flow, mask, feat = blocks[i](torch.cat((img0, img1, f0, f1, ts), 1), None, scale=net.scale_list[i])
+            else:
+                wf0 = warp(f0, flow[:, :2], div, grid)
+                wf1 = warp(f1, flow[:, 2:4], div, grid)
+                fd, m0, feat = blocks[i](torch.cat((w0, w1, wf0, wf1, ts, mask, feat), 1), flow, scale=net.scale_list[i])
+                mask = m0
+                flow = flow + fd
+            w0 = warp(img0, flow[:, :2], div, grid)
+            w1 = warp(img1, flow[:, 2:4], div, grid)
+        m = torch.sigmoid(mask)
+        o = w0 * m + w1 * (1 - m)
+    img = (o[0, :, :h, :w].permute(1, 2, 0).clamp(0, 1) * 255).round().byte().numpy()
+    return img, flow[0, :, :h, :w].numpy()
