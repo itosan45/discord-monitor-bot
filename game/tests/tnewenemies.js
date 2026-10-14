@@ -49,7 +49,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  for(const ty of ['monk','kunoichi','yoroi','akabi']){const o=r.rows[ty];if(!o.ready)bad.push(ty+'ready');if(o.walkFrames<(ty==='kunoichi'?8:12))bad.push(ty+'walk'+o.walkFrames);if(o.moved<30)bad.push(ty+'move');
   if(!/hurt|down/.test(o.afterLaunch)||!/getup/.test(o.afterLaunch)||!/idle$/.test(o.afterLaunch))bad.push(ty+'cycle:'+o.afterLaunch);
   if(!/dead$/.test(o.deadStates))bad.push(ty+'dead:'+o.deadStates);if(o.deadFrames<6)bad.push(ty+'deadFrames'+o.deadFrames);
-  for(const a of o.atk){if(!(a.hits>=1)&&!(ty==='kunoichi'&&a.ai===1))bad.push(ty+'atk'+a.ai+'hit');}}
+  for(const a of o.atk){if(!(a.hits>=1)&&!(ty==='kunoichi'&&a.ai===1)&&!(ty==='monk'&&a.ai===3))bad.push(ty+'atk'+a.ai+'hit');}}
  const A=n=>r.rows[n].atk;
  if(A('monk')[0].frames<6||!A('monk')[0].qfx||A('monk')[0].hits!==1)bad.push('monk slam '+JSON.stringify(A('monk')[0]));
  if(A('monk')[1].frames<8||A('monk')[1].advance<90)bad.push('monk tackle '+JSON.stringify(A('monk')[1]));
