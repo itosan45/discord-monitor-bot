@@ -40,6 +40,13 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    for(let i=0;i<1200;i++){P.hp=P.maxhp;P.inv=999;const ox=e.x,oy=e.y;tick();e.hp=e.maxhp;ymin=Math.min(ymin,e.y);ymax=Math.max(ymax,e.y);if(e.state==='dodge'&&!wasD)dodges++;wasD=e.state==='dodge';n++;if(Math.hypot(e.x-ox,e.y-oy)>8)fast++;}
    out.kunoichi={yRange:Math.round(ymax-ymin),dodges,fastRate:+(fast/n).toFixed(2)};
    if(!(ymax-ymin>=120))bad.push('くノ一の縦の動きが小さい '+(ymax-ymin));if(!(dodges>=1))bad.push('くノ一が見切りで跳んでかわさない');}
+  // ⑥ ボスの親衛隊: ボスが出ると鎧武者とくノ一が付き、倒されても時間がたつと補充される。ボスが倒れると全員倒れる
+  {const P=setup(570);const b=spawnEn('boss1',1);b.x=G.camx+1000;b.y=570;b.cool=9999;G.boss=b;
+   const gs=()=>G.fighters.filter(f=>f.guardOf===b&&f.hp>0&&!f.dying);const kinds=()=>gs().map(f=>f.gKind).sort().join();
+   out.guard0=kinds();if(out.guard0!=='kunoichi,yoroi')bad.push('親衛隊の構成が鎧武者+くノ一でない '+out.guard0);
+   const g=gs()[0];g.hp=0;g.dying=true;g.state='dead';let back=-1;for(let i=0;i<900;i++){P.hp=P.maxhp;P.inv=999;b.hp=b.maxhp;tick();for(const f of G.fighters)if(f.team===1&&f!==b&&f.guardOf===b)f.cool=Math.max(f.cool,30);if(back<0&&kinds()==='kunoichi,yoroi')back=i;}
+   out.guardBack=back;if(back<0)bad.push('倒された親衛隊が補充されない');
+   const ct=gs().length;bossDown(b,P);out.guardAfter=G.fighters.filter(f=>f.guardOf===b&&f.hp>0).length;if(out.guardAfter)bad.push('ボスが倒れても親衛隊が残る '+out.guardAfter);}
   return{out,bad};});
  console.log(JSON.stringify({bad:r.bad,errors,out:r.out}));
  }finally{await b.close();}})();
