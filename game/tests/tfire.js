@@ -33,5 +33,32 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  out.kakei=await p.evaluate(()=>{const P=G.player;const es=[0,1,2].map(i=>{const e=mk('sword',P.x+140+i*90,540+i*40,1);e.entered=true;e.hp=e.maxhp=9999;e.cool=9999;e.face=-1;G.fighters.push(e);return e;});G.parts=[];for(let st=8;st<=40;st+=2)kakeiStep(P,st);return{fire:G.parts.filter(x=>x.k==='fire').length,flame:G.parts.filter(x=>x.k==='flame').length};});
  if(!out.kakei.fire)bad.push('火刑の火が fire になっていない '+JSON.stringify(out.kakei));
  await frame(4);await shot('kakei');
+ // 6) 水遁・衝撃波・爆発・銃口の閃光も丸い光ではなく形のある絵(2026-10-14)
+ await setup();
+ out.fx=await p.evaluate(()=>{const P=G.player,r={};let rg=0;const o=CanvasRenderingContext2D.prototype.createRadialGradient;CanvasRenderingContext2D.prototype.createRadialGradient=function(...a){rg++;return o.apply(this,a);};
+  const draw=(mk)=>{G.proj=[];G.parts=[];rg=0;mk();for(let i=0;i<8;i++){G.t++;updProj();ctx.setTransform(RS,0,0,RS,0,0);for(const q of G.proj)drawProj(q);}return rg;};
+  r.waterRg=draw(()=>{for(const dy of[-30,0,30])addProj({x:P.x+60,y:P.y+dy,z:6,vx:10,team:0,dmg:18,face:1,owner:P,k:'wave',w:52,life:54,launch:true,kb:7,pierce:99,sty:'water'});});
+  r.waterDrops=G.parts.filter(x=>x.k==='dot').length;
+  r.shockRg=draw(()=>{for(const s of[1,-1])addProj({x:P.x+120+s*30,y:P.y,z:6,vx:s*7,team:1,dmg:14,face:s,owner:null,k:'wave',w:46,life:60,launch:true,kb:6,pierce:99});});
+  r.shockDust=G.parts.filter(x=>x.k==='smoke').length;
+  CanvasRenderingContext2D.prototype.createRadialGradient=o;
+  G.proj=[];G.parts=[];addProj({x:P.x+300,y:600,z:0.5,vx:0,vy:0,vz:-1,tx:P.x+300,ty:600,team:-1,dmg:16,face:1,owner:null,k:'bomb',w:0,life:60,kb:8,launch:true,nohit:true,big:true});for(let i=0;i<3;i++){G.t++;updProj();}
+  const ks={};for(const x of G.parts)ks[x.k]=(ks[x.k]||0)+1;r.blast=ks;
+  G.parts=[];const e=mk('gun',P.x+260,P.y,1);e.entered=true;e.face=-1;fireProj(e,{proj:'bullet',dmg:5});r.muz=G.parts.filter(x=>x.k==='muz').length;r.muzFlame=G.parts.filter(x=>x.k==='flame').length;
+  return r;});
+ if(out.fx.waterRg)bad.push('水遁の波に丸い光が残っている '+out.fx.waterRg);
+ if(out.fx.shockRg)bad.push('衝撃波に丸い光が残っている '+out.fx.shockRg);
+ if(!out.fx.waterDrops)bad.push('水しぶきが出ない');
+ if(!out.fx.shockDust)bad.push('衝撃波の土煙が出ない');
+ for(const k of['flash','fire','smoke','deb','spark','ring'])if(!out.fx.blast[k])bad.push('爆発に '+k+' が出ない '+JSON.stringify(out.fx.blast));
+ if(!out.fx.muz||out.fx.muzFlame)bad.push('銃口の閃光 '+JSON.stringify([out.fx.muz,out.fx.muzFlame]));
+ if(process.env.QA_OUT){await setup();await p.evaluate(()=>{const P=G.player;for(const dy of[-30,0,30])addProj({x:P.x+60,y:P.y+dy,z:6,vx:10,team:0,dmg:18,face:1,owner:P,k:'wave',w:52,life:54,launch:true,kb:7,pierce:99,sty:'water'});for(const s of[1,-1])addProj({x:P.x+260+s*30,y:P.y,z:6,vx:s*7,team:1,dmg:14,face:s,owner:null,k:'wave',w:46,life:60,launch:true,kb:6,pierce:99});});await frame(14);await shot('water_shock');
+  await setup();await p.evaluate(()=>{const P=G.player;addProj({x:P.x+300,y:600,z:0.5,vx:0,vy:0,vz:-1,tx:P.x+300,ty:600,team:-1,dmg:16,face:1,owner:null,k:'bomb',w:0,life:60,kb:8,launch:true,nohit:true,big:true});});await frame(5);await shot('blast');}
+ // 7) 落下する火(fall)は炎の形、紫の妖気(信長 yoki)・自軍の落下は紫の炎
+ out.fall=await p.evaluate(()=>{const P=G.player;G.proj=[];G.parts=[];let rg=0;const o=CanvasRenderingContext2D.prototype.createRadialGradient;CanvasRenderingContext2D.prototype.createRadialGradient=function(...a){rg++;return o.apply(this,a);};window.__fl.n=0;
+  addProj({x:P.x+250,y:P.y,z:300,vz:-12,team:1,dmg:12,face:1,owner:null,k:'fall',w:60,wait:0,life:200,kb:6,launch:true});G.t++;ctx.setTransform(RS,0,0,RS,0,0);for(const q of G.proj)drawProj(q);CanvasRenderingContext2D.prototype.createRadialGradient=o;
+  const r={rg,flames:window.__fl.n};G.proj=[];G.parts=[];addProj({x:P.x+250,y:P.y,z:2,vz:-12,team:0,dmg:12,face:1,owner:P,k:'fall',w:60,wait:0,life:200,kb:6,launch:true});updProj();r.purple=G.parts.filter(x=>x.k==='fire'&&x.pal).length;return r;});
+ if(out.fall.rg||!out.fall.flames)bad.push('落下する火が炎の形で描かれていない '+JSON.stringify(out.fall));
+ if(!out.fall.purple)bad.push('自軍の落下の紫の炎が出ない '+JSON.stringify(out.fall));
  console.log(JSON.stringify({bad,errors,out}));if(bad.length||errors.length)process.exitCode=1;
  }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
