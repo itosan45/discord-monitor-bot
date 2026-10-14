@@ -824,7 +824,7 @@ function hurt(t,a,d){
  let mh=false;if(t.mount){mh=true;if(!(G.auto&&t===G.player&&demoView.mounted))t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
  let ctr=false;if(own.team===0&&t.team===1&&t.state==='atk'&&t.cur&&t.st<(t.cur.hs||0)){ctr=true;dmg*=1.3;G.ctrN=(G.ctrN||0)+1;if(!((G.ctrFxT||0)>G.t)){G.ctrFxT=G.t+45;G.hitstop=Math.max(G.hitstop,9);G.shake=Math.max(G.shake,7);slashFx(t.x,t.y,t.z+80,dir,180,16,'#dff6ff');}}
  let crit=false;if(own.team===0&&t.team===1){const cc=(d.chg||(own.cur&&(own.cur.iai||own.cur.chg||own.cur.ck)))?0.3:0.07;if(Math.random()<cc){crit=true;dmg*=1.6;G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,9);PT({x:t.x,y:t.y,z:t.z+80,life:10,k:'star',sz:80,col:'#fff6c0'});slashFx(t.x,t.y,t.z+85,dir,210,18);}}t.critK=crit;
- t.hp-=dmg;t.flash=8;t.showBar=160;if(t.T&&t.T.boss){t.hitRun=(t.hitRun||0)+1;t.hitRunT=50;}if(t.team===1&&t.hp>0&&(t.T.boss||t.T.mid)&&!(own.state==='ult'||own.state==='spc'||own.state==='mspc'||G.ult||G.spcScene)){const n=t.T.boss?12:6;t.pinv=n;t.inv=Math.max(t.inv,n);}if(t.team===1){G.lastEn=t;G.lastT=220;}
+ t.hp-=dmg;t.flash=8;t.showBar=160;if(t.T&&t.T.boss){t.hitRun=(t.hitRun||0)+1;t.hitRunT=50;}if(t.team===1&&t.hp>0&&(t.T.boss||t.T.mid)&&!(own.state==='ult'||own.state==='spc'||own.state==='mspc'||G.ult||G.spcScene)){const n=t.T.boss?10:5;t.pinv=n;t.inv=Math.max(t.inv,n);}if(t.team===1){G.lastEn=t;G.lastT=220;}
  if(own.team===0&&t.team===1){if(!(own.state==='spc'||own.state==='ult'||a.sp||G.ult))own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*1.1);addHit();}
  if(t.team===0&&own.team===1&&!G.demo)t.ki=Math.min(KMAX,(t.ki||0)+dmg*0.8);
  const hx=t.x-dir*10,hy=t.y,hz=t.z+55+rnd(-10,15);
@@ -1322,10 +1322,10 @@ function updDown(f){
 
 /* ---------- enemy AI ---------- */
 /* ボス・中ボスの無敵(2026-10-14 オーナー「ボスや中ボスにも無敵時間を。主人公の攻撃で技が全部つぶされてリンチで終わる」「鉄球大僧のタックル中は無敵、避けるしかない」)
-   ①技の出始め〜当たりが終わるまでは無敵(ボス=技の出始めから、中ボス=当たりの8コマ前から)。突進(edge)は走り切るまで完全無敵で、壁激突後の隙は殴れる。
-   ②被弾のたびに短い無敵(ボス12コマ・中ボス6コマ。必殺・奥義は除く)で、連打で押し切られない。 */
+   ①技の当たりが終わるまで無敵(ボス=当たりの10コマ前から、中ボス=8コマ前から。予備動作の前半は殴れる)。突進(edge)は走り切るまで完全無敵で、壁激突後の隙は殴れる。
+   ②被弾のたびに短い無敵(ボス10コマ・中ボス5コマ。必殺・奥義は除く)で、連打で押し切られない。 */
 function atkInv(e){const d=e.cur,T=e.T;if(!d||e.state!=='atk'||!(T.boss||T.mid))return false;if(d.k==='guard'||d.k==='step'||d.k==='hop')return false;
- if(d.edge)return !e.rushDone&&e.st>=1;const hs=d.hs||0;if(T.boss)return hs>=14&&e.st<=d.he;return hs>=20&&e.st>=hs-8&&e.st<=d.he;}
+ if(d.edge)return !e.rushDone&&e.st>=1;const hs=d.hs||0;if(T.boss)return hs>=14&&e.st>=Math.max(1,hs-10)&&e.st<=d.he;return hs>=20&&e.st>=hs-8&&e.st<=d.he;}
 function canAct(e){return e.inv<=0||(e.pinv>0&&e.inv<=e.pinv);}
 function armorFx(t,a,d){if(G.t-(t.afxT||-99)<8)return;t.afxT=G.t;AU.sfx('block');t.flash=3;const dir=a.face||sgn(t.x-a.x)||1,hx=t.x-dir*10,hz=t.z+(t.T.boss?95:80);for(let i=0;i<6;i++)PT({x:hx,y:t.y,z:hz+rnd(-22,22),vx:-dir*rnd(1,5),vz:rnd(-1,4),life:rnd(8,14),sz:rnd(2,3.4),col:i%2?'#fff6c0':'#ffffff',k:'spark'});PT({x:hx,y:t.y,z:hz,life:7,k:'star',sz:34,col:'#fff'});}
 function eProj(){let n=0;for(const q of G.proj)if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai'))n++;return n;}
