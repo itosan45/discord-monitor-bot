@@ -798,7 +798,7 @@ function gunbaiCounter(t,own,a){if(t.T.type!=='shin'||t.wpn||t.mount||!own||own.
  AU.sfx('clang');hurt(own,{x:t.x,face:t.face,team:0,owner:t,hit:null},{dmg:16,kb:8,launch:true,unblock:true,pz:'swing'});}
 function hurt(t,a,d){
  const own=a.owner||a;if(a.hit)a.hit.add(t);
- let dmg=d.dmg*(own.dm||1);const dir=a.face||sgn(t.x-a.x);if(t.T&&t.T.boss)dmg*=1.4;if(own.wpn&&!a.owner&&own.team===0&&own.wpn.k!=='teppo'&&own.wpn.k!=='yumi')useWpn(own);if(own.wpn&&own.wpn.k==='yoto'&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+2);if(d.fx==='yoki'&&!own.wpn&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+1);
+ let dmg=d.dmg*(own.dm||1);const dir=a.face||sgn(t.x-a.x);if(t.T&&t.T.boss)dmg*=1.4;{const cm=chipMul(t,own);dmg*=cm;t.chipHit=cm<1;if(cm<1)for(let i=0;i<3;i++)PT({x:t.x,y:t.y,z:t.z+80+rnd(-24,24),vx:rnd(-3,3),vz:rnd(0,3),life:8,sz:2.2,col:'#b8b8c4',k:'spark'});}if(own.wpn&&!a.owner&&own.team===0&&own.wpn.k!=='teppo'&&own.wpn.k!=='yumi')useWpn(own);if(own.wpn&&own.wpn.k==='yoto'&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+2);if(d.fx==='yoki'&&!own.wpn&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+1);
  if(t.team===0&&!a.owner&&!d.unblock&&tryCover(t,own,dmg))return;
  if(t.team===0&&t.state==='guard'&&!t.isProp&&!d.unblock){const front=(a.x!==undefined&&!a.k)?sgn(a.x-t.x)===t.face:(a.face===-t.face||(a.x!==undefined&&sgn(a.x-t.x)===t.face));
   if(front&&G.t-(t.gT0||-99)<=8&&!t.mount){t.gT0=-99;mikiri(t,own,a);return;}
@@ -1324,6 +1324,10 @@ function updDown(f){
 /* ボス・中ボスの無敵(2026-10-14 オーナー「ボスや中ボスにも無敵時間を。主人公の攻撃で技が全部つぶされてリンチで終わる」「鉄球大僧のタックル中は無敵、避けるしかない」)
    ①技の当たりが終わるまで無敵(ボス=当たりの10コマ前から、中ボス=8コマ前から。予備動作の前半は殴れる)。突進(edge)は走り切るまで完全無敵で、壁激突後の隙は殴れる。
    ②被弾のたびに短い無敵(ボス10コマ・中ボス5コマ。必殺・奥義は除く)で、連打で押し切られない。 */
+/* ボスの「隙」(2026-10-14 オーナー「手数で勝ってしまう。ボスはパターン化されていて攻略が必要」): 普段のボス・中ボスは削りダメージ(ボス5割・中ボス7割)だけで、
+   ①技の当たりが終わったあとの隙(突進は壁激突のあと) ②ガードクラッシュ ③のけぞり・ダウン の間だけ通常(ボスは1.2倍)のダメージ。必殺・奥義はいつでも通常。隙の間はボスの頭上に金色の光が出る */
+function bossOpen(e){if(e.gcrash>G.t)return true;const s=e.state;if(s==='hurt'||s==='down'||s==='getup')return true;if(s==='atk'&&e.cur){const d=e.cur;if(d.k==='guard'||d.k==='step'||d.k==='hop')return false;if(d.edge)return !!e.rushDone;return e.st>(d.he||0)+2;}return false;}
+function chipMul(t,own){if(t.team!==1||!(t.T.boss||t.T.mid))return 1;if(own&&(own.state==='ult'||own.state==='spc'||own.state==='mspc')||G.ult||G.spcScene)return 1;return bossOpen(t)?(t.T.boss?1.2:1):(t.T.boss?0.5:0.7);}
 function atkInv(e){const d=e.cur,T=e.T;if(!d||e.state!=='atk'||!(T.boss||T.mid))return false;if(d.k==='guard'||d.k==='step'||d.k==='hop')return false;
  if(d.edge)return !e.rushDone&&e.st>=1;const hs=d.hs||0;if(T.boss)return hs>=14&&e.st>=Math.max(1,hs-10)&&e.st<=d.he;return hs>=20&&e.st>=hs-8&&e.st<=d.he;}
 function canAct(e){return e.inv<=0||(e.pinv>0&&e.inv<=e.pinv);}
@@ -1369,7 +1373,7 @@ function bossLeapSpeed(e){const S=SPR[e.T.spr||e.T.type];if(!S||!S.ready)return 
  return Math.min(15,Math.sqrt(2*GR*Math.max(0,YMIN-head-20)));}
 function updEnemy(e){
  if(e.state==='held'&&e.heldBy&&e.heldBy.spearThrow&&e.heldBy.spearThrow.e===e){const p=e.heldBy;if(p.state==='throw'&&!p.spearThrow.released){e.t++;e.st++;if(e.flash>0)e.flash--;attachSpearVictim(p,e);return;}cancelSpearThrow(p);}
- const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
+ const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if((e.T.boss||e.T.mid)&&e.hp>0&&!G.lowq&&e.t%7===0&&bossOpen(e)&&e.state!=='down'&&e.state!=='getup')PT({x:e.x+rnd(-18,18),y:e.y,z:e.z+(e.T.boss?176:150)+rnd(-8,8),life:11,k:'star',sz:rnd(22,34),col:'#ffd860'});if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);if(e.hide&&!(e.state==='atk'&&e.cur&&e.cur.k==='warp'))e.hide=false;/* 瞬身の途中で割り込まれても姿を戻す */
  if(e.gcd>0)e.gcd--;if(e.hitRunT>0)e.hitRunT--;else e.hitRun=0;
  if(T.boss&&e.hitRun>=6&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;/* 振り払い: 声は無し(喋りすぎ対策。「おのれ」は起き上がり時に移した。旧 sx.nuo は audio.json に残してある) */startEAct(e,BSHAKE);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);AU.sfx('roar');}
