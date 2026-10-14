@@ -24,7 +24,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   return out;});
  const bad=[];
  if(r.stage0.mon!==''||r.stage0.v1)bad.push('monk のない幕で読んでいる '+JSON.stringify(r.stage0));
- if(r.stage2!=='monk,monk_b,monk_c,monkfx')bad.push('monk のある幕の読み込み '+r.stage2);
+ if(r.stage2!=='monk,monk_b,monk_c,monkball,monkfx')bad.push('monk のある幕の読み込み '+r.stage2);
  if(!r.ready)bad.push('色違いの画像が読めない');
  if(!r.samePos)bad.push('色違いのコマの位置が元と違う(pack_monk_variants.py を作り直す)');
  if(r.vars!==',b,c,,b')bad.push('出る順の色違い '+r.vars);

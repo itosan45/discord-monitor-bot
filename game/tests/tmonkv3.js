@@ -38,7 +38,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
  if(r.smash.frames.split(' ').filter(x=>/^\d+$/.test(x)).length!==12)bad.push('叩きつけに全12コマが出ない '+r.smash.frames);
  if(!/6/.test(r.smash.hitFrames)||!/7/.test(r.smash.hitFrames)||/(^| )[0-4]( |$)/.test(r.smash.hitFrames))bad.push('着弾のコマ '+r.smash.hitFrames);
  if(r.smash.hitTick<31||r.smash.hitTick>37)bad.push('命中のタイミング '+r.smash.hitTick);
- if(r.leapAnim!=='a1'||r.a1len!==6)bad.push('跳躍攻撃の絵 '+r.leapAnim+' '+r.a1len);
+ if(r.leapAnim!=='mjump'||r.a1len!==6)bad.push('跳躍攻撃の絵(A-014でジャンプ6コマ mjump になった) '+r.leapAnim+' '+r.a1len);
  if(process.env.QA_OUT){const fs=require('fs');fs.mkdirSync(process.env.QA_OUT,{recursive:true});
   const shots=[['down_t3','down',3],['down_t8','down',8],['down_t14','down',14],['down_t20','down',20],['down_t26','down',26],['down_land','down',-1],['down_lie','down',-2],['smash_0','smash',6],['smash_1','smash',20],['smash_2','smash',30],['smash_3','smash',34],['smash_4','smash',44],['smash_5','smash',56]];
   for(const [name,kind,t] of shots){await p.evaluate(([kind,t])=>{startGame('yuki',null);G.waveOn=false;G.waves=[{x:999999,en:[]}];G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;G.props=[];G.deco=[];G.parts=[];G.proj=[];G.items=[];G.decals=[];const P=G.player;P.hp=P.maxhp=9999;P.inv=999;P.x=G.camx+250;P.y=570;P.face=1;

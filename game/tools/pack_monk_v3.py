@@ -3,6 +3,7 @@
 - 新アトラス monk: pack_a006.py と同じ縮尺0.86・原点(x=128, y=待機と歩きの下端平均)。そこへ
   'walk'=歩き16コマ(2026-10-14納品。旧8コマv2と置き換え。旧は monk_v1 に残る。人物の高さが旧歩きより約4%小さいため、この行だけ縮尺を×1.035して旧歩きの高さにそろえる=ROW_SCALE)、
   'smash'=叩きつけ12コマ(通常攻撃1段目が使う。旧 'a1' 6コマは跳躍攻撃が引き続き使う)、
+  'mrun'=突進の走り8コマ・'mwall'=壁激突4コマ・'mjump'=ジャンプ6コマ・'mgst'=ガード構え2・'mgit'=ガード受け2・'mgcr'=ガードクラッシュ4・'mthrow'=鉄球投げ6(A-014。縮尺は他の行と同じ0.86、原点も同じ接地線)。
   'down'=転倒8コマ(旧4コマに置き換え。接地線y360を原点にして、空中のコマは自然に浮く)。
   転倒8コマの使い方: 0・1=のけぞり、2=離地、3=後方へ吹き飛ぶ、4=落下、5=初接地、6=小さな弾み、7=寝姿。
 使い方: python3 game/tools/pack_monk_v3.py  → cd game && python3 build.py"""
@@ -23,7 +24,11 @@ SCALE = 0.86
 ROW_SCALE = {'walk': 1.035}   # 歩き16コマは人物の高さが旧歩き8コマv2より約4%小さい(197〜205px対207〜209px)ので、旧歩きの高さへそろえる
 SPEC = [('idle', '鉄球大僧_待機_4コマ_v1.png', 4), ('walk', '鉄球大僧_歩き_16コマ_v1.png', 16), ('a1', '鉄球大僧_攻撃_6コマ_v1.png', 6),
         ('smash', '鉄球大僧_攻撃_12コマ_v2.png', 12), ('a2', '鉄球大僧_ダッシュタックル_8コマ_v1.png', 8), ('hit', '鉄球大僧_被弾_2コマ_v1.png', 2),
-        ('down', '鉄球大僧_ダウン_8コマ_v3.png', 8), ('getup', '鉄球大僧_起き上がり_4コマ_v1.png', 4), ('dead', '鉄球大僧_やられ_6コマ_v1.png', 6)]
+        ('down', '鉄球大僧_ダウン_8コマ_v3.png', 8), ('getup', '鉄球大僧_起き上がり_4コマ_v1.png', 4), ('dead', '鉄球大僧_やられ_6コマ_v1.png', 6),
+        # A-014(2026-10-14納品)。行名は他の型のキー(run/jump/guard…)と混ざらないよう m を付ける
+        ('mrun', '鉄球大僧_走り_8コマ_v1.png', 8), ('mwall', '鉄球大僧_壁激突_4コマ_v1.png', 4), ('mjump', '鉄球大僧_ジャンプ_6コマ_v1.png', 6),
+        ('mgst', '鉄球大僧_ガード構え_2コマ_v1.png', 2), ('mgit', '鉄球大僧_ガード受け_2コマ_v1.png', 2), ('mgcr', '鉄球大僧_ガードクラッシュ_4コマ_v1.png', 4),
+        ('mthrow', '鉄球大僧_鉄球投げ_6コマ_v1.png', 6)]
 meta = json.loads((SPRITES / 'sprmeta.json').read_text(encoding='utf-8'))
 
 # 旧アトラスの保持(まだ無いときだけ)
@@ -65,6 +70,18 @@ def pack_row(cs, origin, s):
 
 loaded = {nm: cells(fn, n) for nm, fn, n in SPEC}
 ground = float(np.mean(bottoms(loaded['idle']) + bottoms(loaded['walk'])))
+# ジャンプ6コマ(mjump)は原画の空中コマに離地の高さ(足元が地面より16〜41px上)が描き込まれている。ゲーム側の跳躍(f.z)でも浮かせるので二重に浮く(頂点で画面の上端を越える)。
+# 各コマの足元を接地線にそろえて、浮く高さはゲーム側(f.z)に任せる
+_cs = []
+for c in loaded['mjump']:
+    b = int(np.where(c[..., 3] > 40)[0].max() + 1)
+    sh = int(round(ground - b))
+    if sh > 0:
+        d = np.zeros_like(c)
+        d[sh:, :] = c[:c.shape[0] - sh, :]
+        c = d
+    _cs.append(c)
+loaded['mjump'] = _cs
 rows = []
 for nm, fn, n in SPEC:
     if nm == 'down':
@@ -76,13 +93,25 @@ for nm, fn, n in SPEC:
     row, arr = pack_row(loaded[nm], (128, g), SCALE * ROW_SCALE.get(nm, 1.0))
     rows.append((nm, row, arr))
 AW = max(r.width for _, r, _ in rows)
-AH = sum(r.height + 2 for _, r, _ in rows)
+# 行を棚詰めする(幅AWで折り返す)。行を縦に積むだけだと、新しい行を足すたびに展開後のメモリが増える(2026-10-14 A-014で7行増)
+order = sorted(range(len(rows)), key=lambda i: -rows[i][1].height)
+shelves = []   # [y, shelf高さ, 使用済みx]
+place = {}
+for i in order:
+    nm, r, arr = rows[i]
+    for sh in shelves:
+        if sh[2] + r.width <= AW and r.height <= sh[1]:
+            place[i] = (sh[2], sh[0]); sh[2] += r.width + 2; break
+    else:
+        y0 = (shelves[-1][0] + shelves[-1][1] + 2) if shelves else 0
+        shelves.append([y0, r.height, r.width + 2]); place[i] = (0, y0)
+AH = shelves[-1][0] + shelves[-1][1]
 big = Image.new('RGBA', (AW, AH), (0, 0, 0, 0))
-out, y = {}, 0
-for nm, r, arr in rows:
-    big.paste(r, (0, y))
-    out[nm] = [[q[0], q[1] + y, q[2], q[3], q[4], q[5], q[6]] for q in arr]
-    y += r.height + 2
+out = {}
+for i, (nm, r, arr) in enumerate(rows):
+    ox, oy = place[i]
+    big.paste(r, (ox, oy))
+    out[nm] = [[q[0] + ox, q[1] + oy, q[2], q[3], q[4], q[5], q[6]] for q in arr]
 meta['monk'] = out
 b = io.BytesIO()
 big.save(b, 'WEBP', lossless=False, quality=82, method=6)
