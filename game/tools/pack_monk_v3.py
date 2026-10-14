@@ -1,6 +1,7 @@
 """2026-10-14 鉄球大僧の転倒8コマ(v3)と叩きつけ12コマ(v2)を atlas_monk.webp に足す。元PNGは変更しない。
 - 旧アトラスは新キー monk_v1 として gfx/atlas_monk_v1.webp と sprmeta['monk_v1'] に保持する(初回のみ作る)。
 - 新アトラス monk: pack_a006.py と同じ縮尺0.86・原点(x=128, y=待機と歩きの下端平均)。そこへ
+  'walk'=歩き16コマ(2026-10-14納品。旧8コマv2と置き換え。旧は monk_v1 に残る。人物の高さが旧歩きより約4%小さいため、この行だけ縮尺を×1.035して旧歩きの高さにそろえる=ROW_SCALE)、
   'smash'=叩きつけ12コマ(通常攻撃1段目が使う。旧 'a1' 6コマは跳躍攻撃が引き続き使う)、
   'down'=転倒8コマ(旧4コマに置き換え。接地線y360を原点にして、空中のコマは自然に浮く)。
   転倒8コマの使い方: 0・1=のけぞり、2=離地、3=後方へ吹き飛ぶ、4=落下、5=初接地、6=小さな弾み、7=寝姿。
@@ -19,7 +20,8 @@ sys.argv = sys.argv[:1]
 import mk  # noqa: E402
 
 SCALE = 0.86
-SPEC = [('idle', '鉄球大僧_待機_4コマ_v1.png', 4), ('walk', '鉄球大僧_歩き_8コマ_v2.png', 8), ('a1', '鉄球大僧_攻撃_6コマ_v1.png', 6),
+ROW_SCALE = {'walk': 1.035}   # 歩き16コマは人物の高さが旧歩き8コマv2より約4%小さい(197〜205px対207〜209px)ので、旧歩きの高さへそろえる
+SPEC = [('idle', '鉄球大僧_待機_4コマ_v1.png', 4), ('walk', '鉄球大僧_歩き_16コマ_v1.png', 16), ('a1', '鉄球大僧_攻撃_6コマ_v1.png', 6),
         ('smash', '鉄球大僧_攻撃_12コマ_v2.png', 12), ('a2', '鉄球大僧_ダッシュタックル_8コマ_v1.png', 8), ('hit', '鉄球大僧_被弾_2コマ_v1.png', 2),
         ('down', '鉄球大僧_ダウン_8コマ_v3.png', 8), ('getup', '鉄球大僧_起き上がり_4コマ_v1.png', 4), ('dead', '鉄球大僧_やられ_6コマ_v1.png', 6)]
 meta = json.loads((SPRITES / 'sprmeta.json').read_text(encoding='utf-8'))
@@ -71,7 +73,7 @@ for nm, fn, n in SPEC:
         g = float(np.mean(bottoms(loaded[nm])))
     else:
         g = ground
-    row, arr = pack_row(loaded[nm], (128, g), SCALE)
+    row, arr = pack_row(loaded[nm], (128, g), SCALE * ROW_SCALE.get(nm, 1.0))
     rows.append((nm, row, arr))
 AW = max(r.width for _, r, _ in rows)
 AH = sum(r.height + 2 for _, r, _ in rows)

@@ -473,8 +473,8 @@ const ITEMS={onigiri:{n:'おにぎり',s:'HP回復',c:'#b8f5a8'},hyorou:{n:'兵�
 /* ===================== LEVEL ===================== */
 // 新しい敵の登場(絵はステージごとに必要な分だけ読む)。無いステージは従来どおり
 const NEWEN=[[],['yoroi'],['monk'],['kunoichi'],['kunoichi','akabi'],['monk','yoroi','akabi','kunoichi']];
-const NEWKEYS=['monk','kunoichi','yoroi','akabi','monkfx','saizo','sasuke'];
-function newEnKeys(si){const t=NEWEN[si]||[];const k=t.slice();if(t.includes('monk')||t.includes('kunoichi'))k.push('monkfx');return k;}
+const NEWKEYS=['monk','monk_b','monk_c','kunoichi','yoroi','akabi','monkfx','saizo','sasuke'];
+function newEnKeys(si){const t=NEWEN[si]||[];const k=t.slice();if(t.includes('monk')||t.includes('kunoichi'))k.push('monkfx');if(t.includes('monk'))k.push('monk_b','monk_c');return k;}
 const LV=[
  {waves:[{gap:620,en:[['spear',0,1],['spear',30,-1],['sword',70,1]]},{gap:850,en:[['sword',0,1],['archer',20,-1],['spear',60,1],['sword',90,-1]]},{gap:850,en:[['spear',0,1],['sword',10,-1],['horsearcher',60,1],['rider',140,-1],['sword',130,1]]},{gap:800,en:[['samurai',0,1],['rider',60,-1],['spear',60,-1],['sword',160,-1]]},{gap:800,boss:'boss9',en:[['spear',240,-1],['sword',320,1]]}]},
  {waves:[{gap:620,en:[['sword',0,1],['gun',30,-1],['spear',50,1]]},{gap:850,en:[['sword',0,1],['spear',20,-1],['sword',50,1],['gun',90,-1]]},{gap:850,en:[['samurai',0,1],['rider',60,-1],['spear',40,-1],['sword',70,1]]},{gap:800,en:[['ninja',0,1],['ninja',20,-1],['horsearcher',80,1],['sword',90,-1]]},{gap:800,boss:'boss4',en:[['spear',260,-1],['sword',320,1]]}]},
@@ -516,7 +516,7 @@ function startStage(si,ch,demo,keep){
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   ws=out.concat(bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
- G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>w.boss));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
+ G.monkN=0;G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>w.boss));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
  G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.deco=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.zm=1;G.zp=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.35));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;
@@ -775,6 +775,7 @@ function bossBgm(e){return G.stage===5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 // 雑魚の同時出現数の上限(スマホで一度に出すぎると重い、オーナー指摘)。超えた分は前の敵が倒れてから順に出る。総数は変わらない
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
+ if(type==='monk'){/* 鉄球大僧は同じ見た目が何体も出ると違和感が強いので、出る順に色違い(元の紫・緑の袈裟・朱の袈裟+日焼け)にする */const n=G.monkN||0;G.monkN=n+1;e.var=['','b','c'][n%3];}
  if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.3:1.5;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.08;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
@@ -1990,7 +1991,7 @@ function exPick(f){const S=SPR.enemyx1;if(!S||!S.ready||f.T.boss)return null;
  return null;}
 function atk3Ready(f){const o=atk3Pick(f);if(!o)return false;const U=SPR[o.key||'atk3_'+f.T.type];return !!(U&&U.ready&&U.a&&U.a[o.arr]);}
 function atk3Pick(f){const L=ATK3[f.T.type];if(!L)return null;const c=f.cur,idx=f.T.atk.indexOf(c.base||c);for(const o of L){if(o.test?o.test(c):(idx===o.idx&&!c.chg&&!c.iai&&!c.ck))return o;}return null;}
-function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
+function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(f.var){const VS=SPR[(f.T.spr||f.T.type)+'_'+f.var];if(VS&&VS.ready)S=VS;}if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
  if(f.state==='throw'&&f.spearThrow){const U=SPR.yukithrow1;if(U&&U.ready){S=U;sp={arr:U.a.throw,pos:yukiThrowFrame(f),loop:false,hard:true};}}
@@ -2703,7 +2704,7 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!NEWKEYS.includes(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
  if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>w.boss);
   return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
