@@ -1652,7 +1652,7 @@ function pickup(p,it){
  else if(it.k==='sake'){p.ki=Math.min(KMAX,p.ki+100);p.hp=Math.min(p.maxhp,p.hp+10);popup('必殺ゲージ +150',it.x,it.y,70,'#8cf',22);}
  else if(it.k==='sushi'){p.hp=Math.min(p.maxhp,p.hp+45);popup('HP +45',it.x,it.y,70,'#9f9',24);}
  else if(it.k==='manju'){p.hp=Math.min(p.maxhp,p.hp+20);p.ki=Math.min(KMAX,p.ki+40);popup('HP +20  必殺 +40',it.x,it.y,70,'#ffd8a8',22);}
- else{const k=it.k.slice(2);p.wpn={k,uses:WPN[k].uses};popup(WPN[k].n+' 入手！'+(WPN[k].s?'　'+WPN[k].s:''),it.x,it.y,80,'#ffb070',26);}
+ else{const k=it.k.slice(2);p.wpn={k,uses:WPN[k].uses};popup(WPN[k].n+' 入手！',it.x,it.y,80,'#ffb070',26);/* 使い方の説明文は出さない(オーナー指示 2026-10-14) */}
 }
 function useWpn(f){f.wpn.uses--;if(f.wpn.uses<=0){popup(WPN[f.wpn.k].n+'が壊れた',f.x,f.y,110,'#ccc',22);f.wpn=null;}}
 function atkDef(p,d,jump){const w=p.wpn;if(!w)return d;const W=WPN[w.k];
@@ -2531,7 +2531,7 @@ function drawKachi(){if(G.state!=='bossdown'||G.demo)return;const t=G.stateT-(G.
 function drawOverlays(){drawSays();drawRear();drawKachi();drawUlt();
  // stage banner
  if(G.banner){const b=G.banner;if(!b.boss)b.t++;if(b.t<0||G.cut||G.vo){}else{const en_=b.long?300:180,a=b.t<20?b.t/20:b.t>en_-30?1-(b.t-(en_-30))/30:1;if(b.t>en_)G.banner=null;else{ctx.globalAlpha=a;
-  if(b.boss){ctx.fillStyle='rgba(110,0,0,0.64)';ctx.fillRect(0,196,W,266);ctx.fillStyle='#b01818';ctx.fillRect(0,196,W,5);ctx.fillRect(0,457,W,5);txt('— WARNING —',W/2,226,22,'#ff9a8a','center','#000',4,'Arial Black,Impact,sans-serif');txt(b.jp,W/2,290,78,'#fff','center','#600',9);if(b.kana)txt(b.kana,W/2,342,22,'#ffd9d0','center','#000',4);if(b.role)txt(b.role,W/2,380,28,'#ffd27a','center','#000',5);if(b.desc){txt(b.desc[0],W/2,416,19,'#fff','center','#000',4);txt(b.desc[1],W/2,440,19,'#fff','center','#000',4);}}
+  if(b.boss){ctx.fillStyle='rgba(110,0,0,0.64)';ctx.fillRect(0,196,W,212);ctx.fillStyle='#b01818';ctx.fillRect(0,196,W,5);ctx.fillRect(0,403,W,5);txt('— WARNING —',W/2,226,22,'#ff9a8a','center','#000',4,'Arial Black,Impact,sans-serif');txt(b.jp,W/2,290,78,'#fff','center','#600',9);if(b.kana)txt(b.kana,W/2,342,22,'#ffd9d0','center','#000',4);if(b.role)txt(b.role,W/2,380,28,'#ffd27a','center','#000',5);/* 人物紹介の2行説明は出さない(オーナー指示 2026-10-14) */}
   else{ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,240,W,150);txt(b.jp,W/2,282,34,'#e8c35a','center','#000',5);txt(b.title,W/2,336,66,'#fff','center','#300',8);txt(b.en,W/2,376,18,'#ddd','center','#000',3,'Arial');}ctx.globalAlpha=1;}}}
  // special cut-in
  // 必殺のカットイン: 文字なしの細帯(画像担当の納品)。左から滑り込み→少し止まり→消える。主人公本人の必殺だけ・画面の左上寄り(HUDと打点を避ける)
@@ -2771,7 +2771,7 @@ function renderWorld(){
  for(const e of list){if(e.kg)drawKgun(e);else if(e.T){if(e.state==='dodge'&&e.team===0&&!e.isPartner&&e.st>1)drawDodgeGhosts(e);drawFighter(e);}else if(e.isProp)drawProp(e);else if(e.hit)drawProj(e);else drawItem(e);}
  for(const q of G.proj)if(q.k==='fall'&&q.wait<=0)drawProj(q);
  for(const f of G.fighters)drawTrail(f);drawWarn();
- drawParts();drawIai();if(G.partner&&G.partner.state!=='dead'){const q=G.partner;txt('▼味方',q.x-G.camx,q.y-q.z-186,13,'#9f9','center','#000',3);}drawFG(G.camx,G.t);drawWeather();
+ drawParts();drawIai();drawFG(G.camx,G.t);drawWeather();
  ctx.restore();
  ctx.fillStyle=STG[G.stage].tint;ctx.fillRect(0,0,W,H);ctx.drawImage(VIG,0,0);postFX();
 }
