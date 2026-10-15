@@ -459,6 +459,8 @@ TY.boss3.atk.push({pz:'raise',k:'volley',dur:70,hs:26,he:27,rng:0,dmg:0,sfx:'roa
 // sufficient to choose the artwork for every weapon motion.
 TY.boss2.atk[3].anim='a1';TY.masamune.atk=JSON.parse(JSON.stringify(TY.boss2.atk)).concat([JSON.parse(JSON.stringify(TY.boss4.atk[2]))]);/* 政宗: 義光の技+鉄砲隊を呼ぶ(騎馬鉄砲の代わり) */TY.boss7.atk[1].anim='big';TY.boss9.atk[3].anim='big';
 for(const k in TY)if(TY[k].boss)for(const d of TY[k].atk){d.hs+=6;d.he+=6;d.dur+=10;d.dmg=Math.round(d.dmg*0.65);}
+/* 2026-10-15 オーナー「ボスの攻撃モーションが遅すぎて、こっちの手数が押し勝つ」: 武将ボスの通常の斬り・突き(特殊技でないもの)の振りかぶり(当たるまで)を40%短くする(下の「全ボス+6」の後にかける。例: 井伊直政の斬り 24→14)。当たっている長さと振り終わりはそのまま */
+for(const k in TY){const T=TY[k];if(!T.boss||!T.atk)continue;for(const a of T.atk){if(a.k||!(a.pz==='swing'||a.pz==='thrust')||a.fastWind)continue;const h=Math.max(8,Math.round(a.hs*0.6)),d=a.hs-h;a.hs=h;a.he-=d;a.dur-=d;a.fastWind=true;}}
 for(const k in TY){const T=TY[k];if(!T.boss&&!T.cost&&T.atk)for(const d of T.atk)if(d.dmg)d.dmg=Math.max(3,Math.round(d.dmg*0.6));}
 TY.nezu={type:'nezu',name:'根津甚八',en:'NEZU JINPACHI',role:'真田十勇士 — 刀と海賊仕込みの足腰',hp:118,spd:4.4,jump:12.2,cost:100,sc:1.08,wp:'katana',tip:96,two:true,gap:15,helm:'ronin',plain:true,
  col:{armor:'#302d2a',armor2:'#171615',trim:'#a58a58',cloth:'#6d2527',skin:'#d9ad8d'},trail:'190,160,110',banner:null,stat:[3,4,3],spcName:'岩投げ',spcSub:'海賊仕込みの怪力',lowSpc:true,
@@ -862,7 +864,7 @@ function hurt(t,a,d){
  if(air){knock(t,dir,Math.max(3,(d.kb||3)),6+(d.launch?2:0));t.bowl=own;G.jugN=(G.jugN||0)+1;return;}
  if(mh){t.state='hurt';t.st=0;t.inv=30;return;}
  if(t.T.ai==='rider'){if(t.rp==='go'&&SPR[t.T.type]&&SPR[t.T.type].a.hit){if(!(t.mA&&t.mA.k==='hit')){t.mA={k:'hit',t:0,dur:14};t.hdir=dir;}}else{dismount(t,false);knock(t,dir,5,7);}return;}
- if(t.T.boss){t.poise+=dmg;t.x+=dir*d.kb*0.15;if(t.entered)keepFighterOnScreen(t);if(d.launch&&t.kd<=0&&t.state!=='atk'){t.kd=480;knock(t,dir,5,8);}else if(d.launch&&t.kd<=0){t.kd=480;knock(t,dir,4,7);}else if(t.poise>=t.T.poise*(t.poiseK||1)&&t.state!=='atk'){t.poise=0;t.state='hurt';t.st=0;t.vx=dir*3;t.hurtT=20;t.cur=null;}return;}
+ if(t.T.boss){t.poise+=dmg;t.x+=dir*d.kb*0.15;if(t.state!=='atk'&&t.team===1)t.cool=Math.min(t.cool||0,10);/* 打たれたら間を置かず反撃に移る(2026-10-15 オーナー「手数で押し勝てる」) */if(t.entered)keepFighterOnScreen(t);if(d.launch&&t.kd<=0&&t.state!=='atk'){t.kd=480;knock(t,dir,5,8);}else if(d.launch&&t.kd<=0){t.kd=480;knock(t,dir,4,7);}else if(t.poise>=t.T.poise*(t.poiseK||1)&&t.state!=='atk'){t.poise=0;t.state='hurt';t.st=0;t.vx=dir*3;t.hurtT=20;t.cur=null;}return;}
  if(t.T.armor&&t.team===1&&!d.launch){t.x+=dir*1.5;return;}
  if(d.launch||ctr||(t.team===0&&dmg>=11&&!G.demo)){knock(t,dir,(d.kb||3)+2,8);if(t.team===0)t.inv=0;else if(own.team===0)t.bowl=own;}
  else{t.state='hurt';t.st=0;t.vx=dir*(d.kb||2);t.hurtT=t.team===0?16:20;t.cur=null;t.trail.length=0;t.cool=Math.max(t.cool,25);}
@@ -1448,13 +1450,13 @@ function chaseShield(){const C=G.chase,b=G.boss;C.ie=b;C.phase='shield';C.sc=0;C
 function chaseShieldStep(C,b){const P=G.player,ie=C.ie;
  if(C.phase==='shield'){const t=++C.sc,R=C.rt;
   if(t===70){[['shield',500],['yoroi',545],['shield',590],['yoroi',635],['shield',675]].forEach(([ty,y],i)=>{const e=spawnEn(ty,1);e.x=G.camx+W+90+i*34;e.y=clamp(y,YMIN+8,YMAX-8);e.tx=G.camx+W-300+(i%2)*46;e.scene=true;e.face=-1;e.entered=true;R.push(e);});AU.sx('horse',0.7);AU.sfx('roar');}
-  if(t===140&&R[0])say(R[0],'殿、お退きくだされ！\nここは我らが盾となりまする！',190);
+  if(t===140&&R[0])say(R[0],'殿、お逃げくだされ！\nここは我らが盾となりまする！',190);
   if(t===300&&ie)say(ie,'……すまぬ。\n者ども、頼んだぞ！',170);
   if(t===380){/* 家康と入れ替わりに、鉄球大僧(天海)が右から現れて家康のいた所へ入る */const m=spawnEn('tenkai',1);m.var='c';m.x=G.camx+W+130;m.y=clamp(570,YMIN+8,YMAX-8);m.tx=G.camx+W*0.56;m.scene=true;m.face=-1;m.entered=true;C.monk=m;AU.sfx('roar');G.shake=Math.max(G.shake,8);}
   if(t===420&&ie)say(ie,'天海……\n後は任せたぞ。',150);
   if(t===440){C.flee=true;AU.sx('horse',0.9);G.shake=Math.max(G.shake,6);}
   if(t===510&&C.monk)say(C.monk,'殿は先へ。\nここから先は、拙僧がお相手つかまつる。',200);
-  if(t===640&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',160);
+  if(t===250&&R[2])say(R[2],'お逃げくだされ、殿！\n早う、お馬を！',130);/* オーナー「殿お逃げください」 */if(t===640&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',160);
   if(t===720&&P)say(P,'待て、家康！\n……まずは貴様か、坊主！',150);
   if(t===810&&C.monk)say(C.monk,'御仏の鉄球、\n存分に味わわれよ！',130);
   if(ie&&((C.flee&&ie.x>G.camx+W+240)||t>=880)){const i=G.fighters.indexOf(ie);if(i>=0)G.fighters.splice(i,1);C.ie=null;if(G.boss===ie)G.boss=C.monk||null;}
@@ -1482,7 +1484,7 @@ function updEnemy(e){
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if((e.T.boss||e.T.mid)&&e.hp>0&&!G.lowq&&e.t%7===0&&bossOpen(e)&&e.state!=='down'&&e.state!=='getup')PT({x:e.x+rnd(-18,18),y:e.y,z:e.z+(e.T.boss?176:150)+rnd(-8,8),life:11,k:'star',sz:rnd(22,34),col:'#ffd860'});if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);if(e.hide&&!(e.state==='atk'&&e.cur&&e.cur.k==='warp'))e.hide=false;/* 瞬身の途中で割り込まれても姿を戻す */
  if(e.gcd>0)e.gcd--;if(e.hitRunT>0)e.hitRunT--;else e.hitRun=0;
- if(T.boss&&e.hitRun>=6&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;/* 振り払い: 声は無し(喋りすぎ対策。「おのれ」は起き上がり時に移した。旧 sx.nuo は audio.json に残してある) */startEAct(e,BSHAKE);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);AU.sfx('roar');}
+ if(T.boss&&e.hitRun>=4/* 6→4: 手数で押し切られにくく(2026-10-15) */&&e.hp>0&&(e.state==='hurt'||e.state==='idle'||e.state==='walk')){e.hitRun=0;e.inv=24;/* 振り払い: 声は無し(喋りすぎ対策。「おのれ」は起き上がり時に移した。旧 sx.nuo は audio.json に残してある) */startEAct(e,BSHAKE);G.shake=Math.max(G.shake,10);ring(e.x,e.y,170,'rgba(255,120,80,0.9)',24);AU.sfx('roar');}
  if(T.boss&&!e.enr&&e.hp<e.maxhp*0.5&&e.hp>0){e.enr=true;e.spd=T.spd*1.15;AU.sfx('roar');AU.bossLine('nakanaka',e,1.7);G.shake=12;ring(e.x,e.y,200,'rgba(255,60,40,0.9)',30);}
  if(T.ai==='rider'&&e.state==='walk'&&e.rp){updRider(e);return;}
  if(e.state==='held'){if(!e.heldBy||e.heldBy.state!=='grab'||e.heldBy.gt!==e){e.state='idle';e.st=0;e.heldBy=null;}return;}
@@ -1607,8 +1609,8 @@ function updProj(onlyOwner){
     for(const t of G.fighters){if(t.team!==1||t.hp<=0||t.dying||t.state==='dead')continue;if(Math.abs(t.x-q.x)<72&&Math.abs(t.y-q.y)<36&&t.z<50){const o=q.owner||G.player;if(o&&o.hit)o.hit.delete(t);t.inv=0;hurt(t,o,{dmg:q.dmg,kb:q.kb||7,launch:true,noDecap:true,unblock:true});}}}
    continue;}
   if(q.k==='bomb'){q.x+=q.vx;q.y+=q.vy;q.z+=q.vz;q.vz-=0.6;if(G.t%2===0)PT({x:q.x,y:q.y,z:q.z+10,vx:rnd(-0.5,0.5),vz:rnd(0,1),life:8,sz:rnd(2,4),col:'#ffd070',k:'spark'});
-   if(q.z<=0){G.proj.splice(i,1);AU.sfx('boom');G.shake=Math.max(G.shake,10);blast(q.x,q.y,q.big?1.25:1);
-    for(const t of G.fighters){if(t.hp<=0||t.state==='dead'||t.state==='down'||(t.inv>0&&t.team===0))continue;if(Math.abs(t.x-q.x)<75&&Math.abs(t.y-q.y)<34&&t.z<40){if(t.team===0)hurt(t,{x:q.x,face:sgn(t.x-q.x)||1,team:1,owner:q.owner||{team:1,T:{}},hit:null},{dmg:q.dmg,kb:7,launch:true,unblock:true});else if(t.team===1&&!t.T.boss){t.hp-=q.big?16:8;knock(t,sgn(t.x-q.x)||1,5,7);if(t.hp<=0){t.hp=0;t.dying=true;onKill(t,G.player);}}}}}
+   if(q.z<=0){G.proj.splice(i,1);AU.sfx('boom');G.shake=Math.max(G.shake,10);blast(q.x,q.y,q.cannon?1.7:q.big?1.25:1);
+    for(const t of G.fighters){if(t.hp<=0||t.state==='dead'||t.state==='down'||(t.inv>0&&t.team===0))continue;const cn=q.cannon,rx=cn?120:75,ry=cn?52:34;/* 大筒の砲弾: 着弾の爆風に巻き込まれると大きく吹っ飛ぶ(2026-10-15 オーナー「全然痛くない」) */if(Math.abs(t.x-q.x)<rx&&Math.abs(t.y-q.y)<ry&&t.z<(cn?90:40)){const dr=sgn(t.x-q.x)||1;if(t.team===0){hurt(t,{x:q.x,face:dr,team:1,owner:q.owner||{team:1,T:{}},hit:null},{dmg:q.dmg,kb:7,launch:true,unblock:true});if(cn&&t.hp>0&&t.state==="down"){t.vx=dr*10;t.vz=13;t.inv=0;}}else if(t.team===1&&!t.T.boss){t.hp-=q.big?16:8;knock(t,dr,cn?11:5,cn?12:7);if(t.hp<=0){t.hp=0;t.dying=true;onKill(t,G.player);}}}}}
    continue;}
   if(q.k==='fall'){if(q.wait>0){q.wait--;}else{q.z+=q.vz;if(q.z<=0){q.z=0;
     const list=q.team===0?G.fighters.concat(G.props):G.fighters;AU.sfx('fire');G.shake=Math.max(G.shake,8);ring(q.x,q.y,q.w*1.6,q.team===0?'rgba(210,160,255,0.95)':'rgba(255,150,60,0.95)',24);
@@ -1657,7 +1659,7 @@ function updWorld(){
  mmStep();if(G.chase&&G.chase.hold){c={};if(p&&p.hp>0)p.inv=Math.max(p.inv,6);}/* 家来の盾の場面の間は操作を受けつけない */
  // wave logic
  if(G.state==='run'){
-  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&G.stage===5&&w.boss==='boss3'&&!G.demo&&!G.auto;
+  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&G.stage===5&&w.boss==='boss3'&&!G.demo;/* 2026-10-15 ステージデモ(全編自動)でも追撃戦→盾→第七幕を見せる(オーナーはデモを流して判断する) */
    if(w.boss)G.sq.push({type:w.boss,d:50,side:1});
    if(!chs)for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
    if(chs)chaseInit(w);
@@ -2277,8 +2279,8 @@ function bladeAtk(f,d){if(!d||d.proj||d.pz==='kick'||d.pz==='tackle'||d.pz==='ra
 function checkClash(){for(const f of G.fighters){if(f.team!==0||f.state!=='atk'||!f.cur||(f.clashT||0)>G.t||!bladeAtk(f,f.cur))continue;const d=f.cur;if(f.st<(d.hs||0)-1||f.st>(d.he||0))continue;
  for(const e of G.fighters){if(e.team!==1||e.state!=='atk'||!e.cur||e.hp<=0||!bladeAtk(e,e.cur))continue;const c=e.cur;if(e.st<c.hs-9||e.st>c.he+1)continue;
   const dx=e.x-f.x;if(sgn(dx)!==f.face||e.face!==-f.face||Math.abs(dx)>Math.min(d.rng||100,c.rng||100)+30||Math.abs(e.y-f.y)>24||f.z>30||e.z>30)continue;
-  f.clashT=G.t+24;f.hit.add(e);e.hit.add(f);f.st=Math.max(f.st,(d.he||0)+1);f.x-=f.face*16;e.x-=e.face*(e.T.boss?8:20);
-  if(e.T.boss){e.st=Math.max(e.st,c.he+1);e.cool=Math.max(e.cool,24);}else{e.state='idle';e.st=0;e.cur=null;e.cool=Math.max(e.cool,45);}
+  f.clashT=G.t+24;f.hit.add(e);if(!e.T.boss)e.hit.add(f);f.st=Math.max(f.st,(d.he||0)+1);f.x-=f.face*(e.T.boss?26:16);e.x-=e.face*(e.T.boss?4:20);
+  if(e.T.boss){/* 2026-10-15 武将ボスとの鍔迫り合いはボスが押し勝つ: こちらの攻撃だけ弾かれ、ボスの攻撃は止まらない(連打で毎回ボスの攻撃が消えていた。オーナー「こっちの手数が押し勝っちゃう」) */}else{e.state='idle';e.st=0;e.cur=null;e.cool=Math.max(e.cool,45);}
   const mx=(f.x+e.x)/2,my=(f.y+e.y)/2;for(let i=0;i<22;i++)PT({x:mx,y:my,z:95+rnd(-15,15),vx:rnd(-6,6),vz:rnd(-1,6),g:0.25,life:rndi(10,22),sz:rnd(2,4),col:i%3?'#fff4c0':'#ffc040',k:'spark'});PT({x:mx,y:my,z:95,life:9,k:'star',sz:70,col:'#fff'});ring(mx,my,70,'rgba(255,240,200,0.9)',14);
   AU.clang(mx);G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,6);f.ki=Math.min(KMAX,(f.ki||0)+15);break;}}}
 function updSteeds(){if(!G.steeds)return;const p=G.player;
@@ -2398,7 +2400,7 @@ const HZ=['arrows','volley','rocks','stampede','firearrows','cannon'];if(CHASE)H
 const HZNAME={arrows:'矢の雨だ！',volley:'鉄砲隊の一斉射撃！',logs:'丸太が来るぞ！',rocks:'岩が転がってくるぞ！',stampede:'暴れ馬だ！',firearrows:'火矢が来るぞ！',cannon:'大筒の砲撃！'};
 function startHazard(){const k=HZ[G.stage]||'arrows',p=G.player;if(!p)return;G.hzMsg={t:0,s:HZNAME[k]};AU.sfx('warn');
  if(k==='arrows'||k==='firearrows'){const fire=k==='firearrows',dir=Math.random()<0.5?1:-1;for(let i=0;i<(fire?7:10);i++){const x=clamp(p.x+rnd(-330,330),G.camx+40,G.camx+W-40),y=rnd(YMIN+8,YMAX),w=50+i*10;G.marks.push({x,y,t:-w+50,life:w+8,r:55});for(let j=0;j<6;j++){const T=34,tx=x+rnd(-40,40),ty=clamp(y+rnd(-14,14),YMIN,YMAX);addProj({k:'arrowfall',x:tx-dir*T*5,y:ty,z:T*13,vx:dir*5,vz:-13,tx,ty,wait:w+j*2,team:-1,dmg:6,fire,life:400,face:dir});}if(fire)G.fires.push({x,y,t:-(w+40),life:300});}}
- else if(k==='cannon'){for(let i=0;i<3;i++){const sd=Math.random()<0.5?-1:1,sx=sd<0?G.camx-80:G.camx+W+80,tx=clamp(p.x+rnd(-200,200),G.camx+60,G.camx+W-60),ty=rnd(YMIN+10,YMAX),T=70+i*18;addProj({x:sx,y:ty,z:260,vx:(tx-sx)/T,vy:0,vz:0.5*0.6*T-260/T,tx,ty,team:-1,dmg:16,face:-sd,owner:null,k:'bomb',w:0,life:T+30,kb:8,launch:true,nohit:true,big:true});}}
+ else if(k==='cannon'){for(let i=0;i<3;i++){const sd=Math.random()<0.5?-1:1,sx=sd<0?G.camx-80:G.camx+W+80,tx=clamp(p.x+rnd(-200,200),G.camx+60,G.camx+W-60),ty=rnd(YMIN+10,YMAX),T=70+i*18;addProj({x:sx,y:ty,z:260,vx:(tx-sx)/T,vy:0,vz:0.5*0.6*T-260/T,tx,ty,team:-1,dmg:24,face:-sd,owner:null,k:'bomb',w:0,life:T+30,kb:8,launch:true,nohit:true,big:true,cannon:true});}}
  else{const lanes=k==='volley'?[p.y,clamp(p.y+(Math.random()<0.5?-70:70),YMIN+10,YMAX-5)]:[p.y];for(const y of lanes)G.lanes.push({k,y,dir:k==='logs'||k==='rocks'?1:Math.random()<0.5?1:-1,t:0,warn:75,mv:[],hs:new Set()});}}
 function hzAttacker(m){return {x:m.x,face:sgn(m.vx)||1,team:-1,T:{},hit:null};}
 function updHazards(){if(!G.lanes)return;
@@ -2547,7 +2549,7 @@ function drawItem(it){
 }
 function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.camx,q.y-q.z,Math.atan2(-q.vz,q.vx),34,q.fire);return;}
  if(q.k==='rock'){ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.rotate(q.rot||0);ctx.fillStyle='#6f6558';ctx.strokeStyle='#241e18';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-16,-4);ctx.lineTo(-8,-15);ctx.lineTo(8,-13);ctx.lineTo(17,-2);ctx.lineTo(10,12);ctx.lineTo(-9,13);ctx.closePath();ctx.fill();ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.18)';ctx.beginPath();ctx.moveTo(-10,-8);ctx.lineTo(-2,-12);ctx.lineTo(2,-4);ctx.closePath();ctx.fill();ctx.restore();return;}
- if(q.k==='bomb'){ctx.save();ctx.strokeStyle=`rgba(255,60,40,${0.5+0.4*Math.sin(G.t*0.5)})`;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(q.tx-G.camx,q.ty,70,20,0,0,TAU);ctx.stroke();ctx.restore();ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.fillStyle='#2a2420';ctx.beginPath();ctx.arc(0,0,11,0,TAU);ctx.fill();ctx.strokeStyle='#000';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.25)';ctx.beginPath();ctx.arc(-3,-4,4,0,TAU);ctx.fill();ctx.strokeStyle='#c8a060';ctx.beginPath();ctx.moveTo(4,-9);ctx.quadraticCurveTo(10,-18,6,-22);ctx.stroke();ctx.restore();return;}
+ if(q.k==='bomb'){ctx.save();ctx.strokeStyle=`rgba(255,60,40,${0.5+0.4*Math.sin(G.t*0.5)})`;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(q.tx-G.camx,q.ty,q.cannon?120:70,q.cannon?40:20,0,0,TAU);ctx.stroke();ctx.restore();ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.fillStyle='#2a2420';ctx.beginPath();ctx.arc(0,0,11,0,TAU);ctx.fill();ctx.strokeStyle='#000';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.25)';ctx.beginPath();ctx.arc(-3,-4,4,0,TAU);ctx.fill();ctx.strokeStyle='#c8a060';ctx.beginPath();ctx.moveTo(4,-9);ctx.quadraticCurveTo(10,-18,6,-22);ctx.stroke();ctx.restore();return;}
  const x=q.x-G.camx,y=q.y-q.z;ctx.save();ctx.translate(x,y);
  if(q.k==='arrow'){ctx.scale(q.face,1);if(q.vy)ctx.rotate(Math.atan2(q.vy,Math.abs(q.vx)));line(-22,0,18,0,2.5,'#d8c8a0');poly([[18,-4],[28,0],[18,4]],'#ddd');poly([[-22,0],[-28,-4],[-18,0]],'#c33');poly([[-22,0],[-28,4],[-18,0]],'#c33');}
  else if(q.k==='bullet'){ctx.globalCompositeOperation='lighter';ctx.scale(q.face,1);if(q.vy)ctx.rotate(Math.atan2(q.vy,Math.abs(q.vx)));const g=ctx.createLinearGradient(-30,0,8,0);g.addColorStop(0,'rgba(255,200,100,0)');g.addColorStop(1,q.team===0?'rgba(220,170,255,1)':'rgba(255,220,130,1)');ctx.fillStyle=g;ctx.fillRect(-30,-3,38,6);circ(8,0,5,'#fff');}
