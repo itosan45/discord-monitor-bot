@@ -22,7 +22,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    out.fade.push({bk,si,ok,hon:h0,prev:G.hon&&G.hon.prev});}
   return out;});
  const bad=[];
- if(r.dataKeys!==8)bad.push('配信データの本丸 '+r.dataKeys);
+ if(r.dataKeys!==9/* 8武将+第七幕の夜の家康本丸(boss3n, 2026-10-15) */)bad.push('配信データの本丸 '+r.dataKeys);
  if(r.honAtBoot.split(',').some(k=>k&&k!=='boss9'))bad.push('起動時に別の幕の本丸まで読んでいる '+r.honAtBoot); // 起動直後のデモは第一幕(boss9)
  if(/honmaru/.test(r.bgKeys))bad.push('BGIMGに本丸が入っている '+r.bgKeys);
  const exp={0:'boss9',1:'boss4',2:'boss8',3:'boss5',4:'boss2',5:'boss1,boss7,boss3'};

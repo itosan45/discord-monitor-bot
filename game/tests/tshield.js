@@ -4,7 +4,7 @@
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 const BASE=process.argv[2]||process.env.GAME_URL;
 async function open(b,flag){const p=await(await b.newContext({viewport:{width:915,height:412}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto(BASE+(flag?(BASE.includes('?')?'&':'?')+'chase=1':''));await p.waitForFunction(()=>sprAllReady(),null,{timeout:120000});return{p,errors};}
+ await p.goto(BASE+(BASE.includes('?')?'&':'?')+(flag?'chase=1':'chase=0'));/* 2026-10-15 から既定で第七幕あり。従来の6幕は ?chase=0 */await p.waitForFunction(()=>sprAllReady(),null,{timeout:120000});return{p,errors};}
 const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);startStage(5,'yuki',false);G.mode='play';G.diff=1;G.banner=null;G.story=null;G.wi=G.waves.length-1;G.camMax=G.waves[G.wi].x;G.camx=G.camMax;G.props=[];G.fighters=G.fighters.filter(f=>f.team===0);
  const P=G.player;P.hp=P.maxhp=99999;P.x=G.camx+400;P.y=570;window.ctlKeys=()=>({l:0,r:0,u:0,d:0,atkP:0,jumpP:0,spcP:0});
  window.tick=(n)=>{for(let i=0;i<n;i++){P.hp=P.maxhp;G.t++;stepGame();if(i%4===0)renderWorld();}};};
