@@ -223,6 +223,7 @@ function txt(s,x,y,size,color,align,stroke,sw,font){ctx.font=`bold ${size}px ${f
 function ik(ax,ay,bx,by,l1,l2,dir){let dx=bx-ax,dy=by-ay,d=Math.hypot(dx,dy)||0.001;const mx=l1+l2-0.5;if(d>mx){dx*=mx/d;dy*=mx/d;d=mx;}const a=Math.atan2(dy,dx),cs=clamp((l1*l1+d*d-l2*l2)/(2*l1*d),-1,1),t=a+dir*Math.acos(cs);return[ax+Math.cos(t)*l1,ay+Math.sin(t)*l1,ax+dx,ay+dy];}
 
 /* ===================== STAGES / ART ===================== */
+let CHASE=0,CHASEJUMP=0;try{CHASE=/[?&]chase=1/.test(location.search)?1:0;CHASEJUMP=CHASE&&/[?&]final=1/.test(location.search)?1:0;}catch(e){}/* ?chase=1&final=1 は試し遊び用: 最初の幕を飛ばして最終幕の家康戦から始める *//* 試作: ?chase=1 で最終幕の家康が馬で逃げ、主人公も馬で追う。既定は従来の最終戦 */
 const STG=[
  {jp:'第一幕',title:'払暁の関ヶ原',stars:true,en:'STAGE 1 — DAWN AT SEKIGAHARA',sky:['#10183a','#3d3f7a','#c4768a','#f3b88a','#ffe2b4'],sun:[880,330,70,'#fff0c8'],mtn:'#4a5084',mtn2:'#343b66',hill:'#232a45',mist:'205,215,245',g:['#5b6a45','#3a3a2c','#26231c'],tint:'rgba(70,60,130,0.10)',wx:'mist',seed:11,bgm:0},
  {jp:'第二幕',title:'松尾山の雨',en:'STAGE 2 — RAIN ON MT. MATSUO',sky:['#232a31','#3d4953','#62727d','#8e9fa6','#b0bcbd'],sun:null,mtn:'#56626a',mtn2:'#3b474f',hill:'#27322f',mist:'180,195,200',g:['#3f4a36','#2d2f26','#1b1c17'],tint:'rgba(20,40,60,0.16)',wx:'rain',seed:23,bgm:1},
@@ -325,7 +326,7 @@ function drawBG(cam,t){
  if(a<1){const pv=honImg(h.prev);if(pv)drawHonImg(pv);else drawBGbase(cam,t);ctx.globalAlpha=a;drawHonImg(im);ctx.globalAlpha=1;}else drawHonImg(im);}
 function drawBGbase(cam,t){
  if(G.howto){ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);const g=ctx.createRadialGradient(W/2,600,20,W/2,600,520);g.addColorStop(0,'rgba(120,100,80,0.35)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,300,W,H-300);ctx.fillStyle='rgba(255,240,200,0.05)';ctx.beginPath();ctx.ellipse(W/2,590,520,70,0,0,TAU);ctx.fill();return;}
- const A=ART,S=A.S,bi=BGIMG[G.stage];
+ const A=ART,S=A.S,bi=BGIMG[Math.min(G.stage,5)];
  if(bi&&bi.complete&&bi.naturalWidth){drawBGimg(bi,cam);return;}
  ctx.drawImage(A.sky,0,0);
  if(S.sun&&!G.lowq){const sx0=S.sun[0],sy0=S.sun[1],len=1000;ctx.save();ctx.globalCompositeOperation='lighter';for(let i=0;i<9;i++){const a=-2.7+i*0.36+Math.sin(t*0.004+i)*0.03;const g=ctx.createRadialGradient(sx0,sy0,20,sx0,sy0,len);g.addColorStop(0,`rgba(${(S.ray||[255,220,160]).join(',')},${(0.1+0.04*Math.sin(t*0.01+i*2))*(S.rayA||1)})`);g.addColorStop(1,'rgba(255,200,120,0)');ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(sx0,sy0);ctx.lineTo(sx0+Math.cos(a-0.05)*len,sy0+Math.sin(a-0.05)*len);ctx.lineTo(sx0+Math.cos(a+0.05)*len,sy0+Math.sin(a+0.05)*len);ctx.closePath();ctx.fill();}ctx.restore();}
@@ -485,6 +486,9 @@ const LV=[
  {waves:[{gap:620,en:[['samurai',0,1],['ninja',30,-1],['sword',60,1]]},{gap:850,en:[['ninja',0,1],['gun',30,-1],['samurai',70,1],['spear',100,-1]]},{gap:850,en:[['samurai',0,1],['rider',50,-1],['ninja',80,1],['sword',110,-1]]},{gap:800,en:[['ninja',0,1],['ninja',10,-1],['samurai',50,-1],['samurai',80,1],['horsearcher',120,-1]]},{gap:800,boss:'boss2',en:[['ninja',260,-1],['sword',320,1]]}]},
  {waves:[{gap:620,en:[['ninja',0,1],['sword',20,-1],['sword',50,1],['samurai',90,-1]]},{gap:850,en:[['rider',30,1],['spear',20,-1],['ninja',60,1],['gun',90,-1]]},{gap:850,en:[['samurai',0,1],['horsearcher',60,-1],['sword',90,-1],['spear',130,1]]},{gap:800,boss:'boss1',en:[['sword',220,-1],['gun',280,1]]},{gap:800,boss:'boss7',en:[['ninja',220,-1],['samurai',300,1]]},{gap:800,boss:'boss3',en:[['yoroi',200,-1],['yoroi',250,1],['yoroi',300,-1],['yoroi',350,1],['yoroi',400,-1],['yoroi',450,1],['ninja',330,1]]}]}
 ];
+/* 試作 ?chase=1 のときだけ第七幕がある(家康が家来の盾に守られて逃げたあとの決戦。通常の遊びは6幕のまま) */
+if(CHASE){STG.push(Object.assign({},STG[5],{jp:'第七幕',title:'本陣前の最後の砦',en:'STAGE 7 — THE LAST STAND',seed:97,tint:'rgba(40,10,50,0.16)'}));
+ LV.push({n:4,waves:LV[5].waves.slice(0,3).concat([{gap:800,boss:'boss3',en:LV[5].waves[5].en}])});}
 
 /* ===================== GAME STATE ===================== */
 const G={mode:'demo',t:0,stage:0,camx:0,camMax:0,fighters:[],props:[],items:[],proj:[],parts:[],waves:[],wi:0,waveOn:false,sq:[],player:null,score:0,lives:3,shake:0,hitstop:0,slow:0,state:'run',stateT:0,
@@ -510,7 +514,7 @@ function startStage(si,ch,demo,keep){
  if(CHASEJUMP&&si===0&&!demo&&!G.auto)si=5;
  G.chase=null;G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
- else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja','archer'];const N=10,out=[];
+ else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja','archer'];const N=L.n||10,out=[];
   for(let i=0;i<N;i++){const base=nb[i%nb.length],lap=Math.floor(i/nb.length),en=base.en.map(e=>[e[0],e[1]+rndi(0,40),e[2]]);
    const add=1+Math.floor(i/3)+(i%3===2?1:0);for(let k=0;k<add;k++){const ty=ex[(i+k+si)%ex.length];en.push([ty,120+k*90+rndi(0,50),(i+k)%2?1:-1]);}
    if(i===4||i===8)en.push(['samurai',60,1],['samurai',160,-1]);
@@ -534,7 +538,7 @@ function startStage(si,ch,demo,keep){
  if(si%2===0&&!demo)G.deco.push({isProp:true,deco:true,team:2,k:'fire',x:G.waves[Math.max(1,G.waves.length>>1)].x-470,y:602,z:0,hp:1});
  G.items.push({x:430,y:575,k:'w_'+['takeyari','kusari','ono','naginata','yoto','odachi'][si%6],t:0});G.items.push({x:G.waves[0].x-120,y:600,k:'onigiri',t:0});
  G.banner={t:0,jp:STG[si].jp,title:STG[si].title,en:STG[si].en};
- AU.bgm(STG[si].bgm);AU.pre=si===5?[3,10]:[3];G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
+ AU.bgm(STG[si].bgm);AU.pre=si>=5?[3,10]:[3];G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
  if(G.auto)setDemoMount(demoView.mounted);
  if(CHASEJUMP&&si===5&&!demo&&!G.auto){G.wi=G.waves.length-1;G.camMax=G.waves[G.wi].x;G.camx=G.camMax;G.props=[];p.x=G.camx+300;if(G.partner)G.partner.x=G.camx+230;}/* 試し遊び: 家康戦から */
 }
@@ -615,6 +619,14 @@ const SCN={
   ['本多忠勝','生涯五十七度の戦で傷ひとつ負わぬこの身、破れるものなら破ってみよ。'],
   ['徳川家康','真田……またしても真田か。儂の前に立ちはだかるのは、いつも真田よ。'],
   ['@','内府殿。これが最後の戦にござる——いざ、尋常に勝負！'],
+  ['@@',''],
+ ],
+ s6:[
+  ['n','夕刻　関ヶ原・徳川本陣'],
+  ['h','家来たちの盾に守られ、家康は本陣へと退いた。'],
+  ['t','だが、日没までもう時はない'],
+  ['徳川家康','……皆、よう散ってくれた。この儂が倒れては、その死が無駄になる。'],
+  ['@','内府殿。もう逃がしはせぬ。その首、ここで頂く！'],
   ['@@',''],
  ],
  end:[
@@ -777,7 +789,7 @@ function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DE
 
 /* ---------- spawn ---------- */
 // ボス戦の曲: 最終幕の大将(徳川家康 boss3)だけラスボス曲(10)、それ以外のボスは3
-function bossBgm(e){return G.stage===5&&e&&e.T&&e.T.type==='boss3'?10:3;}
+function bossBgm(e){return G.stage>=5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 // 雑魚の同時出現数の上限(スマホで一度に出すぎると重い、オーナー指摘)。超えた分は前の敵が倒れてから順に出る。総数は変わらない
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
@@ -802,7 +814,7 @@ function gunbaiCounter(t,own,a){if(t.T.type!=='shin'||t.wpn||t.mount||!own||own.
  t.gcT=G.t+40;ring(t.x+t.face*50,t.y,70,'rgba(255,220,120,0.95)',16);for(let i=0;i<12;i++)PT({x:t.x+t.face*50,y:t.y,z:t.z+90,vx:t.face*rnd(1,6),vz:rnd(-2,4),life:rndi(10,18),sz:rnd(2,4),col:'#fff2b0',k:'spark'});
  AU.sfx('clang');hurt(own,{x:t.x,face:t.face,team:0,owner:t,hit:null},{dmg:16,kb:8,launch:true,unblock:true,pz:'swing'});}
 function hurt(t,a,d){
- if(t.team===1&&t.hp>0&&((t.wakeInv>G.t)||(t.chaseRun&&G.chase&&G.chase.phase==='block')))return;/* ボスの起き上がり無敵(2.5秒)・追撃戦で駆け去っている間は、騎馬攻撃など直接 hurt を呼ぶ攻撃も当たらない */
+ if(t.team===1&&t.hp>0&&((t.wakeInv>G.t)||(t.chaseRun&&G.chase&&(G.chase.phase==='block'||G.chase.phase==='shield'))))return;/* ボスの起き上がり無敵(2.5秒)・追撃戦で駆け去っている間は、騎馬攻撃など直接 hurt を呼ぶ攻撃も当たらない */
  const own=a.owner||a;if(a.hit)a.hit.add(t);
  let dmg=d.dmg*(own.dm||1);const dir=a.face||sgn(t.x-a.x);if(t.T&&t.T.boss)dmg*=1.4;{const cm=chipMul(t,own);dmg*=cm;t.chipHit=cm<1;if(cm<1)for(let i=0;i<3;i++)PT({x:t.x,y:t.y,z:t.z+80+rnd(-24,24),vx:rnd(-3,3),vz:rnd(0,3),life:8,sz:2.2,col:'#b8b8c4',k:'spark'});}if(own.wpn&&!a.owner&&own.team===0&&own.wpn.k!=='teppo'&&own.wpn.k!=='yumi')useWpn(own);if(own.wpn&&own.wpn.k==='yoto'&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+2);if(d.fx==='yoki'&&!own.wpn&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+1);
  if(t.team===0&&!a.owner&&!d.unblock&&tryCover(t,own,dmg))return;
@@ -827,7 +839,7 @@ function hurt(t,a,d){
  if(t.team===1&&t.gcrash>G.t)dmg*=1.35;
  if(t.team===0&&G.demo)dmg*=(window.__demoDmg??0.15);/* 自動デモの主人公は受けるダメージ15%(ほぼ死なない)。検査用にwindow.__demoDmgで変えられる */if(t.isPartner)dmg*=0.8;if(own.isPartner&&t.team===1&&!G.demo)dmg*=0.6;/* 味方NPCは主人公の脇役: 与ダメ6割・被ダメ8割(旧: 被ダメ55%)。友達の「味方が強すぎる」対応 */if(own.team===1&&!G.demo&&!G.auto)dmg*=diffNow().dm;
  const air=t.team===1&&own.team===0&&t.state==='down'&&t.z>0&&!t.T.boss;if(air){dmg*=0.7;t.jug=(t.jug||0)+1;}
- let mh=false;if(t.mount){mh=true;if(!(G.auto&&t===G.player&&demoView.mounted))t.mount.hp--;dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}
+ let mh=false;if(t.mount){mh=true;if(!(G.auto&&t===G.player&&demoView.mounted))t.mount.hp--;if(t.chaseRun&&G.chase&&G.chase.on){if(t.mount.hp<1)t.mount.hp=1;dmg*=0.8;/* 追撃中の家康は落馬させず、体力の1割を削ると家来の盾の場面になる */}else{dmg*=0.35;if(t.mount.hp<=0){t.hp-=dmg;dropMount(t,dir,true);t.flash=8;AU.sfx('hitH');return;}}}
  let ctr=false;if(own.team===0&&t.team===1&&t.state==='atk'&&t.cur&&t.st<(t.cur.hs||0)){ctr=true;dmg*=1.3;G.ctrN=(G.ctrN||0)+1;if(!((G.ctrFxT||0)>G.t)){G.ctrFxT=G.t+45;G.hitstop=Math.max(G.hitstop,9);G.shake=Math.max(G.shake,7);slashFx(t.x,t.y,t.z+80,dir,180,16,'#dff6ff');}}
  let crit=false;if(own.team===0&&t.team===1){const cc=(d.chg||(own.cur&&(own.cur.iai||own.cur.chg||own.cur.ck)))?0.3:0.07;if(Math.random()<cc){crit=true;dmg*=1.6;G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,9);PT({x:t.x,y:t.y,z:t.z+80,life:10,k:'star',sz:80,col:'#fff6c0'});slashFx(t.x,t.y,t.z+85,dir,210,18);}}t.critK=crit;
  t.hp-=dmg;t.flash=8;t.showBar=160;if(t.T&&t.T.boss){t.hitRun=(t.hitRun||0)+1;t.hitRunT=50;}if(t.team===1&&t.hp>0&&(t.T.boss||t.T.mid)&&!(own.state==='ult'||own.state==='spc'||own.state==='mspc'||G.ult||G.spcScene)){const n=t.T.boss?10:5;t.pinv=n;t.inv=Math.max(t.inv,n);}if(t.team===1){G.lastEn=t;G.lastT=220;}
@@ -1414,12 +1426,34 @@ function chaseStep(){const C=G.chase;if(!C||!C.on||G.state!=='run'||G.banner)ret
  for(const f of G.fighters)if(f.team===0&&f.hp>0&&!f.isProp&&f.state!=='dead'&&f.state!=='down')f.x+=C.v;/* 馬が走るぶん主人公も前へ進む(止まれば相対的に下がる) */
  const P=G.player;if(P&&P.hp>0&&!P.mount&&P.state!=='down'&&P.state!=='dead'){if(++C.remount>=90){C.remount=0;chaseMount(P);popup('替え馬！',P.x,P.y,140,'#fff2c0',20);}}else C.remount=0;
  if(G.partner&&G.partner.hp>0&&!G.partner.mount&&G.t%120===0)chaseMount(G.partner);
+ if(C.phase==='shield'||C.phase==='shield2'){chaseShieldStep(C,b);return;}
  if(!b||b.hp<=0)return;
  if(b.chaseRun&&!b.mount){/* 落馬: 画面を止めて一対一 */C.phase='duel';b.chaseRun=false;b.entered=true;setHonmaru('boss3');/* 本丸の前に着いた: 背景を本丸へ切り替える */b.hp=Math.min(b.hp,Math.round(b.maxhp*0.75));b.spd=b.T.spd;popup('逃げぬ……ここが儂の戦場じゃ！',b.x,b.y,200,'#ffe9a8',24);AU.sfx('roar');G.shake=Math.max(G.shake,14);G.hitstop=Math.max(G.hitstop,10);return;}
- if(C.phase==='run'){if(C.blk===0&&b.mount&&b.mount.hp<=6)chaseBlock(1);else if(C.blk===1&&b.mount&&b.mount.hp<=3)chaseBlock(2);}
+ if(C.phase==='run'){if(!C.shielded&&b.hp<=b.maxhp*0.9){chaseShield();return;}/* 家康の体力を1割削った: 家来が盾になって立ちはだかる */
+  if(C.blk===0&&b.mount&&b.mount.hp<=6)chaseBlock(1);else if(C.blk===1&&b.mount&&b.mount.hp<=3)chaseBlock(2);}
  else if(C.phase==='block'){C.bt++;b.inv=Math.max(b.inv,3);/* 守護部隊の戦いの間、家康は駆け去っていて攻撃は届かない */const alive=G.fighters.some(e=>e.team===1&&e.hp>0&&e!==b&&!e.isProp&&e.state!=='dead');
   if(!alive&&!G.sq.length&&C.bt>90){C.phase='run';C.nextAtk=C.t+200;b.entered=true;b.x=G.camx+W+260;b.inv=0;popup('追え！',G.player.x,G.player.y,160,'#fff2c0',26);AU.sx('horse',0.9);}}}
+/* 家康の体力を1割削ると、家来たちが盾になって立ちはだかり、家康を逃がす(しんがり風の吹き出しの会話)。盾を破るとそのまま第七幕へ(オーナー案 2026-10-15) */
+function chaseShield(){const C=G.chase,b=G.boss;C.phase='shield';C.sc=0;C.hold=true;C.shielded=true;C.flee=false;C.rt=[];G.sq=[];G.waveT=0;
+ for(const e of G.fighters)if(e.team===1&&e!==b&&e.hp>0&&!e.isProp&&e.state!=='dead'){e.hp=0;e.dying=true;knock(e,1,6,9);}
+ b.state='idle';b.cur=null;b.entered=false;b.inv=Math.max(b.inv,10);
+ G.hitstop=Math.max(G.hitstop,14);G.shake=Math.max(G.shake,12);ring(b.x,b.y,170,'rgba(255,220,120,0.95)',24);AU.sfx('boom');AU.sfx('roar');
+ say(b,'ぐっ……やりおるわ……！',150);}
+function chaseShieldStep(C,b){const P=G.player;
+ if(C.phase==='shield'){const t=++C.sc,R=C.rt;
+  if(t===70){[['shield',500],['yoroi',545],['shield',590],['yoroi',635],['shield',675]].forEach(([ty,y],i)=>{const e=spawnEn(ty,1);e.x=G.camx+W+90+i*34;e.y=clamp(y,YMIN+8,YMAX-8);e.tx=G.camx+W-300+(i%2)*46;e.scene=true;e.face=-1;e.entered=true;R.push(e);});AU.sx('horse',0.7);AU.sfx('roar');}
+  if(t===150&&R[0])say(R[0],'殿、お退きくだされ！\nここは我らが盾となりまする！',190);
+  if(t===340&&b)say(b,'……すまぬ。\n者ども、頼んだぞ！',170);
+  if(t===480&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',170);
+  if(t===490){C.flee=true;AU.sx('horse',0.9);G.shake=Math.max(G.shake,6);}
+  if(t===610&&P)say(P,'待て、家康！',120);
+  if(t===690&&R[4])say(R[4],'殿の背には\n指一本触れさせぬ！',150);
+  if(b&&((C.flee&&b.x>G.camx+W+240)||t>=800)){const i=G.fighters.indexOf(b);if(i>=0)G.fighters.splice(i,1);G.boss=null;}
+  if(t>=800){for(const e of R)e.scene=false;C.phase='shield2';C.hold=false;C.bt=0;popup('盾を破れ！',P.x,P.y,150,'#ffd070',26);}}
+ else{C.bt++;const alive=G.fighters.some(e=>e.team===1&&e.hp>0&&!e.isProp&&e.state!=='dead');if(!alive&&C.bt>90)chaseClear();}}
+function chaseClear(){const C=G.chase,p=G.player;C.on=false;C.phase='done';AU.stopBgm();AU.sfx('clear');G.state='clear';G.stateT=0;G.kgun=null;G.vo=null;G.clearLim=330;G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;G.timeBonus=Math.floor(G.time/60)*20;addScore(G.bonus+2000+G.timeBonus);}
 function chaseBossAI(e,p){const C=G.chase;e.face=1;
+ if(C.phase==='shield'||C.phase==='shield2'){e.cur=null;e.inv=Math.max(e.inv,4);if(!C.flee){e.state='idle';e.x+=(G.camx+W*0.58-e.x)*0.05;return;}e.state='walk';e.wp=(e.wp||0)+0.3;e.x+=9;e.entered=false;return;}
  if(C.phase==='block'){e.state='walk';e.entered=false;e.inv=Math.max(e.inv,2);e.x=Math.min(e.x+9,G.camx+W+600);return;}
  if(!e.entered&&C.phase==='run'){e.entered=true;}
  if(e.flash>0||e.state==='hurt')e.boostT=G.t+100;/* 斬られたら馬を飛ばして引き離す */
@@ -1430,8 +1464,10 @@ function chaseBossAI(e,p){const C=G.chase;e.face=1;
  if(C.t>=C.nextAtk&&canAct(e)){C.nextAtk=C.t+rndi(330,450);startEAtk(e,pick([3,4,3,1]));}}
 function chaseHud(){const C=G.chase;if(!C||!C.on)return;const b=G.boss;
  if(C.phase==='run'&&!G.lowq){ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(255,240,215,0.10)';ctx.lineWidth=2;for(let i=0;i<10;i++){const y=90+((i*71+13)%520),x=W-(((G.t*(26+i*3))+i*173)%(W+300))+100,L=120+(i*37)%160;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+L,y);ctx.stroke();}ctx.restore();}
+ if(b&&b.hp>0&&!C.shielded){ctx.fillStyle='#ffe070';ctx.fillRect(W/2-300+600*0.9-1,128,3,24);txt('ここまで削れ',W/2-300+600*0.9,176,13,'#ffe9a8','center','#000',3);}
  if(b&&b.mount){txt('家康の馬',W-40,150,18,'#ffd070','right','#000',3);for(let i=0;i<b.mount.max;i++){ctx.fillStyle=i<b.mount.hp?'#e8a040':'rgba(60,40,30,0.8)';ctx.fillRect(W-40-(b.mount.max-i)*20,164,16,14);}}}
 function updEnemy(e){
+ if(e.scene){e.t++;e.st++;if(e.flash>0)e.flash--;e.face=-1;e.inv=Math.max(e.inv,6);const k=e.tx-e.x;if(Math.abs(k)>2){e.x+=clamp(k*0.06,-3.4,3.4);e.state='walk';e.wp=(e.wp||0)+0.3;}else{e.state='idle';}return;}/* 家来の盾の場面: 並ぶまで歩いて、会話の間は動かない */
  if(e.state==='held'&&e.heldBy&&e.heldBy.spearThrow&&e.heldBy.spearThrow.e===e){const p=e.heldBy;if(p.state==='throw'&&!p.spearThrow.released){e.t++;e.st++;if(e.flash>0)e.flash--;attachSpearVictim(p,e);return;}cancelSpearThrow(p);}
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if((e.T.boss||e.T.mid)&&e.hp>0&&!G.lowq&&e.t%7===0&&bossOpen(e)&&e.state!=='down'&&e.state!=='getup')PT({x:e.x+rnd(-18,18),y:e.y,z:e.z+(e.T.boss?176:150)+rnd(-8,8),life:11,k:'star',sz:rnd(22,34),col:'#ffd860'});if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);if(e.hide&&!(e.state==='atk'&&e.cur&&e.cur.k==='warp'))e.hide=false;/* 瞬身の途中で割り込まれても姿を戻す */
@@ -1608,9 +1644,10 @@ function updWorld(){
  chaseStep();
  // controls
  let c;if(G.howto)c=G.htc||{};else if(G.demo||G.auto)c=demoCtl(p);else c=ctlKeys();
+ if(G.chase&&G.chase.hold){c={};if(p&&p.hp>0)p.inv=Math.max(p.inv,6);}/* 家来の盾の場面の間は操作を受けつけない */
  // wave logic
  if(G.state==='run'){
-  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&w.boss==='boss3'&&!G.demo&&!G.auto;
+  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&G.stage===5&&w.boss==='boss3'&&!G.demo&&!G.auto;
    if(w.boss)G.sq.push({type:w.boss,d:50,side:1});
    if(!chs)for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
    if(chs)chaseInit(w);
@@ -2011,7 +2048,7 @@ function drawWeapon(f,o,K,kind){
 // キャラ画像はステージで使う分だけ読み込み、使わない分は捨てる(Android のメモリ対策。全部だと展開後約245MB)。
 // SPR_RAW が本体。SPR は見張り役: 予定外の画像を使おうとしたら、その場で読み込みを頼み G.sprMiss に記録する(テストで漏れを見つける)。
 const SPR_RAW={};let SPR_ALL=false;
-let CHASE=0,CHASEJUMP=0;try{CHASE=/[?&]chase=1/.test(location.search)?1:0;CHASEJUMP=CHASE&&/[?&]final=1/.test(location.search)?1:0;}catch(e){}/* ?chase=1&final=1 は試し遊び用: 最初の幕を飛ばして最終幕の家康戦から始める *//* 試作: ?chase=1 で最終幕の家康が馬で逃げ、主人公も馬で追う。既定は従来の最終戦 */
+
 let WALKX=0;try{const m=/[?&]walkx=([12])/.exec(location.search);WALKX=m?+m[1]:0;}catch(e){}const WKS=()=>WALKX===2?'2':'';/* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に、?walkx=2 でそれを自動手直しした版(walkx_yuki2 / walkx_yuki2_u)に差し替える。既定は従来の8コマ */
 const SPR=new Proxy(SPR_RAW,{get(t,k){const S=t[k];if(S&&!S.want&&typeof k==='string'&&!SPR_ALL){sprRequest(k);(G.sprMiss||(G.sprMiss=[])).push(k);}return S;}});
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
@@ -2347,7 +2384,7 @@ function drawSteeds(){if(!G.steeds)return;for(const h of G.steeds){const S=SPR.m
 
 
 /* ===================== ステージの仕掛け（ハザード） ===================== */
-const HZ=['arrows','volley','rocks','stampede','firearrows','cannon'];/* 第三幕は丸太→岩(戦場_岩_転がり。2026-10-14)。'logs' の描画・当たりはコードに残してある */
+const HZ=['arrows','volley','rocks','stampede','firearrows','cannon'];if(CHASE)HZ.push('cannon');/* 第三幕は丸太→岩(戦場_岩_転がり。2026-10-14)。'logs' の描画・当たりはコードに残してある */
 const HZNAME={arrows:'矢の雨だ！',volley:'鉄砲隊の一斉射撃！',logs:'丸太が来るぞ！',rocks:'岩が転がってくるぞ！',stampede:'暴れ馬だ！',firearrows:'火矢が来るぞ！',cannon:'大筒の砲撃！'};
 function startHazard(){const k=HZ[G.stage]||'arrows',p=G.player;if(!p)return;G.hzMsg={t:0,s:HZNAME[k]};AU.sfx('warn');
  if(k==='arrows'||k==='firearrows'){const fire=k==='firearrows',dir=Math.random()<0.5?1:-1;for(let i=0;i<(fire?7:10);i++){const x=clamp(p.x+rnd(-330,330),G.camx+40,G.camx+W-40),y=rnd(YMIN+8,YMAX),w=50+i*10;G.marks.push({x,y,t:-w+50,life:w+8,r:55});for(let j=0;j<6;j++){const T=34,tx=x+rnd(-40,40),ty=clamp(y+rnd(-14,14),YMIN,YMAX);addProj({k:'arrowfall',x:tx-dir*T*5,y:ty,z:T*13,vx:dir*5,vz:-13,tx,ty,wait:w+j*2,team:-1,dmg:6,fire,life:400,face:dir});}if(fire)G.fires.push({x,y,t:-(w+40),life:300});}}

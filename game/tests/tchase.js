@@ -1,6 +1,6 @@
 // 2026-10-15 家康の騎馬追撃戦(試作 ?chase=1): 最終幕の家康が馬で逃げ、主人公も馬で追う(オーナー案)
 // ①フラグなし(既定)は従来どおり(家康は馬に乗らず、追撃も始まらない) ②?chase=1: 家康が騎乗・主人公も騎乗・景色(カメラ)が流れ続ける・背景は本丸に固定されない
-// ③馬の傷が6以下で守護部隊(カメラが止まる・駆け去った家康に攻撃は当たらない)→倒すと追撃再開 ④3以下で2回目 ⑤馬が尽きると落馬→画面が止まり本丸の背景・一対一 ⑥落馬後の起き上がりは2.5秒無敵(直接hurtも当たらない) ⑦家康を倒すと幕クリア
+// ③馬の傷が6以下で守護部隊(カメラが止まる・駆け去った家康に攻撃は当たらない)→倒すと追撃再開 ④3以下で2回目(※落馬・一対一は 2026-10-15 の変更でなくなり、体力1割で家来の盾の場面になる。tshield.js)。旧: 起き上がりは2.5秒無敵(直接hurtも当たらない) ⑦家康を倒すと幕クリア
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 const BASE=process.argv[2]||process.env.GAME_URL;
 async function open(b,flag){const p=await(await b.newContext({viewport:{width:915,height:412}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
@@ -30,13 +30,7 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
    // ④ 守護部隊2: 馬の傷3以下
    tick(150);hit(3);tick(10);o.b2={phase:G.chase.phase,blk:G.chase.blk,mount:bo.mount&&bo.mount.hp};
    tick(220);for(const f of G.fighters)if(f.team===1&&f!==bo){f.hp=0;f.dying=true;f.state='dead';}G.sq=[];tick(220);o.b2end={phase:G.chase.phase};
-   // ⑤ 落馬
-   tick(150);hit(Math.max(1,bo.mount?bo.mount.hp:0));tick(20);o.duel={phase:G.chase.phase,mount:!!bo.mount,run:!!bo.chaseRun,hon:G.hon&&G.hon.k,state:bo.state};
-   // ⑥ 起き上がり無敵: 直接hurtも当たらない
-   tick(120);const hp0=bo.hp;o.wake={state:bo.state,wakeLeft:bo.wakeInv-G.t};if(bo.wakeInv>G.t){bo.inv=0;Math.random=()=>0.99;hurt(bo,P,{dmg:50,kb:2,pz:'thrust'});Math.random=orig;}o.wake.noDmg=bo.hp===hp0;
-   tick(200);o.after={camStill:Math.round(G.camx-G.camMax)>=0,v:+G.chase.v.toFixed(2),wakeLeft:bo.wakeInv-G.t};
-   // ⑦ 撃破
-   bo.hp=1;bo.wakeInv=0;bo.inv=0;Math.random=()=>0.99;hurt(bo,P,{dmg:99999,kb:2,pz:'thrust'});Math.random=orig;tick(260);o.end={state:G.state,bossHp:bo.hp};
+   // ⑤以降(体力1割で家来の盾→第七幕)は tshield.js で確認
    return o;},[SETUP.toString()]);
   out.on=r;
   if(!r.start.chase||!r.start.on||r.start.phase!=='run')bad.push('追撃戦が始まらない '+JSON.stringify(r.start));
@@ -47,9 +41,6 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
   if(!(r.b1g.guards>=3))bad.push('守護部隊が出ない '+r.b1g.guards);if(r.b1g.v>0.05)bad.push('守護部隊の戦いでカメラが止まらない');if(!r.b1g.blocked)bad.push('守護部隊の間、家康に攻撃が当たる');
   if(r.b1end.phase!=='run'||!(r.b1end.v>1))bad.push('守護部隊を倒しても追撃が再開しない '+JSON.stringify(r.b1end));
   if(r.b2.phase!=='block'||r.b2.blk!==2)bad.push('2回目の守護部隊にならない '+JSON.stringify(r.b2));if(r.b2end.phase!=='run')bad.push('2回目の後に追撃が再開しない');
-  if(r.duel.phase!=='duel'||r.duel.mount||r.duel.run||r.duel.hon!=='boss3')bad.push('落馬して一対一にならない '+JSON.stringify(r.duel));if(!(r.wake.wakeLeft>0))bad.push('落馬後の起き上がり無敵(wakeInv)が付かない '+JSON.stringify(r.wake));
-  if(!r.wake.noDmg)bad.push('起き上がり無敵の間にダメージを受ける(直接hurt)');if(r.after.v>0.05)bad.push('一対一でカメラが動く');
-  if(!(r.end.state==='bossdown'||r.end.state==='clear'))bad.push('家康を倒しても幕が終わらない '+r.end.state);
   if(errors.length)bad.push('?chase=1 でエラー '+errors[0]);await p.context().close();}
  // ⑧ final=1
  {const p=await(await b.newContext({viewport:{width:915,height:412}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
