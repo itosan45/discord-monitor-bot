@@ -420,6 +420,8 @@ TY.monk={mid:true,name:'鉄球大僧',hp:195,sc:2,spd:1.35,ai:'melee',wp:'sword'
   {pz:'swing',a0:-1,a1:1,r:40,k:'charge',edge:true,move:20,dur:160,hs:46,he:114,rng:200,dep:40,dmg:14,kb:11,launch:true,sfx:'heavy'},/* 画面の端から端まで走る突進: 構え46コマ(赤い道筋・最後の14コマは列を固定)→移動→端で激突→44コマの隙 */
   {pz:'raise',k:'leap',dur:96,hs:22,he:40,rng:250,dmg:20,kb:11,launch:true,dep:80,around:true,fx:'quake',panim:'a1',sfx:'heavy'},
   {pz:'raise',k:'ballthrow',dur:84,hs:22,he:23,rng:0,dmg:12,kb:6,sfx:'heavy',panim:'mthrow'}/* 鉄球投げ(A-014): 遠くの相手へ鎖鉄球を投げて引き戻す。AIは離れているとき(adx>330)だけ約9秒に1回 */],leap:true};
+/* 天海(追撃戦の盾の場面で家康と入れ替わりに出る大僧。鉄球大僧の約1.5倍の強さ: 体力195→292・技の威力×1.5。絵は鉄球大僧の朱の袈裟。オーナー案 2026-10-15) */
+TY.tenkai=Object.assign(JSON.parse(JSON.stringify(TY.monk)),{name:'天海',spr:'monk',hp:292,score:2000});for(const a of TY.tenkai.atk)a.dmg=Math.round(a.dmg*1.5);
 TY.kunoichi={name:'仮面のくノ一',hp:34,spd:13,kjH:98,/* 速さ=主人公(3.5〜5.2・平均4.2)の約3倍(6.2→13)。ジャンプ投げの跳躍=絵の約49pxに kjH 分を足して約3倍(2026-10-14 オーナー「スピードを通常の3倍・ジャンプ力も3倍」) */ai:'melee',skirm:true,runAnim:true,wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
  atk:[{pz:'swing',a0:-1.6,a1:0.9,r:30,dur:30,hs:10,he:14,hs2:20,he2:24,rng:86,dmg:7,kb:2.5,lunge:3,sfx:'slash',cd0:22,cd1:45},
   {pz:'throw',kj:true,dur:44,hs:22,he:23,rng:0,proj:'kunai',dmg:9,kb:3,sfx:'arrow',cd0:14,cd1:38}]};
@@ -1434,22 +1436,26 @@ function chaseStep(){const C=G.chase;if(!C||!C.on||G.state!=='run'||G.banner)ret
  else if(C.phase==='block'){C.bt++;b.inv=Math.max(b.inv,3);/* 守護部隊の戦いの間、家康は駆け去っていて攻撃は届かない */const alive=G.fighters.some(e=>e.team===1&&e.hp>0&&e!==b&&!e.isProp&&e.state!=='dead');
   if(!alive&&!G.sq.length&&C.bt>90){C.phase='run';C.nextAtk=C.t+200;b.entered=true;b.x=G.camx+W+260;b.inv=0;popup('追え！',G.player.x,G.player.y,160,'#fff2c0',26);AU.sx('horse',0.9);}}}
 /* 家康の体力を1割削ると、家来たちが盾になって立ちはだかり、家康を逃がす(しんがり風の吹き出しの会話)。盾を破るとそのまま第七幕へ(オーナー案 2026-10-15) */
-function chaseShield(){const C=G.chase,b=G.boss;C.phase='shield';C.sc=0;C.hold=true;C.shielded=true;C.flee=false;C.rt=[];G.sq=[];G.waveT=0;
+function chaseShield(){const C=G.chase,b=G.boss;C.ie=b;C.phase='shield';C.sc=0;C.hold=true;C.shielded=true;C.flee=false;C.rt=[];G.sq=[];G.waveT=0;
  for(const e of G.fighters)if(e.team===1&&e!==b&&e.hp>0&&!e.isProp&&e.state!=='dead'){e.hp=0;e.dying=true;knock(e,1,6,9);}
  b.state='idle';b.cur=null;b.entered=false;b.inv=Math.max(b.inv,10);
  G.hitstop=Math.max(G.hitstop,14);G.shake=Math.max(G.shake,12);ring(b.x,b.y,170,'rgba(255,220,120,0.95)',24);AU.sfx('boom');AU.sfx('roar');
  say(b,'ぐっ……やりおるわ……！',150);}
-function chaseShieldStep(C,b){const P=G.player;
+function chaseShieldStep(C,b){const P=G.player,ie=C.ie;
  if(C.phase==='shield'){const t=++C.sc,R=C.rt;
   if(t===70){[['shield',500],['yoroi',545],['shield',590],['yoroi',635],['shield',675]].forEach(([ty,y],i)=>{const e=spawnEn(ty,1);e.x=G.camx+W+90+i*34;e.y=clamp(y,YMIN+8,YMAX-8);e.tx=G.camx+W-300+(i%2)*46;e.scene=true;e.face=-1;e.entered=true;R.push(e);});AU.sx('horse',0.7);AU.sfx('roar');}
-  if(t===150&&R[0])say(R[0],'殿、お退きくだされ！\nここは我らが盾となりまする！',190);
-  if(t===340&&b)say(b,'……すまぬ。\n者ども、頼んだぞ！',170);
-  if(t===480&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',170);
-  if(t===490){C.flee=true;AU.sx('horse',0.9);G.shake=Math.max(G.shake,6);}
-  if(t===610&&P)say(P,'待て、家康！',120);
-  if(t===690&&R[4])say(R[4],'殿の背には\n指一本触れさせぬ！',150);
-  if(b&&((C.flee&&b.x>G.camx+W+240)||t>=800)){const i=G.fighters.indexOf(b);if(i>=0)G.fighters.splice(i,1);G.boss=null;}
-  if(t>=800){for(const e of R)e.scene=false;C.phase='shield2';C.hold=false;C.bt=0;popup('盾を破れ！',P.x,P.y,150,'#ffd070',26);}}
+  if(t===140&&R[0])say(R[0],'殿、お退きくだされ！\nここは我らが盾となりまする！',190);
+  if(t===300&&ie)say(ie,'……すまぬ。\n者ども、頼んだぞ！',170);
+  if(t===380){/* 家康と入れ替わりに、鉄球大僧(天海)が右から現れて家康のいた所へ入る */const m=spawnEn('tenkai',1);m.var='c';m.x=G.camx+W+130;m.y=clamp(570,YMIN+8,YMAX-8);m.tx=G.camx+W*0.56;m.scene=true;m.face=-1;m.entered=true;C.monk=m;AU.sfx('roar');G.shake=Math.max(G.shake,8);}
+  if(t===420&&ie)say(ie,'天海……\n後は任せたぞ。',150);
+  if(t===440){C.flee=true;AU.sx('horse',0.9);G.shake=Math.max(G.shake,6);}
+  if(t===510&&C.monk)say(C.monk,'殿は先へ。\nここから先は、拙僧がお相手つかまつる。',200);
+  if(t===640&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',160);
+  if(t===720&&P)say(P,'待て、家康！\n……まずは貴様か、坊主！',150);
+  if(t===810&&C.monk)say(C.monk,'御仏の鉄球、\n存分に味わわれよ！',130);
+  if(ie&&((C.flee&&ie.x>G.camx+W+240)||t>=880)){const i=G.fighters.indexOf(ie);if(i>=0)G.fighters.splice(i,1);C.ie=null;if(G.boss===ie)G.boss=C.monk||null;}
+  if(C.monk&&!C.ie&&G.boss!==C.monk)G.boss=C.monk;
+  if(t>=900){for(const e of R)e.scene=false;if(C.monk)C.monk.scene=false;C.phase='shield2';C.hold=false;C.bt=0;popup('盾と大僧を破れ！',P.x,P.y,150,'#ffd070',26);}}
  else{C.bt++;const alive=G.fighters.some(e=>e.team===1&&e.hp>0&&!e.isProp&&e.state!=='dead');if(!alive&&C.bt>90)chaseClear();}}
 function chaseClear(){const C=G.chase,p=G.player;C.on=false;C.phase='done';AU.stopBgm();AU.sfx('clear');G.state='clear';G.stateT=0;G.kgun=null;G.vo=null;G.clearLim=330;G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;G.timeBonus=Math.floor(G.time/60)*20;addScore(G.bonus+2000+G.timeBonus);}
 function chaseBossAI(e,p){const C=G.chase;e.face=1;
@@ -1660,7 +1666,7 @@ function updWorld(){
  G.runT++;if((G.coverCd||0)>0)G.coverCd--;rearCheck();rearStep();
  if(!G.demo&&G.state==='run'&&!G.waveOn&&G.wi>0&&G.wi<G.waves.length-1&&G.runT%230===0){const al=G.fighters.filter(e=>e.team===1&&e.hp>0).length;if(al<2)spawnEn(pick(['sword','spear','gun','archer','sword']),Math.random()<0.6?1:-1);}
  if(G.state==='run'&&!G.demo&&!G.auto&&!(G.chase&&G.chase.on)/* 追撃戦の間は制限時間を止める */){G.time--;if(G.time>0&&G.time%60===0){const sc=Math.ceil(G.time/60);if(sc<=10)AU.sfx('tick2');else if(sc<=30)AU.sfx('tick');}if(G.time<=0){G.time=0;AU.bgm(9);G.state='continue';G.over='time';G.stateT=0;AU.sfx('warn');}}
- for(const f of G.fighters){if(f.team===0)updPlayer(f,f===p?c:partnerCtl(f));else updEnemy(f);if(G.spcScene||G.ult)return;}
+ for(const f of G.fighters){if(f.team===0)updPlayer(f,f===p?c:(G.chase&&G.chase.hold?{}:partnerCtl(f)))/* 家来の盾の場面の間は味方も動かない */;else updEnemy(f);if(G.spcScene||G.ult)return;}
  updSteeds();updHazards();checkClash();
  // separation
  for(let i=0;i<G.fighters.length;i++)for(let j=i+1;j<G.fighters.length;j++){const a=G.fighters[i],b=G.fighters[j];if(a.z>5||b.z>5||a.state==='down'||b.state==='down'||a.state==='dead'||b.state==='dead'||a.T.ai==='rider'||b.T.ai==='rider')continue;const dx=b.x-a.x,dy=b.y-a.y,mn=(a.T.boss||b.T.boss)?60:34;if(Math.abs(dx)<mn&&Math.abs(dy)<12){const pu=(mn-Math.abs(dx))*0.08*sgn(dx||Math.random()-.5);if(a.team!==0&&!a.T.boss)a.x-=pu;if(b.team!==0&&!b.T.boss)b.x+=pu;}

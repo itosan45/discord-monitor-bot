@@ -19,13 +19,15 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
    o.maxhp=bo.maxhp;let n=0;while(G.chase.phase==='run'&&n<80){hit(20);tick(6);n++;if(G.chase.phase==='block'){for(const f of G.fighters)if(f.team===1&&f!==bo){f.hp=0;f.dying=true;f.state='dead';}G.sq=[];tick(250);}}
    o.hits=n;o.phase=G.chase.phase;o.hpRatio=+(bo.hp/bo.maxhp).toFixed(3);o.mountHp=bo.mount&&bo.mount.hp;
    // ③ 盾の場面
-   tick(5);o.hold=G.chase.hold;const px=P.x;P.x+=0;tick(30);
+   tick(5);o.hold=G.chase.hold;tick(30);
    tick(80);o.rt=G.fighters.filter(f=>f.team===1&&f.scene).length;o.camV=+G.chase.v.toFixed(2);
-   tick(90);o.say1=!!(G.chase.rt[0]&&G.chase.rt[0].say);
-   tick(200);o.say2=!!(bo.say);
-   o.bossBefore=!!G.boss;
-   tick(260);o.fled=!G.boss&&!G.fighters.includes(bo);o.phase2=G.chase.phase;
-   tick(250);o.after={phase:G.chase.phase,hold:G.chase.hold,scene:G.fighters.filter(f=>f.scene).length,alive:G.fighters.filter(f=>f.team===1&&f.hp>0).length};
+   tick(70);o.say1=!!(G.chase.rt[0]&&G.chase.rt[0].say);
+   tick(160);o.say2=!!(bo.say);
+   tick(100);const mk=G.chase.monk;o.mk0=!!mk;o.monk={type:mk&&mk.T.type,name:mk&&mk.T.name,hp:mk&&mk.maxhp,mid:!!(mk&&mk.T.mid),scene:!!(mk&&mk.scene)};
+   o.monkRatio=+(mk.maxhp/(TY.monk.hp*diffNow().hp)).toFixed(2);o.monkAtk=mk.T.atk[0].dmg;o.baseAtk=TY.monk.atk[0].dmg;o.baseHp=TY.monk.hp;
+   tick(80);o.say3=!!(mk.say||bo.say);
+   tick(140);o.fled=!G.fighters.includes(bo);o.bossHud=G.boss&&G.boss.T.name;o.phase2=G.chase.phase;
+   tick(250);o.after={phase:G.chase.phase,hold:G.chase.hold,scene:G.fighters.filter(f=>f.scene).length,alive:G.fighters.filter(f=>f.team===1&&f.hp>0).length,boss:G.boss&&G.boss.T.type};
    // ④ 盾を倒す → 幕クリア
    for(const f of G.fighters)if(f.team===1){f.hp=0;f.dying=true;f.state='dead';}tick(150);o.clear={state:G.state,phase:G.chase.phase};
    G.stateT=9999;P.hp=P.maxhp;tick(5);o.next={stage:G.stage,jp:STG[G.stage].jp,chase:G.chase,waves:G.waves.length,boss:G.waves[G.waves.length-1].boss};
@@ -41,6 +43,7 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
   if(!r.hold)bad.push('場面の間も操作できる');if(r.rt<5)bad.push('家来が5人並ばない '+r.rt);if(r.camV>0.05)bad.push('場面でカメラが動く');
   if(!r.say1)bad.push('家来の吹き出しが出ない');if(!r.say2)bad.push('家康の吹き出しが出ない');
   if(!r.fled)bad.push('家康が逃げて画面から消えない');
+  if(!r.mk0||r.monk.type!=='tenkai'||r.monk.name!=='天海'||!r.monk.mid)bad.push('天海が現れない '+JSON.stringify(r.monk));if(!(r.monkAtk>=r.baseAtk*1.45&&r.monkAtk<=r.baseAtk*1.55)||!(r.monkRatio>=1.45&&r.monkRatio<=1.55))bad.push('天海が鉄球大僧の約1.5倍の強さでない '+r.monkRatio+' '+r.monkAtk+'/'+r.baseAtk);if(r.bossHud!=='天海'||r.after.boss!=='tenkai')bad.push('天海の体力ゲージが出ない(G.boss) '+r.bossHud);if(!r.say3)bad.push('天海・家康のやりとりの吹き出しが出ない');
   if(r.after.phase!=='shield2'||r.after.hold)bad.push('会話のあと操作が戻らない '+JSON.stringify(r.after));if(r.after.scene>0)bad.push('会話のあとも家来が動かない');
   if(r.clear.state!=='clear')bad.push('盾を倒しても幕クリアにならない '+JSON.stringify(r.clear));
   if(r.next.stage!==6||r.next.jp!=='第七幕'||r.next.chase)bad.push('第七幕に進まない '+JSON.stringify(r.next));if(r.next.boss!=='boss3')bad.push('第七幕の最後が家康でない');
