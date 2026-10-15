@@ -1249,12 +1249,16 @@ function updPlayer(p,c){
   case'idle':case'walk':{
    const mx=(c.r?1:0)-(c.l?1:0),my=(c.d?1:0)-(c.u?1:0);
    if(c.gdP&&(mx||my)&&!p.isPartner&&!(p.dcd>0)){p.state='dodge';p.st=0;p.ddir=mx;p.ddy=my;p.dback=mx!==0&&mx!==p.face;p.inv=Math.max(p.inv,p.dback?16:14);AU.sfx('dodge');dust(p.x,p.y,2);dodgeBurst(p);break;}
-   if(mx||my){const k=(mx&&my)?0.8:1;p.x+=mx*T.spd*k;p.y+=my*T.spd*0.62*k;if(mx)p.face=mx;p.state='walk';p.wp+=T.spd*0.05;p.run=(p.run||0)+1;}else{p.state='idle';p.run=0;}
+   const DR=(p.isPartner||G.demo||G.auto)?16:10;/* 突進攻撃(ダッシュ)に要る走りの長さ。人が操作する主人公は10コマ(従来17)で出せる(友達の「ダッシュが全然できない」対応)。味方・デモは従来どおり */
+   if(mx||my){const k=(mx&&my)?0.8:1;p.x+=mx*T.spd*k;p.y+=my*T.spd*0.62*k;if(mx)p.face=mx;p.state='walk';p.wp+=T.spd*0.05;p.run=(p.run||0)+1;p.runG=0;
+    if(p.run===DR+1&&p===G.player&&!G.demo&&!G.auto&&!G.howto){ring(p.x,p.y,46,'rgba(255,240,200,0.8)',10);if(!G.dashTipShown){G.dashTipShown=1;popup('走り中に攻撃ボタンで突進！',p.x,p.y,130,'#fff2c0',18);}}
+    else if(p.run>DR&&p.run%5===0&&!G.lowq)dust(p.x-p.face*22,p.y,1);}
+   else{p.state='idle';p.runG=(p.runG||0)+1;if(p.runG>8||DR===16)p.run=0;/* 指が少しぶれて方向が1〜2コマ途切れても、走りを切らさない */}
    if(c.gd&&!p.isPartner){p.state='guard';p.st=0;p.gst=0;p.gT0=G.t;break;}
    if(mx&&mx===p.face&&!(p.grabCd>0)){const e=G.fighters.find(e=>e.team===1&&e.hp>0&&!e.T.boss&&!e.T.horse&&e.T.ai!=='rider'&&(e.state==='idle'||e.state==='walk'||e.state==='hurt')&&e.entered&&Math.abs(e.x-p.x)<48&&Math.abs(e.y-p.y)<14&&sgn(e.x-p.x)===p.face&&(e.z||0)<4);
     if(e){p.pushT=(p.pushT||0)+1;if(p.pushT>6){startGrab(p,e);break;}}else p.pushT=0;}else p.pushT=0;
    if(c.jumpP){p.state='jump';p.st=0;p.vz=T.jump*1.2;p.vx=mx*T.spd*0.9;AU.sfx('jump');}
-   else if(c.atkP&&p.run>16&&T.dash&&mx){p.face=mx;p.state='atk';p.combo=99;p.cur=atkDef(p,T.dash,false);p.st=0;p.hit.clear();p.buf=false;p.run=0;}
+   else if(c.atkP&&p.run>DR&&T.dash&&(mx||(p.runG||0)<=8&&p.run>DR)){if(mx)p.face=mx;p.state='atk';p.combo=99;p.cur=atkDef(p,T.dash,false);p.st=0;p.hit.clear();p.buf=false;p.run=0;}
    else if(c.atkP){if(mx)p.face=mx;startPAtk(p,0);}
    else if(c.spcP&&p.ki>=T.cost)startSpecial(p);
    break;}
