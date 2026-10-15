@@ -19,10 +19,16 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   {const P=setup();const e=foe(P,'sword',70);Math.random=()=>0;const h=e.hp;hurt(e,P,{dmg:10,kb:2,launch:true});const lau=e.hp<h;const e3=foe(P,'sword',-70);e3.face=-1;const h3=e3.hp;hurt(e3,P,{dmg:10,kb:2});const back=e3.hp<h3;Math.random=orig;out.noGuard={lau,back};if(!lau)bad('打ち上げをガードした');if(!back)bad('背後をガードした');}
   // 1c) ガードの頻度(通常の雑魚は約34%)
   {const P=setup();let g=0,N=400;for(let i=0;i<N;i++){const e=foe(P,'sword',70);e.gcrash=0;const h=e.hp;hurt(e,P,{dmg:10,kb:2});if(e.hp===h)g++;G.fighters.pop();}out.rate=g/N;if(out.rate<0.2||out.rate>0.5)bad('ガード率が範囲外:'+out.rate);}
-  // 2) 起き上がり: ボスだけ無敵が延び(75)、周りの味方側が吹き飛ぶ。雑魚は従来どおり(無敵40・吹き飛ばしなし)
+  // 2) 起き上がり: ボスは吹き飛ばしなし・2.5秒(150コマ)の無敵(その間は攻撃中でも当たらない)。雑魚は従来どおり(無敵40・吹き飛ばしなし)
   for(const ty of['sword','boss1']){const P=setup();const e=foe(P,ty,60);e.state='down';e.z=0;e.vz=0;e.lieT=40;P.x=e.x-50;P.face=1;P.inv=0;const hp0=P.hp;updDown(e);
    const ok=e.state==='getup',inv=e.inv,pushed=P.state==='down'||P.state==='hurt'||P.vx!==0||P.hp<hp0;out['wake_'+ty]={ok,inv,pst:P.state,php:hp0-P.hp};
-   if(!ok)bad('起き上がらない:'+ty);if(e.T.boss){if(inv<75)bad('ボスの無敵が短い:'+ty+inv);if(!(P.hp<hp0))bad('ボスの吹き飛ばしが当たらない:'+ty);}else{/* 雑魚は従来どおり: 無敵40・吹き飛ばしなし(オーナー2026-10-13「雑魚が起き上がり吹き飛ばしてくる仕様は依頼していません」) */if(inv!==40)bad('雑魚の無敵が従来と違う:'+ty+inv);if(P.hp<hp0)bad('雑魚が起き上がりで吹き飛ばした:'+ty);}}
+   if(!ok)bad('起き上がらない:'+ty);if(pushed)bad('起き上がりで主人公が吹き飛ぶ:'+ty);
+   if(e.T.boss){if(inv!==150)bad('ボスの起き上がり無敵が150コマでない:'+ty+inv);
+    // 150コマの間は、立ち上がった後・攻撃中でも主人公の攻撃(strike)が当たらない。切れたら当たる
+    e.state='idle';e.cool=9999;const h0=e.hp;for(let k=0;k<140;k++){G.t++;if(k===70){e.state='atk';e.cur=e.T.atk[0];e.st=5;}P.hit=new Set();Math.random=()=>0.99;strike(P,{pz:'thrust',dmg:10,kb:2,rng:300,dep:60});Math.random=orig;if(e.state==='atk'&&k>75){e.state='idle';}e.inv=Math.max(0,e.inv-1);}
+    if(e.hp<h0)bad('ボスが起き上がり無敵の間にダメージを受けた:'+ty+(h0-e.hp));
+    e.inv=0;e.state='idle';P.hit=new Set();Math.random=()=>0.99;strike(P,{pz:'thrust',dmg:10,kb:2,rng:300,dep:60});Math.random=orig;if(!(e.hp<h0))bad('無敵が切れてもダメージが入らない:'+ty);}
+   else{if(inv!==40)bad('雑魚の無敵が従来(40)と違う:'+ty+inv);}}
   // 3) 家康(boss3): 最終幕の波に鎧武者が6体以上、召喚も鎧武者
   {const w=LV[5].waves.find(w=>w.boss==='boss3');const n=w.en.filter(x=>x[0]==='yoroi').length;out.ieyasuYoroi=n;if(n<6)bad('家康の波の鎧武者が少ない:'+n);
    const P=setup();const ie=foe(P,'boss3',300);const before=G.fighters.length;doSummon(ie);const sm=G.fighters.slice(before).map(x=>x.type);out.summon=sm;if(!(SPR.yoroi&&SPR.yoroi.ready)||sm.some(t=>t!=='yoroi'))bad('召喚が鎧武者でない:'+sm);

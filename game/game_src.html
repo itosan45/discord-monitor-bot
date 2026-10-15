@@ -1316,13 +1316,13 @@ function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)
 // ボスと主人公の体の中心の最小距離(見た目で胴体が重ならない幅)。主人公の近接攻撃の間合い(80以上)+ボスの当たり半径(44*sc)より狭いので、押し出されても攻撃は届く
 function bodyGap(b){return 62*(b.sc||1);}
 function bossGetupLine(f){if(G.t-(f.onoreT||-9999)<720||Math.random()<0.4)return;f.onoreT=G.t;const d=AU.bossLine('onore',f,1.7);if(d&&Math.random()<0.33)setTimeout(()=>{if(f.hp>0&&!f.dying&&G.boss===f&&G.state==='run')AU.bossLine('kirisute',f,1.7);},Math.round(d*1000)+300);}
-// 敵が起き上がる時は、囲まれて袋叩きにされないよう、周りの味方側を吹き飛ばす(ボス・雑魚とも。オーナー「起き上がりに無敵時間と吹き飛ばし」)
+// (2026-10-15 ボスの起き上がりの吹き飛ばしはやめて、2.5秒の無敵に変えた。この関数は今は呼ばれない)旧: 敵が起き上がる時は周りの味方側を吹き飛ばす
 function wakeBlast(f){if(window.__noGuard)return;const R=f.T.boss?130:100;let hit=false;for(const t of G.fighters){if(t.team!==0||t.hp<=0||t.state==='dead'||t.state==='down'||t.dying)continue;if(Math.abs(t.x-f.x)<R&&Math.abs(t.y-f.y)<46&&t.z<60){const dd=sgn(t.x-f.x)||1;t.inv=0;f.hit&&f.hit.delete(t);hurt(t,{x:f.x,face:dd,team:1,owner:f,hit:null},{dmg:f.T.boss?5:3,kb:9,launch:true,unblock:true,noDecap:true});hit=true;}}
  ring(f.x,f.y,R*1.2,'rgba(255,255,255,0.9)',18);for(let i=0;i<10;i++)PT({x:f.x+rnd(-R*0.5,R*0.5),y:f.y,z:rnd(0,50),vx:rnd(-4,4),vz:rnd(1,5),life:rndi(10,18),sz:rnd(8,16),col:'rgba(255,240,200,0.8)',k:'flame'});if(hit||f.T.boss){AU.sfx('boom');G.shake=Math.max(G.shake,hit?7:3);}}
 function updDown(f){
  if(f.bowl){wallBounce(f);bowlStep(f);}
  f.x+=f.vx;if(f.z>0||f.vz>0){f.vz-=GR;f.z+=f.vz;f.vx*=0.985;if(f.z<=0){f.z=0;if(f.vz<-4&&!f.bounced){f.bounced=true;f.vz=-f.vz*0.3;dust(f.x,f.y,5);AU.sfx('land');G.shake=Math.max(G.shake,4);}else{f.vz=0;f.lieT=0;f.jug=0;if(f.dying&&f.team===1&&!f.pooled){f.pooled=1;addDecal(f.x-f.face*10,f.y+2,9,0.9,0.5,38);}}}}
- else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=(f.team===1&&f.T.boss)?75:40;if(f.team===1&&f.T.boss)wakeBlast(f);/* 起き上がりの吹き飛ばしと長めの無敵はボスだけ(雑魚は従来どおり) */if(f.T.boss&&f.team===1)bossGetupLine(f);}}}
+ else{f.vx*=0.8;f.lieT=(f.lieT||0)+1;if(f.lieT>(f.dying?50:34)){if(f.dying){f.state='dead';f.st=0;if(f.team===0){f.hp=0;}}else{f.state='getup';f.st=0;f.inv=(f.team===1&&f.T.boss)?150:40;if(f.team===1&&f.T.boss)f.wakeInv=G.t+150;/* ボスの起き上がりは、吹き飛ばしをやめて2.5秒(150コマ)の無敵(オーナー指示 2026-10-15)。雑魚は従来どおり無敵40 */if(f.T.boss&&f.team===1)bossGetupLine(f);}}}
 }
 
 /* ---------- enemy AI ---------- */
@@ -2095,7 +2095,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  else if(f.state==='dodge'&&!(S.a.dodgeB||S.a.dodgeF)){rot=f.dback?-0.12:0.12;sy=0.93;}
  if(f.decap){rot=f.decap.fs*clamp((f.st-16)/16,0,1)*1.42;lx=0;sx=1;sy=1;}
  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z+by));
- if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(vt&2))ctx.globalAlpha=0.55;
+ if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(vt&2))ctx.globalAlpha=0.55;else if(f.team===1&&f.wakeInv>G.t&&(G.t&4))ctx.globalAlpha=0.6;/* ボスの起き上がり無敵(2.5秒)は点滅で見分ける */
  if(f.state==='dead'&&f.team===1&&f.st>172&&(f.st&2))ctx.globalAlpha=0.35;
  ctx.scale(f.face*f.sc,f.sc);ctx.translate(lx,0);if(rot)ctx.rotate(rot);ctx.scale(sx,sy);
  drawUnarmedBanner(f,S,sp,fl);
@@ -2383,7 +2383,7 @@ function drawFighterP(f){
  const T=f.T,fl=f.flash>0&&(f.flash&2),K=fl?WHITE:T.col,sc=f.sc,o=getPose(f);
  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));
  if(f.state==='dead'&&f.team===1&&f.st>172&&(f.st&2))ctx.globalAlpha=0.35;
- if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(G.t&2))ctx.globalAlpha=0.55;
+ if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(G.t&2))ctx.globalAlpha=0.55;else if(f.team===1&&f.wakeInv>G.t&&(G.t&4))ctx.globalAlpha=0.6;/* ボスの起き上がり無敵(2.5秒)は点滅で見分ける */
  ctx.scale(f.face*sc,sc);
  if(o.rot){const drop=52*clamp(-o.rot/1.45,0,1);ctx.translate(0,-64+drop);ctx.rotate(o.rot);ctx.translate(0,64);}
  const sx=o.sx,sy=o.sy,hy=o.hy;
