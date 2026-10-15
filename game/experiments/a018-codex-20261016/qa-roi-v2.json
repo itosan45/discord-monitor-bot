@@ -1,0 +1,54 @@
+{
+  "status": "partial experiment, not delivery; foreground silhouette changes only in frame11 ghost-removal ROI",
+  "edits_this_run": [
+    {
+      "frame_one_based": 11,
+      "region": [
+        45,
+        174,
+        96,
+        216
+      ],
+      "changed_pixels": 798,
+      "foreground_mask_exact": true,
+      "upper_body_exact": true
+    },
+    {
+      "frame_one_based": 14,
+      "region": [
+        45,
+        185,
+        102,
+        226
+      ],
+      "changed_pixels": 560,
+      "foreground_mask_exact": true,
+      "upper_body_exact": true
+    }
+  ],
+  "previous_frame13_kept": true,
+  "rejected_generated_cells": [
+    4,
+    12
+  ],
+  "reason": "Frame4 still has an extra shoe; frame12 does not reliably resolve overlapping legs. Do not use raw grid as a sheet.",
+  "remaining": "Frame4 extra shoe/leg, frame12 overlap, spear fine detail and visual loop acceptance",
+  "frame11_ghost_removal": {
+    "region": [
+      118,
+      202,
+      132,
+      231
+    ],
+    "removed_pixels": 191,
+    "reason": "generated restoration confirms this vertical sliver is a third ghost leg; actual rear foot at left and planted front leg retained",
+    "visual_acceptance": "pending"
+  },
+  "playback_artifact": "armed16-trial-v2-15fps.gif",
+  "motion_gate": "pending; GIF creation is not visual motion acceptance",
+  "official_evenness": {
+    "CV": 0.18,
+    "max_min": 2.21,
+    "numeric_gate": "pass"
+  }
+}
