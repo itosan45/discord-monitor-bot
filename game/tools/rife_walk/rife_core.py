@@ -159,3 +159,47 @@ def interp_with_flow(net, a, b, t):
         o = w0 * m + w1 * (1 - m)
     img = (o[0, :, :h, :w].permute(1, 2, 0).clamp(0, 1) * 255).round().byte().numpy()
     return img, flow[0, :, :h, :w].numpy()
+
+
+def interp_rgba(net, a, b, aa, ab, t):
+    """interp と同じ流れだが、色(a,b)と形(アルファ aa,ab: 0..1のfloat HxW)を別々に受け取り、
+    色から求めた動き(フロー)で形も同じように動かして返す。背景色(マゼンタ)が色に混ざらない。
+    返り値: (色 HxWx3 uint8, アルファ HxW float)"""
+    h, w = a.shape[:2]
+    ph, pw = ((h - 1) // 32 + 1) * 32, ((w - 1) // 32 + 1) * 32
+
+    def tt(x, c):
+        x = torch.from_numpy(np.ascontiguousarray(x)).float()
+        x = x.permute(2, 0, 1).unsqueeze(0) / 255 if c else x.unsqueeze(0).repeat(3, 1, 1).unsqueeze(0)
+        return F.pad(x, (0, pw - w, 0, ph - h), mode="replicate")
+
+    img0, img1 = tt(a, True), tt(b, True)
+    al0, al1 = tt(aa, False), tt(ab, False)
+    div = torch.tensor([(pw - 1) / 2, (ph - 1) / 2])
+    gx = torch.linspace(-1, 1, pw).view(1, 1, 1, pw).expand(-1, -1, ph, -1)
+    gy = torch.linspace(-1, 1, ph).view(1, 1, ph, 1).expand(-1, -1, -1, pw)
+    grid = torch.cat([gx, gy], 1)
+    ts = torch.full([1, 1, ph, pw], float(t))
+    with torch.no_grad():
+        f0, f1 = net.encode(img0), net.encode(img1)
+        w0, w1 = img0, img1
+        flow = mask = feat = None
+        blocks = [net.block0, net.block1, net.block2, net.block3, net.block4]
+        for i in range(5):
+            if flow is None:
+                flow, mask, feat = blocks[i](torch.cat((img0, img1, f0, f1, ts), 1), None, scale=net.scale_list[i])
+            else:
+                wf0 = warp(f0, flow[:, :2], div, grid)
+                wf1 = warp(f1, flow[:, 2:4], div, grid)
+                fd, m0, feat = blocks[i](torch.cat((w0, w1, wf0, wf1, ts, mask, feat), 1), flow, scale=net.scale_list[i])
+                mask = m0
+                flow = flow + fd
+            w0 = warp(img0, flow[:, :2], div, grid)
+            w1 = warp(img1, flow[:, 2:4], div, grid)
+        m = torch.sigmoid(mask)
+        o = w0 * m + w1 * (1 - m)
+        wa0 = warp(al0, flow[:, :2], div, grid)
+        wa1 = warp(al1, flow[:, 2:4], div, grid)
+        oa = (wa0 * m + wa1 * (1 - m))[:, :1]
+    col = (o[0, :, :h, :w].permute(1, 2, 0).clamp(0, 1) * 255).round().byte().numpy()
+    return col, oa[0, 0, :h, :w].clamp(0, 1).numpy()

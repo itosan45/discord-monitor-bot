@@ -16,6 +16,7 @@ ap.add_argument('--armed', type=Path, required=True)
 ap.add_argument('--unarmed', type=Path, required=True)
 ap.add_argument('--n', type=int, default=16)
 ap.add_argument('--validate', action='store_true')
+ap.add_argument('--suffix', default='', help="キーの末尾(例: 2 → walkx_yuki2 / walkx_yuki2_u)。既存の試験アトラスを残して新版を作る")
 args = ap.parse_args()
 args.armed = args.armed.resolve()
 args.unarmed = args.unarmed.resolve()
@@ -102,7 +103,7 @@ if args.validate:
 
 armed, unarmed = run(args.armed, args.unarmed, args.n, True)
 hands = json.load(open('hands.json'))
-for key, (at, meta, by) in (('walkx_yuki', armed), ('walkx_yuki_u', unarmed)):
+for key, (at, meta, by) in (('walkx_yuki' + args.suffix, armed), ('walkx_yuki' + args.suffix + '_u', unarmed)):
     open(f'atlas_{key}.webp', 'wb').write(by)
     M[key] = {'walk': meta['walk']}
     hy = hands['yuki_u']['walk'][0] if key.endswith('_u') else None
@@ -111,4 +112,4 @@ for key, (at, meta, by) in (('walkx_yuki', armed), ('walkx_yuki_u', unarmed)):
     print(key, at.size, len(by) // 1024, 'KB', len(meta['walk']), 'コマ')
 json.dump(M, open('sprmeta.json', 'w'), ensure_ascii=False, separators=(',', ':'))
 json.dump(hands, open('hands.json', 'w'), ensure_ascii=False, separators=(',', ':'))
-print('書き込み: atlas_walkx_yuki.webp, atlas_walkx_yuki_u.webp, sprmeta.json, hands.json')
+print(f'書き込み: atlas_walkx_yuki{args.suffix}.webp, atlas_walkx_yuki{args.suffix}_u.webp, sprmeta.json, hands.json')

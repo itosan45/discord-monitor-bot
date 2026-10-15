@@ -1957,7 +1957,7 @@ function drawWeapon(f,o,K,kind){
 // キャラ画像はステージで使う分だけ読み込み、使わない分は捨てる(Android のメモリ対策。全部だと展開後約245MB)。
 // SPR_RAW が本体。SPR は見張り役: 予定外の画像を使おうとしたら、その場で読み込みを頼み G.sprMiss に記録する(テストで漏れを見つける)。
 const SPR_RAW={};let SPR_ALL=false;
-let WALKX=false;try{WALKX=/[?&]walkx=1/.test(location.search);}catch(e){}/* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に差し替える。既定は従来の8コマ */
+let WALKX=0;try{const m=/[?&]walkx=([12])/.exec(location.search);WALKX=m?+m[1]:0;}catch(e){}const WKS=()=>WALKX===2?'2':'';/* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に、?walkx=2 でそれを自動手直しした版(walkx_yuki2 / walkx_yuki2_u)に差し替える。既定は従来の8コマ */
 const SPR=new Proxy(SPR_RAW,{get(t,k){const S=t[k];if(S&&!S.want&&typeof k==='string'&&!SPR_ALL){sprRequest(k);(G.sprMiss||(G.sprMiss=[])).push(k);}return S;}});
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
 const UMAP={yuki_u:{a1:'a2',a2:'a2',a3:'a3',a4:'a1',dash:'a2',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump'},kage_u:UGEN,mitsu_u:UGEN,nobu_u:UGEN,shin_u:UGEN,musashi_u:UGEN};
@@ -2055,7 +2055,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  else if(f.team===1&&exPick(f)){const o=exPick(f);S=SPR.enemyx1;sp={arr:S.a[o.arr],pos:o.pos,loop:false,hard:true};}
  else if(f.T.type==='yuki'&&!f.wpn&&f.state==='atk'&&f.cur){const U=SPR.yukiattack2,idx=f.T.atk.indexOf(f.cur.base||f.cur);if(U&&U.ready&&idx>=0&&idx<2){const times=idx===0?[0,3,5,9,13]:[0,3,5,10,13];let frame=0;while(frame<4&&f.st>=times[frame+1])frame++;S=U;sp={arr:U.a['a'+(idx+1)],pos:frame,loop:false,hard:true};}}
  if(f.wpn&&f.team===0&&f.state==='walk'){const U=SPR['walkbody3_'+f.T.type];if(U&&U.ready&&U.a.walk){S=U;sp=sprPos(f,U);}}
- if(WALKX&&f.T.type==='yuki'&&f.team===0&&f.state==='walk'&&!f.mount){const U=SPR[f.wpn?'walkx_yuki_u':'walkx_yuki'];if(U&&U.ready&&U.a.walk){S=U;sp=sprPos(f,U);G.walkxN=(G.walkxN||0)+1;}}
+ if(WALKX&&f.T.type==='yuki'&&f.team===0&&f.state==='walk'&&!f.mount){const U=SPR[f.wpn?'walkx_yuki'+WKS()+'_u':'walkx_yuki'+WKS()];if(U&&U.ready&&U.a.walk){S=U;sp=sprPos(f,U);G.walkxN=(G.walkxN||0)+1;}}
  let kart=false;if(f.wpn&&f.wpn.k==='kusari'&&f.team===0){const K=SPR[f.T.type];if(K&&K.ready){
   if(f.kspin>0&&f.state==='walk'&&K.a.kwalk){S=K;sp={arr:K.a.kwalk,pos:(f.t/4)%K.a.kwalk.length,loop:true,hard:true};kart='spin';}
   else if(f.kspin>0&&(f.state==='idle'||f.state==='walk')&&K.a.kspin){S=K;sp={arr:K.a.kspin,pos:(f.t/4)%K.a.kspin.length,loop:true,hard:true};kart='spin';}
@@ -2802,7 +2802,7 @@ function sprRequest(k){const S=SPR_RAW[k];if(!S||S.want)return;S.want=true;if(S.
 function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.ready=false;S.loading=false;S.white=null;const im=S.img;im.onload=im.onerror=null;im.removeAttribute('src');S.img=new Image();
  for(const id in _tint)if(id==='red|'+k||id.startsWith(k+'|'))delete _tint[id];}
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
-function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki','walkx_yuki_u');return b.filter(k=>SPR_RAW[k]);}
+function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
 function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
