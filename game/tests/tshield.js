@@ -10,9 +10,9 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
  window.tick=(n)=>{for(let i=0;i<n;i++){P.hp=P.maxhp;G.t++;stepGame();if(i%4===0)renderWorld();}};};
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN});const bad=[],out={};
  try{
- {const {p,errors}=await open(b,false);const r=await p.evaluate(()=>({n:STG.length,l:LV.length,bg6:!!BGIMG[6]}));out.off=r;if(r.n!==6||r.l!==6||r.bg6)bad.push('フラグなしで幕の数が6でない/第七幕の背景を読んでいる '+JSON.stringify(r));if(errors.length)bad.push('フラグなしでエラー '+errors[0]);await p.context().close();}
+ {const {p,errors}=await open(b,false);const r=await p.evaluate(()=>({n:STG.length,l:LV.length,bg6:!!BGIMG[6],nb:DATA.bgm.length}));out.off=r;if(r.n!==6||r.l!==6||r.bg6)bad.push('フラグなしで幕の数が6でない/第七幕の背景を読んでいる '+JSON.stringify(r));if(errors.length)bad.push('フラグなしでエラー '+errors[0]);await p.context().close();}
  {const {p,errors}=await open(b,true);
-  const r=await p.evaluate(([S])=>{eval('('+S+')')();const o={},P=G.player,orig=Math.random;o.n=STG.length;
+  const r=await p.evaluate(([S])=>{eval('('+S+')')();const o={},P=G.player,orig=Math.random;o.n=STG.length;o.bgm=STG[6].bgm;o.nb=DATA.bgm.length;
    tick(60);for(let i=0;i<80&&G.banner;i++)tick(10);tick(30);const bo=G.boss;
    const hit=(d)=>{bo.inv=0;bo.pinv=0;Math.random=()=>0.99;hurt(bo,P,{dmg:d,kb:2,pz:'thrust'});Math.random=orig;};
    // ⑤ 実際の1撃(威力20)で何回か
@@ -30,14 +30,15 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
    tick(250);o.after={phase:G.chase.phase,hold:G.chase.hold,scene:G.fighters.filter(f=>f.scene).length,alive:G.fighters.filter(f=>f.team===1&&f.hp>0).length,boss:G.boss&&G.boss.T.type};
    // ④ 盾を倒す → 幕クリア
    for(const f of G.fighters)if(f.team===1){f.hp=0;f.dying=true;f.state='dead';}tick(150);o.clear={state:G.state,phase:G.chase.phase};
-   G.stateT=9999;P.hp=P.maxhp;tick(5);o.next={stage:G.stage,jp:STG[G.stage].jp,chase:G.chase,waves:G.waves.length,boss:G.waves[G.waves.length-1].boss};
+   G.stateT=9999;P.hp=P.maxhp;tick(5);o.pre=AU.pre.slice();o.next={stage:G.stage,jp:STG[G.stage].jp,chase:G.chase,waves:G.waves.length,boss:G.waves[G.waves.length-1].boss};
    // 第七幕の家康は追撃なしの通常戦
    G.mode='play';G.banner=null;G.story=null;G.wi=G.waves.length-1;G.camMax=G.waves[G.wi].x;G.camx=G.camMax;G.fighters=G.fighters.filter(f=>f.team===0);G.props=[];tick(60);for(let i=0;i<80&&G.banner;i++)tick(10);tick(30);
    const b7=G.boss;o.s7={boss:b7&&b7.T.type,mount:!!(b7&&b7.mount),chaseRun:!!(b7&&b7.chaseRun),chase:!!G.chase,hon:G.hon&&G.hon.k,bg:!!(BGIMG[6]&&BGIMG[6].complete&&BGIMG[6].naturalWidth),honOK:!!HONMARU.boss3n,stage:G.stage};
    tick(600);o.s7run={state:G.state,bossHp:b7&&Math.round(b7.hp)};
    return o;},[SETUP.toString()]);
-  out.on=r;await p.waitForFunction(()=>HONMARU.boss3n&&HONMARU.boss3n.complete&&HONMARU.boss3n.naturalWidth>0&&BGIMG[6]&&BGIMG[6].naturalWidth>0,null,{timeout:20000}).catch(()=>{r.s7.honOK=false;});
+  out.on=r;r.bgmOK=await p.evaluate(async()=>{try{const x=await fetch(DATA.bgm[12]);return x.ok&&(await x.arrayBuffer()).byteLength>1e6;}catch(e){return false;}});await p.waitForFunction(()=>HONMARU.boss3n&&HONMARU.boss3n.complete&&HONMARU.boss3n.naturalWidth>0&&BGIMG[6]&&BGIMG[6].naturalWidth>0,null,{timeout:20000}).catch(()=>{r.s7.honOK=false;});
   if(r.n!==7)bad.push('?chase=1 で幕が7つでない '+r.n);
+  if(r.bgm!==12||r.pre.join()!=='12,10'||r.nb!==13)bad.push('第七幕の曲の設定が違う '+JSON.stringify([r.bgm,r.pre,r.nb]));if(!r.bgmOK)bad.push('第七幕の曲(bgm_stage7.mp3)が読めない');
   if(r.phase!=='shield')bad.push('体力を削っても盾の場面にならない '+JSON.stringify({hits:r.hits,phase:r.phase,hp:r.hpRatio}));
   if(!(r.hits>=5&&r.hits<=30))bad.push('1割に届くまでの回数が極端 '+r.hits);
   if(!r.hold)bad.push('場面の間も操作できる');if(r.rt<5)bad.push('家来が5人並ばない '+r.rt);if(r.camV>0.05)bad.push('場面でカメラが動く');

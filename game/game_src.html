@@ -491,7 +491,7 @@ const LV=[
  {waves:[{gap:620,en:[['ninja',0,1],['sword',20,-1],['sword',50,1],['samurai',90,-1]]},{gap:850,en:[['rider',30,1],['spear',20,-1],['ninja',60,1],['gun',90,-1]]},{gap:850,en:[['samurai',0,1],['horsearcher',60,-1],['sword',90,-1],['spear',130,1]]},{gap:800,boss:'boss1',en:[['sword',220,-1],['gun',280,1]]},{gap:800,boss:'boss7',en:[['ninja',220,-1],['samurai',300,1]]},{gap:800,boss:'boss3',en:[['yoroi',200,-1],['yoroi',250,1],['yoroi',300,-1],['yoroi',350,1],['yoroi',400,-1],['yoroi',450,1],['ninja',330,1]]}]}
 ];
 /* 試作 ?chase=1 のときだけ第七幕がある(家康が家来の盾に守られて逃げたあとの決戦。通常の遊びは6幕のまま) */
-if(CHASE){STG.push(Object.assign({},STG[5],{jp:'第七幕',title:'本陣前の最後の砦',en:'STAGE 7 — THE LAST STAND',seed:97,tint:'rgba(0,0,0,0)'}));
+if(CHASE){STG.push(Object.assign({},STG[5],{jp:'第七幕',title:'本陣前の最後の砦',en:'STAGE 7 — THE LAST STAND',seed:97,tint:'rgba(0,0,0,0)',bgm:12/* 新曲 bgm_stage7(AI生成 2026-10-15 vidIQ。第七幕の曲。家康との一騎打ちは従来の最終ボス曲) */}));
  LV.push({n:4,waves:LV[5].waves.slice(0,3).concat([{gap:800,boss:'boss3',en:LV[5].waves[5].en}])});}
 
 /* ===================== GAME STATE ===================== */
@@ -542,7 +542,7 @@ function startStage(si,ch,demo,keep){
  if(si%2===0&&!demo)G.deco.push({isProp:true,deco:true,team:2,k:'fire',x:G.waves[Math.max(1,G.waves.length>>1)].x-470,y:602,z:0,hp:1});
  G.items.push({x:430,y:575,k:'w_'+['takeyari','kusari','ono','naginata','yoto','odachi'][si%6],t:0});G.items.push({x:G.waves[0].x-120,y:600,k:'onigiri',t:0});
  G.banner={t:0,jp:STG[si].jp,title:STG[si].title,en:STG[si].en};
- AU.bgm(STG[si].bgm);AU.pre=si>=5?[3,10]:[3];G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
+ AU.bgm(STG[si].bgm);AU.pre=si>=6?[12,10]:si>=5?[3,10]:[3];G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
  if(G.auto)setDemoMount(demoView.mounted);
  if(CHASEJUMP&&si===5&&!demo&&!G.auto){G.wi=G.waves.length-1;G.camMax=G.waves[G.wi].x;G.camx=G.camMax;G.props=[];p.x=G.camx+300;if(G.partner)G.partner.x=G.camx+230;}/* 試し遊び: 家康戦から */
 }
