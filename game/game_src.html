@@ -306,7 +306,7 @@ function drawDecor(A,cam,t){
   if(d.t==='nobori')dNobori(x,b,d.s,d.v,t);else if(d.t==='fence')dFence(x,b,d.s);else if(d.t==='stake')dStake(x,b,d.s);else if(d.t==='jin')dJin(x,b+2,d.s,d.v,t);else if(d.t==='fire')dFire(x,b,d.s,t);else dHay(x,b,d.s);}
 }
 const BGIMG={};
-function loadBG(){if(!DATA.bg)return;for(const k in DATA.bg){if(k.startsWith('honmaru_'))continue;/* 本丸の背景はボス戦のある幕を始めるときに読む */const i=new Image();i.onerror=()=>{i.failed=true;};i.src=DATA.bg[k].startsWith('gfx/')?DATA.bg[k]:'data:image/webp;base64,'+DATA.bg[k];BGIMG[k]=i;}}
+function loadBG(){if(!DATA.bg)return;for(const k in DATA.bg){if(k.startsWith('honmaru_')||(k==='6'&&!CHASE))continue;/* 本丸の背景はボス戦のある幕を始めるときに読む */const i=new Image();i.onerror=()=>{i.failed=true;};i.src=DATA.bg[k].startsWith('gfx/')?DATA.bg[k]:'data:image/webp;base64,'+DATA.bg[k];BGIMG[k]=i;}}
 loadBG();
 function drawBGimg(img,cam){const off=((cam*0.35)%2560+2560)%2560;
  for(let k=-1;k<3;k++){const x=k*1280-off+(off>=1280?0:0);const idx=Math.floor((k*1280+off)/1280);}
@@ -316,7 +316,9 @@ function drawBGimg(img,cam){const off=((cam*0.35)%2560+2560)%2560;
 /* 2026-10-14 A-017 ボス戦の舞台: 敵武将が出ている間だけ、その武将の本丸(1枚絵・固定)へ約50コマで切り替える。画像はその幕のボスの分だけ幕の開始時に読む。前のボスがいれば前の本丸から重ねて切り替える */
 const HONMARU={};
 function loadHonmaru(k){if(HONMARU[k]||!DATA.bg)return;const u=DATA.bg['honmaru_'+k];if(!u)return;const i=new Image();i.onerror=()=>{i.failed=true;};i.src=u.startsWith('gfx/')?u:'data:image/webp;base64,'+u;HONMARU[k]=i;}
-function setHonmaru(k){loadHonmaru(k);G.hon={k,prev:G.hon?G.hon.k:null,t0:G.t};}
+/* 第七幕(試作)の家康の本丸は夜(2026-10-15 新規: 既存の絵 honmaru_boss3 を夜に調色した派生。元の絵は残してある) */
+function honKey(k){return CHASE&&G.stage>=6&&k==='boss3'?'boss3n':k;}
+function setHonmaru(k){k=honKey(k);loadHonmaru(k);G.hon={k,prev:G.hon?G.hon.k:null,t0:G.t};}
 function honImg(k){const i=k&&HONMARU[k];return i&&i.complete&&i.naturalWidth?i:null;}
 function drawHonImg(im){ctx.drawImage(im,0,0,W,H);const g=ctx.createLinearGradient(0,470,0,720);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,0.28)');ctx.fillStyle=g;ctx.fillRect(0,470,W,250);}
 function drawBG(cam,t){
@@ -326,7 +328,7 @@ function drawBG(cam,t){
  if(a<1){const pv=honImg(h.prev);if(pv)drawHonImg(pv);else drawBGbase(cam,t);ctx.globalAlpha=a;drawHonImg(im);ctx.globalAlpha=1;}else drawHonImg(im);}
 function drawBGbase(cam,t){
  if(G.howto){ctx.fillStyle='#050408';ctx.fillRect(0,0,W,H);const g=ctx.createRadialGradient(W/2,600,20,W/2,600,520);g.addColorStop(0,'rgba(120,100,80,0.35)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,300,W,H-300);ctx.fillStyle='rgba(255,240,200,0.05)';ctx.beginPath();ctx.ellipse(W/2,590,520,70,0,0,TAU);ctx.fill();return;}
- const A=ART,S=A.S,bi=BGIMG[Math.min(G.stage,5)];
+ const A=ART,S=A.S,bi=BGIMG[G.stage];
  if(bi&&bi.complete&&bi.naturalWidth){drawBGimg(bi,cam);return;}
  ctx.drawImage(A.sky,0,0);
  if(S.sun&&!G.lowq){const sx0=S.sun[0],sy0=S.sun[1],len=1000;ctx.save();ctx.globalCompositeOperation='lighter';for(let i=0;i<9;i++){const a=-2.7+i*0.36+Math.sin(t*0.004+i)*0.03;const g=ctx.createRadialGradient(sx0,sy0,20,sx0,sy0,len);g.addColorStop(0,`rgba(${(S.ray||[255,220,160]).join(',')},${(0.1+0.04*Math.sin(t*0.01+i*2))*(S.rayA||1)})`);g.addColorStop(1,'rgba(255,200,120,0)');ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(sx0,sy0);ctx.lineTo(sx0+Math.cos(a-0.05)*len,sy0+Math.sin(a-0.05)*len);ctx.lineTo(sx0+Math.cos(a+0.05)*len,sy0+Math.sin(a+0.05)*len);ctx.closePath();ctx.fill();}ctx.restore();}
@@ -489,7 +491,7 @@ const LV=[
  {waves:[{gap:620,en:[['ninja',0,1],['sword',20,-1],['sword',50,1],['samurai',90,-1]]},{gap:850,en:[['rider',30,1],['spear',20,-1],['ninja',60,1],['gun',90,-1]]},{gap:850,en:[['samurai',0,1],['horsearcher',60,-1],['sword',90,-1],['spear',130,1]]},{gap:800,boss:'boss1',en:[['sword',220,-1],['gun',280,1]]},{gap:800,boss:'boss7',en:[['ninja',220,-1],['samurai',300,1]]},{gap:800,boss:'boss3',en:[['yoroi',200,-1],['yoroi',250,1],['yoroi',300,-1],['yoroi',350,1],['yoroi',400,-1],['yoroi',450,1],['ninja',330,1]]}]}
 ];
 /* 試作 ?chase=1 のときだけ第七幕がある(家康が家来の盾に守られて逃げたあとの決戦。通常の遊びは6幕のまま) */
-if(CHASE){STG.push(Object.assign({},STG[5],{jp:'第七幕',title:'本陣前の最後の砦',en:'STAGE 7 — THE LAST STAND',seed:97,tint:'rgba(40,10,50,0.16)'}));
+if(CHASE){STG.push(Object.assign({},STG[5],{jp:'第七幕',title:'本陣前の最後の砦',en:'STAGE 7 — THE LAST STAND',seed:97,tint:'rgba(0,0,0,0)'}));
  LV.push({n:4,waves:LV[5].waves.slice(0,3).concat([{gap:800,boss:'boss3',en:LV[5].waves[5].en}])});}
 
 /* ===================== GAME STATE ===================== */
@@ -525,7 +527,7 @@ function startStage(si,ch,demo,keep){
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   ws=out.concat(bs);}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
- G.monkN=0;G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>w.boss));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
+ G.monkN=0;G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>honKey(w.boss)));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
  G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.deco=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.zm=1;G.zp=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.35));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;

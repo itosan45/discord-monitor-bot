@@ -10,7 +10,7 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
  window.tick=(n)=>{for(let i=0;i<n;i++){P.hp=P.maxhp;G.t++;stepGame();if(i%4===0)renderWorld();}};};
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN});const bad=[],out={};
  try{
- {const {p,errors}=await open(b,false);const r=await p.evaluate(()=>({n:STG.length,l:LV.length}));out.off=r;if(r.n!==6||r.l!==6)bad.push('フラグなしで幕の数が6でない '+JSON.stringify(r));if(errors.length)bad.push('フラグなしでエラー '+errors[0]);await p.context().close();}
+ {const {p,errors}=await open(b,false);const r=await p.evaluate(()=>({n:STG.length,l:LV.length,bg6:!!BGIMG[6]}));out.off=r;if(r.n!==6||r.l!==6||r.bg6)bad.push('フラグなしで幕の数が6でない/第七幕の背景を読んでいる '+JSON.stringify(r));if(errors.length)bad.push('フラグなしでエラー '+errors[0]);await p.context().close();}
  {const {p,errors}=await open(b,true);
   const r=await p.evaluate(([S])=>{eval('('+S+')')();const o={},P=G.player,orig=Math.random;o.n=STG.length;
    tick(60);for(let i=0;i<80&&G.banner;i++)tick(10);tick(30);const bo=G.boss;
@@ -33,10 +33,10 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
    G.stateT=9999;P.hp=P.maxhp;tick(5);o.next={stage:G.stage,jp:STG[G.stage].jp,chase:G.chase,waves:G.waves.length,boss:G.waves[G.waves.length-1].boss};
    // 第七幕の家康は追撃なしの通常戦
    G.mode='play';G.banner=null;G.story=null;G.wi=G.waves.length-1;G.camMax=G.waves[G.wi].x;G.camx=G.camMax;G.fighters=G.fighters.filter(f=>f.team===0);G.props=[];tick(60);for(let i=0;i<80&&G.banner;i++)tick(10);tick(30);
-   const b7=G.boss;o.s7={boss:b7&&b7.T.type,mount:!!(b7&&b7.mount),chaseRun:!!(b7&&b7.chaseRun),chase:!!G.chase,hon:G.hon&&G.hon.k};
+   const b7=G.boss;o.s7={boss:b7&&b7.T.type,mount:!!(b7&&b7.mount),chaseRun:!!(b7&&b7.chaseRun),chase:!!G.chase,hon:G.hon&&G.hon.k,bg:!!(BGIMG[6]&&BGIMG[6].complete&&BGIMG[6].naturalWidth),honOK:!!HONMARU.boss3n,stage:G.stage};
    tick(600);o.s7run={state:G.state,bossHp:b7&&Math.round(b7.hp)};
    return o;},[SETUP.toString()]);
-  out.on=r;
+  out.on=r;await p.waitForFunction(()=>HONMARU.boss3n&&HONMARU.boss3n.complete&&HONMARU.boss3n.naturalWidth>0&&BGIMG[6]&&BGIMG[6].naturalWidth>0,null,{timeout:20000}).catch(()=>{r.s7.honOK=false;});
   if(r.n!==7)bad.push('?chase=1 で幕が7つでない '+r.n);
   if(r.phase!=='shield')bad.push('体力を削っても盾の場面にならない '+JSON.stringify({hits:r.hits,phase:r.phase,hp:r.hpRatio}));
   if(!(r.hits>=5&&r.hits<=30))bad.push('1割に届くまでの回数が極端 '+r.hits);
@@ -48,6 +48,7 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
   if(r.clear.state!=='clear')bad.push('盾を倒しても幕クリアにならない '+JSON.stringify(r.clear));
   if(r.next.stage!==6||r.next.jp!=='第七幕'||r.next.chase)bad.push('第七幕に進まない '+JSON.stringify(r.next));if(r.next.boss!=='boss3')bad.push('第七幕の最後が家康でない');
   if(r.s7.boss!=='boss3'||r.s7.mount||r.s7.chaseRun||r.s7.chase)bad.push('第七幕の家康が追撃戦になっている '+JSON.stringify(r.s7));
+  if(r.s7.hon!=='boss3n'||!r.s7.honOK)bad.push('第七幕の家康の本丸が夜の絵でない/読めていない '+JSON.stringify(r.s7));if(!r.s7.bg)bad.push('第七幕の背景(bg_6)が読めていない');
   if(errors.length)bad.push('?chase=1 でエラー '+errors[0]);await p.context().close();}
  }finally{await b.close();}
  console.log(JSON.stringify(out));
