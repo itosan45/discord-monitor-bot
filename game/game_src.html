@@ -507,6 +507,7 @@ function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
 /* ---------- stage start ---------- */
 function startStage(si,ch,demo,keep){
+ if(CHASEJUMP&&si===0&&!demo&&!G.auto)si=5;
  G.chase=null;G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
  else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja','archer'];const N=10,out=[];
@@ -535,6 +536,7 @@ function startStage(si,ch,demo,keep){
  G.banner={t:0,jp:STG[si].jp,title:STG[si].title,en:STG[si].en};
  AU.bgm(STG[si].bgm);AU.pre=si===5?[3,10]:[3];G.demoT=0;if(demo&&si===0&&G.demoI===0)G.banner.t=-330;p.dm=demo?1.5:1.4;
  if(G.auto)setDemoMount(demoView.mounted);
+ if(CHASEJUMP&&si===5&&!demo&&!G.auto){G.wi=G.waves.length-1;G.camMax=G.waves[G.wi].x;G.camx=G.camMax;G.props=[];p.x=G.camx+300;if(G.partner)G.partner.x=G.camx+230;}/* 試し遊び: 家康戦から */
 }
 function startGame(ch,pk){G.auto=false;AU.stopIntro&&AU.stopIntro();G.newUnlock=false;G.mode='play';G.score=0;G.lives=diffNow().lives;G.credits=3;G.conts=0;G.nextLife=50000;G.oneUp=0;G.partnerType=pk||null;G.curCh=ch;startStage(0,ch,false);if(!G.noStory)startStory('pro',()=>startStory('s0'));}
 // ===== STORY: もしも真田幸村が関ヶ原にいたら =====
@@ -2005,7 +2007,7 @@ function drawWeapon(f,o,K,kind){
 // キャラ画像はステージで使う分だけ読み込み、使わない分は捨てる(Android のメモリ対策。全部だと展開後約245MB)。
 // SPR_RAW が本体。SPR は見張り役: 予定外の画像を使おうとしたら、その場で読み込みを頼み G.sprMiss に記録する(テストで漏れを見つける)。
 const SPR_RAW={};let SPR_ALL=false;
-let CHASE=0;try{CHASE=/[?&]chase=1/.test(location.search)?1:0;}catch(e){}/* 試作: ?chase=1 で最終幕の家康が馬で逃げ、主人公も馬で追う。既定は従来の最終戦 */
+let CHASE=0,CHASEJUMP=0;try{CHASE=/[?&]chase=1/.test(location.search)?1:0;CHASEJUMP=CHASE&&/[?&]final=1/.test(location.search)?1:0;}catch(e){}/* ?chase=1&final=1 は試し遊び用: 最初の幕を飛ばして最終幕の家康戦から始める *//* 試作: ?chase=1 で最終幕の家康が馬で逃げ、主人公も馬で追う。既定は従来の最終戦 */
 let WALKX=0;try{const m=/[?&]walkx=([12])/.exec(location.search);WALKX=m?+m[1]:0;}catch(e){}const WKS=()=>WALKX===2?'2':'';/* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に、?walkx=2 でそれを自動手直しした版(walkx_yuki2 / walkx_yuki2_u)に差し替える。既定は従来の8コマ */
 const SPR=new Proxy(SPR_RAW,{get(t,k){const S=t[k];if(S&&!S.want&&typeof k==='string'&&!SPR_ALL){sprRequest(k);(G.sprMiss||(G.sprMiss=[])).push(k);}return S;}});
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};

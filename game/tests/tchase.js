@@ -51,6 +51,11 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
   if(!r.wake.noDmg)bad.push('起き上がり無敵の間にダメージを受ける(直接hurt)');if(r.after.v>0.05)bad.push('一対一でカメラが動く');
   if(!(r.end.state==='bossdown'||r.end.state==='clear'))bad.push('家康を倒しても幕が終わらない '+r.end.state);
   if(errors.length)bad.push('?chase=1 でエラー '+errors[0]);await p.context().close();}
+ // ⑧ final=1
+ {const p=await(await b.newContext({viewport:{width:915,height:412}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
+  await p.goto(BASE+(BASE.includes('?')?'&':'?')+'chase=1&final=1');await p.waitForFunction(()=>sprAllReady(),null,{timeout:120000});
+  const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;startGame('yuki',null);startStage(0,'yuki',false);G.mode='play';G.banner=null;for(let i=0;i<200;i++){G.t++;stepGame();}return{stage:G.stage,wi:G.wi,last:G.waves.length-1,chase:!!G.chase,boss:G.boss&&G.boss.T.type};});
+  out.final=r;if(r.stage!==5||r.wi!==r.last||!r.chase||r.boss!=='boss3')bad.push('?chase=1&final=1 で家康戦から始まらない '+JSON.stringify(r));if(errors.length)bad.push('final=1 でエラー '+errors[0]);await p.context().close();}
  }finally{await b.close();}
  console.log(JSON.stringify(out));
  if(bad.length){console.log('NG',bad);process.exitCode=1;}else console.log('OK tchase');})();
