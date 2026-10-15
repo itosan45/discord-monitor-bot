@@ -27,7 +27,8 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
     // 150コマの間は、立ち上がった後・攻撃中でも主人公の攻撃(strike)が当たらない。切れたら当たる
     e.state='idle';e.cool=9999;const h0=e.hp;for(let k=0;k<140;k++){G.t++;if(k===70){e.state='atk';e.cur=e.T.atk[0];e.st=5;}P.hit=new Set();Math.random=()=>0.99;strike(P,{pz:'thrust',dmg:10,kb:2,rng:300,dep:60});Math.random=orig;if(e.state==='atk'&&k>75){e.state='idle';}e.inv=Math.max(0,e.inv-1);}
     if(e.hp<h0)bad('ボスが起き上がり無敵の間にダメージを受けた:'+ty+(h0-e.hp));
-    e.inv=0;e.state='idle';P.hit=new Set();Math.random=()=>0.99;strike(P,{pz:'thrust',dmg:10,kb:2,rng:300,dep:60});Math.random=orig;if(!(e.hp<h0))bad('無敵が切れてもダメージが入らない:'+ty);}
+    {const h1=e.hp;e.inv=0;Math.random=()=>0.99;hurt(e,P,{dmg:50,kb:2,pz:'thrust'});Math.random=orig;if(e.hp<h1)bad('ボスの起き上がり無敵中、直接hurt(騎馬攻撃など)でダメージを受けた:'+ty);}
+    e.inv=0;e.wakeInv=0;e.state='idle';P.hit=new Set();Math.random=()=>0.99;strike(P,{pz:'thrust',dmg:10,kb:2,rng:300,dep:60});Math.random=orig;if(!(e.hp<h0))bad('無敵が切れてもダメージが入らない:'+ty);}
    else{if(inv!==40)bad('雑魚の無敵が従来(40)と違う:'+ty+inv);}}
   // 3) 家康(boss3): 最終幕の波に鎧武者が6体以上、召喚も鎧武者
   {const w=LV[5].waves.find(w=>w.boss==='boss3');const n=w.en.filter(x=>x[0]==='yoroi').length;out.ieyasuYoroi=n;if(n<6)bad('家康の波の鎧武者が少ない:'+n);

@@ -507,7 +507,7 @@ function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
 /* ---------- stage start ---------- */
 function startStage(si,ch,demo,keep){
- G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
+ G.chase=null;G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
  else{const nb=ws.filter(w=>!w.boss),bs=ws.filter(w=>w.boss),ex=['sword','spear','samurai','gun','ninja','archer'];const N=10,out=[];
   for(let i=0;i<N;i++){const base=nb[i%nb.length],lap=Math.floor(i/nb.length),en=base.en.map(e=>[e[0],e[1]+rndi(0,40),e[2]]);
@@ -783,7 +783,7 @@ function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';c
  if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.15:1.25;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.04;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
- keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss){bossGuards(e);startBossStory(e);}return e;}
+ keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss){const chb=G.chase&&type==='boss3';if(chb)chaseBossSetup(e);else bossGuards(e);startBossStory(e);}return e;}
 
 /* ===================== COMBAT ===================== */
 // 一閃: その場の最後の一人を斬った瞬間だけ時間を緩め、刃の線を残す(サムライスピリッツの決着の間)
@@ -800,6 +800,7 @@ function gunbaiCounter(t,own,a){if(t.T.type!=='shin'||t.wpn||t.mount||!own||own.
  t.gcT=G.t+40;ring(t.x+t.face*50,t.y,70,'rgba(255,220,120,0.95)',16);for(let i=0;i<12;i++)PT({x:t.x+t.face*50,y:t.y,z:t.z+90,vx:t.face*rnd(1,6),vz:rnd(-2,4),life:rndi(10,18),sz:rnd(2,4),col:'#fff2b0',k:'spark'});
  AU.sfx('clang');hurt(own,{x:t.x,face:t.face,team:0,owner:t,hit:null},{dmg:16,kb:8,launch:true,unblock:true,pz:'swing'});}
 function hurt(t,a,d){
+ if(t.team===1&&t.hp>0&&((t.wakeInv>G.t)||(t.chaseRun&&G.chase&&G.chase.phase==='block')))return;/* ボスの起き上がり無敵(2.5秒)・追撃戦で駆け去っている間は、騎馬攻撃など直接 hurt を呼ぶ攻撃も当たらない */
  const own=a.owner||a;if(a.hit)a.hit.add(t);
  let dmg=d.dmg*(own.dm||1);const dir=a.face||sgn(t.x-a.x);if(t.T&&t.T.boss)dmg*=1.4;{const cm=chipMul(t,own);dmg*=cm;t.chipHit=cm<1;if(cm<1)for(let i=0;i<3;i++)PT({x:t.x,y:t.y,z:t.z+80+rnd(-24,24),vx:rnd(-3,3),vz:rnd(0,3),life:8,sz:2.2,col:'#b8b8c4',k:'spark'});}if(own.wpn&&!a.owner&&own.team===0&&own.wpn.k!=='teppo'&&own.wpn.k!=='yumi')useWpn(own);if(own.wpn&&own.wpn.k==='yoto'&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+2);if(d.fx==='yoki'&&!own.wpn&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+1);
  if(t.team===0&&!a.owner&&!d.unblock&&tryCover(t,own,dmg))return;
@@ -1390,6 +1391,40 @@ function bossLeapSpeed(e){const S=SPR[e.T.spr||e.T.type];if(!S||!S.ready)return 
  // Use the upper lane and the tallest frame, including the bow. Preserve a
  // physical jump arc while reserving headroom even when landing further up.
  return Math.min(15,Math.sqrt(2*GR*Math.max(0,YMIN-head-20)));}
+/* ===================== 家康の騎馬追撃戦(試作 ?chase=1) =====================
+ 最終幕の家康が馬で逃げ、主人公も馬で追う(オーナー案 2026-10-15)。景色は流れ続け(自動スクロール)、追いついて斬ると家康の馬が弱り、
+ 馬が4→2になると守護部隊が行く手をふさぐ(カメラが止まる)。馬を倒すと家康が落馬し、画面が止まって一対一になる。 */
+const CH_V=3.4;
+function chaseInit(w){G.chase={on:false,phase:'intro',t:0,v:0,blk:0,bt:0,nextAtk:0,remount:0,pool:w.en};}
+function chaseMount(f){if(!f||f.mount||f.hp<=0||f.state==='dead')return;f.mount={hp:8,max:8,col:MCOL[f.T.type]||'red'};f.state='idle';f.st=0;f.cur=null;f.z=0;f.vz=0;f.inv=Math.max(f.inv,30);AU.sx('horse',0.9);dust(f.x,f.y,8);}
+function chaseBossSetup(e){const C=G.chase;e.mount={hp:9,max:9,col:'iron'};e.chaseRun=true;e.gPlan=null;e.guardT=1e9;G.hon=null;/* 追撃中は本丸の背景(止まった絵)にせず、流れる戦場のまま */C.on=true;C.phase='run';C.t=0;C.nextAtk=300;
+ for(const f of G.fighters)if(f.team===0)chaseMount(f);}
+function chaseBlock(n){const C=G.chase;C.phase='block';C.blk=n;C.bt=0;G.waveT=0;G.sq=[];
+ const pool=n===1?[['yoroi',0,-1],['yoroi',30,1],['kunoichi',60,-1],['lancer',100,1],['gun',130,1]]:[['yoroi',0,1],['yoroi',20,-1],['yoroi',40,1],['kunoichi',70,-1],['monk',110,1],['ninja',150,-1]];
+ for(const [ty,d,sd] of pool)G.sq.push({type:ty,d,side:sd});
+ G.banner=null;popup(n===1?'守護の兵が立ちふさがる！':'旗本衆が行く手をふさぐ！',G.player.x,G.player.y,160,'#ffd070',24);AU.sfx('roar');G.shake=Math.max(G.shake,10);}
+function chaseStep(){const C=G.chase;if(!C||!C.on||G.state!=='run'||G.banner)return;C.t++;const b=G.boss,run=C.phase==='run';
+ C.v+=((run?CH_V:0)-C.v)*(run?0.03:0.08);if(!run&&C.v<0.03)C.v=0;
+ for(const f of G.fighters)if(f.team===0&&f.hp>0&&!f.isProp&&f.state!=='dead'&&f.state!=='down')f.x+=C.v;/* 馬が走るぶん主人公も前へ進む(止まれば相対的に下がる) */
+ const P=G.player;if(P&&P.hp>0&&!P.mount&&P.state!=='down'&&P.state!=='dead'){if(++C.remount>=90){C.remount=0;chaseMount(P);popup('替え馬！',P.x,P.y,140,'#fff2c0',20);}}else C.remount=0;
+ if(G.partner&&G.partner.hp>0&&!G.partner.mount&&G.t%120===0)chaseMount(G.partner);
+ if(!b||b.hp<=0)return;
+ if(b.chaseRun&&!b.mount){/* 落馬: 画面を止めて一対一 */C.phase='duel';b.chaseRun=false;b.entered=true;setHonmaru('boss3');/* 本丸の前に着いた: 背景を本丸へ切り替える */b.hp=Math.min(b.hp,Math.round(b.maxhp*0.75));b.spd=b.T.spd;popup('逃げぬ……ここが儂の戦場じゃ！',b.x,b.y,200,'#ffe9a8',24);AU.sfx('roar');G.shake=Math.max(G.shake,14);G.hitstop=Math.max(G.hitstop,10);return;}
+ if(C.phase==='run'){if(C.blk===0&&b.mount&&b.mount.hp<=6)chaseBlock(1);else if(C.blk===1&&b.mount&&b.mount.hp<=3)chaseBlock(2);}
+ else if(C.phase==='block'){C.bt++;b.inv=Math.max(b.inv,3);/* 守護部隊の戦いの間、家康は駆け去っていて攻撃は届かない */const alive=G.fighters.some(e=>e.team===1&&e.hp>0&&e!==b&&!e.isProp&&e.state!=='dead');
+  if(!alive&&!G.sq.length&&C.bt>90){C.phase='run';C.nextAtk=C.t+200;b.entered=true;b.x=G.camx+W+260;b.inv=0;popup('追え！',G.player.x,G.player.y,160,'#fff2c0',26);AU.sx('horse',0.9);}}}
+function chaseBossAI(e,p){const C=G.chase;e.face=1;
+ if(C.phase==='block'){e.state='walk';e.entered=false;e.inv=Math.max(e.inv,2);e.x=Math.min(e.x+9,G.camx+W+600);return;}
+ if(!e.entered&&C.phase==='run'){e.entered=true;}
+ if(e.flash>0||e.state==='hurt')e.boostT=G.t+100;/* 斬られたら馬を飛ばして引き離す */
+ const boost=e.boostT>G.t,r=(boost?0.88:0.66+0.12*Math.sin(C.t*0.011))-Math.min(0.10,C.t/9000);/* 画面の中の位置(割合)。時間がたつほど少し下がって追いつきやすい */
+ const tx=G.camx+W*r;e.x+=C.v+(tx-e.x)*(boost?0.08:0.05);
+ const ty=clamp(((YMIN+YMAX)/2)+(p.y-(YMIN+YMAX)/2)*0.5+Math.sin(C.t*0.017)*60,YMIN,YMAX);e.y+=(ty-e.y)*0.03;
+ e.state='walk';e.wp=(e.wp||0)+0.3;
+ if(C.t>=C.nextAtk&&canAct(e)){C.nextAtk=C.t+rndi(330,450);startEAtk(e,pick([3,4,3,1]));}}
+function chaseHud(){const C=G.chase;if(!C||!C.on)return;const b=G.boss;
+ if(C.phase==='run'&&!G.lowq){ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(255,240,215,0.10)';ctx.lineWidth=2;for(let i=0;i<10;i++){const y=90+((i*71+13)%520),x=W-(((G.t*(26+i*3))+i*173)%(W+300))+100,L=120+(i*37)%160;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+L,y);ctx.stroke();}ctx.restore();}
+ if(b&&b.mount){txt('家康の馬',W-40,150,18,'#ffd070','right','#000',3);for(let i=0;i<b.mount.max;i++){ctx.fillStyle=i<b.mount.hp?'#e8a040':'rgba(60,40,30,0.8)';ctx.fillRect(W-40-(b.mount.max-i)*20,164,16,14);}}}
 function updEnemy(e){
  if(e.state==='held'&&e.heldBy&&e.heldBy.spearThrow&&e.heldBy.spearThrow.e===e){const p=e.heldBy;if(p.state==='throw'&&!p.spearThrow.released){e.t++;e.st++;if(e.flash>0)e.flash--;attachSpearVictim(p,e);return;}cancelSpearThrow(p);}
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if((e.T.boss||e.T.mid)&&e.hp>0&&!G.lowq&&e.t%7===0&&bossOpen(e)&&e.state!=='down'&&e.state!=='getup')PT({x:e.x+rnd(-18,18),y:e.y,z:e.z+(e.T.boss?176:150)+rnd(-8,8),life:11,k:'star',sz:rnd(22,34),col:'#ffd860'});if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
@@ -1404,6 +1439,7 @@ function updEnemy(e){
   case'idle':case'walk':{
    if(!p||p.hp<=0||p.state==='dead'){e.state='idle';break;}
    const dx=p.x-e.x,dy=p.y-e.y,adx=Math.abs(dx),ady=Math.abs(dy);e.face=dx>=0?1:-1;let mx=0,my=0;
+   if(e.chaseRun&&G.chase){chaseBossAI(e,p);break;}
    if(!e.entered){mx=e.x<G.camx+W/2?1:-1;}
    else if(T.ai==='ranged'){const cornered=(dx>0&&e.x<G.camx+90)||(dx<0&&e.x>G.camx+W-90);
     /* 距離を取る: 近づかれたら全速で退き、詰められたら跳び退く。主人公と同じ列に並ばず、斜めの位置から撃つ(弾は相手の列へ斜めに飛ぶ) */
@@ -1453,7 +1489,7 @@ function updEnemy(e){
  }
  const edge=combatScreenMargin(e),entry=edge;
  if(!e.entered&&e.x>=G.camx+entry&&e.x<=G.camx+W-entry)e.entered=true;
- if(e.entered&&e.hp>0&&e.state!=='dead'&&!e.dying){if(!e.T.boss&&(e.state==='down'||e.state==='getup'))keepDownOnScreen(e);else if(!e.T.boss&&e.outBack)easeBackOnScreen(e);else e.x=clamp(e.x,G.camx+edge,G.camx+W-edge);} // 死体は押さない。倒れ中は体が見える所まで
+ if(e.entered&&e.hp>0&&e.state!=='dead'&&!e.dying){if(!e.T.boss&&(e.state==='down'||e.state==='getup'))keepDownOnScreen(e);else if(!e.T.boss&&e.outBack)easeBackOnScreen(e);else e.x=clamp(e.x,G.camx+edge,G.camx+W-(e.chaseRun?110:edge));} // 死体は押さない。倒れ中は体が見える所まで
  e.y=clamp(e.y,YMIN,YMAX);
 }
 
@@ -1563,14 +1599,16 @@ function wallClamp(){for(const w of G.props){if(w.k!=='umabo'||w.broken||w.hp<=0
 function garrisonStep(){for(const w of G.props){if(w.k!=='umabo'||w.garr||w.broken)continue;if(G.camx+W<w.x+420)continue;w.garr=true;const n=G.stage>=4?4:3,ys=[505,585,650,545];for(let k=0;k<n;k++){const e=mk('gun',w.x+130+k*95+rnd(-12,12),ys[k%4]+rnd(-8,8),1);e.entered=true;e.face=-1;e.hold=w;G.fighters.push(e);}}}
 function updWorld(){
  const p=G.player;
+ chaseStep();
  // controls
  let c;if(G.howto)c=G.htc||{};else if(G.demo||G.auto)c=demoCtl(p);else c=ctlKeys();
  // wave logic
  if(G.state==='run'){
-  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];
+  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&w.boss==='boss3'&&!G.demo&&!G.auto;
    if(w.boss)G.sq.push({type:w.boss,d:50,side:1});
-   for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
-   if(G.partner&&!G.demo){const pool=w.en.filter(e=>TY[e[0]].ai!=='rider');const ex=Math.max(1,Math.round(w.en.length*0.25));for(let k=0;k<ex&&pool.length;k++){const q=pick(pool);G.sq.push({type:q[0],d:(w.boss?120:30)+q[1]+k*40,side:-q[2]});}}
+   if(!chs)for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
+   if(chs)chaseInit(w);
+   else if(G.partner&&!G.demo){const pool=w.en.filter(e=>TY[e[0]].ai!=='rider');const ex=Math.max(1,Math.round(w.en.length*0.25));for(let k=0;k<ex&&pool.length;k++){const q=pick(pool);G.sq.push({type:q[0],d:(w.boss?120:30)+q[1]+k*40,side:-q[2]});}}
    G.waveT=0;}
   if(G.waveOn){G.waveT++;let enAlive=G.fighters.reduce((n,e)=>n+(e.team===1&&e.hp>0&&!e.isProp?1:0),0);for(let i=G.sq.length-1;i>=0;i--){if(G.waveT>=G.sq[i].d){const s=G.sq[i],boss=TY[s.type]&&TY[s.type].boss;if(!boss&&enAlive>=ENCAP)continue;G.sq.splice(i,1);spawnEn(s.type,s.side);enAlive++;if(G.banner&&G.banner.boss)return;}}
    const alive=G.fighters.some(e=>e.team===1&&e.hp>0);
@@ -1578,7 +1616,7 @@ function updWorld(){
  }
  G.runT++;if((G.coverCd||0)>0)G.coverCd--;rearCheck();rearStep();
  if(!G.demo&&G.state==='run'&&!G.waveOn&&G.wi>0&&G.wi<G.waves.length-1&&G.runT%230===0){const al=G.fighters.filter(e=>e.team===1&&e.hp>0).length;if(al<2)spawnEn(pick(['sword','spear','gun','archer','sword']),Math.random()<0.6?1:-1);}
- if(G.state==='run'&&!G.demo&&!G.auto){G.time--;if(G.time>0&&G.time%60===0){const sc=Math.ceil(G.time/60);if(sc<=10)AU.sfx('tick2');else if(sc<=30)AU.sfx('tick');}if(G.time<=0){G.time=0;AU.bgm(9);G.state='continue';G.over='time';G.stateT=0;AU.sfx('warn');}}
+ if(G.state==='run'&&!G.demo&&!G.auto&&!(G.chase&&G.chase.on)/* 追撃戦の間は制限時間を止める */){G.time--;if(G.time>0&&G.time%60===0){const sc=Math.ceil(G.time/60);if(sc<=10)AU.sfx('tick2');else if(sc<=30)AU.sfx('tick');}if(G.time<=0){G.time=0;AU.bgm(9);G.state='continue';G.over='time';G.stateT=0;AU.sfx('warn');}}
  for(const f of G.fighters){if(f.team===0)updPlayer(f,f===p?c:partnerCtl(f));else updEnemy(f);if(G.spcScene||G.ult)return;}
  updSteeds();updHazards();checkClash();
  // separation
@@ -1602,7 +1640,7 @@ function updWorld(){
  updProj();
  wallClamp();garrisonStep();
  // camera
- const tgt=clamp(p.x-440,G.camx,G.camMax);G.camx+=(tgt-G.camx)*0.12;if(G.camMax-G.camx<1.5&&tgt>=G.camMax-1)G.camx=G.camMax;
+ if(G.chase&&G.chase.on){G.camx+=G.chase.v;G.camMax=G.camx;}else{const tgt=clamp(p.x-440,G.camx,G.camMax);G.camx+=(tgt-G.camx)*0.12;if(G.camMax-G.camx<1.5&&tgt>=G.camMax-1)G.camx=G.camMax;}
  // Separation and camera movement happen after individual AI updates. Clamp
  // again here so an entered fighter cannot act outside the next rendered view.
  for(const f of G.fighters)if(f.team===0||(f.entered&&!(f.team===1&&(f.hp<=0||f.state==='dead'||f.dying)))){if(f.team===1&&!f.T.boss&&(f.state==='down'||f.state==='getup'))keepDownOnScreen(f);else if(f.team===1&&!f.T.boss&&f.outBack)easeBackOnScreen(f);else keepFighterOnScreen(f);} // 死体は押さない(画面について回るのを防ぐ)
@@ -1967,6 +2005,7 @@ function drawWeapon(f,o,K,kind){
 // キャラ画像はステージで使う分だけ読み込み、使わない分は捨てる(Android のメモリ対策。全部だと展開後約245MB)。
 // SPR_RAW が本体。SPR は見張り役: 予定外の画像を使おうとしたら、その場で読み込みを頼み G.sprMiss に記録する(テストで漏れを見つける)。
 const SPR_RAW={};let SPR_ALL=false;
+let CHASE=0;try{CHASE=/[?&]chase=1/.test(location.search)?1:0;}catch(e){}/* 試作: ?chase=1 で最終幕の家康が馬で逃げ、主人公も馬で追う。既定は従来の最終戦 */
 let WALKX=0;try{const m=/[?&]walkx=([12])/.exec(location.search);WALKX=m?+m[1]:0;}catch(e){}const WKS=()=>WALKX===2?'2':'';/* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に、?walkx=2 でそれを自動手直しした版(walkx_yuki2 / walkx_yuki2_u)に差し替える。既定は従来の8コマ */
 const SPR=new Proxy(SPR_RAW,{get(t,k){const S=t[k];if(S&&!S.want&&typeof k==='string'&&!SPR_ALL){sprRequest(k);(G.sprMiss||(G.sprMiss=[])).push(k);}return S;}});
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
@@ -2515,6 +2554,7 @@ function bar(x,y,w,h,v,max,c1,c2,lag){ctx.fillStyle='#000';ctx.fillRect(x-2,y-2,
 function drawHitCounter(){if(!(G.hitN>=3&&G.comboT>0))return;const a=Math.min(1,G.comboT/25),s=1+(G.hitPop||0)*0.04;ctx.save();ctx.globalAlpha=a;ctx.translate(W-170,190);ctx.scale(s,s);
  const big=G.hitN>=20?'#ff5a3a':G.hitN>=10?'#ffb020':'#ffe27a';txt(String(G.hitN),0,0,58,big,'right','#000',7);txt('HIT',8,-6,26,'#fff','left','#000',5);if(G.hitN>=10)txt(G.hitN>=30?'天下無双！':G.hitN>=20?'鬼神の如し！':'見事！',0,36,20,'#fff3d0','center','#5a0a0a',5);ctx.restore();}
 function drawHUD(){drawHitCounter();
+ chaseHud();
  {const p=G.player;if(p&&p.mount){const m=p.mount;txt('馬',130,150+(G.partner?40:0),18,'#ffd070','left','#000',3);for(let i=0;i<m.max;i++){ctx.fillStyle=i<m.hp?'#e8a040':'rgba(60,40,30,0.8)';ctx.fillRect(156+i*20,142+(G.partner?40:0),16,14);}}}
  const p=G.player,T=p.T;
  // player panel
