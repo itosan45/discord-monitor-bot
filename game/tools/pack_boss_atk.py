@@ -1,5 +1,5 @@
 """A-031 武将ボスの「跳び込み攻撃」など1行の攻撃(画像担当の候補 game/experiments/a031-bossatk-*/)を、新しいアトラス b<種類>_<boss> にする。元PNGは変更しない。
-- 入力: 1行に並べたPNG(1コマ512x384、純マゼンタ、足元 x=256・接地線 y=363)。縮尺 1.0(立ち姿は待機と同じ約188px)
+- 入力: 1行(または8コマずつ複数行)に並べたPNG(1コマ512x384、純マゼンタ、足元 x=256・接地線 y=363)。縮尺 1.0(立ち姿は待機と同じ約188px)
 - 出力: game/sprites/atlas_<kind>_<key>.webp と sprmeta の <kind>_<key>(行名 row)
 - 描画は game_src.html の drawSprite で、該当の技(k:'leap'+dive:true)の間だけ差し替える
 使い方: python3 game/tools/pack_boss_atk.py bdive boss5 dive game/experiments/a031-bossatk-20261017/徳川秀忠_跳び込み攻撃_8コマ_v2.png"""
@@ -11,7 +11,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 SPRITES = ROOT / 'game' / 'sprites'
 kind, key, row, src = sys.argv[1], sys.argv[2], sys.argv[3], ROOT / sys.argv[4]
-CW, GROUND = 512, 364
+CW, CH, GROUND = 512, 384, 364
 
 
 def cells(path):
@@ -24,7 +24,8 @@ def cells(path):
     rgb[..., 2] = np.where(edge, np.minimum(b, g + 40), b)
     alpha = np.where(bg, 0, np.where(edge, 140, 255))
     rgba = np.dstack([rgb, alpha]).astype(np.uint8)
-    return [rgba[:, i * CW:(i + 1) * CW] for i in range(rgba.shape[1] // CW)]
+    # 1行でも複数行(上の行から左→右の順)でもよい。16コマなら 4096x768(8コマx2行)
+    return [rgba[r * CH:(r + 1) * CH, i * CW:(i + 1) * CW] for r in range(rgba.shape[0] // CH) for i in range(rgba.shape[1] // CW)]
 
 
 cs = cells(src)
