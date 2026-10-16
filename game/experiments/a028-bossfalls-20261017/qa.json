@@ -1,9 +1,10 @@
 {
-  "character": "井伊直政",
+  "ticket": "A-028",
   "status": "candidate_not_delivery",
-  "visual_review": "Four poses reviewed individually at sprite-sheet size. Animation reads as a fall and recovery. Existing idle reference is 384x384 with figure height about 188 px and groundline y=363. Gameplay runtime review remains for Claude.",
+  "review_note": "4-frame sheets visually checked as ordered pose sequences. Dimensions, cell borders, background and per-character groundlines checked programmatically. Runtime timing, in-game scale, collision synchronization and second-direction display remain for Claude review.",
   "sheets": [
     {
+      "character": "井伊直政",
       "action": "転倒",
       "file": "井伊直政_転倒_4コマ_v1.png",
       "size": [
@@ -11,7 +12,10 @@
         384
       ],
       "frames": 4,
-      "cell_width": 384,
+      "cell_size": [
+        384,
+        384
+      ],
       "background_rgb": [
         255,
         0,
@@ -48,6 +52,7 @@
       "status": "candidate_not_delivery"
     },
     {
+      "character": "井伊直政",
       "action": "起き上がり",
       "file": "井伊直政_起き上がり_4コマ_v1.png",
       "size": [
@@ -55,7 +60,10 @@
         384
       ],
       "frames": 4,
-      "cell_width": 384,
+      "cell_size": [
+        384,
+        384
+      ],
       "background_rgb": [
         255,
         0,
@@ -89,6 +97,102 @@
         ]
       ],
       "sha256": "b0f6a7a282715c8a04f140cc7628a813c8ed275869bda6542572a788cd98bcd1",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "最上義光",
+      "action": "転倒",
+      "file": "最上義光_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 352,
+      "frame_bboxes": [
+        [
+          86,
+          68,
+          296,
+          352
+        ],
+        [
+          73,
+          122,
+          310,
+          352
+        ],
+        [
+          60,
+          235,
+          322,
+          352
+        ],
+        [
+          61,
+          254,
+          322,
+          352
+        ]
+      ],
+      "sha256": "3b059f348b59c5e6586322e3ae75aa8375b6b8ec8545e49cf8369364af50eaf8",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "最上義光",
+      "action": "起き上がり",
+      "file": "最上義光_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 352,
+      "frame_bboxes": [
+        [
+          47,
+          245,
+          335,
+          352
+        ],
+        [
+          64,
+          194,
+          319,
+          352
+        ],
+        [
+          50,
+          130,
+          333,
+          352
+        ],
+        [
+          107,
+          68,
+          275,
+          352
+        ]
+      ],
+      "sha256": "0eb8e0d0223e7f68ae701eb30ea483503d18ea42a21dcceb2295ed4b1ebe2a2b",
       "status": "candidate_not_delivery"
     }
   ]

@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-src = Path(r'C:\Users\user\.codex\generated_images\01a13ec6-5bd1-71a0-abbd-bbcae834c824\exec-a8f93e5c-555a-478b-ae3f-2c4d440ce987.png')
+src = Path(__file__).parent / 'source_getup.png'
 out = Path(__file__).parent / '井伊直政_起き上がり_4コマ_v1.png'
 image = Image.open(src).convert('RGB')
 if image.size != (1254, 1254):
@@ -36,6 +36,7 @@ for frame, label in enumerate(poses,1):
 canvas.save(out,format='PNG',optimize=True)
 print('source',image.size,'scale',scale,'output',out,canvas.size)
 for row in report: print(row)
+
 
 
 

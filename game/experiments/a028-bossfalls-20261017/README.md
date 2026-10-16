@@ -1,18 +1,31 @@
-# A-028: Ii Naomasa fall and recovery candidates
+# A-028 武将ボスの転倒・起き上がり候補
 
-Status: visual-review candidate only. Not yet approved as a completed game asset; runtime integration is Claude's responsibility.
+状態: 候補。`assets/sprites/`への完成納品や、ゲーム動作の合格ではありません。Claudeへ実画面確認を依頼済みです。
 
-## Files
+## 共通仕様
 
-- `井伊直政_転倒_4コマ_v1.png`: 4 frames, 1536x384, 384x384 cells.
-- `井伊直政_起き上がり_4コマ_v1.png`: 4 frames, 1536x384, 384x384 cells.
-- `source_fall.png` and `source_getup.png`: generated 2x2 pose canvases retained for provenance.
-- `pack_fall.py` and `pack_getup.py`: reproducible separation/repacking scripts.
-- `qa.json`: dimensions, frame bounds, baseline, and SHA-256.
-- `井伊直政_転倒_preview.gif` and `井伊直政_起き上がり_preview.gif`: four-frame visual previews.
+- 1動作4コマ、1536×384、1コマ384×384、純マゼンタ背景。
+- 各キャラクターの既存待機シートを参照し、人物の見かけの高さと地面位置を合わせています。
+- 素材は生成画像から各ポーズを分離し、セルへ縮尺・配置したものです。純手描きとは扱いません。
+- QA値、SHA-256、各セルの境界は `qa.json`。4コマの確認用GIFを各動作ごとに保存しています。
+- `pack_*.py` と `source_*.png` は候補の再現・由来記録です。
 
-## Method and review
+## 井伊直政
 
-Generated pose canvases from the existing `assets/sprites/井伊直政_設定画.png` and `assets/sprites/井伊直政_待機_4コマ.png` visual identity (fall canvas references that generated pose sheet for costume consistency). Connected foreground components were separated from the magenta backdrop, scaled against the existing idle figure height (~188 px), and centered in four 384x384 cells. The four frame ground contact pixels align at y=363; cell edges remain magenta. The output retains the crimson armor, antler helmet, cape, and katana. Static inspection and 4-frame sequence review pass; actual game timing, facing under both directions, and runtime use have not been checked.
+- `井伊直政_転倒_4コマ_v1.png`: よろめき→膝をつく→前へ崩れる→伏せる。
+- `井伊直政_起き上がり_4コマ_v1.png`: 伏せる→上体を起こす→片膝を立てる→立ち直る。
+- 参照: `assets/sprites/井伊直政_設定画.png`、`assets/sprites/井伊直政_待機_4コマ.png`。
+- 高さ約188px、接地位置y=363。
+- `source_fall.png` / `source_getup.png` が生成元。
 
-These are AI-generated poses composed and scaled into sheets, not hand-drawn art. Keep as candidates until Claude checks them in-game and confirms hit/recovery timing and visual scale.
+## 最上義光
+
+- `最上義光_転倒_4コマ_v1.png`: よろめき→膝をつく→横へ倒れる→伏せる。弓・矢筒を保持。
+- `最上義光_起き上がり_4コマ_v1.png`: 伏せる→上体を起こす→片膝立ち→立って弓を構える。
+- 参照: `assets/sprites/最上義光_設定画.png`、`assets/sprites/最上義光_待機_4コマ.png`。
+- 既存待機の全高285px、接地位置y=352に合わせた。
+- `mogami_source_fall.png` / `mogami_source_getup.png` が生成元。
+
+## 未確認
+
+- いずれも候補の静止コマ・順序確認まで。ゲーム上の再生時間、左右反転時の弓/刀、被弾・ダウン状態との接続、Android実機は未確認です。Claudeの組み込み後に確認してください。
