@@ -37,3 +37,12 @@
 - 参照: `assets/sprites/徳川家康_設定画.png`、`assets/sprites/徳川家康_待機_4コマ.png`。
 - 既存待機の高さ218px、接地位置y=351。
 - `source_徳川家康_fall.png` / `source_徳川家康_getup.png` が生成元。再配置手順は `pack_boss.py --character 徳川家康`。
+
+## 小早川秀秋
+
+- `小早川秀秋_転倒_4コマ_v1.png`: よろめき→膝をつく→前へ崩れる→伏せる。
+- `小早川秀秋_起き上がり_4コマ_v1.png`: 伏せる→上体を起こす→片膝立ち→立ち直る。
+- 参照: `assets/sprites/小早川秀秋_設定画.png`、`assets/sprites/小早川秀秋_待機_4コマ.png`。
+- 既存待機の高さ259px、接地位置y=344に合わせた。
+- `source_小早川秀秋_fall.png` / `source_小早川秀秋_getup.png` が生成元。再配置手順は `pack_boss.py --character 小早川秀秋`。
+- 両シートは候補。静止コマの目視・寸法・背景・セル端・接地線は確認済み。動作時間・実ゲームの被弾/復帰連携は未確認。
