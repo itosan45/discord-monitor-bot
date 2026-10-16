@@ -1,0 +1,103 @@
+{
+  "ticket": "A-028",
+  "status": "candidate_not_delivery",
+  "review_note": "Same format as Claude's integrated Naomasa sheets: 384px cells, 188px upright height, magenta background, inclusive groundline y=363. Candidate sheets receive static visual and pixel QA; gameplay timing and runtime integration remain for Claude.",
+  "sheets": [
+    {
+      "character": "最上義光",
+      "action": "転倒",
+      "file": "最上義光_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          122,
+          176,
+          260,
+          363
+        ],
+        [
+          113,
+          211,
+          269,
+          363
+        ],
+        [
+          105,
+          286,
+          277,
+          363
+        ],
+        [
+          105,
+          299,
+          277,
+          363
+        ]
+      ],
+      "sha256": "12d644e86afa7f6fdc573d75e427414d351bd779348962daee6c40b9328520e7",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "最上義光",
+      "action": "起き上がり",
+      "file": "最上義光_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          97,
+          293,
+          285,
+          363
+        ],
+        [
+          108,
+          260,
+          274,
+          363
+        ],
+        [
+          99,
+          218,
+          283,
+          363
+        ],
+        [
+          137,
+          178,
+          246,
+          363
+        ]
+      ],
+      "sha256": "d0ab2b6f5d90f45c30f66c307b0c91b584304d7811bd9dba316e70321b5eb171",
+      "status": "candidate_not_delivery"
+    }
+  ]
+}
