@@ -98,6 +98,102 @@
       ],
       "sha256": "d0ab2b6f5d90f45c30f66c307b0c91b584304d7811bd9dba316e70321b5eb171",
       "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川家康",
+      "action": "転倒",
+      "file": "徳川家康_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          113,
+          178,
+          269,
+          363
+        ],
+        [
+          111,
+          213,
+          272,
+          363
+        ],
+        [
+          97,
+          278,
+          285,
+          363
+        ],
+        [
+          101,
+          295,
+          281,
+          363
+        ]
+      ],
+      "sha256": "22304c9918da302e7bd07f37324e3756be4989369802b7966aeb0c6ef35bc098",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川家康",
+      "action": "起き上がり",
+      "file": "徳川家康_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          101,
+          300,
+          281,
+          363
+        ],
+        [
+          103,
+          276,
+          279,
+          363
+        ],
+        [
+          110,
+          225,
+          272,
+          363
+        ],
+        [
+          112,
+          176,
+          270,
+          363
+        ]
+      ],
+      "sha256": "746faf6759ec0dcdee5da73da33e4a2db3d1d9de67f267581f3c6ccd5490606d",
+      "status": "candidate_not_delivery"
     }
   ]
 }
