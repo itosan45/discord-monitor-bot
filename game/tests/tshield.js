@@ -27,7 +27,7 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
    o.monkRatio=+(mk.maxhp/(TY.monk.hp*diffNow().hp)).toFixed(2);o.monkAtk=mk.T.atk[0].dmg;o.baseAtk=TY.monk.atk[0].dmg;o.baseHp=TY.monk.hp;
    tick(80);o.say3=!!(mk.say||bo.say);
    tick(140);o.fled=!G.fighters.includes(bo);o.bossHud=G.boss&&G.boss.T.name;o.phase2=G.chase.phase;
-   tick(250);o.after={phase:G.chase.phase,hold:G.chase.hold,scene:G.fighters.filter(f=>f.scene).length,alive:G.fighters.filter(f=>f.team===1&&f.hp>0).length,boss:G.boss&&G.boss.T.type};
+   tick(600);/* 2026-10-16 セリフを重ねないよう場面を約2秒延ばした */o.after={phase:G.chase.phase,hold:G.chase.hold,scene:G.fighters.filter(f=>f.scene).length,alive:G.fighters.filter(f=>f.team===1&&f.hp>0).length,boss:G.boss&&G.boss.T.type};
    // ④ 盾を倒す → 幕クリア
    for(const f of G.fighters)if(f.team===1){f.hp=0;f.dying=true;f.state='dead';}tick(150);o.clear={state:G.state,phase:G.chase.phase};
    G.stateT=9999;P.hp=P.maxhp;tick(5);o.pre=AU.pre.slice();o.next={stage:G.stage,jp:STG[G.stage].jp,chase:G.chase,waves:G.waves.length,boss:G.waves[G.waves.length-1].boss};

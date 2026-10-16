@@ -895,11 +895,13 @@ function hurt(t,a,d){if(G.s7&&t===G.s7.ie&&G.s7.ph!=='fight')return;/* 第七幕
  if(t.hp<=0){if(t.team===1){bloodSpray(t.x,t.y,t.z+70,dir,t.T.boss?120:70,t.T.boss?2.6:2.2);addDecal(t.x+dir*18,t.y+3,14,0.8);t.gush=t.T.boss?240:rndi(110,170);t.gdir=dir;t.gpool=0;}if(t.T.horse){if(SPR[t.T.type]&&SPR[t.T.type].a.fall){t.mfall=true;t.mA=null;setTimeout(()=>{if(G.mode==='play')spawnHorse(t);},700);}else spawnHorse(t);}t.hp=0;t.dying=true;if(t.mfall){t.state='dead';t.st=0;t.z=0;t.vz=0;t.vx=0;}else if(!(t.critK&&!d.noDecap&&decap(t,dir)))knock(t,dir,6,9);if(t.state==='down'&&own.team===0&&t.team===1&&!t.T.boss)t.bowl=own;
   if(own.team===0&&t.team===1&&!t.T.boss&&G.waveOn&&!G.sq.length&&!G.fighters.some(e=>e!==t&&e.team===1&&e.hp>0&&!e.dying))issen(t,dir);onKill(t,own);return;}
  if(air){knock(t,dir,Math.max(3,(d.kb||3)),6+(d.launch?2:0));t.bowl=own;G.jugN=(G.jugN||0)+1;return;}
- if(mh){t.state='hurt';t.st=0;t.inv=30;return;}
+ if(mh){t.state='hurt';t.st=0;t.inv=30;t.hurtT=14;t.vx=0;return;}/* 2026-10-16 hurtT が無く、馬上の敵が打たれると「のけぞり」のまま固まっていた(追撃の家康が逃げない原因) */
  if(t.T.ai==='rider'){if(t.rp==='go'&&SPR[t.T.type]&&SPR[t.T.type].a.hit){if(!(t.mA&&t.mA.k==='hit')){t.mA={k:'hit',t:0,dur:14};t.hdir=dir;}}else{dismount(t,false);knock(t,dir,5,7);}return;}
  if(t.T.boss){t.poise+=dmg;t.x+=dir*d.kb*0.15;if(t.state!=='atk'&&t.team===1)t.cool=Math.min(t.cool||0,10);/* 打たれたら間を置かず反撃に移る(2026-10-15 オーナー「手数で押し勝てる」) */if(t.entered)keepFighterOnScreen(t);if(d.launch&&t.kd<=0&&t.state!=='atk'){t.kd=480;knock(t,dir,5,8);}else if(d.launch&&t.kd<=0){t.kd=480;knock(t,dir,4,7);}else if(t.poise>=t.T.poise*(t.poiseK||1)&&t.state!=='atk'){t.poise=0;t.state='hurt';t.st=0;t.vx=dir*3;t.hurtT=20;t.cur=null;}return;}
  if(t.T.armor&&t.team===1&&!d.launch){t.x+=dir*1.5;return;}
- if(d.launch||ctr||(t.team===0&&dmg>=11&&!G.demo)){knock(t,dir,(d.kb||3)+2,8);if(t.team===0)t.inv=0;else if(own.team===0)t.bowl=own;}
+ if(t.team===0){t.cHit=(G.t-(t.cHitT||-999)<75)?(t.cHit||0)+1:1;t.cHitT=G.t;}/* 2026-10-16 オーナー「3発くらい連続で食らったら絶対ノックバック」: 75コマ以内に3発続けて受けたら、デモでも必ず吹き飛ぶ */
+ const combo3=t.team===0&&t.cHit>=3;if(combo3)t.cHit=0;
+ if(d.launch||ctr||combo3||(t.team===0&&dmg>=11&&!G.demo)){knock(t,dir,(d.kb||3)+2+(combo3?2:0),8);if(t.team===0)t.inv=0;else if(own.team===0)t.bowl=own;}
  else{t.state='hurt';t.st=0;t.vx=dir*(d.kb||2);t.hurtT=t.team===0?16:20;t.cur=null;t.trail.length=0;t.cool=Math.max(t.cool,25);}
 }
 const HRC={};
@@ -1471,6 +1473,7 @@ function chaseStep(){const C=G.chase;if(!C||!C.on||G.state!=='run'||G.banner)ret
  if(G.partner&&G.partner.hp>0&&!G.partner.mount&&G.t%120===0)chaseMount(G.partner);
  if(C.phase==='shield'||C.phase==='shield2'){chaseShieldStep(C,b);return;}
  if(!b||b.hp<=0)return;
+ if(b.chaseRun&&b.mount&&b.state!=='idle'&&b.state!=='walk'&&(C.phase==='run'||C.phase==='block'))b.x+=C.v;/* 打たれた・号令の間も馬は前へ走り続ける(画面の左へ流されない) */
  if(b.chaseRun&&!b.mount){/* 落馬: 画面を止めて一対一 */C.phase='duel';b.chaseRun=false;b.entered=true;setHonmaru('boss3');/* 本丸の前に着いた: 背景を本丸へ切り替える */b.hp=Math.min(b.hp,Math.round(b.maxhp*0.75));b.spd=b.T.spd;popup('逃げぬ……ここが儂の戦場じゃ！',b.x,b.y,200,'#ffe9a8',24);AU.sfx('roar');G.shake=Math.max(G.shake,14);G.hitstop=Math.max(G.hitstop,10);return;}
  if(C.phase==='run'){if(!C.shielded&&b.hp<=b.maxhp*0.9){chaseShield();return;}/* 家康の体力を1割削った: 家来が盾になって立ちはだかる */
   if(C.blk===0&&b.mount&&b.mount.hp<=6)chaseBlock(1);else if(C.blk===1&&b.mount&&b.mount.hp<=3)chaseBlock(2);}
@@ -1485,18 +1488,19 @@ function chaseShield(){const C=G.chase,b=G.boss;C.ie=b;C.phase='shield';C.sc=0;C
 function chaseShieldStep(C,b){const P=G.player,ie=C.ie;
  if(C.phase==='shield'){const t=++C.sc,R=C.rt;
   if(t===70){[['shield',500],['yoroi',545],['shield',590],['yoroi',635],['shield',675]].forEach(([ty,y],i)=>{const e=spawnEn(ty,1);e.x=G.camx+W+90+i*34;e.y=clamp(y,YMIN+8,YMAX-8);e.tx=G.camx+W-300+(i%2)*46;e.scene=true;e.face=-1;e.entered=true;R.push(e);});AU.sx('horse',0.7);AU.sfx('roar');}
-  if(t===140&&R[0])say(R[0],'殿、お逃げくだされ！\nここは我らが盾となりまする！',190);
-  if(t===300&&ie)say(ie,'……すまぬ。\n者ども、頼んだぞ！',170);
-  if(t===380){/* 家康と入れ替わりに、鉄球大僧(天海)が右から現れて家康のいた所へ入る */const m=spawnEn('tenkai',1);m.var='c';m.x=G.camx+W+130;m.y=clamp(570,YMIN+8,YMAX-8);m.tx=G.camx+W*0.56;m.scene=true;m.face=-1;m.entered=true;C.monk=m;AU.sfx('roar');G.shake=Math.max(G.shake,8);}
-  if(t===420&&ie)say(ie,'天海……\n後は任せたぞ。',150);
-  if(t===440){C.flee=true;AU.sx('horse',0.9);G.shake=Math.max(G.shake,6);}
-  if(t===510&&C.monk)say(C.monk,'殿は先へ。\nここから先は、拙僧がお相手つかまつる。',200);
-  if(t===250&&R[2])say(R[2],'お逃げくだされ、殿！\n早う、お馬を！',130);/* オーナー「殿お逃げください」 */if(t===640&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',160);
-  if(t===720&&P)say(P,'待て、家康！\n……まずは貴様か、坊主！',150);
-  if(t===810&&C.monk)say(C.monk,'御仏の鉄球、\n存分に味わわれよ！',130);
+  /* 2026-10-16 セリフは一つずつ(重ねない。オーナー「カオス」): 前のセリフが消えてから次を出す */
+  if(t===120&&R[0])say(R[0],'殿、お逃げくだされ！\nここは我らが盾となりまする！',120);
+  if(t===250&&ie)say(ie,'……すまぬ。\n者ども、頼んだぞ！',110);
+  if(t===400&&ie)say(ie,'天海……\n後は任せたぞ。',100);
+  if(t===470){C.flee=true;AU.sx('horse',0.9);G.shake=Math.max(G.shake,6);}
+  if(t===520&&C.monk)say(C.monk,'殿は先へ。\nここから先は、拙僧がお相手つかまつる。',120);
+  if(t===700&&R[1])say(R[1],'一歩も通さぬ！\n我ら徳川の盾なり！',100);
+  if(t===850&&P)say(P,'待て、家康！\n……まずは貴様か、坊主！',110);
+  if(t===1000&&C.monk)say(C.monk,'御仏の鉄球、\n存分に味わわれよ！',100);
+  if(t===370){/* 家康と入れ替わりに、鉄球大僧(天海)が右から現れて家康のいた所へ入る */const m=spawnEn('tenkai',1);m.var='c';m.x=G.camx+W+130;m.y=clamp(570,YMIN+8,YMAX-8);m.tx=G.camx+W*0.56;m.scene=true;m.face=-1;m.entered=true;C.monk=m;AU.sfx('roar');G.shake=Math.max(G.shake,8);}
   if(ie&&((C.flee&&ie.x>G.camx+W+240)||t>=880)){const i=G.fighters.indexOf(ie);if(i>=0)G.fighters.splice(i,1);C.ie=null;if(G.boss===ie)G.boss=C.monk||null;}
   if(C.monk&&!C.ie&&G.boss!==C.monk)G.boss=C.monk;
-  if(t>=900){for(const e of R)e.scene=false;if(C.monk)C.monk.scene=false;C.phase='shield2';C.hold=false;C.bt=0;popup('盾と大僧を破れ！',P.x,P.y,150,'#ffd070',26);}}
+  if(t>=1110){for(const e of R)e.scene=false;if(C.monk)C.monk.scene=false;C.phase='shield2';C.hold=false;C.bt=0;popup('盾と大僧を破れ！',P.x,P.y,150,'#ffd070',26);}}
  else{C.bt++;const alive=G.fighters.some(e=>e.team===1&&e.hp>0&&!e.isProp&&e.state!=='dead');if(!alive&&C.bt>90)chaseClear();}}
 function chaseClear(){const C=G.chase,p=G.player;C.on=false;C.phase='done';AU.stopBgm();AU.sfx('clear');G.state='clear';G.stateT=0;G.kgun=null;G.vo=null;G.clearLim=330;G.bonus=Math.round((p.hp/p.maxhp)*3000/100)*100;G.timeBonus=Math.floor(G.time/60)*20;addScore(G.bonus+2000+G.timeBonus);}
 function chaseBossAI(e,p){const C=G.chase;e.face=1;
@@ -1504,11 +1508,14 @@ function chaseBossAI(e,p){const C=G.chase;e.face=1;
  if(C.phase==='block'){e.state='walk';e.entered=false;e.inv=Math.max(e.inv,2);e.x=Math.min(e.x+9,G.camx+W+600);return;}
  if(!e.entered&&C.phase==='run'){e.entered=true;}
  if(e.flash>0||e.state==='hurt')e.boostT=G.t+100;/* 斬られたら馬を飛ばして引き離す */
- const boost=e.boostT>G.t,r=(boost?0.88:0.66+0.12*Math.sin(C.t*0.011))-Math.min(0.10,C.t/9000);/* 画面の中の位置(割合)。時間がたつほど少し下がって追いつきやすい */
- const tx=G.camx+W*r;e.x+=C.v+(tx-e.x)*(boost?0.08:0.05);
+ /* 2026-10-16 オーナー「馬に乗った家康が全然逃げようとしない」: 常に画面の右寄り(8〜9割)を前へ駆け、追いつかれそうになると馬を飛ばして引き離す。後ろを向いて斬り合わない */
+ const near=p&&Math.abs(p.x-e.x)<230&&Math.abs(p.y-e.y)<70;if(near&&!(e.boostT>G.t)&&!(e.slipT>G.t)){e.boostT=G.t+70;e.slipT=G.t+260;}
+ const boost=e.boostT>G.t,r=boost?0.93:0.82+0.05*Math.sin(C.t*0.011);
+ const tx=G.camx+W*r;e.x+=C.v+(tx-e.x)*(boost?0.07:0.04);if(boost&&G.t%2===0)PT({x:e.x-60,y:e.y+rnd(-4,4),z:rnd(0,8),vx:-rnd(2,4),vz:rnd(0.5,1.5),life:rndi(14,22),sz:rnd(8,14),col:'rgba(150,120,80,0.55)',k:'smoke'});
  const ty=clamp(((YMIN+YMAX)/2)+(p.y-(YMIN+YMAX)/2)*0.5+Math.sin(C.t*0.017)*60,YMIN,YMAX);e.y+=(ty-e.y)*0.03;
  e.state='walk';e.wp=(e.wp||0)+0.3;
- if(C.t>=C.nextAtk&&canAct(e)){C.nextAtk=C.t+rndi(330,450);startEAtk(e,pick([3,4,3,1]));}}
+ if(C.t>=C.nextAtk&&canAct(e)){C.nextAtk=C.t+rndi(330,450);startEAtk(e,pick([3,4]));e.face=1;/* 逃げながら振り向かずに号令(矢の雨・鉄砲) */}
+ if(e.state==='atk')e.face=1;}
 function chaseHud(){const C=G.chase;if(!C||!C.on)return;const b=G.boss;
  if(C.phase==='run'&&!G.lowq){ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(255,240,215,0.10)';ctx.lineWidth=2;for(let i=0;i<10;i++){const y=90+((i*71+13)%520),x=W-(((G.t*(26+i*3))+i*173)%(W+300))+100,L=120+(i*37)%160;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+L,y);ctx.stroke();}ctx.restore();}
  if(b&&b.hp>0&&!C.shielded){ctx.fillStyle='#ffe070';ctx.fillRect(W/2-300+600*0.9-1,128,3,24);txt('ここまで削れ',W/2-300+600*0.9,176,13,'#ffe9a8','center','#000',3);}
@@ -2413,7 +2420,8 @@ function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk
  }else if(!f.wpn||!drawIcon('w_'+f.wpn.k,hx,hy,wa,(wk.tip||90)*1.15*(wk.isc||1),fl,wk.bow?0.5:0.13))drawWeapon(f,{hf:[hx,hy],hb:[hx-12,hy+6],wa,hold:true,bow:wk.bow?0.5:0},fl?WHITE:f.T.col,wk.bow?'bow':wk.draw);
  if(!f.wpn&&f.T.dual)drawWeapon(f,{hf:[hx+28,hy-8],wa:wa+0.2,hold:true},fl?WHITE:f.T.col,'sword');
  ctx.restore();drawWhirlFx(f);return true;}
-function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)return false;
+function drawRiderPlayer(f){if(f.team===1&&f.T.boss&&!f._mtmp){/* 2026-10-16 オーナー「家康がいきなり小さくなる」: 馬上のボスは馬まで1.18倍になり、降りると急に縮んで見えた。馬は主人公と同じ大きさにし、乗り手だけボスの倍率にする */const s0=f.sc;f._mtmp=true;f._riderK=s0;f.sc=1;try{return drawRiderPlayer(f);}finally{f.sc=s0;f._mtmp=false;f._riderK=0;}}
+ const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)return false;
  if(drawWholeMounted(f))return true;
  if(f.state==='matk'){
   const V=SPR['mountatk2_'+f.T.type],A=V&&V.ready?V:SPR['mountatk_'+f.T.type],kind=A===V?(f.wpn?f.wpn.k:'default'):mountedAttackProfile(f),seq=A&&A.ready&&A.a[kind];
@@ -2427,7 +2435,7 @@ function drawRiderPlayer(f){const S=SPR['mount_'+f.mount.col];if(!S||!S.ready)re
    else if(f.state==='hurt'){an=A.hit?'hit':'idle';arr=A[an];pos=0;}
    else if(f.state==='walk'&&A.walk){an='walk';arr=A.walk;pos=Math.floor(f.wp||0)%arr.length;}
    const q=arr[pos];if(!q)return;const sd=S.a.saddle||[-7,-142],MR=MRIDE[f.T.type]||{},HIP=MR.hip||86;
-   ctx.save();ctx.translate(sd[0]+4,sd[1]+bob*0.2+(MR.dy||0));ctx.scale(MR.sc||1.08,MR.sc||1.08);ctx.translate(0,HIP);
+   ctx.save();ctx.translate(sd[0]+4,sd[1]+bob*0.2+(MR.dy||0));ctx.scale((MR.sc||1.08)*(f._riderK||1),(MR.sc||1.08)*(f._riderK||1));ctx.translate(0,HIP);
    ctx.save();ctx.beginPath();ctx.rect(-300,-500,600,500-HIP+10);ctx.clip();const fl=f.flash>0&&(f.flash&2);ctx.drawImage(fl?sprWhite(H):H.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();
    if((f.wpn||f.mountedDefault)&&f.team===0){const wk=f.wpn?WPN[f.wpn.k]:{draw:f.T.wp,tip:f.T.tip,heavy:f.T.wp==='gunbai'},ha=H.hand&&H.hand[an]&&(H.hand[an][pos]||H.hand[an][0]),hx=ha?ha[0]:24,hy=ha?ha[1]:-108;
     if(wk){const k=f.state==='matk'?(f.st<=10?clamp((f.st-4)/6,0,1):f.st<=14?1:1-clamp((f.st-14)/10,0,1)):0,heavy=wk.heavy||wk.blunt;
