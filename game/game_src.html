@@ -2348,11 +2348,21 @@ function updMount(p,c){
   if(d.proj&&p.st===d.hs){addProj({k:d.proj,x:p.x+p.face*60,y:p.y,z:94,vx:p.face*(d.proj==='shot'?23:19),team:0,dmg:d.dmg,face:p.face,owner:p,w:18,kb:d.kb,launch:d.launch});AU.sfx(d.proj==='shot'?'gun':'arrow');if(p.wpn)useWpn(p);}
   if(!d.kth&&!d.proj&&!d.whirl&&p.st>=d.hs&&p.st<=d.he){for(const e of G.fighters){if(e.team!==1||e.hp<=0||p.hit.has(e)||e.state==='dead')continue;const dx=e.x-p.x;
     if(dx*p.face>-50&&Math.abs(dx)<d.rng&&Math.abs(e.y-p.y)<34&&e.z<120)hurt(e,p,d);}}
+  if(d.stage&&p.st===d.hs){const f=p.face,hx=p.x+f*80;/* 3段それぞれの太刀筋: 1袈裟(右上→左下) 2逆袈裟(下から斬り上げ) 3踏み込みの大振り(横一文字) */
+   if(d.stage===1)slashFx(hx,p.y,130,f,230,10,'#fff4dc',0.55);else if(d.stage===2)slashFx(hx,p.y,120,f,240,10,'#ffe8c0',-0.6);else{slashFx(hx+f*20,p.y,115,f,330,13,'#ffffff',0.05);G.shake=Math.max(G.shake,9);G.hitstop=Math.max(G.hitstop,4);dust(p.x+f*40,p.y,8);}}
+  if(d.stage===3&&p.st>=d.hs-3&&p.st<=d.he)p.x+=p.face*5;/* 3段目は馬ごと踏み込む */
+  if(d.stage&&(G.auto||G.demo)&&p===G.player&&d.stage<3&&p.st>=2&&G.fighters.some(e=>e.team===1&&e.hp>0&&Math.abs(e.x-p.x)<260&&Math.abs(e.y-p.y)<60))p.mbuf=true;/* デモでも3段まで繋ぐ */
   if(d.stage){if(c.atkP&&p.st>=2)p.mbuf=true;if(p.mbuf&&d.stage<3&&p.st>d.he){p.mbuf=false;p.cur=MCOMBO[d.stage];p.st=0;p.hit=new Set();AU.sfx('slash');}}
   if(p.st>=d.dur){if(d.lastUse&&p.wpn&&p.wpn.k==='kusari')useWpn(p);p.mbuf=false;p.state='idle';p.st=0;p.cur=null;}}
- else if(p.state==='mspc'){if(p.st===16){G.shake=16;AU.sfx('boom');dust(p.x+p.face*40,p.y,14);
-   for(const e of G.fighters){if(e.team!==1||e.hp<=0)continue;if(Math.abs(e.x-p.x)<190&&Math.abs(e.y-p.y)<60)hurt(e,p,{pz:'tackle',dmg:22,kb:8,launch:true});}}
-  if(p.st>=40){p.state='idle';p.st=0;p.inv=0;}}
+ else if(p.state==='mspc'){/* 2026-10-16 オーナー「馬上の必殺が抽象的。馬が前足を大きく振り上げて眼前の敵を蹴り飛ばす」: 後ろ足で立ち上がる(0〜14)→前足で2度蹴る(12・17)→前へ叩きつけ(23)。当たりは前だけ */
+  const st=p.st,f=p.face,front=(e,r0,r1)=>{const dx=(e.x-p.x)*f;return dx>r0&&dx<r1&&Math.abs(e.y-p.y)<62;};
+  if(st===2){AU.sx&&AU.sx('horse',1.1);dust(p.x-f*50,p.y,6);}
+  if(st===12||st===17){p.hit.clear();AU.sfx('hitH');for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying)continue;if(front(e,-10,200)){hurt(e,p,{pz:'tackle',dmg:9,kb:5,launch:false,noDecap:true});PT({x:e.x,y:e.y,z:110,life:7,k:'star',sz:44,col:'#fff'});}}G.shake=Math.max(G.shake,6);}
+  if(st===23){p.hit.clear();G.shake=18;G.hitstop=Math.max(G.hitstop,8);AU.sfx('boom');const hx=p.x+f*110;dust(hx,p.y,16);ring(hx,p.y,170,'rgba(255,220,160,0.95)',22);
+   for(let i=0;i<18;i++)PT({x:hx+rnd(-40,60)*f,y:p.y+rnd(-14,14),z:rnd(0,20),vx:f*rnd(2,8),vz:rnd(2,7),g:0.35,life:rndi(14,26),sz:rnd(6,14),col:i%2?'#8a7a68':'rgba(140,120,100,0.7)',k:'smoke'});
+   for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying)continue;if(front(e,-20,260)){e.inv=0;hurt(e,p,{pz:'tackle',dmg:24,kb:15,launch:true,noDecap:true,unblock:true});if(!e.T.boss&&e.state==='down'){e.vx=f*16;e.vz=12;}}}}
+  if(st<=22&&st>=4)p.x+=f*(st<14?0.6:2.2);
+  if(st>=44){p.state='idle';p.st=0;p.inv=0;}}
  else{
   const mx=(c.r?1:0)-(c.l?1:0),my=(c.d?1:0)-(c.u?1:0),sp=T.spd*1.75;
   if(mx||my){const k=(mx&&my)?0.8:1;p.x+=mx*sp*k;p.y+=my*sp*0.6*k;if(mx)p.face=mx;p.state='walk';p.wp=(p.wp||0)+sp*0.04;
@@ -2384,7 +2394,9 @@ function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk
  let phase=0;if(attacking)while(phase<4&&t>=times[phase+1])phase++;const whirl=f.state==='matk'&&f.cur&&f.cur.whirl;if(whirl)phase=f.st<f.cur.hs?1:f.st>f.cur.he?4:[2,3,3,1][Math.floor(f.st/3)%4];const vface=whirl&&f.st>=f.cur.hs&&f.st<=f.cur.he&&Math.floor((f.st-f.cur.hs)/6)%2?-f.face:f.face;
  const i=attacking?seq[phase]:walking?Math.floor(((f.wp||0)/TAU*B.a.all.length)%B.a.all.length):0,q=B.a.all[i],hand=B.a.handAll[i],fl=f.flash>0&&(f.flash&2);
  const C=SPR['mountfull4_'+f.T.type]||SPR['mountfull3_'+f.T.type],kind=f.wpn?f.wpn.k:'default',full=attacking&&!(f.cur&&f.cur.kth)&&C&&C.ready&&C.a[kind],fq=full&&full[phase];
- ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(vface*f.sc*WHOLE_MOUNT_SCALE,f.sc*WHOLE_MOUNT_SCALE);
+ ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));
+ if(special){/* 竿立ち: 後ろ足(後ろ70px)を支点に立ち上がり、前足で蹴り、前へ叩きつける */const st=f.st,r=st<14?Math.sin(st/14*Math.PI/2)*0.5:st<20?0.5+Math.sin((st-14)*1.6)*0.06:st<24?0.5-(st-20)/4*0.62:st<34?-0.12+(st-24)/10*0.12:0,px=-f.face*70*f.sc;ctx.translate(px,0);ctx.rotate(-r*f.face);ctx.translate(-px,0);}
+ ctx.scale(vface*f.sc*WHOLE_MOUNT_SCALE,f.sc*WHOLE_MOUNT_SCALE);
  // 旋風突撃の専用絵(幸村の主武器だけ納品済み): 6コマを3更新ずつ回し、向きの左右切り替えはしない
  // 馬上の通常3連撃の専用絵(主武器のみ・全6人): 命中のコマ(hf=2)を hs に合わせる
  const MN=f.state==='matk'&&f.cur&&f.cur.stage&&!f.wpn&&SPR['mountnorm_'+f.T.type];if(MN&&MN.ready&&MN.a['n'+f.cur.stage]){const ar=MN.a['n'+f.cur.stage],nn=ar.length,cc=f.cur,hf=2,fi=f.st<cc.hs?Math.min(hf-1,Math.floor(f.st/cc.hs*hf)):Math.min(nn-1,hf+Math.floor((f.st-cc.hs)/Math.max(1,cc.dur-cc.hs)*(nn-hf))),mq=ar[Math.max(0,fi)];ctx.drawImage(fl?sprWhite(MN):MN.img,mq[0],mq[1],mq[2],mq[3],mq[4],mq[5],mq[2],mq[3]);ctx.restore();return true;}
@@ -2392,7 +2404,7 @@ function drawWholeMounted(f){const W=SPR['mountwalk5_'+f.T.type]||SPR['mountwalk
  if(fq){ctx.drawImage(fl?sprWhite(C):C.img,fq[0],fq[1],fq[2],fq[3],fq[4],fq[5],fq[2]*(fq[6]||1),fq[3]*(fq[6]||1));ctx.restore();drawWhirlFx(f);return true;}
  ctx.drawImage(fl?sprWhite(B):B.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));
  const wk=f.wpn?WPN[f.wpn.k]:{draw:f.T.wp,tip:f.T.tip,heavy:f.T.wp==='gunbai'},hx=hand[0],hy=hand[1];
- let wa=attacking?[0.72,-0.15,0.72,0.9,0.72][phase]:0.72;
+ const stg=f.state==='matk'&&f.cur&&f.cur.stage;let wa=attacking?(stg===2?[0.72,1.25,0.95,-0.55,0.72]:stg===3?[0.72,-0.95,-0.6,0.15,0.72]:[0.72,-0.15,0.72,0.9,0.72])[phase]:0.72;/* 段ごとに違う太刀筋 */
  if(wk.bow||wk.draw==='teppo')wa=attacking?0.55:0.72;
  if(f.wpn&&f.wpn.k==='kusari'&&(f.kspin>0||(f.cur&&f.cur.kth))){drawMountedKusari(f,hx,hy,fl);}
  else if(f.wpn&&f.wpn.k==='kusari'){
