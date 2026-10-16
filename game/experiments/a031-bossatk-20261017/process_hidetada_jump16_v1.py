@@ -55,17 +55,32 @@ for i in range(16):
     magenta_counts.append(int((~mask).sum()))
     pixel_hashes.append(hashlib.sha256(a.tobytes()).hexdigest())
 
-out = BASE + '_跳び込み攻撃_16コマ_v1.png'
-# Name follows existing Japanese conventions; keep unique and never replace the 8-frame sheet.
-out = ROOT + '/徳川秀忠_跳び込み攻撃_16コマ_v1.png'
+first = np.asarray(sheet.crop((0, 0, 512, 384)))
+fm = np.any(first != (255, 0, 255), axis=2)
+fy, fx = np.where(fm)
+dy = 363 - int(fy.max())
+aligned = Image.new('RGB', sheet.size, (255, 0, 255))
+for i in range(16):
+    aligned.paste(sheet.crop((i * 512, 0, (i + 1) * 512, 384)), (i * 512, dy))
+sheet = aligned
+boxes, edge_counts, magenta_counts = [], [], []
+for i in range(16):
+    a = np.asarray(sheet.crop((i * 512, 0, (i + 1) * 512, 384)))
+    mask = np.any(a != (255, 0, 255), axis=2)
+    yy, xx = np.where(mask)
+    boxes.append([int(xx.min()), int(yy.min()), int(xx.max()), int(yy.max())])
+    edge_counts.append(int(mask[0].sum() + mask[-1].sum() + mask[:, 0].sum() + mask[:, -1].sum()))
+    magenta_counts.append(int((~mask).sum()))
+# v1 is retained as the first layout experiment. v2 aligns the whole sequence to its opening ground pose.
+out = ROOT + '/徳川秀忠_跳び込み攻撃_16コマ_v2.png'
 sheet.save(out, optimize=True)
 grid = Image.new('RGB', (4 * 512, 4 * 384), (40, 40, 40))
 for i in range(16):
     grid.paste(sheet.crop((i * 512, 0, (i + 1) * 512, 384)), ((i % 4) * 512, (i // 4) * 384))
-grid_path = ROOT + '/徳川秀忠_跳び込み攻撃_review-grid-16f-v1.png'
+grid_path = ROOT + '/徳川秀忠_跳び込み攻撃_review-grid-16f-v2.png'
 grid.save(grid_path, optimize=True)
 frames = [sheet.crop((i * 512, 0, (i + 1) * 512, 384)) for i in range(16)]
-gif_path = ROOT + '/徳川秀忠_跳び込み攻撃_preview-16f-v1.gif'
+gif_path = ROOT + '/徳川秀忠_跳び込み攻撃_preview-16f-v2.gif'
 frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=90, loop=0, disposal=2)
 g = Image.open(gif_path)
 decoded = []
@@ -88,7 +103,11 @@ qa = {
   'generation': 'OpenAI built-in imagegen; references: existing Hidetada 8-frame jump sheet and prior rejected 16-pose attempt. AI-generated source, cell extraction and uniform scaling; not hand-drawn.',
   'notes': 'Sixteen sequential pose slots cover crouch, launch, ascent, midair gun-butt wind-up, descent, impact and recovery. Uniform tile scale preserves generated vertical travel; frames remain a candidate. Visual/runtime review pending.'
 }
-qa_path = ROOT + '/徳川秀忠_跳び込み攻撃_qa-16f-v1.json'
+qa['uniform_vertical_shift_to_groundline_y363'] = dy
+qa['notes'] = 'v2 uniformly aligns all cells using the opening pose groundline while preserving relative vertical travel. Sixteen poses cover crouch, launch, ascent, midair gun-butt wind-up, descent, impact and recovery. Candidate only; visual/runtime review pending.'
+qa['asset'] = os.path.basename(out)
+qa['sha256'] = hashlib.sha256(open(out, 'rb').read()).hexdigest()
+qa_path = ROOT + '/徳川秀忠_跳び込み攻撃_qa-16f-v2.json'
 with open(qa_path, 'w', encoding='utf-8') as f:
     json.dump(qa, f, ensure_ascii=False, indent=2)
 print(json.dumps({'asset': out, 'sha256': qa['sha256'], 'unique': unique, 'edges': edge_counts, 'changed': changed}, ensure_ascii=False))
