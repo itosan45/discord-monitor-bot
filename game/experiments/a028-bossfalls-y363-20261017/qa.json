@@ -482,6 +482,102 @@
       ],
       "sha256": "fb02867bc1a026a66cf8edcb8209afc0ee5e4a35a2438164ada64f86d65ba5f2",
       "status": "candidate_not_delivery"
+    },
+    {
+      "character": "黒田長政",
+      "action": "転倒",
+      "file": "黒田長政_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          90,
+          185,
+          293,
+          363
+        ],
+        [
+          107,
+          213,
+          275,
+          363
+        ],
+        [
+          75,
+          244,
+          308,
+          363
+        ],
+        [
+          85,
+          289,
+          298,
+          363
+        ]
+      ],
+      "sha256": "c4d1e3a681f80de513ef7b3076a19a01d7314930797b449ebe02b3d1f8b78818",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "黒田長政",
+      "action": "起き上がり",
+      "file": "黒田長政_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          84,
+          286,
+          299,
+          363
+        ],
+        [
+          88,
+          254,
+          294,
+          363
+        ],
+        [
+          105,
+          206,
+          278,
+          363
+        ],
+        [
+          90,
+          176,
+          292,
+          363
+        ]
+      ],
+      "sha256": "b7d5e5bc6c947da4ed7e4e7b50bbad266a086c3e11e6c9bf6e7db55fdbcc53b0",
+      "status": "candidate_not_delivery"
     }
   ]
 }
