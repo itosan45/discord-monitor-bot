@@ -194,6 +194,102 @@
       ],
       "sha256": "746faf6759ec0dcdee5da73da33e4a2db3d1d9de67f267581f3c6ccd5490606d",
       "status": "candidate_not_delivery"
+    },
+    {
+      "character": "小早川秀秋",
+      "action": "転倒",
+      "file": "小早川秀秋_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          110,
+          176,
+          273,
+          363
+        ],
+        [
+          110,
+          236,
+          273,
+          363
+        ],
+        [
+          105,
+          274,
+          277,
+          363
+        ],
+        [
+          104,
+          299,
+          279,
+          363
+        ]
+      ],
+      "sha256": "816ee77fbf1635db95a168999c487c019cb46abd794142915e1e8811fface2e8",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "小早川秀秋",
+      "action": "起き上がり",
+      "file": "小早川秀秋_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          103,
+          300,
+          279,
+          363
+        ],
+        [
+          104,
+          264,
+          278,
+          363
+        ],
+        [
+          106,
+          228,
+          276,
+          363
+        ],
+        [
+          110,
+          185,
+          272,
+          363
+        ]
+      ],
+      "sha256": "f9cfff924ae3ee4651c6043b9fcc538b4ddf4d685ac70940095edb052d294f8f",
+      "status": "candidate_not_delivery"
     }
   ]
 }
