@@ -462,6 +462,10 @@ for(const k in TY)if(TY[k].boss)for(const d of TY[k].atk){d.hs+=6;d.he+=6;d.dur+
 /* 2026-10-15 オーナー「ボスの攻撃モーションが遅すぎて、こっちの手数が押し勝つ」: 武将ボスの通常の斬り・突き(特殊技でないもの)の振りかぶり(当たるまで)を40%短くする(下の「全ボス+6」の後にかける。例: 井伊直政の斬り 24→14)。当たっている長さと振り終わりはそのまま */
 for(const k in TY){const T=TY[k];if(!T.boss||!T.atk)continue;for(const a of T.atk){if(a.k||!(a.pz==='swing'||a.pz==='thrust')||a.fastWind)continue;const h=Math.max(8,Math.round(a.hs*0.6)),d=a.hs-h;a.hs=h;a.he-=d;a.dur-=d;a.fastWind=true;}}
 for(const k in TY){const T=TY[k];if(!T.boss&&!T.cost&&T.atk)for(const d of T.atk)if(d.dmg)d.dmg=Math.max(3,Math.round(d.dmg*0.6));}
+/* 2026-10-16 柳生新陰流(A-021、オーナー「敵キャラとして配備」)。絵が届くまでは、宗矩=井伊直政の絵、門弟=足軽(刀)の絵で仮に出す。
+ 宗矩は第七幕の最後の砦の3度目の波を率いる(家康の剣術指南役として御前を守る、という独自の展開)。正面から斬りかかると、ときどき「無刀取り」で返される */
+TY.munenori=Object.assign(JSON.parse(JSON.stringify(TY.boss1)),{type:'munenori',name:'柳生宗矩',spr:'boss1',info:{kana:'やぎゅう むねのり',role:'柳生新陰流　—　家康の御前を守る剣術指南役',desc:['柳生石舟斎の子。関ヶ原では家康の側に仕え、','のちに将軍家の剣術指南役となる。']},hp:240,score:6000,muto:true,near:[0,0,1],far:[1,0]});TY.munenori.atk=TY.munenori.atk.slice(0,2);
+TY.yagyu=Object.assign(JSON.parse(JSON.stringify(TY.sword)),{type:'yagyu',name:'柳生の門弟',spr:TY.sword.spr||'sword',hp:52,spd:(TY.sword.spd||2)*1.15,score:320});
 TY.nezu={type:'nezu',name:'根津甚八',en:'NEZU JINPACHI',role:'真田十勇士 — 刀と海賊仕込みの足腰',hp:118,spd:4.4,jump:12.2,cost:100,sc:1.08,wp:'katana',tip:96,two:true,gap:15,helm:'ronin',plain:true,
  col:{armor:'#302d2a',armor2:'#171615',trim:'#a58a58',cloth:'#6d2527',skin:'#d9ad8d'},trail:'190,160,110',banner:null,stat:[3,4,3],spcName:'岩投げ',spcSub:'海賊仕込みの怪力',lowSpc:true,
  atk:[{pz:'swing',a0:-2.2,a1:0.8,r:34,dur:20,hs:7,he:12,rng:102,dmg:12,kb:3,lunge:2,sfx:'slash'}],
@@ -526,7 +530,7 @@ function startStage(si,ch,demo,keep){G.s7=null;
   for(let i=0;i<N;i++){const base=nb[i%nb.length],lap=Math.floor(i/nb.length),en=base.en.map(e=>[e[0],e[1]+rndi(0,40),e[2]]);
    const add=1+Math.floor(i/3)+(i%3===2?1:0);for(let k=0;k<add;k++){const ty=ex[(i+k+si)%ex.length];en.push([ty,120+k*90+rndi(0,50),(i+k)%2?1:-1]);}
    if(i===4||i===8)en.push(['samurai',60,1],['samurai',160,-1]);
-   if(i>=1&&i%3===1)en.push(['bomber',150,i%2?-1:1]);if(si>=1&&i%4===3)en.push(['brute',90,i%2?1:-1]);if(si>=2&&i>0&&i%3===0)en.push(['shield',40,1],['shield',70,-1]);if(si===0&&i===6)en.push(['brute',120,-1]);
+   if(i>=1&&i%3===1)en.push(['bomber',150,i%2?-1:1]);if(si>=1&&i%4===3)en.push(['brute',90,i%2?1:-1]);if(si>=2&&i>0&&i%3===0)en.push(['shield',40,1],['shield',70,-1]);if(si===0&&i===6)en.push(['brute',120,-1]);if(CHASE&&si===6&&i%3===1)en.push(['yagyu',140,i%2?1:-1],['yagyu',190,i%2?-1:1]);/* 第七幕の道中にも柳生の門弟 */
    {const ne=NEWEN[si];if(ne&&ne.length&&i%3===2){const k=(i/3)|0;en.push([ne[k%ne.length],110,i%2?1:-1]);if(i>=8)en.push([ne[(k+1)%ne.length],210,i%2?-1:1]);}}
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   {const mids=bs.filter(w=>w.mid);out.splice(N>>1,0,...mids);ws=out.concat(bs.filter(w=>!w.mid));}}
@@ -654,7 +658,7 @@ const HL={
  shin:{proG:'風林火山の旗、今ひとたび掲げん。',s0:'疾きこと風の如く！',s1:'動かざること山の如し……だが貴様は、迷いすぎじゃ。',s2:'侵掠すること火の如し！',s3:'上田は武田の旧領。真田は、我が家臣の家よ。',s4:'知りがたきこと陰の如し。夜はわしの領分じゃ。',s5:'家康……三方ヶ原の続きといこうか。',end:'人は城、人は石垣……見事な戦であった。'},
  musashi:{proG:'腕試しには、ちょうどいい戦だ。',s0:'でかい図体だな。斬りがいがある。',s1:'山の上でふんぞり返ってる奴から斬る。',s2:'数で来い。まとめて相手してやる。',s3:'城攻めか。悪くない。',s4:'夜の斬り合いは、目より耳よ。',s5:'天下人だろうが、斬れば斬れる。',end:'……次は、誰と戦えばいい？'}};
 HL.mitsu.pro=HL.mitsu.proG;
-const PORT={'真田昌幸':'masayuki','福島正則':'boss9','小早川秀秋':'boss4','黒田長政':'boss8','徳川秀忠':'boss5','最上義光':'boss2','伊達政宗':'boss2','井伊直政':'boss1','本多忠勝':'boss7','徳川家康':'boss3','石田三成':'mitsu'};
+const PORT={'真田昌幸':'masayuki','福島正則':'boss9','小早川秀秋':'boss4','黒田長政':'boss8','徳川秀忠':'boss5','最上義光':'boss2','伊達政宗':'boss2','柳生宗矩':'boss1','井伊直政':'boss1','本多忠勝':'boss7','徳川家康':'boss3','石田三成':'mitsu'};
 function storyLines(key){const h=G.curCh,y=h==='yuki';let k=key;if(key==='pro'&&!y)k='proG';const out=[];
  for(let [s,t] of SCN[k]){
   if(s[0]==='!'){if(!y)continue;s=s.slice(1);}
@@ -823,7 +827,12 @@ function gunbaiCounter(t,own,a){if(t.T.type!=='shin'||t.wpn||t.mount||!own||own.
  AU.sfx('clang');hurt(own,{x:t.x,face:t.face,team:0,owner:t,hit:null},{dmg:16,kb:8,launch:true,unblock:true,pz:'swing'});}
 function hurt(t,a,d){if(G.s7&&t===G.s7.ie&&G.s7.ph!=='fight')return;/* 第七幕: 家来を突破するまで家康には攻撃が届かない */
  if(t.team===1&&t.hp>0&&((t.wakeInv>G.t)||(t.chaseRun&&G.chase&&(G.chase.phase==='block'||G.chase.phase==='shield'))))return;/* ボスの起き上がり無敵(2.5秒)・追撃戦で駆け去っている間は、騎馬攻撃など直接 hurt を呼ぶ攻撃も当たらない */
- const own=a.owner||a;if(a.hit)a.hit.add(t);
+ const own=a.owner||a;
+ if(t.T&&t.T.muto&&t.hp>0&&own.team===0&&!a.owner&&t.state!=='atk'&&t.state!=='down'&&t.state!=='dead'&&a.x!==undefined&&sgn(a.x-t.x)===t.face&&!(t.mutoCd>G.t)&&Math.random()<0.3&&!(own.state==='spc'||own.state==='ult'||own.state==='mspc'||G.ult||G.spcScene)){/* 柳生の無刀取り: 正面からの斬りを素手で受け止めて投げ返す。拾った武器は奪われる */
+  t.mutoCd=G.t+240;G.hitstop=Math.max(G.hitstop,12);G.flashT=6;AU.sfx('block');say(t,'柳生新陰流——\n無刀取り。',110);popup('無刀取り！',t.x,t.y-40,110,'#bfe8ff',30);
+  if(own.wpn&&own.wpn.k){popup((WPN[own.wpn.k]?WPN[own.wpn.k].n:'武器')+'を奪われた',own.x,own.y,120,'#ccc',22);own.wpn=null;}
+  hurt(own,{x:t.x,face:t.face,team:1,owner:t,hit:null},{dmg:12,kb:8,launch:true,unblock:true});return;}
+ if(a.hit)a.hit.add(t);
  let dmg=d.dmg*(own.dm||1);const dir=a.face||sgn(t.x-a.x);if(t.T&&t.T.boss)dmg*=1.4;{const cm=chipMul(t,own);dmg*=cm;t.chipHit=cm<1;if(cm<1)for(let i=0;i<3;i++)PT({x:t.x,y:t.y,z:t.z+80+rnd(-24,24),vx:rnd(-3,3),vz:rnd(0,3),life:8,sz:2.2,col:'#b8b8c4',k:'spark'});}if(own.wpn&&!a.owner&&own.team===0&&own.wpn.k!=='teppo'&&own.wpn.k!=='yumi')useWpn(own);if(own.wpn&&own.wpn.k==='yoto'&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+2);if(d.fx==='yoki'&&!own.wpn&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+1);
  if(t.team===0&&!a.owner&&!d.unblock&&tryCover(t,own,dmg))return;
  if(t.team===0&&t.state==='guard'&&!t.isProp&&!d.unblock){const front=(a.x!==undefined&&!a.k)?sgn(a.x-t.x)===t.face:(a.face===-t.face||(a.x!==undefined&&sgn(a.x-t.x)===t.face));
@@ -890,10 +899,10 @@ function onKill(t,own){
  }else AU.sfx('die');
 }
 function bossDown(b,own){
- if(b.bossDownDone)return;b.bossDownDone=true;if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
- const last=G.wi>=G.waves.length-1;
+ if(b.bossDownDone)return;b.bossDownDone=true;if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='munenori')say(b,'見事……。\n父上、宗矩はまだ修行が足りませぬ……',220);if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
+ const last=G.wi>=G.waves.length-1&&!(G.s7&&b!==G.s7.ie);/* 第七幕の砦で倒した宗矩などは幕の終わりにしない */
  G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
- for(const e of G.fighters)if(e.team===1&&e.hp>0){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
+ for(const e of G.fighters)if(e.team===1&&e.hp>0&&!(G.s7&&e===G.s7.ie)){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
  G.sq=[];
  if(!last){G.slow=60;G.boss=null;AU.bgm(STG[G.stage].bgm);return;}
  AU.stopBgm();G.victoryClearAt=0;G.victoryShift=Math.max(0,(G.voAt||54)+Math.ceil(((AU.voBuf[G.curCh]&&AU.voBuf[G.curCh].duration)||2.5)*60)+60-138)/* 討ち取ったり→次の声まで1秒 */;G.state='bossdown';G.stateT=0;G.slow=90;
@@ -2725,8 +2734,8 @@ const COVERW=['危ない！','下がっておれ！','させぬ！','我が後�
 function say(f,s,d){f.say={s,t:d||150,d:d||150};}
 /* 第七幕の最後の砦(2026-10-16 オーナー「最後の最後まで家来が押し寄せてきて、それを突破した後に最後に戦う」「7の展開も実装して」):
  家康は奥で構えたまま(攻撃は届かない)、家来が3度押し寄せる→全部突破すると家康が前に出て一騎打ち。体力75/50/25%で掛け合い、50%と25%で家来が身代わりに飛び込む。セリフは仮 */
-const S7W=[[['shield',1],['shield',-1],['yoroi',1],['yoroi',-1],['spear',1],['spear',-1]],[['yoroi',1],['samurai',-1],['samurai',1],['spear',1],['spear',-1],['yoroi',-1]],[['yoroi',1],['yoroi',-1],['yoroi',1],['shield',1],['shield',-1],['samurai',1],['samurai',-1]]];
-const S7L=[['殿をお守りしろ！\n一歩も退くな！','真田を通すな！\n殿の御前ぞ！'],['まだまだ！\n徳川の旗本、ここにあり！','槍衾を組めぇ！\n殿に近づけるな！'],['これが最後じゃ！\n者ども、続けぇ！','殿……\nお先に参りまする！']];
+const S7W=[[['shield',1],['shield',-1],['yoroi',1],['yoroi',-1],['spear',1],['spear',-1]],[['yoroi',1],['samurai',-1],['samurai',1],['spear',1],['spear',-1],['yoroi',-1]],[['munenori',1],['yagyu',1],['yagyu',-1],['yagyu',1],['yagyu',-1]]];
+const S7L=[['殿をお守りしろ！\n一歩も退くな！','真田を通すな！\n殿の御前ぞ！'],['まだまだ！\n徳川の旗本、ここにあり！','槍衾を組めぇ！\n殿に近づけるな！'],['柳生又右衛門宗矩。\n殿の御前、これより先は通さぬ。','柳生新陰流、参る！\n師の前で遅れを取るな！']];
 function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.player;if(!ie||!P)return;S.t++;
  const foes=G.fighters.filter(e=>e.team===1&&e!==ie&&e.hp>0&&!e.isProp&&e.state!=='dead'&&!e.dying).length;
  if(S.ph==='intro'){if(G.banner&&G.banner.boss){S.t--;return;}S.hold=S.t<260;ie.inv=Math.max(ie.inv,6);
@@ -2738,11 +2747,12 @@ function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.p
   if(S.t===390&&G.curCh==='yuki')say(P,'あれが本物の家康か……。\n家来が何人いようと、押し通る！',170);
   if(S.t>=420){S.ph='surge';S.st=0;S.hold=false;}}
  if(S.ph==='surge'){ie.inv=Math.max(ie.inv,6);ie.scene=true;S.st++;
-  if(S.st===1&&S.surge>0){ie.pointT=G.t+100;say(ie,S.surge===1?'か、かかれぇ！\n囲んで討ち取れ！':'まだおるじゃろう！\n旗本ども、前へ出よ！',140);AU.bossLine('kirisute',ie,1.6);}/* 波ごとに家康が指差しで命令 */
+  if(S.st===1&&S.surge>0){ie.pointT=G.t+100;say(ie,S.surge===1?'か、かかれぇ！\n囲んで討ち取れ！':'む、宗矩！\nそやつを斬り捨てい！',140);AU.bossLine('kirisute',ie,1.6);}/* 波ごとに家康が指差しで命令 */
   if(S.st===1){const L=S7W[S.surge];L.forEach(([ty,sd],i)=>{const e=spawnEn(ty,sd);e.entered=true;e.x=sd>0?G.camx+W+60+i*30:G.camx-60-i*30;if(i===0)say(e,S7L[S.surge][0],170);if(i===1)S.lead=e;});AU.sfx('roar');G.shake=Math.max(G.shake,10);popup('家来の波 '+(S.surge+1)+' / 3',P.x,P.y,140,'#ffd070',26);}
   if(S.st===150&&S.lead&&S.lead.hp>0)say(S.lead,S7L[S.surge][1],150);
+  if(S.st===260&&S.surge===2)say(P,G.curCh==='yuki'?'剣の道か……。\nならば、この槍で応えるまで！':'剣術指南役か……。\n面白い、押し通る！',160);
   if(S.st>120&&foes===0){S.surge++;S.st=0;if(S.surge>=3){S.ph='call';S.t=0;}else if(S.surge===2)say(ie,'怯むな！\nあと一息ぞ！',150);}}
- if(S.ph==='call'){ie.inv=Math.max(ie.inv,6);S.hold=S.t<200;
+ if(S.ph==='call'){ie.inv=Math.max(ie.inv,6);S.hold=S.t<200;if(S.t===1){G.boss=ie;AU.bgm(bossBgm(ie));}
   if(S.t===10)say(ie,'……皆、よう戦ってくれた。\nもはや儂しか残っておらぬか。',200);
   if(S.t===120){say(ie,'この老骨、まだ折れてはおらぬ！\n真田、参れ！',170);AU.bossLine('nakanaka',ie,1.7);}
   if(S.t>=200){S.ph='fight';ie.scene=false;ie.entered=true;ie.inv=0;S.hold=false;AU.sfx('roar');G.shake=Math.max(G.shake,14);popup('家康を討て！',P.x,P.y,170,'#ff9a6a',30);}}
@@ -2955,7 +2965,7 @@ function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbod
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
 function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
- if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);
+ if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
   return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';

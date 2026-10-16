@@ -15,7 +15,7 @@ const BASE=process.argv[2]||process.env.GAME_URL;
    o.ieInvHit=ieInvHit;o.final={state:G.state,mode:G.mode};return o;});
   out.errors=errors;
   for(const k of ['ph:intro','hold','surge0','surge1','surge2','ph:call','ph:fight','bossdown'])if(!out.ev.some(e=>e.startsWith(k+'@')))bad.push('出ない: '+k);
-  for(const w of ['しかと見届けた','影武者','ひぃっ','討てぇ','かかれぇ','殿をお守り','よう戦ってくれた','散った者たち','この身を盾','最後の旗本','見事じゃ'])if(!out.says.some(s=>s.includes(w)))bad.push('セリフ無し: '+w);
+  for(const w of ['柳生又右衛門','父上、宗矩','しかと見届けた','影武者','ひぃっ','討てぇ','かかれぇ','殿をお守り','よう戦ってくれた','散った者たち','この身を盾','最後の旗本','見事じゃ'])if(!out.says.some(s=>s.includes(w)))bad.push('セリフ無し: '+w);
   if(out.ieInvHit)bad.push('突破前に家康の体力が減った');
   if(errors.length)bad.push('エラー '+errors[0]);
  }catch(e){bad.push('例外 '+e.message);}
