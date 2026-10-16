@@ -2269,6 +2269,7 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
  // 勝鬨: 呼びかけ録音の発話終端+0.8秒後に拳を突き上げる
  if(((G.state==='bossdown'&&G.stateT-(G.victoryShift||0)>=330)||G.state==='clear')&&!G.demo&&f===G.player){const K=SPR[f.T.type];if(K&&K.ready&&K.a.kachi){const t=G.state==='clear'?999:G.stateT-(G.victoryShift||0),i=t<366?0:t<402?1:t<438?2:t<474?1:t<510?2:3;S=K;sp={arr:K.a.kachi,pos:i,loop:false,hard:true};kart=false;}}
  // ボスの跳躍(大跳躍・跳びかかり・跳び越し)は専用のジャンプ4コマ(しゃがみ/上昇/頂点/下降)
+ if(f.T&&f.T.boss&&(f.state==='down'||f.state==='getup')){const F=SPR['bfall_'+(f.T.spr||f.T.type)];if(F&&F.ready&&F.a.down&&F.a.getup){/* A-028 ボスの転倒・起き上がり専用の絵: 吹き飛び中=よろめき(0)→着地して膝(1)→四つん這い(2)→うつ伏せ(3) / 起き上がり20コマで4枚 */const i=f.state==='down'?(f.z>2?0:Math.min(3,1+Math.floor((f.lieT||0)/5))):Math.min(3,Math.floor(f.st/5));S=F;sp={arr:F.a[f.state],pos:i,loop:false,hard:true};}}
  if(f.T&&f.T.boss&&f.state==='atk'&&f.cur&&(f.cur.k==='bleap'||f.cur.k==='leap'||f.cur.k==='hop')){const J=SPR['bjump_'+(f.T.spr||f.T.type)];if(J&&J.ready&&J.a.jump){const i=f.z<=2?0:f.vz>3?1:f.vz>-3?2:3;S=J;sp={arr:J.a.jump,pos:i,loop:false,hard:true};}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
@@ -3133,10 +3134,10 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];if(TY[h]&&TY[h].ai){const k=TY[h].spr||h;return[k,'bjump_'+k].concat(k==='monk'?['monkball','monkfx']:[]).filter(x=>SPR_RAW[x]);}/* 全編デモの主人公が敵キャラ */const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_|bfall_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
  if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr,'kurogusoku');if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
-  return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
+  return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bfall_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';
 function syncSprWant(){if(SPR_ALL){for(const k in SPR_RAW)sprRequest(k);return;}
