@@ -605,8 +605,13 @@
 - 今はコードで描く仮の姿で動作確認だけ済み(URLに `?genaid=1` を付けた時だけ出る)。
 
 ### Cloudflare Workers AI で画像を作る道具(2026-10-16、オーナー依頼。鍵の設定待ち)
-- 道具: `game/tools/cf_image.py`(FLUX.1-schnell)。例: `python3 game/tools/cf_image.py --prompt "..." --out game/experiments/cf_gen_YYYYMMDD/名前_v1.png --seed 123 --steps 8 [--magenta]`
+- 道具: `game/tools/cf_image.py`(FLUX.1-schnell)。Python 3とPillowが必要。例:
+  `python3 game/tools/cf_image.py --prompt "..." --out game/experiments/cf_gen_20261017/名前_v1.png --seed 123 --steps 8 [--magenta]`
 - 鍵: 環境変数 `CLOUDFLARE_ACCOUNT_ID`・`CLOUDFLARE_API_TOKEN`(Workers AI の権限)。オーナーが各環境の設定に入れる。コード・コミット・チャットに書かない。
-- 上書きしない(同名があれば止まる)。プロンプトと seed は同じフォルダの prompts.jsonl に残る。無料枠は1日1万ニューロン程度。
-- 向いている: 設定画・背景・会話の胸像。向かない: 動きの絵(スプライト。同じ人物を何コマも同じ形で描くのは苦手)→ 今までどおり清書する。
-- 最初の試し(鍵が入ったら): 背景「関ヶ原の朝霧の陣地」/ 胸像「大谷吉継」/ 設定画「島津義弘」(--magenta)。A-030 の見た目の参考にする。
+- `--steps` は4〜8、`--seed` は任意。`--magenta` を付けると四隅の色から背景を判定して純マゼンタ(`#FF00FF`)に置き換え、前景の縁を1px締める。出力先が既にあれば上書きせず停止する。生成ごとにプロンプト・seed・steps・モデル・日時を同じフォルダの `prompts.jsonl` へ追記する。
+- 鍵が無い場合やHTTPエラー時は日本語で理由を表示する。429は利用上限またはレート制限として扱う。無料枠は1日1万ニューロン程度なので、少数枚で試す。
+- 向いている: 設定画・背景・会話の胸像。向かない: 同じ人物を何コマも同じ形で描く動きの絵(スプライト)。スプライトは今までどおり手で清書する。
+- 今回の生成確認: 環境変数 `CLOUDFLARE_ACCOUNT_ID` と `CLOUDFLARE_API_TOKEN` が未設定のため、API呼び出しは0回、画像3枚は未生成。したがって下記の使いやすさ・現行ゲームとの絵柄比較は未評価で、鍵の設定後に行う。
+  - `関ヶ原_朝霧の陣地_背景_cf_v1.png`: 未生成・評価保留(人物・文字なしの横長背景として確認予定)。
+  - `大谷吉継_胸像_cf_v1.png`: 未生成・評価保留(白頭巾と目元、白い陣羽織を確認予定)。
+  - `島津義弘_設定画_cf_v1.png`: 未生成・評価保留(`--magenta`。白髭、黒糸縅、丸に十字の旗、大太刀を確認予定)。
