@@ -31,7 +31,7 @@ def foot_contact(atlas, q):
     return (float(feet.min()+feet.max())/2, float(bottom))
 
 def register_boss(atlas, meta, key):
-    for an in ('idle','walk','hit','a1','big','dash','muto','order','jslash'):
+    for an in ('idle','walk','hit','a1','big','dash','muto','order','jslash','call','leap'):
         if an not in meta: continue
         scale = SCALE.get(key,{}).get(an,1.0)
         for i,q in enumerate(meta[an]):

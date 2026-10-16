@@ -423,7 +423,9 @@ TY.monk={mid:true,name:'鉄球大僧',hp:195,sc:2,spd:1.35,ai:'melee',wp:'sword'
   {pz:'raise',k:'leap',dur:96,hs:22,he:40,rng:250,dmg:20,kb:11,launch:true,dep:80,around:true,fx:'quake',panim:'a1',sfx:'heavy'},
   {pz:'raise',k:'ballthrow',dur:84,hs:22,he:23,rng:0,dmg:12,kb:6,sfx:'heavy',panim:'mthrow'}/* 鉄球投げ(A-014): 遠くの相手へ鎖鉄球を投げて引き戻す。AIは離れているとき(adx>330)だけ約9秒に1回 */],leap:true};
 /* 天海(追撃戦の盾の場面で家康と入れ替わりに出る大僧。鉄球大僧の約1.5倍の強さ: 体力195→292・技の威力×1.5。絵は鉄球大僧の朱の袈裟。オーナー案 2026-10-15) */
-TY.tenkai=Object.assign(JSON.parse(JSON.stringify(TY.monk)),{name:'天海',spr:'monk',hp:292,score:2000});for(const a of TY.tenkai.atk)a.dmg=Math.round(a.dmg*1.5);
+TY.tenkai=Object.assign(JSON.parse(JSON.stringify(TY.monk)),{name:'天海',spr:'tenkai'/* 2026-10-16 専用の仮の絵(Gemini。鉄球大僧の流用をやめた。オーナー「同じ見た目のボスキャラは作らないで」) */,sc:1.25/* 大僧ほど大柄にしない(オーナー「ボスが大きすぎると人間に見えない」) */,hp:292,score:2000});
+/* 天海の技は絵の行と1対1(オーナー「モーション1個を複数の技で使い回さない」): 鉄球の振り回し=a1 / 叩きつけ=big / 突進=dash / 跳躍叩きつけ=leap。鉄球投げは専用の絵が無いので外す */
+{const M=TY.monk.atk,J=o=>JSON.parse(JSON.stringify(o));TY.tenkai.atk=[Object.assign(J(M[0]),{anim:'big',rng:210}),Object.assign(J(M[1]),{anim:'dash'}),Object.assign(J(M[2]),{anim:'leap',rng:210}),{pz:'swing',a0:-2.2,a1:1.2,r:40,dur:40,hs:16,he:22,rng:170,dep:44,dmg:15,kb:6,sfx:'heavy',anim:'a1'}];TY.tenkai.close=[0,3,3];/* 並びは大僧のAIの番号(0叩きつけ・1突進・2跳躍)に合わせ、近間では振り回し(3)を多めに */for(const a of TY.tenkai.atk)a.dmg=Math.round(a.dmg*1.5);}
 TY.kunoichi={name:'仮面のくノ一',hp:34,spd:13,kjH:98,/* 速さ=主人公(3.5〜5.2・平均4.2)の約3倍(6.2→13)。ジャンプ投げの跳躍=絵の約49pxに kjH 分を足して約3倍(2026-10-14 オーナー「スピードを通常の3倍・ジャンプ力も3倍」) */ai:'melee',skirm:true,runAnim:true,wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
  atk:[{pz:'swing',a0:-1.6,a1:0.9,r:30,dur:30,hs:10,he:14,hs2:20,he2:24,rng:86,dmg:7,kb:2.5,lunge:3,sfx:'slash',cd0:22,cd1:45},
   {pz:'throw',kj:true,dur:44,hs:22,he:23,rng:0,proj:'kunai',dmg:9,kb:3,sfx:'arrow',cd0:14,cd1:38}]};
@@ -471,7 +473,13 @@ TY.munenori=Object.assign(JSON.parse(JSON.stringify(TY.boss1)),{type:'munenori',
  TY.masamune.near=[0,0,2,4];TY.masamune.far=[3,1,4,2];
  const rnd9=TY.boss9.atk.find(a=>a.around)||TY.boss9.atk[0];
  TY.munenori.atk=[Object.assign(J(TY.boss1.atk[0]),{anim:'a1'})/* 斬り */,Object.assign(J(TY.boss1.atk[1]),{anim:'dash'})/* 踏み込み突き */,Object.assign(J(rnd9),{anim:'big'})/* 回転斬り「転(まろばし)」 */];
- TY.munenori.near=[0,2,0,1];TY.munenori.far=[1,2];}
+ TY.munenori.near=[0,2,0,1];TY.munenori.far=[1,2];
+ /* 第七幕の本物の家康(老武者・専用の絵 ieyasu2): 斬り=a1 / 軍配で家来を呼ぶ=call / 踏み込み突き=dash / 回転大斬り=big */
+ TY.ieyasu2={spr:'ieyasu2',atk:[Object.assign(J(TY.boss3.atk[0]),{anim:'a1'}),Object.assign(J(TY.boss3.atk[1]),{anim:'call'}),Object.assign(J(TY.boss3.atk[2]),{anim:'dash'}),Object.assign(J(rnd9),{anim:'big'})],near:[0,3,0,2],far:[2,1,3]};}
+/* 2026-10-16 オーナー「幸村が小さく見える。ボスが大きすぎる。大柄のキャラなら自然」: 武将ボスの倍率を見直す(主人公=1.0)。大柄の設定(本多忠勝・福島正則)だけ大きめ、他は1.1〜1.15。
+ 攻撃の届く距離(rng)・間合いの判定(dep)も体の縮みに合わせて縮める(絵より遠くで当たらないように)。鉄球大僧(大柄の僧)は変えない */
+{const BSC={boss1:1.15,boss2:1.15,boss3:1.18,boss4:1.1,boss5:1.12,boss7:1.22,boss8:1.15,boss9:1.22,masamune:1.15,munenori:1.1};
+ for(const k in BSC){const T=TY[k];if(!T||T.scFixed)continue;const r=BSC[k]/(T.sc||1);T.sc=BSC[k];T.scFixed=true;for(const d of T.atk||[]){if(d.rng>0)d.rng=Math.round(d.rng*r);if(d.dep)d.dep=Math.round(d.dep*r);if(d.r)d.r=Math.round(d.r*r);}}}
 TY.yagyu=Object.assign(JSON.parse(JSON.stringify(TY.sword)),{type:'yagyu',name:'柳生の門弟',spr:TY.sword.spr||'sword',hp:52,spd:(TY.sword.spd||2)*1.15,score:320});
 TY.nezu={type:'nezu',name:'根津甚八',en:'NEZU JINPACHI',role:'真田十勇士 — 刀と海賊仕込みの足腰',hp:118,spd:4.4,jump:12.2,cost:100,sc:1.08,wp:'katana',tip:96,two:true,gap:15,helm:'ronin',plain:true,
  col:{armor:'#302d2a',armor2:'#171615',trim:'#a58a58',cloth:'#6d2527',skin:'#d9ad8d'},trail:'190,160,110',banner:null,stat:[3,4,3],spcName:'岩投げ',spcSub:'海賊仕込みの怪力',lowSpc:true,
@@ -816,7 +824,7 @@ function bossBgm(e){return G.stage>=5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
  if(type==='monk'){/* 鉄球大僧は同じ見た目が何体も出ると違和感が強いので、出る順に色違い(元の紫・緑の袈裟・朱の袈裟+日焼け)にする */const n=G.monkN||0;G.monkN=n+1;e.var=['','b','c'][n%3];}
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;if(type==='masamune'&&!G.demo)G.mmScr={t:0,e};if(type==='boss3'&&G.s7&&!G.s7.ie){G.s7.ie=e;if(G.banner&&G.banner.boss){G.banner.role='本物の家康　—　本陣の奥に控えていた老いた天下人';G.banner.desc=['第六幕で馬に乗って逃げた家康は影武者であった。','本物の家康は、最後の旗本に守られて本陣にいる。'];}e.scene=true;e.tx=G.camx+W-150;e.y=clamp(560,YMIN+8,YMAX-8);}}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;if(type==='masamune'&&!G.demo)G.mmScr={t:0,e};if(type==='boss3'&&G.s7&&!G.s7.ie){G.s7.ie=e;e.T=Object.assign({},e.T,TY.ieyasu2);/* 本物の家康は専用の絵(老武者)と技 */if(G.banner&&G.banner.boss){G.banner.role='本物の家康　—　本陣の奥に控えていた老いた天下人';G.banner.desc=['第六幕で馬に乗って逃げた家康は影武者であった。','本物の家康は、最後の旗本に守られて本陣にいる。'];}e.scene=true;e.tx=G.camx+W-150;e.y=clamp(560,YMIN+8,YMAX-8);}}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.15:1.25;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.04;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss){const chb=G.chase&&type==='boss3';if(chb)chaseBossSetup(e);else bossGuards(e);startBossStory(e);}return e;}
@@ -1499,7 +1507,7 @@ function chaseHud(){const C=G.chase;if(!C||!C.on)return;const b=G.boss;
  if(b&&b.hp>0&&!C.shielded){ctx.fillStyle='#ffe070';ctx.fillRect(W/2-300+600*0.9-1,128,3,24);txt('ここまで削れ',W/2-300+600*0.9,176,13,'#ffe9a8','center','#000',3);}
  if(b&&b.mount){txt('家康の馬',W-40,150,18,'#ffd070','right','#000',3);for(let i=0;i<b.mount.max;i++){ctx.fillStyle=i<b.mount.hp?'#e8a040':'rgba(60,40,30,0.8)';ctx.fillRect(W-40-(b.mount.max-i)*20,164,16,14);}}}
 function updEnemy(e){
- if(e.scene&&e.sceneEnd&&G.t>=e.sceneEnd){e.scene=false;e.sceneEnd=0;}if(e.koshiT>G.t||e.pointT>G.t){e.t++;e.st++;e.inv=Math.max(e.inv,6);e.face=e.sceneFace||-1;e.state=e.koshiT>G.t?'koshi':'point';return;}if(e.state==='koshi'||e.state==='point'){e.state='idle';e.st=0;}if(e.scene){e.t++;e.st++;if(e.flash>0)e.flash--;e.face=e.sceneFace||-1;e.inv=Math.max(e.inv,6);const k=e.tx-e.x;if(Math.abs(k)>2){e.x+=clamp(k*0.06,-3.4,3.4);e.state='walk';e.wp=(e.wp||0)+0.3;}else{e.state='idle';}return;}/* 家来の盾の場面: 並ぶまで歩いて、会話の間は動かない */
+ if(e.scene&&e.sceneEnd&&G.t>=e.sceneEnd){e.scene=false;e.sceneEnd=0;}if(e.koshiT>G.t||e.pointT>G.t){e.t++;e.st++;e.inv=Math.max(e.inv,6);e.face=e.sceneFace||-1;{const ns=e.pointT>G.t?'point':'koshi';if(e.state!==ns)e.st=0;e.state=ns;}return;}if(e.state==='koshi'||e.state==='point'){e.state='idle';e.st=0;}if(e.scene){e.t++;e.st++;if(e.flash>0)e.flash--;e.face=e.sceneFace||-1;e.inv=Math.max(e.inv,6);const k=e.tx-e.x;if(Math.abs(k)>2){e.x+=clamp(k*0.06,-3.4,3.4);e.state='walk';e.wp=(e.wp||0)+0.3;}else{e.state='idle';}return;}/* 家来の盾の場面: 並ぶまで歩いて、会話の間は動かない */
  if(e.state==='held'&&e.heldBy&&e.heldBy.spearThrow&&e.heldBy.spearThrow.e===e){const p=e.heldBy;if(p.state==='throw'&&!p.spearThrow.released){e.t++;e.st++;if(e.flash>0)e.flash--;attachSpearVictim(p,e);return;}cancelSpearThrow(p);}
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if((e.T.boss||e.T.mid)&&e.hp>0&&!G.lowq&&e.t%7===0&&bossOpen(e)&&e.state!=='down'&&e.state!=='getup')PT({x:e.x+rnd(-18,18),y:e.y,z:e.z+(e.T.boss?176:150)+rnd(-8,8),life:11,k:'star',sz:rnd(22,34),col:'#ffd860'});if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);if(e.hide&&!(e.state==='atk'&&e.cur&&e.cur.k==='warp'))e.hide=false;/* 瞬身の途中で割り込まれても姿を戻す */
@@ -1549,7 +1557,7 @@ function updEnemy(e){
     else if(T.tack&&adx>230&&ady<70&&e.cool<=0&&e.entered&&!(e.rushCd>G.t)&&atkers()<2&&Math.random()<0.03){e.rushCd=G.t+480;startEAtk(e,1);}
     else if(T.atk[1]&&T.atk[1].proj&&adx>300&&ady<18&&e.cool<=0&&e.entered&&eProj()<2)startEAtk(e,1);
     else if(T.leap&&adx>150&&adx<480&&ady<42&&e.cool<=0&&e.entered&&!(e.leapCd>G.t)&&atkers()<2&&Math.random()<0.025){e.leapCd=G.t+420;startEAtk(e,2);}
-    else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.atk.length>1&&!T.atk[1].proj&&!T.tack?rndi(0,1):0);
+    else if(adx<rg&&ady<20&&e.cool<=0&&atkers()<2&&e.entered)startEAtk(e,T.close?pick(T.close):T.atk.length>1&&!T.atk[1].proj&&!T.tack?rndi(0,1):0);
     else if(atkers()>=2&&e.state!=='atk'){const side=e.x<p.x?-1:1,tx=p.x+side*205,ty=clamp(p.y+(e.flk??(e.flk=rnd(-55,55))),YMIN,YMAX);mx=Math.abs(tx-e.x)>16?sgn(tx-e.x)*0.75:0;my=Math.abs(ty-e.y)>8?sgn(ty-e.y):0;}}
    if(e.reloadT>0){e.reloadT--;mx=0;my=0;}/* 鉄砲足軽は撃った後、その場で弾込め */
    if(e.state==='idle'||e.state==='walk'){const ox=e.x,oy=e.y;e.x+=mx*e.spd;e.y+=my*e.spd*0.6;if(T.skirm&&Math.hypot(e.x-ox,e.y-oy)>8){/* 速さが目に見えるように: 横に走る白い筋と、かげの煙 */if(G.t%2===0)dodgeStreak({ddir:sgn(e.x-ox)||sgn(e.y-oy)||1,ddy:0,x:e.x,y:e.y,z:e.z||0});if(G.t%3===0)PT({x:ox,y:oy,z:rnd(25,75),vx:0,vz:0.3,life:12,sz:rnd(14,22),col:'rgba(150,215,215,0.3)',k:'smoke'});}e.state=(mx||my)?'walk':'idle';if(mx||my)e.wp+=Math.min(e.spd*0.08,0.62);}
@@ -2112,7 +2120,8 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'down':return P('dead',f.z>0.6?1:4);
   case'getup':return P('dead',6-f.st/20*4);
   case'dead':return P('dead',f.st/9);
-  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&(c.k==='step'||c.k==='hop'))return P(A.dash?'dash':'walk',f.st/4,true);if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
+  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&(c.k==='step'||c.k==='hop'))return P(A.dash?'dash':'walk',f.st/4,true);if(c&&c.edge&&c.anim&&A[c.anim]){const arr=A[c.anim],n=arr.length;let pos;if(f.st<c.hs)pos=0;else if(!f.rushDone)pos=1+Math.floor(f.st/3)%Math.max(1,n-3);else pos=f.st<c.he+16?n-2:n-1;return {arr,pos:clamp(pos,0,n-1),loop:false};}/* 端から端の突進(天海): 構え→走り→止まり */
+  if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
   default:return P('idle',f.t/14,true);}}
  if(f.team===1&&A.mgst){/* 鉄球大僧(A-014): 立ち止まって受け止める間はガードの構え/受け、3回受けたあとの隙はガードクラッシュ4コマ */
   if(f.state==='hurt'&&f.gcrash>G.t){const tot=T.boss?70:90;return {arr:A.mgcr,pos:Math.min(3,Math.floor((1-(f.gcrash-G.t)/tot)*4)),loop:false};}
@@ -2973,9 +2982,9 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!['masamune','munenori'].includes(k)/* 第七幕でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
- if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
+ if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr);if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
   return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';
