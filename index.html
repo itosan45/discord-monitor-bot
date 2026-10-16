@@ -533,6 +533,12 @@ function popup(s,x,y,z,col,sz){PT({x,y,z,vz:1.2,life:42,k:'text',s,col:col||'#ff
 // 前回とほぼ同じ向き(25度以内)は避ける。会心・打ち上げ・ボスへの大ダメージは長く太く
 function hitCuts(x,y,z,face,d,col,big){let an=rnd(0,Math.PI);if(G.lastCutAng!==undefined){let df=Math.abs(an-G.lastCutAng)%Math.PI;if(Math.min(df,Math.PI-df)<0.45)an=(an+Math.PI/2)%Math.PI;}G.lastCutAng=an;
  const len=big?240:rnd(160,195),life=big?14:11;G.parts.push({k:'cut',x:x+rnd(-6,6),y,z:z+rnd(-8,8),vx:0,vy:0,vz:0,g:0,life,max:life,sz:len,w:big?13:9,ang:an,col:col||'rgba(255,214,140,0.85)',fr:1});}
+/* 2026-10-16 横にした三日月の斬撃(武蔵・上杉の必殺)。オーナー「両側でなく進行方向だけ」「横に刀を振ったような斬撃で手前の列から奥の列まで全部斬れる」「三日月を横にしたような鋭い斬撃」「サムライスピリッツを参考に」。
+   進行方向へ飛び、奥行き(YMIN〜YMAX)の全列に当たる。pal: 0=白(武蔵) 1=蒼い雷(上杉) */
+function crescent(p,o){const f=p.face||1,cy=(YMIN+YMAX)/2;o=o||{};
+ addProj({x:p.x+f*(o.off||70),y:cy,z:30,vx:f*(o.v||15),team:0,dmg:o.dmg||24,face:f,owner:p,k:'crescent',w:o.w||58,yr:(YMAX-YMIN)/2+14,life:o.life||44,max:o.life||44,launch:true,kb:o.kb||9,pierce:99,pal:o.pal||0,big:o.big||1,trail:[]});
+/* 斬撃同士を重ねない(オーナー指摘): 横一文字の線は出さず、三日月1枚で見せる */G.hitstop=Math.max(G.hitstop,4);G.flashT=Math.max(G.flashT||0,3);G.shake=Math.max(G.shake,14);AU.sfx('slash');AU.sfx('boom');
+ for(let i=0;i<16;i++)PT({x:p.x+f*rnd(40,140),y:p.y+rnd(-40,40),z:rnd(40,140),vx:f*rnd(4,12),vz:rnd(-1,2),life:rndi(8,16),sz:rnd(2,4),col:o.pal?'#bfe8ff':'#fff6e0',k:'spark'});}
 function slashFx(x,y,z,face,len,life,col,ang){G.parts.push({k:'slash',x,y,z,vx:0,vy:0,vz:0,g:0,life:life||16,max:life||16,sz:len||170,ang:ang??(-0.3+rnd(-0.14,0.14)),face:face||1,col:col||'#fff',fr:1});}
 function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
@@ -1178,7 +1184,7 @@ function updSpc(p){
  if(k==='yuki'){yukiSpc(p,st);
  }else if(k==='kage'){
   if(st<24){PT({x:p.x+p.face*rnd(-10,40),y:p.y,z:rnd(60,190),vx:rnd(-1,1),vz:rnd(-1,2),life:14,sz:rnd(2,4),col:'#9fd8ff',k:'spark'});if(st%5===0)PT({x:p.x+p.face*20,y:p.y,z:150,life:6,k:'bolt',sz:90,col:'#bfe8ff',seed:Math.random()*100});}
-  if(st===24){strike(p,{rng:190,dmg:26,kb:8,dep:90,launch:true,around:true});for(const s of[1,-1])addProj({x:p.x+s*30,y:p.y,z:6,vx:s*9,team:0,dmg:22,face:s,owner:p,k:'wave',w:50,life:56,launch:true,kb:6,pierce:99,sty:'wind'});G.shake=22;G.flashT=8;ring(p.x,p.y,220,'rgba(160,220,255,0.95)',30);dust(p.x,p.y,12);for(let i=0;i<4;i++)PT({x:p.x+rnd(-120,120),y:p.y,z:0,life:9,k:'bolt',sz:300,col:'#dff4ff',seed:Math.random()*100});AU.sfx('boom');}
+  if(st===24){strike(p,{rng:190,dmg:26,kb:8,dep:90,launch:true});crescent(p,{pal:1,dmg:22,big:1.15});/* 2026-10-16 両側の風の波をやめ、進行方向へ横の三日月(全列) */G.shake=22;G.flashT=8;ring(p.x,p.y,220,'rgba(160,220,255,0.95)',30);dust(p.x,p.y,12);for(let i=0;i<4;i++)PT({x:p.x+rnd(-120,120),y:p.y,z:0,life:9,k:'bolt',sz:300,col:'#dff4ff',seed:Math.random()*100});AU.sfx('boom');}
  }else if(k==='nobu'&&p.spLv===2){kakeiStep(p,st);
  }else if(k==='nobu'){
   if(st===12||st===24||st===36){for(const dy of[-46,-23,0,23,46])addProj({x:p.x+p.face*60,y:clamp(p.y+dy,YMIN,YMAX),z:80,vx:p.face*22,vy:dy/40,team:0,dmg:15,face:p.face,owner:p,k:'bullet',w:18,launch:true,kb:6,life:60,pierce:3});for(let i=0;i<10;i++)PT({x:p.x+p.face*56,y:p.y+rnd(-50,50),z:80,vx:p.face*rnd(2,8),vz:rnd(-1,2),life:14,sz:rnd(8,18),col:i<5?'#ffb090':'rgba(200,200,200,0.5)',k:i<5?'flame':'smoke'});AU.sfx('gun');G.shake=Math.max(G.shake,7);}
@@ -1204,12 +1210,13 @@ function updSpc(p){
   if(st===34){p.hit.clear();strike(p,{rng:200,dmg:22,kb:8,dep:90,launch:true,around:true});G.shake=18;ring(p.x,p.y,200,'rgba(255,200,120,0.95)',28);dust(p.x,p.y,12);AU.sfx('boom');}
  }else if(k==='musashi'){
   if(st>=6&&st<=36){p.x+=p.face*8;if(st%3===0){p.hit.clear();strike(p,{rng:135,dmg:6,kb:2,dep:46});PT({x:p.x+p.face*rnd(30,110),y:p.y+rnd(-6,6),z:rnd(40,110),life:8,k:'star',sz:rnd(30,56),col:'#fff'});AU.sfx('slash');}}
-  if(st===38){p.hit.clear();strike(p,{rng:150,dmg:16,kb:8,dep:50,launch:true});G.shake=10;}
+  if(st===38){p.hit.clear();strike(p,{rng:150,dmg:16,kb:8,dep:50,launch:true});crescent(p,p.spLv===2?{dmg:28,big:1.3}:{dmg:14,big:0.9});/* Lv2は2本重ねず、大きな1本 */G.shake=10;}
  }else{
   if(st>=14&&st<=76&&st%7===0){const x=clamp(p.x+p.face*rnd(60,520),G.camx+50,G.camx+W-50);fall(x,rnd(YMIN+8,YMAX),0,18,90,0,p);}
   if(st%4===0)PT({x:p.x+rnd(-30,30),y:p.y,z:rnd(100,200),vx:rnd(-1,1),vz:rnd(0.5,2),life:22,sz:rnd(2,4),col:'#d6a8ff',k:'spark'});
  }
- if(p.spLv===2&&st===p.cur.dur-2){for(const sd of[1,-1])addProj({x:p.x+sd*30,y:p.y,z:6,vx:sd*11,team:0,dmg:20,face:sd,owner:p,k:'wave',w:56,life:50,launch:true,kb:7,pierce:99});G.shake=16;ring(p.x,p.y,240,'rgba(255,220,120,0.95)',30);AU.sfx('boom');}
+ if(p.spLv===2&&st===p.cur.dur-2&&(k==='kage'||k==='musashi')){if(k==='kage')crescent(p,{pal:1,dmg:20,big:1.3,off:40});}/* 上杉の2本目は1本目と約450px離れて重ならない。武蔵は1本だけ *//* 斬撃の2本目も進行方向だけ */
+ else if(p.spLv===2&&st===p.cur.dur-2){for(const sd of[1,-1])addProj({x:p.x+sd*30,y:p.y,z:6,vx:sd*11,team:0,dmg:20,face:sd,owner:p,k:'wave',w:56,life:50,launch:true,kb:7,pierce:99});G.shake=16;ring(p.x,p.y,240,'rgba(255,220,120,0.95)',30);AU.sfx('boom');}
  if(st>=p.cur.dur){p.state='idle';p.st=0;p.inv=20;}
 }
 function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk'&&!(f.state==='atk'&&f.cur&&(f.cur.k==='leap'||f.cur.k==='hop'||f.cur.k==='bleap'))){f.vz-=GR;f.z+=f.vz;if(f.z<=0){f.z=0;f.vz=0;}}}
@@ -1656,6 +1663,7 @@ function updProj(onlyOwner){
   if(q.k==='cavghost'&&G.t%2===0)PT({x:q.x-q.face*40,y:q.y+rnd(-6,6),z:rnd(10,90),vx:-q.face*rnd(1,3),vz:rnd(0.3,1.2),life:16,sz:rnd(12,24),col:'rgba(255,120,50,0.5)',k:'flame'});
   if(q.k==='kaze'&&G.t%2===0)PT({x:q.x,y:q.y,z:q.z+rnd(-20,20),vx:-q.face*rnd(0.5,1.5),vz:0,life:8,sz:rnd(5,9),col:`rgba(${q.col||'210,180,255'},0.6)`,k:'flame'});
   if(q.k==='kunai'||(q.k==='shuriken'&&q.vz)){q.z+=q.vz;if(q.z<=2){G.proj.splice(i,1);dust(q.x,q.y,1);continue;}}
+  if(q.k==='crescent'){q.trail.unshift(q.x);if(q.trail.length>5)q.trail.pop();if(G.t%2===0)for(let k=0;k<3;k++)PT({x:q.x+q.face*rnd(10,40),y:rnd(YMIN,YMAX),z:rnd(10,120),vx:q.face*rnd(1,4),vz:rnd(-0.5,0.5),life:rndi(8,14),sz:rnd(1.5,3),col:q.pal?'#cdeeff':'#fffaf0',k:'spark'});}
   q.x+=q.vx;q.y+=(q.vy||0);
   if(q.life<=0||q.x<G.camx-120||q.x>G.camx+W+120){G.proj.splice(i,1);continue;}
   if(q.k==='wave'&&q.life%2===0&&q.sty==='water')PT({x:q.x+rnd(-14,14),y:q.y+rnd(-10,10),z:rnd(6,30),vx:rnd(-1,1)*0.6,vz:rnd(2,5),g:0.3,life:rndi(12,20),sz:rnd(1.6,3),col:'rgba(210,238,255,0.95)',k:'dot'});
@@ -1667,7 +1675,7 @@ function updProj(onlyOwner){
   for(const t of list){if(q.hit.has(t))continue;if(t.isProp&&t.broken)continue;if(q.team===1&&t.team!==0)continue;if(q.team===0&&!(t.team===1||t.isProp))continue;
    if(!t.isProp&&(t.hp<=0||t.inv>0||t.state==='down'||t.state==='dead'||t.state==='getup'))continue;
    const hh=q.k==='wave'?60:110;if(Math.abs(t.x-q.x)<q.w+12&&(t.k==='umabo'||Math.abs(t.y-q.y)<(q.yr||(q.k==='wave'?36:22)))&&q.z+10>=(t.z||0)&&q.z-10<(t.z||0)+hh){
-    hurt(t,q,{dmg:q.dmg,kb:q.kb,launch:q.launch});hitN++;q.pierce=(q.pierce||1)-1;if(q.pierce<=0){G.proj.splice(i,1);break;}}}
+    hurt(t,q,{dmg:q.dmg,kb:q.kb,launch:q.launch});hitN++;if(q.k==='crescent'){G.hitstop=Math.max(G.hitstop,5);for(let k=0;k<8;k++)PT({x:t.x,y:t.y,z:(t.z||0)+rnd(50,110),vx:q.face*rnd(2,8),vz:rnd(-2,4),g:0.3,life:rndi(10,18),sz:rnd(2,4),col:k%2?'#ffffff':(q.pal?'#9fd8ff':'#ffd8a0'),k:'spark'});}q.pierce=(q.pierce||1)-1;if(q.pierce<=0){G.proj.splice(i,1);break;}}}
  }
 }
 /* 馬防柵(k:'umabo'): 壊れるまで全レーンを遮る。柵のどちら側にいたかを覚え、反対側へ入りかけたら元の側へ戻す(吹き飛ばし・突進でも抜けない) */
@@ -2471,6 +2479,14 @@ function drawWater(x,y,h,w,ph,a){if(a<=0.01)return;const ga=ctx.globalAlpha,bob=
  ctx.globalAlpha=ga*a;ctx.strokeStyle='rgba(255,255,255,0.95)';ctx.lineWidth=Math.max(1.5,w*.12);ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x-w*.55,y-h*.62);ctx.bezierCurveTo(x-w*.3,y-h*.88,x+w*.1,y-h*.98,x+w*.55,y-h*.98);ctx.stroke();
  ctx.fillStyle='rgba(255,255,255,0.9)';for(let i=0;i<4;i++){ctx.beginPath();ctx.arc(x+w*(.5+.3*Math.sin(ph+i*1.9)),y-h*(.55+.12*i)+Math.cos(ph*1.3+i)*2,1.6+i*.3,0,TAU);ctx.fill();}
  ctx.globalAlpha=ga;}
+/* 横にした三日月: 奥行きの全列にかかる縦長の弧。進行方向へふくらみ、刃先(前の縁)は白く鋭く、後ろへ色が抜ける。残像を2つ引く */
+function drawCrescent(q){const a0=Math.min(1,q.life/8),grow=Math.min(1,(q.max-q.life+2)/5),f=q.face,cyS=(YMIN+YMAX)/2-q.z,RY=((YMAX-YMIN)/2+120)*grow*(q.big||1),RX=(70+30*(q.big||1))*grow,TH=34*(q.big||1);
+ const col=q.pal?['200,236,255','120,190,255']:['255,250,240','255,190,150'];ctx.save();ctx.globalCompositeOperation='lighter';
+ const shape=(x,al,sc)=>{ctx.save();ctx.translate(x-G.camx,cyS);ctx.scale(f,1);const rx=RX*sc,ry=RY*sc;
+  ctx.beginPath();ctx.moveTo(-TH,-ry);ctx.quadraticCurveTo(-TH+rx*2,0,-TH,ry);ctx.quadraticCurveTo(-TH+rx*0.45,0,-TH,-ry);ctx.closePath();
+  const g=ctx.createLinearGradient(-TH,0,-TH+rx,0);g.addColorStop(0,`rgba(${col[1]},0)`);g.addColorStop(0.3,`rgba(${col[1]},${0.4*al})`);g.addColorStop(0.75,`rgba(${col[0]},${0.85*al})`);g.addColorStop(1,`rgba(255,255,255,${al})`);ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();ctx.moveTo(-TH,-ry);ctx.quadraticCurveTo(-TH+rx*2,0,-TH,ry);ctx.strokeStyle=`rgba(${col[1]},${0.35*al})`;ctx.lineWidth=16*sc;ctx.stroke();ctx.strokeStyle=`rgba(${col[0]},${0.6*al})`;ctx.lineWidth=8*sc;ctx.stroke();ctx.strokeStyle=`rgba(255,255,255,${al})`;ctx.lineWidth=3.5*sc;ctx.stroke();ctx.restore();};
+ const tr=q.trail||[];for(let i=tr.length-1;i>=1;i-=2)shape(tr[i],a0*0.25*(1-i/6),0.96);shape(q.x,a0,1);ctx.restore();}
 function drawShock(a,pal,sc){const ga=ctx.globalAlpha,cy=-16,ry=36*sc,rx=24*sc;
  ctx.globalAlpha=ga*a*.4;ctx.fillStyle='rgba(30,22,14,1)';ctx.beginPath();ctx.ellipse(-4,12,36*sc,8*sc,0,0,TAU);ctx.fill();
  ctx.globalAlpha=ga*a*.85;ctx.fillStyle=pal[0];ctx.beginPath();ctx.ellipse(0,cy,rx,ry,0,-1.5,1.5);ctx.ellipse(-9*sc,cy,rx*.62,ry*.86,0,1.5,-1.5,true);ctx.closePath();ctx.fill();
@@ -2589,6 +2605,7 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
  else if(q.k==='horse'){const S=SPR.mount_blue;if(S&&S.ready){ctx.translate(-x,-y);drawMounted({T:{},x:q.x,y:q.y,z:0,face:q.face,sc:1,t:G.t+((q.x|0)%7),state:'walk',flash:0},S,true);}else{ctx.scale(q.face,1);drawHorse(G.t*0.55,G.t);}}
  else if(q.k==='kunai'){const KS=SPR.monkfx,KQ=KS&&KS.ready&&KS.a.kunai&&KS.a.kunai[0];ctx.scale(q.face,1);ctx.rotate(Math.atan2(-q.vz,Math.abs(q.vx)));if(KQ)ctx.drawImage(KS.img,KQ[0],KQ[1],KQ[2],KQ[3],KQ[4],KQ[5],KQ[2],KQ[3]);else{line(-14,0,16,0,3,'#cfd6de');}}
  else if(q.k==='shuriken'){ctx.rotate(G.t*0.5);ctx.fillStyle='#cfd6de';for(let i=0;i<4;i++){ctx.rotate(Math.PI/2);poly([[0,0],[14,-3],[16,0],[14,3]],'#cfd6de',OUT,1);}circ(0,0,2,'#222');}
+ else if(q.k==='crescent'){ctx.restore();drawCrescent(q);ctx.save();}
  else if(q.k==='wave'&&q.col&&q.col.startsWith('255')){ctx.scale(q.face,1);const fa=Math.min(1,q.life/10);ctx.globalAlpha=fa*.4;ctx.fillStyle='rgba(40,10,4,1)';ctx.beginPath();ctx.ellipse(0,14,46,10,0,0,TAU);ctx.fill();ctx.globalAlpha=1;const HS=[40,60,78,58,38],XS=[-34,-17,0,17,34];for(let i=0;i<5;i++)drawFlame(XS[i],12,HS[i],12+(i===2?4:0),G.t*.45+i*1.3+q.x*.02,fa);}
  else if(q.k==='wave'&&q.sty==='water'){ctx.scale(q.face,1);const fa=Math.min(1,q.life/10),ph=G.t*.5+q.x*.03;ctx.globalAlpha=fa*.35;ctx.fillStyle='rgba(20,50,90,1)';ctx.beginPath();ctx.ellipse(-8,14,48,8,0,0,TAU);ctx.fill();ctx.globalAlpha=1;drawWater(-44,12,24,13,ph+2,fa);drawWater(-22,12,38,18,ph+1,fa);drawWater(6,12,58,26,ph,fa);}
  else if(q.k==='wave'){ctx.scale(q.face,1);const fa=Math.min(1,q.life/10),wind=q.sty==='wind',pal=wind?['rgb(190,214,255)','rgb(245,250,255)']:['rgb(204,170,118)','rgb(255,238,196)'];if(wind)ctx.globalCompositeOperation='lighter';drawShock(fa,pal,Math.min(1.25,(q.w||46)/46));}
