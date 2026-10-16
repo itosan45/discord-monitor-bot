@@ -946,3 +946,7 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 残り4本(影武者どもを討ったくらいで／ひぃっ／討てぇ／追い詰められたか)は ElevenLabs 側で「不審な利用のため無料枠を停止。有料プランへ」と止められ、未作成。今は従来の効果的な声(bossLine)のまま。
 - 元の mp3 は `game/experiments/voice_ieyasu_20261016/`、音量をそろえた64kbps版を `game/data/voice_ieyasu/` に置き、build.py が `DATA.iy` に埋め込む。`AU.iyLine(k)` で鳴らす(鳴らせたら秒数を返し、無ければ従来の声)。
 - 確認: 5本が読み込まれて鳴ること(長さ2.7〜5.4秒)。耳での聞き取り確認はしていない(この環境では音を聞けない)。tstage7・tbgm 通過。tvoicelines は変更前の版でも失敗(無関係)。
+
+## 6.90 天海の攻撃の絵を A-024 に差し替え(2026-10-16)
+- `mk.py tenkai` で通常攻撃(a1)と跳躍叩きつけ(leap)を v2(画像担当 7239868)から作り直し。v2 は待機より人物が約2割小さいので KFIX 1.2。コードの仮の鉄球(`ballArc`)は外した(`drawBallArc` 関数は残してある)。
+- デモと同じ画面で左右・拡大を撮影して確認。tshield・test_boss_registration 通過。
