@@ -386,6 +386,102 @@
       ],
       "sha256": "3535e7e03e210dc5a52cb5812294fda64ce385e705704e2d332887cd96eac1e6",
       "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川秀忠",
+      "action": "転倒",
+      "file": "徳川秀忠_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 368,
+      "frame_bboxes": [
+        [
+          98,
+          144,
+          285,
+          368
+        ],
+        [
+          96,
+          190,
+          287,
+          368
+        ],
+        [
+          82,
+          211,
+          300,
+          368
+        ],
+        [
+          75,
+          286,
+          308,
+          368
+        ]
+      ],
+      "sha256": "e3d8ee62de5d69e96f33313f700b40049df3f525609069a067e6d68d3be688fa",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川秀忠",
+      "action": "起き上がり",
+      "file": "徳川秀忠_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 368,
+      "frame_bboxes": [
+        [
+          70,
+          261,
+          312,
+          368
+        ],
+        [
+          87,
+          223,
+          296,
+          368
+        ],
+        [
+          92,
+          175,
+          290,
+          368
+        ],
+        [
+          95,
+          120,
+          288,
+          368
+        ]
+      ],
+      "sha256": "e65686be255be3c1176bd03f1a70500069f10e47775a75f8a33d53da9f6827f4",
+      "status": "candidate_not_delivery"
     }
   ]
 }
