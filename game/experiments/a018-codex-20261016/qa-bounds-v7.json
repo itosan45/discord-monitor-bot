@@ -1,0 +1,178 @@
+[
+  {
+    "frame": 1,
+    "bbox": [
+      16,
+      29,
+      236,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 2,
+    "bbox": [
+      16,
+      29,
+      238,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 3,
+    "bbox": [
+      16,
+      29,
+      238,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 4,
+    "bbox": [
+      19,
+      28,
+      235,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 5,
+    "bbox": [
+      19,
+      27,
+      234,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 6,
+    "bbox": [
+      18,
+      27,
+      236,
+      239
+    ],
+    "bottom": 239,
+    "edge_contact": false
+  },
+  {
+    "frame": 7,
+    "bbox": [
+      17,
+      28,
+      238,
+      239
+    ],
+    "bottom": 239,
+    "edge_contact": false
+  },
+  {
+    "frame": 8,
+    "bbox": [
+      16,
+      32,
+      238,
+      239
+    ],
+    "bottom": 239,
+    "edge_contact": false
+  },
+  {
+    "frame": 9,
+    "bbox": [
+      16,
+      35,
+      239,
+      239
+    ],
+    "bottom": 239,
+    "edge_contact": false
+  },
+  {
+    "frame": 10,
+    "bbox": [
+      16,
+      39,
+      238,
+      239
+    ],
+    "bottom": 239,
+    "edge_contact": false
+  },
+  {
+    "frame": 11,
+    "bbox": [
+      17,
+      35,
+      238,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 12,
+    "bbox": [
+      17,
+      31,
+      237,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 13,
+    "bbox": [
+      18,
+      35,
+      237,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 14,
+    "bbox": [
+      18,
+      37,
+      237,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 15,
+    "bbox": [
+      19,
+      35,
+      235,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  },
+  {
+    "frame": 16,
+    "bbox": [
+      18,
+      32,
+      235,
+      238
+    ],
+    "bottom": 238,
+    "edge_contact": false
+  }
+]
