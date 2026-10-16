@@ -2122,7 +2122,7 @@ function drawWeapon(f,o,K,kind){
 // SPR_RAW が本体。SPR は見張り役: 予定外の画像を使おうとしたら、その場で読み込みを頼み G.sprMiss に記録する(テストで漏れを見つける)。
 const SPR_RAW={};let SPR_ALL=false;
 
-let WALKX=0;try{const m=/[?&]walkx=([12])/.exec(location.search);WALKX=m?+m[1]:0;}catch(e){}const WKS=()=>WALKX===2?'2':'';/* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に、?walkx=2 でそれを自動手直しした版(walkx_yuki2 / walkx_yuki2_u)に差し替える。既定は従来の8コマ */
+let WALKX=3;try{const m=/[?&]walkx=([0123])/.exec(location.search);WALKX=m?+m[1]:3;}catch(e){}const WKS=()=>WALKX===3?'3':WALKX===2?'2':'';/* 2026-10-16 A-018(画像担当の納品・武器あり3daff67/素手612f5c6)の16コマを既定に(walkx_yuki3 / walkx_yuki3_u)。?walkx=0 で従来の8コマ *//* 試験: ?walkx=1 で幸村の歩きをAI補間の16コマ(walkx_yuki / walkx_yuki_u)に、?walkx=2 でそれを自動手直しした版(walkx_yuki2 / walkx_yuki2_u)に差し替える。既定は従来の8コマ */
 const SPR=new Proxy(SPR_RAW,{get(t,k){const S=t[k];if(S&&!S.want&&typeof k==='string'&&!SPR_ALL){sprRequest(k);(G.sprMiss||(G.sprMiss=[])).push(k);}return S;}});
 const UGEN={a1:'a1|a2|a3',a2:'a2|a3|a1',a3:'a3|a2|a1',a4:'a1|a3|a2',a5:'a3|a2|a1',dash:'dash|a2|a1',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump',walk:'walk|idle'};
 const UMAP={yuki_u:{a1:'a2',a2:'a2',a3:'a3',a4:'a1',dash:'a2',jatk:'jump',hit:'idle',guard:'idle',gstart:'idle',ghit:'idle',gend:'idle',dodgeF:'jump',dodgeB:'jump'},kage_u:UGEN,mitsu_u:UGEN,nobu_u:UGEN,shin_u:UGEN,musashi_u:UGEN};

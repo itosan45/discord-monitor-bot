@@ -6,7 +6,7 @@ const fs=require('fs');
 const BASE=process.argv[2]||process.env.GAME_URL;
 const OUT=process.env.WALKX_OUT||'';
 async function open(b,flag){const p=await(await b.newContext({viewport:{width:802,height:360}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto(BASE+(flag?(BASE.includes('?')?'&':'?')+'walkx=1':''));await p.waitForFunction(()=>typeof G!=='undefined'&&G.mode,null,{timeout:120000});return{p,errors};}
+ await p.goto(BASE+(BASE.includes('?')?'&':'?')+'walkx='+(flag?1:0));/* 2026-10-16 既定が walkx=3(納品版)になったので、試験の「なし」は walkx=0 */await p.waitForFunction(()=>typeof G!=='undefined'&&G.mode,null,{timeout:120000});return{p,errors};}
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN});const bad=[],out={};
  try{
  // ① 既定

@@ -962,3 +962,7 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - しんがりの後(`vow` の終わり)も、幸村なら真田の雑兵が駆けつける(`sanadaAid`)。
 - セリフの予約(`sayAt`)は `saySched()` で前のセリフから70コマ空けて1つずつ出す(必殺の止め絵の間に溜まって重なるのを防ぐ)。
 - デモで確認: しんがり→「お主の犠牲、決して無駄にはせぬ」→真田の雑兵の到着とセリフ、通常の戦死→雑兵、の2通りを撮影。tautochase・tstageautoprogress 通過。
+
+## 6.93 幸村の歩きを A-018 の16コマ(納品版)に(2026-10-16)
+- `pack_yuki_walkx.py --armed 真田幸村_歩き_16コマ_等速版_v1.png --unarmed 真田幸村_手ぶら_歩き_16コマ_等速版_v1.png --n 16 --suffix 3` で `walkx_yuki3`/`walkx_yuki3_u` を作成(sprmeta・hands に追加。他のキーは変化なし)。
+- `WALKX` の既定を 3 に(`?walkx=0` 旧8コマ、`=1`/`=2` 旧試験版)。twalkx・twalkx2 の「なし」の場合を `walkx=0` に変更して通過。tpickupwalkweapons 通過。twalkcycle は旧8コマでも同じ失敗(脚の判定が全員1。既存の問題・未修正)。
