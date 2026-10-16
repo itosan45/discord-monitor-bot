@@ -1,0 +1,27 @@
+{
+  "status": "partial candidate, not delivery",
+  "frame_one_based": 4,
+  "guidance_commit": "4c33465",
+  "edit_region": [
+    82,
+    185,
+    160,
+    240
+  ],
+  "generated_rear_boot_edge_before_fit": 104,
+  "rear_shift_max": 9,
+  "support_toe_after_fit": 147,
+  "support_bottom_y": 238,
+  "rear_boot_edge_after_fit": 113,
+  "rear_bottom_y": 230,
+  "upper_above185_exact": true,
+  "other15_exact": true,
+  "method": "AI restoration; generated rear-leg pixels positioned progressively to Claude anchor; planted boot inverse-resampled to heel108/toe147. No upper-body replacement.",
+  "remaining": "Frame12, spear detail and visual loop acceptance",
+  "cleanup": "Removed leftover generated shoe fringe below floating-foot y230, x<108",
+  "numeric_evenness": {
+    "CV": 0.18,
+    "max_min": 2.23
+  },
+  "motion_acceptance": "pending; GIF created for review"
+}
