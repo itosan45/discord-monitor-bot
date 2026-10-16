@@ -25,7 +25,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   // 倒されて起き上がる時に「おのれ」(乱数を固定: 40%で言わない判定を通す)
   const mr=Math.random;Math.random=()=>0.5;e.state='down';e.st=0;e.z=0;e.vz=0;e.lieT=0;e.inv=0;for(let i=0;i<60&&e.state!=='getup';i++)stepGame();Math.random=mr;
   for(let i=0;i<40;i++)stepGame();
-  e.inv=0;e.hp=1;e.state='idle';hurt(e,P,{dmg:99,kb:4});G.slow=0;G.banner=null;
+  e.inv=0;e.wakeInv=0;/* 6.70 起き上がり2.5秒無敵を解く */e.hp=1;e.state='idle';hurt(e,P,{dmg:99,kb:4});G.slow=0;G.banner=null;
   let n=0;while(G.state==='bossdown'&&n<400){stepGame();n++;}
   return {log,shakeLog,voAt:G.voAt,state:G.state};
  });

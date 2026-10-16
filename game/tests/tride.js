@@ -4,6 +4,7 @@ const fs=require('fs'),path=require('path');
  const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:1280,height:720}})).newPage();
  const errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.argv[2]||'http://127.0.0.1:8765/index.html');await p.waitForTimeout(3000);
+ await p.waitForFunction(()=>sprAllReady(),null,{timeout:120000});/* 武将の馬上の絵は遅延読み込み */
  const out=await p.evaluate(()=>{
   G.lowq=true;G.camx=0;G.state='run';
   const heroes=['yuki','kage','mitsu','nobu','shin','musashi'],weapons=['odachi','takeyari','naginata','ono','yumi','kusari'];

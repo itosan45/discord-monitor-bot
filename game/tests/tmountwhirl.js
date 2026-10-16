@@ -3,7 +3,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN});
  try{const p=await(await b.newContext({viewport:{width:802,height:360}})).newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.argv[2]||process.env.GAME_URL);await p.waitForFunction(()=>sprAllReady(),null,{timeout:120000});
- const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;const rows=[];
+ const r=await p.evaluate(()=>{window.requestAnimationFrame=()=>0;AU.muted=true;window.__noGuard=true;/* 雑兵の正面ガード(34%)は別の仕様。ここでは旋風の届く範囲だけを見る */G.noStory=true;const rows=[];
   for(const hero of ['yuki','kage','mitsu','nobu','shin','musashi'])for(const face of [1,-1]){
    startGame(hero,null);G.waveOn=false;G.waves=[{x:999999,en:[]}];G.fighters=G.fighters.filter(f=>f.team===0);G.banner=null;const P=G.player;P.mount={hp:6,max:6,col:'red'};P.wpn=null;P.x=G.camx+640;P.y=570;P.face=face;P.state='idle';P.inv=999;P.ki=0;
    const front=mk('sword',P.x+face*150,570,1),back=mk('sword',P.x-face*90,570,1);for(const e of [front,back]){e.entered=true;e.hp=e.maxhp=999;e.cool=999;G.fighters.push(e);}
