@@ -27,9 +27,10 @@ def fail(message):
     raise SystemExit(1)
 
 
-def credentials():
+def credentials(network_secret=False):
     """Also read Windows user environment saved after Claude was started."""
-    names = ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN")
+    # Proxy authentication must never inspect a token in the VM or registry.
+    names = ("CLOUDFLARE_ACCOUNT_ID",) if network_secret else ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN")
     values = {name: os.environ.get(name) for name in names}
     if os.name == "nt" and not all(values.values()):
         import winreg
@@ -46,11 +47,11 @@ def credentials():
                             pass
         except OSError:
             pass
-    return values[names[0]], values[names[1]]
+    return values["CLOUDFLARE_ACCOUNT_ID"], values.get("CLOUDFLARE_API_TOKEN")
 
 
 def generate(prompt, steps, seed, network_secret=False):
-    account_id, token = credentials()
+    account_id, token = credentials(network_secret=network_secret)
     if not account_id:
         fail("環境変数 CLOUDFLARE_ACCOUNT_ID が必要です(値は表示しません)。")
     if not token and not network_secret:
