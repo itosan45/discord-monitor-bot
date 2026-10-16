@@ -559,7 +559,7 @@ function startStage(si,ch,demo,keep){G.s7=null;G.bossBgmKeep=0;if(HZ[si]==='cann
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
  G.monkN=0;G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>honKey(w.boss)));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
  G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.battery=null;G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.deco=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.zm=1;G.zp=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.35));G.over=null;G.partner=null;
- const p=mk(ch,160,570,0);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
+ const p=mk(ch,160,570,0);if(isDemoNpc(ch))setupNpcHero(p);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;
  if(!demo&&G.partnerType){const q=mk(G.partnerType,90,590,0);q.isPartner=true;q.dm=1.3;q.inv=60;G.partner=q;G.fighters.push(q);if(G.partnerFell){G.partnerFell=false;say(q,'しぶとく生き延びておったわ！',200);setTimeout(()=>{if(G.player)say(G.player,'生きておったか！',150);},3600);}}else G.partner=null;
  // 馬防柵(2026-10-14 A-016): 第3幕から、波と波の間に画面の上から下まで続く柵を置く(壊すまで全レーンが通れない)。柵は前の波の画面の外(右)・次の波の画面の外(左)に置くため、その波の間だけ道のりを1900pxまで延ばす
@@ -704,7 +704,8 @@ function stepStory(){const S=G.story;if(!S)return;S.t++;const ln=S.L[S.i];if(!ln
  if(S.t>8&&(pressed.KeyZ||pressed.Enter||pressed.Space||pressed.KeyJ||pressed.KeyX)){if(S.c<len)S.c=len;else{S.i++;S.c=0;S.t=0;AU.sfx('ui');if(S.i>=S.L.length){endStory();return;}}}}
 function wrapJ(s,n){const a0=[...s];n=Math.ceil(a0.length/Math.ceil(a0.length/n));const out=[],a=a0,CL='、。」』）！？…ー—';let cur='';for(let i=0;i<a.length;i++){cur+=a[i];const nx=a[i+1];if(cur.length>=n&&nx&&(!CL.includes(nx)||cur.length>=n+3)){out.push(cur);cur='';}}if(cur)out.push(cur);return out;}
 const STAND_FACING={yuki:1,kage:1,mitsu:1,nobu:-1,shin:1,musashi:1};
-const PORTRAIT_FACING={masamune:1,munenori:1,ieyasu_old:1,boss1:1,boss2:1,boss4:1,boss5:1,boss7:1,boss8:-1,boss9:-1,boss3:-1,masayuki:-1};
+/* 2026-10-16 オーナー「新しい家康の絵と柳生宗矩が変な方向を向いている」: 会話画面で撮って確認し、本物の家康・宗矩は反転しない(-1)に。三成は会話用の胸像(左に置く向き)を反転して右に置く */
+const PORTRAIT_FACING={masamune:1,munenori:-1,ieyasu_old:-1,mitsu:1,boss1:1,boss2:1,boss4:1,boss5:1,boss7:1,boss8:-1,boss9:-1,boss3:-1,masayuki:-1};
 function drawPort(key,x,base,sc,face,dim){const st=STAND[key];if(imgOK(st)){const hh=500*sc/1.55,w=st.naturalWidth*hh/st.naturalHeight;ctx.save();if(dim)ctx.globalAlpha*=0.38;ctx.translate(x,base);ctx.scale(face*(STAND_FACING[key]||1),1);ctx.drawImage(st,-w/2,-hh,w,hh);ctx.restore();return;}const S=SPR[key];if(!S||!S.ready)return;const q=S.a.idle&&S.a.idle[0];if(!q)return;ctx.save();if(dim)ctx.globalAlpha=0.38;const hh=q[3]*(q[6]||1);sc=sc*230/Math.max(120,Math.min(hh,q[2]*(q[6]||1)*2.2));ctx.translate(x,base);ctx.scale(face*sc,sc);ctx.drawImage(S.img,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*(q[6]||1),q[3]*(q[6]||1));ctx.restore();}
 function drawStory(){const S=G.story;if(!S)return;const bb=S.bg!=null&&BGIMG[S.bg];if(bb&&bb.complete&&bb.naturalWidth)drawBGimg(bb,G.camx+S.t*0.3);else drawBG(G.camx,G.t);
  const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(6,4,10,0.72)');g.addColorStop(1,'rgba(6,4,10,0.9)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
@@ -725,7 +726,7 @@ function drawStory(){const S=G.story;if(!S)return;const bb=S.bg!=null&&BGIMG[S.b
 // ===== OPENING（タイトル前のあらすじ） =====
 const FACE={},STAND={},FALL={};for(const k of ['yuki','kage','mitsu','nobu','shin','musashi']){FACE[k]=new Image();FACE[k].src='gfx/face_'+k+'.webp';STAND[k]=new Image();STAND[k].src='gfx/stand_'+k+'.webp';FALL[k]=new Image();FALL[k].src='gfx/fall_'+k+'.webp';}
 const imgOK=im=>im&&im.complete&&im.naturalWidth>0;
-const YKB=new Image();YKB.src='gfx/yk_bust.webp';const PIMG={boss3:new Image()};PIMG.boss3.src='gfx/ieyasu_bust.webp';for(const b of ['boss1','boss2','boss4','boss5','boss7','boss8','boss9','masayuki','masamune','munenori','ieyasu_old']){PIMG[b]=new Image();PIMG[b].src='gfx/port_'+b+'.webp';}/* masamune/munenori/ieyasu_old は 2026-10-16 Gemini で作った肖像 */
+const YKB=new Image();YKB.src='gfx/yk_bust.webp';const PIMG={boss3:new Image()};PIMG.boss3.src='gfx/ieyasu_bust.webp';PIMG.mitsu=new Image();PIMG.mitsu.src='gfx/bust_mitsu.webp';/* 石田三成が右側で話す時(他の武将の幕)も胸像で */for(const b of ['boss1','boss2','boss4','boss5','boss7','boss8','boss9','masayuki','masamune','munenori','ieyasu_old']){PIMG[b]=new Image();PIMG[b].src='gfx/port_'+b+'.webp';}/* masamune/munenori/ieyasu_old は 2026-10-16 Gemini で作った肖像 */
 const TSPEAR=new Image();if(DATA.img&&DATA.img.title_spear1)TSPEAR.src=DATA.img.title_spear1;
 // 兜なしの会話用の胸像(ステージ外の会話・オープニング用)。ストーリー/オープニングの開始時に先読みする
 const BUSTH={};function bustFor(h){if(!h||!['yuki','kage','mitsu','nobu','shin','musashi'].includes(h))return null;if(!BUSTH[h]){const im=new Image();im.src='gfx/bust_'+h+'.webp';BUSTH[h]=im;}return BUSTH[h];}
@@ -956,7 +957,7 @@ function strike(a,d){
 }
 /* 斜め射撃(オーナー「飛び道具が斜めにも撃てて、斜めの相手に当たる」): 敵の弾は発射時の相手の列(y)へ向かって飛ぶ。上下は最大でも横速度の約4割(ほぼ横向きのまま) */
 function aimVy(f,dir,sp,off){if(!f||f.team!==1)return 0;const p=nearestAlly(f);if(!p)return 0;const dx=(p.x-(f.x+dir*off))*dir;if(dx<80)return 0;return clamp((p.y-f.y)/(dx/sp),-sp*0.42,sp*0.42);}
-function addProj(o){const p=Object.assign({x:0,y:0,z:50,vx:0,vz:0,team:1,dmg:7,w:22,life:120,k:'arrow',hit:new Set(),face:1,launch:false,kb:3},o);if(o.owner&&(o.owner.state==='spc'||o.owner.state==='ult'))p.sp=true;G.proj.push(p);return p;}
+function addProj(o){const p=Object.assign({x:0,y:0,z:50,vx:0,vz:0,team:1,dmg:7,w:22,life:120,k:'arrow',hit:new Set(),face:1,launch:false,kb:3},o);if(o.owner&&(o.owner.npcHero||o.owner.ally))p.team=o.owner.team;/* 敵の技の多くは team:1 決め打ち。味方側で使う時は撃った側の陣営にする */if(o.owner&&(o.owner.state==='spc'||o.owner.state==='ult'))p.sp=true;G.proj.push(p);return p;}
 function fireProj(f,d){
  const dir=f.face;
  if(d.proj==='arrow'){const avy=aimVy(f,dir,9,40);addProj({x:f.x+dir*40,y:f.y,z:f.z+75,vx:dir*9,vy:avy,yr:avy?30:0,team:f.team,dmg:d.dmg,face:dir,owner:f,k:'arrow',w:20});}
@@ -987,7 +988,7 @@ function heroFx(f,d,first){const k=d.fx,dir=f.face,me=f.team===0;
 function spawnWaves(f,d){const dir=f.face;for(const s of[1,-1])addProj({x:f.x+s*30,y:f.y,z:6,vx:s*(f.T.boss?7:8),team:f.team,dmg:d.k==='wave'&&f.team===1?(d.dmg||14):22,face:s,owner:f,k:'wave',w:46,life:60,launch:true,kb:6,pierce:99});G.shake=Math.max(G.shake,12);ring(f.x,f.y,160,'rgba(255,230,160,0.9)',26);dust(f.x,f.y,10);}
 function fall(x,y,team,dmg,r,wait,owner){addProj({x,y,z:620,vz:-17,team,dmg,w:r,k:'fall',wait:wait||0,life:300,face:1,owner,launch:true,kb:6});}
 function doSummon(f){const ie=f.T.type==='boss3';if(ie&&G.fighters.filter(q=>q.team===1&&q.type==='yoroi'&&q.hp>0&&q.state!=='dead').length>=6)return;for(const s of[-1,1]){const e=spawnEn(ie&&SPR.yoroi&&SPR.yoroi.ready?'yoroi':'spear',s);e.x=f.x+s*160;e.y=clamp(f.y+rnd(-40,40),YMIN,YMAX);e.entered=true;e.face=-s;ring(e.x,e.y,60,'rgba(180,80,255,0.9)',22);burst(e.x,e.y,40,12,'#c080ff',7);}}
-function doRain(f){const p=nearestAlly(f);for(let i=0;i<4;i++)fall(clamp(p.x+rnd(-260,260),G.camx+40,G.camx+W-40),rnd(YMIN+10,YMAX),1,9,80,30+i*24,f);}
+function doRain(f){const p=nearestAlly(f);for(let i=0;i<4;i++)fall(clamp(p.x+rnd(-260,260),G.camx+40,G.camx+W-40),rnd(YMIN+10,YMAX),f.team===0?0:1,9,80,30+i*24,f);}
 
 /* ---------- attacks ---------- */
 const BGUARD={pz:'raise',k:'guard',dur:44,hs:2,he:38,rng:0,dmg:0},BSTEP={pz:'raise',k:'step',dur:22,hs:1,he:2,rng:0,dmg:0},BHOP={pz:'raise',k:'hop',dur:90,hs:1,he:2,rng:0,dmg:0},
@@ -1383,7 +1384,7 @@ function wallBounce(f){if(f.wallB||!G.waveOn||f.z<=8||Math.abs(f.vx)<3||!f.bowl)
 function bodyGap(b){return 62*(b.sc||1);}
 function bossGetupLine(f){if(G.t-(f.onoreT||-9999)<720||Math.random()<0.4)return;f.onoreT=G.t;const d=AU.bossLine('onore',f,1.7);if(d&&Math.random()<0.33)setTimeout(()=>{if(f.hp>0&&!f.dying&&G.boss===f&&G.state==='run')AU.bossLine('kirisute',f,1.7);},Math.round(d*1000)+300);}
 // (2026-10-15 ボスの起き上がりの吹き飛ばしはやめて、2.5秒の無敵に変えた。この関数は今は呼ばれない)旧: 敵が起き上がる時は周りの味方側を吹き飛ばす
-function wakeBlast(f){if(window.__noGuard)return;const R=f.T.boss?130:100;let hit=false;for(const t of G.fighters){if(t.team!==0||t.hp<=0||t.state==='dead'||t.state==='down'||t.dying)continue;if(Math.abs(t.x-f.x)<R&&Math.abs(t.y-f.y)<46&&t.z<60){const dd=sgn(t.x-f.x)||1;t.inv=0;f.hit&&f.hit.delete(t);hurt(t,{x:f.x,face:dd,team:1,owner:f,hit:null},{dmg:f.T.boss?5:3,kb:9,launch:true,unblock:true,noDecap:true});hit=true;}}
+function wakeBlast(f){if(window.__noGuard)return;const R=f.T.boss?130:100;let hit=false;for(const t of G.fighters){if(t.team===f.team||t.isProp||t.hp<=0||t.state==='dead'||t.state==='down'||t.dying)continue;if(Math.abs(t.x-f.x)<R&&Math.abs(t.y-f.y)<46&&t.z<60){const dd=sgn(t.x-f.x)||1;t.inv=0;f.hit&&f.hit.delete(t);hurt(t,{x:f.x,face:dd,team:1,owner:f,hit:null},{dmg:f.T.boss?5:3,kb:9,launch:true,unblock:true,noDecap:true});hit=true;}}
  ring(f.x,f.y,R*1.2,'rgba(255,255,255,0.9)',18);for(let i=0;i<10;i++)PT({x:f.x+rnd(-R*0.5,R*0.5),y:f.y,z:rnd(0,50),vx:rnd(-4,4),vz:rnd(1,5),life:rndi(10,18),sz:rnd(8,16),col:'rgba(255,240,200,0.8)',k:'flame'});if(hit||f.T.boss){AU.sfx('boom');G.shake=Math.max(G.shake,hit?7:3);}}
 function updDown(f){
  if(f.bowl){wallBounce(f);bowlStep(f);}
@@ -1461,7 +1462,7 @@ function bossLeapSpeed(e){const S=SPR[e.T.spr||e.T.type];if(!S||!S.ready)return 
  馬が4→2になると守護部隊が行く手をふさぐ(カメラが止まる)。馬を倒すと家康が落馬し、画面が止まって一対一になる。 */
 const CH_V=6.2;/* 2026-10-16 3.4→6.2: 馬で逃げる場面は背景がはっきり流れるように(オーナー「SFCやファミコン時代にもそういう画面あった」) */
 function chaseInit(w){G.chase={on:false,phase:'intro',t:0,v:0,blk:0,bt:0,nextAtk:0,remount:0,pool:w.en};}
-function chaseMount(f){if(!f||f.ally||f.mount||f.hp<=0||f.state==='dead')return;f.mount={hp:8,max:8,col:MCOL[f.T.type]||'red'};f.state='idle';f.st=0;f.cur=null;f.z=0;f.vz=0;f.inv=Math.max(f.inv,30);AU.sx('horse',0.9);dust(f.x,f.y,8);}
+function chaseMount(f){if(!f||f.ally||f.npcHero||f.mount||f.hp<=0||f.state==='dead')return;f.mount={hp:8,max:8,col:MCOL[f.T.type]||'red'};f.state='idle';f.st=0;f.cur=null;f.z=0;f.vz=0;f.inv=Math.max(f.inv,30);AU.sx('horse',0.9);dust(f.x,f.y,8);}
 function chaseBossSetup(e){const C=G.chase;e.mount={hp:9,max:9,col:'iron'};e.chaseRun=true;e.gPlan=null;e.guardT=1e9;G.hon=null;/* 追撃中は本丸の背景(止まった絵)にせず、流れる戦場のまま */C.on=true;C.phase='run';C.t=0;C.nextAtk=300;
  for(const f of G.fighters)if(f.team===0)chaseMount(f);}
 function chaseBlock(n){const C=G.chase;C.phase='block';C.blk=n;C.bt=0;G.waveT=0;G.sq=[];
@@ -1600,7 +1601,7 @@ function demoCtl(p,follow){
  const stick=()=>{const tx=P0.x-70*(P0.face||1),dxp=tx-p.x;if(Math.abs(dxp)>36)(dxp>0?c.r=1:c.l=1);const dyp=P0.y+26-p.y;if(Math.abs(dyp)>14)(dyp>0?c.d=1:c.u=1);return c;};
  if(['dead','down','getup','hurt','spc'].includes(p.state))return c;
  if(!p.mount&&(p.state==='idle'||p.state==='walk')&&p.z===0&&G.proj.some(q=>q.cannon&&q.k==='bomb'&&q.life<=34&&q.life>=26&&Math.abs(p.x-q.tx)<300)){c.jumpP=1;return c;}/* 2026-10-16 大筒は跳ばないと吹き飛ぶ: デモでも着弾の直前に跳んで見せる */
- if(p===G.player&&!p.mount&&!(G.auto&&!demoView.mounted&&demoView.motion!=='auto')&&G.steeds&&G.steeds.length){const hs=G.steeds.filter(h=>h.x>G.camx-60&&h.x<G.camx+W+60).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x)),h=hs[0];if(h){/* 馬が見えたら距離に関係なく必ず乗りに行く */if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);if(Math.abs(h.x-p.x)<110&&Math.abs(h.y-p.y)<40&&p.z===0&&Math.random()<0.25)c.jumpP=1;return c;}}
+ if(p===G.player&&!p.mount&&!p.npcHero&&!(G.auto&&!demoView.mounted&&demoView.motion!=='auto')&&G.steeds&&G.steeds.length){const hs=G.steeds.filter(h=>h.x>G.camx-60&&h.x<G.camx+W+60).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x)),h=hs[0];if(h){/* 馬が見えたら距離に関係なく必ず乗りに行く */if(Math.abs(h.x-p.x)>30)(h.x>p.x?c.r=1:c.l=1);if(Math.abs(h.y-p.y)>12)(h.y>p.y?c.d=1:c.u=1);if(Math.abs(h.x-p.x)<110&&Math.abs(h.y-p.y)<40&&p.z===0&&Math.random()<0.25)c.jumpP=1;return c;}}
  const en=G.fighters.filter(e=>e.team===1&&e.hp>0&&e.state!=='dead'&&e.entered&&e.x>=G.camx&&e.x<=G.camx+W);const T=p.T,ranged=p.wpn&&(p.wpn.k==='yumi'||p.wpn.k==='teppo'),rg=ranged?280:T.atk[0].rng;
  for(const q of G.proj){if(q.team===1&&(q.k==='arrow'||q.k==='bullet'||q.k==='shuriken'||q.k==='kunai')&&Math.abs(q.y-p.y)<24){const rel=(p.x-q.x)*sgn(q.vx);if(rel>0&&rel<150&&p.z===0&&p.state!=='atk'&&Math.random()<0.4){c.jumpP=1;return c;}}}
  // 馬防柵(オーナー「デモでNPCが馬防柵を越えようとしない。壊そうともしない」): 見えている敵が全部柵の向こうなら、柵の前まで行って柵を攻撃して壊す(主人公もパートナーも)。柵はジャンプでは越えられない(壊すまで全レーンを遮る)
@@ -1612,13 +1613,13 @@ function demoCtl(p,follow){
    if(e){p.aiGdCd=G.t+90;if(Math.random()<0.7){p.face=sgn(e.x-p.x)||p.face;p.aiGd=G.t+14;c.gd=1;return c;}}}}
  if(follow&&P0&&(P0.state==='dead'||Math.abs(P0.x-p.x)>460))return stick();
  if(!en.length){if(follow){const fz=G.props.find(q=>q.k==='umabo'&&!q.broken&&q.hp>0&&q.x>p.x-10&&q.x-p.x<500&&q.x>G.camx-40&&q.x<G.camx+W+60);if(fz&&!p.mount){c.l=0;c.u=0;c.d=0;if(fz.x-p.x>UMABO_HW+34){c.r=1;}else{c.r=0;if((p.state==='idle'||p.state==='walk')&&(p.pk=(p.pk||0)+1)%7===0)c.atkP=1;}return c;}return stick();}if(G.camx<G.camMax-4||!G.waveOn)c.r=1;if(p.y<548)c.d=1;else if(p.y>592)c.u=1;
-  const edge=fighterScreenMargin(p),vis=G.items.filter(q=>{const reach=q.k.startsWith('w_')?48:40;return q.x>G.camx+50&&q.x<G.camx+W-50&&q.x>=G.camx+edge-reach&&q.x<=G.camx+W-edge+reach&&Math.abs(q.x-p.x)<520;});if(vis.length){c.r=0;c.l=0;c.u=0;c.d=0;const it=vis[0];if(Math.abs(it.x-p.x)>20)(it.x>p.x?c.r=1:c.l=1);if(Math.abs(it.y-p.y)>10)(it.y>p.y?c.d=1:c.u=1);if(it.k.startsWith('w_')&&Math.abs(it.x-p.x)<40&&Math.abs(it.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}}
+  const edge=fighterScreenMargin(p),vis=G.items.filter(q=>{if(p.npcHero&&q.k.startsWith('w_'))return false;/* 敵キャラの主人公は武器を持てない */const reach=q.k.startsWith('w_')?48:40;return q.x>G.camx+50&&q.x<G.camx+W-50&&q.x>=G.camx+edge-reach&&q.x<=G.camx+W-edge+reach&&Math.abs(q.x-p.x)<520;});if(vis.length){c.r=0;c.l=0;c.u=0;c.d=0;const it=vis[0];if(Math.abs(it.x-p.x)>20)(it.x>p.x?c.r=1:c.l=1);if(Math.abs(it.y-p.y)>10)(it.y>p.y?c.d=1:c.u=1);if(it.k.startsWith('w_')&&Math.abs(it.x-p.x)<40&&Math.abs(it.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}}
   // 馬防柵(壊すまで通れない): 近くまで歩いて、柵に向かって攻撃を繰り返す
   if(!vis.length){const um=G.props.find(q=>q.k==='umabo'&&!q.broken&&q.hp>0&&q.x>p.x-10&&q.x-p.x<1100);if(um){c.l=0;c.u=0;c.d=0;if(um.x-p.x>UMABO_HW+34){c.r=1;}else{c.r=0;if(p.state==='idle'&&(p.pk=(p.pk||0)+1)%7===0)c.atkP=1;}}}
   const pr=G.props.find(q=>q.x>p.x-60&&q.x<p.x+260);if(pr&&G.camx>=G.camMax-4){}
   return c;}
  // 戦闘中でも、武器を持っていなければ落ちている武器を拾いに行く(攻撃が来そうな時は後回し)
- if(p===G.player&&!p.isPartner&&!p.mount&&!p.wpn&&(p.state==='idle'||p.state==='walk')&&!en.some(e=>e.state==='atk'&&e.cur&&!e.cur.proj&&Math.abs(e.x-p.x)<(e.cur.rng||80)+80&&Math.abs(e.y-p.y)<34)){
+ if(p===G.player&&!p.isPartner&&!p.npcHero&&!p.mount&&!p.wpn&&(p.state==='idle'||p.state==='walk')&&!en.some(e=>e.state==='atk'&&e.cur&&!e.cur.proj&&Math.abs(e.x-p.x)<(e.cur.rng||80)+80&&Math.abs(e.y-p.y)<34)){
   const ed=fighterScreenMargin(p),wi=G.items.filter(q=>q.k.startsWith('w_')&&q.x>G.camx+30&&q.x<G.camx+W-30&&q.x>=G.camx+ed-48&&q.x<=G.camx+W-ed+48&&Math.abs(q.x-p.x)<600).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x))[0];
   if(wi){if(Math.abs(wi.x-p.x)>20)(wi.x>p.x?c.r=1:c.l=1);if(Math.abs(wi.y-p.y)>10)(wi.y>p.y?c.d=1:c.u=1);if(Math.abs(wi.x-p.x)<40&&Math.abs(wi.y-p.y)<24&&(p.pk=(p.pk||0)+1)%6===0){c.atkP=1;c.r=c.l=0;}return c;}}
  // 馬に乗っていなければ、馬の乗り手(騎馬)を優先して倒し、馬を手に入れる
@@ -1722,7 +1723,7 @@ function updWorld(){
  G.runT++;if((G.coverCd||0)>0)G.coverCd--;rearCheck();rearStep();saySched();
  if(!G.demo&&G.state==='run'&&!G.waveOn&&G.wi>0&&G.wi<G.waves.length-1&&G.runT%230===0){const al=G.fighters.filter(e=>e.team===1&&e.hp>0).length;if(al<2)spawnEn(pick(['sword','spear','gun','archer','sword']),Math.random()<0.6?1:-1);}
  if(G.state==='run'&&!G.demo&&!G.auto&&!(G.chase&&G.chase.on)/* 追撃戦の間は制限時間を止める */){G.time--;if(G.time>0&&G.time%60===0){const sc=Math.ceil(G.time/60);if(sc<=10)AU.sfx('tick2');else if(sc<=30)AU.sfx('tick');}if(G.time<=0){G.time=0;AU.bgm(9);G.state='continue';G.over='time';G.stateT=0;AU.sfx('warn');}}
- for(const f of G.fighters){if(f.ally){if(f.hp>0&&(f.state==='idle'||f.state==='walk')&&allyStep(f))continue;updEnemy(f);}else if(f.team===0)updPlayer(f,f===p?c:(G.chase&&G.chase.hold?{}:partnerCtl(f)))/* 家来の盾の場面の間は味方も動かない */;else updEnemy(f);if(G.spcScene||G.ult)return;}
+ for(const f of G.fighters){if(f.npcHero&&f===p)npcHeroStep(f,c);else if(f.ally){if(f.hp>0&&(f.state==='idle'||f.state==='walk')&&allyStep(f))continue;updEnemy(f);}else if(f.team===0)updPlayer(f,f===p?c:(G.chase&&G.chase.hold?{}:partnerCtl(f)))/* 家来の盾の場面の間は味方も動かない */;else updEnemy(f);if(G.spcScene||G.ult)return;}
  updSteeds();updHazards();checkClash();
  // separation
  for(let i=0;i<G.fighters.length;i++)for(let j=i+1;j<G.fighters.length;j++){const a=G.fighters[i],b=G.fighters[j];if(a.z>5||b.z>5||a.state==='down'||b.state==='down'||a.state==='dead'||b.state==='dead'||a.T.ai==='rider'||b.T.ai==='rider')continue;const dx=b.x-a.x,dy=b.y-a.y,mn=(a.T.boss||b.T.boss)?60:34;if(Math.abs(dx)<mn&&Math.abs(dy)<12){const pu=(mn-Math.abs(dx))*0.08*sgn(dx||Math.random()-.5);if(a.team!==0&&!a.T.boss)a.x-=pu;if(b.team!==0&&!b.T.boss)b.x+=pu;}
@@ -2329,7 +2330,7 @@ function drawMounted(f,S,runO,riderFn){
 /* ===================== 騎乗（敵の馬を奪う） ===================== */
 const MCOL={yuki:'red',nobu:'red',shin:'red',kage:'blue',mitsu:'purple',musashi:'iron'};
 function setDemoMount(on){const p=G.player;if(!p)return;demoView.mounted=!!on;
- if(on){p.mount={hp:6,max:6,col:MCOL[p.T.type]||'iron'};p.state='idle';p.st=0;p.cur=null;p.z=0;p.inv=0;p.flash=0;}
+ if(on&&!p.npcHero){p.mount={hp:6,max:6,col:MCOL[p.T.type]||'iron'};p.state='idle';p.st=0;p.cur=null;p.z=0;p.inv=0;p.flash=0;}
  else if(p.mount)dropMount(p,-p.face,false);
  keepFighterOnScreen(p);if(demoView.paused)demoView.steps=1;}
 const MATK={pz:'swing',dur:24,hs:7,he:13,rng:165,dmg:20,kb:7,launch:true,sfx:'slash'};
@@ -2356,7 +2357,7 @@ function updSteeds(){if(!G.steeds)return;const p=G.player;
  for(let i=G.steeds.length-1;i>=0;i--){const h=G.steeds[i];h.t++;
   if(h.t<40){h.x+=h.face*(40-h.t)*0.12;}else if(h.t%120<30){h.x+=h.face*0.6;}
   if(h.t>60*10||h.x<G.camx-150||h.x>G.camx+W+150){addProj({k:'horse',team:-1,x:h.x,y:h.y,z:0,vx:h.face*9,face:h.face,life:90});G.steeds.splice(i,1);continue;}
-  if(p&&!p.mount&&!(G.auto&&!demoView.mounted&&demoView.motion!=='auto')&&p.hp>0&&(p.state==='idle'||p.state==='walk'||p.state==='jump')&&Math.abs(p.x-h.x)<70&&Math.abs(p.y-h.y)<28&&(p.jS===p.t||((G.demo||G.auto)&&h.t>45))){
+  if(p&&!p.mount&&!p.npcHero&&!(G.auto&&!demoView.mounted&&demoView.motion!=='auto')&&p.hp>0&&(p.state==='idle'||p.state==='walk'||p.state==='jump')&&Math.abs(p.x-h.x)<70&&Math.abs(p.y-h.y)<28&&(p.jS===p.t||((G.demo||G.auto)&&h.t>45))){
    p.mount={hp:6,max:6,col:MCOL[p.T.type]||'red'};p.state='idle';p.st=0;p.z=0;p.vz=0;p.x=h.x;p.y=h.y;p.face=h.face;p.inv=Math.max(p.inv,30);
    AU.sx('horse',0.9);AU.sfx('jump');if(!G.mountTipShown){G.mountTipShown=1;popup('速く走れ、受ける傷は3分の1。突撃ボタンで馬ごと突っ込め',p.x,p.y,120,'#fff2c0',18);}dust(p.x,p.y,8);G.steeds.splice(i,1);}}}
 function dropMount(p,dir,thrown){const m=p.mount;if(!m)return;p.mount=null;
@@ -2805,7 +2806,18 @@ function drawTitleOverlay(){
 
 /* ===================== SELECT / END ===================== */
 const FORMAL={yuki:['真田左衛門佐信繁','さなだ さえもんのすけ のぶしげ'],kage:['上杉中納言景勝','うえすぎ ちゅうなごん かげかつ'],mitsu:['石田治部少輔三成','いしだ じぶのしょう みつなり'],nobu:['織田上総介信長','おだ かずさのすけ のぶなが'],shin:['武田大膳大夫晴信','たけだ だいぜんのだいぶ はるのぶ'],musashi:['新免武蔵守藤原玄信','しんめん むさしのかみ ふじわらの はるのぶ']};
-const SEL_ORDER=['yuki','kage','mitsu'],HIDDEN=['nobu','shin','musashi'];let selDummies=null;
+const SEL_ORDER=['yuki','kage','mitsu'],HIDDEN=['nobu','shin','musashi'];
+// 2026-10-16 オーナー「全編デモで他の使えないキャラクターも使えるように」: 十勇士は主人公と同じ操作、敵の武将・強者は敵と同じAIで味方側として戦う(npcHero)
+const DEMO_TEN=['saizo','sasuke','nezu'],DEMO_NPC=[['敵の武将',['boss9','boss4','boss8','boss5','boss2','boss1','boss7','boss3','masamune','munenori','tenkai']],['敵の強者',['monk','yoroi','akabi','kunoichi','yagyu','brute','samurai','ninja']]];
+const NPC_BAN=/^(summon|volley|pincer|cavalry)$/;/* 敵の兵を呼ぶ技は味方側では使わない */
+function isDemoNpc(k){return DEMO_NPC.some(g=>g[1].includes(k));}
+function setupNpcHero(p){const T=Object.assign({},p.T),ok=i=>T.atk[i]&&!NPC_BAN.test(T.atk[i].k||'');for(const key of['near','far','close']){if(Array.isArray(T[key])){const a=T[key].filter(ok);T[key]=a.length?a:[0];}}p.T=T;p.npcHero=true;p.entered=true;p.maxhp=p.hp=clamp(p.hp,T.boss?600:360,700);/* 天海(1900)のような耐久の敵は主人公では上限700 */if(!T.boss)p.dm=1.5;p.cool=30;}
+function npcHeroStep(p,c){if(p.state==='dead'){p.st++;if(p.st===70){respawn(p);p.mount=null;}return;}
+ const busy=!(p.state==='idle'||p.state==='walk'),en=G.fighters.some(e=>e.team===1&&e.hp>0&&!e.dying&&e.state!=='dead'&&e.entered&&!e.isProp&&e.x>G.camx-20&&e.x<G.camx+W+20);
+ if(busy||(en&&!c.atkP)){updEnemy(p);return;}
+ /* 敵がいない間(または柵・樽を壊す時)は、自動デモの操作どおりに歩いて攻撃する */p.t++;if(p.cool>0)p.cool--;
+ if(c.atkP&&p.cool<=0){if(c.r)p.face=1;else if(c.l)p.face=-1;startEAtk(p,0);p.cool=20;return;}
+ const mx=(c.r?1:0)-(c.l?1:0),my=(c.d?1:0)-(c.u?1:0),sp=Math.max(2.4,p.T.spd||2.4);if(mx||my){p.x+=mx*sp*1.25;p.y=clamp(p.y+my*sp*0.75,YMIN,YMAX);if(mx)p.face=mx;if(p.state!=='walk'){p.state='walk';p.st=0;}p.st++;p.wp=(p.wp||0)+sp*0.08;}else if(p.state!=='idle'){p.state='idle';p.st=0;}}let selDummies=null;
 const selD={};
 function heroList(){return SEL_ORDER.concat(G.unlocked?HIDDEN:[]);}
 function partnerOpts(){const a=[null].concat(heroList().filter(k=>k!==G.heroPick));if(G.heroPick==='yuki')a.push('nezu','saizo','sasuke');return a;}
@@ -3032,7 +3044,7 @@ function autoUI(force){const m=G.mode,want=demoViewActive()?'bar':'none';const k
  if(demoView.motion!=='auto'){debugUI(B,L,playback);return;}
  if(!demoView.settings){playback();if(m==='story')B('会話とばす',()=>endStory());B('武将・幕',()=>{demoView.settings=true;});B('一体デバッグ',()=>setInspectionMode(true));B('■ 終了',()=>{G.auto=false;startTitle();});return;}
  autoEl.className=want==='start'?'st':'';if(want==='start'){B('▶ デモプレイ（全編自動）',()=>startAuto('yuki',0),'big');return;}
- const sel=document.createElement('select');for(const h of SEL_ORDER.concat(HIDDEN)){const o=document.createElement('option');o.value=h;o.textContent=TY[h].name;if(h===G.curCh)o.selected=true;sel.appendChild(o);}
+ const sel=document.createElement('select');for(const [gl,hs] of [['武将',SEL_ORDER.concat(HIDDEN)],['真田十勇士',DEMO_TEN]].concat(DEMO_NPC)){const og=document.createElement('optgroup');og.label=gl;for(const h of hs){if(!TY[h])continue;const o=document.createElement('option');o.value=h;o.textContent=TY[h].name+(h==='boss3'?'(影武者)':'');if(h===G.curCh)o.selected=true;og.appendChild(o);}sel.appendChild(og);}
  sel.addEventListener('pointerdown',e=>e.stopPropagation());sel.addEventListener('change',()=>{startAuto(sel.value,G.stage);_autoKey='';});autoEl.appendChild(sel);
  L('相方');const ps=document.createElement('select');for(const h of [''].concat(SEL_ORDER.concat(HIDDEN).filter(k=>k!==G.curCh))){const o=document.createElement('option');o.value=h;o.textContent=h?TY[h].name:'なし（1人）';if(h===(G.autoPk||''))o.selected=true;ps.appendChild(o);}
  ps.addEventListener('pointerdown',e=>e.stopPropagation());ps.addEventListener('change',()=>{G.autoPk=ps.value||null;startAuto(G.curCh,G.stage);_autoKey='';});autoEl.appendChild(ps);
@@ -3088,7 +3100,7 @@ function sprRequest(k){const S=SPR_RAW[k];if(!S||S.want)return;S.want=true;if(S.
 function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.ready=false;S.loading=false;S.white=null;const im=S.img;im.onload=im.onerror=null;im.removeAttribute('src');S.img=new Image();
  for(const id in _tint)if(id==='red|'+k||id.startsWith(k+'|'))delete _tint[id];}
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
-function heroBundle(h){if(!h)return[];const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
+function heroBundle(h){if(!h)return[];if(TY[h]&&TY[h].ai){const k=TY[h].spr||h;return[k,'bjump_'+k].concat(k==='monk'?['monkball','monkfx']:[]).filter(x=>SPR_RAW[x]);}/* 全編デモの主人公が敵キャラ */const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
 function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
