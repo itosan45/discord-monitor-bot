@@ -1,0 +1,164 @@
+{
+  "character": "徳川家康",
+  "attack": "jump-in weapon strike",
+  "asset": "徳川家康_跳び込み攻撃_16コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    8192,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 16,
+  "source_grid_size": [
+    1536,
+    1024
+  ],
+  "source_grid": "4x4, row-major",
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "frame_foreground_bboxes": [
+    [
+      116,
+      165,
+      411,
+      363
+    ],
+    [
+      98,
+      179,
+      389,
+      363
+    ],
+    [
+      96,
+      220,
+      388,
+      363
+    ],
+    [
+      108,
+      147,
+      395,
+      337
+    ],
+    [
+      136,
+      153,
+      429,
+      353
+    ],
+    [
+      134,
+      152,
+      408,
+      337
+    ],
+    [
+      123,
+      145,
+      328,
+      337
+    ],
+    [
+      115,
+      122,
+      336,
+      352
+    ],
+    [
+      129,
+      120,
+      337,
+      338
+    ],
+    [
+      139,
+      138,
+      412,
+      344
+    ],
+    [
+      118,
+      138,
+      380,
+      355
+    ],
+    [
+      106,
+      196,
+      434,
+      377
+    ],
+    [
+      130,
+      178,
+      420,
+      341
+    ],
+    [
+      121,
+      173,
+      439,
+      339
+    ],
+    [
+      97,
+      140,
+      431,
+      349
+    ],
+    [
+      96,
+      136,
+      395,
+      349
+    ]
+  ],
+  "uniform_vertical_shift_to_groundline_y363": 93,
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 16,
+  "unique_frame_count": 16,
+  "adjacent_changed_pixel_fraction": [
+    0.1407,
+    0.1196,
+    0.1531,
+    0.1409,
+    0.1224,
+    0.1335,
+    0.1529,
+    0.1483,
+    0.1577,
+    0.142,
+    0.205,
+    0.1996,
+    0.1661,
+    0.1664,
+    0.1483
+  ],
+  "sha256": "a7d65d6ea7c7a83de091d282fa7395f629cda41d64b5111b66821748b4906abb",
+  "generation": "OpenAI built-in imagegen using this character's existing 8-frame jump sheet as reference; AI generated source, tile extraction, uniform scaling, and small detached-speck cleanup; not hand-drawn.",
+  "notes": "Candidate motion phases: load, takeoff, ascent, aerial wind-up, descent, impact, recoil, recovery. One uniform vertical shift aligns the opening pose to y363 while preserving all relative pose travel. Game timing/hitbox and independent review pending."
+}

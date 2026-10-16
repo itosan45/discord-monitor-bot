@@ -1,0 +1,107 @@
+{
+  "character": "徳川家康（影武者）",
+  "asset": "徳川家康_跳び込み攻撃_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      115,
+      154,
+      396,
+      364
+    ],
+    [
+      115,
+      86,
+      396,
+      296
+    ],
+    [
+      115,
+      86,
+      396,
+      296
+    ],
+    [
+      115,
+      86,
+      396,
+      296
+    ],
+    [
+      115,
+      161,
+      396,
+      371
+    ],
+    [
+      115,
+      159,
+      396,
+      369
+    ],
+    [
+      115,
+      156,
+      396,
+      366
+    ],
+    [
+      115,
+      157,
+      396,
+      367
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    137112,
+    137108,
+    137109,
+    137111,
+    137113,
+    137112,
+    137112,
+    137108
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.391,
+    0.2876,
+    0.289,
+    0.4043,
+    0.2955,
+    0.2984,
+    0.2904
+  ],
+  "sha256": "0ae693f05452439509dfaa06f82fb64eaaa1b57bdaadd6388c6c74c89316b159",
+  "source_image": "exec-ac100f34-8260-46f1-80ab-d360d90e7d48.png",
+  "generation": "OpenAI built-in imagegen; references: Ieyasu setting and existing Ieyasu jump 4-frame v2; AI generated then composed into cells, not hand-drawn.",
+  "notes": "Frames 1, 5-8 are grounded actions/recovery; 2-4 are airborne. Impact includes restrained dust. Visual pose continuity and true animation require reviewer and game runtime confirmation."
+}

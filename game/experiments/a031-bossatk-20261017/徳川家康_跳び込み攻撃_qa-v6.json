@@ -1,0 +1,107 @@
+{
+  "character": "徳川家康（影武者）",
+  "asset": "徳川家康_跳び込み攻撃_8コマ_v6.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      149,
+      231,
+      385,
+      364
+    ],
+    [
+      145,
+      93,
+      330,
+      282
+    ],
+    [
+      157,
+      93,
+      341,
+      286
+    ],
+    [
+      148,
+      101,
+      387,
+      289
+    ],
+    [
+      128,
+      182,
+      396,
+      371
+    ],
+    [
+      119,
+      200,
+      395,
+      369
+    ],
+    [
+      137,
+      176,
+      396,
+      362
+    ],
+    [
+      117,
+      177,
+      391,
+      363
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    182850,
+    180775,
+    176761,
+    179411,
+    171074,
+    174148,
+    175872,
+    176772
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1463,
+    0.1181,
+    0.1345,
+    0.1906,
+    0.1443,
+    0.1473,
+    0.1372
+  ],
+  "sha256": "72bef61bcc9aca65d60320d453cfed2843f742f8bb630b2c884be6dac024894b",
+  "source_image": "徳川家康_跳び込み攻撃_2x4生成原画.png",
+  "generation": "OpenAI built-in imagegen; references: Ieyasu setting and existing Ieyasu jump 4-frame v2; AI generated then composed into cells, not hand-drawn.",
+  "notes": "v1 retained: first flood-fill implementation failed to normalize source background. v2 retained: guard/recovery sole alignment was 20px high. v3-v5 retained with detached generated specks around frame 8. v6 aligns poses to the shared ground anchor and removes only those isolated specks. Frames 1, 5-8 are grounded actions/recovery; 2-4 are airborne. Impact includes restrained dust. Visual pose continuity and true animation require reviewer and game runtime confirmation."
+}

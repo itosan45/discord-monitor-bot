@@ -1,0 +1,104 @@
+{
+  "asset": "福島正則_体当たり_8コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "frame_foreground_bboxes": [
+    [
+      129,
+      182,
+      395,
+      362
+    ],
+    [
+      76,
+      143,
+      434,
+      362
+    ],
+    [
+      121,
+      174,
+      401,
+      347
+    ],
+    [
+      91,
+      143,
+      419,
+      362
+    ],
+    [
+      123,
+      143,
+      401,
+      362
+    ],
+    [
+      93,
+      143,
+      418,
+      362
+    ],
+    [
+      125,
+      143,
+      398,
+      331
+    ],
+    [
+      105,
+      143,
+      405,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.2592,
+    0.2509,
+    0.2024,
+    0.2061,
+    0.2066,
+    0.2063,
+    0.1955
+  ],
+  "sha256": "48267ff872783f4831a4594c36c5ab86c327a414b5b1f04de3af047cd5142c40",
+  "generation": "OpenAI built-in imagegen using Fukushima reference, composited into cells, not hand-drawn.",
+  "notes": "Eight-frame grounded shoulder-charge variant. v2 removes disconnected noise below 36px and 2-3px-wide vertical grid artifacts; keeps large impact debris. AI imagegen+cell composition, not hand-drawn.",
+  "removed_noise_pixels_per_frame": [
+    516,
+    95,
+    543,
+    128,
+    612,
+    186,
+    476,
+    91
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "character": "徳川家康（影武者）",
+  "asset": "徳川家康_二段斬り_8コマ_v4.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_grid": [
+    2,
+    4
+  ],
+  "retained_connected_component": "largest foreground component per cell to remove detached slash fragments",
+  "source_crop_boxes": "8 cells of 768x256",
+  "background_key": "border-connected magenta r>240,b>240,g<40 to preserve purple cloth",
+  "scale_by_frame": [
+    0.7800829875518672,
+    0.7736625514403292,
+    0.7966101694915254,
+    0.8103448275862069,
+    0.7899159663865546,
+    0.7866108786610879,
+    0.8034188034188035,
+    0.8034188034188035
+  ],
+  "frame_foreground_bboxes": [
+    [
+      88,
+      175,
+      422,
+      362
+    ],
+    [
+      138,
+      175,
+      372,
+      362
+    ],
+    [
+      74,
+      175,
+      437,
+      362
+    ],
+    [
+      71,
+      175,
+      440,
+      362
+    ],
+    [
+      133,
+      175,
+      377,
+      362
+    ],
+    [
+      95,
+      175,
+      416,
+      362
+    ],
+    [
+      100,
+      175,
+      411,
+      362
+    ],
+    [
+      79,
+      175,
+      432,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1777,
+    0.2051,
+    0.1965,
+    0.21,
+    0.1919,
+    0.1908,
+    0.2063
+  ],
+  "sha256": "d1f4ea217f338fd9c087e32e75750eb32de241f73960ced792ffd05d07d731b1",
+  "generation": "OpenAI built-in imagegen using Ieyasu shadow setting; AI generated and composed into cells, not hand-drawn. v3 uses narrow magenta key.",
+  "notes": "Eight deliberate double-slash phases, from guard/load through two distinct cuts and recovery. v1/v2 retained as failed crop/segmentation trials; v3 visually reviewed. Candidate; game/runtime approval pending."
+}

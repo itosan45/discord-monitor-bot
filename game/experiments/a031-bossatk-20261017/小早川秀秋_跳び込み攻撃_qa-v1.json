@@ -1,0 +1,106 @@
+{
+  "character": "小早川秀秋",
+  "asset": "小早川秀秋_跳び込み攻撃_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      124,
+      224,
+      384,
+      366
+    ],
+    [
+      120,
+      91,
+      336,
+      292
+    ],
+    [
+      161,
+      86,
+      379,
+      287
+    ],
+    [
+      147,
+      86,
+      383,
+      295
+    ],
+    [
+      140,
+      188,
+      389,
+      371
+    ],
+    [
+      132,
+      182,
+      387,
+      369
+    ],
+    [
+      138,
+      162,
+      382,
+      352
+    ],
+    [
+      125,
+      159,
+      388,
+      352
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    177643,
+    175985,
+    176654,
+    178194,
+    169348,
+    166904,
+    172994,
+    175739
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1988,
+    0.1348,
+    0.1353,
+    0.2084,
+    0.1658,
+    0.1723,
+    0.1577
+  ],
+  "sha256": "aa077d79d324425bba8715dd7a38ebc9f39db83c032a31c5cef6287be3f5cf48",
+  "generation": "OpenAI built-in imagegen; references: Kobayakawa setting and existing jump 4-frame v2; AI generated and composed into cells, not hand-drawn.",
+  "notes": "Right-facing lightweight character with green jinbaori and purple yokai sword. Sequence: launch, ascent, reverse-grip apex wind-up, sword pointed down-forward during descent, reverse-grip sword-ground impact, aftershock, recover, guard. Candidate only; visual and runtime approval pending."
+}

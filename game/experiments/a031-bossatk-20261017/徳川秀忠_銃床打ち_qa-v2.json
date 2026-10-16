@@ -1,0 +1,142 @@
+{
+  "character": "徳川秀忠",
+  "asset": "徳川秀忠_銃床打ち_6コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    3072,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 6,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "target_standing_height_px": 188,
+  "source_crop_boxes": [
+    [
+      0,
+      0,
+      362,
+      543
+    ],
+    [
+      362,
+      0,
+      724,
+      543
+    ],
+    [
+      724,
+      0,
+      1086,
+      543
+    ],
+    [
+      1086,
+      0,
+      1448,
+      543
+    ],
+    [
+      0,
+      543,
+      362,
+      1086
+    ],
+    [
+      362,
+      543,
+      724,
+      1086
+    ]
+  ],
+  "scale_by_frame": [
+    0.44655581947743467,
+    0.4392523364485981,
+    0.47715736040609136,
+    0.47715736040609136,
+    0.47117794486215536,
+    0.44761904761904764
+  ],
+  "frame_foreground_bboxes": [
+    [
+      179,
+      175,
+      333,
+      362
+    ],
+    [
+      193,
+      175,
+      318,
+      362
+    ],
+    [
+      170,
+      175,
+      342,
+      362
+    ],
+    [
+      171,
+      175,
+      340,
+      362
+    ],
+    [
+      184,
+      175,
+      327,
+      362
+    ],
+    [
+      178,
+      175,
+      333,
+      362
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    182866,
+    182822,
+    181582,
+    181158,
+    180747,
+    182647
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 6,
+  "unique_frame_count": 6,
+  "adjacent_changed_pixel_fraction": [
+    0.0842,
+    0.0941,
+    0.0872,
+    0.0999,
+    0.0922
+  ],
+  "sha256": "8634419a182d706805ab4e57a57652ff9e29016633c0bdc875614bd72cd43ce5",
+  "generation": "OpenAI built-in imagegen using Hidetada setting sheet; AI generated and composed/cropped into cells, not hand-drawn.",
+  "notes": "v2 removes only disconnected source fragments; preserves body poses, matchlock, and impact spark. Visual/gameplay approval pending.",
+  "isolated_pixels_removed": [
+    270,
+    239,
+    310,
+    527,
+    297,
+    249
+  ]
+}

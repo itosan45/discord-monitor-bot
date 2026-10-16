@@ -1,0 +1,113 @@
+{
+  "character": "本多忠勝",
+  "asset": "本多忠勝_三段突き_8コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_grid": [
+    2,
+    4
+  ],
+  "source_cell_size": [
+    724,
+    271
+  ],
+  "scale_by_frame": [
+    0.7014925373134329,
+    0.6937269372693727,
+    0.6847360912981455,
+    0.704119850187266,
+    0.6937269372693727,
+    0.7642276422764228,
+    0.7401574803149606,
+    0.712166172106825
+  ],
+  "frame_foreground_bboxes": [
+    [
+      22,
+      175,
+      488,
+      362
+    ],
+    [
+      68,
+      175,
+      442,
+      362
+    ],
+    [
+      16,
+      179,
+      495,
+      362
+    ],
+    [
+      34,
+      175,
+      477,
+      362
+    ],
+    [
+      19,
+      175,
+      491,
+      362
+    ],
+    [
+      41,
+      175,
+      469,
+      362
+    ],
+    [
+      29,
+      175,
+      482,
+      362
+    ],
+    [
+      16,
+      184,
+      495,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1908,
+    0.1986,
+    0.1941,
+    0.2059,
+    0.2279,
+    0.2379,
+    0.2525
+  ],
+  "sha256": "bcb5279b16824518e651e681d1ba99ab9a11cba27c5c238b166291b6f7d01c66",
+  "generation": "OpenAI built-in imagegen using Honda Tadakatsu setting sheet; AI generated/composed into cells, not hand-drawn.",
+  "notes": "v2 retains the largest character+weapon component per cell, removing detached cross-row spear/head fragments. Three thrusts separated by distinct reload/retract phases: ready, load, chest thrust, retract, low thrust, reset, decisive high thrust, guard. Candidate; gameplay timing/hit boxes pending."
+}
