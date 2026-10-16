@@ -1,0 +1,108 @@
+[
+  {
+    "file": "cannon-strip-candidate-v4.png",
+    "size": [
+      2048,
+      384
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bbox": [
+          12,
+          185,
+          395,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 2,
+        "bbox": [
+          5,
+          190,
+          395,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 3,
+        "bbox": [
+          4,
+          185,
+          497,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 4,
+        "bbox": [
+          12,
+          171,
+          471,
+          350
+        ],
+        "edge_contact": false
+      }
+    ],
+    "pure_magenta_bg": true,
+    "gif_frames": 4,
+    "gif_decoded": true,
+    "sha256": "7cc048c3aceb4f72e1d61525da7b830f5521255dbc497da0c5448416eb64253d"
+  },
+  {
+    "file": "commander-strip-candidate-v3.png",
+    "size": [
+      1024,
+      384
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bbox": [
+          29,
+          132,
+          187,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 2,
+        "bbox": [
+          23,
+          78,
+          202,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 3,
+        "bbox": [
+          13,
+          132,
+          242,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 4,
+        "bbox": [
+          8,
+          132,
+          215,
+          350
+        ],
+        "edge_contact": false
+      }
+    ],
+    "pure_magenta_bg": true,
+    "gif_frames": 4,
+    "gif_decoded": true,
+    "sha256": "8b2c6c28dfae7fc973004256587bf20b9b32b7b6f70ec252271cc87f5dead614"
+  }
+]
