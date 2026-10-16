@@ -1,0 +1,14 @@
+{
+  "size": [
+    4096,
+    256
+  ],
+  "frames": 16,
+  "background": "#FF00FF",
+  "background_pixels_normalized": 3519,
+  "foreground_pixels_unchanged": true,
+  "mask_unchanged": true,
+  "sha256": "0999e815e8e041bc12ece235e7aaee5277e6512c90e55309b9ad8f78e204dab2",
+  "spear_review": "16 tips inspected; no large double-tip or broken shaft identified",
+  "motion_review": "10/15/20 fps browser playback, full frame sheet and 16->1 reviewed; independent Claude review pending"
+}
