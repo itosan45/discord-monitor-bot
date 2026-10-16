@@ -427,6 +427,15 @@ TY.monk={mid:true,name:'鉄球大僧',hp:195,sc:2,spd:1.35,ai:'melee',wp:'sword'
 TY.tenkai=Object.assign(JSON.parse(JSON.stringify(TY.monk)),{name:'天海',spr:'tenkai'/* 2026-10-16 専用の仮の絵(Gemini。鉄球大僧の流用をやめた。オーナー「同じ見た目のボスキャラは作らないで」) */,sc:1.25/* 大僧ほど大柄にしない(オーナー「ボスが大きすぎると人間に見えない」) */,hp:292,score:2000});
 /* 天海の技は絵の行と1対1(オーナー「モーション1個を複数の技で使い回さない」): 鉄球の振り回し=a1 / 叩きつけ=big / 突進=dash / 跳躍叩きつけ=leap。鉄球投げは専用の絵が無いので外す */
 {const M=TY.monk.atk,J=o=>JSON.parse(JSON.stringify(o));TY.tenkai.atk=[Object.assign(J(M[0]),{anim:'big',rng:210}),Object.assign(J(M[1]),{anim:'dash'}),Object.assign(J(M[2]),{anim:'leap',rng:210}),{pz:'swing',a0:-2.2,a1:1.2,r:40,dur:40,hs:16,he:22,rng:170,dep:44,dmg:15,kb:6,sfx:'heavy',anim:'a1'}];TY.tenkai.close=[0,3,3];TY.tenkai.heavy=true;/* ballArc(コードの鉄球)は A-024 の絵に鉄球が入ったので外した */TY.tenkai.hp=1900;TY.tenkai.aggro=true;/* 292→760(手数で押し切られない硬さ) *//* 並びは大僧のAIの番号(0叩きつけ・1突進・2跳躍)に合わせ、近間では振り回し(3)を多めに */for(const a of TY.tenkai.atk)a.dmg=Math.round(a.dmg*1.5);}
+/* 2026-10-16 オーナー作の「黒具足の薙刀武者」(オーナー「最後の家康親衛隊として」「自由に組み込んでいい」)。第七幕で家康を守る精鋭。
+   絵: アトラス kurogusoku(tools/pack_owner_kurogusoku.py)。技と絵の行は1対1: 薙刀の連撃=a1 / 居合い=iai / 跳び込み叩きつけ=leap / 受け=guard / 必殺 破邪の薙ぎ=big。
+   歩きの絵は無いので走りの絵で仮(A-026 で依頼中)。大きさは鎧武者と同じ(大きくしない) */
+TY.kurogusoku={mid:true,name:'徳川親衛隊',hp:150,sc:1,spd:2.3,ai:'melee',wp:'naginata',tip:150,two:true,gap:34,helm:'horn',score:900,gen:true,armor:true,leap:true,col:{armor:'#25221f',armor2:'#121110',trim:'#b08a4a',cloth:'#2a2420',skin:'#d9ad8d'},banner:null,
+ atk:[{pz:'swing',a0:-2.5,a1:0.9,r:40,dur:44,hs:16,he:30,rng:160,dmg:13,kb:5,lunge:2,sfx:'slash',anim:'a1'},
+  {pz:'swing',a0:-1.2,a1:1.4,r:42,dur:44,hs:14,he:26,rng:175,dmg:15,kb:7,launch:true,lunge:6,sfx:'slash',anim:'iai'},
+  {pz:'raise',k:'leap',dur:80,hs:20,he:40,rng:200,dmg:16,kb:9,launch:true,dep:70,fx:'quake',sfx:'heavy',anim:'leap',lmap:true},
+  {pz:'raise',k:'guard',dur:60,hs:4,he:52,rng:0,dmg:0,anim:'guard'},
+  {pz:'swing',a0:-3,a1:3,r:46,dur:70,hs:30,he:50,rng:230,dmg:18,kb:9,launch:true,dep:50,sfx:'heavy',anim:'big'}],close:[0,0,0,1,1,3,4]};
 TY.kunoichi={name:'仮面のくノ一',hp:34,spd:13,kjH:98,/* 速さ=主人公(3.5〜5.2・平均4.2)の約3倍(6.2→13)。ジャンプ投げの跳躍=絵の約49pxに kjH 分を足して約3倍(2026-10-14 オーナー「スピードを通常の3倍・ジャンプ力も3倍」) */ai:'melee',skirm:true,runAnim:true,wp:'tanto',tip:60,two:false,gap:0,helm:'ninja',score:350,dodger:true,col:{armor:'#2e5a5a',armor2:'#1c3838',trim:'#8a4a8a',cloth:'#3a3a40',skin:'#e0b48c'},banner:null,
  atk:[{pz:'swing',a0:-1.6,a1:0.9,r:30,dur:30,hs:10,he:14,hs2:20,he2:24,rng:86,dmg:7,kb:2.5,lunge:3,sfx:'slash',cd0:22,cd1:45},
   {pz:'throw',kj:true,dur:44,hs:22,he:23,rng:0,proj:'kunai',dmg:9,kb:3,sfx:'arrow',cd0:14,cd1:38}]};
@@ -2172,7 +2181,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'down':return P('dead',f.z>0.6?1:4);
   case'getup':return P('dead',6-f.st/20*4);
   case'dead':return P('dead',f.st/9);
-  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return P('idle',0);if(c&&(c.k==='step'||c.k==='hop'))return P(A.dash?'dash':'walk',f.st/4,true);if(c&&c.edge&&c.anim&&A[c.anim]){const arr=A[c.anim],n=arr.length;let pos;if(f.st<c.hs)pos=0;else if(!f.rushDone)pos=1+Math.floor(f.st/3)%Math.max(1,n-3);else pos=f.st<c.he+16?n-2:n-1;return {arr,pos:clamp(pos,0,n-1),loop:false};}/* 端から端の突進(天海): 構え→走り→止まり */
+  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return A.guard?{arr:A.guard,pos:prog(c,A.guard.length),loop:false}:P('idle',0);/* 受けの専用の絵(徳川親衛隊) */if(c&&c.lmap&&A[c.anim]){const arr=A[c.anim],n=arr.length;const pos=f.st<c.hs?0:f.z>2?Math.min(3,1+Math.floor((f.st-c.hs)/6)):Math.min(n-1,4+Math.floor((f.st-(f.landSt||c.he))/4));return {arr,pos:clamp(pos,0,n-1),loop:false};}/* 跳び込み: 構え→空中(1〜3)→着地の一撃(4〜) */if(c&&(c.k==='step'||c.k==='hop'))return P(A.dash?'dash':'walk',f.st/4,true);if(c&&c.edge&&c.anim&&A[c.anim]){const arr=A[c.anim],n=arr.length;let pos;if(f.st<c.hs)pos=0;else if(!f.rushDone)pos=1+Math.floor(f.st/3)%Math.max(1,n-3);else pos=f.st<c.he+16?n-2:n-1;return {arr,pos:clamp(pos,0,n-1),loop:false};}/* 端から端の突進(天海): 構え→走り→止まり */
   if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
   default:return P('idle',f.t/14,true);}}
  if(f.team===1&&A.mgst){/* 鉄球大僧(A-014): 立ち止まって受け止める間はガードの構え/受け、3回受けたあとの隙はガードクラッシュ4コマ */
@@ -2883,7 +2892,7 @@ const COVERW=['危ない！','下がっておれ！','させぬ！','我が後�
 function say(f,s,d){f.say={s,t:d||150,d:d||150};}
 /* 第七幕の最後の砦(2026-10-16 オーナー「最後の最後まで家来が押し寄せてきて、それを突破した後に最後に戦う」「7の展開も実装して」):
  家康は奥で構えたまま(攻撃は届かない)、家来が3度押し寄せる→全部突破すると家康が前に出て一騎打ち。体力75/50/25%で掛け合い、50%と25%で家来が身代わりに飛び込む。セリフは仮 */
-const S7W=[[['shield',1],['shield',-1],['yoroi',1],['yoroi',-1],['spear',1],['spear',-1]],[['yoroi',1],['samurai',-1],['samurai',1],['spear',1],['spear',-1],['yoroi',-1]],[['munenori',1],['yagyu',1],['yagyu',-1],['yagyu',1],['yagyu',-1]]];
+const S7W=[[['shield',1],['shield',-1],['yoroi',1],['yoroi',-1],['spear',1],['spear',-1]],[['kurogusoku',1],['samurai',-1],['samurai',1],['spear',1],['spear',-1],['kurogusoku',-1]],[['munenori',1],['yagyu',1],['yagyu',-1],['yagyu',1],['yagyu',-1]]];
 const S7L=[['殿をお守りしろ！\n一歩も退くな！','真田を通すな！\n殿の御前ぞ！'],['まだまだ！\n徳川の旗本、ここにあり！','槍衾を組めぇ！\n殿に近づけるな！'],['柳生又右衛門宗矩。\n殿の御前、これより先は通さぬ。','柳生新陰流、参る！\n師の前で遅れを取るな！']];
 function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.player;if(!ie||!P)return;S.t++;
  const foes=G.fighters.filter(e=>e.team===1&&e!==ie&&e.hp>0&&!e.isProp&&e.state!=='dead'&&!e.dying).length;
@@ -2895,7 +2904,8 @@ function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.p
   if(S.t===250){ie.pointT=G.t+150;say(ie,'な、何をしておる！\n者ども、あやつを討てぇ！',170);AU.bossLine('kirisute',ie,1.8);G.flashT=8;popup('！',P.x,P.y-60,90,'#ff6040',44);}
   if(S.t===390&&G.curCh==='yuki')say(P,'あれが本物の家康か……。\n家来が何人いようと、押し通る！',170);
   if(S.t>=420){S.ph='surge';S.st=0;S.hold=false;}}
- if(S.ph==='surge'){ie.inv=Math.max(ie.inv,6);ie.scene=true;S.st++;
+ if(S.ph==='surge'){ie.inv=Math.max(ie.inv,6);ie.scene=false;ie.entered=true;ie.s7flee=true;S.st++;/* 2026-10-16 オーナー「柳生が出る前の家康がなにも動かない」: 波の間も主人公から離れて逃げ回り、時々指差しで家来をけしかける(攻撃は届かないまま) */
+  if(S.st>200&&S.st%420===0&&!(ie.pointT>G.t)&&foes>0){ie.pointT=G.t+80;say(ie,['何をしておる！\n早う討ち取れぇ！','ひぃっ……\n寄るな、寄るでない！','者ども、怯むでない！\n相手は一人ぞ！','ええい、\n囲め、囲めぇ！'][(S.st/420|0)%4],120);}
   if(S.st===1&&S.surge>0){ie.pointT=G.t+100;say(ie,S.surge===1?'か、かかれぇ！\n囲んで討ち取れ！':'む、宗矩！\nそやつを斬り捨てい！',140);AU.bossLine('kirisute',ie,1.6);}/* 波ごとに家康が指差しで命令 */
   if(S.st===1){const L=S7W[S.surge];L.forEach(([ty,sd],i)=>{const e=spawnEn(ty,sd);e.entered=true;e.x=sd>0?G.camx+W+60+i*30:G.camx-60-i*30;if(i===0)say(e,S7L[S.surge][0],170);if(i===1)S.lead=e;});AU.sfx('roar');G.shake=Math.max(G.shake,10);popup('家来の波 '+(S.surge+1)+' / 3',P.x,P.y,140,'#ffd070',26);}
   if(S.st===150&&S.lead&&S.lead.hp>0)say(S.lead,S7L[S.surge][1],150);
@@ -2908,7 +2918,7 @@ function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.p
  if(S.ph==='fight')s7Cycle(S,ie,P,foes);}
 /* 2026-10-16 オーナー「家康の戦闘パターン: 部下がいる時は逃げ回る→部下がやられ、ダウンさせられた後に大筒部隊を呼ぶ→大筒攻撃→部下が出てくる→1人になって追い詰められたら少し戦う→繰り返し。吹き出しは必要」
    cyc: guard(部下あり・家康は逃げ回る) → corner(1人で追い詰められて戦う) → ダウンしたら(または一定時間で) call(大筒) → 砲撃が終わったら部下を呼んで guard へ */
-const S7R=[[['yoroi',1],['spear',-1],['yoroi',-1]],[['samurai',1],['yagyu',-1],['spear',1]],[['yagyu',1],['yagyu',-1],['yoroi',1],['spear',-1]]];
+const S7R=[[['kurogusoku',1],['spear',-1],['yoroi',-1]],[['samurai',1],['yagyu',-1],['kurogusoku',1]],[['yagyu',1],['yagyu',-1],['kurogusoku',1],['spear',-1]]];/* 家康のそばには徳川親衛隊(黒具足) */
 function s7Retainers(S,ie){const L=S7R[(S.cn||0)%S7R.length];S.cn=(S.cn||0)+1;L.forEach(([ty,sd],i)=>{const e=spawnEn(ty,sd);e.entered=true;e.x=sd>0?G.camx+W+60+i*30:G.camx-60-i*30;if(i===0)say(e,['殿をお守りしろ！\n一歩も近づけるな！','殿の御前ぞ！\n押し返せぇ！','旗本衆、参上！\n殿、お下がりくだされ！'][(S.cn-1)%3],140);});AU.sfx('roar');}
 function s7Cycle(S,ie,P,foes){S.ct=(S.ct||0)+1;
  if(!S.cyc){S.cyc='guard';S.ct=0;ie.s7flee=true;s7Retainers(S,ie);say(ie,'ええい、者ども！\n儂を守れぇ！',150);AU.iyLine('mamore');return;}
@@ -3123,9 +3133,9 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];if(TY[h]&&TY[h].ai){const k=TY[h].spr||h;return[k,'bjump_'+k].concat(k==='monk'?['monkball','monkfx']:[]).filter(x=>SPR_RAW[x]);}/* 全編デモの主人公が敵キャラ */const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
- if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr);if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
+ if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr,'kurogusoku');if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
   return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';
