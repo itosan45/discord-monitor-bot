@@ -2,7 +2,7 @@
 // ①既定で幕が7つ ②第七幕の波の途中(最後ではない)に政宗 ③登場の掛け合い(幸村は専用の返し、他の武将は「撃てぇ」) ④絵が読めている
 // ⑤鉄砲隊を呼ぶ技がある ⑥倒すと「借りは大坂で」と言い、幕はクリアせず先へ進む ⑦Android相当の画面を保存
 const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
-const BASE=process.argv[2]||process.env.GAME_URL;const OUT=process.env.SHOT_DIR||'.';
+const BASE=process.argv[2]||process.env.GAME_URL;const OUT=process.env.SHOT_DIR||require('os').tmpdir();/* 画面は既定で一時フォルダへ(リポジトリに残さない) */
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_BIN});const bad=[],out={};
  try{for(const hero of ['yuki','nobu']){
   const p=await(await b.newContext({viewport:{width:915,height:412}})).newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
