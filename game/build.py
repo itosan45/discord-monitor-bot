@@ -4,6 +4,9 @@ sprites/ に atlas_*.webp があれば ../gfx/ にコピーしてから組み立
 import json,os,shutil,glob,hashlib
 H=os.path.dirname(os.path.abspath(__file__));REPO=os.path.dirname(H);GFX=os.path.join(REPO,'gfx')
 data=json.load(open(os.path.join(H,'data','audio.json')))
+# 2026-10-16 本物の家康の声(ElevenLabs、data/voice_ieyasu/*.mp3)
+import base64
+data['iy']={os.path.basename(f)[:-4]:base64.b64encode(open(f,'rb').read()).decode() for f in sorted(glob.glob(os.path.join(H,'data','voice_ieyasu','*.mp3')))}
 for f in glob.glob(os.path.join(H,'sprites','atlas_*.webp')):shutil.copyfile(f,os.path.join(GFX,os.path.basename(f)))
 def image_url(f):
     # Atlas metadata ships inside HTML. A cached atlas must be the exact bytes

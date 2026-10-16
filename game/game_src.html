@@ -95,7 +95,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
   try{this.dvBuf={};for(const c in (DATA.dv||{})){this.dvBuf[c]=[];for(const s of DATA.dv[c])this.dvBuf[c].push(await this.dec(s));}}catch(e){console.warn('dv decode',e);}
   try{this.cutBuf=[];for(const x of (DATA.cut||[]))this.cutBuf.push(await this.dec(x));this.killBuf=[];for(const x of (DATA.kill||[]))this.killBuf.push(await this.dec(x));}catch(e){console.warn('cut decode',e);}
   try{this.kiBuf=[];for(const x of (DATA.ki||[]))this.kiBuf.push(await this.dec(x));}catch(e){console.warn('ki decode',e);}
-  try{this.bvBuf={};for(const k in (DATA.bv||{}))this.bvBuf[k]=await this.dec(DATA.bv[k]);this.evBuf={};for(const k in (DATA.ev||{}))this.evBuf[k]=await this.dec(DATA.ev[k]);this.pkBuf=[];for(const x of (DATA.pk||[]))this.pkBuf.push(await this.dec(x));}catch(e){console.warn('owner lines decode',e);}
+  try{this.bvBuf={};for(const k in (DATA.bv||{}))this.bvBuf[k]=await this.dec(DATA.bv[k]);this.iyBuf={};for(const k in (DATA.iy||{}))this.iyBuf[k]=await this.dec(DATA.iy[k]);this.evBuf={};for(const k in (DATA.ev||{}))this.evBuf[k]=await this.dec(DATA.ev[k]);this.pkBuf=[];for(const x of (DATA.pk||[]))this.pkBuf.push(await this.dec(x));}catch(e){console.warn('owner lines decode',e);}
   try{this.userVoiceBuf={};for(const k in (DATA.uv||{}))this.userVoiceBuf[k]=await this.dec(DATA.uv[k]);}catch(e){console.warn('user voice decode',e);}
   try{if(DATA.ff)this.ffBuf=await this.dec(DATA.ff);}catch(e){console.warn('ff decode',e);}
   try{this.clBuf=[];for(const x of (DATA.clang||[]))this.clBuf.push(await this.dec(x));}catch(e){console.warn('clang decode',e);}
@@ -133,6 +133,7 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
  vplay(b,v){if(!this.on||!b)return false;const s=this.ac.createBufferSource();s.buffer=b;const g=this.ac.createGain();g.gain.value=v||1.4;s.connect(g);g.connect(this.mg);s.start();return true;},
  userVoice(k,v){const b=this.userVoiceBuf&&this.userVoiceBuf[k];if(!this.on||!b)return false;const s=this.ac.createBufferSource();s.buffer=b;const dry=this.ac.createGain(),wet=this.ac.createGain(),delay=this.ac.createDelay(0.12),fb=this.ac.createGain(),lp=this.ac.createBiquadFilter(),sum=this.ac.createGain();const nr=k==='victory';dry.gain.value=nr?1:0.84;wet.gain.value=nr?0:0.28;/* 勝鬨の音頭は残響なし(オーナー指示) */delay.delayTime.value=0.075;fb.gain.value=0.2;lp.type='lowpass';lp.frequency.value=4200;sum.gain.value=v||1.45;s.connect(dry);dry.connect(sum);s.connect(delay);delay.connect(lp);lp.connect(fb);fb.connect(delay);lp.connect(wet);wet.connect(sum);sum.connect(this.mg);s.start();return true;},
  // オーナー録音のセリフ: bv=ボス(ボスごとに声の高さを変える) ev=雑魚 pk=味方の掛け声。鳴らした長さ(秒)を返す
+ /* 本物の家康の声(第七幕): 鳴らせたら秒数を返す */iyLine(k,v){const b=this.iyBuf&&this.iyBuf[k];if(!this.on||!b)return 0;if(this.bossSrc){try{this.bossSrc.stop();}catch(e){}}const s=this.ac.createBufferSource();s.buffer=b;const g=this.ac.createGain();g.gain.value=v||1.7;s.connect(g);g.connect(this.mg);s.start();this.bossSrc=s;return b.duration;},
  bossLine(k,f,v){const b=this.bvBuf&&this.bvBuf[k];if(!this.on||!b)return 0;const r=({boss1:1,boss2:0.96,boss3:0.92,boss4:1.08,boss5:1.04,boss7:0.94,boss8:1,boss9:0.97}[f&&f.T&&f.T.type])||1;if(this.bossSrc){try{this.bossSrc.stop();}catch(e){}}const s=this.ac.createBufferSource();s.buffer=b;s.playbackRate.value=r;const g=this.ac.createGain();g.gain.value=v||1.6;s.connect(g);g.connect(this.mg);s.start();this.bossSrc=s;return b.duration/r;},
  enemyLine(k,f,v){const b=this.evBuf&&this.evBuf[k];if(!this.on||!b)return false;const now=this.ac.currentTime;this._evl=this._evl||{};if(now-(this._evl[k]||0)<(k==='munen'?3.5:2.5))return false;this._evl[k]=now;const s=this.ac.createBufferSource();s.buffer=b;s.playbackRate.value=rnd(0.9,1.12);const g=this.ac.createGain();g.gain.value=v||1.1;const pn=this.ac.createStereoPanner?this.ac.createStereoPanner():null;s.connect(g);if(pn&&f){pn.pan.value=clamp((f.x-G.camx-W/2)/(W/2),-0.6,0.6);g.connect(pn);pn.connect(this.mg);}else g.connect(this.mg);s.start();return true;},
  spv(k){return this.vplay(this.svBuf&&this.svBuf[k],1.5);},
@@ -927,9 +928,9 @@ function onKill(t,own){
  }else AU.sfx('die');
 }
 function bossDown(b,own){
- if(b.bossDownDone)return;b.bossDownDone=true;if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='munenori')say(b,'見事……。\n父上、宗矩はまだ修行が足りませぬ……',220);if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
+ if(b.bossDownDone)return;b.bossDownDone=true;if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);if(G.curCh==='yuki')b.iyDie=AU.iyLine('migoto');G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='munenori')say(b,'見事……。\n父上、宗矩はまだ修行が足りませぬ……',220);if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
  const last=G.wi>=G.waves.length-1&&!(G.s7&&b!==G.s7.ie);/* 第七幕の砦で倒した宗矩などは幕の終わりにしない */
- G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
+ G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=b.iyDie||AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);/* 本物の家康は専用の声 */G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
  for(const e of G.fighters)if(e.team===1&&e.hp>0&&!(G.s7&&e===G.s7.ie)){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
  G.sq=[];
  if(!last){G.slow=60;G.boss=null;if(!(G.stage===5&&G.bossBgmKeep))AU.bgm(STG[G.stage].bgm);/* 第六幕は道中に戻ってもボスBGMのまま */return;}
@@ -2857,7 +2858,7 @@ function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.p
   if(S.st>120&&foes===0){S.surge++;S.st=0;if(S.surge>=3){S.ph='call';S.t=0;}else if(S.surge===2)say(ie,'怯むな！\nあと一息ぞ！',150);}}
  if(S.ph==='call'){ie.inv=Math.max(ie.inv,6);S.hold=S.t<200;if(S.t===1){G.boss=ie;AU.bgm(bossBgm(ie));}
   if(S.t===10)say(ie,'……皆、よう戦ってくれた。\nもはや儂しか残っておらぬか。',200);
-  if(S.t===120){say(ie,'この老骨、まだ折れてはおらぬ！\n真田、参れ！',170);AU.bossLine('nakanaka',ie,1.7);}
+  if(S.t===120){say(ie,'この老骨、まだ折れてはおらぬ！\n真田、参れ！',170);if(!AU.iyLine('rokotsu'))AU.bossLine('nakanaka',ie,1.7);}
   if(S.t>=200){S.ph='fight';ie.scene=false;ie.entered=true;ie.inv=0;S.hold=false;AU.sfx('roar');G.shake=Math.max(G.shake,14);popup('家康を討て！',P.x,P.y,170,'#ff9a6a',30);}}
  if(S.ph==='fight')s7Cycle(S,ie,P,foes);}
 /* 2026-10-16 オーナー「家康の戦闘パターン: 部下がいる時は逃げ回る→部下がやられ、ダウンさせられた後に大筒部隊を呼ぶ→大筒攻撃→部下が出てくる→1人になって追い詰められたら少し戦う→繰り返し。吹き出しは必要」
@@ -2865,12 +2866,12 @@ function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.p
 const S7R=[[['yoroi',1],['spear',-1],['yoroi',-1]],[['samurai',1],['yagyu',-1],['spear',1]],[['yagyu',1],['yagyu',-1],['yoroi',1],['spear',-1]]];
 function s7Retainers(S,ie){const L=S7R[(S.cn||0)%S7R.length];S.cn=(S.cn||0)+1;L.forEach(([ty,sd],i)=>{const e=spawnEn(ty,sd);e.entered=true;e.x=sd>0?G.camx+W+60+i*30:G.camx-60-i*30;if(i===0)say(e,['殿をお守りしろ！\n一歩も近づけるな！','殿の御前ぞ！\n押し返せぇ！','旗本衆、参上！\n殿、お下がりくだされ！'][(S.cn-1)%3],140);});AU.sfx('roar');}
 function s7Cycle(S,ie,P,foes){S.ct=(S.ct||0)+1;
- if(!S.cyc){S.cyc='guard';S.ct=0;ie.s7flee=true;s7Retainers(S,ie);say(ie,'ええい、者ども！\n儂を守れぇ！',150);return;}
+ if(!S.cyc){S.cyc='guard';S.ct=0;ie.s7flee=true;s7Retainers(S,ie);say(ie,'ええい、者ども！\n儂を守れぇ！',150);AU.iyLine('mamore');return;}
  if(S.cyc==='guard'){ie.s7flee=true;if(S.ct===200)say(ie,'ひ、ひぃっ……\nこっちへ来るでない！',120);
   if(S.ct>60&&foes===0){S.cyc='corner';S.ct=0;ie.s7flee=false;S.downed=false;say(ie,'ぐぬぬ……追い詰められたか。\nならば、この老骨の意地を見よ！',170);AU.bossLine('nakanaka',ie,1.6);G.shake=Math.max(G.shake,8);}return;}
  if(S.cyc==='corner'){ie.s7flee=false;if(ie.state==='down')S.downed=true;
-  if((S.downed&&(ie.state==='idle'||ie.state==='walk'))||S.ct>1200){S.cyc='call';S.ct=0;ie.s7flee=true;ie.cur=null;if(ie.state==='atk')ie.state='idle';say(ie,'お、大筒じゃ！\n大筒を持てい！',150);AU.bossLine('kirisute',ie,1.6);startBattery(P);}return;}
- if(S.cyc==='call'){ie.s7flee=true;if(!G.battery&&S.ct>40){S.cyc='guard';S.ct=0;s7Retainers(S,ie);say(ie,'まだじゃ……\n者ども、かかれぇ！',140);}}}
+  if((S.downed&&(ie.state==='idle'||ie.state==='walk'))||S.ct>1200){S.cyc='call';S.ct=0;ie.s7flee=true;ie.cur=null;if(ie.state==='atk')ie.state='idle';say(ie,'お、大筒じゃ！\n大筒を持てい！',150);if(!AU.iyLine('oozutsu'))AU.bossLine('kirisute',ie,1.6);startBattery(P);}return;}
+ if(S.cyc==='call'){ie.s7flee=true;if(!G.battery&&S.ct>40){S.cyc='guard';S.ct=0;s7Retainers(S,ie);say(ie,'まだじゃ……\n者ども、かかれぇ！',140);AU.iyLine('kakare');}}}
 /* 部下がいる間・大筒の間の家康: 主人公から離れて逃げ回る(攻撃しない)。画面の端に追い込まれたら反対側へ回り込む */
 function s7FleeAI(e,p){const cx=G.camx+W/2,away=p.x<e.x?1:-1;let tx=p.x+away*440;if(tx<G.camx+90||tx>G.camx+W-90){if(Math.abs(p.x-e.x)<200){e.s7slip=G.t+80;e.s7side=-away;}tx=clamp(tx,G.camx+90,G.camx+W-90);}
  if(e.s7slip>G.t)tx=clamp(p.x+e.s7side*440,G.camx+90,G.camx+W-90);
