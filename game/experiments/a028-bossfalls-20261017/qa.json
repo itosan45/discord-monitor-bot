@@ -1,0 +1,95 @@
+{
+  "character": "井伊直政",
+  "status": "candidate_not_delivery",
+  "visual_review": "Four poses reviewed individually at sprite-sheet size. Animation reads as a fall and recovery. Existing idle reference is 384x384 with figure height about 188 px and groundline y=363. Gameplay runtime review remains for Claude.",
+  "sheets": [
+    {
+      "action": "転倒",
+      "file": "井伊直政_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_width": 384,
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          78,
+          176,
+          304,
+          363
+        ],
+        [
+          78,
+          208,
+          304,
+          363
+        ],
+        [
+          83,
+          249,
+          299,
+          363
+        ],
+        [
+          79,
+          284,
+          303,
+          363
+        ]
+      ],
+      "sha256": "ba65f3449713cbfbec88dbce2c7a092bc5cf5c459b2173509faf27283c2c2e70",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "action": "起き上がり",
+      "file": "井伊直政_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_width": 384,
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          77,
+          287,
+          304,
+          363
+        ],
+        [
+          80,
+          256,
+          302,
+          363
+        ],
+        [
+          79,
+          222,
+          304,
+          363
+        ],
+        [
+          83,
+          175,
+          299,
+          363
+        ]
+      ],
+      "sha256": "b0f6a7a282715c8a04f140cc7628a813c8ed275869bda6542572a788cd98bcd1",
+      "status": "candidate_not_delivery"
+    }
+  ]
+}
