@@ -1,0 +1,233 @@
+{
+  "character": "本多忠勝",
+  "asset": "本多忠勝_三段突き_16コマ_v5.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    8192,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 16,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_target_x": 256,
+  "source_grid": [
+    4,
+    4
+  ],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "frame_foreground_bboxes": [
+    [
+      113,
+      175,
+      476,
+      362
+    ],
+    [
+      154,
+      175,
+      447,
+      362
+    ],
+    [
+      133,
+      175,
+      430,
+      362
+    ],
+    [
+      131,
+      175,
+      400,
+      362
+    ],
+    [
+      130,
+      175,
+      452,
+      362
+    ],
+    [
+      162,
+      175,
+      414,
+      362
+    ],
+    [
+      100,
+      175,
+      454,
+      362
+    ],
+    [
+      105,
+      175,
+      468,
+      362
+    ],
+    [
+      95,
+      183,
+      500,
+      362
+    ],
+    [
+      136,
+      175,
+      422,
+      362
+    ],
+    [
+      138,
+      175,
+      396,
+      362
+    ],
+    [
+      134,
+      175,
+      417,
+      362
+    ],
+    [
+      144,
+      175,
+      405,
+      362
+    ],
+    [
+      150,
+      175,
+      427,
+      362
+    ],
+    [
+      146,
+      175,
+      438,
+      362
+    ],
+    [
+      135,
+      175,
+      419,
+      362
+    ]
+  ],
+  "estimated_bottom_anchors": [
+    [
+      256.2,
+      362
+    ],
+    [
+      255.93,
+      362
+    ],
+    [
+      256.43,
+      362
+    ],
+    [
+      256.26,
+      362
+    ],
+    [
+      256.25,
+      362
+    ],
+    [
+      255.86,
+      362
+    ],
+    [
+      256.18,
+      362
+    ],
+    [
+      255.52,
+      362
+    ],
+    [
+      256.02,
+      362
+    ],
+    [
+      255.63,
+      362
+    ],
+    [
+      255.92,
+      362
+    ],
+    [
+      255.59,
+      362
+    ],
+    [
+      255.83,
+      362
+    ],
+    [
+      256.01,
+      362
+    ],
+    [
+      256.01,
+      362
+    ],
+    [
+      256.27,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 16,
+  "unique_frame_count": 16,
+  "adjacent_changed_pixel_fraction": [
+    0.1566,
+    0.1251,
+    0.1291,
+    0.1445,
+    0.1394,
+    0.1604,
+    0.1919,
+    0.1965,
+    0.1879,
+    0.1231,
+    0.1207,
+    0.1201,
+    0.1096,
+    0.1235,
+    0.1261
+  ],
+  "sha256": "7e77651167fcd2e2b2a36089105f26895449339af09f15f9ce91f1ce2adf3233",
+  "generation": "OpenAI built-in imagegen using existing Honda Tadakatsu triple-thrust sheet as identity reference; AI generated and cell-composited, not hand-drawn.",
+  "notes": "v5 keeps only the largest connected component in each cell to remove detached cross-cell fragments and scales about the estimated foot anchor to preserve safe margins. Sequence: load/step, chest thrust/recoil, low thrust/reset, pivot/rising thrust, recoil and guard recovery. Existing 8-frame versions and rejected v1-v4 remain preserved. Static QA only; game timing, hitboxes, runtime and independent review pending."
+}
