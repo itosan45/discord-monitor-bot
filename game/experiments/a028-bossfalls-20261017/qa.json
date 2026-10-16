@@ -482,6 +482,102 @@
       ],
       "sha256": "e65686be255be3c1176bd03f1a70500069f10e47775a75f8a33d53da9f6827f4",
       "status": "candidate_not_delivery"
+    },
+    {
+      "character": "本多忠勝",
+      "action": "転倒",
+      "file": "本多忠勝_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 370,
+      "frame_bboxes": [
+        [
+          85,
+          149,
+          298,
+          370
+        ],
+        [
+          104,
+          142,
+          279,
+          370
+        ],
+        [
+          75,
+          241,
+          307,
+          370
+        ],
+        [
+          82,
+          294,
+          299,
+          370
+        ]
+      ],
+      "sha256": "f02817bbc2fdd974df90ef7155575f20b8576586e964eb8ea9921f4398aa0a92",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "本多忠勝",
+      "action": "起き上がり",
+      "file": "本多忠勝_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 370,
+      "frame_bboxes": [
+        [
+          70,
+          264,
+          312,
+          370
+        ],
+        [
+          82,
+          221,
+          300,
+          370
+        ],
+        [
+          98,
+          140,
+          285,
+          370
+        ],
+        [
+          87,
+          127,
+          296,
+          370
+        ]
+      ],
+      "sha256": "0bfc296d3c957184df2091ba3777fbd1adfeebf5553acd52d819f2b1d7f7899b",
+      "status": "candidate_not_delivery"
     }
   ]
 }
