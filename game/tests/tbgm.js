@@ -8,13 +8,14 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   const bad=[],out={};AU.init();await AU.load();
   const wait=async(f,ms=15000)=>{const t=Date.now();while(!f()&&Date.now()-t<ms)await new Promise(r=>setTimeout(r,50));return f();};
   out.stageBgm=STG.map(s=>s.bgm);
-  const expectStage=[0,1,5,6,7,2];if(JSON.stringify(out.stageBgm)!==JSON.stringify(expectStage))bad.push({stageBgm:out.stageBgm});
+  const expectStage=CHASE?[0,1,5,6,7,2,12]:[0,1,5,6,7,2];/* 第七幕(既定で7幕)の曲12 */if(JSON.stringify(out.stageBgm)!==JSON.stringify(expectStage))bad.push({stageBgm:out.stageBgm});
   out.len={};
   for(const i of [1,2,3,5,6,7,10,11]){AU.bgm(i);const ok=await wait(()=>AU.bgmBuf[i]);if(!ok){bad.push({load:i});continue;}const d=AU.bgmBuf[i].duration;out.len[i]=+d.toFixed(1);if(d<30||d>110)bad.push({dur:i,d});if(AU.bgmBuf[i].numberOfChannels!==2)bad.push({ch:i});await wait(()=>AU.cur===i,5000);if(AU.cur!==i)bad.push({notPlaying:i});}
   out.decoded=AU.bgmBuf.map((x,i)=>x?i:null).filter(x=>x!==null);if(out.decoded.length>5)bad.push({memory:out.decoded});
   // ボス曲の選択
   G.stage=1;if(bossBgm({T:{type:'boss4'}})!==3)bad.push('boss!=3');if(bossBgm({T:{type:'boss3'}})!==3)bad.push('stage2 boss3 should be 3');
-  G.stage=5;if(bossBgm({T:{type:'boss3'}})!==10)bad.push('final!=10');if(bossBgm({T:{type:'boss1'}})!==3)bad.push('stage6 boss1 should be 3');
+  G.stage=5;G.bossBgmKeep=0;if(bossBgm({T:{type:'boss3'}})!==10)bad.push('final!=10');G.bossBgmKeep=0;if(bossBgm({T:{type:'boss1'}})!==3)bad.push('stage6 boss1 should be 3');
+  /* 2026-10-16 第六幕は最初のボスの曲を流しっぱなし(家康で曲を変えない) */if(bossBgm({T:{type:'boss3'}})!==3)bad.push('stage6 keeps first boss bgm');G.bossBgmKeep=0;
   return{bad,out};});
  console.log(JSON.stringify(r),errors);await b.close();if(r.bad.length||errors.length)process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1;});

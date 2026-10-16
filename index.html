@@ -543,7 +543,7 @@ function slashFx(x,y,z,face,len,life,col,ang){G.parts.push({k:'slash',x,y,z,vx:0
 function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
 /* ---------- stage start ---------- */
-function startStage(si,ch,demo,keep){G.s7=null;
+function startStage(si,ch,demo,keep){G.s7=null;G.bossBgmKeep=0;if(HZ[si]==='cannon')batteryImgs();/* 大筒の絵を先に読む */
  if(CHASEJUMP&&si===0&&!demo&&!G.auto)si=5;
  G.chase=null;G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
@@ -825,12 +825,12 @@ function startDemo(i){G.auto=false;G.partnerType=null;G.mode='demo';G.demoI=i%DE
 
 /* ---------- spawn ---------- */
 // ボス戦の曲: 最終幕の大将(徳川家康 boss3)だけラスボス曲(10)、それ以外のボスは3
-function bossBgm(e){return G.stage>=5&&e&&e.T&&e.T.type==='boss3'?10:3;}
+function bossBgm(e){if(G.stage===5&&G.bossBgmKeep)return G.bossBgmKeep;/* 2026-10-16 オーナー「第六幕は中ボスの連戦。途中で再生し直すと変なので、最初のボス登場からボスBGMを流しっぱなし」 */const k=G.stage>=5&&e&&e.T&&e.T.type==='boss3'?10:3;if(G.stage===5)G.bossBgmKeep=k;return k;}
 // 雑魚の同時出現数の上限(スマホで一度に出すぎると重い、オーナー指摘)。超えた分は前の敵が倒れてから順に出る。総数は変わらない
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
  if(type==='monk'){/* 鉄球大僧は同じ見た目が何体も出ると違和感が強いので、出る順に色違い(元の紫・緑の袈裟・朱の袈裟+日焼け)にする */const n=G.monkN||0;G.monkN=n+1;e.var=['','b','c'][n%3];}
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;if(type==='masamune'&&!G.demo)G.mmScr={t:0,e};if(type==='boss3'&&G.s7&&!G.s7.ie){G.s7.ie=e;e.T=Object.assign({},e.T,TY.ieyasu2);/* 本物の家康は専用の絵(老武者)と技 */if(G.banner&&G.banner.boss){G.banner.role='本物の家康　—　本陣の奥に控えていた老いた天下人';G.banner.desc=['第六幕で馬に乗って逃げた家康は影武者であった。','本物の家康は、最後の旗本に守られて本陣にいる。'];}e.scene=true;e.tx=G.camx+W-150;e.y=clamp(560,YMIN+8,YMAX-8);}}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;if(type==='masamune'&&!G.demo)G.mmScr={t:0,e};if(type==='boss3'&&G.s7&&!G.s7.ie){G.s7.ie=e;e.T=Object.assign({},e.T,TY.ieyasu2,{sc:1});e.sc=1;/* 2026-10-16 オーナー「本物の家康は大きい爺さんになっている。主人公と同じ大きさに。部下より大きいのはおかしい」: ボスの1.18倍をやめ、等倍(幸村1.08より少し小さい老人) *//* 本物の家康は専用の絵(老武者)と技 */if(G.banner&&G.banner.boss){G.banner.role='本物の家康　—　本陣の奥に控えていた老いた天下人';G.banner.desc=['第六幕で馬に乗って逃げた家康は影武者であった。','本物の家康は、最後の旗本に守られて本陣にいる。'];}e.scene=true;e.tx=G.camx+W-150;e.y=clamp(560,YMIN+8,YMAX-8);}}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.15:1.25;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.04;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss){const chb=G.chase&&type==='boss3';if(chb)chaseBossSetup(e);else bossGuards(e);startBossStory(e);}return e;}
@@ -930,7 +930,7 @@ function bossDown(b,own){
  G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
  for(const e of G.fighters)if(e.team===1&&e.hp>0&&!(G.s7&&e===G.s7.ie)){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
  G.sq=[];
- if(!last){G.slow=60;G.boss=null;AU.bgm(STG[G.stage].bgm);return;}
+ if(!last){G.slow=60;G.boss=null;if(!(G.stage===5&&G.bossBgmKeep))AU.bgm(STG[G.stage].bgm);/* 第六幕は道中に戻ってもボスBGMのまま */return;}
  AU.stopBgm();G.victoryClearAt=0;G.victoryShift=Math.max(0,(G.voAt||54)+Math.ceil(((AU.voBuf[G.curCh]&&AU.voBuf[G.curCh].duration)||2.5)*60)+60-138)/* 討ち取ったり→次の声まで1秒 */;G.state='bossdown';G.stateT=0;G.slow=90;
 }
 function breakProp(t){if(t.k==='umabo'){t.broken=true;t.hp=0;AU.sfx('break');G.shake=Math.max(G.shake,9);G.hitstop=Math.max(G.hitstop,5);for(let i=0;i<46;i++)PT({x:t.x+rnd(-50,50),y:rnd(YMIN,YMAX),z:rnd(10,130),vx:rnd(-4,4),vy:rnd(-.6,.6),vz:rnd(2,7),g:0.35,life:rndi(28,46),sz:rnd(3,7),col:i%3?'#6a5a34':'#a08a58',k:'deb'});return;}
@@ -2462,18 +2462,30 @@ const HZNAME={arrows:'矢の雨だ！',volley:'鉄砲隊の一斉射撃！',logs
 function startHazard(){const k=HZ[G.stage]||'arrows',p=G.player;if(!p)return;G.hzMsg={t:0,s:HZNAME[k]};AU.sfx('warn');
  if(k==='arrows'||k==='firearrows'){const fire=k==='firearrows',dir=Math.random()<0.5?1:-1;for(let i=0;i<(fire?7:10);i++){const x=clamp(p.x+rnd(-330,330),G.camx+40,G.camx+W-40),y=rnd(YMIN+8,YMAX),w=50+i*10;G.marks.push({x,y,t:-w+50,life:w+8,r:55});for(let j=0;j<6;j++){const T=34,tx=x+rnd(-40,40),ty=clamp(y+rnd(-14,14),YMIN,YMAX);addProj({k:'arrowfall',x:tx-dir*T*5,y:ty,z:T*13,vx:dir*5,vz:-13,tx,ty,wait:w+j*2,team:-1,dmg:6,fire,life:400,face:dir});}if(fire)G.fires.push({x,y,t:-(w+40),life:300});}}
  else if(k==='cannon'){/* 2026-10-16 オーナー「車輪付きの青銅の大筒と砲手」「采配を持った大将が『うてー！』」: 画面の端の奥に砲台を据え、大将の号令で3発撃つ */
-  const sd=p.x>G.camx+W/2?-1:1,bx=sd<0?G.camx+210:G.camx+W-210,cmd=spawnEn('samurai',sd);cmd.entered=true;cmd.x=bx-sd*30;cmd.y=YMIN+50;cmd.scene=true;cmd.tx=cmd.x;cmd.face=cmd.sceneFace=-sd;cmd.sceneEnd=G.t+110;cmd.saihai=true;
-  G.battery={x:bx,rel:bx-G.camx/* 画面に対する位置(カメラが動いても画面の端に残す) */,y:YMIN-4,face:-sd,t:0,shots:0,recoil:0,cmd};G.hzMsg=null;say(cmd,'大筒、構えぇ！',60);}
+  /* 2026-10-16 画像担当の絵(A-023: 大筒_砲台_砲撃_4コマ・采配の大将_号令_4コマ)に差し替え。大将は戦わない演出の人物(当たり判定なし) */batteryImgs();
+  const sd=p.x>G.camx+W/2?-1:1,bx=sd<0?G.camx+360:G.camx+W-360,cmd={x:bx+sd*235,y:YMIN+40,z:0,face:-sd,say:null};/* 大筒は画面の内側に全部見せ、大将は砲台の後ろ(画面の端の側)から采配を振る */
+  G.battery={x:bx,rel:bx-G.camx/* 画面に対する位置(カメラが動いても画面の端に残す) */,y:YMIN-4,face:-sd,t:0,shots:0,recoil:0,cmd,shotT:[]};G.hzMsg=null;say(cmd,'大筒、構えぇ！',60);}
  else{const lanes=k==='volley'?[p.y,clamp(p.y+(Math.random()<0.5?-70:70),YMIN+10,YMAX-5)]:[p.y];for(const y of lanes)G.lanes.push({k,y,dir:k==='logs'||k==='rocks'?1:Math.random()<0.5?1:-1,t:0,warn:75,mv:[],hs:new Set()});}}
 /* 大筒の砲台: 号令→点火→発射(反動・砲口の火・煙)→砲弾は砲口から山なりに飛ぶ */
-function batteryStep(){const B=G.battery;if(!B)return;B.t++;B.x=G.camx+B.rel;if(B.recoil>0)B.recoil--;const p=G.player;
- if(B.t===60&&B.cmd&&B.cmd.hp>0){say(B.cmd,'うてーっ！',90);B.cmd.pointT=G.t+40;AU.sfx('roar');G.hzMsg={t:0,s:'大筒の砲撃！'};AU.sfx('warn');}
- if(p&&B.t>=80&&B.t<=80+2*34&&(B.t-80)%34===0){B.shots++;B.recoil=12;B.flash=8;const mx=B.x+B.face*96,tx=clamp(p.x+rnd(-160,160),G.camx+60,G.camx+W-60),ty=rnd(YMIN+10,YMAX),T=56;
-  addProj({x:mx,y:B.y,z:96,vx:(tx-mx)/T,vy:(ty-B.y)/T,vz:0.5*0.6*T-96/T,tx,ty,team:-1,dmg:24,face:B.face,owner:null,k:'bomb',w:0,life:T+30,kb:8,launch:true,nohit:true,big:true,cannon:true});
-  AU.sfx('boom');G.shake=Math.max(G.shake,10);for(let i=0;i<14;i++)PT({x:mx+B.face*rnd(0,50),y:B.y+rnd(-6,6),z:96+rnd(-14,14),vx:B.face*rnd(1,5),vz:rnd(0.2,1.4),g:-0.03,life:rndi(30,60),sz:rnd(18,36),col:'rgba(230,226,215,0.55)',k:'smoke'});
-  for(let i=0;i<8;i++)PT({x:mx,y:B.y,z:96,vx:B.face*rnd(4,10),vz:rnd(-1,2),life:rndi(6,12),sz:rnd(14,24),col:'rgba(255,170,60,0.9)',k:'fire'});}
+function batteryStep(){const B=G.battery;if(!B)return;B.t++;const dx=G.camx+B.rel-B.x;B.x+=dx;if(B.cmd)B.cmd.x+=dx;if(B.recoil>0)B.recoil--;const p=G.player;
+ if(B.t===60&&B.cmd){say(B.cmd,'うてーっ！',90);AU.sfx('roar');G.hzMsg={t:0,s:'大筒の砲撃！'};AU.sfx('warn');}
+ if(p&&B.t>=80&&B.t<=80+2*34&&(B.t-80)%34===0){B.shots++;B.recoil=12;B.flash=8;B.shotT.push(B.t);const art=BIMG.c.complete&&BIMG.c.naturalWidth,mx=B.x+B.face*(art?(384-256)*BSC_C:96),mz=art?(350-243)*BSC_C:96,tx=clamp(p.x+rnd(-160,160),G.camx+60,G.camx+W-60),ty=rnd(YMIN+10,YMAX),T=56;
+  addProj({x:mx,y:B.y,z:mz,vx:(tx-mx)/T,vy:(ty-B.y)/T,vz:0.5*0.6*T-mz/T,tx,ty,team:-1,dmg:24,face:B.face,owner:null,k:'bomb',w:0,life:T+30,kb:8,launch:true,nohit:true,big:true,cannon:true});
+  AU.sfx('boom');G.shake=Math.max(G.shake,10);for(let i=0;i<14;i++)PT({x:mx+B.face*rnd(0,50),y:B.y+rnd(-6,6),z:mz+rnd(-14,14),vx:B.face*rnd(1,5),vz:rnd(0.2,1.4),g:-0.03,life:rndi(30,60),sz:rnd(18,36),col:'rgba(230,226,215,0.55)',k:'smoke'});
+  for(let i=0;i<8;i++)PT({x:mx,y:B.y,z:mz,vx:B.face*rnd(4,10),vz:rnd(-1,2),life:rndi(6,12),sz:rnd(14,24),col:'rgba(255,170,60,0.9)',k:'fire'});}
  if(B.t>80+2*34+160)G.battery=null;}
-function drawBattery(){const B=G.battery;if(!B)return;const fa=Math.min(1,B.t/12,(80+2*34+160-B.t)/30);ctx.save();ctx.globalAlpha=fa;ctx.translate(B.x-G.camx,B.y);ctx.scale(B.face*1.35,1.35);ctx.translate(-B.recoil*1.2,0);
+const BIMG={c:new Image(),s:new Image(),on:false},BSC_C=1.25,BSC_S=0.92;
+function batteryImgs(){if(BIMG.on)return;BIMG.on=true;BIMG.c.src='gfx/prop_cannon_v1.webp';BIMG.s.src='gfx/prop_saihai_v1.webp';}
+/* 大筒の絵のコマ: 発射の12コマ前から点火(1)、発射から7コマは火(2)、その後30コマは残煙(3)、それ以外は待機(0)。大将: 構え→掲げる(40)→「うてー」で前へ(60)→保持、発射のたびに前へ振る */
+function batteryFrames(B){let c=0;for(const S of [80,114,148]){if(B.t>=S-12&&B.t<S)c=1;else if(B.t>=S&&B.t<S+7)c=2;else if(B.t>=S+7&&B.t<S+37&&c===0)c=3;}
+ let s=B.t<40?0:B.t<60?1:B.t<76?2:3;for(const S of [114,148])if(B.t>=S-6&&B.t<S+8)s=2;return [c,s];}
+function drawBatteryArt(B,fa){const [c,s]=batteryFrames(B);ctx.save();ctx.globalAlpha=fa;
+ ctx.fillStyle='rgba(0,0,0,0.32)';ctx.beginPath();ctx.ellipse(B.x-G.camx,B.y+2,170,16,0,0,TAU);ctx.fill();
+ ctx.save();ctx.translate(B.x-G.camx,B.y);ctx.scale(B.face*BSC_C,BSC_C);ctx.drawImage(BIMG.c,c*512,0,512,384,-256,-350,512,384);ctx.restore();
+ const m=B.cmd;if(m){ctx.fillStyle='rgba(0,0,0,0.32)';ctx.beginPath();ctx.ellipse(m.x-G.camx,m.y+2,46,10,0,0,TAU);ctx.fill();ctx.save();ctx.translate(m.x-G.camx,m.y);ctx.scale(m.face*BSC_S,BSC_S);ctx.drawImage(BIMG.s,s*256,0,256,384,-128,-350,256,384);ctx.restore();}
+ ctx.restore();}
+function drawBattery(){const B=G.battery;if(!B)return;const fa=Math.min(1,B.t/12,(80+2*34+160-B.t)/30);
+ if(BIMG.c.complete&&BIMG.c.naturalWidth&&BIMG.s.complete&&BIMG.s.naturalWidth){drawBatteryArt(B,fa);return;}ctx.save();ctx.globalAlpha=fa;ctx.translate(B.x-G.camx,B.y);ctx.scale(B.face*1.35,1.35);ctx.translate(-B.recoil*1.2,0);
  ctx.fillStyle='rgba(0,0,0,0.35)';ctx.beginPath();ctx.ellipse(0,4,110,14,0,0,TAU);ctx.fill();
  /* 俵の低い壁(後ろ) */for(let i=0;i<4;i++){ctx.fillStyle=i%2?'#a48a5a':'#b39a66';ctx.beginPath();ctx.ellipse(-120+i*26,-16,15,20,0,0,TAU);ctx.fill();ctx.strokeStyle='#5e4a2c';ctx.lineWidth=1.5;for(let j=-1;j<=1;j++){ctx.beginPath();ctx.moveTo(-120+i*26-14,-16+j*9);ctx.lineTo(-120+i*26+14,-16+j*9);ctx.stroke();}}
  /* 砲架(木) */ctx.fillStyle='#4a3626';ctx.strokeStyle='#1e140c';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-110,-6);ctx.lineTo(-60,-30);ctx.lineTo(30,-42);ctx.lineTo(36,-26);ctx.lineTo(-56,-16);ctx.lineTo(-104,2);ctx.closePath();ctx.fill();ctx.stroke();
@@ -2879,7 +2891,7 @@ function rearStep(){const R=G.rear;if(!R)return;const q=R.q,p=G.player;R.t++;
   if(R.t>=40){R.ph='last';R.t=0;}}
  else if(R.ph==='last'){if(R.t>=170){R.ph='vow';R.t=0;say(p,(TY[q.T.type]?TY[q.T.type].name:'')+'……\nお主の犠牲、決して無駄にはせぬ！',200);p.ki=KMAX;ring(p.x,p.y,180,'rgba(255,220,120,0.95)',28);AU.sfx('clear');AU.kiai&&AU.kiai(p,true);}}
  else if(R.ph==='vow'){if(R.t>=200){G.rear=null;}}}
-function drawSays(){for(const f of G.fighters){const S=f.say;if(!S||!S.s){continue;}S.t--;if(S.t<=0){f.say=null;continue;}
+function drawSays(){for(const f of (G.battery&&G.battery.cmd?G.fighters.concat([G.battery.cmd]):G.fighters)){const S=f.say;if(!S||!S.s){continue;}S.t--;if(S.t<=0){f.say=null;continue;}
   const L=S.s.split('\n'),a=Math.min(1,S.t/12,(S.d-S.t+1)/8);ctx.save();ctx.font=`bold 22px ${FJ}`;let w=0;for(const l of L)w=Math.max(w,ctx.measureText(l).width);w+=36;const hh=20+L.length*30,fx=f.x-G.camx,x=clamp(fx,w/2+10,W-w/2-10),y=f.y-(f.z||0)-230-hh/2;ctx.globalAlpha=a;
   ctx.fillStyle='rgba(255,252,240,0.95)';ctx.strokeStyle='#5a3a1a';ctx.lineWidth=3;ctx.beginPath();ctx.roundRect?ctx.roundRect(x-w/2,y-hh/2,w,hh,12):ctx.rect(x-w/2,y-hh/2,w,hh);ctx.fill();ctx.stroke();
   const tx=clamp(fx,x-w/2+20,x+w/2-20);ctx.beginPath();ctx.moveTo(tx-10,y+hh/2);ctx.lineTo(tx,y+hh/2+18);ctx.lineTo(tx+10,y+hh/2);ctx.closePath();ctx.fill();ctx.restore();ctx.save();ctx.globalAlpha=a;L.forEach((l,i)=>txt(l,x,y-(L.length-1)*15+i*30,22,'#3a1a08','center'));ctx.restore();}}

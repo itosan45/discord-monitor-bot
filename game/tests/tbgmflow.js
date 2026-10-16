@@ -8,7 +8,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
   window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true;const bad=[],rows=[];
   for(let si=0;si<6;si++){startStage(si,'yuki',false);if(AU.want!==STG[si].bgm)bad.push({stage:si,want:AU.want});
    const bosses=[];for(const w of LV[si].waves)if(w.boss)bosses.push(w.boss);
-   for(const k of bosses){G.state='run';const e=spawnEn(k,1);const exp=(si===5&&k==='boss3')?10:3;if(AU.want!==exp)bad.push({stage:si,boss:k,want:AU.want,exp});rows.push({si,k,want:AU.want});}}
+   for(const k of bosses){G.state='run';const e=spawnEn(k,1);const exp=3;/* 2026-10-16 第六幕は最初のボス(boss1)の曲を家康まで流しっぱなし */if(AU.want!==exp)bad.push({stage:si,boss:k,want:AU.want,exp});rows.push({si,k,want:AU.want});}}
   return{bad,rows};});}catch(e){console.error(e.message);await b.close();process.exit(1);}
  const src=require('fs').readFileSync(require('path').join(__dirname,'..','game_src.html'),'utf8');
  const endOk=/AU\.bgm\(11\);const fin=/.test(src);if(!endOk)r.bad.push('ending bgm not 11');
