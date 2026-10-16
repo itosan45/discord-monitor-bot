@@ -1,0 +1,109 @@
+{
+  "character": "小早川秀秋",
+  "asset": "小早川秀秋_背後斬り_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_grid": [
+    2,
+    4
+  ],
+  "scale_by_frame": [
+    0.5402298850574713,
+    0.5164835164835165,
+    0.5053763440860215,
+    0.5164835164835165,
+    0.4895833333333333,
+    0.5449275362318841,
+    0.4895833333333333,
+    0.4895833333333333
+  ],
+  "frame_foreground_bboxes": [
+    [
+      137,
+      175,
+      374,
+      362
+    ],
+    [
+      135,
+      175,
+      376,
+      362
+    ],
+    [
+      129,
+      175,
+      381,
+      362
+    ],
+    [
+      142,
+      175,
+      368,
+      362
+    ],
+    [
+      131,
+      175,
+      380,
+      362
+    ],
+    [
+      119,
+      175,
+      392,
+      362
+    ],
+    [
+      141,
+      175,
+      369,
+      362
+    ],
+    [
+      138,
+      175,
+      373,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1605,
+    0.1617,
+    0.1664,
+    0.1618,
+    0.159,
+    0.1609,
+    0.1371
+  ],
+  "sha256": "be37be644a107da9ec9d025c5d4adfdf3bf220523418095702a240b5d2db63bb",
+  "generation": "OpenAI built-in imagegen using Kobayakawa setting sheet; AI generated/composed into cells, not hand-drawn.",
+  "notes": "Rear-position ambush cut: compact low start, forward dash, low arrival, reverse-grip rise, diagonal cut, follow-through, recoil, guard. This is not the Samurai Shodown move/cell art; reference was the broad teleport-then-strike structure. Candidate and game assignment pending."
+}

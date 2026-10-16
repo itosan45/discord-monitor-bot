@@ -1,0 +1,111 @@
+{
+  "character": "徳川家康（影武者）",
+  "asset": "徳川家康_二段斬り_8コマ_v3.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_grid": [
+    2,
+    4
+  ],
+  "source_crop_boxes": "8 cells of 768x256",
+  "background_key": "border-connected magenta r>240,b>240,g<40 to preserve purple cloth",
+  "scale_by_frame": [
+    0.734375,
+    0.7736625514403292,
+    0.7100591715976331,
+    0.7642276422764228,
+    0.7372549019607844,
+    0.734375,
+    0.734375,
+    0.734375
+  ],
+  "frame_foreground_bboxes": [
+    [
+      17,
+      175,
+      493,
+      362
+    ],
+    [
+      137,
+      175,
+      373,
+      362
+    ],
+    [
+      16,
+      183,
+      495,
+      362
+    ],
+    [
+      82,
+      175,
+      429,
+      362
+    ],
+    [
+      16,
+      175,
+      494,
+      362
+    ],
+    [
+      100,
+      175,
+      410,
+      362
+    ],
+    [
+      21,
+      175,
+      489,
+      362
+    ],
+    [
+      34,
+      175,
+      477,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1588,
+    0.1902,
+    0.2278,
+    0.224,
+    0.2084,
+    0.2094,
+    0.2396
+  ],
+  "sha256": "d5ae96033a4a267015a1331ea1ff79ae3ad784bb16b97e5ed209bbece99a444a",
+  "generation": "OpenAI built-in imagegen using Ieyasu shadow setting; AI generated and composed into cells, not hand-drawn. v3 uses narrow magenta key.",
+  "notes": "Eight deliberate double-slash phases, from guard/load through two distinct cuts and recovery. v1/v2 retained as failed crop/segmentation trials; v3 visually reviewed. Candidate; game/runtime approval pending."
+}

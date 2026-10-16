@@ -1,0 +1,94 @@
+{
+  "asset": "本多忠勝_三段突き_8コマ_v3.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "frame_foreground_bboxes": [
+    [
+      22,
+      175,
+      488,
+      362
+    ],
+    [
+      68,
+      175,
+      442,
+      362
+    ],
+    [
+      16,
+      179,
+      495,
+      362
+    ],
+    [
+      34,
+      175,
+      466,
+      362
+    ],
+    [
+      19,
+      175,
+      491,
+      362
+    ],
+    [
+      41,
+      175,
+      469,
+      362
+    ],
+    [
+      29,
+      175,
+      482,
+      362
+    ],
+    [
+      16,
+      184,
+      495,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1908,
+    0.1986,
+    0.1913,
+    0.1959,
+    0.221,
+    0.2379,
+    0.2525
+  ],
+  "sha256": "a838716301f324b5877a1de8ee4580ca3724c82e7f85d119ea20a6b4e0ae6cdd",
+  "generation": "AI generated/composed into cells, not hand-drawn.",
+  "notes": "OpenAI built-in imagegen using Honda setting. v3 masks only detached cross-panel duplicate spear-tip/antler fragments below the active spear in frames 4-5. Visual review and gait/body preservation pending."
+}
