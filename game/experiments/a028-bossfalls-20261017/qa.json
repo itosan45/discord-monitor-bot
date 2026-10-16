@@ -674,6 +674,102 @@
       ],
       "sha256": "977853352a581e96363183ecb9084b1ef433b75d8f7a5e708efc74a23c7f3ab1",
       "status": "candidate_not_delivery"
+    },
+    {
+      "character": "福島正則",
+      "action": "転倒",
+      "file": "福島正則_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 349,
+      "frame_bboxes": [
+        [
+          58,
+          89,
+          325,
+          349
+        ],
+        [
+          70,
+          113,
+          313,
+          349
+        ],
+        [
+          52,
+          145,
+          330,
+          349
+        ],
+        [
+          55,
+          239,
+          327,
+          349
+        ]
+      ],
+      "sha256": "7193c5a9d2d961eb5cc906cdb67953c2091e5b48b0a92409a127777823252d2c",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "福島正則",
+      "action": "起き上がり",
+      "file": "福島正則_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 349,
+      "frame_bboxes": [
+        [
+          39,
+          227,
+          343,
+          349
+        ],
+        [
+          62,
+          173,
+          320,
+          349
+        ],
+        [
+          56,
+          163,
+          326,
+          349
+        ],
+        [
+          55,
+          110,
+          327,
+          349
+        ]
+      ],
+      "sha256": "7f6eedceb4e5383a115771525dd7d228ae2363a42a89345fbba966e00ba65743",
+      "status": "candidate_not_delivery"
     }
   ]
 }
