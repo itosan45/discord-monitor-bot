@@ -44,7 +44,7 @@ const SETUP=()=>{window.requestAnimationFrame=()=>0;AU.muted=true;G.noStory=true
   if(!r.hold)bad.push('場面の間も操作できる');if(r.rt<5)bad.push('家来が5人並ばない '+r.rt);if(r.camV>0.05)bad.push('場面でカメラが動く');
   if(!r.say1)bad.push('家来の吹き出しが出ない');if(!r.say2)bad.push('家康の吹き出しが出ない');
   if(!r.fled)bad.push('家康が逃げて画面から消えない');
-  if(!r.mk0||r.monk.type!=='tenkai'||r.monk.name!=='天海'||!r.monk.mid)bad.push('天海が現れない '+JSON.stringify(r.monk));if(!(r.monkAtk>=r.baseAtk*1.45&&r.monkAtk<=r.baseAtk*1.55)||!(r.monkRatio>=1.45&&r.monkRatio<=1.55))bad.push('天海が鉄球大僧の約1.5倍の強さでない '+r.monkRatio+' '+r.monkAtk+'/'+r.baseAtk);if(r.bossHud!=='天海'||r.after.boss!=='tenkai')bad.push('天海の体力ゲージが出ない(G.boss) '+r.bossHud);if(!r.say3)bad.push('天海・家康のやりとりの吹き出しが出ない');
+  if(!r.mk0||r.monk.type!=='tenkai'||r.monk.name!=='天海'||!r.monk.mid)bad.push('天海が現れない '+JSON.stringify(r.monk));/* 2026-10-16 オーナー「天海が弱すぎる」: 体力は鉄球大僧の約10倍(1900)、技は1.5倍 */if(!(r.monkAtk>=r.baseAtk*1.45&&r.monkAtk<=r.baseAtk*1.55)||!(r.monkRatio>=8))bad.push('天海が十分に強くない '+r.monkRatio+' '+r.monkAtk+'/'+r.baseAtk);if(r.bossHud!=='天海'||r.after.boss!=='tenkai')bad.push('天海の体力ゲージが出ない(G.boss) '+r.bossHud);if(!r.say3)bad.push('天海・家康のやりとりの吹き出しが出ない');
   if(r.after.phase!=='shield2'||r.after.hold)bad.push('会話のあと操作が戻らない '+JSON.stringify(r.after));if(r.after.scene>0)bad.push('会話のあとも家来が動かない');
   if(r.clear.state!=='clear')bad.push('盾を倒しても幕クリアにならない '+JSON.stringify(r.clear));
   if(r.next.stage!==6||r.next.jp!=='第七幕'||r.next.chase)bad.push('第七幕に進まない '+JSON.stringify(r.next));if(r.next.boss!=='boss3')bad.push('第七幕の最後が家康でない');
