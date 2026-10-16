@@ -1,0 +1,189 @@
+[
+  {
+    "file": "assets/sprites/伊達政宗_やられ_8コマ_AI仮_v1.png",
+    "size": [
+      3392,
+      430
+    ],
+    "frames": 8,
+    "cell_width": 424,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_号令_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_大技_8コマ_AI仮_v1.png",
+    "size": [
+      3184,
+      430
+    ],
+    "frames": 8,
+    "cell_width": 398,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_待機_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_歩き_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_突進_6コマ_AI仮_v1.png",
+    "size": [
+      2040,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 340,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_被弾_2コマ_AI仮_v1.png",
+    "size": [
+      600,
+      430
+    ],
+    "frames": 2,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_跳躍斬り_7コマ_AI仮_v1.png",
+    "size": [
+      2100,
+      430
+    ],
+    "frames": 7,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/伊達政宗_通常攻撃_5コマ_AI仮_v1.png",
+    "size": [
+      1500,
+      430
+    ],
+    "frames": 5,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_やられ_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_大技_8コマ_AI仮_v1.png",
+    "size": [
+      2960,
+      430
+    ],
+    "frames": 8,
+    "cell_width": 370,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_待機_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_歩き_5コマ_AI仮_v1.png",
+    "size": [
+      1500,
+      430
+    ],
+    "frames": 5,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_無刀取り_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_突進_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_被弾_2コマ_AI仮_v1.png",
+    "size": [
+      600,
+      430
+    ],
+    "frames": 2,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/柳生宗矩_通常攻撃_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  }
+]
