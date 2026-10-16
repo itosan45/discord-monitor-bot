@@ -1,0 +1,105 @@
+{
+  "character": "福島正則",
+  "asset": "福島正則_跳び込み攻撃_8コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "frame_foreground_bboxes": [
+    [
+      127,
+      204,
+      396,
+      350
+    ],
+    [
+      121,
+      84,
+      379,
+      273
+    ],
+    [
+      130,
+      76,
+      351,
+      283
+    ],
+    [
+      125,
+      115,
+      390,
+      314
+    ],
+    [
+      115,
+      147,
+      396,
+      335
+    ],
+    [
+      115,
+      147,
+      390,
+      337
+    ],
+    [
+      124,
+      152,
+      375,
+      345
+    ],
+    [
+      115,
+      158,
+      392,
+      345
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    178230,
+    176794,
+    173289,
+    176862,
+    161473,
+    166171,
+    172877,
+    174035
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1839,
+    0.1382,
+    0.1516,
+    0.2089,
+    0.1951,
+    0.1871,
+    0.1484
+  ],
+  "sha256": "edfcf33dc9c2180946f1e19893a5ff7b0a377742b3a495b24dd9fef1dede273e",
+  "generation": "OpenAI built-in imagegen; AI generated and composed into cells, not hand-drawn. v2 removes disconnected fragments under 1000 pixels per cell while retaining connected impact dust.",
+  "notes": "Right-facing fierce naginata boss. Eight poses: launch, leap, overhead wind-up, descending two-hand grip, ground-breaking naginata slam, aftershock, lift and recover, guard. v1 retained for comparison; v2 keeps the main pose/connected impact while removing isolated cross-cell fragments. Visual/gameplay approval pending."
+}

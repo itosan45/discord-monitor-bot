@@ -1,0 +1,106 @@
+{
+  "character": "黒田長政",
+  "asset": "黒田長政_跳び込み攻撃_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      128,
+      203,
+      396,
+      378
+    ],
+    [
+      115,
+      93,
+      349,
+      289
+    ],
+    [
+      146,
+      86,
+      366,
+      295
+    ],
+    [
+      143,
+      95,
+      388,
+      295
+    ],
+    [
+      124,
+      167,
+      396,
+      371
+    ],
+    [
+      115,
+      184,
+      395,
+      369
+    ],
+    [
+      131,
+      162,
+      388,
+      350
+    ],
+    [
+      116,
+      159,
+      394,
+      341
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    174624,
+    176547,
+    172760,
+    174222,
+    168778,
+    173871,
+    175083,
+    172977
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1987,
+    0.1345,
+    0.1452,
+    0.2059,
+    0.1637,
+    0.153,
+    0.143
+  ],
+  "sha256": "2ac6357ad2314665301933cd00c8f2d79bdc83dc88d6c6e8c409b2e68feb8554",
+  "generation": "OpenAI built-in imagegen; references: Kobayakawa setting and existing jump 4-frame v2; AI generated and composed into cells, not hand-drawn.",
+  "notes": "Right-facing long-haired dual-sword warrior with blue-and-gold armor and torn patterned cloak. Sequence: launch, ascent, crossed dual-sword apex wind-up, crossed blades pointed down-forward during descent, rotating dual-sword ground impact, aftershock, recovery, guard. This is a candidate only; visual and runtime approval pending."
+}
