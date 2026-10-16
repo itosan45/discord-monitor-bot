@@ -1,0 +1,85 @@
+{
+  "character": "本多忠勝",
+  "asset": "本多忠勝_跳び込み攻撃_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      142,
+      220,
+      379,
+      366
+    ],
+    [
+      141,
+      93,
+      332,
+      264
+    ],
+    [
+      147,
+      94,
+      368,
+      274
+    ],
+    [
+      155,
+      96,
+      360,
+      291
+    ],
+    [
+      139,
+      176,
+      385,
+      383
+    ],
+    [
+      136,
+      179,
+      386,
+      383
+    ],
+    [
+      136,
+      166,
+      379,
+      360
+    ],
+    [
+      118,
+      166,
+      383,
+      360
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    184011,
+    186569,
+    182805,
+    185487,
+    179383,
+    179765,
+    180847,
+    180533
+  ],
+  "sha256": "d92434471a2c7425fd9ac15685e6337b468f72b628218238f84b81ed3bc61f2b",
+  "generation": "OpenAI built-in imagegen; source references: Honda setting sheet and jump_4frame_v2. AI generated and composited; not hand-drawn.",
+  "notes": "Per-character landing: reversed spear vertically planted into ground; impact and aftershock differ in body/arm position. No runtime/game QA."
+}
