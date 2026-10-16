@@ -978,3 +978,11 @@ node tests/tmeta.js           # 位置データ欠けがないか必ず確認
 - 変更前の版でも失敗する既存テスト(未修正): tvoicelines, tmountedmusashi, tspecialworldfreeze, tdemomountpreference, tmountwhirl, tride, twalkcycle。
 - 定期の見回り(画像担当の新しい絵の確認, trig_01JA9Ry7qjsBPWsPoJKY3wRP)は毎時。新しい絵が無ければ何もしない。
 - 未確認(共通): 実機(Android)、幸村以外の武将での第六幕・第七幕の通し、家康の声の聞こえ方。
+
+## 6.94 既存の失敗テストの修理・敵キャラ案の受け取り・ボスの絵の一覧(2026-10-16 夜)
+- テスト5本を今の仕様に合わせて修理(ゲーム本体は変えていない): tvoicelines(起き上がり無敵 `wakeInv` を解いてから撃破)、tride(`sprAllReady` で馬上の絵の読み込みを待つ)、tmountwhirl(雑兵の正面ガードの乱数を `__noGuard` で外す)、tmountedmusashi・tdemomountpreference(馬上3連撃の専用絵 `mountnorm_*` と、10-11の「全編自動デモは馬なし設定でも馬に乗る」に合わせる)。
+- 残り: tspecialworldfreeze は、必殺の止め中に止まるはずの敵が体の押し合いで数px動くことがあり(updEnemy は呼ばれていない)、回ごとに結果が変わる。馬上の必殺(6.83の竿立ち)は叩きつけで敵を吹き飛ばすので、テストの「敵の位置が変わらない」は仕様と合わない。twalkcycle は絵の歩容の未解決を再現する試験なので、絵が直るまで失敗のまま。
+- テストの実行(この環境): `CHROME_BIN=/opt/pw-browsers/chromium-1194/chrome-linux/chrome PLAYWRIGHT=/opt/node-tools/node_modules/playwright GAME_URL=http://127.0.0.1:8876/index.html`。既定の保存先が `C:/...` のテストはリポジトリ直下に `C:` フォルダを作る(`game/C:/` の古い記録はコミット済みなので消さない)。
+- オーナー作の敵キャラ案3体を experiments に保存: 黒具足の薙刀武者(→第七幕の家康の親衛隊に、A-026)、覆面の薙刀僧兵(小さく使い回しが多い→清書を A-027)、徳川の忍頭(鎖鎌・手裏剣、服部半蔵の案→清書を A-029)。どれも未組み込み。
+- 赤い鎧武者の専用の絵を A-025 で依頼(色フィルタは低画質設定で切れるので、緑の敵の絵のまま出ている)。
+- ボスの絵の一覧(オーナー依頼): https://claude.ai/artifact/Wm9UnphN4PfbWwQQHvnH9M 。元からいる武将8人は攻撃の絵が3種類で「大技」を2〜3技で使い回し、転倒・起き上がりも無い→ A-028(専用の絵+追加の近接技1つずつ。オーナー「古いボスの攻撃モーションのバリエーションが少ない」)。
