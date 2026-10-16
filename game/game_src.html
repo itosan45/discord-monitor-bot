@@ -557,7 +557,7 @@ function startStage(si,ch,demo,keep){G.s7=null;G.bossBgmKeep=0;if(HZ[si]==='cann
    out.push({gap:i===0?620:900+(i%3)*120,en});}
   {const mids=bs.filter(w=>w.mid);out.splice(N>>1,0,...mids);ws=out.concat(bs.filter(w=>!w.mid));}}
  let x=0;G.waves=ws.map(w=>{x+=demo?560:w.gap;return{x,en:w.en,boss:w.boss};});
- G.monkN=0;G.hon=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>honKey(w.boss)));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
+ G.monkN=0;G.hon=null;G.genAid=null;{const need=new Set(G.waves.filter(w=>w.boss).map(w=>honKey(w.boss)));for(const k of Object.keys(HONMARU))if(!need.has(k)){HONMARU[k].src='';delete HONMARU[k];}/* 他の幕の本丸はメモリから捨てる */for(const k of need)loadHonmaru(k);}
  G.wi=0;G.camx=0;G.camMax=G.waves[0].x;G.waveOn=false;G.sq=[];G.fighters=[];G.steeds=[];G.lanes=[];G.battery=null;G.fires=[];G.marks=[];G.stuck=[];G.hzW=-1;G.hzT=0;G.hzMsg=null;G.items=[];G.proj=[];G.parts=[];G.props=[];G.deco=[];G.boss=null;G.decals=[];G.state='run';G.stateT=0;G.cut=null;G.spcScene=null;G.ult=null;G.zm=1;G.zp=null;G.slow=0;G.shake=0;G.hitstop=0;G.runT=0;G.vo=null;G.lastEn=null;G.time=Math.round((STG[si].time||TIME_LIMIT)*60*(demo?1:1.35));G.over=null;G.partner=null;
  const p=mk(ch,160,570,0);if(isDemoNpc(ch))setupNpcHero(p);if(keep){p.hp=Math.min(p.maxhp,keep.hp+35);p.ki=keep.ki;}p.inv=60;G.player=p;G.fighters.push(p);
  G.rear=null;G.rearUsed=false;G.coverCd=0;
@@ -929,7 +929,7 @@ function onKill(t,own){if(t.ally)return;
  }else AU.sfx('die');
 }
 function bossDown(b,own){
- if(b.bossDownDone)return;b.bossDownDone=true;if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);if(G.curCh==='yuki')b.iyDie=AU.iyLine('migoto');G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='munenori')say(b,'見事……。\n父上、宗矩はまだ修行が足りませぬ……',220);if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
+ if(b.bossDownDone)return;b.bossDownDone=true;generalLeave();if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);if(G.curCh==='yuki')b.iyDie=AU.iyLine('migoto');G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='munenori')say(b,'見事……。\n父上、宗矩はまだ修行が足りませぬ……',220);if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
  const last=G.wi>=G.waves.length-1&&!(G.s7&&b!==G.s7.ie);/* 第七幕の砦で倒した宗矩などは幕の終わりにしない */
  G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=b.iyDie||AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);/* 本物の家康は専用の声 */G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
  for(const e of G.fighters)if(e.team===1&&e.hp>0&&!(G.s7&&e===G.s7.ie)){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
@@ -1720,7 +1720,7 @@ function updWorld(){
    const alive=G.fighters.some(e=>e.team===1&&e.hp>0);
    if(!alive&&!G.sq.length&&!G.boss){G.waveOn=false;G.wi++;if(G.wi<G.waves.length){G.camMax=G.waves[G.wi].x;G.goT=1;}}}
  }
- G.runT++;if((G.coverCd||0)>0)G.coverCd--;rearCheck();rearStep();saySched();
+ G.runT++;if((G.coverCd||0)>0)G.coverCd--;rearCheck();rearStep();saySched();generalAid();
  if(!G.demo&&G.state==='run'&&!G.waveOn&&G.wi>0&&G.wi<G.waves.length-1&&G.runT%230===0){const al=G.fighters.filter(e=>e.team===1&&e.hp>0).length;if(al<2)spawnEn(pick(['sword','spear','gun','archer','sword']),Math.random()<0.6?1:-1);}
  if(G.state==='run'&&!G.demo&&!G.auto&&!(G.chase&&G.chase.on)/* 追撃戦の間は制限時間を止める */){G.time--;if(G.time>0&&G.time%60===0){const sc=Math.ceil(G.time/60);if(sc<=10)AU.sfx('tick2');else if(sc<=30)AU.sfx('tick');}if(G.time<=0){G.time=0;AU.bgm(9);G.state='continue';G.over='time';G.stateT=0;AU.sfx('warn');}}
  for(const f of G.fighters){if(f.npcHero&&f===p)npcHeroStep(f,c);else if(f.ally){if(f.hp>0&&(f.state==='idle'||f.state==='walk')&&allyStep(f))continue;updEnemy(f);}else if(f.team===0)updPlayer(f,f===p?c:(G.chase&&G.chase.hold?{}:partnerCtl(f)))/* 家来の盾の場面の間は味方も動かない */;else updEnemy(f);if(G.spcScene||G.ult)return;}
@@ -1776,14 +1776,29 @@ function addScore(n){G.score+=n;if(G.demo)return;while(G.score>=G.nextLife){G.li
 function nearestFoe(p){let b=null,bd=1e9;for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying||e.state==='dead'||!e.entered)continue;const d=Math.abs(e.x-p.x)+Math.abs(e.y-p.y)*2+(sgn(e.x-p.x)===p.face?0:300);if(d<bd){bd=d;b=e;}}return b;}
 /* 2026-10-16 オーナー「相方が死んだら、幸村の場合は真田の雑兵が援護に来る。赤い甲冑の歩兵と鎧武者。セリフ付きで。無論弱い」
    相方が倒れて1秒後、幸村のとき: 赤備えの槍足軽2人+赤い鎧武者1人が画面の端から駆けつける(味方・弱い)。相方が起き上がるか25秒で退く */
+
+/* 2026-10-16 オーナー「大谷吉継と島津義弘も味方で出して」: 西軍の武将が、史実に縁のあるボス戦に加勢する。
+   大谷吉継=第二幕の小早川秀秋戦(小早川の寝返りを正面から受けた)、島津義弘=第六幕の井伊直政戦(島津の退き口で井伊隊とぶつかった)。
+   絵は画像担当に依頼中(A-030)。届くまではコードで描く仮の姿(spr のアトラスが無いと drawFighterP)。ボスを倒すと退く */
+TY.otani=Object.assign({},TY.samurai,{type:'otani',name:'大谷吉継',spr:'otani',sc:1.05,hp:260,spd:2.2,wp:'katana',tip:100,helm:'ninja',score:0,col:{armor:'#e9e4d6',armor2:'#a8a294',trim:'#7a6a4a',cloth:'#f1ede2',skin:'#e0b48c'},banner:{bg:'#f1ede2',k:'circ'},
+ atk:[{pz:'swing',a0:-2.4,a1:0.9,r:38,dur:36,hs:16,he:22,rng:130,dmg:14,kb:4,lunge:2,sfx:'slash'},{pz:'thrust',dur:34,hs:14,he:20,rng:140,dmg:12,kb:5,lunge:4,sfx:'thrust'}]});
+TY.shimazu=Object.assign({},TY.samurai,{type:'shimazu',name:'島津義弘',spr:'shimazu',sc:1.05,hp:300,spd:2.8,wp:'odachi',tip:130,helm:'iron',score:0,col:{armor:'#1f1f24',armor2:'#0e0e12',trim:'#c9a24a',cloth:'#3a2a1e',skin:'#d9ad8d'},banner:{bg:'#f1ede2',k:'circ'},
+ atk:[{pz:'swing',a0:-2.6,a1:1.0,r:42,dur:38,hs:16,he:22,rng:150,dmg:16,kb:6,lunge:3,sfx:'heavy'},{pz:'thrust',dur:40,hs:16,he:30,rng:150,dmg:14,kb:7,launch:true,lunge:9,sfx:'thrust'}]});
+const GEN_AID={1:{boss:'boss4',ty:'otani',in:'金吾め、やはり寝返ったか！\nこの大谷刑部が相手じゃ！',bossS:'お、大谷刑部……！',hero:{yuki:'義父上！\nかたじけない！',mitsu:'刑部！\n来てくれたか！'},heroS:'大谷殿！\nかたじけない！',bye:'金吾、人面獣心なり……\n三年のうちに祟りをなさん！',out:-1},
+ 5:{boss:'boss1',ty:'shimazu',in:'島津の退き口、\nとくと見よ！ チェストォ！',bossS:'島津め、逃がすな！',hero:{mitsu:'島津殿……！\n力を貸してくだされ！'},heroS:'島津殿！\nかたじけない！',bye:'我らは前へ退く！\n薩摩へ帰るぞ、さらばじゃ！',out:1}};
+const GENAID_FORCE=new URLSearchParams(location.search).get('genaid')==='1';/* 絵が届く前の確認用: ?genaid=1 でコードの仮の姿のまま出す */
+function generalAid(){if(G.demo||G.howto||G.mode!=='play'||G.state!=='run'||G.banner)return;const A=GEN_AID[G.stage],b=G.boss,P=G.player;if(!A||!(SPR_RAW[TY[A.ty].spr]||GENAID_FORCE)/* 絵が届くまでは出さない(コードの仮の姿は「からくり武者」に見える) */||G.genAid===G.stage||!b||!P||b.T.type!==A.boss||!b.entered||b.hp<=0)return;G.genAid=G.stage;
+ const sd=P.x>G.camx+W/2?1:-1,e=mk(A.ty,sd<0?G.camx-70:G.camx+W+70,clamp(P.y+30,YMIN+8,YMAX-8),0);e.ally=true;e.genAid=A;e.entered=true;e.face=-sd;e.cool=60;e.dm=0.9;e.allyEnd=G.t+999999;e.allyIn=G.t+60;e.sayAt=G.t+40;e.sayS=A.in;G.fighters.push(e);
+ b.sayAt=G.t+150;b.sayS=A.bossS;P.sayAt=G.t+260;P.sayS=A.hero[P.T.type]||A.heroS;AU.sfx('roar');}
+function generalLeave(){for(const e of G.fighters)if(e.genAid&&e.hp>0&&!e.allyGo){e.allyGo=true;e.allyOut=e.genAid.out;say(e,e.genAid.bye,200);}}
 const SANADA_AID=[['akabi','殿！ 真田の者ども、\nただいま参上！'],['yoroi','赤備え、ここにあり！\n殿をお守りいたせ！'],['akabi',null]];
-function sanadaAid(q){const P=G.player;if(!P||P.T.type!=='yuki'||G.chase&&G.chase.hold||G.howto)return;if(G.fighters.some(f=>f.ally&&f.hp>0))return;
+function sanadaAid(q){const P=G.player;if(!P||P.T.type!=='yuki'||G.chase&&G.chase.hold||G.howto)return;if(G.fighters.some(f=>f.ally&&!f.genAid&&f.hp>0))return;
  const sd=P.x>G.camx+W/2?-1:1;SANADA_AID.forEach(([ty,line],i)=>{if(!TY[ty])return;const e=mk(ty,sd<0?G.camx-60-i*40:G.camx+W+60+i*40,clamp(P.y+(i-1)*40,YMIN+8,YMAX-8),0);e.ally=true;e.entered=true;e.face=-sd;e.redTint=ty==='yoroi';e.maxhp=e.hp=Math.round(e.hp*0.6);e.dm=0.5;/* 弱い: 体力6割・与ダメ半分 */e.cool=rndi(20,60);e.allyEnd=G.t+25*60;e.allyIn=G.t+70;/* 画面の外から駆け込む間は画面内に押し込まない */if(line){e.sayAt=G.t+20+i*95;e.sayS=line;}G.fighters.push(e);});
  AU.sfx('roar');P.sayAt=G.t+215;P.sayS='おお、よう来てくれた！\n頼むぞ！';}
 /* 予約したセリフを順に出す(必殺の止め絵の間に溜まっても、前のセリフから70コマ空けて1つずつ) */
 function saySched(){for(const f of G.fighters){if(!f.sayAt||G.t<f.sayAt)continue;if(G.t-(G.saySchT||-999)<70){f.sayAt=G.saySchT+70;continue;}if(f.hp>0)say(f,f.sayS,f===G.player?130:150);f.sayAt=0;G.saySchT=G.t;}}
-function sanadaLeave(){for(const e of G.fighters)if(e.ally&&e.hp>0&&!e.allyGo){e.allyGo=true;if(!G.fighters.some(f=>f.ally&&f.allySaid))e.allySaid=say(e,'殿、ご武運を！',110)||true;}}
-function allyStep(e){if(e.allyIn>G.t){const P=G.player,tx=P.x-e.face*-1*0;e.x+=e.face*5;e.state='walk';e.wp=(e.wp||0)+0.3;return true;}if(G.t>e.allyEnd)sanadaLeave();if(e.allyGo){const out=e.x<G.camx+W/2?-1:1;e.x+=out*4.5;e.state='walk';e.face=out;e.wp=(e.wp||0)+0.3;if(e.x<G.camx-140||e.x>G.camx+W+140){e.hp=0;e.state='dead';e.st=999;e.gone=true;}return true;}
+function sanadaLeave(){for(const e of G.fighters)if(e.ally&&!e.genAid&&e.hp>0&&!e.allyGo){e.allyGo=true;if(!G.fighters.some(f=>f.ally&&!f.genAid&&f.allySaid))e.allySaid=say(e,'殿、ご武運を！',110)||true;}}
+function allyStep(e){if(e.allyIn>G.t){const P=G.player,tx=P.x-e.face*-1*0;e.x+=e.face*5;e.state='walk';e.wp=(e.wp||0)+0.3;return true;}if(G.t>e.allyEnd)sanadaLeave();if(e.allyGo){if(e.allyGoT===undefined)e.allyGoT=G.t;if(G.t-e.allyGoT<90&&e.genAid){e.state='idle';return true;}/* 別れのセリフを言い終わるまで立ち止まる */const out=e.allyOut||(e.x<G.camx+W/2?-1:1);e.x+=out*4.5;e.state='walk';e.face=out;e.wp=(e.wp||0)+0.3;if(e.x<G.camx-140||e.x>G.camx+W+140){e.hp=0;e.state='dead';e.st=999;e.gone=true;}return true;}
  if(!G.fighters.some(f=>f.team===1&&f.hp>0&&!f.dying&&!f.isProp)){const P=G.player,tx=P.x-P.face*(90+((e.id||0)%3)*40);if(Math.abs(tx-e.x)>20){e.x+=sgn(tx-e.x)*2.2;e.state='walk';e.face=sgn(tx-e.x);e.wp=(e.wp||0)+0.3;}else e.state='idle';return true;}return false;}
 function nearestAlly(e){if(e.team===0){let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==1||f.hp<=0||f.dying||f.isProp||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}if(G.auto&&demoView.motion!=='auto'&&e.debugEnemy){const d=mk('yuki',e.x+e.face*180,e.y,0);d.inv=999;return d;}if(G.rear&&G.rear.ph==='call'&&e.team===1)return G.rear.q;let best=null,bd=1e9;for(const f of G.fighters){if(f.team!==0||f.hp<=0||f.state==='dead')continue;const d=Math.abs(f.x-e.x)+Math.abs(f.y-e.y)*2;if(d<bd){bd=d;best=f;}}return best||G.player;}
 function partnerCtl(f){let c=demoCtl(f,!f.rear);f.seeking=false;
