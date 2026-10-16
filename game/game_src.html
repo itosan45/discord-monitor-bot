@@ -518,7 +518,7 @@ function slashFx(x,y,z,face,len,life,col,ang){G.parts.push({k:'slash',x,y,z,vx:0
 function ring(x,y,r,col,life){PT({x,y,z:4,life:life||24,k:'ring',sz:r,col});}
 
 /* ---------- stage start ---------- */
-function startStage(si,ch,demo,keep){
+function startStage(si,ch,demo,keep){G.s7=null;
  if(CHASEJUMP&&si===0&&!demo&&!G.auto)si=5;
  G.chase=null;G.stage=si;ART=ART&&ART.S===STG[si]?ART:buildArt(si);G.demo=demo;const L=LV[si];
  let ws=L.waves.slice();if(demo)ws=[ws[0],ws[2],ws[ws.length-1]];
@@ -802,7 +802,7 @@ function bossBgm(e){return G.stage>=5&&e&&e.T&&e.T.type==='boss3'?10:3;}
 const ENCAP=(('ontouchstart' in window)||navigator.maxTouchPoints>0)?7:10;
 function spawnEn(type,side){if(type==='rider'&&Math.random()<0.5)type='lancer';const e=mk(type,side>0?G.camx+W+70:G.camx-70,rnd(YMIN+8,YMAX-8),1);e.face=-side;e.entered=false;
  if(type==='monk'){/* 鉄球大僧は同じ見た目が何体も出ると違和感が強いので、出る順に色違い(元の紫・緑の袈裟・朱の袈裟+日焼け)にする */const n=G.monkN||0;G.monkN=n+1;e.var=['','b','c'][n%3];}
- if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;if(type==='masamune'&&!G.demo)G.mmScr={t:0,e};}
+ if(TY[type].boss){e.maxhp=Math.round(e.maxhp*4.6);e.poiseK=1.6;e.hp=e.maxhp;e.inv=90;e.state='idle';G.boss=e;setHonmaru(type);AU.sfx('roar');{const T0=TY[type],inf=T0.info||{};G.banner={t:0,frozenAt:G.t,boss:true,long:true,jp:T0.name,kana:inf.kana,role:inf.role,desc:inf.desc,title:'',en:'WARNING'};}AU.bgm(bossBgm(e));G.shake=14;if(type==='masamune'&&!G.demo)G.mmScr={t:0,e};if(type==='boss3'&&G.s7&&!G.s7.ie){G.s7.ie=e;e.scene=true;e.tx=G.camx+W-150;e.y=clamp(560,YMIN+8,YMAX-8);}}
  if(!G.demo&&!G.auto){e.maxhp=Math.round(e.maxhp*diffNow().hp);e.hp=e.maxhp;}if(G.partner&&!G.demo){const m=TY[type].boss?1.15:1.25;e.maxhp=Math.round(e.maxhp*m);e.hp=e.maxhp;e.spd*=1.04;}
  if(TY[type].ai==='rider'){e.rp='wait';e.rt=rndi(20,70);e.dir=-side;e.face=e.dir;e.state='walk';e.pass=0;e.entered=false;e.ry=clamp(G.player.y+rnd(-12,12),YMIN,YMAX);e.x=e.dir>0?G.camx-420:G.camx+W+420;}
  keepFighterOnScreen(e);e.entered=true;G.fighters.push(e);if(TY[type].boss){const chb=G.chase&&type==='boss3';if(chb)chaseBossSetup(e);else bossGuards(e);startBossStory(e);}return e;}
@@ -821,7 +821,7 @@ function mikiri(t,own,a){const hx=t.x+t.face*30,hz=t.z+90;AU.clang?AU.clang(hx):
 function gunbaiCounter(t,own,a){if(t.T.type!=='shin'||t.wpn||t.mount||!own||own.team!==1||a.k||own.hp<=0||Math.abs(own.x-t.x)>180||Math.abs(own.y-t.y)>40||(t.gcT||0)>G.t)return;
  t.gcT=G.t+40;ring(t.x+t.face*50,t.y,70,'rgba(255,220,120,0.95)',16);for(let i=0;i<12;i++)PT({x:t.x+t.face*50,y:t.y,z:t.z+90,vx:t.face*rnd(1,6),vz:rnd(-2,4),life:rndi(10,18),sz:rnd(2,4),col:'#fff2b0',k:'spark'});
  AU.sfx('clang');hurt(own,{x:t.x,face:t.face,team:0,owner:t,hit:null},{dmg:16,kb:8,launch:true,unblock:true,pz:'swing'});}
-function hurt(t,a,d){
+function hurt(t,a,d){if(G.s7&&t===G.s7.ie&&G.s7.ph!=='fight')return;/* 第七幕: 家来を突破するまで家康には攻撃が届かない */
  if(t.team===1&&t.hp>0&&((t.wakeInv>G.t)||(t.chaseRun&&G.chase&&(G.chase.phase==='block'||G.chase.phase==='shield'))))return;/* ボスの起き上がり無敵(2.5秒)・追撃戦で駆け去っている間は、騎馬攻撃など直接 hurt を呼ぶ攻撃も当たらない */
  const own=a.owner||a;if(a.hit)a.hit.add(t);
  let dmg=d.dmg*(own.dm||1);const dir=a.face||sgn(t.x-a.x);if(t.T&&t.T.boss)dmg*=1.4;{const cm=chipMul(t,own);dmg*=cm;t.chipHit=cm<1;if(cm<1)for(let i=0;i<3;i++)PT({x:t.x,y:t.y,z:t.z+80+rnd(-24,24),vx:rnd(-3,3),vz:rnd(0,3),life:8,sz:2.2,col:'#b8b8c4',k:'spark'});}if(own.wpn&&!a.owner&&own.team===0&&own.wpn.k!=='teppo'&&own.wpn.k!=='yumi')useWpn(own);if(own.wpn&&own.wpn.k==='yoto'&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+2);if(d.fx==='yoki'&&!own.wpn&&own.team===0&&t.team===1)own.hp=Math.min(own.maxhp,own.hp+1);
@@ -890,7 +890,7 @@ function onKill(t,own){
  }else AU.sfx('die');
 }
 function bossDown(b,own){
- if(b.bossDownDone)return;b.bossDownDone=true;if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
+ if(b.bossDownDone)return;b.bossDownDone=true;if(G.s7&&b===G.s7.ie){say(b,G.curCh==='yuki'?'見事じゃ……真田……。\n儂の、負けじゃ……':'見事じゃ……。\n天下は、そなたらに……',260);G.s7=null;G.slow=Math.max(G.slow,140);}if(b.T.type==='masamune'){G.mmScr=null;say(b,'この借り、いずれ大坂で返す……！',200);}/* 史実では生き残る。絵が届くまでは倒れる絵のまま(退く動きは未実装) */ // 同じフレームの多段ヒットで二重に呼ばれても、最期のセリフ・討ち取ったりは1回だけ
  const last=G.wi>=G.waves.length-1;
  G.vo={t:0,name:b.T.name};/* 敵将の最期のセリフ(見事なり/まさか、このワシが)→ 言い終わってから「討ち取ったり」 */const dl=AU.bossLine((G.bossDieI=((G.bossDieI||0)+1)%2)?'masaka':'migoto',b,1.8);G.voAt=dl?Math.ceil(dl*60)+24:54;if(!last)setTimeout(()=>AU.voice(G.curCh),dl?Math.round(dl*1000)+400:900);AU.sfx('boom');G.flashT=14;G.shake=24;
  for(const e of G.fighters)if(e.team===1&&e.hp>0){e.hp=0;e.dying=true;knock(e,sgn(e.x-b.x),6,9);}
@@ -1479,7 +1479,7 @@ function chaseHud(){const C=G.chase;if(!C||!C.on)return;const b=G.boss;
  if(b&&b.hp>0&&!C.shielded){ctx.fillStyle='#ffe070';ctx.fillRect(W/2-300+600*0.9-1,128,3,24);txt('ここまで削れ',W/2-300+600*0.9,176,13,'#ffe9a8','center','#000',3);}
  if(b&&b.mount){txt('家康の馬',W-40,150,18,'#ffd070','right','#000',3);for(let i=0;i<b.mount.max;i++){ctx.fillStyle=i<b.mount.hp?'#e8a040':'rgba(60,40,30,0.8)';ctx.fillRect(W-40-(b.mount.max-i)*20,164,16,14);}}}
 function updEnemy(e){
- if(e.scene){e.t++;e.st++;if(e.flash>0)e.flash--;e.face=-1;e.inv=Math.max(e.inv,6);const k=e.tx-e.x;if(Math.abs(k)>2){e.x+=clamp(k*0.06,-3.4,3.4);e.state='walk';e.wp=(e.wp||0)+0.3;}else{e.state='idle';}return;}/* 家来の盾の場面: 並ぶまで歩いて、会話の間は動かない */
+ if(e.scene&&e.sceneEnd&&G.t>=e.sceneEnd){e.scene=false;e.sceneEnd=0;}if(e.scene){e.t++;e.st++;if(e.flash>0)e.flash--;e.face=e.sceneFace||-1;e.inv=Math.max(e.inv,6);const k=e.tx-e.x;if(Math.abs(k)>2){e.x+=clamp(k*0.06,-3.4,3.4);e.state='walk';e.wp=(e.wp||0)+0.3;}else{e.state='idle';}return;}/* 家来の盾の場面: 並ぶまで歩いて、会話の間は動かない */
  if(e.state==='held'&&e.heldBy&&e.heldBy.spearThrow&&e.heldBy.spearThrow.e===e){const p=e.heldBy;if(p.state==='throw'&&!p.spearThrow.released){e.t++;e.st++;if(e.flash>0)e.flash--;attachSpearVictim(p,e);return;}cancelSpearThrow(p);}
  const p=nearestAlly(e);e.t++;e.st++;if(e.cool>0)e.cool--;if(e.inv>0)e.inv--;if(e.pinv>0)e.pinv--;if(atkInv(e))e.inv=Math.max(e.inv,2);if((e.T.boss||e.T.mid)&&e.hp>0&&!G.lowq&&e.t%7===0&&bossOpen(e)&&e.state!=='down'&&e.state!=='getup')PT({x:e.x+rnd(-18,18),y:e.y,z:e.z+(e.T.boss?176:150)+rnd(-8,8),life:11,k:'star',sz:rnd(22,34),col:'#ffd860'});if(e.flash>0)e.flash--;if(e.showBar>0)e.showBar--;if(e.kd>0)e.kd--;if(e.poise>0&&e.t%6===0)e.poise-=1;
  const T=e.T;airFix(e);if(e.hide&&!(e.state==='atk'&&e.cur&&e.cur.k==='warp'))e.hide=false;/* 瞬身の途中で割り込まれても姿を戻す */
@@ -1656,13 +1656,15 @@ function updWorld(){
  chaseStep();
  // controls
  let c;if(G.howto)c=G.htc||{};else if(G.demo||G.auto)c=demoCtl(p);else c=ctlKeys();
- mmStep();if(G.chase&&G.chase.hold){c={};if(p&&p.hp>0)p.inv=Math.max(p.inv,6);}/* 家来の盾の場面の間は操作を受けつけない */
+ mmStep();s7Step();if((G.chase&&G.chase.hold)||(G.s7&&G.s7.hold)){c={};if(p&&p.hp>0)p.inv=Math.max(p.inv,6);}/* 家来の盾の場面の間は操作を受けつけない */
  // wave logic
  if(G.state==='run'){
-  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&G.stage===5&&w.boss==='boss3'&&!G.demo;/* 2026-10-15 ステージデモ(全編自動)でも追撃戦→盾→第七幕を見せる(オーナーはデモを流して判断する) */
+  if(!G.waveOn&&G.wi<G.waves.length&&G.camx>=G.camMax-2){G.camx=G.camMax;G.waveOn=true;G.sq=[];const w=G.waves[G.wi];const chs=CHASE&&G.stage===5&&w.boss==='boss3'&&!G.demo,s7=CHASE&&G.stage===6&&w.boss==='boss3'&&!G.demo;/* 2026-10-15 ステージデモ(全編自動)でも追撃戦→盾→第七幕を見せる(オーナーはデモを流して判断する) */
    if(w.boss)G.sq.push({type:w.boss,d:50,side:1});
-   if(!chs)for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
+   if(s7){G.s7={ph:'intro',t:0,surge:0,st:0,said:{}};G.time=Math.max(G.time,200*60);}/* 第七幕の最後: 家来の波を3度突破してから家康と戦う */
+   if(!chs&&!s7)for(const [ty,d,s] of w.en)G.sq.push({type:ty,d:(w.boss?80:0)+d,side:s});
    if(chs)chaseInit(w);
+   else if(s7){}
    else if(G.partner&&!G.demo){const pool=w.en.filter(e=>TY[e[0]].ai!=='rider');const ex=Math.max(1,Math.round(w.en.length*0.25));for(let k=0;k<ex&&pool.length;k++){const q=pick(pool);G.sq.push({type:q[0],d:(w.boss?120:30)+q[1]+k*40,side:-q[2]});}}
    G.waveT=0;}
   if(G.waveOn){G.waveT++;let enAlive=G.fighters.reduce((n,e)=>n+(e.team===1&&e.hp>0&&!e.isProp?1:0),0);for(let i=G.sq.length-1;i>=0;i--){if(G.waveT>=G.sq[i].d){const s=G.sq[i],boss=TY[s.type]&&TY[s.type].boss;if(!boss&&enAlive>=ENCAP)continue;G.sq.splice(i,1);spawnEn(s.type,s.side);enAlive++;if(G.banner&&G.banner.boss)return;}}
@@ -2716,6 +2718,33 @@ function drawEnd(){
 const LASTW={yuki:'真田の意地、とくと見よ……！',kage:'毘沙門天よ……照覧あれ！',mitsu:'大一大万大吉……後は、頼んだぞ……',nobu:'是非に及ばず……であるか！',shin:'甲斐の虎の最期、とくと見よ！',musashi:'二天一流……ここで果てるも、また一興'};
 const COVERW=['危ない！','下がっておれ！','させぬ！','我が後ろへ！'];
 function say(f,s,d){f.say={s,t:d||150,d:d||150};}
+/* 第七幕の最後の砦(2026-10-16 オーナー「最後の最後まで家来が押し寄せてきて、それを突破した後に最後に戦う」「7の展開も実装して」):
+ 家康は奥で構えたまま(攻撃は届かない)、家来が3度押し寄せる→全部突破すると家康が前に出て一騎打ち。体力75/50/25%で掛け合い、50%と25%で家来が身代わりに飛び込む。セリフは仮 */
+const S7W=[[['shield',1],['shield',-1],['yoroi',1],['yoroi',-1],['spear',1],['spear',-1]],[['yoroi',1],['samurai',-1],['samurai',1],['spear',1],['spear',-1],['yoroi',-1]],[['yoroi',1],['yoroi',-1],['yoroi',1],['shield',1],['shield',-1],['samurai',1],['samurai',-1]]];
+const S7L=[['殿をお守りしろ！\n一歩も退くな！','真田を通すな！\n殿の御前ぞ！'],['まだまだ！\n徳川の旗本、ここにあり！','槍衾を組めぇ！\n殿に近づけるな！'],['これが最後じゃ！\n者ども、続けぇ！','殿……\nお先に参りまする！']];
+function s7Step(){const S=G.s7;if(!S||G.state!=='run')return;const ie=S.ie,P=G.player;if(!ie||!P)return;S.t++;
+ const foes=G.fighters.filter(e=>e.team===1&&e!==ie&&e.hp>0&&!e.isProp&&e.state!=='dead'&&!e.dying).length;
+ if(S.ph==='intro'){if(G.banner&&G.banner.boss){S.t--;return;}S.hold=S.t<260;ie.inv=Math.max(ie.inv,6);
+  if(S.t===20)say(ie,'来たか、真田……。\n者ども、ここが最後の砦ぞ！',200);
+  if(S.t===90){AU.sfx('roar');G.shake=Math.max(G.shake,8);}
+  if(S.t===230&&G.curCh==='yuki')say(P,'家来が何人立ちはだかろうと、\n押し通るまで！',170);
+  if(S.t>=260){S.ph='surge';S.st=0;S.hold=false;}}
+ if(S.ph==='surge'){ie.inv=Math.max(ie.inv,6);ie.scene=true;S.st++;
+  if(S.st===1){const L=S7W[S.surge];L.forEach(([ty,sd],i)=>{const e=spawnEn(ty,sd);e.entered=true;e.x=sd>0?G.camx+W+60+i*30:G.camx-60-i*30;if(i===0)say(e,S7L[S.surge][0],170);if(i===1)S.lead=e;});AU.sfx('roar');G.shake=Math.max(G.shake,10);popup('家来の波 '+(S.surge+1)+' / 3',P.x,P.y,140,'#ffd070',26);}
+  if(S.st===150&&S.lead&&S.lead.hp>0)say(S.lead,S7L[S.surge][1],150);
+  if(S.st>120&&foes===0){S.surge++;S.st=0;if(S.surge>=3){S.ph='call';S.t=0;}else if(S.surge===2)say(ie,'怯むな！\nあと一息ぞ！',150);}}
+ if(S.ph==='call'){ie.inv=Math.max(ie.inv,6);S.hold=S.t<200;
+  if(S.t===10)say(ie,'……皆、よう戦ってくれた。\nもはや退く道はない。',200);
+  if(S.t===120)say(ie,'真田……参れ！\nこの家康、自ら相手いたす！',170);
+  if(S.t>=200){S.ph='fight';ie.scene=false;ie.entered=true;ie.inv=0;S.hold=false;AU.sfx('roar');G.shake=Math.max(G.shake,14);popup('家康を討て！',P.x,P.y,170,'#ff9a6a',30);}}
+ if(S.ph==='fight'){const r=ie.hp/ie.maxhp;
+  const once=(k,f)=>{if(!S.said[k]){S.said[k]=1;f();}};
+  if(r<=0.75)once('75',()=>{say(ie,'儂が倒れれば、\n散った者たちの死が無駄になる……！',190);});
+  if(r<=0.5)once('50',()=>{s7Guard('殿ーっ！\nこの身を盾に！');S.repT=S.t+110;});
+  if(S.repT&&S.t===S.repT)say(P,G.curCh==='yuki'?'その忠義……しかと見届けた。':'見事な忠義よ……！',150);
+  if(r<=0.25)once('25',()=>{s7Guard('最後の旗本、\nここにあり！');say(ie,'まだじゃ……\nまだ終わらぬ！',170);});}}
+/* 家来が家康の前に飛び込んで身代わりになる */
+function s7Guard(line){const ie=G.s7&&G.s7.ie,P=G.player;if(!ie||!P)return;const sd=sgn(ie.x-P.x)||1,e=spawnEn('yoroi',sd);e.entered=true;e.x=ie.x+sd*40;e.y=ie.y;e.tx=(ie.x+P.x)/2;e.scene=true;e.face=e.sceneFace=-sd;say(e,line,170);ie.inv=Math.max(ie.inv,70);ie.x=clamp(ie.x+sd*90,G.camx+80,G.camx+W-80);G.hitstop=Math.max(G.hitstop,10);AU.sfx('roar');e.sceneEnd=G.t+80;}
 /* 政宗の登場の掛け合い(第七幕。幸村のときだけ専用の返し。セリフは仮) */
 function mmStep(){const S=G.mmScr;if(!S)return;const e=S.e,p=G.player;if(!e||e.hp<=0||!p){G.mmScr=null;return;}if(G.banner&&G.banner.boss)return;const t=++S.t,y=p.T.type==='yuki';
  if(t===20)say(e,'奥州より、ただいま参上！\n遅参の詫びは、その首で払おうぞ',200);
