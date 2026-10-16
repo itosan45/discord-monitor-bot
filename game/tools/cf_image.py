@@ -49,18 +49,23 @@ def credentials():
     return values[names[0]], values[names[1]]
 
 
-def generate(prompt, steps, seed):
+def generate(prompt, steps, seed, network_secret=False):
     account_id, token = credentials()
-    if not account_id or not token:
-        fail("環境変数 CLOUDFLARE_ACCOUNT_ID と CLOUDFLARE_API_TOKEN が必要です(値は表示しません)。")
+    if not account_id:
+        fail("環境変数 CLOUDFLARE_ACCOUNT_ID が必要です(値は表示しません)。")
+    if not token and not network_secret:
+        fail("環境変数 CLOUDFLARE_API_TOKEN が必要です。Claudeクラウドのネットワークシークレットを使う場合は --network-secret を指定してください。")
 
     body = {"prompt": prompt, "steps": steps}
     if seed is not None:
         body["seed"] = seed
+    headers = {"Content-Type": "application/json"}
+    if not network_secret:
+        headers["Authorization"] = f"Bearer {token}"
     request = urllib.request.Request(
         f"{API_ROOT}/{account_id}/ai/run/{MODEL}",
         data=json.dumps(body).encode("utf-8"),
-        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        headers=headers,
         method="POST",
     )
     try:
@@ -75,12 +80,14 @@ def generate(prompt, steps, seed):
         try:
             errors = json.loads(error.read()).get("errors", [])
             detail = " / ".join(f"{item.get('code')}: {item.get('message', '')}" for item in errors if isinstance(item, dict))
-            detail = detail.replace(token, "[非表示]").replace(account_id, "[非表示]")[:400]
+            if token:
+                detail = detail.replace(token, "[非表示]")
+            detail = detail.replace(account_id, "[非表示]")[:400]
         except (ValueError, AttributeError):
             pass
         if seed is not None and error.code == 400 and "'/seed'" in detail and "not allowed" in detail:
             print("注意: このモデルはseedを受け付けないため、seedを省略して1回だけ再試行します。", file=sys.stderr)
-            return generate(prompt, steps, None)
+            return generate(prompt, steps, None, network_secret=network_secret)
         fail(f"Cloudflare API が HTTP {error.code} を返しました。{detail}")
     except urllib.error.URLError as error:
         fail(f"Cloudflare API に接続できません: {error.reason}")
@@ -144,6 +151,7 @@ def main():
     parser.add_argument("--seed", type=int, help="任意のseed")
     parser.add_argument("--magenta", action="store_true", help="四隅を基準に背景を#FF00FFへ置換し、縁を1px締める")
     parser.add_argument("--crop-aspect", help="保存前に中央を指定比率へ切り抜く(例: 16:9)")
+    parser.add_argument("--network-secret", action="store_true", default=os.environ.get("CLOUDFLARE_AUTH_MODE") == "network_secret", help="Claudeクラウド環境のネットワークシークレットで認証(鍵をVMに渡さない)")
     args = parser.parse_args()
     crop_ratio = None
     if args.crop_aspect:
@@ -160,7 +168,7 @@ def main():
     if output.suffix.lower() != ".png":
         fail("出力先はPNG(.png)にしてください。")
 
-    image_data, effective_seed = generate(args.prompt, args.steps, args.seed)
+    image_data, effective_seed = generate(args.prompt, args.steps, args.seed, network_secret=args.network_secret)
     try:
         image = Image.open(io.BytesIO(image_data)).convert("RGB")
     except Exception as error:
@@ -192,6 +200,7 @@ def main():
         "steps": args.steps,
         "model": MODEL,
         "magenta": args.magenta,
+        "auth_mode": "network_secret" if args.network_secret else "environment",
         "crop_aspect": args.crop_aspect,
         "size": list(image.size),
         "at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),

@@ -610,6 +610,7 @@
 - 鍵: 環境変数 `CLOUDFLARE_ACCOUNT_ID`・`CLOUDFLARE_API_TOKEN`(Workers AI の権限)。オーナーが各環境の設定に入れる。コード・コミット・チャットに書かない。
 - 自宅PCのClaude Code向け初回設定: `python game/tools/cf_setup_windows.py` で設定画面を開き、オーナー本人がAccount IDとAPI Tokenを直接入力する。Token欄は非表示で、Windowsのユーザー環境変数だけに保存する。CloudflareのWorkers AI → REST API → Create a Workers AI API Tokenの専用テンプレートを使う。
 - Windowsでは起動中のClaude Codeが古い環境を引き継いでいても、`cf_image.py` が未設定の値をWindowsのユーザー環境変数から補うため、設定後にClaude Codeを再起動する必要はない。Claude Codeは背景・設定画・会話胸像の制作時にこの道具を実行する。鍵の確認で環境変数の値を表示しない。429では自動再試行を繰り返さず停止する。
+- アプリ内の「関ヶ原乱舞 続き」はLinuxクラウド環境で動くため、Windowsの認証設定だけでは使えない。そのクラウド環境の通常変数にはAccount IDと `CLOUDFLARE_AUTH_MODE=network_secret` を設定し、Tokenは `api.cloudflare.com`・パス `/client/v4/accounts/`・Authorization/Bearerのネットワークシークレットに入れる。通常変数やセットアップスクリプトにTokenを置かない。道具は `--network-secret` でも同じ方式を選べる。設定反映と実生成は、指定の同じセッションで確認する。
 - `--steps` は4〜8、`--seed` は任意。ただし2026-10-16の実APIではseedが未対応としてHTTP 400になった。この拒否だけはseedを省略して1回再試行し、実効seedを `null`、指定値を `requested_seed` に記録する。同じseedによる再現性は保証できない。今回はseedを省略して生成した。
 - `--magenta` を付けると四隅の色から背景を判定して純マゼンタ(`#FF00FF`)に置き換え、前景の縁を1px締める。横長背景は `--crop-aspect 16:9` で保存前に中央を切り抜ける。出力先が既にあれば上書きせず停止する。生成ごとにプロンプト・seed・steps・モデル・日時・出力サイズを同じフォルダの `prompts.jsonl` へ追記する。
 - 鍵が無い場合やHTTPエラー時は日本語で理由を表示する。429は利用上限またはレート制限として扱う。無料枠は1日1万ニューロン程度なので、少数枚で試す。
