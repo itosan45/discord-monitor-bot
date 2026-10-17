@@ -1,0 +1,672 @@
+{
+  "character": "黒田長政",
+  "action": "連撃1",
+  "frames": 12,
+  "source": "黒田長政_連撃1_source-v1.png",
+  "source_size": [
+    1448,
+    1086
+  ],
+  "source_grid": "4x3, 362x362 each",
+  "output": "黒田長政_連撃1_12コマ_v4.png",
+  "output_size": [
+    6144,
+    384
+  ],
+  "sha256": "7b09be802b00d56175c4fee1e1247bcd2e9ef7f213cf68195c8b9371510f6f15",
+  "preview_gif": "黒田長政_連撃1_preview-v4.gif",
+  "review_grid": "黒田長政_連撃1_review-grid-v4.png",
+  "frame_sha256": [
+    "2250f7c2e14bbd318346c7cf70ae4b11cf7b4f94732ecfb242733f79f83c88f2",
+    "fab2203e5102a603764cb294a0504c29cb4503853c4415efb45c8a873b1301f4",
+    "731d0463f5816f164ab7b3fc62797ef7ce87496d1186f04ebe6f637f699ad148",
+    "ee1771df40b175a0156ecee404e1b59662e1cd9c7a00625e1744c1dce1956f8a",
+    "05546811d202c79db8bc59c0e4efde6c498fba5e8ffdcec0496b9743df064b45",
+    "32d24680954733497354ac32c18ae06754ada7ee999fcd0c922677f8e3ac2f19",
+    "7980ce288ae0c6b38b306d2ef3d215cdf0accb4a1c8955acbeed5f786e256625",
+    "c5eefc058b50f38bad31af446a490e37af4b30de3cbfaacf77de0b5566564325",
+    "a4841ce19369d493f174c227fbeccf3ba81a9c3abfb504538e9c6dca42d19a01",
+    "38f5306030179307f4498d24186bc498593911f1f4cf38973afee76ef9b4605e",
+    "9dbf456055e2d3d9f04058c13978cde7be5cbdca2b3b5d705192d1dc7ee737be",
+    "fa15d654fbb9499f1aa1324cf189f09c0d6c0fa4b6b4bee1c41e02c6a5c02b0c"
+  ],
+  "removed_detached_components_lt_500px": [
+    [
+      {
+        "area": 1,
+        "bbox": [
+          197,
+          210,
+          198,
+          211
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          197,
+          227,
+          198,
+          228
+        ]
+      },
+      {
+        "area": 2,
+        "bbox": [
+          198,
+          230,
+          200,
+          232
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          280,
+          287,
+          281,
+          288
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          201,
+          205,
+          202,
+          206
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          195,
+          161,
+          196,
+          162
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          295,
+          199,
+          296,
+          200
+        ]
+      },
+      {
+        "area": 6,
+        "bbox": [
+          297,
+          198,
+          300,
+          201
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          216,
+          208,
+          217,
+          209
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          216,
+          213,
+          217,
+          214
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          218,
+          222,
+          219,
+          223
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          215,
+          226,
+          216,
+          227
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          218,
+          226,
+          219,
+          227
+        ]
+      },
+      {
+        "area": 4,
+        "bbox": [
+          204,
+          228,
+          206,
+          230
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          179,
+          310,
+          180,
+          311
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          215,
+          218,
+          216,
+          219
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          298,
+          235,
+          299,
+          236
+        ]
+      }
+    ],
+    [
+      {
+        "area": 2,
+        "bbox": [
+          208,
+          180,
+          210,
+          181
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          188,
+          191,
+          189,
+          192
+        ]
+      },
+      {
+        "area": 2,
+        "bbox": [
+          247,
+          190,
+          249,
+          191
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          195,
+          213,
+          196,
+          214
+        ]
+      },
+      {
+        "area": 4,
+        "bbox": [
+          155,
+          284,
+          157,
+          286
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          223,
+          327,
+          224,
+          328
+        ]
+      }
+    ],
+    [
+      {
+        "area": 2,
+        "bbox": [
+          162,
+          244,
+          164,
+          245
+        ]
+      },
+      {
+        "area": 87,
+        "bbox": [
+          366,
+          247,
+          378,
+          265
+        ]
+      },
+      {
+        "area": 27,
+        "bbox": [
+          375,
+          279,
+          378,
+          291
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          204,
+          110,
+          205,
+          111
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          222,
+          130,
+          223,
+          131
+        ]
+      },
+      {
+        "area": 62,
+        "bbox": [
+          372,
+          139,
+          382,
+          148
+        ]
+      },
+      {
+        "area": 2,
+        "bbox": [
+          381,
+          154,
+          382,
+          156
+        ]
+      },
+      {
+        "area": 28,
+        "bbox": [
+          374,
+          158,
+          382,
+          165
+        ]
+      },
+      {
+        "area": 8,
+        "bbox": [
+          379,
+          177,
+          382,
+          181
+        ]
+      },
+      {
+        "area": 13,
+        "bbox": [
+          378,
+          199,
+          382,
+          205
+        ]
+      },
+      {
+        "area": 26,
+        "bbox": [
+          241,
+          328,
+          253,
+          331
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          208,
+          180,
+          209,
+          181
+        ]
+      },
+      {
+        "area": 2,
+        "bbox": [
+          219,
+          183,
+          221,
+          184
+        ]
+      },
+      {
+        "area": 3,
+        "bbox": [
+          186,
+          204,
+          188,
+          206
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          308,
+          332,
+          309,
+          333
+        ]
+      }
+    ],
+    [
+      {
+        "area": 2,
+        "bbox": [
+          198,
+          198,
+          200,
+          199
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          197,
+          216,
+          198,
+          217
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          200,
+          218,
+          201,
+          219
+        ]
+      },
+      {
+        "area": 2,
+        "bbox": [
+          377,
+          269,
+          378,
+          271
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          142,
+          305,
+          143,
+          306
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          166,
+          310,
+          167,
+          311
+        ]
+      },
+      {
+        "area": 15,
+        "bbox": [
+          375,
+          351,
+          378,
+          357
+        ]
+      }
+    ],
+    [
+      {
+        "area": 4,
+        "bbox": [
+          241,
+          199,
+          243,
+          201
+        ]
+      },
+      {
+        "area": 277,
+        "bbox": [
+          131,
+          200,
+          179,
+          217
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          261,
+          207,
+          262,
+          208
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          137,
+          271,
+          138,
+          272
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          283,
+          317,
+          284,
+          318
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          207,
+          206,
+          208,
+          207
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          146,
+          268,
+          147,
+          269
+        ]
+      },
+      {
+        "area": 31,
+        "bbox": [
+          378,
+          273,
+          382,
+          287
+        ]
+      },
+      {
+        "area": 48,
+        "bbox": [
+          131,
+          319,
+          144,
+          327
+        ]
+      }
+    ],
+    [
+      {
+        "area": 1,
+        "bbox": [
+          222,
+          192,
+          223,
+          193
+        ]
+      },
+      {
+        "area": 3,
+        "bbox": [
+          224,
+          193,
+          227,
+          194
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          214,
+          211,
+          215,
+          212
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          210,
+          225,
+          211,
+          226
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          212,
+          228,
+          213,
+          229
+        ]
+      },
+      {
+        "area": 1,
+        "bbox": [
+          143,
+          275,
+          144,
+          276
+        ]
+      },
+      {
+        "area": 5,
+        "bbox": [
+          136,
+          307,
+          139,
+          309
+        ]
+      },
+      {
+        "area": 2,
+        "bbox": [
+          235,
+          345,
+          237,
+          346
+        ]
+      }
+    ]
+  ],
+  "adjacent_pixel_difference_sum": [
+    5427398.0,
+    6269782.0,
+    6607609.0,
+    6342215.0,
+    5581095.0,
+    11346254.0,
+    10945431.0,
+    6124105.0,
+    6076576.0,
+    5351208.0,
+    7089922.0
+  ],
+  "ground_anchor_y": 363,
+  "vertical_anchor_y_by_frame": [
+    362,
+    362,
+    362,
+    362,
+    362,
+    362,
+    330,
+    362,
+    362,
+    362,
+    362,
+    362
+  ],
+  "estimated_hit_frames": [
+    7
+  ],
+  "forward_step_frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "sequence": [
+    "neutral low guard",
+    "compress and turn",
+    "dual sword windup",
+    "step and start diagonal cut",
+    "hips rotate and descend",
+    "diagonal strike",
+    "contact peak",
+    "follow-through",
+    "arms extend and cape trails",
+    "low forward lunge",
+    "retract one sword",
+    "low crossed-sword bridge pose"
+  ],
+  "notes": "AI-generated 4x3 pose sheet cropped, background-keyed, uniformly scaled and composited; disconnected output components smaller than 500px were removed to clear isolated artifacts. Frame 7 is the airborne crossed-sword peak (32px above ground); other frames touch down at y=363. Not hand-drawn. Candidate timing only; hit frames are visual estimates, not game hitboxes. Frame 12 is the intended start pose for combo stage 2."
+}

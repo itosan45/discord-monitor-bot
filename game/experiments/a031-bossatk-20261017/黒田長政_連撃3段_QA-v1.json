@@ -1,0 +1,25 @@
+{
+  "character": "黒田長政",
+  "stage_sheets": [
+    "黒田長政_連撃1_12コマ_v5.png",
+    "黒田長政_連撃2_12コマ_v4.png",
+    "黒田長政_連撃3(締め)_16コマ_v4.png"
+  ],
+  "total_frames": 40,
+  "chain_preview_gif": "黒田長政_連撃3段_40コマ_preview-v1.gif",
+  "chain_preview_gif_frames": 40,
+  "transition_comparison": "黒田長政_連撃3段_接続比較-v1.png",
+  "transition_pairs": [
+    {
+      "from": "連撃1 frame12",
+      "to": "連撃2 frame1",
+      "pixel_difference_sum": 6413021
+    },
+    {
+      "from": "連撃2 frame12",
+      "to": "連撃3 frame1",
+      "pixel_difference_sum": 5649100
+    }
+  ],
+  "note": "Static comparison and 40-frame GIF review only; frame rate, hit timing, position transition, and game playback require Claude integration QA."
+}
