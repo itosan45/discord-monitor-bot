@@ -1,4 +1,5 @@
 // からくり武者の専用必殺(2026-10-17)の検査。
+// 2026-10-17 オーナー指示で突進をゆっくり(1コマ約6px)にしたため、突進は約2秒かかる(ループ上限を460コマに)。
 // Lv1=独楽の突進: 回転(kspin)が有限で、前へ進み、通り道の敵が多段で削られ、最後に弾き飛ばされる。時間は突進中だけ止まり、終わりに動く。
 // Lv2=突進のあと砲弾: 砲弾(k:'shell')が飛んで爆発し、敵が吹き飛ぶ。爆発で時間の停止が解ける。
 // 左右両向き。描画エラー・有限でない粒(PT)の警告が出ない。カットイン(顔のアップ)が描かれる。
@@ -14,7 +15,7 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
    const en=[];for(let i=0;i<3;i++){const e=mk('spear',X0+side*(320+i*110),556+i*14,1);e.entered=true;e.face=-side;e.cool=9999;e.wakeInv=0;e.hp=e.maxhp=300;G.fighters.push(e);en.push(e);}
    startSpecial(P);const o={lv,side,spinOK:true,cutSeen:false,shell:false,boom:false,frozeDuringRush:false,unfroze:false,spun:false,x0:X0,xMax:0,minHp:300,bounced:false};
    const hp0=en.map(e=>e.hp);
-   for(let k=0;k<260;k++){frame();if(G.cut&&G.cut.type==='karakuri'&&G.cut.t>2)o.cutSeen=true;if(P.kspin!==undefined){o.spun=true;if(!Number.isFinite(P.kspin))o.spinOK=false;}
+   for(let k=0;k<460;k++){frame();if(G.cut&&G.cut.type==='karakuri'&&G.cut.t>2)o.cutSeen=true;if(P.kspin!==undefined){o.spun=true;if(!Number.isFinite(P.kspin))o.spinOK=false;}
     if(P.state==='spc'&&G.spcScene&&P.kspin!==undefined)o.frozeDuringRush=true;if(P.state==='spc'&&!G.spcScene&&P.st>20)o.unfroze=true;
     if(G.proj.some(q=>q.k==='shell'))o.shell=true;o.xMax=Math.max(o.xMax,Math.abs(P.x-X0));if(en.some(e=>e.state==='down'||e.dying))o.bounced=true;
     if(P.state!=='spc'&&k>20)break;}

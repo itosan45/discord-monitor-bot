@@ -487,7 +487,11 @@ TY.munenori=Object.assign(JSON.parse(JSON.stringify(TY.boss1)),{type:'munenori',
  TY.masamune.near=[0,0,2,4];TY.masamune.far=[3,1,4,2];TY.masamune.cost=300;/* 操作キャラとして出す時(自動デモ・一体デバッグ)はゲージ3本の奥義だけ */
  const rnd9=TY.boss9.atk.find(a=>a.around)||TY.boss9.atk[0];
  TY.munenori.atk=[Object.assign(J(TY.boss1.atk[0]),{anim:'a1'})/* 斬り */,Object.assign(J(TY.boss1.atk[1]),{anim:'dash'})/* 踏み込み突き */,Object.assign(J(rnd9),{anim:'big'})/* 回転斬り「転(まろばし)」 */];
- TY.munenori.near=[0,2,0,1];TY.munenori.far=[1,2];
+ TY.munenori.near=[0,2,0,1];TY.munenori.far=[1,2];TY.munenori.trail=TY.munenori.trail||'220,230,255';TY.munenori.spcName='柳生新陰流・転';TY.munenori.spcSub='剣の理は、無刀にあり';
+ /* 2026-10-17 オーナー「柳生と政宗は特に主人公と比べても遜色ない攻撃速度にしなさい」: 技の溜め・振り・全体の長さを詰める(進む距離は変えない=1コマあたりの移動を増やす)。
+    主人公の通常攻撃は全体16〜34コマ・当たりは5〜14コマ目。政宗・宗矩も同じ桁(斬り26前後・大技46前後)にする */
+ {const FAST=(d,k)=>{for(const f of['dur','hs','he','hs2','he2'])if(d[f])d[f]=Math.max(2,Math.round(d[f]*k));if(d.move)d.move/=k;if(d.lunge)d.lunge/=k;return d;};
+  [0.52,0.62,0.6,0.7,0.66].forEach((k,i)=>FAST(TY.masamune.atk[i],k));[0.55,0.6,0.7].forEach((k,i)=>FAST(TY.munenori.atk[i],k));}
  /* 第七幕の本物の家康(老武者・専用の絵 ieyasu2): 斬り=a1 / 軍配で家来を呼ぶ=call / 踏み込み突き=dash / 回転大斬り=big */
  TY.ieyasu2={spr:'ieyasu2',atk:[Object.assign(J(TY.boss3.atk[0]),{anim:'a1'}),Object.assign(J(TY.boss3.atk[1]),{anim:'call'}),Object.assign(J(TY.boss3.atk[2]),{anim:'dash'}),Object.assign(J(rnd9),{anim:'big'})],near:[0,3,0,2],far:[2,1,3]};}
 /* 2026-10-16 オーナー「幸村が小さく見える。ボスが大きすぎる。大柄のキャラなら自然」: 武将ボスの倍率を見直す(主人公=1.0)。大柄の設定(本多忠勝・福島正則)だけ大きめ、他は1.1〜1.15。
@@ -906,7 +910,7 @@ function hurt(t,a,d){if(G.s7&&t===G.s7.ie&&G.s7.ph!=='fight')return;/* 第七幕
  let ctr=false;if(own.team===0&&t.team===1&&t.state==='atk'&&t.cur&&t.st<(t.cur.hs||0)){ctr=true;dmg*=1.3;G.ctrN=(G.ctrN||0)+1;if(!((G.ctrFxT||0)>G.t)){G.ctrFxT=G.t+45;G.hitstop=Math.max(G.hitstop,9);G.shake=Math.max(G.shake,7);slashFx(t.x,t.y,t.z+80,dir,180,16,'#dff6ff');}}
  let crit=false;if(own.team===0&&t.team===1){const cc=(d.chg||(own.cur&&(own.cur.iai||own.cur.chg||own.cur.ck)))?0.3:0.07;if(Math.random()<cc){crit=true;dmg*=1.6;G.hitstop=Math.max(G.hitstop,10);G.shake=Math.max(G.shake,9);PT({x:t.x,y:t.y,z:t.z+80,life:10,k:'star',sz:80,col:'#fff6c0'});slashFx(t.x,t.y,t.z+85,dir,210,18);}}t.critK=crit;
  t.hp-=dmg;t.flash=8;t.showBar=160;if(t.T&&t.T.boss){t.hitRun=(t.hitRun||0)+1;t.hitRunT=50;}if(t.team===1&&t.hp>0&&(t.T.boss||t.T.mid)&&!(own.state==='ult'||own.state==='spc'||own.state==='mspc'||G.ult||G.spcScene)){const n=t.T.boss?10:5;t.pinv=n;t.inv=Math.max(t.inv,n);}if(t.team===1){G.lastEn=t;G.lastT=220;}
- if(own.team===0&&t.team===1){if(!(own.state==='spc'||own.state==='ult'||a.sp||G.ult))own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*1.1);addHit();}
+ if(own.team===0&&t.team===1){if(!(own.state==='spc'||own.state==='ult'||a.sp||G.ult))own.ki=Math.min(KMAX,own.ki+(dmg*0.5+1)*1.1*(own.npcHero?2.4:1));addHit();}
  if(t.team===0&&own.team===1&&!G.demo)t.ki=Math.min(KMAX,(t.ki||0)+dmg*0.8);
  const hx=t.x-dir*10,hy=t.y,hz=t.z+55+rnd(-10,15);
  if(t.team===1)bloodSpray(hx,hy,hz,dir,d.launch?24:12,d.launch?1.5:1);else bloodSpray(hx,hy,hz,dir,5,0.7);if(d.launch&&t.team===1)addDecal(t.x+dir*rnd(10,40),t.y+rnd(-4,6),rnd(7,13),0.6);
@@ -1217,10 +1221,10 @@ function kakeiStep(p,st){const once=p._kst!==st;p._kst=st; // 当たった瞬間
    e.x+=0;e.vx=0;if(once&&st%8===0&&st<50)hurt(e,{x:e.x-p.face,face:p.face,team:0,owner:p,hit:null},{dmg:3,kb:0,launch:false,unblock:true,pz:'fire'});}
   if(st===50&&once){hurt(e,{x:e.x-p.face,face:p.face,team:0,owner:p,hit:null},{dmg:12,kb:7,launch:true,unblock:true,pz:'fire'});ring(e.x,e.y,110,'rgba(255,140,60,0.95)',26);for(let i=0;i<16;i++)PT({x:e.x+rnd(-30,30),y:e.y+rnd(-8,8),z:rnd(0,80),vx:rnd(-4,4),vz:rnd(2,7),life:rndi(16,30),sz:rnd(14,30),col:i<9?'#ffa040':'rgba(70,60,60,0.6)',k:i<9?'flame':'smoke'});}}
  if(st===50&&once){G.shake=Math.max(G.shake,16);AU.sfx('boom');p.kakei=null;}}
-function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}if(p.isPartner&&p.T.lowSpc){p.spcCdT=G.t+700;p.spcAlt=lv<2;}/* 才蔵・根津: 1本目(Lv1)を撃ったら次はゲージ2本(Lv2)を待つ。実際に出した時だけ切り替える */p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.spcScene={p,t:G.t};{const S2=p.spLv===2&&SPC2[p.type];G.cut={t:0,name:S2?S2[0]:p.T.spcName+(p.spLv===2?'・極':''),sub:S2?S2[1]:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv,mine:p===G.player};}if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');AU.spv&&AU.spv(p.type);setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
+function startSpecial(p){const lv=p.T.type==='munenori'?Math.min(2,spLevel(p)):spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}if(p.isPartner&&p.T.lowSpc){p.spcCdT=G.t+700;p.spcAlt=lv<2;}/* 才蔵・根津: 1本目(Lv1)を撃ったら次はゲージ2本(Lv2)を待つ。実際に出した時だけ切り替える */p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.spcScene={p,t:G.t};{const S2=p.spLv===2&&SPC2[p.type];G.cut={t:0,name:S2?S2[0]:p.T.spcName+(p.spLv===2?'・極':''),sub:S2?S2[1]:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv,mine:p===G.player};}if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');AU.spv&&AU.spv(p.type);setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
 // 必殺Lv2で別の技になる武将(信長: Lv1=鉄砲、Lv2=火刑)
 const SPC2={karakuri:['独楽砲撃','ギ…ギギ…'],nobu:['魔王の火刑','我に逆らう者、灰となれ'],saizo:['水遁・大水龍','水は千変万化'],sasuke:['火遁・業火の術','炎よ、すべてを焼け'],nezu:['大岩落とし','天より岩を降らせる']};
-const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},karakuri:{pz:'rush',dur:80,hs:10,he:40},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36},saizo:{pz:'throw',dur:64,hs:10,he:50},sasuke:{pz:'throw',dur:62,hs:10,he:48},nezu:{pz:'raise',dur:60,hs:10,he:46}};
+const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},karakuri:{pz:'rush',dur:80,hs:10,he:40},munenori:{anim:'dash',dur:68,hs:16,he:40},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36},saizo:{pz:'throw',dur:64,hs:10,he:50},sasuke:{pz:'throw',dur:62,hs:10,he:48},nezu:{pz:'raise',dur:60,hs:10,he:46}};
 // 幸村の必殺「赤備え突貫」: ①前の雑兵を槍に掛け、画面の端まで突き抜けながら連続で突く(多段) ②端で最後の一突き、まとめて吹き飛ばす。
 // 最後の一突きで時間の停止を解き、吹き飛ぶ敵がそのまま見える(端で跳ね返る)。Lv2(・極)は最後に十文字の炎が走る。
 function yukiSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?18:16;
@@ -1250,17 +1254,17 @@ function yukiSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[])
 /* からくり武者の必殺(オーナー案 2026-10-17): Lv1=独楽の突進(回りながら画面の端まで前へ突っ込み、通り道の敵を巻き込んで多段ヒット→最後に弾き飛ばす)。
    Lv2(極)=突進のあと、体の仕掛けが開いて砲弾を発射(着弾で爆発・まとめて吹き飛ばす)。奥義(ゲージ3本)は「回る剣の陣」のまま。
    時間は止まったまま(updSpc と本人の砲弾 updProj(onlyOwner) だけが進む)。 */
-function karaSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?17:19,WIND=10;
+function karaSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?5.5:6.5/* 2026-10-17 オーナー「高速で回転しながら、進行方向にはゆっくり動く」: 前へは1コマ6px前後(約2秒で画面を横切る)。回転は速く(残像つき) */,WIND=14;
  if(!p.kinit){/* 最初の1回(st===0は呼ばれないことがあるので、印で判断する) */p.kinit=true;H.length=0;p.cur=Object.assign({},SPD.karakuri);p.kspin=0;p.kcan=0;p.krec=0;p.kfired=false;AU.sfx('creak');}
- if(st===WIND){const m=fighterScreenMargin(p),edge0=f>0?G.camx+W-m:G.camx+m,edge=lv2?edge0-f*250:edge0/* Lv2は端の手前で止まり、壁際に追い込んだ敵へ砲弾を撃つ */,dist=Math.max(0,(edge-p.x)*f);p.rushEnd=WIND+clamp(Math.ceil(dist/spd),12,58);p.rushEdge=edge;p.cur.he=p.rushEnd;p.cur.dur=p.rushEnd+(lv2?52:20);}
+ if(st===WIND){const m=fighterScreenMargin(p),edge0=f>0?G.camx+W-m:G.camx+m,edge=lv2?edge0-f*250:edge0/* Lv2は端の手前で止まり、壁際に追い込んだ敵へ砲弾を撃つ */,dist=Math.max(0,(edge-p.x)*f);p.rushEnd=WIND+clamp(Math.ceil(dist/spd),16,130);p.rushEdge=edge;p.cur.he=p.rushEnd;p.cur.dur=p.rushEnd+(lv2?52:20);}
  const RE=p.rushEnd||34;
- if(st<WIND){p.kspin+=0.2+st*0.09;p.z=0;if(st%3===1){AU.sfx('gear');PT({x:p.x+rnd(-24,24),y:p.y,z:rnd(20,120),vx:rnd(-2,2),vz:rnd(1,4),g:0.2,life:12,sz:rnd(2,4),col:'#ffd890',k:'spark'});}}
- if(st>=WIND&&st<=RE){p.kspin+=1.05;p.x+=f*spd;if((p.x-p.rushEdge)*f>0)p.x=p.rushEdge;
+ if(st<WIND){p.kspin+=0.2+st*0.1;p.z=0;if(st%3===1){AU.sfx('gear');PT({x:p.x+rnd(-24,24),y:p.y,z:rnd(20,120),vx:rnd(-2,2),vz:rnd(1,4),g:0.2,life:12,sz:rnd(2,4),col:'#ffd890',k:'spark'});}}
+ if(st>=WIND&&st<=RE){p.kspin+=1.4;p.x+=f*spd;if((p.x-p.rushEdge)*f>0)p.x=p.rushEdge;
   for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying||e.state==='dead'||H.includes(e))continue;const dx=(e.x-p.x)*f;if(dx>-10&&dx<150&&Math.abs(e.y-p.y)<46&&Math.abs(e.z||0)<90){H.push(e);e.inv=0;}}
   const wallX=G.camx+(f>0?W-30:30);
   for(let i=H.length-1;i>=0;i--){const e=H[i];if(e.hp<=0||e.dying||!G.fighters.includes(e)){H.splice(i,1);continue;}
    if(!e.T.boss){e.state='hurt';e.st=0;e.hurtT=30;e.cur=null;e.vx=0;let tx=p.x+f*(86+i*24);if((tx-wallX)*f>-i*12)tx=wallX-f*i*12;e.x+=(tx-e.x)*0.55;e.y+=(p.y-e.y)*0.2;e.z=Math.min(30,(e.z||0)+5);e.face=-f;}}
-  if((st-WIND)%4===0){for(const e of H){p.hit.delete(e);hurt(e,p,{dmg:2,kb:0,launch:false,noDecap:true});if(e.hp>0&&!e.T.boss&&e.state==='down'){e.state='hurt';e.vz=0;}PT({x:e.x-f*16,y:e.y,z:(e.z||0)+70,life:6,k:'star',sz:28,col:'#fff'});}
+  if((st-WIND)%5===0){for(const e of H){p.hit.delete(e);hurt(e,p,{dmg:2,kb:0,launch:false,noDecap:true});if(e.hp>0&&!e.T.boss&&e.state==='down'){e.state='hurt';e.vz=0;}PT({x:e.x-f*16,y:e.y,z:(e.z||0)+70,life:6,k:'star',sz:28,col:'#fff'});}
    if(H.length)AU.sfx('slash');AU.sfx('gear');}
   for(let i=0;i<3;i++)PT({x:p.x-f*rnd(0,50),y:p.y+rnd(-10,10),z:rnd(10,100),vx:-f*rnd(2,6),vz:rnd(0.5,3),g:0.1,life:rndi(8,16),sz:rnd(2,4),col:i%2?'#ffd890':'#ffffff',k:'spark'});
   if(st%2===0)PT({x:p.x-f*rnd(10,50),y:p.y+rnd(-4,4),z:rnd(0,8),vx:-f*rnd(1,3),vz:rnd(0.5,1.5),life:14,sz:rnd(14,26),col:'rgba(150,140,125,0.55)',k:'smoke'});}
@@ -1295,10 +1299,27 @@ function drawKaraCut(t){const k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(
  ctx.restore();ctx.restore();
  const sh=t<30?Math.sin(t*2.3)*3:0;txt('ギ……ギギ……',W*0.2+sh,318,54,'#e6e8ee','center','#07080b',8);
  ctx.restore();}
+/* 柳生宗矩の必殺「柳生新陰流・転」(オーナー指示 2026-10-17「柳生と政宗が自動デモで必殺技を使わない」。宗矩には必殺が無かったので新設)。
+   Lv1: 無刀の構え(muto)→低く踏み込んで斬り抜ける(dash・前へ約300px・通り道を3コマごとに斬る)→振り向きざまの一閃(a1・打ち上げ)。
+   Lv2(極): そのあと回転斬り「転」(big)。周囲をまとめて3回斬り、最後に大きく吹き飛ばす。絵は既存の宗矩の行(muto/dash/a1/big)を段階ごとに切り替える(sprPos の mrow) */
+function muneSpc(p,st){const f=p.face,lv2=p.spLv===2,GO=16,RUN=GO+24,FIN=RUN+2,S0=FIN+16;
+ if(!p.minit){p.minit=true;p.cur=Object.assign({},SPD.munenori,{dur:lv2?S0+40:FIN+26});p.mrow='muto';p.mpos=0;p.hit.clear();AU.sfx('warn2');}
+ if(st<GO){p.mrow='muto';p.mpos=st/GO*3.9;if(st%4===1){ring(p.x,p.y,90-st*4,'rgba(220,230,255,0.85)',10);for(let i=0;i<4;i++)PT({x:p.x+rnd(-70,70),y:p.y+rnd(-6,6),z:rnd(20,130),vx:0,vz:rnd(0.5,2),life:12,sz:rnd(2,4),col:'#e8f0ff',k:'spark'});}}
+ else if(st<=RUN){p.mrow='dash';p.mpos=(st-GO)/(RUN-GO)*4.9;p.z=0;p.x=clamp(p.x+f*13,G.camx+40,G.camx+W-40);
+  if((st-GO)%3===0){p.hit.clear();strike(p,{rng:125,dmg:7,kb:1,dep:46});AU.sfx('slash');}
+  PT({x:p.x-f*rnd(0,50),y:p.y+rnd(-6,6),z:rnd(20,100),vx:-f*rnd(2,5),vz:rnd(0.2,1.5),life:rndi(8,14),sz:rnd(2,4),col:'#e8f0ff',k:'spark'});if(st%2===0)dust(p.x-f*20,p.y,1);}
+ else if(st===FIN){p.mrow='a1';p.mpos=3;p.hit.clear();strike(p,{rng:210,dmg:20,kb:10,dep:64,launch:true});G.shake=Math.max(G.shake,14);G.hitstop=Math.max(G.hitstop,8);AU.sfx('hitH');ring(p.x+f*90,p.y,140,'rgba(240,245,255,0.95)',22);for(let i=0;i<18;i++)PT({x:p.x+f*rnd(40,150),y:p.y+rnd(-10,10),z:rnd(30,120),vx:f*rnd(3,9),vz:rnd(-1,4),g:0.1,life:rndi(10,20),sz:rnd(2,4),col:i%3?'#e8f0ff':'#ffd890',k:'spark'});popup('一閃！',p.x+f*80,p.y,190,'#e8f0ff',30);}
+ else if(st>FIN&&st<S0){p.mrow='a1';p.mpos=Math.min(5,3+(st-FIN)/14*2.9);}
+ else if(lv2&&st>=S0&&st<S0+34){p.mrow='big';p.mpos=(st-S0)/34*7.9;
+  if(st===S0+8||st===S0+16||st===S0+24){p.hit.clear();strike(p,{rng:250,dmg:12,kb:5,dep:96,launch:true,around:true});AU.sfx('slash');G.shake=Math.max(G.shake,8);ring(p.x,p.y,150+(st-S0)*4,'rgba(230,240,255,0.9)',14);}
+  if(st===S0+28){p.hit.clear();strike(p,{rng:270,dmg:22,kb:12,dep:100,launch:true,around:true});AU.sfx('boom');G.shake=Math.max(G.shake,18);G.flashT=Math.max(G.flashT||0,3);ring(p.x,p.y,260,'rgba(255,255,255,0.95)',26);popup('転！',p.x,p.y,200,'#ffffff',34);}}
+ else if(lv2&&st>=S0+34){p.mrow='big';p.mpos=7;}
+ if(st>=p.cur.dur-1){p.minit=false;p.mrow=null;}}
 function updSpc(p){
  const st=p.st,k=p.type;p.inv=Math.max(p.inv,3);
  if(k==='yuki'){yukiSpc(p,st);
  }else if(k==='karakuri'){karaSpc(p,st);
+ }else if(k==='munenori'){muneSpc(p,st);
  }else if(k==='kage'){
   if(st<24){PT({x:p.x+p.face*rnd(-10,40),y:p.y,z:rnd(60,190),vx:rnd(-1,1),vz:rnd(-1,2),life:14,sz:rnd(2,4),col:'#9fd8ff',k:'spark'});if(st%5===0)PT({x:p.x+p.face*20,y:p.y,z:150,life:6,k:'bolt',sz:90,col:'#bfe8ff',seed:Math.random()*100});}
   if(st===24){strike(p,{rng:190,dmg:26,kb:8,dep:90,launch:true});crescent(p,{pal:1,dmg:22,big:1.15});/* 2026-10-16 両側の風の波をやめ、進行方向へ横の三日月(全列) */G.shake=22;G.flashT=8;ring(p.x,p.y,220,'rgba(160,220,255,0.95)',30);dust(p.x,p.y,12);for(let i=0;i<4;i++)PT({x:p.x+rnd(-120,120),y:p.y,z:0,life:9,k:'bolt',sz:300,col:'#dff4ff',seed:Math.random()*100});AU.sfx('boom');}
@@ -2290,7 +2311,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
   case'down':return P('dead',f.z>0.6?1:4);
   case'getup':return P('dead',6-f.st/20*4);
   case'dead':return P('dead',f.st/9);
-  case'atk':case'spc':case'jatk':{if(c&&c.k==='guard')return A.guard?{arr:A.guard,pos:prog(c,A.guard.length),loop:false}:P('idle',0);/* 受けの専用の絵(徳川親衛隊) */if(c&&c.jmap&&A[c.anim]){const arr=A[c.anim],n=arr.length;/* 政宗の跳躍斬り: 構え→跳ぶ→空中(振りかぶり)→着地は構えの絵。空中で着地の絵が出ないように、地面についてから(z<=2)だけ最後のコマ */const pos=f.st<c.hs?0:f.z>2?(f.vz>4?1:2):n-1;return {arr,pos:clamp(pos,0,n-1),loop:false};}
+  case'atk':case'spc':case'jatk':{if(f.state==='spc'&&f.mrow&&A[f.mrow]){const arr=A[f.mrow];return {arr,pos:clamp(Math.floor(f.mpos||0),0,arr.length-1),loop:false};}/* 宗矩の必殺: 段階ごとに行を切り替える */if(c&&c.k==='guard')return A.guard?{arr:A.guard,pos:prog(c,A.guard.length),loop:false}:P('idle',0);/* 受けの専用の絵(徳川親衛隊) */if(c&&c.jmap&&A[c.anim]){const arr=A[c.anim],n=arr.length;/* 政宗の跳躍斬り: 構え→跳ぶ→空中(振りかぶり)→着地は構えの絵。空中で着地の絵が出ないように、地面についてから(z<=2)だけ最後のコマ */const pos=f.st<c.hs?0:f.z>2?(f.vz>4?1:2):n-1;return {arr,pos:clamp(pos,0,n-1),loop:false};}
     if(c&&c.lmap&&A[c.anim]){const arr=A[c.anim],n=arr.length;const pos=f.st<c.hs?0:f.z>2?Math.min(3,1+Math.floor((f.st-c.hs)/6)):Math.min(n-1,4+Math.floor((f.st-(f.landSt||c.he))/4));return {arr,pos:clamp(pos,0,n-1),loop:false};}/* 跳び込み: 構え→空中(1〜3)→着地の一撃(4〜) */if(c&&(c.k==='step'||c.k==='hop'))return P(A.dash?'dash':'walk',f.st/4,true);if(c&&c.edge&&c.anim&&A[c.anim]){const arr=A[c.anim],n=arr.length;let pos;if(f.st<c.hs)pos=0;else if(!f.rushDone)pos=1+Math.floor(f.st/3)%Math.max(1,n-3);else pos=f.st<c.he+16?n-2:n-1;return {arr,pos:clamp(pos,0,n-1),loop:false};}/* 端から端の突進(天海): 構え→走り→止まり */
   if(c){const nm=c.anim||(c.k==='charge'?'dash':c.k?'big':'a1'),arr=A[nm]||A.a1;return {arr,pos:prog(c,arr.length),loop:false};}return P('a1',0);}
   default:return P('idle',f.t/14,true);}}
@@ -2750,8 +2771,13 @@ function drawFighter0(f){
  drawFighterP(f);
 }
 function drawFighterP(f){
+ if(f.kspin!==undefined&&f.state==='spc'&&f.kspin>2&&!f._kg){/* からくり武者の独楽: 回転が速すぎて1コマごとの姿が見えない=残像を重ねて「高速で回っている」ように見せる(位相をずらした3枚+回転の帯) */
+  f._kg=1;const k0=f.kspin;for(const d of[0.8,1.6,2.4]){f.kspin=k0-d;ctx.save();ctx.globalAlpha*=0.3;drawFighterP(f);ctx.restore();}f.kspin=k0;f._kg=0;f._kb=1;
+  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(f.sc,f.sc);ctx.globalCompositeOperation='lighter';
+  for(let i=0;i<5;i++){const y=-18-i*28,ph=(f.kspin*0.9+i*1.7)%TAU,w=26+Math.abs(Math.sin(i*1.3))*10;ctx.strokeStyle=`rgba(210,225,255,${0.5-i*0.05})`;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,y,w,7,0,ph,ph+2.4);ctx.stroke();ctx.strokeStyle='rgba(255,200,120,0.35)';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(0,y,w+6,9,0,ph+3.1,ph+5.2);ctx.stroke();}/* 体の回りを巡る光の輪(独楽の回転線) */
+  ctx.restore();}
  const T=f.T,fl=f.flash>0&&(f.flash&2),K=fl?WHITE:T.col,sc=f.sc,o=getPose(f);
- ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));
+ ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));if(f._kb){f._kb=0;ctx.globalAlpha=0.62;}/* 回転の残像のあと、本体も半透明にして重ねる */
  if(f.state==='dead'&&f.team===1&&f.st>172&&(f.st&2))ctx.globalAlpha=0.35;
  if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(G.t&2))ctx.globalAlpha=0.55;else if(f.team===1&&f.wakeInv>G.t&&(G.t&4))ctx.globalAlpha=0.6;/* ボスの起き上がり無敵(2.5秒)は点滅で見分ける */
  ctx.scale(f.face*sc,sc);
@@ -2965,6 +2991,10 @@ function isDemoNpc(k){return DEMO_NPC.some(g=>g[1].includes(k));}
 function setupNpcHero(p){const T=Object.assign({},p.T),ok=i=>T.atk[i]&&!NPC_BAN.test(T.atk[i].k||'');for(const key of['near','far','close']){if(Array.isArray(T[key])){const a=T[key].filter(ok);T[key]=a.length?a:[0];}}p.T=T;p.npcHero=true;p.entered=true;p.maxhp=p.hp=clamp(p.hp,T.boss?600:360,700);/* 天海(1900)のような耐久の敵は主人公では上限700 */if(!T.boss)p.dm=1.5;p.cool=30;}
 function npcHeroStep(p,c){if(p.state==='dead'){p.st++;if(p.st===70){respawn(p);p.mount=null;}return;}
  const busy=!(p.state==='idle'||p.state==='walk'),en=G.fighters.some(e=>e.team===1&&e.hp>0&&!e.dying&&e.state!=='dead'&&e.entered&&!e.isProp&&e.x>G.camx-20&&e.x<G.camx+W+20);
+ if(!busy&&en&&(p.T.type==='masamune'||p.T.type==='munenori')){/* 2026-10-17 オーナー「柳生と政宗が自動デモで必殺技を使わない」: 敵が固まっている(またはボスが近い)時に、必殺(宗矩=ゲージ1本から)・奥義(政宗=3本)を撃つ */
+  const foes=G.fighters.filter(e=>e.team===1&&e.hp>0&&!e.dying&&e.state!=='dead'&&e.entered&&!e.isProp&&Math.abs(e.x-p.x)<420&&Math.abs(e.y-p.y)<150),bn=foes.some(e=>e.T.boss);
+  if(p.T.type==='masamune'&&p.ki>=300&&(foes.length>=3||(bn&&foes.length>=1))&&Math.random()<0.1){startUlt(p);return;}
+  if(p.T.type==='munenori'&&p.ki>=100&&(foes.length>=2||bn)&&Math.random()<0.08){startSpecial(p);return;}}
  if(busy||(en&&!c.atkP)){updEnemy(p);return;}
  /* 敵がいない間(または柵・樽を壊す時)は、自動デモの操作どおりに歩いて攻撃する */p.t++;if(p.cool>0)p.cool--;
  if(c.atkP&&p.cool<=0){if(c.r)p.face=1;else if(c.l)p.face=-1;startEAtk(p,0);p.cool=20;return;}
@@ -3185,7 +3215,7 @@ function debugUI(B,L,playback){autoEl.className='inspect';
  S('確認モード',[['debug','一体デバッグ'],['stage','全編デモ']],'debug',v=>setInspectionMode(v==='debug'));
  const p=G.player,hero=!p.debugEnemy;S('確認するキャラ',Object.keys(TY).map(k=>[k,k==='spear'?'足軽（槍）':k==='sword'?'足軽（刀）':TY[k].name||k]),p.dbgKey||p.T.type,v=>{demoView.actor=v;demoView.motion='walk';prepareWalkPreview();});
  const actions=[['idle','待機'],['walk','歩行'],...(p.mount?[['atk0','馬上攻撃']]:p.T.atk.map((d,i)=>['atk'+i,'攻撃'+(i+1)+(d.anim?' '+d.anim:'')])),...(p.mount?[]:[['fall','転倒→起き上がり']])];
- const dk=p.dbgKey||p.T.type;if(!hero&&!p.mount){if(SPD[dk])actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極'],['special','奥義']);else if(dk==='masamune')actions.push(['special','奥義(ゲージ3本)']);}/* 政宗は奥義だけ(必殺は無い) */
+ const dk=p.dbgKey||p.T.type;if(!hero&&!p.mount){if(SPD[dk])actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極']),dk!=='munenori'&&actions.push(['special','奥義']);else if(dk==='masamune')actions.push(['special','奥義(ゲージ3本)']);}/* 政宗は奥義だけ(必殺は無い) */
  if(hero){actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極'],['special','奥義']);if(!p.mount)actions.push(['jump','跳躍'],['charge','溜め'],['grapplethrow','つかみ投げ']);if(demoView.weapon==='kusari')actions.push(['spin','分銅旋回'],['throw','分銅投擲']);}
  S('確認する動作',actions,demoView.motion,v=>{demoView.motion=v;prepareWalkPreview();});
  const weapon=S('確認する武器',hero?[['','主武器'],...Object.keys(WPN).map(k=>[k,WPN[k].n])]:[['','固有装備']],hero?demoView.weapon:'',v=>{demoView.weapon=v;prepareWalkPreview();});weapon.disabled=!hero;
