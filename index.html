@@ -1258,8 +1258,8 @@ function karaSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[])
  if(!p.kinit){/* 最初の1回(st===0は呼ばれないことがあるので、印で判断する) */p.kinit=true;H.length=0;p.cur=Object.assign({},SPD.karakuri);p.kspin=0;p.kcan=0;p.krec=0;p.kfired=false;AU.sfx('creak');say(p,'ギ……ギギ……',90);}
  if(st===WIND){const m=fighterScreenMargin(p),edge0=f>0?G.camx+W-m:G.camx+m,edge=lv2?edge0-f*250:edge0/* Lv2は端の手前で止まり、壁際に追い込んだ敵へ砲弾を撃つ */,dist=Math.max(0,(edge-p.x)*f);p.rushEnd=WIND+clamp(Math.ceil(dist/spd),16,130);p.rushEdge=edge;p.cur.he=p.rushEnd;p.cur.dur=p.rushEnd+(lv2?52:20);}
  const RE=p.rushEnd||34;
- if(st<WIND){p.kspin+=0.2+st*0.1;p.z=0;if(st%3===1){AU.sfx('gear');PT({x:p.x+rnd(-24,24),y:p.y,z:rnd(20,120),vx:rnd(-2,2),vz:rnd(1,4),g:0.2,life:12,sz:rnd(2,4),col:'#ffd890',k:'spark'});}}
- if(st>=WIND&&st<=RE){p.kspin+=1.4;p.x+=f*spd;if((p.x-p.rushEdge)*f>0)p.x=p.rushEdge;
+ if(st<WIND){p.kspin+=0.12+st*0.035;p.z=0;if(st%3===1){AU.sfx('gear');PT({x:p.x+rnd(-24,24),y:p.y,z:rnd(20,120),vx:rnd(-2,2),vz:rnd(1,4),g:0.2,life:12,sz:rnd(2,4),col:'#ffd890',k:'spark'});}}
+ if(st>=WIND&&st<=RE){p.kspin+=0.62;p.x+=f*spd;if((p.x-p.rushEdge)*f>0)p.x=p.rushEdge;
   for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying||e.state==='dead'||H.includes(e))continue;const dx=(e.x-p.x)*f;if(dx>-10&&dx<150&&Math.abs(e.y-p.y)<46&&Math.abs(e.z||0)<90){H.push(e);e.inv=0;}}
   const wallX=G.camx+(f>0?W-30:30);
   for(let i=H.length-1;i>=0;i--){const e=H[i];if(e.hp<=0||e.dying||!G.fighters.includes(e)){H.splice(i,1);continue;}
@@ -1302,7 +1302,14 @@ function drawKaraCut(t){const k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(
   const g=kx.createLinearGradient(0,0,BW,0);g.addColorStop(0,'#8a91a3');g.addColorStop(0.4,'#4a4f5e');g.addColorStop(1,'#1e2028');kx.fillStyle=g;kx.fillRect(0,0,BW,BH);const gl=kx.createRadialGradient(150,60,5,150,60,110);gl.addColorStop(0,'rgba(255,110,60,0.55)');gl.addColorStop(1,'rgba(255,60,30,0)');kx.fillStyle=gl;kx.fillRect(0,0,BW,BH);
   for(const [cx,cy,r,sp] of[[150,56,66,0.04],[330,20,42,-0.06],[470,100,36,0.07],[600,40,28,-0.08]]){kx.save();kx.translate(cx,cy);kx.rotate(t*sp);kx.fillStyle='rgba(40,44,56,0.45)';kx.beginPath();for(let i=0;i<16;i++){const a0=i/16*TAU;kx.lineTo(Math.cos(a0)*r,Math.sin(a0)*r);kx.lineTo(Math.cos(a0+0.12)*(r+6),Math.sin(a0+0.12)*(r+6));kx.lineTo(Math.cos(a0+0.26)*(r+6),Math.sin(a0+0.26)*(r+6));kx.lineTo(Math.cos(a0+0.38)*r,Math.sin(a0+0.38)*r);}kx.closePath();kx.fill();kx.fillStyle='rgba(20,22,28,0.8)';kx.beginPath();kx.arc(0,0,r*0.45,0,TAU);kx.fill();kx.restore();}
   kx.strokeStyle='rgba(205,212,230,0.4)';kx.lineWidth=1.6;for(let i=0;i<7;i++){kx.beginPath();kx.moveTo(250+i*8,30+i*10);kx.lineTo(650,48+i*3);kx.stroke();}/* 右へ細くなる斜めの帯に沿った光の筋 */
-  kx.save();kx.translate(150,76);kx.scale(0.62,0.62);karaFace(t);kx.restore();/* 幸村と同じく顔を大きく、前立ての上は帯からはみ出して切れてよい */
+  /* 2026-10-17 オーナー「顔をちゃんと等身大のところからアップして」: 帯の左の塊に、まず本物の全身(等身大・帯の高さに収めた縮尺)を出し、顔へ向かってぐっと寄る(カメラのズームイン)。寄りきる頃に顔のアップ(karaFace)へ重ねて入れ替える */
+  const zz=Math.min(1,Math.max(0,(t-6)/16)),ez=zz*zz*(3-2*zz),sb=0.45*Math.pow(2.5/0.45,ez),cy=-95+(-147+95)*ez,ba=1-Math.min(1,Math.max(0,(t-18)/6)),fa=Math.min(1,Math.max(0,(t-16)/7));
+  const Pc=G.player;/* 体の頭(絵の座標で (3,-147))が、寄りきった所で顔のアップの位置(150,70)に来る */
+  if(ba>0&&Pc&&Pc.T.type==='karakuri'){const keep={x:Pc.x,y:Pc.y,z:Pc.z,face:Pc.face,kspin:Pc.kspin,flash:Pc.flash,inv:Pc.inv,_kb:Pc._kb},tr=Pc.trail?Pc.trail.slice():null;
+   kx.save();kx.globalAlpha=ba;kx.translate(150,70);kx.scale(sb,sb);kx.translate(-3,-cy);
+   Pc.x=G.camx;Pc.y=0;Pc.z=0;Pc.face=1;Pc.kspin=undefined;Pc.flash=0;Pc.inv=0;Pc._kb=0;
+   try{drawFighterP(Pc);}finally{Object.assign(Pc,keep);kx.restore();if(Pc.trail){Pc.trail.length=0;if(tr)for(const q of tr)Pc.trail.push(q);}}}
+  if(fa>0){kx.save();kx.globalAlpha=fa;kx.translate(150,76);kx.scale(0.62,0.62);karaFace(t);kx.restore();}
   kx.globalCompositeOperation='destination-in';kx.drawImage(CS.img,CQ[0],CQ[1],CQ[2],CQ[3],0,0,BW,BW*CQ[3]/CQ[2]);kx.globalCompositeOperation='source-over';
   ctx=c0;ctx.save();ctx.globalAlpha=a;ctx.drawImage(KCUT,-BW+ex*(BW+60),150);ctx.restore();return;}
  /* 幸村の絵がまだ読み込まれていない時だけの代わり(四角い帯) */
@@ -2778,18 +2785,54 @@ function drawFighter0(f){
  if(f.T.type&&SPR[f.T.spr||f.T.type]&&drawSprite(f)){if(f.T.ballArc)drawBallArc(f);return;}
  drawFighterP(f);
 }
+/* からくり武者の独楽(2026-10-17 オーナー「ちゃんとコマだからくるくる回転できるよね。斬撃の線でごまかさないように」「SVG(コードの絵)だからCodeで書ける」):
+   体そのものを縦の軸で回して描く(擬似3D)。胴・草摺は円柱=板の縦の継ぎ目と胸の紋が角度に応じて横へ流れ、顔(目の光る面)は正面を向いた時だけ見え、前立ての角は左右が入れ替わる。
+   左右へ突き出した2本の刀(手前と奥)は、回る向きに従って長さが縮み(奥行き)、手前は胴の前・奥は胴の後ろに描く。th=回転角(ラジアン)。ctx は足元原点・向き/拡縮は設定済み */
+function drawKoma(f,K,fl,th){
+ const sT=Math.sin(th),cT=Math.cos(th),R=17,ink='rgba(0,0,0,0.6)',steel='#c9ced8';
+ const blade=(phi)=>{const d0=20,L=84,y0=-98,sp=Math.sin(phi),cp=Math.cos(phi),pt=(d,w)=>{const z=d*cp;return [d*sp,y0+z*0.14,w*(1+z*0.004)];};
+  const a=pt(d0,5),b=pt(d0+L*0.55,4.2),c=pt(d0+L,1.2);ctx.beginPath();ctx.moveTo(a[0],a[1]-a[2]);ctx.lineTo(b[0],b[1]-b[2]);ctx.lineTo(c[0],c[1]);ctx.lineTo(b[0],b[1]+b[2]);ctx.lineTo(a[0],a[1]+a[2]);ctx.closePath();
+  const g=ctx.createLinearGradient(0,a[1]-a[2],0,a[1]+a[2]);g.addColorStop(0,fl?'#fff':'#f4f6fa');g.addColorStop(0.5,fl?'#fff':steel);g.addColorStop(1,fl?'#fff':'#6c7280');ctx.fillStyle=g;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.2;ctx.stroke();
+  line(a[0],a[1],b[0]*0.98,b[1],1,'rgba(255,255,255,0.7)');
+  const h=pt(d0-2,0);line(0,y0+2,h[0],h[1],9,fl?'#fff':shade(K.armor,0.85));circ(h[0],h[1],5.5,fl?'#fff':metalG(h[0]-5,h[1]-5,h[0]+5,h[1]+5,K.trim),ink,1);/* 腕と手(鍔) */};
+ const phiA=th+0.5,phiB=th+0.5+Math.PI,front=(phi)=>Math.cos(phi)>=0;
+ for(const phi of[phiA,phiB])if(!front(phi))blade(phi);/* 奥の刀 */
+ /* 脚 */
+ for(const sd of[-1,1]){const x=sd*6;ctx.beginPath();ctx.moveTo(x-5,-36);ctx.lineTo(x+5,-36);ctx.lineTo(x+4,-4);ctx.lineTo(x-4,-4);ctx.closePath();ctx.fillStyle=fl?'#fff':kozane(K.armor2,K.trim);ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.2;ctx.stroke();poly([[x-6,-4],[x+6,-4],[x+7,0],[x-7,0]],fl?'#fff':shade(K.armor2,0.7),ink,1);}
+ /* 草摺(円柱) */
+ const cyl=(y0,y1,r0,r1,lines,base)=>{ctx.beginPath();ctx.moveTo(-r0,y0);ctx.lineTo(r0,y0);ctx.lineTo(r1,y1);ctx.lineTo(-r1,y1);ctx.closePath();ctx.fillStyle=fl?'#fff':kozane(base,K.trim);ctx.fill();
+  let g=ctx.createLinearGradient(-r0,0,r0,0);g.addColorStop(0,'rgba(0,0,0,0.5)');g.addColorStop(0.35,'rgba(255,255,255,0.12)');g.addColorStop(0.7,'rgba(0,0,0,0.05)');g.addColorStop(1,'rgba(0,0,0,0.55)');ctx.fillStyle=g;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.4;ctx.stroke();
+  for(let i=0;i<lines;i++){const a=th+i*TAU/lines,c=Math.cos(a);if(c<=0)continue;ctx.strokeStyle=`rgba(0,0,0,${0.15+0.5*(1-c)})`;ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(Math.sin(a)*r0,y0);ctx.lineTo(Math.sin(a)*r1,y1);ctx.stroke();}};
+ cyl(-64,-34,R-1,R+3,8,K.armor);
+ /* 胴 */
+ cyl(-117,-64,R+2,R-1,8,K.armor);
+ poly([[-R-2,-117],[R+2,-117],[R+1,-110],[-R-1,-110]],fl?'#fff':metalG(0,-117,0,-110,K.trim),ink,1);/* 胸板の上端 */
+ poly([[-R,-68],[R,-68],[R,-60],[-R,-60]],fl?'#fff':shade(K.armor2,1.2),ink,1);/* 帯 */
+ if(cT>0){const mx=sT*(R-2);ctx.save();ctx.translate(mx,-92);ctx.scale(Math.max(0.12,cT),1);circ(0,0,7,fl?'#fff':metalG(-6,-6,6,6,K.trim),ink,1);circ(0,0,3,fl?'#fff':'#c9302c','#5a1010',0.8);ctx.restore();/* 胸の紋 */
+  for(let i=-1;i<=1;i+=2){const gx=sT*(R-2)+i*9*cT;circ(gx,-76,2.4*Math.max(0.2,cT),fl?'#fff':K.trim,ink,0.8);}}
+ else{const mx=-sT*(R-2),cc=-cT;ctx.save();ctx.translate(mx,-92);ctx.scale(Math.max(0.12,cc),1);ctx.fillStyle='rgba(0,0,0,0.35)';ctx.fillRect(-6,-10,12,20);ctx.restore();}/* 背: 歯車の背板 */
+ /* 頭(兜の鉢) */
+ const hb=-134,hr=15;
+ const horn=(s)=>{const a=th+s*Math.PI/2,xh=hr*Math.sin(a),dp=Math.cos(a);ctx.save();ctx.globalAlpha*=dp<0?0.85:1;ctx.beginPath();ctx.moveTo(xh-2*s,hb-9);ctx.quadraticCurveTo(xh+s*10,hb-18,xh+s*24,hb-42);ctx.quadraticCurveTo(xh+s*8,hb-22,xh+2*s,hb-4);ctx.closePath();ctx.fillStyle=fl?'#fff':metalG(xh,hb-40,xh+s*20,hb,K.trim);ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.2;ctx.stroke();ctx.restore();return dp;};
+ const hs=[-1,1].map(s=>({s,dp:Math.cos(th+s*Math.PI/2)})).sort((a,b)=>a.dp-b.dp);horn(hs[0].s);/* 奥の角 */
+ line(0,-117,0,-124,9,fl?'#fff':shade(K.armor2,0.8));
+ ctx.beginPath();ctx.arc(0,hb,hr,Math.PI,0);ctx.lineTo(hr+1,hb+8);ctx.lineTo(-hr-1,hb+8);ctx.closePath();let hg=ctx.createLinearGradient(-hr,0,hr,0);hg.addColorStop(0,shade('#8a8f9c',0.5));hg.addColorStop(0.4,fl?'#fff':'#c8ccd6');hg.addColorStop(1,shade('#8a8f9c',0.45));ctx.fillStyle=hg;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.4;ctx.stroke();
+ ctx.beginPath();ctx.ellipse(0,hb+8,hr+1,3.2,0,0,TAU);ctx.fillStyle=fl?'#fff':shade('#8a8f9c',0.7);ctx.fill();ctx.stroke();/* 吹返し */
+ if(cT>0){const fx=sT*(hr-3),fw=Math.max(0.15,cT);ctx.save();ctx.translate(fx,hb+2);ctx.scale(fw,1);ctx.fillStyle='#161820';ctx.beginPath();ctx.moveTo(-9,-5);ctx.lineTo(9,-5);ctx.lineTo(8,9);ctx.quadraticCurveTo(0,13,-8,9);ctx.closePath();ctx.fill();ctx.strokeStyle=ink;ctx.stroke();
+  const op=0.8+0.2*Math.sin(f.t*0.9);ctx.fillStyle=`rgba(255,${150+60*op|0},90,1)`;for(const sd of[-1,1]){ctx.beginPath();ctx.moveTo(sd*2,-1);ctx.lineTo(sd*8,-2);ctx.lineTo(sd*7,2);ctx.lineTo(sd*2,3);ctx.closePath();ctx.fill();}
+  ctx.globalCompositeOperation='lighter';const gl=ctx.createRadialGradient(0,0,1,0,0,13);gl.addColorStop(0,`rgba(255,90,50,${0.5*op})`);gl.addColorStop(1,'rgba(255,60,20,0)');ctx.fillStyle=gl;ctx.fillRect(-14,-12,28,24);ctx.restore();}
+ horn(hs[1].s);/* 手前の角 */
+ for(const phi of[phiA,phiB])if(front(phi))blade(phi);/* 手前の刀 */
+}
 function drawFighterP(f){
  if(f.kspin!==undefined&&f.state==='spc'&&f.kspin>2&&!f._kg){/* からくり武者の独楽: 回転が速すぎて1コマごとの姿が見えない=残像を重ねて「高速で回っている」ように見せる(位相をずらした3枚+回転の帯) */
-  f._kg=1;const k0=f.kspin;for(const d of[0.8,1.6,2.4]){f.kspin=k0-d;ctx.save();ctx.globalAlpha*=0.3;drawFighterP(f);ctx.restore();}f.kspin=k0;f._kg=0;f._kb=1;
-  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));ctx.scale(f.sc,f.sc);ctx.globalCompositeOperation='lighter';
-  for(let i=0;i<5;i++){const y=-18-i*28,ph=(f.kspin*0.9+i*1.7)%TAU,w=26+Math.abs(Math.sin(i*1.3))*10;ctx.strokeStyle=`rgba(210,225,255,${0.5-i*0.05})`;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,y,w,7,0,ph,ph+2.4);ctx.stroke();ctx.strokeStyle='rgba(255,200,120,0.35)';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(0,y,w+6,9,0,ph+3.1,ph+5.2);ctx.stroke();}/* 体の回りを巡る光の輪(独楽の回転線) */
-  ctx.restore();}
+  f._kg=1;const k0=f.kspin;for(const d of[0.22,0.44,0.66]){f.kspin=k0-d;ctx.save();ctx.globalAlpha*=0.3;drawFighterP(f);ctx.restore();}f.kspin=k0;f._kg=0;f._kb=1;/* 回転の途中の姿そのものを重ねる(線や光の輪は使わない) */}
  const T=f.T,fl=f.flash>0&&(f.flash&2),K=fl?WHITE:T.col,sc=f.sc,o=getPose(f);
  ctx.save();ctx.translate(Math.round(f.x-G.camx),Math.round(f.y-f.z));if(f._kb){f._kb=0;ctx.globalAlpha=0.62;}/* 回転の残像のあと、本体も半透明にして重ねる */
  if(f.state==='dead'&&f.team===1&&f.st>172&&(f.st&2))ctx.globalAlpha=0.35;
  if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(G.t&2))ctx.globalAlpha=0.55;else if(f.team===1&&f.wakeInv>G.t&&(G.t&4))ctx.globalAlpha=0.6;/* ボスの起き上がり無敵(2.5秒)は点滅で見分ける */
  ctx.scale(f.face*sc,sc);
- if(f.kspin!==undefined&&f.state==='spc'){/* からくり武者の独楽: 体の中心を軸に、横幅を縮め伸ばしながら回し、傾けて独楽に見せる */const c=Math.cos(f.kspin),sg=c<0?-1:1;ctx.translate(0,-70);ctx.rotate(-0.28);ctx.scale(sg*Math.max(0.2,Math.abs(c)),1);ctx.translate(0,70);}
+ if(f.kspin!==undefined&&f.state==='spc'&&T.karakuri){/* 独楽: 体そのものを回して描く(drawKoma)。少し傾けて独楽らしく、軸のふらつき(歳差)も付ける */ctx.rotate(-0.16+Math.sin(f.kspin*0.37)*0.04);drawKoma(f,K,fl,f.kspin);ctx.restore();return;}
  if(o.rot){const drop=52*clamp(-o.rot/1.45,0,1);ctx.translate(0,-64+drop);ctx.rotate(o.rot);ctx.translate(0,64);}
  const sx=o.sx,sy=o.sy,hy=o.hy;
  if(f.state==='spc'&&f.kspin===undefined){/* 独楽の回転中は光の四角が傾いて見えるので出さない */ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,-70,5,0,-70,90);g.addColorStop(0,`rgba(${T.trail},0.55)`);g.addColorStop(1,`rgba(${T.trail},0)`);ctx.fillStyle=g;ctx.fillRect(-100,-170,200,200);ctx.globalCompositeOperation='source-over';}
@@ -2829,7 +2872,7 @@ function drawFighterP(f){
  if(T.type==='boss3'){const hh=o.hb;ctx.save();ctx.translate(hh[0],hh[1]);line(0,0,0,-26,3,'#3a2a1c');circ(0,-38,16,metalG(-14,-50,14,-26,'#e0b83a'),'#4a3a10',1.5);circ(0,-38,7,'#c9302c','#5a1010',0.8);ctx.restore();}
  if((f.state==='atk'||f.state==='spc'||f.state==='jatk')&&f.cur){const d=f.cur,act=f.state==='jatk'?f.st>3:(f.st>=(d.hs||0)-3&&f.st<=(d.he||0)+5);
   const wpx=f.wpn?WPN[f.wpn.k]:null,TIP=wpx?wpx.tip:T.tip,WN=wpx?wpx.draw:T.wp;
-  if(act&&TIP>20&&WN!=='teppo'&&d.pz!=='shoot'&&d.pz!=='aim'&&d.pz!=='bow'&&d.pz!=='raise'){const m=ctx.getTransform(),ca=Math.cos(o.wa),sa=Math.sin(o.wa),tx=o.hf[0]+ca*TIP,ty=o.hf[1]+sa*TIP,mx=o.hf[0]+ca*TIP*0.35,my=o.hf[1]+sa*TIP*0.35;
+  if(act&&!(f.kspin!==undefined&&f.state==='spc'&&T.karakuri)&&TIP>20&&WN!=='teppo'&&d.pz!=='shoot'&&d.pz!=='aim'&&d.pz!=='bow'&&d.pz!=='raise'){const m=ctx.getTransform(),ca=Math.cos(o.wa),sa=Math.sin(o.wa),tx=o.hf[0]+ca*TIP,ty=o.hf[1]+sa*TIP,mx=o.hf[0]+ca*TIP*0.35,my=o.hf[1]+sa*TIP*0.35;
    /* 低画質(RS=0.72)では画面が縮んだ座標系なので、軌跡の点も論理座標へ戻す(戻さないと描く時にもう一度縮み、斬撃の軌跡が左上へずれて空中に浮く。2026-10-17 オーナー指摘) */f.trail.push({x1:(m.a*tx+m.c*ty+m.e)/RS+G.camx,y1:(m.b*tx+m.d*ty+m.f)/RS,x2:(m.a*mx+m.c*my+m.e)/RS+G.camx,y2:(m.b*mx+m.d*my+m.f)/RS});if(f.trail.length>9)f.trail.shift();f.trailOn=true;}}
  if(f.kcan>0&&f.state==='spc'){/* 体の仕掛けが開いて砲身が出る(kcan: 開き具合0〜1、krec: 発射の反動) */const k=Math.min(1,f.kcan),rc=f.krec||0;ctx.save();ctx.translate(8,-74);ctx.fillStyle='#2a2d35';ctx.strokeStyle='#0c0d10';ctx.lineWidth=2;for(const sd of[-1,1]){ctx.save();ctx.rotate(sd*k*1.1);ctx.fillRect(-6,sd>0?-2:-14,26,12);ctx.strokeRect(-6,sd>0?-2:-14,26,12);ctx.restore();}
   const L=(20+46*k)-rc*14;ctx.fillStyle=metalG(0,-9,L,9,'#7c8290');ctx.fillRect(0,-9,L,18);ctx.strokeRect(0,-9,L,18);ctx.fillStyle='#14161a';ctx.fillRect(L-6,-11,10,22);ctx.fillStyle='#050608';ctx.beginPath();ctx.ellipse(L+4,0,3,7,0,0,TAU);ctx.fill();
