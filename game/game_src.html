@@ -519,7 +519,7 @@ TY.sasuke={type:'sasuke',name:'猿飛佐助',en:'SARUTOBI SASUKE',role:'真田�
 // 2回クリアすると(3周目)選べる。馬には乗れない(からくりなので)。喋らず、歯車の音で答える
 TY.karakuri=Object.assign({},TY.kage,{type:'karakuri',name:'からくり武者',en:'KARAKURI MUSHA',role:'歯車仕掛けの武者 — 誰が造ったかは誰も知らぬ',karakuri:true,spr:'__karakuri',helm:'iron',
  col:{armor:'#b08a4a',armor2:'#5e4526',trim:'#e8c35a',cloth:'#7a5a32',skin:'#c9b89a'},trail:'255,200,120',banner:{bg:'#3a2a18',k:'circ'},stat:[4,3,4]});
-const WPN={odachi:{n:'長剣',draw:'odachi',tip:140,dm:1.7,rng:38,uses:26},naginata:{n:'薙刀',draw:'naginata',tip:150,dm:1.4,rng:60,uses:30},teppo:{n:'火縄銃',draw:'teppo',tip:78,uses:10},yoto:{n:'妖刀',draw:'odachi',tip:128,dm:2.1,rng:30,uses:18,s:'斬るたびに体力を吸う'},ono:{n:'斧',draw:'odachi',tip:118,dm:2.2,rng:18,uses:16,heavy:true,s:'一撃で吹き飛ばす'},konbou:{n:'棍棒',draw:'odachi',tip:108,dm:1.6,rng:20,uses:32,blunt:true},takeyari:{n:'竹槍',draw:'naginata',tip:180,dm:1.15,rng:78,uses:36},kusari:{n:'鎖鎌',draw:'naginata',tip:118,isc:0.6,dm:1.35,rng:30,uses:28,s:'長押しで分銅回し・離して投げ'},yumi:{n:'弓矢',draw:'teppo',tip:120,uses:14,bow:true}};
+const WPN={jumonji:{n:'十文字槍',draw:'naginata',tip:138,dm:1,rng:30,uses:999,virt:true/* 幸村本人の槍(絵の中にある)。防御の槍回しの時だけ、素手の絵+コードの槍で描くための仮の持ち物。拾えない・選べない */},odachi:{n:'長剣',draw:'odachi',tip:140,dm:1.7,rng:38,uses:26},naginata:{n:'薙刀',draw:'naginata',tip:150,dm:1.4,rng:60,uses:30},teppo:{n:'火縄銃',draw:'teppo',tip:78,uses:10},yoto:{n:'妖刀',draw:'odachi',tip:128,dm:2.1,rng:30,uses:18,s:'斬るたびに体力を吸う'},ono:{n:'斧',draw:'odachi',tip:118,dm:2.2,rng:18,uses:16,heavy:true,s:'一撃で吹き飛ばす'},konbou:{n:'棍棒',draw:'odachi',tip:108,dm:1.6,rng:20,uses:32,blunt:true},takeyari:{n:'竹槍',draw:'naginata',tip:180,dm:1.15,rng:78,uses:36},kusari:{n:'鎖鎌',draw:'naginata',tip:118,isc:0.6,dm:1.35,rng:30,uses:28,s:'長押しで分銅回し・離して投げ'},yumi:{n:'弓矢',draw:'teppo',tip:120,uses:14,bow:true}};
 const ITEMS={onigiri:{n:'おにぎり',s:'HP回復',c:'#b8f5a8'},hyorou:{n:'兵糧',s:'HP大回復',c:'#ffe29a'},sake:{n:'酒',s:'必殺ゲージ回復',c:'#9fd8ff'},w_odachi:{n:'長剣',s:'攻撃ボタンで拾う',c:'#ffb070'},sushi:{n:'寿司',s:'HP回復',c:'#b8f5a8'},manju:{n:'干し柿',s:'HP・必殺回復',c:'#ffd8a8'},w_yoto:{n:'妖刀',s:'攻撃ボタンで拾う',c:'#ff8aa0'},w_ono:{n:'斧',s:'攻撃ボタンで拾う',c:'#ffb070'},w_konbou:{n:'棍棒',s:'攻撃ボタンで拾う',c:'#ffb070'},w_takeyari:{n:'竹槍',s:'攻撃ボタンで拾う',c:'#ffb070'},w_kusari:{n:'鎖鎌',s:'攻撃ボタンで拾う',c:'#ffb070'},w_yumi:{n:'弓矢',s:'攻撃ボタンで拾う',c:'#ffb070'},w_naginata:{n:'薙刀',s:'攻撃ボタンで拾う',c:'#ffb070'},w_teppo:{n:'火縄銃',s:'攻撃ボタンで拾う',c:'#ffb070'}};
 
 /* ===================== LEVEL ===================== */
@@ -888,6 +888,7 @@ function hurt(t,a,d){if(G.s7&&t===G.s7.ie&&G.s7.ph!=='fight')return;/* 第七幕
   if(front&&G.t-(t.gT0||-99)<=8&&!t.mount){t.gT0=-99;mikiri(t,own,a);return;}
   if(front){const big=d.launch||(own.T&&own.T.boss);const chip=dmg*(big?0.25:0.1);t.hp=Math.max(1,t.hp-chip);t.gst=big?16:10;t.gvx=-t.face*(big?6:3);t.st=Math.min(t.st,5);
    const hx=t.x+t.face*24,hz=t.z+70;for(let i=0;i<(big?14:8);i++)PT({x:hx,y:t.y,z:hz+rnd(-20,20),vx:t.face*rnd(1,5),vz:rnd(-1,4),life:rnd(8,16),sz:rnd(2,4),col:i%2?'#fff6c0':'#ffd060',k:'spark'});PT({x:hx,y:t.y,z:hz,life:8,k:'star',sz:big?52:36,col:'#fff'});
+   if(a.k&&a.vx!==undefined&&['arrow','bullet','shuriken','kunai'].includes(a.k)&&((t.wpn&&WPN[t.wpn.k]&&WPN[t.wpn.k].draw==='naginata')||(t.T.type==='yuki'&&!t.wpn))){/* 槍を眼の前で回して飛び道具を弾き返す(オーナー案 2026-10-17): 受け止めた矢・弾を、回転で逸らして相手の方へ返す */addProj({x:t.x+t.face*34,y:t.y,z:t.z+96,vx:-a.vx*0.8,vy:(a.vy||0)*0.5+rnd(-0.8,0.8),vz:rnd(0,1.5),team:0,dmg:Math.max(4,Math.round(dmg*1.2)),face:t.face,owner:t,k:a.k,w:a.w||18,life:56,kb:3});for(let i=0;i<10;i++)PT({x:t.x+t.face*38,y:t.y,z:t.z+96+rnd(-14,14),vx:t.face*rnd(1,6),vz:rnd(-2,3),life:rnd(8,14),sz:rnd(2,4),col:i%2?'#fff':'#ffe08a',k:'spark'});}
    AU.sfx('block');G.hitstop=Math.max(G.hitstop,big?6:3);G.shake=Math.max(G.shake,big?5:2);own.ki=own.ki;t.ki=Math.min(100,(t.ki||0)+3);gunbaiCounter(t,own,a);return;}}
  if(t.T&&t.T.shield&&t.shieldOn!==false&&t.team===1&&!d.unblock&&!d.launch&&a.x!==undefined&&sgn(a.x-t.x)===t.face&&t.state!=='atk'&&t.state!=='down'){t.flash=3;AU.sfx('block');G.hitstop=Math.max(G.hitstop,3);t.blk=(t.blk||0)+1;t.x-=t.face*4;if(t.blk>=3){t.shieldOn=false;burst(t.x+t.face*30,t.y,80,14,'#a07850',8);AU.sfx('break');}return;}
  // 仮面のくノ一: 立っているときの通常攻撃を、低い横滑りでかわして反撃へつなぐ(打ち上げ・不可避技・背後・連続は受ける)
@@ -2399,7 +2400,10 @@ function drawBallArc(f){const c=f.cur;if(f.state!=='atk'||!c||c.anim!=='a1')retu
  ctx.save();ctx.globalCompositeOperation='lighter';for(const [lw,al] of [[22,0.18],[8,0.5]]){ctx.strokeStyle=`rgba(255,235,200,${al*(1-Math.abs(k-0.5))})`;ctx.lineWidth=lw;ctx.beginPath();for(let i=0;i<=12;i++){const aa=-2.2+Math.max(0,k-0.45)*3.6+i/12*Math.min(k,0.45)*3.6;const x=hx+f.face*Math.cos(aa)*L,y=hy+Math.sin(aa)*L*0.55+40*sc;i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}ctx.restore();
  ctx.save();ctx.strokeStyle='#2a2a30';ctx.lineWidth=4;ctx.setLineDash([5,3]);ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo((hx+bx)/2,(hy+by)/2+16,bx,by);ctx.stroke();ctx.setLineDash([]);
  const g=ctx.createRadialGradient(bx-5,by-5,2,bx,by,20*sc);g.addColorStop(0,'#9aa0aa');g.addColorStop(1,'#1c1d22');ctx.fillStyle=g;ctx.beginPath();ctx.arc(bx,by,17*sc,0,TAU);ctx.fill();ctx.fillStyle='#3a3b42';for(let i=0;i<8;i++){const t=i/8*TAU+G.t*0.2;ctx.beginPath();ctx.moveTo(bx+Math.cos(t)*15*sc,by+Math.sin(t)*15*sc);ctx.lineTo(bx+Math.cos(t)*25*sc,by+Math.sin(t)*25*sc);ctx.lineTo(bx+Math.cos(t+0.25)*15*sc,by+Math.sin(t+0.25)*15*sc);ctx.fill();}ctx.restore();}
-function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(f.var){const VS=SPR[(f.T.spr||f.T.type)+'_'+f.var];if(VS&&VS.ready)S=VS;}if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
+function drawSprite(f){/* 幸村が防御する間だけ、素手の絵に持ち替えて十文字槍をコードで描く(槍を前で回して弾くため) */
+ let vw=false;if(f.T.type==='yuki'&&!f.wpn&&f.state==='guard'&&!f.mount&&f.team===0&&SPR.yuki_u&&SPR.yuki_u.ready){f.wpn={k:'jumonji',uses:99,virt:true};vw=true;}
+ try{return drawSprite0(f);}finally{if(vw)f.wpn=null;}}
+function drawSprite0(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type];if(!S||!S.ready)return false;if(f.var){const VS=SPR[(f.T.spr||f.T.type)+'_'+f.var];if(VS&&VS.ready)S=VS;}if(S.a.belly)return drawMounted(f,S);let sp=sprPos(f,S);if(!sp||!sp.arr)return false;
  if(f.wpn&&f.team===0&&UMAP[f.T.type+'_u']&&!['spc','ult','down','dead','getup','mega','throw','grab'].includes(f.state)){const U=SPR[f.T.type+'_u'];if(U&&U.ready&&U.a[sp.arr._an]){const su=sprPos(f,U);if(su&&su.arr&&su.arr._an===sp.arr._an){S=U;sp=su;}}}
  // A missing unarmed walk must not silently turn pickup movement into an idle pose.
  if(f.state==='throw'&&f.spearThrow){const U=SPR.yukithrow1;if(U&&U.ready){S=U;sp={arr:U.a.throw,pos:yukiThrowFrame(f),loop:false,hard:true};}}
@@ -2833,13 +2837,14 @@ function drawKoma(f,K,fl,th){
    槍をコードで描いて、前=画面の面内で回転(プロペラ)、頭上=水平面で回転(擬似3D・楕円の軌道で奥へ行くほど細く短く)。回転の途中の姿そのものを薄く重ねて速さを出す(線では描かない)。
    ctx は足元原点・向き/拡縮設定済み。mode='front'|'over'、th=回転角 */
 function drawPoleProp(f,wk,fl,mode,th,hx,hy){
- const bam=f.wpn&&f.wpn.k==='takeyari',Lt=(wk.tip||150)*1.1,ink='rgba(0,0,0,0.65)';
+ const bam=f.wpn&&f.wpn.k==='takeyari',jum=f.wpn&&f.wpn.k==='jumonji',Lt=(wk.tip||150)*1.1,ink='rgba(0,0,0,0.65)';
  const spear=(ax,ay,bx,by,dk)=>{const dx=bx-ax,dy=by-ay,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,nx=-uy,ny=ux,bl=bam?24:34,bw=(bam?4:6.5)*dk,sw=(bam?5.5:4.5)*dk;
   const tx=bx-ux*bl,ty=by-uy*bl;ctx.lineCap='round';ctx.strokeStyle=ink;ctx.lineWidth=sw+2;ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(tx,ty);ctx.stroke();
   ctx.strokeStyle=fl?'#fff':(bam?'#b5c46a':'#6b4a2a');ctx.lineWidth=sw;ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(tx,ty);ctx.stroke();
   ctx.strokeStyle=fl?'#fff':(bam?'#e6f0a0':'#a8825a');ctx.lineWidth=Math.max(1,sw*0.3);ctx.beginPath();ctx.moveTo(ax+nx*sw*0.2,ay+ny*sw*0.2);ctx.lineTo(tx+nx*sw*0.2,ty+ny*sw*0.2);ctx.stroke();
   ctx.beginPath();ctx.moveTo(bx,by);ctx.quadraticCurveTo(tx+ux*bl*0.5+nx*bw*1.15,ty+uy*bl*0.5+ny*bw*1.15,tx+nx*bw*0.6,ty+ny*bw*0.6);ctx.lineTo(tx-nx*bw*0.6,ty-ny*bw*0.6);ctx.quadraticCurveTo(tx+ux*bl*0.5-nx*bw*1.15,ty+uy*bl*0.5-ny*bw*1.15,bx,by);ctx.closePath();
-  ctx.fillStyle=fl?'#fff':(bam?'#d8c080':'#d8dde6');ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.1;ctx.stroke();/* 穂先(竹槍は削った竹) */};
+  ctx.fillStyle=fl?'#fff':(bam?'#d8c080':'#d8dde6');ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.1;ctx.stroke();/* 穂先(竹槍は削った竹) */
+  if(jum){for(const sd of[-1,1]){const mx=tx+ux*bl*0.12,my=ty+uy*bl*0.12;ctx.beginPath();ctx.moveTo(mx,my);ctx.quadraticCurveTo(mx+nx*sd*bw*2.4,my+ny*sd*bw*2.4,mx+nx*sd*bw*2.6+ux*bl*0.5,my+ny*sd*bw*2.6+uy*bl*0.5);ctx.quadraticCurveTo(mx+nx*sd*bw*1.4+ux*3,my+ny*sd*bw*1.4+uy*3,mx,my);ctx.closePath();ctx.fillStyle=fl?'#fff':'#d8dde6';ctx.fill();ctx.stroke();}}/* 十文字槍の鎌(左右の枝) */};
  const draw=(a,al)=>{ctx.save();ctx.globalAlpha*=al;
   if(mode==='front'){const cx=32,cy=-98,sa=Math.sin(a),ca=Math.cos(a),b0=-Lt*0.42,b1=Lt*0.58;spear(cx+ca*b0,cy+sa*b0,cx+ca*b1,cy+sa*b1,1);circ(cx,cy,5,fl?'#fff':'#3a2a1c',ink,1);}
   else{const cx=2,cy=-158,flat=0.2,sa=Math.sin(a),ca=Math.cos(a),b0=-Lt*0.42,b1=Lt*0.58,P=(s0)=>[cx+s0*sa,cy+s0*ca*flat];
@@ -3295,7 +3300,7 @@ function debugUI(B,L,playback){autoEl.className='inspect';
  const dk=p.dbgKey||p.T.type;if(!hero&&!p.mount){if(SPD[dk])actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極']),dk!=='munenori'&&actions.push(['special','奥義']);else if(dk==='masamune')actions.push(['special','奥義(ゲージ3本)']);}/* 政宗は奥義だけ(必殺は無い) */
  if(hero){actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極'],['special','奥義']);if(!p.mount)actions.push(['jump','跳躍'],['charge','溜め'],['guard','防御'],['grapplethrow','つかみ投げ']);if(demoView.weapon==='kusari')actions.push(['spin','分銅旋回'],['throw','分銅投擲']);}
  S('確認する動作',actions,demoView.motion,v=>{demoView.motion=v;prepareWalkPreview();});
- const weapon=S('確認する武器',hero?[['','主武器'],...Object.keys(WPN).map(k=>[k,WPN[k].n])]:[['','固有装備']],hero?demoView.weapon:'',v=>{demoView.weapon=v;prepareWalkPreview();});weapon.disabled=!hero;
+ const weapon=S('確認する武器',hero?[['','主武器'],...Object.keys(WPN).filter(k=>!WPN[k].virt).map(k=>[k,WPN[k].n])]:[['','固有装備']],hero?demoView.weapon:'',v=>{demoView.weapon=v;prepareWalkPreview();});weapon.disabled=!hero;
  const mount=S('馬の有無',hero?[['0','馬なし'],['1','馬あり']]:[['0',p.T.horse?'固有騎乗':'徒歩']],hero&&demoView.mounted?'1':'0',v=>{demoView.mounted=v==='1';if(['charge','jump','grapplethrow'].includes(demoView.motion))demoView.motion='walk';prepareWalkPreview();});mount.disabled=!hero;
  S('向き',[['1','右'],['-1','左']],demoView.facing,v=>{demoView.facing=Number(v);prepareWalkPreview();});playback();B('■ 終了',()=>{G.auto=false;startTitle();});}
 
