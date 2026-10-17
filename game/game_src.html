@@ -2400,6 +2400,17 @@ function drawBallArc(f){const c=f.cur;if(f.state!=='atk'||!c||c.anim!=='a1')retu
  ctx.save();ctx.globalCompositeOperation='lighter';for(const [lw,al] of [[22,0.18],[8,0.5]]){ctx.strokeStyle=`rgba(255,235,200,${al*(1-Math.abs(k-0.5))})`;ctx.lineWidth=lw;ctx.beginPath();for(let i=0;i<=12;i++){const aa=-2.2+Math.max(0,k-0.45)*3.6+i/12*Math.min(k,0.45)*3.6;const x=hx+f.face*Math.cos(aa)*L,y=hy+Math.sin(aa)*L*0.55+40*sc;i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}ctx.restore();
  ctx.save();ctx.strokeStyle='#2a2a30';ctx.lineWidth=4;ctx.setLineDash([5,3]);ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo((hx+bx)/2,(hy+by)/2+16,bx,by);ctx.stroke();ctx.setLineDash([]);
  const g=ctx.createRadialGradient(bx-5,by-5,2,bx,by,20*sc);g.addColorStop(0,'#9aa0aa');g.addColorStop(1,'#1c1d22');ctx.fillStyle=g;ctx.beginPath();ctx.arc(bx,by,17*sc,0,TAU);ctx.fill();ctx.fillStyle='#3a3b42';for(let i=0;i<8;i++){const t=i/8*TAU+G.t*0.2;ctx.beginPath();ctx.moveTo(bx+Math.cos(t)*15*sc,by+Math.sin(t)*15*sc);ctx.lineTo(bx+Math.cos(t)*25*sc,by+Math.sin(t)*25*sc);ctx.lineTo(bx+Math.cos(t+0.25)*15*sc,by+Math.sin(t+0.25)*15*sc);ctx.fill();}ctx.restore();}
+/* 天海の鎖と鉄球(コードで描く。手と鉄球の位置は tools/pack_tenkai_body.py の表 DATA.tball。コマの間は補間して滑らかに動かす) */
+function drawTenkaiBall(f){const T=DATA.tball&&DATA.tball[f._tball.row];if(!T)return;const fl=f.flash>0&&(f.flash&2),pf=f._tball.pf,n=f._tball.n;
+ const at=(p)=>{p=clamp(p,0,n-0.001);const i=Math.floor(p),k=p-i,A=T[i],B=T[Math.min(n-1,i+1)];return [A[0]+(B[0]-A[0])*k,A[1]+(B[1]-A[1])*k,A[2]+(B[2]-A[2])*k,A[3]+(B[3]-A[3])*k];};
+ const ball=(q,al,rot)=>{ctx.save();ctx.globalAlpha*=al;const [hx,hy,bx,by]=q,sag=Math.min(26,Math.hypot(bx-hx,by-hy)*0.12)+4;
+  ctx.lineCap='round';ctx.setLineDash([5,3]);ctx.strokeStyle=fl?'#fff':'#15151a';ctx.lineWidth=4.2;ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo((hx+bx)/2,(hy+by)/2+sag,bx,by);ctx.stroke();
+  ctx.strokeStyle=fl?'#fff':'#b4bac4';ctx.lineWidth=1.8;ctx.lineDashOffset=2;ctx.stroke();ctx.setLineDash([]);
+  ctx.translate(bx,by);ctx.rotate(rot);const R=17;ctx.fillStyle=fl?'#fff':'#23252b';ctx.strokeStyle='#08080a';ctx.lineWidth=1.4;
+  for(let i=0;i<10;i++){const a=i/10*TAU;ctx.beginPath();ctx.moveTo(Math.cos(a-0.16)*R*0.9,Math.sin(a-0.16)*R*0.9);ctx.lineTo(Math.cos(a)*R*1.5,Math.sin(a)*R*1.5);ctx.lineTo(Math.cos(a+0.16)*R*0.9,Math.sin(a+0.16)*R*0.9);ctx.closePath();ctx.fill();ctx.stroke();}/* トゲ */
+  const g=ctx.createRadialGradient(-R*0.35,-R*0.35,1,0,0,R);g.addColorStop(0,fl?'#fff':'#9aa2ac');g.addColorStop(1,fl?'#fff':'#2a2c32');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,R,0,TAU);ctx.fill();ctx.stroke();ctx.restore();};
+ if(!G.lowq)for(const [d,al] of[[0.55,0.22],[0.3,0.36]])ball(at(pf-d),al,f.t*0.5);/* 動きの途中の鉄球そのものを薄く重ねる(線では描かない) */
+ ball(at(pf),1,f.t*0.5);}
 function drawSprite(f){/* 幸村が防御する間だけ、素手の絵に持ち替えて十文字槍をコードで描く(槍を前で回して弾くため) */
  let vw=false;if(f.T.type==='yuki'&&!f.wpn&&f.state==='guard'&&!f.mount&&f.team===0&&SPR.yuki_u&&SPR.yuki_u.ready){f.wpn={k:'jumonji',uses:99,virt:true};vw=true;}
  try{return drawSprite0(f);}finally{if(vw)f.wpn=null;}}
@@ -2430,6 +2441,11 @@ function drawSprite0(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.typ
  /* A-031 三段突きなど、コマごとの開始tick(ft)を持つ専用の攻撃: atlas=アトラス名の頭、row=行名 */
  if(f.T&&f.T.boss&&f.state==='atk'&&f.cur&&f.cur.ft){const D=SPR[f.cur.atlas+'_'+(f.T.spr||f.T.type)];if(D&&D.ready&&D.a[f.cur.row]){let i=0;for(let k=0;k<f.cur.ft.length;k++)if(f.st>=f.cur.ft[k])i=k;S=D;sp={arr:D.a[f.cur.row],pos:i,loop:false,hard:true};}}
  /* A-031 防御: 構え→受け止め→受け流し(反撃の前)→崩れ。bguard_<boss> がある武将だけ */
+ f._tball=null;
+ /* 天海の攻撃の描き直し(画像担当の体だけの候補・鎖鉄球なし)。通常攻撃(a1)6コマ・跳躍叩きつけ(leap)5コマの間だけ差し替え、鎖と鉄球はコードで描く(drawTenkaiBall) */
+ if(f.T&&f.T.type==='tenkai'&&f.state==='atk'&&f.cur&&(f.cur.anim==='a1'||f.cur.anim==='leap')){const TB=SPR.bten_tenkai,row=f.cur.anim;if(TB&&TB.ready&&TB.a[row]){const c=f.cur,n=TB.a[row].length;let pf;
+  if(row==='a1')pf=clamp(f.st/Math.max(1,c.dur),0,0.999)*n;else pf=f.st<c.hs?0:f.z>2?(f.vz>4?1:f.vz>-3?2:3):(f.leaped?4:3);
+  S=TB;sp={arr:TB.a[row],pos:Math.min(n-1,Math.floor(pf)),loop:false,hard:true};f._tball={row,pf:Math.min(n-0.001,pf),n};}}
  if(f.T&&f.T.boss){const GD=SPR['bguard_'+(f.T.spr||f.T.type)];if(GD&&GD.ready&&GD.a.ready){let row=null,i=0;if(f.state==='hurt'&&f.gcrash>G.t){row='crash';{const e=70-(f.gcrash-G.t);i=e<8?Math.floor(e/4):e<20?2:e<28?3:e<58?4:5;/* 崩れる→倒れ込んで隙→立て直し */}}else if(f.state==='atk'&&f.cur){if(f.gpar&&G.t-f.gpar<22){row='parry';i=Math.min(7,Math.floor((G.t-f.gpar)/2.5));}else if(f.cur.k==='guard'){if(f.gblk&&G.t-f.gblk<14){row='block';i=Math.min(3,Math.floor((G.t-f.gblk)/3.5));}else{row='ready';i=Math.min(5,Math.floor(f.st/3));}}}if(row){S=GD;sp={arr:GD.a[row],pos:i,loop:false,hard:true};}}}
  if(f.decap){S=f.decap.S;sp={arr:[f.decap.q],pos:0,loop:false,hard:true};}
  const arr=sp.arr,n=arr.length,i0=Math.floor(sp.pos)%n,fr=sp.pos-Math.floor(sp.pos);
@@ -2468,6 +2484,7 @@ function drawSprite0(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.typ
  const atkSt=f.state==='atk'||f.state==='jatk'||f.state==='spc'||f.state==='throw'||f.state==='mega';
  if(A1&&A1!==A0&&fr>0.02&&!fl&&!sp.hard&&!atkSt&&!G.lowq){ctx.globalAlpha=ga*fr*0.85;ctx.drawImage(img,A1[0],A1[1],A1[2],A1[3],A1[4],A1[5],A1[2]*(A1[6]||1),A1[3]*(A1[6]||1));ctx.globalAlpha=ga;}
  if(f.T.shield&&f.shieldOn!==false&&f.state!=='down'&&f.state!=='dead'){ctx.save();ctx.translate(30,-118);ctx.rotate(f.state==='atk'?0.35:0.05);const sg=ctx.createLinearGradient(-20,0,20,0);sg.addColorStop(0,fl?'#fff':'#5a3a1e');sg.addColorStop(0.5,fl?'#fff':'#8a5a2e');sg.addColorStop(1,fl?'#fff':'#4a2e16');ctx.fillStyle=sg;ctx.fillRect(-18,-50,36,100);ctx.strokeStyle='#1a0e06';ctx.lineWidth=3;ctx.strokeRect(-18,-50,36,100);ctx.fillStyle='#2a1a0c';for(const yy of[-30,0,30])ctx.fillRect(-18,yy-2,36,4);ctx.beginPath();ctx.arc(0,-12,9,0,TAU);ctx.fillStyle='#e8e0c8';ctx.fill();ctx.restore();}
+ if(f._tball)drawTenkaiBall(f);
  const hideW=UMAP[f.T.type+'_u']&&S===SPR[f.T.type]&&kart!=='throw';if(f.wpn&&f.team===0&&!hideW){const d=f.cur,wk=WPN[f.wpn.k];let wa=-1.05,hx=20,hy=-106;const kickP=d&&(d.pz==='kick'||d.pz==='tackle'),HA=S.hand&&S.hand[kickP?'idle':arr._an],ha=HA&&HA[kickP?0:i0],hk=!!ha;if(ha){hx=ha[0];hy=ha[1];}
   if(f.state==='idle')wa=-0.72+Math.sin(f.t*0.06)*0.025;
   else if(f.state==='walk')wa=-0.82+Math.sin(f.wp||0)*0.035;
@@ -3382,9 +3399,9 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];if(TY[h]&&TY[h].ai){const k=TY[h].spr||h;return[k,'bjump_'+k].concat(k==='monk'?['monkball','monkfx']:[]).filter(x=>SPR_RAW[x]);}/* 全編デモの主人公が敵キャラ */const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_|bfall_|bdive_|btri_|bguard_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_|bfall_|bdive_|btri_|bguard_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai','bten_tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
- if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr,'kurogusoku');if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr);/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
+ if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr,'kurogusoku');if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr,'bten_tenkai');/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
   return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bfall_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bdive_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'btri_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bguard_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
  if(m==='title'||m==='gate'||m==='diff')return base;return null;}
 let _sprSig='';
