@@ -42,11 +42,15 @@ for row, src in JOBS:
     x0, y0 = int(min(b[0] for b in bs)), int(min(b[1] for b in bs))
     x1, y1 = int(max(b[2] for b in bs)), int(max(b[3] for b in bs))
     W, H = x1 - x0, y1 - y0
-    img = Image.new('RGBA', ((W + 2) * len(cs), H), (0, 0, 0, 0))
+    # 古い端末のテクスチャ上限(4096)を超えないよう、1行を最大 MAXW 幅で折り返して段にする(20コマの連撃など)
+    per = max(1, 4000 // (W + 2))
+    nrow = (len(cs) + per - 1) // per
+    img = Image.new('RGBA', ((W + 2) * min(per, len(cs)), H * nrow), (0, 0, 0, 0))
     arr = []
     for i, c in enumerate(cs):
-        img.paste(Image.fromarray(c[y0:y1, x0:x1], 'RGBA'), (i * (W + 2), 0))
-        arr.append([i * (W + 2), 0, W, H, float(-(CW / 2 - x0)), float(-(GROUND - y0)), 1])
+        cx, cy = (i % per) * (W + 2), (i // per) * H
+        img.paste(Image.fromarray(c[y0:y1, x0:x1], 'RGBA'), (cx, cy))
+        arr.append([cx, cy, W, H, float(-(CW / 2 - x0)), float(-(GROUND - y0)), 1])
     rows.append((row, img, arr))
 AW = max(r[1].width for r in rows)
 AH = sum(r[1].height + 2 for r in rows)

@@ -492,6 +492,11 @@ TY.munenori=Object.assign(JSON.parse(JSON.stringify(TY.boss1)),{type:'munenori',
     主人公の通常攻撃は全体16〜34コマ・当たりは5〜14コマ目。政宗・宗矩も同じ桁(斬り26前後・大技46前後)にする */
  {const FAST=(d,k)=>{for(const f of['dur','hs','he','hs2','he2'])if(d[f])d[f]=Math.max(2,Math.round(d[f]*k));if(d.move)d.move/=k;if(d.lunge)d.lunge/=k;return d;};
   [0.52,0.62,0.6,0.7,0.66].forEach((k,i)=>FAST(TY.masamune.atk[i],k));[0.55,0.6,0.7].forEach((k,i)=>FAST(TY.munenori.atk[i],k));}
+ /* 2026-10-17 画像担当の追加攻撃(柳生宗矩・A-031追記5): 居合斬り12コマ(7コマ目で当たる・前進約22px)、二連斬り20コマ(6・14コマ目で当たる・前進約30px)。k:'tri' の当たり表(hits)と ft(コマの切り替わる更新)で動かす */
+ {const ft=(n,dur)=>Array.from({length:n},(_,i)=>Math.round(i*dur/n));
+  TY.munenori.atk.push({pz:'thrust',k:'tri',atlas:'btri',row:'iai',ft:ft(12,52),hits:[Math.round(6*52/12)],dur:52,hs:Math.round(6*52/12),he:Math.round(6*52/12)+1,rng:250,dmg:13,kb:6,dep:44,lunge:5.5,sfx:'slash'});
+  TY.munenori.atk.push({pz:'swing',k:'tri',atlas:'btri',row:'nire',ft:ft(20,76),hits:[Math.round(5*76/20),Math.round(13*76/20)],dur:76,hs:Math.round(5*76/20),he:Math.round(5*76/20)+1,rng:175,dmg:8,kb:3,dep:46,lunge:7.5,sfx:'slash'});
+  TY.munenori.near=[0,2,0,1,4];TY.munenori.far=[1,2,3];}
  /* 第七幕の本物の家康(老武者・専用の絵 ieyasu2): 斬り=a1 / 軍配で家来を呼ぶ=call / 踏み込み突き=dash / 回転大斬り=big */
  TY.ieyasu2={spr:'ieyasu2',atk:[Object.assign(J(TY.boss3.atk[0]),{anim:'a1'}),Object.assign(J(TY.boss3.atk[1]),{anim:'call'}),Object.assign(J(TY.boss3.atk[2]),{anim:'dash'}),Object.assign(J(rnd9),{anim:'big'})],near:[0,3,0,2],far:[2,1,3]};}
 /* 2026-10-16 オーナー「幸村が小さく見える。ボスが大きすぎる。大柄のキャラなら自然」: 武将ボスの倍率を見直す(主人公=1.0)。大柄の設定(本多忠勝・福島正則)だけ大きめ、他は1.1〜1.15。
@@ -3399,7 +3404,7 @@ function sprRelease(k){const S=SPR_RAW[k];if(!S||!S.want)return;S.want=false;S.r
 // 武将1人分: 本体・手ぶら・持ち歩き・馬上(一体絵・歩き・攻撃)・幸村の槍投げ/攻撃
 function heroBundle(h){if(!h)return[];if(TY[h]&&TY[h].ai){const k=TY[h].spr||h;return[k,'bjump_'+k].concat(k==='monk'?['monkball','monkfx']:[]).filter(x=>SPR_RAW[x]);}/* 全編デモの主人公が敵キャラ */const b=[h,h+'_u','walkbody3_'+h,'mountbody3_'+h,'mountwalk5_'+h,'mountwalk4_'+h,'mountfull4_'+h,'mountfull3_'+h];b.push('mountwhirl2_'+h,'mountnorm_'+h,'atk3_'+h,'atk3b_'+h);if(h==='yuki')b.push('yukithrow1','yukiattack2','yukirokudan1');if(h==='yuki'&&WALKX)b.push('walkx_yuki'+WKS(),'walkx_yuki'+WKS()+'_u');return b.filter(k=>SPR_RAW[k]);}
 // 今の画面で必要な画像の組。null は「今のまま(捨てない)」
-function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_|bfall_|bdive_|btri_|bguard_)?boss\d/.test(k)&&!['masamune','munenori','ieyasu2','tenkai','bten_tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
+function sprTarget(){const m=G.mode,base=Object.keys(SPR_RAW).filter(k=>!/^(bjump_|bfall_|bdive_|btri_|bguard_)?boss\d/.test(k)&&!['masamune','munenori','btri_munenori','ieyasu2','tenkai','bten_tenkai','kurogusoku'].includes(k)/* 第七幕(天海は第六幕の追撃戦)でだけ読む */&&!/_v1$/.test(k)/* 差し替え前の旧アトラス(monk_v1・saizo_v1・sasuke_v1)は使わないので読まない */&&!NEWKEYS.includes(k)&&!/^walkx_/.test(k)/* 試験の歩き(?walkx=1の時だけ幸村の束で読む) */&&!HERO_KEYS.some(h=>heroBundle(h).includes(k)));base.push('boss3');
  if(m==='select')return base.concat(...HERO_KEYS.map(h=>[h]),[SPR_RAW.saizo?'saizo':null,SPR_RAW.sasuke?'sasuke':null].filter(Boolean));
  if(m==='play'||m==='demo'||m==='howto'){const L=LV[G.stage]||{waves:[]},bs=(G.waves&&G.waves.length?G.waves:L.waves).filter(w=>w.boss).map(w=>(TY[w.boss]&&TY[w.boss].spr)||w.boss);if(CHASE&&G.stage===6)bs.push(TY.munenori.spr,TY.ieyasu2.spr,'kurogusoku');if(CHASE&&G.stage===5)bs.push(TY.tenkai.spr,'bten_tenkai');/* 第七幕の砦に出る柳生宗矩(仮の絵)も読む */
   return base.concat(G.demo?[]:newEnKeys(G.stage).filter(k=>SPR_RAW[k]),bs,bs.map(b=>'bjump_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bfall_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bdive_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'btri_'+b).filter(k=>SPR_RAW[k]),bs.map(b=>'bguard_'+b).filter(k=>SPR_RAW[k]),heroBundle(G.player&&G.player.T.type),heroBundle(G.partner&&G.partner.T.type),heroBundle(G.partnerType));}
