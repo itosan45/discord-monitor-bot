@@ -1377,14 +1377,18 @@ function airFix(f){if(f.z>0&&f.state!=='down'&&f.state!=='jump'&&f.state!=='jatk
 const CHG=40;
 const CKNAME={rokudan:'六段突き',iai:'居合',spin:'回転斬り',quake:'地割れ',bigshot:'溜め撃ち',triarrow:'三本矢',gale:'疾風',gou:'号令'};
 function chargeKind(p){const w=p.wpn&&p.wpn.k,o=p.T.wp;
- if(w==='odachi'||w==='yoto'||(!w&&o==='katana'))return 'iai';if(w==='naginata')return 'spin';if(w==='ono'||w==='konbou')return 'quake';
+ if(w==='odachi'||w==='yoto'||(!w&&o==='katana'))return 'iai';if(w==='naginata'||w==='takeyari')return 'prop';if(w==='ono'||w==='konbou')return 'quake';
  if(w==='teppo')return 'bigshot';if(w==='yumi')return 'triarrow';if(!w&&o==='fan')return 'gale';if(!w&&o==='gunbai')return 'gou';if(!w&&o==='jumonji'&&!p.mount)return 'rokudan';return 'rush';}
-function startCk(p,ck){const T=p.T,b=(ck==='quake'?T.atk[3]:ck==='spin'?T.atk[1]:T.atk[0])||T.atk[0],DU={rokudan:[66,8,57],spin:[40,6,30],quake:[40,14,16],bigshot:[30,10,11],triarrow:[28,9,10],gale:[34,10,12],gou:[40,12,14]}[ck];
+function startCk(p,ck){const T=p.T,b=(ck==='quake'?T.atk[3]:(ck==='spin'||ck==='prop')?T.atk[1]:T.atk[0])||T.atk[0],DU={rokudan:[66,8,57],spin:[40,6,30],prop:[56,6,46],quake:[40,14,16],bigshot:[30,10,11],triarrow:[28,9,10],gale:[34,10,12],gou:[40,12,14]}[ck];
  p.cur=Object.assign({},b,{base:b,ck,k:undefined,proj:null,rng:0,dmg:0,lunge:0,dur:DU[0],hs:DU[1],he:DU[2],sfx:null,chg:true,pz:(ck==='bigshot'||ck==='triarrow')?'shoot':b.pz});
  p.state='atk';p.combo=95;p.st=0;p.hit.clear();p.buf=false;p.inv=Math.max(p.inv,16);ring(p.x,p.y,100,'rgba(255,220,150,0.85)',16);}
 function chargeStep(f,d,st){const dir=f.face,wdm=f.wpn?(WPN[f.wpn.k].dm||1):1;
  // 技名の文字表示はしない(2026-10-11 オーナー「旋風突撃とか文字いらん」)
  if(d.ck==='spin'){if(st===d.hs)d.f0=f.face;if(st>=d.hs&&st<=d.he){if(st%4===0)f.face*=-1;if((st-d.hs)%8===0){f.hit.clear();strike(f,{rng:160,dmg:Math.round(12*wdm),kb:6,launch:st>=d.he-8,around:true,dep:52});AU.sfx('slash');ring(f.x,f.y,160,'rgba(255,235,190,0.8)',14);}}if(st===d.he+1&&d.f0)f.face=d.f0;return;}
+ if(d.ck==='prop'){/* 頭上で槍を回す: 全方位を6コマごとに多段ヒット(下がらず・向きも変えない)、最後に大きく外へ吹き飛ばす。時間は止めない */
+  if(st>=d.hs&&st<=d.he){if((st-d.hs)%6===0){f.hit.clear();strike(f,{rng:170,dmg:Math.round(7*wdm),kb:3,launch:false,around:true,dep:60});AU.sfx('slash');if((st-d.hs)%12===0)ring(f.x,f.y,150,'rgba(255,235,190,0.55)',12);}
+   if(st%3===0)PT({x:f.x+rnd(-60,60),y:f.y+rnd(-10,10),z:rnd(150,210),vx:rnd(-2,2),vz:rnd(-0.5,0.5),life:10,sz:rnd(2,3.5),col:'#fff2cc',k:'spark'});}
+  if(st===d.he){f.hit.clear();strike(f,{rng:210,dmg:Math.round(16*wdm),kb:10,launch:true,around:true,dep:70});AU.sfx('boom');G.shake=Math.max(G.shake,12);ring(f.x,f.y,230,'rgba(255,240,200,0.9)',22);dust(f.x,f.y,12);}return;}
  if(d.ck==='rokudan'){const k=Math.floor((st-d.hs)/9),ph=(st-d.hs)%9;if(st>=d.hs&&k<6&&ph>=1&&ph<=4){const m=fighterScreenMargin(f);f.x=clamp(f.x+dir*6,G.camx+m,G.camx+W-m);}if(st>=d.hs&&k<6&&ph===3){const last=k===5;f.hit.clear();
   strike(f,{rng:200,dmg:last?18:9,kb:last?11:2,launch:last,dep:46});AU.sfx(last?'heavy':'slash');if(last)G.shake=Math.max(G.shake,8);
   G.parts.push({k:'cut',x:f.x+dir*150,y:f.y,z:f.z+100+rnd(-10,10),vx:0,vy:0,vz:0,g:0,life:8,max:8,sz:last?230:170,w:last?12:7,ang:0,col:'rgba(255,236,190,0.9)',fr:1});}return;}
@@ -2479,11 +2483,12 @@ function drawSprite(f){const vt=fighterVisualTime(f);let S=SPR[f.T.spr||f.T.type
    ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hx,hy);ctx.quadraticCurveTo(cx,cy+10,tx,ty);ctx.strokeStyle=fl?'#fff':'#26262c';ctx.lineWidth=3;ctx.setLineDash([4,2.5]);ctx.stroke();ctx.strokeStyle=fl?'#fff':'#a9b0ba';ctx.lineWidth=1.2;ctx.lineDashOffset=2;ctx.stroke();ctx.setLineDash([]);
    if(!G.lowq){ctx.globalCompositeOperation='lighter';ctx.strokeStyle='rgba(220,235,255,0.35)';ctx.lineWidth=5;ctx.beginPath();ctx.ellipse(cx,cy,58,16,0,an-1.2,an);ctx.stroke();ctx.globalCompositeOperation='source-over';}
    const g=ctx.createRadialGradient(tx-2,ty-2,1,tx,ty,8);g.addColorStop(0,fl?'#fff':'#9aa2ac');g.addColorStop(1,fl?'#fff':'#2a2c32');ctx.fillStyle=g;ctx.beginPath();ctx.arc(tx,ty,7,0,TAU);ctx.fill();ctx.strokeStyle='#111';ctx.lineWidth=1.2;ctx.stroke();ctx.restore();}
+  else if(wk.draw==='naginata'&&(f.state==='guard'||(f.state==='atk'&&f.cur&&f.cur.ck==='prop'))){/* 槍回し: 防御=眼の前で回して飛び道具を弾く、溜め攻撃=頭上で回して周囲を吹き飛ばす */const over=f.state==='atk';drawPoleProp(f,wk,fl,over?'over':'front',over?f.st*0.8:vt*0.85,hx,hy);}
   else{const len=(wk.tip||100)*1.15*(wk.isc||1);if(wk.draw==='naginata')wa=polearmAngle(f,hy,wa,len);if(!drawIcon('w_'+f.wpn.k,hx,hy,wk.bow?-1.25:wa,len,fl,wk.bow?0.5:0.13)){ctx.save();ctx.scale(1.3,1.3);drawWeapon(f,{hf:[hx/1.3,hy/1.3],wa,hold:true},fl?WHITE:f.T.col,wk.draw);ctx.restore();}}}
  if(f.wpn&&!G.lowq&&f.team===0&&!hideW){const wk=WPN[f.wpn.k],tip=wk.tip||100,pul=0.5+0.5*Math.sin(vt*0.2);
   ctx.globalCompositeOperation='lighter';
   const g2=ctx.createRadialGradient(0,-80,10,0,-80,95);g2.addColorStop(0,`rgba(255,170,90,${0.16+pul*0.1})`);g2.addColorStop(1,'rgba(255,170,90,0)');ctx.fillStyle=g2;ctx.fillRect(-110,-190,220,200);
-  if(f.state==='atk'&&f.cur&&f.cur.hs!==undefined&&wk.draw!=='teppo'&&!f.cur.kth){const d=f.cur,k=clamp((f.st-d.hs+4)/Math.max(6,(d.he-d.hs)+8),0,1);
+  if(f.state==='atk'&&f.cur&&f.cur.hs!==undefined&&wk.draw!=='teppo'&&!f.cur.kth&&f.cur.ck!=='prop'){const d=f.cur,k=clamp((f.st-d.hs+4)/Math.max(6,(d.he-d.hs)+8),0,1);
    if(k>0&&k<1){const R=tip*0.78,a0=-0.85+k*1.25;ctx.lineCap='round';
     for(const [lw,al,col] of [[16,0.22*(1-k),'255,150,60'],[7,0.7*(1-k),'255,235,190']]){ctx.strokeStyle=`rgba(${col},${al})`;ctx.lineWidth=lw;ctx.beginPath();ctx.arc(-18,-62,R,a0-0.75,a0+0.2);ctx.stroke();}}}
   ctx.globalCompositeOperation='source-over';}
@@ -2823,6 +2828,26 @@ function drawKoma(f,K,fl,th){
   ctx.globalCompositeOperation='lighter';const gl=ctx.createRadialGradient(0,0,1,0,0,13);gl.addColorStop(0,`rgba(255,90,50,${0.5*op})`);gl.addColorStop(1,'rgba(255,60,20,0)');ctx.fillStyle=gl;ctx.fillRect(-14,-12,28,24);ctx.restore();}
  horn(hs[1].s);/* 手前の角 */
  for(const phi of[phiA,phiB])if(front(phi))blade(phi);/* 手前の刀 */
+}
+/* 槍(竹槍・薙刀など長柄)を回す技(2026-10-17 オーナー「眼の前で回して飛び道具をプロペラのように防ぐ」「頭の上で回すと周囲の敵を吹き飛ばす」):
+   槍をコードで描いて、前=画面の面内で回転(プロペラ)、頭上=水平面で回転(擬似3D・楕円の軌道で奥へ行くほど細く短く)。回転の途中の姿そのものを薄く重ねて速さを出す(線では描かない)。
+   ctx は足元原点・向き/拡縮設定済み。mode='front'|'over'、th=回転角 */
+function drawPoleProp(f,wk,fl,mode,th,hx,hy){
+ const bam=f.wpn&&f.wpn.k==='takeyari',Lt=(wk.tip||150)*1.1,ink='rgba(0,0,0,0.65)';
+ const spear=(ax,ay,bx,by,dk)=>{const dx=bx-ax,dy=by-ay,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,nx=-uy,ny=ux,bl=bam?24:34,bw=(bam?4:6.5)*dk,sw=(bam?5.5:4.5)*dk;
+  const tx=bx-ux*bl,ty=by-uy*bl;ctx.lineCap='round';ctx.strokeStyle=ink;ctx.lineWidth=sw+2;ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(tx,ty);ctx.stroke();
+  ctx.strokeStyle=fl?'#fff':(bam?'#b5c46a':'#6b4a2a');ctx.lineWidth=sw;ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(tx,ty);ctx.stroke();
+  ctx.strokeStyle=fl?'#fff':(bam?'#e6f0a0':'#a8825a');ctx.lineWidth=Math.max(1,sw*0.3);ctx.beginPath();ctx.moveTo(ax+nx*sw*0.2,ay+ny*sw*0.2);ctx.lineTo(tx+nx*sw*0.2,ty+ny*sw*0.2);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(bx,by);ctx.quadraticCurveTo(tx+ux*bl*0.5+nx*bw*1.15,ty+uy*bl*0.5+ny*bw*1.15,tx+nx*bw*0.6,ty+ny*bw*0.6);ctx.lineTo(tx-nx*bw*0.6,ty-ny*bw*0.6);ctx.quadraticCurveTo(tx+ux*bl*0.5-nx*bw*1.15,ty+uy*bl*0.5-ny*bw*1.15,bx,by);ctx.closePath();
+  ctx.fillStyle=fl?'#fff':(bam?'#d8c080':'#d8dde6');ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.1;ctx.stroke();/* 穂先(竹槍は削った竹) */};
+ const draw=(a,al)=>{ctx.save();ctx.globalAlpha*=al;
+  if(mode==='front'){const cx=32,cy=-98,sa=Math.sin(a),ca=Math.cos(a),b0=-Lt*0.42,b1=Lt*0.58;spear(cx+ca*b0,cy+sa*b0,cx+ca*b1,cy+sa*b1,1);circ(cx,cy,5,fl?'#fff':'#3a2a1c',ink,1);}
+  else{const cx=2,cy=-158,flat=0.2,sa=Math.sin(a),ca=Math.cos(a),b0=-Lt*0.42,b1=Lt*0.58,P=(s0)=>[cx+s0*sa,cy+s0*ca*flat];
+   if(!G.lowq||true){line(hx,hy,cx,cy+4,7,fl?'#fff':shade(f.T.col.armor,0.9));circ(hx,hy,5,fl?'#fff':shade(f.T.col.armor,1.2),ink,1);}/* 槍を頭上へ掲げる腕 */
+   const A=P(b0),B=P(b1);spear(A[0],A[1],B[0],B[1],1+ca*0.18*(b1>0?1:-1));circ(cx,cy,5,fl?'#fff':'#3a2a1c',ink,1);}
+  ctx.restore();};
+ if(!G.lowq)for(const [d,al] of[[0.9,0.2],[0.6,0.28],[0.3,0.38]])draw(th-d,al);
+ draw(th,1);
 }
 function drawFighterP(f){
  if(f.kspin!==undefined&&f.state==='spc'&&f.kspin>2&&!f._kg){/* からくり武者の独楽: 回転が速すぎて1コマごとの姿が見えない=残像を重ねて「高速で回っている」ように見せる(位相をずらした3枚+回転の帯) */
@@ -3253,6 +3278,7 @@ function stepWalkPreview(){const p=G.player,a=demoView.motion;
   else updPlayer(p,{});
  }
  else if(a==='spin'){updPlayer(p,{atkH:true});}
+ else if(a==='guard'){/* 防御を押し続ける。前から飛び道具を撃ち込んで、弾く様子を見る */updPlayer(p,{gd:1});if(demoView.debugRest++%50===25){const sh=addProj({x:p.x+p.face*340,y:p.y,z:p.z+80,vx:-p.face*11,vz:0,team:1,dmg:6,face:-p.face,owner:null,k:'arrow',w:14,life:60,kb:2});}}
  else if(a==='throw'){const cycle=(demoView.debugRest++)%100;updPlayer(p,{atkH:cycle<35});}
  else{if((p.state==='idle'||p.state==='walk')&&demoView.debugRest++>=18){demoView.debugRest=0;p.x=640;p.y=570;p.z=0;p.face=demoView.facing||1;p.ki=a==='spc1'?100:a==='spc2'?200:300;
    if(a.startsWith('atk')){const i=Number(a.slice(3));if(p.mount)updPlayer(p,{atkP:true});else if(p.debugEnemy){dbgDummy(p);startEAtk(p,i);}else startPAtk(p,i);}
@@ -3267,14 +3293,14 @@ function debugUI(B,L,playback){autoEl.className='inspect';
  const p=G.player,hero=!p.debugEnemy;S('確認するキャラ',Object.keys(TY).map(k=>[k,k==='spear'?'足軽（槍）':k==='sword'?'足軽（刀）':TY[k].name||k]),p.dbgKey||p.T.type,v=>{demoView.actor=v;demoView.motion='walk';prepareWalkPreview();});
  const actions=[['idle','待機'],['walk','歩行'],...(p.mount?[['atk0','馬上攻撃']]:p.T.atk.map((d,i)=>['atk'+i,'攻撃'+(i+1)+(d.anim?' '+d.anim:'')])),...(p.mount?[]:[['fall','転倒→起き上がり']])];
  const dk=p.dbgKey||p.T.type;if(!hero&&!p.mount){if(SPD[dk])actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極']),dk!=='munenori'&&actions.push(['special','奥義']);else if(dk==='masamune')actions.push(['special','奥義(ゲージ3本)']);}/* 政宗は奥義だけ(必殺は無い) */
- if(hero){actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極'],['special','奥義']);if(!p.mount)actions.push(['jump','跳躍'],['charge','溜め'],['grapplethrow','つかみ投げ']);if(demoView.weapon==='kusari')actions.push(['spin','分銅旋回'],['throw','分銅投擲']);}
+ if(hero){actions.push(['spc1','必殺Lv1'],['spc2','必殺Lv2・極'],['special','奥義']);if(!p.mount)actions.push(['jump','跳躍'],['charge','溜め'],['guard','防御'],['grapplethrow','つかみ投げ']);if(demoView.weapon==='kusari')actions.push(['spin','分銅旋回'],['throw','分銅投擲']);}
  S('確認する動作',actions,demoView.motion,v=>{demoView.motion=v;prepareWalkPreview();});
  const weapon=S('確認する武器',hero?[['','主武器'],...Object.keys(WPN).map(k=>[k,WPN[k].n])]:[['','固有装備']],hero?demoView.weapon:'',v=>{demoView.weapon=v;prepareWalkPreview();});weapon.disabled=!hero;
  const mount=S('馬の有無',hero?[['0','馬なし'],['1','馬あり']]:[['0',p.T.horse?'固有騎乗':'徒歩']],hero&&demoView.mounted?'1':'0',v=>{demoView.mounted=v==='1';if(['charge','jump','grapplethrow'].includes(demoView.motion))demoView.motion='walk';prepareWalkPreview();});mount.disabled=!hero;
  S('向き',[['1','右'],['-1','左']],demoView.facing,v=>{demoView.facing=Number(v);prepareWalkPreview();});playback();B('■ 終了',()=>{G.auto=false;startTitle();});}
 
 let walkPreviewBooted=false;
-function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(!['walk','debug'].includes(q.get('preview')))return;SPR_ALL=true;const hero=SEL_ORDER.concat(HIDDEN).includes(q.get('hero'))?q.get('hero'):'musashi',actor=TY[q.get('actor')]?q.get('actor'):hero,isHero=SEL_ORDER.concat(HIDDEN).includes(actor);demoView.actor=actor;demoView.weapon=WPN[q.get('weapon')]?q.get('weapon'):'';demoView.motion='walk';const a=q.get('action'),allowed=['idle','walk',...TY[actor].atk.map((d,i)=>'atk'+i)];if(isHero)allowed.push('special','spc1','spc2','jump','charge','spin','throw','grapplethrow');else if(SPD[actor])allowed.push('special','spc1','spc2');else if(actor==='masamune')allowed.push('special');if(allowed.includes(a))demoView.motion=a;demoView.mounted=isHero&&q.get('mount')==='1';if(demoView.mounted&&['jump','charge','grapplethrow'].includes(demoView.motion))demoView.motion='walk';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
+function bootWalkPreview(){if(walkPreviewBooted)return;walkPreviewBooted=true;const q=new URLSearchParams(location.search);if(!['walk','debug'].includes(q.get('preview')))return;SPR_ALL=true;const hero=SEL_ORDER.concat(HIDDEN).includes(q.get('hero'))?q.get('hero'):'musashi',actor=TY[q.get('actor')]?q.get('actor'):hero,isHero=SEL_ORDER.concat(HIDDEN).includes(actor);demoView.actor=actor;demoView.weapon=WPN[q.get('weapon')]?q.get('weapon'):'';demoView.motion='walk';const a=q.get('action'),allowed=['idle','walk',...TY[actor].atk.map((d,i)=>'atk'+i)];if(isHero)allowed.push('special','spc1','spc2','jump','charge','guard','spin','throw','grapplethrow');else if(SPD[actor])allowed.push('special','spc1','spc2');else if(actor==='masamune')allowed.push('special');if(allowed.includes(a))demoView.motion=a;demoView.mounted=isHero&&q.get('mount')==='1';if(demoView.mounted&&['jump','charge','grapplethrow'].includes(demoView.motion))demoView.motion='walk';demoView.settings=true;G.autoPk=null;G.autoSpd=0.25;startAuto(hero,0);}
 function demoViewActive(){return G.mode==='demo'||(G.auto&&['play','story','end'].includes(G.mode));}
 function demoViewTick(){
  if(!demoViewActive()){demoView.paused=false;demoView.steps=0;demoView.credit=0;return true;}
