@@ -1255,7 +1255,7 @@ function yukiSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[])
    Lv2(極)=突進のあと、体の仕掛けが開いて砲弾を発射(着弾で爆発・まとめて吹き飛ばす)。奥義(ゲージ3本)は「回る剣の陣」のまま。
    時間は止まったまま(updSpc と本人の砲弾 updProj(onlyOwner) だけが進む)。 */
 function karaSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?5.5:6.5/* 2026-10-17 オーナー「高速で回転しながら、進行方向にはゆっくり動く」: 前へは1コマ6px前後(約2秒で画面を横切る)。回転は速く(残像つき) */,WIND=14;
- if(!p.kinit){/* 最初の1回(st===0は呼ばれないことがあるので、印で判断する) */p.kinit=true;H.length=0;p.cur=Object.assign({},SPD.karakuri);p.kspin=0;p.kcan=0;p.krec=0;p.kfired=false;AU.sfx('creak');}
+ if(!p.kinit){/* 最初の1回(st===0は呼ばれないことがあるので、印で判断する) */p.kinit=true;H.length=0;p.cur=Object.assign({},SPD.karakuri);p.kspin=0;p.kcan=0;p.krec=0;p.kfired=false;AU.sfx('creak');say(p,'ギ……ギギ……',90);}
  if(st===WIND){const m=fighterScreenMargin(p),edge0=f>0?G.camx+W-m:G.camx+m,edge=lv2?edge0-f*250:edge0/* Lv2は端の手前で止まり、壁際に追い込んだ敵へ砲弾を撃つ */,dist=Math.max(0,(edge-p.x)*f);p.rushEnd=WIND+clamp(Math.ceil(dist/spd),16,130);p.rushEdge=edge;p.cur.he=p.rushEnd;p.cur.dur=p.rushEnd+(lv2?52:20);}
  const RE=p.rushEnd||34;
  if(st<WIND){p.kspin+=0.2+st*0.1;p.z=0;if(st%3===1){AU.sfx('gear');PT({x:p.x+rnd(-24,24),y:p.y,z:rnd(20,120),vx:rnd(-2,2),vz:rnd(1,4),g:0.2,life:12,sz:rnd(2,4),col:'#ffd890',k:'spark'});}}
@@ -1286,7 +1286,7 @@ function drawKaraCut(t){const k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(
  ctx.save();ctx.beginPath();ctx.moveTo(0,8);ctx.lineTo(BW,0);ctx.lineTo(BW,BH-8);ctx.lineTo(0,BH);ctx.closePath();ctx.clip();
  for(const [cx,cy,r,sp] of[[80,50,56,0.04],[470,20,40,-0.06],[300,92,32,0.07]]){ctx.save();ctx.translate(cx,cy);ctx.rotate(t*sp);ctx.fillStyle='rgba(60,64,76,0.55)';ctx.beginPath();for(let i=0;i<16;i++){const a0=i/16*TAU;ctx.lineTo(Math.cos(a0)*r,Math.sin(a0)*r);ctx.lineTo(Math.cos(a0+0.12)*(r+6),Math.sin(a0+0.12)*(r+6));ctx.lineTo(Math.cos(a0+0.26)*(r+6),Math.sin(a0+0.26)*(r+6));ctx.lineTo(Math.cos(a0+0.38)*r,Math.sin(a0+0.38)*r);}ctx.closePath();ctx.fill();ctx.fillStyle='rgba(16,18,24,0.9)';ctx.beginPath();ctx.arc(0,0,r*0.45,0,TAU);ctx.fill();ctx.restore();}
  /* 顔のアップ */
- ctx.save();ctx.translate(BW*0.8,75);ctx.scale(0.4,0.4);/* 2026-10-17 オーナー「カットインがでかすぎて見えない」: 帯(高さ約270)に顔(前立てを含め約210)が収まる大きさに(以前は2.3倍で兜が帯からはみ出していた) */const J=Math.sin(t*1.9)*(t<30?1.4:0.4);ctx.translate(J,0);
+ ctx.save();ctx.translate(BW*0.5,75);ctx.scale(0.4,0.4);/* 2026-10-17 オーナー「カットインがでかすぎて見えない」: 帯(高さ約270)に顔(前立てを含め約210)が収まる大きさに(以前は2.3倍で兜が帯からはみ出していた) */const J=Math.sin(t*1.9)*(t<30?1.4:0.4);ctx.translate(J,0);
  ctx.fillStyle=metalG(-60,-90,60,70,'#8a8f9c');ctx.strokeStyle='#07080b';ctx.lineWidth=3;
  ctx.beginPath();ctx.moveTo(-58,-34);ctx.quadraticCurveTo(-60,-92,0,-100);ctx.quadraticCurveTo(60,-92,58,-34);ctx.lineTo(48,10);ctx.quadraticCurveTo(0,40,-48,10);ctx.closePath();ctx.fill();ctx.stroke();/* 兜 */
  ctx.fillStyle='#d6a638';ctx.beginPath();ctx.moveTo(-10,-98);ctx.quadraticCurveTo(-70,-120,-74,-168);ctx.quadraticCurveTo(-46,-126,-4,-102);ctx.closePath();ctx.fill();ctx.stroke();ctx.beginPath();ctx.moveTo(10,-98);ctx.quadraticCurveTo(70,-120,74,-168);ctx.quadraticCurveTo(46,-126,4,-102);ctx.closePath();ctx.fill();ctx.stroke();/* 前立て */
@@ -1297,7 +1297,7 @@ function drawKaraCut(t){const k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(
  ctx.strokeStyle='#5a5f6c';ctx.lineWidth=2;for(let i=-3;i<=3;i++){ctx.beginPath();ctx.moveTo(i*9,2);ctx.lineTo(i*9,16);ctx.stroke();}/* 口の格子 */
  ctx.fillStyle='#8a8f9c';for(const sd of[-1,1]){ctx.beginPath();ctx.arc(sd*58,-10,15,0,TAU);ctx.fill();ctx.stroke();ctx.fillStyle='#3a3e48';ctx.beginPath();ctx.arc(sd*58,-10,6,0,TAU);ctx.fill();ctx.fillStyle='#8a8f9c';}/* 耳の歯車 */
  ctx.restore();ctx.restore();
- const sh=t<30?Math.sin(t*2.3)*3:0;txt('ギ……ギギ……',BW*0.3+sh,BH*0.5+12,34,'#e6e8ee','center','#07080b',5);
+ /* 2026-10-17 オーナー「文字いらん。吹き出しのセリフでならいい」: 帯には文字を出さない(「ギ……ギギ……」は karaSpc で吹き出しとして言わせる) */
  ctx.restore();}
 /* 柳生宗矩の必殺「柳生新陰流・転」(オーナー指示 2026-10-17「柳生と政宗が自動デモで必殺技を使わない」。宗矩には必殺が無かったので新設)。
    Lv1: 無刀の構え(muto)→低く踏み込んで斬り抜ける(dash・前へ約300px・通り道を3コマごとに斬る)→振り向きざまの一閃(a1・打ち上げ)。
