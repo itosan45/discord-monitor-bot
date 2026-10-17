@@ -1,0 +1,107 @@
+{
+  "name": "石田三成_手ぶら_攻撃A_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-28d4bece-d773-441d-a185-1b5bc0099b62.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_手ぶら_攻撃A_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.5397590361445783,
+  "sourceBounds": [
+    [
+      146,
+      7,
+      452,
+      380
+    ],
+    [
+      772,
+      8,
+      1107,
+      380
+    ],
+    [
+      1418,
+      8,
+      1777,
+      380
+    ],
+    [
+      124,
+      402,
+      539,
+      761
+    ],
+    [
+      798,
+      394,
+      1127,
+      761
+    ]
+  ],
+  "placements": [
+    [
+      45,
+      29,
+      165,
+      201
+    ],
+    [
+      37,
+      29,
+      181,
+      201
+    ],
+    [
+      31,
+      29,
+      194,
+      201
+    ],
+    [
+      16,
+      36,
+      224,
+      194
+    ],
+    [
+      39,
+      32,
+      178,
+      198
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "fee50e40be900f959d12e9063b28dda000d378499a6c092947d178e5f82d0fe5",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison: overhead windup, diagonal downward swing, low follow-through and guard recovery. Gold fan helmet crest, purple gold surcoat, olive armor, cream sleeves and cream bamboo-mounted back banner retained, EMPTY hands, right-facing, grounded soles230px, no effects/clipping/neighbor contamination. Common anatomical scale; bent knees and foreshortening change silhouette height. OCR empty.",
+  "previousCandidateSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ee77beb8-c8f0-49c5-8107-a215e177ef99.png",
+  "correctionReason": "Candidate1 omitted back banner because idle reference lacked it; candidate2 only adds required setting-sheet banner. Future identity reference must explicitly include banner and no-banner idle supplies anatomy only. Preserve original and both prompts.",
+  "gitVerified": true,
+  "gitCommit": "808901bd9a3671b148468d9a94966b2f2542c858",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "fee50e40be900f959d12e9063b28dda000d378499a6c092947d178e5f82d0fe5",
+  "prompt": "Precise edit of IMAGE1: ADD THE MISSING BACK BANNER TO EACH OF ITS FIVE MITSUNARI FIGURES. Preserve all five existing poses, anatomy, face, gold fan helmet crest, purple gold surcoat, olive armor, hands/feet, image layout and magenta backdrop. Image2 supplies EXACT banner design: cream rectangular sashimono cloth mounted vertically behind back on bamboo rod, black vertical 大一大万大吉 inscription, same attachment and dimensions. Banner must appear behind shoulders in EVERY pose, even where scarf partly occludes it; show pole and cloth clearly beside body, fully inside its cell. No replacement pose, no held weapons, no effects. Five full-body downward swing poses in3x2 atlas, last slot blank, generous empty gutters, no grid. Do not crop/resize individual figures or remove scarves. This is only a missing-banner correction.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:10:02.039339+09:00"
+}

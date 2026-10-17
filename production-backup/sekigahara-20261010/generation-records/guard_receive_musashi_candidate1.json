@@ -1,0 +1,137 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8179aadb-08d6-437b-99c4-8f9f1cc10403.png",
+  "sourceSha256": "2d083f75e3646b97d65e3688cf9e22f2e1c1e4c6a25f0ab45bc4729b8af108d1",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "prompt": "One candidate only. Use the three supplied same-character references for identity, armor, weapons and scale. Two-frame guard-impact reaction: frame 1 braced guard; frame 2 compress knees and lift/angle the held weapon to deflect. Full-body, right-facing, stable baseline, strong readable pose change; plain exact magenta background; no attacker, projectile, effects, text, watermark, or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/宮本武蔵_設定画.png",
+    "assets/sprites/宮本武蔵_ガード構え_2コマ_v2.png",
+    "assets/sprites/宮本武蔵_ガード維持_4コマ_v2.png"
+  ],
+  "requestedName": "宮本武蔵_ガード受け止め_2コマ_v2.png",
+  "actualName": "宮本武蔵_ガード受け止め_2コマ_v2_candidate1-final-edgeclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_ガード受け止め_2コマ_v2_candidate1-final-edgeclean.png",
+  "sha256": "2a09b08b7a93ce976898c1e05f4ca262f88e60d44ea368b35f81fa87ec59c8a9",
+  "n": 2,
+  "cell": 256,
+  "outputDimensions": [
+    512,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "sourceCellSize": [
+      887,
+      887
+    ],
+    "finalSize": [
+      512,
+      256
+    ],
+    "commonScale": 0.26540284360189575,
+    "placement": "Two cells keyed with exact magenta; tiny disconnected components touching the inter-frame seam and below 2% of the main subject were removed where present; one uniform scale, centered per 256px cell, baseline at y=229; RGB(255,0,255) background."
+  },
+  "sourceFrameBboxes": [
+    [
+      43,
+      74,
+      887,
+      838
+    ],
+    [
+      88,
+      46,
+      800,
+      838
+    ]
+  ],
+  "removedSeamComponents": [
+    [],
+    [
+      {
+        "pixels": 389,
+        "touches": "left"
+      }
+    ]
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        16,
+        27,
+        240,
+        229
+      ],
+      "heightPx": 203,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 27
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        33,
+        20,
+        222,
+        229
+      ],
+      "heightPx": 210,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 33,
+        "right": 34,
+        "top": 20
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    21589
+  ],
+  "qaResult": "OK",
+  "checker": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.7511,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "認識文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\宮本武蔵_ガード受け止め_2コマ_v2_candidate1-final-edgeclean.gif",
+    "frameCount": 2,
+    "durationsMs": [
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_receive_candidate1\\decoded-contact.png"
+  },
+  "visualReview": "2コマを目視。設定画に沿う鎧・武器・顔・右向き、受け止め前後の姿勢差、両足接地、セル分離、16px余白、純マゼンタ背景を確認。セル境界の小さな断片のみ連結成分で除去。再生成なし。",
+  "gitCommit": "ff64352450e32dfd53e3e5a4b13481aec082fbfe",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "7b61badcb1716fe533e39f2fba325a5becf78c9a",
+  "gitSha256": "2a09b08b7a93ce976898c1e05f4ca262f88e60d44ea368b35f81fa87ec59c8a9",
+  "remoteSha256Matches": true,
+  "gitBytes": 95354,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:03:00+09:00"
+}

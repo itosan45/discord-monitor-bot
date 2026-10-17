@@ -1,0 +1,16 @@
+{
+  "name": "真田幸村_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c2c852a3-fbfe-45cf-9f62-20939e651683.png",
+  "initialSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-2431a7cf-60f2-4ffa-af1a-ba5b5b0054b0.png",
+  "prompt": "Six sickle slash phases guard, raise, diagonalcut, contact, lowfollowthrough, recover. Same canonical Yukimura. Candidate2 edit first/last hand to match middleframes.",
+  "status": "held_visual_failure",
+  "visualApproved": false,
+  "gitVerified": false,
+  "candidateCount": 2,
+  "warnings": [
+    "1・6は奥手、2～5は手前手に鎌があり持ち替えが残った。部分修正でも解消せず。納品禁止。"
+  ],
+  "nextAction": "同じ部分修正を繰り返さず、全6コマで手前側の腕が鎌を保持する構成を明示して編集。元候補は保存して重複生成防止。"
+}

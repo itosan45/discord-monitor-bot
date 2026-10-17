@@ -1,0 +1,127 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8bef1ce3-e631-481d-b60c-7c4e5e9234f5.png",
+  "sourceSha256": "7e3649d5e5ca5adb46b445818e655275ae4ac89bf9f0753995c6e4bce59bb6ec",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "prompt": "One candidate only: 石田三成_ガード構え_2コマ_v2.png. Preserve the identity and appropriate weapon shown in the setting sheet; 2-cell right-facing full-body guard stance, two subtly distinct phases, 256px cells, exact magenta key, consistent scale and feet baseline, weapon fully in-cell. No text or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/石田三成_設定画.png",
+    "assets/sprites/真田幸村_ガード構え_2コマ_v2.png"
+  ],
+  "requestedName": "石田三成_ガード構え_2コマ_v2.png",
+  "actualName": "石田三成_ガード構え_2コマ_v2_candidate1-final-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_ガード構え_2コマ_v2_candidate1-final-normalized.png",
+  "sha256": "8a00168b725d0ede06c3cd76fe6ac4db992891b6c64aa130f3f224dcbe1d3b16",
+  "n": 2,
+  "cell": 256,
+  "outputDimensions": [
+    512,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "sourceCellSize": [
+      887,
+      887
+    ],
+    "finalSize": [
+      512,
+      256
+    ],
+    "commonScale": 0.30559345156889495,
+    "placement": "Preserved one common uniform scale across both poses; visible object centered in each 256px cell, feet aligned to baseline y=229, exact RGB(255,0,255) background. Scale selected to keep the full weapon/cape silhouette within >=16px margins."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "sourceBBox": [
+        85,
+        104,
+        818,
+        794
+      ],
+      "bbox": [
+        16,
+        19,
+        240,
+        230
+      ],
+      "heightPx": 211,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 19
+      }
+    },
+    {
+      "frame": 2,
+      "sourceBBox": [
+        97,
+        128,
+        773,
+        794
+      ],
+      "bbox": [
+        280,
+        26,
+        487,
+        230
+      ],
+      "heightPx": 204,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 24,
+        "right": 25,
+        "top": 26
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    24321
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。復号コンタクトシートで両コマを目視し、文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\ishida_80ms.gif",
+    "frameCount": 2,
+    "durationsMs": [
+      80,
+      80
+    ],
+    "sha256": "552e4ec46dce511792ae969aa56ce6255d59ed4cceeec519034e6ad0d968954a",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\ishida_gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "紫装束と扇形前立て、右向き。軍配状の武具と両手の持ち替え、低い構えの2相を確認。人物高中央値81%、全身・セル余白・武具連続性を確認。 GIF2コマ80ms復号、全コマ目視。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 69%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "gitCommit": "e89476e86fe22988ea27359ed085ab7817baedba",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "e29fc3c58856dc65b1f0b201e6ce17c8e601e95d",
+  "remoteSha256": "8a00168b725d0ede06c3cd76fe6ac4db992891b6c64aa130f3f224dcbe1d3b16",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 116063,
+  "completedAt": "2026-10-07T10:36:53+09:00"
+}

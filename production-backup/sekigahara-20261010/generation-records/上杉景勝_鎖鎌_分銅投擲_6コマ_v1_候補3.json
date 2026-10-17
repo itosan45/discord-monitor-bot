@@ -1,0 +1,120 @@
+{
+  "name": "上杉景勝_鎖鎌_分銅投擲_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-2bbebb4a-c174-45a6-827e-9394490f9f2b.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_鎖鎌_分銅投擲_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.5683646112600537,
+  "sourceBounds": [
+    [
+      37,
+      182,
+      367,
+      555
+    ],
+    [
+      398,
+      185,
+      733,
+      555
+    ],
+    [
+      756,
+      182,
+      1076,
+      555
+    ],
+    [
+      1101,
+      182,
+      1446,
+      555
+    ],
+    [
+      1481,
+      183,
+      1807,
+      556
+    ],
+    [
+      1856,
+      183,
+      2157,
+      556
+    ]
+  ],
+  "placements": [
+    [
+      34,
+      18,
+      188,
+      212
+    ],
+    [
+      33,
+      20,
+      190,
+      210
+    ],
+    [
+      37,
+      18,
+      182,
+      212
+    ],
+    [
+      30,
+      18,
+      196,
+      212
+    ],
+    [
+      35,
+      18,
+      185,
+      212
+    ],
+    [
+      42,
+      18,
+      171,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "8acc1e3f91084f8c50bd7787b3e20ff60eb9d2a15e416fcd8803d10a0abb71bb",
+  "prompt": "Exact Kagekatsu navy armor crescent helmet six grounded throw phases. Outbound chain and ball separate shared parts. Correct fifth sickle grip to left hand and restore near right open followthrough arm.",
+  "char": "上杉景勝",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6GIF復号と待機比較を目視。紺金甲冑・三日月兜・外套保持、右向き接地枠内、5の鎌手と右腕修正確認。構え→振りかぶり→伸展→開手放出→振り抜き→構え復帰。注意: 6は伸展保持でなく構え戻り、肩胴が待機よりやや厚い。共通射出鎖分銅との動的接続・ゲーム射程は未検証。",
+  "gitVerified": true,
+  "gitCommit": "740ed76f1e6fdadb3317993e2d5cf6b1f23fecb7",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "8acc1e3f91084f8c50bd7787b3e20ff60eb9d2a15e416fcd8803d10a0abb71bb",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:35:32.126943+09:00"
+}

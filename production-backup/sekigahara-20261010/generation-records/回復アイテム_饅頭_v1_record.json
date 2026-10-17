@@ -1,0 +1,36 @@
+{
+  "name": "回復アイテム_饅頭_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\回復アイテム_饅頭_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-967d44fe-894b-4777-b892-bbb8da1396af.png",
+  "status": "candidate",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.19241443108233117,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    87,
+    154,
+    1168,
+    1138
+  ],
+  "destination": [
+    24,
+    41,
+    208,
+    189
+  ],
+  "backgroundSource": [
+    240,
+    23,
+    238
+  ],
+  "foregroundPixels": 802344,
+  "sha256": "1030064581cae9de16879f26c1a811f0f055ca05adc37dbda67d943655acaf6b"
+}

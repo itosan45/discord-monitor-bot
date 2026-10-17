@@ -1,0 +1,70 @@
+{
+  "name": "穴山小助_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-8d2c9339-a3c7-4d64-9101-2a6186f7e83e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\穴山小助_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.28843537414965986,
+  "sourceBounds": [
+    [
+      297,
+      59,
+      591,
+      794
+    ],
+    [
+      1096,
+      75,
+      1449,
+      794
+    ]
+  ],
+  "placements": [
+    [
+      85,
+      18,
+      85,
+      212
+    ],
+    [
+      77,
+      23,
+      102,
+      207
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 88%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "3a7f5e9c4df745c4c1d68d0c47b9b32c1e230f88f268e3ef91194786bf3f8014",
+  "prompt": "Canonical Anayama Kosuke red-black armor and six-black-coin banner, two grounded damage recoil frames, spear retained with both hands, same spear length, rightfacing, magenta.",
+  "char": "穴山小助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "槍全高をそろえた結果、待機絵より人物がやや小さい。顔・甲冑・槍先に細部差。旗と槍の全体、両手保持、接地を確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "caf3a3c4cef234a650b5664cc57e50849cabe305",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "3a7f5e9c4df745c4c1d68d0c47b9b32c1e230f88f268e3ef91194786bf3f8014",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:39:06.006153+09:00"
+}

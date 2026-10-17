@@ -1,0 +1,388 @@
+{
+  "source": "built-in image_gen; image crops/composition only; full chain and spiked ball included in every frame",
+  "target_cell": [
+    300,
+    430
+  ],
+  "normal": {
+    "file": "南光坊天海_通常攻撃_6コマ_v2.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "pure_magenta_edges": true,
+    "cell_edge_contacts": [
+      {
+        "frame": 1,
+        "touches_edge": false
+      },
+      {
+        "frame": 2,
+        "touches_edge": false
+      },
+      {
+        "frame": 3,
+        "touches_edge": false
+      },
+      {
+        "frame": 4,
+        "touches_edge": false
+      },
+      {
+        "frame": 5,
+        "touches_edge": false
+      },
+      {
+        "frame": 6,
+        "touches_edge": false
+      }
+    ],
+    "frame_bounds": [
+      {
+        "frame": 1,
+        "area": 46020,
+        "source_bbox": [
+          9,
+          288,
+          301,
+          590
+        ],
+        "source_wh": [
+          292,
+          302
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          53,
+          206,
+          246,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 2,
+        "area": 52010,
+        "source_bbox": [
+          396,
+          212,
+          675,
+          590
+        ],
+        "source_wh": [
+          279,
+          378
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          358,
+          156,
+          542,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 3,
+        "area": 57204,
+        "source_bbox": [
+          732,
+          288,
+          1106,
+          590
+        ],
+        "source_wh": [
+          374,
+          302
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          626,
+          206,
+          873,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 4,
+        "area": 55114,
+        "source_bbox": [
+          1093,
+          299,
+          1522,
+          590
+        ],
+        "source_wh": [
+          429,
+          291
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          908,
+          213,
+          1191,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 5,
+        "area": 51837,
+        "source_bbox": [
+          1501,
+          275,
+          1793,
+          590
+        ],
+        "source_wh": [
+          292,
+          315
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          1253,
+          197,
+          1446,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 6,
+        "area": 46408,
+        "source_bbox": [
+          1816,
+          288,
+          2110,
+          590
+        ],
+        "source_wh": [
+          294,
+          302
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          1553,
+          206,
+          1747,
+          405
+        ],
+        "bottom_y": 405
+      }
+    ],
+    "sha256": "46a02c9219685b7a76928703a7a706a1a4bb2c9997d76ac46310d9c1efe636f9",
+    "all_frame_edge_contacts_absent": true,
+    "frame_to_previous_mean_rgb_absdiff": [
+      15.846687338501292,
+      26.826715762273903,
+      17.198299741602067,
+      28.188348837209304,
+      12.79671834625323
+    ],
+    "preview_gif_frames": 6,
+    "preview_gif_durations_ms": [
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "raw_generation": {
+      "file": "normal-keyframes-raw-v1.png",
+      "sha256": "bcbf9bf7903e2e2979a512049df712c65c985a886a43d77f25e8a0393a553fd8"
+    }
+  },
+  "leap": {
+    "file": "南光坊天海_跳躍叩きつけ_6コマ_v2.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "pure_magenta_edges": true,
+    "cell_edge_contacts": [
+      {
+        "frame": 1,
+        "touches_edge": false
+      },
+      {
+        "frame": 2,
+        "touches_edge": false
+      },
+      {
+        "frame": 3,
+        "touches_edge": false
+      },
+      {
+        "frame": 4,
+        "touches_edge": false
+      },
+      {
+        "frame": 5,
+        "touches_edge": false
+      },
+      {
+        "frame": 6,
+        "touches_edge": false
+      }
+    ],
+    "frame_bounds": [
+      {
+        "frame": 1,
+        "source_bbox": [
+          62,
+          248,
+          417,
+          464
+        ],
+        "source_wh": [
+          355,
+          216
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          33,
+          262,
+          267,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 2,
+        "source_bbox": [
+          539,
+          158,
+          925,
+          442
+        ],
+        "source_wh": [
+          386,
+          284
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          322,
+          148,
+          577,
+          335
+        ],
+        "bottom_y": 335
+      },
+      {
+        "frame": 3,
+        "source_bbox": [
+          1091,
+          21,
+          1387,
+          393
+        ],
+        "source_wh": [
+          296,
+          372
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          652,
+          19,
+          847,
+          265
+        ],
+        "bottom_y": 265
+      },
+      {
+        "frame": 4,
+        "source_bbox": [
+          74,
+          544,
+          481,
+          912
+        ],
+        "source_wh": [
+          407,
+          368
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          915,
+          92,
+          1184,
+          335
+        ],
+        "bottom_y": 335
+      },
+      {
+        "frame": 5,
+        "source_bbox": [
+          595,
+          688,
+          1009,
+          957
+        ],
+        "source_wh": [
+          414,
+          269
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          1213,
+          227,
+          1486,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 6,
+        "source_bbox": [
+          1121,
+          664,
+          1458,
+          941
+        ],
+        "source_wh": [
+          337,
+          277
+        ],
+        "scale": 0.66,
+        "output_bbox": [
+          1539,
+          222,
+          1761,
+          405
+        ],
+        "bottom_y": 405
+      }
+    ],
+    "sha256": "7fd30e1470b30723187717fe9ba978046b68c9eda33487920ed30654ce9a4b3d",
+    "all_frame_edge_contacts_absent": true,
+    "frame_to_previous_mean_rgb_absdiff": [
+      36.90041085271318,
+      31.60466408268734,
+      31.69243410852713,
+      32.44132299741602,
+      21.227702842377262
+    ],
+    "preview_gif_frames": 6,
+    "preview_gif_durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      180,
+      160
+    ],
+    "raw_generation": {
+      "file": "leap-keyframes-raw-v1.png",
+      "sha256": "80d221538f1b4832a59a38d1ceb0b5214e0cfe713d37953deaa3d95ad10afac8"
+    }
+  },
+  "manual_visual_review": {
+    "normal_attack": "All six poses and a complete visible chain/ball were inspected in the sheet. A 120ms/frame browser GIF showed a forward chest-level sweep with visible flail ball.",
+    "leap_smash": "All six poses and a visible chain/ball were inspected. Frames 2-4 are airborne; frame 3 reaches the highest anchor; frame 5 impact spark is present; frame 6 returns to guard.",
+    "scope": "material candidate only; game integration and real demo remain pending Claude"
+  }
+}

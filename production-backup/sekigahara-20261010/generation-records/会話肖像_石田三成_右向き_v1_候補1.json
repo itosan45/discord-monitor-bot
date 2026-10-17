@@ -1,0 +1,60 @@
+﻿{
+  "name": "会話肖像_石田三成_右向き_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0d4326ee-d7ba-4727-a738-f040d82812a5.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_石田三成_右向き_v1.png",
+  "kind": "dialogue_portrait",
+  "status": "git_verified",
+  "attempts": 1,
+  "cellSpecificationApplicable": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    31,
+    20,
+    1212,
+    1254
+  ],
+  "margins": [
+    31,
+    20,
+    42,
+    0
+  ],
+  "alphaZeroPixels": 778513,
+  "automaticPass": true,
+  "visibleBBox": [
+    70,
+    29,
+    1210,
+    1227
+  ],
+  "visibleMargins": [
+    70,
+    29,
+    44,
+    27
+  ],
+  "alphaOnePixels": 6324,
+  "alphaReview": "Raw bounds and alpha > 1 silhouette bounds both recorded. Alpha 1 residue is 1/255 opacity; do not erase or change generated pixels.",
+  "sha256": "112c76e5cdec76f4c84711a0c592eb60f26be0a0a1ebc1ef464e36c8544d7b3f",
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "prompt": "Create ONE square transparent-background chest-up dialogue portrait for Sekigahara Ranbu: Ishida Mitsunari, viewed in a three-quarter turn facing RIGHT, with his eyes also looking toward the right side. Match the approved character design: lean Japanese commander in his thirties, long straight black hair, narrow thoughtful eyes, a fine moustache and short pointed goatee; tall black iron kabuto crowned by a broad gold folding-fan crest; dark iron armor with muted gold fittings, ivory sleeves, and a rich deep-purple brocade over-robe decorated with restrained gold fan-and-flower patterns. Keep his face recognizably the same character across the left/right portrait pair. Expression stern, calculating, controlled, and quietly imposing. Make a dignified, ruggedly painted historical game portrait with expressive ink contours, layered brush-painted shading, charcoal shadows, warm face highlights, subtle old-paint texture, and restrained colors; match the premium illustrated portrait treatment of a Japanese historical action game, never photorealistic or 3D. Square 1:1 canvas. Center a compact chest-up bust occupying no more than 62 percent of canvas width and 76 percent of canvas height. Entire fan crest, hair, both shoulders, and natural chest edge fully visible, with large clear empty margin on every side, at least 16 percent left/right. Real transparent alpha background. One person only. No scenery, no banner, no text, no calligraphy, no seal, no frame, no glow, no weapon, no handheld fan, no extra figure, and no cropped armor or hair.",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "ocrResult": {
+    "name": "会話肖像_石田三成_右向き_v1.png",
+    "text": "」 を 0 第 鬘 」 新",
+    "success": true
+  },
+  "ocrReview": "Windows OCR successful; OCR-like text was visually confirmed as armor/cloth motifs, not lettering.",
+  "visualReview": "胸上胸像の右向き向き。扇型前立て・黒髪・細髭・黒金甲冑・紫金外衣を確認。髪、前立て、両肩、胸の全輪郭と透明余白を確認。OCRの認識文字[」 を 0 第 鬘 」 新]は甲冑・执紋の装飾を誤読したもので、画像に文字は無いことをOCR後の拡大目視で確認。輪郭外にalpha1/255の微弱残留があるため要注意とし、原画素は変更しない。",
+  "qaResult": "要注意",
+  "gitVerified": true,
+  "gitCommit": "7821fead41fe809907f92c9b510605e56c63e24c",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedAt": "2026-10-07T07:22:14+09:00",
+  "gitVerifiedHead": "5a33f13c134a4f18b6679cfd23eb7381ded99b80"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "上杉景勝_HUD顔アイコン.png",
+  "char": "上杉景勝",
+  "group": "ui",
+  "kind": "hud_face_icon",
+  "priority": 5,
+  "status": "git_verified",
+  "attemptCount": 1,
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_HUD顔アイコン.png",
+  "actualName": "上杉景勝_HUD顔アイコン.png",
+  "sha256": "68af9bac84ebdb82a215341bb9e07bb469b69aa14aad68b8915865cbe6703a1e",
+  "generationSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-89090ee0-e5ff-4be7-b82c-4cd45da13ac0.png",
+  "generatedSourceSha256": "107ef74689a9e54635533d3f1611cc8a0434727e1ed944463814a914bc2d4b2a",
+  "sourceReference": "assets/sprites/上杉景勝_設定画.png",
+  "referenceAsset": "assets/sprites/上杉景勝_設定画.png",
+  "prompt": "Use the attached approved Uesugi Kagekatsu setting sheet only as the identity and costume guide. Create ONE square game HUD face icon, chest-up, in the same painterly Japanese historical action-game style as the existing character HUD icons. Kagekatsu is a stern Japanese commander with long dark hair, a black/navy kabuto bearing his distinctive broad upward-curving gold crescent-moon crest, a serious dignified face with moustache and short beard, dark navy-black lacquered armor with restrained silver and antique-gold fittings, and a deep indigo cloak with subtle woven pattern. Three-quarter view facing right, eyes readable at small HUD size; frame the full crescent crest, head, and both shoulders with at least 8% breathing room. Crop the full-body reference into a compact, bold, clearly legible face-and-shoulders icon; do not reproduce its three-view layout. Background must be a perfectly flat, uniform pure magenta #FF00FF from edge to edge, with no shadows outside the character. No weapons, flag, scenery, border, effects, text, kanji, letters, watermarks, seals, extra people, or photorealism. Match the darker restrained color palette of the reference.",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceMode": "RGB",
+  "size": [
+    256,
+    256
+  ],
+  "mode": "RGB",
+  "background": "#FF00FF exact pure magenta; outer16 pixels verified",
+  "placementTransform": "Keyed generated near-magenta background by per-pixel deviation max(255-R,G,255-B): transparent at <=18, opaque at >=55, linear antialias between; uniformly resized to 82% of 256x256 canvas and centered on exact #FF00FF RGB background. Original generated source preserved unchanged.",
+  "visibleBBox": [
+    23,
+    23,
+    233,
+    233
+  ],
+  "visibleMargins": [
+    23,
+    23,
+    23,
+    23
+  ],
+  "outer16PureMagenta": true,
+  "automaticCheck": [
+    "PASS: 256x256 RGB",
+    "PASS: exact #FF00FF outer 16px",
+    "PASS: visible silhouette margins >=8px on each edge"
+  ],
+  "qaResult": "OK",
+  "visualReview": "At native 256x256 size, Kagekatsu face and gold crescent crest are clearly legible; chest-up shoulders fit inside the icon. Right-facing three-quarter view, dark navy/silver/gold armor and indigo clothing match the approved setting art and the more illustrated Yukimura HUD style. Exact pure-magenta background, at least 23px visible margin on all sides, no text or weapon.",
+  "ocrResult": {
+    "name": "上杉景勝_HUD顔アイコン.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded with no text detected; post-OCR visual inspection completed.",
+  "gitVerified": true,
+  "gitSha256Verified": true,
+  "gitCommit": "568c5837ad9fceb5b545296067d3e75eccc3e272",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "568c5837ad9fceb5b545296067d3e75eccc3e272",
+  "gitVerifiedAt": "2026-10-07T08:20:30+09:00",
+  "reviewDate": "2026-10-07"
+}

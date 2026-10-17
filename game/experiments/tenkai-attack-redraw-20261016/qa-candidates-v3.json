@@ -1,0 +1,303 @@
+{
+  "method": "Built-in image_gen; connected-component extraction of isolated poses; body-only because Claude is drawing flail separately in code",
+  "background": "#FF00FF",
+  "attack": {
+    "path": "tenkai-normal-attack-body-candidate-v3.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "source_bbox": [
+          41,
+          233,
+          316,
+          581
+        ],
+        "source_size": [
+          275,
+          348
+        ],
+        "source_area": 57556,
+        "output_bbox": [
+          51,
+          155,
+          249,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 2,
+        "source_bbox": [
+          342,
+          215,
+          655,
+          577
+        ],
+        "source_size": [
+          313,
+          362
+        ],
+        "source_area": 66333,
+        "output_bbox": [
+          342,
+          155,
+          558,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 3,
+        "source_bbox": [
+          678,
+          237,
+          1069,
+          578
+        ],
+        "source_size": [
+          391,
+          341
+        ],
+        "source_area": 76793,
+        "output_bbox": [
+          607,
+          156,
+          893,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 4,
+        "source_bbox": [
+          1064,
+          235,
+          1472,
+          577
+        ],
+        "source_size": [
+          408,
+          342
+        ],
+        "source_area": 71829,
+        "output_bbox": [
+          907,
+          165,
+          1193,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 5,
+        "source_bbox": [
+          1490,
+          227,
+          1833,
+          579
+        ],
+        "source_size": [
+          343,
+          352
+        ],
+        "source_area": 70106,
+        "output_bbox": [
+          1228,
+          155,
+          1472,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 6,
+        "source_bbox": [
+          1856,
+          233,
+          2130,
+          581
+        ],
+        "source_size": [
+          274,
+          348
+        ],
+        "source_area": 57897,
+        "output_bbox": [
+          1551,
+          155,
+          1748,
+          405
+        ],
+        "bottom_y": 405
+      }
+    ],
+    "edge_contacts": [
+      {
+        "frame": 1,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 2,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 3,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 4,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 5,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 6,
+        "touches_cell_edge": false
+      }
+    ],
+    "sha256": "0c1da72bdd6fa486758b8bd5f24ae25f89a5291278c596b6c5f0000a508769a5"
+  },
+  "leap": {
+    "path": "tenkai-leap-smash-body-candidate-v3.png",
+    "size": [
+      1500,
+      430
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "source_bbox": [
+          30,
+          541,
+          281,
+          774
+        ],
+        "source_size": [
+          251,
+          233
+        ],
+        "source_area": 36258,
+        "output_bbox": [
+          15,
+          155,
+          284,
+          405
+        ],
+        "bottom_y": 405
+      },
+      {
+        "frame": 2,
+        "source_bbox": [
+          326,
+          312,
+          612,
+          706
+        ],
+        "source_size": [
+          286,
+          394
+        ],
+        "source_area": 49301,
+        "output_bbox": [
+          359,
+          85,
+          540,
+          335
+        ],
+        "bottom_y": 335
+      },
+      {
+        "frame": 3,
+        "source_bbox": [
+          640,
+          217,
+          912,
+          636
+        ],
+        "source_size": [
+          272,
+          419
+        ],
+        "source_area": 49754,
+        "output_bbox": [
+          669,
+          15,
+          831,
+          265
+        ],
+        "bottom_y": 265
+      },
+      {
+        "frame": 4,
+        "source_bbox": [
+          924,
+          383,
+          1211,
+          714
+        ],
+        "source_size": [
+          287,
+          331
+        ],
+        "source_area": 49203,
+        "output_bbox": [
+          941,
+          85,
+          1158,
+          335
+        ],
+        "bottom_y": 335
+      },
+      {
+        "frame": 5,
+        "source_bbox": [
+          1230,
+          515,
+          1508,
+          775
+        ],
+        "source_size": [
+          278,
+          260
+        ],
+        "source_area": 45649,
+        "output_bbox": [
+          1216,
+          155,
+          1483,
+          405
+        ],
+        "bottom_y": 405
+      }
+    ],
+    "edge_contacts": [
+      {
+        "frame": 1,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 2,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 3,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 4,
+        "touches_cell_edge": false
+      },
+      {
+        "frame": 5,
+        "touches_cell_edge": false
+      }
+    ],
+    "sha256": "2dab4c70ab7f7ec48609aac29537b206273564cc3f38beb51ac5cd51d4efaaa2"
+  }
+}

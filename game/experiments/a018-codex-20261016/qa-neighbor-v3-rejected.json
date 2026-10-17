@@ -1,0 +1,39 @@
+{
+  "status": "rejected; retain v2 as latest partial candidate",
+  "reason": "Neighbor references eliminate third shoe but target foot extent/position drifts; numeric cadence alone cannot accept",
+  "frames": [
+    {
+      "frame_one_based": 4,
+      "source_bottom_foot_extent_xmin_xmax_ymax": [
+        92,
+        143,
+        238
+      ],
+      "candidate_bottom_foot_extent_xmin_xmax_ymax": [
+        97,
+        163,
+        238
+      ]
+    },
+    {
+      "frame_one_based": 12,
+      "source_bottom_foot_extent_xmin_xmax_ymax": [
+        105,
+        150,
+        238
+      ],
+      "candidate_bottom_foot_extent_xmin_xmax_ymax": [
+        101,
+        157,
+        238
+      ]
+    }
+  ],
+  "next": "Ask Claude to identify intended two foot anchors of cel4 from three ghosted shoe positions; avoid further same broad generation loop",
+  "numeric_evenness": {
+    "CV": 0.17,
+    "max_min": 1.84,
+    "numeric_gate": "pass",
+    "visual_gate": "rejected for foot drift"
+  }
+}

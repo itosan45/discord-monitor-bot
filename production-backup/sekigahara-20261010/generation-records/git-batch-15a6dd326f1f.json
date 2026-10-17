@@ -1,0 +1,16 @@
+{
+  "commit": "15a6dd326f1f12e4da20d82f2cd5c50c04a24226",
+  "remote": "15a6dd326f1f12e4da20d82f2cd5c50c04a24226",
+  "verifiedAt": "2026-10-06T17:32:29.660784+00:00",
+  "assets": [
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "石田三成_ダッシュ_5コマ_v2.png",
+      "name": "石田三成_ダッシュ_5コマ_v2.png",
+      "sha256": "40aa5ac915beca95c69801f7b0817affa7f3f11d71a3a8b53ff0d19b59335ac0",
+      "qaResult": "OK",
+      "record": "ishida-dash-v2-record.json",
+      "priorStatus": "qa_passed"
+    }
+  ]
+}

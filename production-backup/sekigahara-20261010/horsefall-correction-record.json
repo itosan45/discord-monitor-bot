@@ -1,0 +1,145 @@
+{
+  "name": "敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b0fb2205-33a4-4dcd-bc9d-7eb42fb80b53.png",
+  "status": "git_verified",
+  "scale": 0.5832066869300913,
+  "standingHeightSource": 526.4,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        56,
+        84,
+        428,
+        585
+      ],
+      "destination": [
+        83,
+        55,
+        217,
+        292
+      ],
+      "scale": 0.5832066869300913,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        523,
+        81,
+        1024,
+        585
+      ],
+      "destination": [
+        46,
+        53,
+        292,
+        294
+      ],
+      "scale": 0.5832066869300913,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        992,
+        213,
+        1589,
+        585
+      ],
+      "destination": [
+        18,
+        130,
+        348,
+        217
+      ],
+      "scale": 0.5832066869300913,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1536,
+        213,
+        2131,
+        585
+      ],
+      "destination": [
+        18,
+        130,
+        347,
+        217
+      ],
+      "scale": 0.5832066869300913,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "79415074ed8be0307a120566523ccee363c17bd19edf17011aeba6bb9e04bb3f",
+  "backgroundSource": [
+    239,
+    24,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": "260,800,1270,1780",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの66%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    43078,
+    43682,
+    30985,
+    47224
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版_GIF復号確認.png"
+  },
+  "actualName": "敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+  "qaResult": "OK",
+  "visualReview": "候補2の槍連続性を一回だけ修正。4コマとも石突から穂先まで1本の長槍が全て見え、同一縮尺。騎手の後傾→空中→落馬後の仰向け→小反動と、馬の大きさ・四肢を維持。全セル内に納まり、余白・馬の接地・ポーズ変化をGIF復号後にも目視確認。",
+  "ocrReview": {
+    "name": "敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+    "text": "",
+    "success": true
+  },
+  "reviewDate": "2026-10-07",
+  "manualVisualException": false,
+  "correctionOf": "敵_騎馬兵_落馬_4コマ_v2_候補2.json",
+  "originalV2Name": "敵_騎馬兵_落馬_4コマ_v2.png",
+  "originalV2Sha256": "205ee07cded520ad2c0008942e9db1b177871a8528bb44b543647fbbeea70b0c",
+  "editSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-b0fb2205-33a4-4dcd-bc9d-7eb42fb80b53.png",
+  "correctionMethod": "single image-gen edit focused only on equal continuous spear length; existing v2 kept unchanged",
+  "gitVerified": true,
+  "gitCommit": "fd5b47117850294442c7681b91ab28270ba292c3",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitSha256Verified": true
+}

@@ -1,0 +1,165 @@
+{
+  "name": "敵_足軽槍_攻撃_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_攻撃_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-4d53390d-cfcf-48f0-8ac2-69260011ba08.png",
+  "status": "drive_verified",
+  "scale": 0.5857142857142857,
+  "standingHeightSource": 350.0,
+  "standingHeightTarget": 205,
+  "n": 6,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        30,
+        182,
+        360,
+        530
+      ],
+      "destination": [
+        31,
+        27,
+        193,
+        204
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        344,
+        227,
+        689,
+        531
+      ],
+      "destination": [
+        27,
+        53,
+        202,
+        178
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        707,
+        226,
+        1074,
+        531
+      ],
+      "destination": [
+        20,
+        52,
+        215,
+        179
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1086,
+        271,
+        1495,
+        526
+      ],
+      "destination": [
+        8,
+        82,
+        240,
+        149
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1490,
+        226,
+        1820,
+        531
+      ],
+      "destination": [
+        31,
+        52,
+        193,
+        179
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1807,
+        186,
+        2145,
+        531
+      ],
+      "destination": [
+        29,
+        29,
+        198,
+        202
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    }
+  ],
+  "sha256": "784ffdd80f37fa7e2623bf5d57084e765d4919bd7b07be8690469afe15cfb04e",
+  "backgroundSource": [
+    240,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 8,
+  "layoutException": true,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ4: 絵がセルの端から16px以内にある（はみ出し）",
+    "OK 人物の高さ（中央値）はセルの70%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    14160,
+    16665,
+    14427,
+    15421,
+    12409,
+    11723
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽槍_攻撃_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽槍_攻撃_6コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "成功・文字検出なし",
+  "acceptanceBasis": "最新10の修正上限後の最良案保存。コマ4左右余白8pxで規格16pxはNG。全身・槍に欠けなし、共通縮尺を維持。",
+  "visualReview": "6コマGIF復号を目視。構え→引き→伸ばし→低い踏込み突き→引き戻し→構え。足運び・腰・腕の変化あり。全身右向き・槍欠けなし。4コマ目余白NGを明記して要注意。",
+  "driveId": "1tecAP7B7JpQtB0QrrX8GkwVt6Lg7aGXw",
+  "readbackSha256": "784ffdd80f37fa7e2623bf5d57084e765d4919bd7b07be8690469afe15cfb04e",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

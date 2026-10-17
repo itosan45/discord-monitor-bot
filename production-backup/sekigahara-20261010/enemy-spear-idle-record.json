@@ -1,0 +1,92 @@
+{
+  "name": "敵_足軽槍_待機_4コマ.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_待機_4コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-aa1477fc-af84-4fd5-bdd5-18a3e8341795.png",
+  "status": "drive_verified",
+  "scale": 0.3897338403041825,
+  "standingHeightSource": 526.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        56,
+        92,
+        607,
+        636
+      ],
+      "destination": [
+        20,
+        19,
+        215,
+        212
+      ],
+      "scale": 0.3897338403041825,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        575,
+        93,
+        1136,
+        636
+      ],
+      "destination": [
+        18,
+        19,
+        219,
+        212
+      ],
+      "scale": 0.3897338403041825,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1106,
+        94,
+        1662,
+        636
+      ],
+      "destination": [
+        19,
+        20,
+        217,
+        211
+      ],
+      "scale": 0.3897338403041825,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        56,
+        92,
+        607,
+        636
+      ],
+      "destination": [
+        20,
+        19,
+        215,
+        212
+      ],
+      "scale": 0.3897338403041825,
+      "ground": 230
+    }
+  ],
+  "sha256": "f5c23350ad4888ebcc3034b2bc5a8d440c196ee44ee2a4da5aba99a79e0dad54",
+  "backgroundSource": [
+    239,
+    25,
+    239
+  ],
+  "sourceIndices": "0,1,2,0",
+  "visualReview": "青い服と黒い装甲の槍足軽のみ。全コマ肩装甲・腰装甲・籠手・脛当てあり、低い構えで二手同じ槍。槍先含む全身、余白16px以上、接地230px。OCR文字なし。4コマ目は1コマ目全身を再利用して待機ループ復帰。",
+  "driveId": "1S9-v6erVw8aG3FfU2JuHgQyW4UF0x-s2",
+  "driveReadbackSha256": "F5C23350AD4888EBCC3034B2BC5A8D440C196EE44EE2A4DA5ABA99A79E0DAD54"
+}

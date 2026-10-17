@@ -1,0 +1,8 @@
+{
+  "name": "敵_足軽刀_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-fbb8ca31-87ee-487d-915f-05d6188ab608.png",
+  "prompt": "Repair this8-frame katana ashigaru walk: ONLY frame5 and6 legs, and frame8 blade clipping. Keep same exact character upper bodies, low hips, weapon guard, head/torso/limb sizes. Frame5 must exchange LEGS compared to1: near RIGHT thigh comes DOWNBACK under rear edge of hip and nearRIGHTfootisbehind; farLEFTthigh crosses forward under front hip, farLEFTfootfront. Right knee visible at REAR, left knee at FRONT, unlike1. Frame6weight onto farLEFTfront with RIGHTheelraisedbehind. 3and7passingkneesremainclose. All sandal toesRIGHT, don'tmirrorfoot designs. Frame8 pull both hands and blade closer to chest by bent elbows so full blade tip ends BEFORE image edge with clear magenta space; preserve blade length. Ensure all8wholebodies/katana/scabbards complete with wide outer margin and gaps. Eight equal squares horizontal row, uniform scale, pure#FF00FF opaque no text shadow grid. Current blade8 cut off is unacceptable, fix it.",
+  "attempt": 3,
+  "status": "candidate_pending_QA",
+  "visualReview": "刀8先端欠けは修正。1/5脚交換の遮蔽差と8上体武器安定は弱い。"
+}

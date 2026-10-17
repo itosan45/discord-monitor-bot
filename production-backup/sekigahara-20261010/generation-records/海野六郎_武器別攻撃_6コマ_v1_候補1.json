@@ -1,0 +1,25 @@
+{
+  "name": "海野六郎_武器別攻撃_6コマ_v1.png",
+  "candidate": 1,
+  "status": "rejected_scale_envelope",
+  "decision": "Do not normalize or deliver. Six full poses are independently segmented, but the raised katana tip in frame 2 makes the total silhouette about 547 source pixels tall while the standing character is about 430px. To fit 16px top margin and keep the ground within the 30_check tolerance, the common scale would reduce the character to about 170px tall, materially smaller than the 200px idle reference. No art is clipped; the weapon envelope prevents meeting both scale and margin at once. Move to a different task instead of shrinking the character.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-84e947ca-191f-4f6c-9fd5-8a591c2fc83c.png",
+  "sourceSha256": "24aafc1501d6b2f611abc6bc550db0673e223b740878487b45e41d5e26e50387",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "promptSummary": "Six-frame Unno Rokuro deliberate diagonal downward katana attack; wind-up, strike, follow-through, recovery; matching reference model and idle.",
+  "qaFindings": [
+    "Visual review: six connected poses are distinct and weapon continuity is visible.",
+    "Component inspection: six independent full-character components; no cross-pose connection.",
+    "Frame 2 raised blade total silhouette height 547px vs roughly 430px for the body; same scale cannot fit cell height with 16px top margin and normal ground position.",
+    "Uniform normalization needed for fit would make standing character about 170px, materially smaller than the matching 207px idle character.",
+    "No normalized PNG, OCR, GIF, or Git delivery performed."
+  ],
+  "reviewedAt": "2026-10-08T07:35:00+09:00",
+  "referenceFiles": [
+    "finished/海野六郎_設定画_v1.png",
+    "assets/sprites/海野六郎_待機_4コマ_v1.png"
+  ]
+}

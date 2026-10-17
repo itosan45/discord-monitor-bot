@@ -1,0 +1,94 @@
+{
+  "name": "筧十蔵_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-72febd3f-17cb-4dd3-ba3f-0c3c1e0cf5c7.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\筧十蔵_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.318796992481203,
+  "sourceBounds": [
+    [
+      99,
+      47,
+      501,
+      705
+    ],
+    [
+      643,
+      46,
+      1044,
+      705
+    ],
+    [
+      1185,
+      40,
+      1588,
+      705
+    ],
+    [
+      1725,
+      48,
+      2127,
+      705
+    ]
+  ],
+  "placements": [
+    [
+      64,
+      20,
+      128,
+      210
+    ],
+    [
+      64,
+      20,
+      128,
+      210
+    ],
+    [
+      64,
+      18,
+      128,
+      212
+    ],
+    [
+      64,
+      21,
+      128,
+      209
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "3490525a9f0cdd1cf9304223d8cd6544759a51ff6ea505643a21ea2df7a5a25a",
+  "prompt": "Kakei Juzo IDLE breathing sprite FOUR frames ONE HORIZONTAL ROW chronological. EXACT SAME man outfit firearm as reference middle RIGHT-facing side view: red headband black topknot short mustache/goatee, worn brown-black armor gray jacket darkpants, red sixcoins badge2rows3, powderflask and pouch, shinwraps sandals. Same Japanese tanegashima matchlock long steelbarrel brownwoodstock visible serpentine/primingpan, NOT modernrifle. Hold both hands gun diagonally muzzleup-right stocknearhip exactly reference. Gun length and design constant allframes, fullmuzzle/stock alwaysinsidecell. Fixedcamera same body size, feet fixedsamepositions/ground, knees gently flexed. 1 exhale chestlow,2 inhale chestexpands shouldersrise,3 peak inhale headrises2%bodyheight,4 settlesnear1. Visible calm breathing torso only, hands follow torso slightly, no firing/aiming/loading or walking. Four equal cells with generousmagenta margins fullhair/gun/feet and nooverlap. Wholebody about80%cellheight, rightfacingallframes. Grittypaintedgameart pureflat#FF00FF PNG widehorizontal4frames; no flash/smoke/effects/shadow/text/grid/scenery.",
+  "char": "筧十蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames reviewed against reference: same face red headband/topknot brown-black armor, six coins, pouches, full matchlock muzzle and stock with mechanism; same gun length, both hands, right-facing, no clipping or effects. Fixed ground and uniform scale. OCR empty. Breathing subtle, third head/chest lifts; knee flex shallow, caution. Own idle scale established.",
+  "gitVerified": true,
+  "gitCommit": "5fb1a86227fab06d42afb21989e93923c415359b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "3490525a9f0cdd1cf9304223d8cd6544759a51ff6ea505643a21ea2df7a5a25a",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:39:36.104071+09:00"
+}

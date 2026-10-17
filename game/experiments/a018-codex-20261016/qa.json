@@ -1,0 +1,29 @@
+{
+  "source_size": [
+    256,
+    256
+  ],
+  "generated_size": [
+    1254,
+    1254
+  ],
+  "normalized_size": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    18,
+    35,
+    237,
+    238
+  ],
+  "candidate_bounds": [
+    18,
+    35,
+    237,
+    237
+  ],
+  "lower_body_silhouette_changed_pixels": 146,
+  "lower_body_silhouette_union_pixels": 2828,
+  "status": "full-frame generation not directly accepted: background and unrelated details changed; localized derivative evaluated in qa-roi.json"
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "真田幸村_通常1_5コマ_v2.png",
+    "char": "真田幸村",
+    "action": "a1",
+    "kind": "sprite_motion",
+    "n": 5,
+    "cell": 256,
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常1_5コマ_v2.png",
+    "sha256": "a405ebc51231932cb5253d79d8006bf9c084a60791f4e81594035569c7eef59c",
+    "status": "git_verified",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "gitVerified": true,
+    "gitCommit": "429a9b0f5815eb0a7b5a167af06d9974e59be458",
+    "qaRecord": "generation-records/yuki-normal-reach-v2.json",
+    "qaResult": "OK"
+  },
+  {
+    "name": "真田幸村_通常2_5コマ_v4.png",
+    "char": "真田幸村",
+    "action": "a2",
+    "kind": "sprite_motion",
+    "n": 5,
+    "cell": 256,
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常2_5コマ_v4.png",
+    "sha256": "584d6aa59202cdfb66d989e098fa54baba485385ad95735e9ab0fc6a4bcff937",
+    "status": "git_verified",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "gitVerified": true,
+    "gitCommit": "429a9b0f5815eb0a7b5a167af06d9974e59be458",
+    "qaRecord": "generation-records/yuki-normal-reach-v2.json",
+    "qaResult": "OK"
+  }
+]

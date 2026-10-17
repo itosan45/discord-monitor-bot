@@ -1,0 +1,520 @@
+{
+  "commit": "61e9fdff562145935f355613c619408082c07564",
+  "remote": "61e9fdff562145935f355613c619408082c07564",
+  "verifiedAt": "2026-10-06T13:55:08.776958+00:00",
+  "assets": [
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "上杉景勝_歩き_8コマ_v2.png",
+      "name": "上杉景勝_歩き_8コマ_v2_再生成版.png",
+      "sha256": "8390b667d9717e7a681ea0fec8763429c574066c7990bdba2ceba5bc331c884e",
+      "qaResult": "要注意",
+      "record": null,
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "石田三成_歩き_8コマ_v2.png",
+      "name": "石田三成_歩き_8コマ_v2.png",
+      "sha256": "97c1aefd8856115bfcd24a6e43f23208dee7c40094bb5409d417939cd08a8272",
+      "qaResult": "要注意",
+      "record": null,
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "織田信長_歩き_8コマ_v2.png",
+      "name": "織田信長_歩き_8コマ_v2.png",
+      "sha256": "b82d06c9e05a512717486b6a0392456ad8800d6e218dae4786416c3b3a6af6f5",
+      "qaResult": "OK",
+      "record": null,
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "武田信玄_歩き_8コマ_v2.png",
+      "name": "武田信玄_歩き_8コマ_v2.png",
+      "sha256": "f45fcff30e4ade879905844d800edc38c7cea7ec50f00e918a532af9ba02244e",
+      "qaResult": "要注意",
+      "record": "shingen-walk-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "宮本武蔵_歩き_8コマ_v2.png",
+      "name": "宮本武蔵_歩き_8コマ_v2.png",
+      "sha256": "3d156ad8a6214c539e1ea8b18030fb67a3d5c387f5518ea79d2dfad53311cb4f",
+      "qaResult": "要注意",
+      "record": "musashi-walk-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_待機_4コマ_v2.png",
+      "name": "敵_足軽槍_待機_4コマ_v2.png",
+      "sha256": "dc3c85ad09d645edd84f8a1f750c2bed03d06b3c9dcad1aafdebbc065a3443cc",
+      "qaResult": "OK",
+      "record": "enemy-spear-idle-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_歩き_8コマ_v2.png",
+      "name": "敵_足軽槍_歩き_8コマ_v2.png",
+      "sha256": "4c98232ec5fdbcc505691212ad4fe42bd45aca53b43779a4d9ab878e882002d3",
+      "qaResult": "要注意",
+      "record": "enemy-spear-walk-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_攻撃_6コマ_v2.png",
+      "name": "敵_足軽槍_攻撃_6コマ_v2.png",
+      "sha256": "784ffdd80f37fa7e2623bf5d57084e765d4919bd7b07be8690469afe15cfb04e",
+      "qaResult": "要注意",
+      "record": "enemy-spear-attack-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_被弾_2コマ_v2.png",
+      "name": "敵_足軽槍_被弾_2コマ_v2.png",
+      "sha256": "f716b9e4f31fdd2043dd8a6eec0b21c1f338be2c853a8c7f030ad7e0d776388e",
+      "qaResult": "OK",
+      "record": "enemy-spear-hurt-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_やられ_4コマ_v2.png",
+      "name": "敵_足軽槍_やられ_4コマ_v2.png",
+      "sha256": "c12450ee1f407e18e5c881e0275db2570ab1484d8aa30b84427d1ab1e7721757",
+      "qaResult": "要注意",
+      "record": "enemy-spear-death-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_ダウン_4コマ_v2.png",
+      "name": "敵_足軽槍_ダウン_4コマ_v2.png",
+      "sha256": "3dcf62be506a26b597623c9c6dfbcae9e34c8d0cf0673e991ef6a198ee3b15d0",
+      "qaResult": "OK",
+      "record": "enemy-spear-down-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽槍_起き上がり_4コマ_v2.png",
+      "name": "敵_足軽槍_起き上がり_4コマ_v2.png",
+      "sha256": "cd514eaba0f1ec847e3f70db6de32d1cae1b2576e2d15b6b7622d12b68bd7ba3",
+      "qaResult": "OK",
+      "record": "enemy-spear-getup-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_待機_4コマ_v2.png",
+      "name": "敵_足軽刀_待機_4コマ_v2.png",
+      "sha256": "9a3b55f03c4b03acf9e99fd1d0dfa6e891e182694f302b5ab4e0097ffe96e61f",
+      "qaResult": "OK",
+      "record": "enemy-sword-idle-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_歩き_8コマ_v2.png",
+      "name": "敵_足軽刀_歩き_8コマ_v2.png",
+      "sha256": "7f625266bbc8b9371f9676a2bb5ab9a188f8961c7da01aad5e3742c1ee30328d",
+      "qaResult": "要注意",
+      "record": "enemy-sword-walk-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_攻撃_6コマ_v2.png",
+      "name": "敵_足軽刀_攻撃_6コマ_v2.png",
+      "sha256": "3e6ed01632e24d225e038739b6f4306df5fd6acd1ca3f22fb31c64409d133335",
+      "qaResult": "OK",
+      "record": "enemy-sword-attack-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_被弾_2コマ_v2.png",
+      "name": "敵_足軽刀_被弾_2コマ_v2.png",
+      "sha256": "5b12752e1b4d0c8ed2c6b537de4ff1941b33ba5762fa154c8167daf83c576a54",
+      "qaResult": "OK",
+      "record": "enemy-sword-hurt-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_やられ_4コマ_v2.png",
+      "name": "敵_足軽刀_やられ_4コマ_v2_再生成版.png",
+      "sha256": "d78f0cf2cf997b7d741c22641c2ce1ac189e8077e2edfdcc402be1c24700bc16",
+      "qaResult": "要注意",
+      "record": "enemy-sword-death-v2-final-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_ダウン_4コマ_v2.png",
+      "name": "敵_足軽刀_ダウン_4コマ_v2_再生成版.png",
+      "sha256": "311a1f6d2c6dfe01c1edab9515284de2706584b95584002ca2899691c6d87a60",
+      "qaResult": "OK",
+      "record": "enemy-sword-down-v2-final-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_足軽刀_起き上がり_4コマ_v2.png",
+      "name": "敵_足軽刀_起き上がり_4コマ_v2.png",
+      "sha256": "57c018fc272ce41b1d226d5ddc4d75e7f65cc9c1ca4bd7b8b708c0348440c700",
+      "qaResult": "OK",
+      "record": "enemy-sword-getup-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_待機_4コマ_v2.png",
+      "name": "敵_弓足軽_待機_4コマ_v2.png",
+      "sha256": "4f35192fa1c1890fab460a8848825e37270816ba931d8e824ee8d29e2b2716e3",
+      "qaResult": "OK",
+      "record": "enemy-archer-idle-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_歩き_8コマ_v2.png",
+      "name": "敵_弓足軽_歩き_8コマ_v2.png",
+      "sha256": "b28a237c58d7db28b53c5320a30776b45108937a6dc5fc870cc2c21aa74f615b",
+      "qaResult": "要注意",
+      "record": "enemy-archer-walk-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_攻撃_6コマ_v2.png",
+      "name": "敵_弓足軽_攻撃_6コマ_v2.png",
+      "sha256": "72a013606d0ecf5fcbf43362309f0ff920431ddd9c9cea78033407795b17ac71",
+      "qaResult": "OK",
+      "record": "enemy-archer-attack-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_被弾_2コマ_v2.png",
+      "name": "敵_弓足軽_被弾_2コマ_v2.png",
+      "sha256": "56afaded639daa99aaf694982b18bdc4ce0ed297da7c1c42696022a3677447f1",
+      "qaResult": "OK",
+      "record": "enemy-archer-hurt-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_やられ_4コマ_v2.png",
+      "name": "敵_弓足軽_やられ_4コマ_v2.png",
+      "sha256": "15801773dd45aa363445bb0ac10621ac812eb66a15a053fd9fc58e7a39ec4f1e",
+      "qaResult": "要注意",
+      "record": "enemy-archer-death-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_ダウン_4コマ_v2.png",
+      "name": "敵_弓足軽_ダウン_4コマ_v2.png",
+      "sha256": "f8ba261d2fdaf2e41748606ab31ecf9a0f7538a2a535d1bf2ba39490e172356d",
+      "qaResult": "要注意",
+      "record": "enemy-archer-down-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_弓足軽_起き上がり_4コマ_v2.png",
+      "name": "敵_弓足軽_起き上がり_4コマ_v2.png",
+      "sha256": "afac4032ec7ebecfdb7d219e9dfa2ced75a6120c1acbc648975569f7567c028a",
+      "qaResult": "要注意",
+      "record": "enemy-archer-getup-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_待機_4コマ_v2.png",
+      "name": "敵_鉄砲足軽_待機_4コマ_v2.png",
+      "sha256": "612c3d761997837fd9425f3777437f6eb0739705f5b3f1417c013f495f82ec93",
+      "qaResult": "OK",
+      "record": "enemy-gunner-idle-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+      "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+      "sha256": "2d0416aa1e94a5a4f54f6397b2d8fd6b481f2db99d8133c7f4f3b562c6eaf88c",
+      "qaResult": "要注意",
+      "record": "enemy-gunner-walk-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_攻撃_6コマ_v2.png",
+      "name": "敵_鉄砲足軽_攻撃_6コマ_v2.png",
+      "sha256": "cb4cc3ab4fe29d9f5701ccc41a98abd098c4a682095719b5aa1c7ff8d4f922b5",
+      "qaResult": "OK",
+      "record": "enemy-gunner-attack-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+      "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+      "sha256": "f386887923e79855f5bc74f6548544b2dd3a76ca14a2fa1ed9b4823d624ae353",
+      "qaResult": "OK",
+      "record": "enemy-gunner-hurt-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_やられ_4コマ_v2.png",
+      "name": "敵_鉄砲足軽_やられ_4コマ_v2.png",
+      "sha256": "9fffed457b349c06512ea717632e37f85c5b0b5a54a05ec85a7646d9a3975a9a",
+      "qaResult": "要注意",
+      "record": "enemy-gunner-death-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_ダウン_4コマ_v2.png",
+      "name": "敵_鉄砲足軽_ダウン_4コマ_v2.png",
+      "sha256": "f666284066b479820711f542e21683ae8563f7fae483d958be11b926cdb283bb",
+      "qaResult": "OK",
+      "record": "enemy-gunner-down-v2-record.json",
+      "priorStatus": "drive_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+      "name": "敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+      "sha256": "818d97413474e562b6ac6f8eb130a1f3b7f8bdabe53be3548c3f7596d1ad6be7",
+      "qaResult": "要注意",
+      "record": "enemy-gunner-getup-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_待機_4コマ_v2.png",
+      "name": "敵_忍者_待機_4コマ_v2_短刀修正版.png",
+      "sha256": "3862e177ac8c8c0d71c71626babf87c87f709e4c1b7d7461b499157f09044cca",
+      "qaResult": "OK",
+      "record": "enemy-ninja-idle-v2-final-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_歩き_8コマ_v2.png",
+      "name": "敵_忍者_歩き_8コマ_v2.png",
+      "sha256": "43ce57c012e2c5e329b6f00228c27946f2d4dceab19b78d2f627fc8015b822f5",
+      "qaResult": "要注意",
+      "record": "enemy-ninja-walk-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_攻撃_6コマ_v2.png",
+      "name": "敵_忍者_攻撃_6コマ_v2.png",
+      "sha256": "7ba5e114303eb781521cf998ae45e5746e89ccf5b6baaec03ab8d3ca9703f9f1",
+      "qaResult": "要注意",
+      "record": "enemy-ninja-attack-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_被弾_2コマ_v2.png",
+      "name": "敵_忍者_被弾_2コマ_v2.png",
+      "sha256": "7241530eb7de8ecd46e877a5898f7c7145003ea6b8560671ad07386d6e86b7a9",
+      "qaResult": "OK",
+      "record": "enemy-ninja-hurt-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_やられ_4コマ_v2.png",
+      "name": "敵_忍者_やられ_4コマ_v2.png",
+      "sha256": "4bab4bf083221ef4e7c5a460cc88bff6342c35fa55aa08990d8f78eb3dc6dece",
+      "qaResult": "要注意",
+      "record": "enemy-ninja-death-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_ダウン_4コマ_v2.png",
+      "name": "敵_忍者_ダウン_4コマ_v2.png",
+      "sha256": "bc474fb5731343cce09ff99017e7883a39dd55f36d54c8764c3fbe9a981ed0c5",
+      "qaResult": "要注意",
+      "record": "enemy-ninja-down-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_忍者_起き上がり_4コマ_v2.png",
+      "name": "敵_忍者_起き上がり_4コマ_v2.png",
+      "sha256": "2c7bfe02ceb8560ea7b6fb3ca67e3980c5363fe9724e97c63ba51c41e4d2794d",
+      "qaResult": "OK",
+      "record": "enemy-ninja-getup-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬武者_待機_4コマ_v2.png",
+      "name": "敵_騎馬武者_待機_4コマ_v2.png",
+      "sha256": "acb35eaba882a8ac3d1038bcc9dca85460b8aea82bfbf7ae8c283838bdbaf063",
+      "qaResult": "OK",
+      "record": "enemy-mounted-warrior-idle-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬武者_疾走_6コマ_v2.png",
+      "name": "敵_騎馬武者_疾走_6コマ_v2.png",
+      "sha256": "817debd41e035b8e892f56903b7ef893f1dfc467c0ba26701de171ac6b963de7",
+      "qaResult": "OK",
+      "record": "enemy-mounted-warrior-gallop-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬武者_攻撃_6コマ_v2.png",
+      "name": "敵_騎馬武者_攻撃_6コマ_v2.png",
+      "sha256": "5cebe7756d6dd54ee91216bcaaf851244f634069d6c1f27a392240ea1334668f",
+      "qaResult": "要注意",
+      "record": "enemy-mounted-warrior-attack-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬武者_被弾_2コマ_v2.png",
+      "name": "敵_騎馬武者_被弾_2コマ_v2.png",
+      "sha256": "e9e201f389311ab1331d8d9de0a5e542c42dc6cd3a458a122bcb65caa6194b08",
+      "qaResult": "OK",
+      "record": "enemy-mounted-warrior-hurt-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬武者_落馬_4コマ_v2.png",
+      "name": "敵_騎馬武者_落馬_4コマ_v2.png",
+      "sha256": "41807ff6f9f2fe52ae14e73c6b1f689e8e490111a370f5e935c80733fd56f088",
+      "qaResult": "要注意",
+      "record": "enemy-mounted-warrior-fall-v2-record.json",
+      "priorStatus": "qa_passed"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬兵_待機_4コマ_v2.png",
+      "name": "敵_騎馬兵_待機_4コマ_v2.png",
+      "sha256": "41af1ac97e1971665f1e75c49cee8ecc3ec46faf7149823e2c2fa18bec068af3",
+      "qaResult": "OK",
+      "record": "enemy-mounted-lancer-idle-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬兵_疾走_6コマ_v2.png",
+      "name": "敵_騎馬兵_疾走_6コマ_v2.png",
+      "sha256": "29efe6caf6700bd40e02afaf06672c579d38af85d83c2f8aa42079d663b56e85",
+      "qaResult": "OK",
+      "record": "enemy-mounted-lancer-gallop-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬兵_攻撃_6コマ_v2.png",
+      "name": "敵_騎馬兵_攻撃_6コマ_v2.png",
+      "sha256": "16bc6b445687e0f3991b37321b0b06195bdccad25b4661de411c9bb2a10938fe",
+      "qaResult": "OK",
+      "record": "enemy-mounted-lancer-attack-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬兵_被弾_2コマ_v2.png",
+      "name": "敵_騎馬兵_被弾_2コマ_v2.png",
+      "sha256": "e14efaf91a3d3a4e61d36965e64826c9ad329feaa3ad70619624b1c048153807",
+      "qaResult": "OK",
+      "record": "enemy-mounted-lancer-hurt-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬弓兵_待機_4コマ_v2.png",
+      "name": "敵_騎馬弓兵_待機_4コマ_v2.png",
+      "sha256": "678572658a6412a379da143838c59e336aa1c3d951f2adc7c179c0b814a7d0a9",
+      "qaResult": "OK",
+      "record": "enemy-mounted-archer-idle-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬弓兵_疾走_6コマ_v2.png",
+      "name": "敵_騎馬弓兵_疾走_6コマ_v2.png",
+      "sha256": "c96c98610e5768b9d08f7a52c101f47a5c1af840e311515d29deffda09cab477",
+      "qaResult": "OK",
+      "record": "enemy-mounted-archer-gallop-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬弓兵_攻撃_6コマ_v2.png",
+      "name": "敵_騎馬弓兵_攻撃_6コマ_v2.png",
+      "sha256": "1dec91912dfaf4a90c6747c7f12b2e83dec199e50593e028c635a2c35dbfcaf7",
+      "qaResult": "OK",
+      "record": "enemy-mounted-archer-attack-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "敵_騎馬弓兵_被弾_2コマ_v2.png",
+      "name": "敵_騎馬弓兵_被弾_2コマ_v2.png",
+      "sha256": "653fc472db531a5db7de91ae66859db056f880dd90bf0c66549f885a2e9ca47c",
+      "qaResult": "OK",
+      "record": "enemy-mounted-archer-hurt-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "宮本武蔵_通常4_5コマ_v2.png",
+      "name": "宮本武蔵_通常4_5コマ_v2.png",
+      "sha256": "2cd462a774e9a41aeefc36177e9ecc8c2d8c0f87570d82f948e0428012aeddd6",
+      "qaResult": "OK",
+      "record": "hero-musashi-normal4-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "宮本武蔵_通常1_5コマ_v2.png",
+      "name": "宮本武蔵_通常1_5コマ_v2.png",
+      "sha256": "baaf9bcb8407e326c31e1bf7ba643ece28fffb88d0d710c0cddb2060921db65b",
+      "qaResult": "OK",
+      "record": "hero-musashi-normal1-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "宮本武蔵_通常3_5コマ_v2.png",
+      "name": "宮本武蔵_通常3_5コマ_v2.png",
+      "sha256": "15d78c2c6e4b9d0e056db3d8d50f61b417c95dd751ac813077224087c7359458",
+      "qaResult": "OK",
+      "record": "hero-musashi-normal3-v2-record.json",
+      "priorStatus": "git_verified"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "宮本武蔵_ダッシュ_5コマ_v2.png",
+      "name": "宮本武蔵_ダッシュ_5コマ_v2.png",
+      "sha256": "6b1511c40170559bab0438b906b098e7175c3f4557d24e30e34d9cbdd72b2d23",
+      "qaResult": "OK",
+      "record": "musashi-dash-v2-record.json",
+      "priorStatus": "drive_verified"
+    }
+  ]
+}

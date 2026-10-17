@@ -1,0 +1,101 @@
+{
+  "name": "味方_鎧武者_勝鬨_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\味方_鎧武者_勝鬨_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-fd939197-10d5-48fd-ab7e-1fba2dca16ac.png",
+  "status": "candidate",
+  "scale": 0.33064516129032256,
+  "standingHeightSource": 620.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        35,
+        109,
+        517,
+        642
+      ],
+      "destination": [
+        48,
+        55,
+        159,
+        176
+      ],
+      "scale": 0.33064516129032256,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        565,
+        60,
+        1059,
+        642
+      ],
+      "destination": [
+        46,
+        39,
+        163,
+        192
+      ],
+      "scale": 0.33064516129032256,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1097,
+        110,
+        1601,
+        642
+      ],
+      "destination": [
+        44,
+        55,
+        167,
+        176
+      ],
+      "scale": 0.33064516129032256,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1641,
+        34,
+        2152,
+        642
+      ],
+      "destination": [
+        43,
+        30,
+        169,
+        201
+      ],
+      "scale": 0.33064516129032256,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "6e62c5b5871469e63940d4133e81c471cc61c14adf9cf97fc4e37972fdc8cac1",
+  "backgroundSource": [
+    236,
+    22,
+    239
+  ],
+  "sourceIndices": null,
+  "groupCenters": "271,814,1357,1900",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false
+}

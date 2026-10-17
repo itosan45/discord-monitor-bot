@@ -1,0 +1,125 @@
+{
+  "name": "真田幸村_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-0cd4970c-6eaa-4275-b0df-1e5b71455fc4.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.5840220385674931,
+  "sourceBounds": [
+    [
+      21,
+      200,
+      353,
+      529
+    ],
+    [
+      399,
+      167,
+      683,
+      530
+    ],
+    [
+      720,
+      183,
+      1068,
+      529
+    ],
+    [
+      1074,
+      210,
+      1455,
+      529
+    ],
+    [
+      1473,
+      215,
+      1802,
+      530
+    ],
+    [
+      1852,
+      200,
+      2164,
+      529
+    ]
+  ],
+  "placements": [
+    [
+      31,
+      38,
+      194,
+      192
+    ],
+    [
+      45,
+      18,
+      166,
+      212
+    ],
+    [
+      26,
+      28,
+      203,
+      202
+    ],
+    [
+      16,
+      44,
+      223,
+      186
+    ],
+    [
+      32,
+      46,
+      192,
+      184
+    ],
+    [
+      37,
+      38,
+      182,
+      192
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "ef06519919aa4aa4b7fd4362d27de172a5a644306050c48a8951b298f3d233a0",
+  "prompt": "undefined\n",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "全コマ手前腕が鎌を保持することを確認。前後の手繰り寄せ素材とは持ち手が異なるため接続動作要調整。",
+    "武器を含む高さ・幅制限により人物が待機より小さめ。",
+    "鎖の柄尻接続と衣装細部に不明瞭箇所。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "ae13c982fccf09b18eee9ab01454318cfe3e885e",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "ef06519919aa4aa4b7fd4362d27de172a5a644306050c48a8951b298f3d233a0",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T22:19:06.864318+09:00"
+}

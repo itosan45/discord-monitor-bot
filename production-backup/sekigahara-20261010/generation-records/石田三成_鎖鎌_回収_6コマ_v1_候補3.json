@@ -1,0 +1,127 @@
+{
+  "name": "石田三成_鎖鎌_回収_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-0e330597-5488-4534-96f7-f89fc8f9fa87.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_鎖鎌_回収_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.6751592356687898,
+  "sourceBounds": [
+    [
+      47,
+      216,
+      330,
+      526
+    ],
+    [
+      414,
+      212,
+      697,
+      526
+    ],
+    [
+      761,
+      213,
+      1044,
+      527
+    ],
+    [
+      1125,
+      216,
+      1411,
+      526
+    ],
+    [
+      1498,
+      214,
+      1782,
+      527
+    ],
+    [
+      1850,
+      212,
+      2136,
+      526
+    ]
+  ],
+  "placements": [
+    [
+      32,
+      21,
+      191,
+      209
+    ],
+    [
+      32,
+      18,
+      191,
+      212
+    ],
+    [
+      32,
+      18,
+      191,
+      212
+    ],
+    [
+      31,
+      21,
+      193,
+      209
+    ],
+    [
+      32,
+      19,
+      192,
+      211
+    ],
+    [
+      31,
+      18,
+      193,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "f7ba47edb5236e70380cdeb640e01a10c90d9efe4e78d4600582f6932de4eaa0",
+  "prompt": "undefined\n",
+  "char": "石田三成",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "全6コマ二腕二手、奥手鎌・手前鎖を確認。1/3伸ばし2/4引く動き。",
+    "鎧装飾と紫布の形に待機との差あり。",
+    "鎖の接続が柄の刃側寄りに見える箇所あり。",
+    "5/6で分銅を既に握っており、吊り上げ途中の見え方は弱い。",
+    "OCRは装飾の誤認、描画文字なし。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "eb8b4f57e2689c67e0d0bfc11274c543f1f2205d",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "f7ba47edb5236e70380cdeb640e01a10c90d9efe4e78d4600582f6932de4eaa0",
+  "ocrSuccess": true,
+  "ocrText": "、 ー 冢 ー の き",
+  "updatedAt": "2026-10-07T22:56:37.142275+09:00"
+}

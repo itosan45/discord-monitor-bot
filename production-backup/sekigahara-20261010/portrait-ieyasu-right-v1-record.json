@@ -1,0 +1,49 @@
+{
+  "name": "会話肖像_徳川家康_白髪右_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1ae5ce87-7c94-4780-a525-8362aad53dae.png",
+  "path": "C:/Users/user/Desktop/output/sekigahara-new-20261006/finished/会話肖像_徳川家康_白髪右_v1.png",
+  "kind": "dialogue_portrait",
+  "status": "git_verified",
+  "attempts": 4,
+  "cellSpecificationApplicable": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    0,
+    20,
+    1188,
+    1149
+  ],
+  "margins": [
+    0,
+    20,
+    66,
+    105
+  ],
+  "alphaZeroPixels": 942911,
+  "automaticPass": true,
+  "visibleBBox": [
+    70,
+    159,
+    1186,
+    1129
+  ],
+  "visibleMargins": [
+    70,
+    159,
+    68,
+    125
+  ],
+  "alphaOnePixels": 6476,
+  "alphaReview": "Raw bounds and alpha > 1 silhouette bounds both recorded. Alpha 1 residue is 1/255 opacity; do not erase or change generated pixels.",
+  "sha256": "e2e0d994b54ed42f11ecb91ab6cbbf86fd5faf03d70066333c55fa0f3fdf0855",
+  "qaResult": "要注意",
+  "visualReview": "右向き胸上。白髪兜なし、重厚な顔、黒金甲冑・紫外套、正立葵紋、髪・肩・胸の全輪郭を目視。可視余白70/159/68/125px。alpha1/255の微弱残留が外縁にあるため要注意、原本画素保持。",
+  "ocrReview": "Windows OCR成功・文字なし。OCR後目視済み。",
+  "gitVerified": true,
+  "gitCommit": "12bfb1ff4d5edf4487092a0b38f40c4ad394e6c0",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

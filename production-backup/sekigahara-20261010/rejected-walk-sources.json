@@ -1,0 +1,17 @@
+[
+  {
+    "name": "rejected_upright_8",
+    "reason": "直立歩行・左右脚交代不十分。ユーザー指摘の戦闘構えに合わない。",
+    "output_hint": "Generated images are saved to C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a as C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-ab16f9cc-181a-49fa-8866-43d985e19cf0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "rejected_upright_a",
+    "reason": "直立歩行・左右脚交代不十分。ユーザー指摘の戦闘構えに合わない。",
+    "output_hint": "Generated images are saved to C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a as C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-b3250c59-0be6-46cd-8e8a-f8d19aa59bd1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "name": "rejected_upright_b",
+    "reason": "直立歩行・左右脚交代不十分。ユーザー指摘の戦闘構えに合わない。",
+    "output_hint": "Generated images are saved to C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a as C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-7ea2d0ac-eee9-4797-bc01-851e2210c1e1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]

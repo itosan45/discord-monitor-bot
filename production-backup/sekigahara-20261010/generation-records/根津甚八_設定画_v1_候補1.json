@@ -1,0 +1,37 @@
+{
+  "name": "根津甚八_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-9b7a87b7-e151-4b24-b065-9af96e2babda.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    99,
+    28,
+    1420,
+    959
+  ],
+  "placement": [
+    132,
+    64
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "89d2c29ff7ed097f8fbeddf62ac2adfbf4c2c3afba30238e993a0d9841978cf5",
+  "updatedAt": "2026-10-07T15:13:53.689458+09:00",
+  "prompt": "Original Nezu Jinpachi Sengoku game character reference, THREE fullbody views FRONT, RIGHT SIDE, BACK, exact same man equipment scale and aligned feet. Input ONLY gritty painted style/layout, do not copy ninja costume or face. Weather-beaten former pirate Japanese samurai late40s, sturdy strong legs, sun-weathered face short salt-black beard and mustache, black hair low samurai topknot, no helmet. Worn dark indigo jacket under LIGHT black-brown lamellar vest, small shoulder plates, maroon waist sash, leather wrist guards, shin wraps waraji sandals, small six-red-coins badge2rows3 on chest. Practical katana steel blade70cm plus25cm hilt, clearly long adult sword blade about40%bodyheight, brown-black scabbard left hip. Hold sword upright beside right shoulder, hilt atwaist, tip above shoulder but below head, blade fullyvisible all3views and same length. Left hand near sheath. No oversized fantasy sword, firearm, eyepatch or pirate hat. Full head/swordtip/hilt/sheath/feet within ample margins, separated views. Landscape1536x1024 PNG pureflat#FF00FF background, no effects/shadows/text/UI/scenery.",
+  "char": "根津甚八",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "visualReview": "All normalized views reviewed: weathered mature samurai, indigo clothes, brown-black armor, six coins, complete realistic katana and scabbard, full head/feet and margins. OCR patterns are armor, no actual text. Armor coverage is heavier than light-vest brief and sword held higher than requested pose, recorded caution. Static reference only; motions pending.",
+  "gitVerified": true,
+  "gitCommit": "7347144e4af6d4c9ec48d70fbfc5474cceca2579",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "89d2c29ff7ed097f8fbeddf62ac2adfbf4c2c3afba30238e993a0d9841978cf5",
+  "ocrSuccess": true,
+  "ocrText": "、 / 新 に"
+}

@@ -1,0 +1,124 @@
+{
+  "name": "筧十蔵_起き上がり_4コマ_v1_scale3.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\筧十蔵_起き上がり_4コマ_v1_scale3.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f588a2b6-cb4f-4104-bc41-af3115e7e668.png",
+  "status": "qa_hold_scale",
+  "scale": 0.41,
+  "standingHeightSource": 500.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        46,
+        369,
+        571,
+        610
+      ],
+      "destination": [
+        20,
+        132,
+        215,
+        99
+      ],
+      "scale": 0.41,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        633,
+        321,
+        1108,
+        609
+      ],
+      "destination": [
+        30,
+        113,
+        195,
+        118
+      ],
+      "scale": 0.41,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1167,
+        203,
+        1610,
+        609
+      ],
+      "destination": [
+        37,
+        65,
+        182,
+        166
+      ],
+      "scale": 0.41,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1711,
+        103,
+        2146,
+        625
+      ],
+      "destination": [
+        39,
+        17,
+        178,
+        214
+      ],
+      "scale": 0.41,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "78e5969269a4729c2de7bf89a95f31257e61f21fa36864e21b24ca8131f97588",
+  "backgroundSource": [
+    239,
+    25,
+    242
+  ],
+  "sourceIndices": null,
+  "groupCenters": "285,820,1320,1855",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "attempts": 1,
+  "normalizationTrials": [
+    {
+      "minimumMargin": 16,
+      "result": "rejected_top_margin",
+      "standingHeight": 490,
+      "note": "frame4 y=13 violates 16px"
+    },
+    {
+      "minimumMargin": 16,
+      "result": "rejected_checker_height",
+      "standingHeight": 510,
+      "note": "30 checker median 54%"
+    },
+    {
+      "minimumMargin": 16,
+      "result": "rejected_checker_height",
+      "standingHeight": 500,
+      "note": "30 checker median 55% reported NG"
+    }
+  ],
+  "visualReview": "The four poses read as supine→propped on arm→one knee→standing, matchlock intact and design consistent. Cannot meet both safe 16px top margin and 30 checker silhouette-height threshold with one uniform scale: larger scale clips/violates margin; smaller scale returns 54-55% median.",
+  "qaResult": "QA hold: no finished PNG or Git delivery; same generated candidate retained; no repeat generation."
+}

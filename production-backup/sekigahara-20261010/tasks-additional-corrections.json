@@ -1,0 +1,24 @@
+[
+  {
+    "name": "敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+    "baseTaskName": "敵_騎馬兵_落馬_4コマ_v2.png",
+    "kind": "base_asset_correction",
+    "n": 4,
+    "cell": 384,
+    "status": "git_verified",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+    "actualName": "敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+    "sha256": "79415074ed8be0307a120566523ccee363c17bd19edf17011aeba6bb9e04bb3f",
+    "qaResult": "OK",
+    "qaRecord": "horsefall-correction-record.json",
+    "visualReview": "候補2の槍連続性を一回だけ修正。4コマとも石突から穂先まで1本の長槍が全て見え、同一縮尺。騎手の後傾→空中→落馬後の仰向け→小反動と、馬の大きさ・四肢を維持。全セル内に納まり、余白・馬の接地・ポーズ変化をGIF復号後にも目視確認。",
+    "ocrReview": {
+      "name": "敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+      "text": "",
+      "success": true
+    },
+    "gitVerified": true,
+    "gitCommit": "fd5b47117850294442c7681b91ab28270ba292c3",
+    "gitBranch": "ccr-851ab851-t271uq"
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "name": "真田幸村_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-1e9cb889-d0cd-4bec-aa33-1b42d7c2e149.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5988700564971752,
+  "sourceBounds": [
+    [
+      34,
+      183,
+      334,
+      537
+    ],
+    [
+      382,
+      183,
+      701,
+      537
+    ],
+    [
+      763,
+      185,
+      1061,
+      536
+    ],
+    [
+      1116,
+      185,
+      1422,
+      536
+    ],
+    [
+      1478,
+      183,
+      1771,
+      537
+    ],
+    [
+      1825,
+      183,
+      2135,
+      537
+    ]
+  ],
+  "placements": [
+    [
+      38,
+      18,
+      180,
+      212
+    ],
+    [
+      32,
+      18,
+      191,
+      212
+    ],
+    [
+      39,
+      20,
+      178,
+      210
+    ],
+    [
+      36,
+      20,
+      183,
+      210
+    ],
+    [
+      40,
+      18,
+      175,
+      212
+    ],
+    [
+      35,
+      18,
+      186,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "b82906e9aa32b99e4818aebead64c93a5a399f384a416ff98395d9d837cb89f4",
+  "prompt": "Exact Yukimura six chain-haul phases reach-grip-pull to ribs-pull to waist-reach-pull, rear-foot support and hip retreat, left sickle retained, shared outbound chain separate, grounded no effects.",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6GIF復号と待機比較を目視。赤甲冑・角兜・顔・布、右向き接地枠内、左手鎌保持、右手前方→肋元→腰へ引き→再把持→引き戻しを確認。注意: 腰後退と後足への体重移動が控えめ。共通鎖の動的接続と敵引寄せ反応は未検証。",
+  "gitVerified": true,
+  "gitCommit": "0138099b4800ecbf8805738308ce3c5a8a724313",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b82906e9aa32b99e4818aebead64c93a5a399f384a416ff98395d9d837cb89f4",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:54:41.384858+09:00"
+}

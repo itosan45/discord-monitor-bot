@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-9871593a-79b9-48b3-aa9a-0abcb0a671ab.png",
+  "prompt": "Only change spears in frames3 and4 of this four-frame blue ashigaru KNOCKDOWN animation. Existing fallen spears are too horizontal and too wide. Rotate each spear to a clear45degree diagonal UP toward the RIGHT: butt on ground next to helmet on left, shaft supported by raised bent knees, blade high above knees toward upper-right, fully inside own square. Spear remains complete and identical length. Keep all four soldier bodies and clothing unchanged, frame2 airborne,3landsonback,4rebounds. Same anatomy scale allframes, standing equivalent80%height. Do not scale bodies smaller. Four square cells horizontal, foreground center86%width, pure #FF00FF no shadows/text/borders. IMPORTANT frame3 and4 blades must be above knees, NEVER near ground on right.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

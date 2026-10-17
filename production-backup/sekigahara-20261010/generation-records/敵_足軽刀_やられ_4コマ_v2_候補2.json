@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-5a02f372-6c75-432a-a915-69da069ee1ee.png",
+  "prompt": "Repair ONLY frame4 corpse pose in this FOUR-frame blue katana ashigaru defeat strip. Preserve identical anatomy/clothing/sword and other3frames, same scale. In final frame curl knees closer beneath hips, bring both elbows close to chest and hands tucked under right cheek, so the curled side-lying body is compact horizontally. Face stays right, eyes closed, no gore. Complete katana resting nearby inside owncell, scabbard retained. Preserve distinct sequence1staggerfolding→2kneesbuckleddropkatana→3forwardontoarms→4motionlessrightside curled. Do not shrink final body, head or limbs. Four equal squarecells horizontal, allart16pxequivalent margins, pure#FF00FF opaque background no shadow/text/grid. Complete rightfacing fullbody percell.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

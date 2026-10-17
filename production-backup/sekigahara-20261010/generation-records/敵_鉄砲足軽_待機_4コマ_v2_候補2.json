@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_待機_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-2d62a620-c16c-49cd-907f-1ce3e841f2c5.png",
+  "prompt": "Repair these fourgunneridleframes: bothfeetmust pointRIGHTstrictsideprofile, especially REARfootatLOWERLEFT ofeachfigure currentlyfacesviewer. REDRAWALLFOURREARSANDALS: heelLEFT toesRIGHT, solelonghorizontal, no frontrowoftoes towardviewer; rearshinendsatthe SAMEankle andsamebonelength. Bothsandalsparallelright. PreserveEXACTphysiquearmorfacegunpouches andsubtlebreathingposes, gunhelddiagonalcheststable. Sameanatomydimensionsall4. Entiregunmuzzle andbodycomplete ampleoutermargins, onehorizontalrow4equalsquarecells pureopaque#FF00FF no textgridslabelsshadow.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

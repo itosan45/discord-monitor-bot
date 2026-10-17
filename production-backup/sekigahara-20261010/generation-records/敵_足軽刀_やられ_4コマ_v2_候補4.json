@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-6cbb2873-387a-461b-8c64-5b81b726ba7f.png",
+  "prompt": "Final repair of FOUR-frame blue katana ashigaru defeat. Same exact anatomy/clothes/face/sword scale, never enlarge collapsed body. Keep frame1staggering folded in pain and frame4curledside corpse withhandsundercheek unchanged. Frame2on BOTH knees dropskatana, but torso still more upright, chest sagging/shouldersdrooped/headbent so silhouette taller than current. Frame3actively COLLAPSING FORWARD fromknees: hips still elevated, back diagonal downward40degrees, LEFT palm plants onground in front, RIGHT elbow bends as otherarm falls towardforearm support, head dropping towardground but not yet fully prone. Body weight moving forward, kneestoground, actual intermediatecollapsebefore4. Complete katana lies at SAMEgroundlineasbody in2/3/4, notbelowbody. Uniform anatomy and scale across4, standing equiv80%square, ground90%,16px-equivalentmargins, four equalsquarecells row, rightfacing, pure#FF00FF no textshadowgrid. Preserve staggers→drops→collapses→motionless, notrotate portrait.",
+  "attempt": 4,
+  "status": "candidate_pending_QA"
+}

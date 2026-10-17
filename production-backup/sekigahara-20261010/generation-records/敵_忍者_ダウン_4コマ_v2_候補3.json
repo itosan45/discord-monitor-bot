@@ -1,0 +1,7 @@
+{
+  "name": "敵_忍者_ダウン_4コマ_v2.png",
+  "attempt": 3,
+  "prompt": "Repair4frame ninja knockdown: FRAMES3and4currentlynearlysame, makeVISIBLESMALLBOUNCE in4 fromBACKimpact3. Keep3SUPINEbackonfloorheadLEFTfeetRIGHT,4sameSUPINEbody hips/shoulderslift6rawpx kneeslift25rawpx andfeetliftofffloor10rawpx, torsoBACK remainshorizontalnotseated. PreserveSAMElegbone/anatomylength bendbothkneescloserandhigher tochest in3/4 NOTshrinklyingbody. Shortscarftailsfoldnearhead tokeepwidthcompact. Frame2AIR onelegextendsDOWNotherkneetucks, bothbootTOESRIGHT strictlyhorizontalsole heelLEFT notuppointingboots. SameoneSHORTSTEELblade right handleftopenhandnootherblade. SAMEheadbodycostumeall4, exact1/2impactposesexceptbootsright. Onehorizontalrow4equalcells16margin pureopaque#FF00FF no textgridshadow.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-391c9e11-7f31-4d38-9c80-547de0f5c85d.png",
+  "status": "generated"
+}

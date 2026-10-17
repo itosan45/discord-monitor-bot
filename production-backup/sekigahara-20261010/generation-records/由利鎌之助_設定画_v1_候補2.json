@@ -1,0 +1,12 @@
+{
+  "name": "由利鎌之助_設定画_v1.png",
+  "prompt": "Edit ONLY chain attachment in all THREE views of this exact Yuri Kamanosuke reference. Preserve same face hair outfit body proportions poses colors sickle weight and layout. CURRENT ERROR chain goes into belt/hip or blade base. Correct: metal chain connects to an exposed metal eyelet at the BUTT END of the wooden sickle handle, immediately behind the right gripping fist on the inner body-facing end, opposite the blade. Show that butt/eyelet just beyond fist, then continuous visible slack chain travels directly from eyelet to LEFT hand gathered loops, then same chain ends in small iron weight below left fist. Chain must NOT attach to clothing/belt, and NOT attach beside blade. Front and back: chain visibly crosses in front of upper thighs between the two hands, with no segment disappearing into hip. Side: visible hand-to-hand slack loop, attachment eyelet clear. All3views physically connected kusarigama, no detached chain sections. No other redesign. Full head/blade/weight/feet retained with generous margins, pureflat#FF00FF,1536x1024 PNG,no effects/text/shadow.",
+  "status": "qa_rejected_side_chain_attachment",
+  "candidateCount": 2,
+  "char": "由利鎌之助",
+  "kind": "character_reference",
+  "reference": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c4e5ab50-92d7-4133-b239-c57e6b98fcca.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-007988d2-3084-4309-8680-c1558d3c7541.png",
+  "visualApproved": false,
+  "visualReview": "Front/back chain now visibly reaches handle butt; right-side chain still attaches beside blade while butt eyelet is empty. Partial improvement, not accepted. Next edit only middle view chain routing; preserve front/back unchanged."
+}

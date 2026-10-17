@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-2b7980cb-75fa-450c-afb6-e397e310734e.png",
+  "prompt": "Edit this ONE blue ashigaru spear soldier death animation, maintaining identical anatomy, face, cone helmet, blue clothes, black armor and weapon. FOUR equal square cells horizontally, one full body per cell, right facing. Frame1 struck torso recoils backward while hands still grip spear; frame2 knees buckle and releases spear; frame3 falls onto rear hip, curled bent knees; frame4 lies on back with bent knees motionless. Compact dropped spear by placing diagonally across bent legs inside cell, complete spear tip and butt. Keep ALL four characters at same anatomical scale as first standing frame, standing equivalent80% cell height; do not reduce bodies to fit weapon. Entire body/weapon inside each own square with at least7% empty margin. The previous frame1 missing spear is an error: spear present in all frames. Keep recognizable loss of balance and fall, never rotate same standing drawing. Pure flat #FF00FF opaque background, no shadows, no text/grid/borders.",
+  "status": "candidate_pending_QA",
+  "attempt": 2
+}

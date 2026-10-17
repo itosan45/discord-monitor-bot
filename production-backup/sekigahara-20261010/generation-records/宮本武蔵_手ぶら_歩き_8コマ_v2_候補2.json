@@ -1,0 +1,135 @@
+{
+  "name": "宮本武蔵_手ぶら_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-42b4ae83-d75c-424d-9e62-cfd305be5557.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_歩き_8コマ_v2.png",
+  "size": [
+    2048,
+    256
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "rejected_motion",
+  "uniformScale": 0.5840220385674931,
+  "sourceBounds": [
+    [
+      86,
+      14,
+      388,
+      375
+    ],
+    [
+      601,
+      16,
+      874,
+      372
+    ],
+    [
+      1134,
+      16,
+      1358,
+      376
+    ],
+    [
+      1596,
+      11,
+      1900,
+      371
+    ],
+    [
+      84,
+      408,
+      381,
+      769
+    ],
+    [
+      606,
+      408,
+      872,
+      767
+    ],
+    [
+      1126,
+      408,
+      1361,
+      766
+    ],
+    [
+      1601,
+      407,
+      1923,
+      770
+    ]
+  ],
+  "placements": [
+    [
+      40,
+      19,
+      176,
+      211
+    ],
+    [
+      48,
+      22,
+      159,
+      208
+    ],
+    [
+      62,
+      20,
+      131,
+      210
+    ],
+    [
+      39,
+      20,
+      178,
+      210
+    ],
+    [
+      41,
+      19,
+      173,
+      211
+    ],
+    [
+      50,
+      20,
+      155,
+      210
+    ],
+    [
+      59,
+      21,
+      137,
+      209
+    ],
+    [
+      34,
+      18,
+      188,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "8d51d3183c426eaa06efa616cbfbba5fa298a45586e9bdaa8e3e6539ed05cdc3",
+  "visualApproved": false,
+  "visualReview": "Targeted lower-row edit changes frame7 knee passage and8 leg swing, but1/5 still share same apparent leadingleg. Full requested alternating walk not proven. Structure/OCR/GIF8x80ms pass; all decodedframes reviewed. Preserve candidate2, no delivery; move to other assets rather than repeat edit."
+}

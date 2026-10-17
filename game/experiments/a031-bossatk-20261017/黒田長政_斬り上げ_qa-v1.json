@@ -1,0 +1,125 @@
+{
+  "character": "黒田長政",
+  "asset": "黒田長政_斬り上げ_6コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    3072,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 6,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_crop_boxes": [
+    [
+      0,
+      0,
+      384,
+      512
+    ],
+    [
+      384,
+      0,
+      768,
+      512
+    ],
+    [
+      768,
+      0,
+      1152,
+      512
+    ],
+    [
+      1152,
+      0,
+      1536,
+      512
+    ],
+    [
+      0,
+      512,
+      768,
+      1024
+    ],
+    [
+      768,
+      512,
+      1536,
+      1024
+    ]
+  ],
+  "scale_by_frame": [
+    0.6886446886446886,
+    0.7866108786610879,
+    0.6619718309859155,
+    0.5280898876404494,
+    0.6619718309859155,
+    0.7286821705426356
+  ],
+  "frame_foreground_bboxes": [
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      211,
+      175,
+      300,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      213,
+      175,
+      297,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 6,
+  "unique_frame_count": 6,
+  "adjacent_changed_pixel_fraction": [
+    0.0471,
+    0.0471,
+    0.001,
+    0.0107,
+    0.0107
+  ],
+  "sha256": "b2318de3b70640953b46a7f932ace5fe212b42fd60b1800b553d2f59ac8a69ea",
+  "generation": "OpenAI built-in imagegen with Kuroda setting; AI generated/composed into cells, not hand-drawn.",
+  "notes": "Dual-sword rising launcher: ready, load low, lead blade sweeps upward, body rises through arc, apex impact, land/recover. Candidate; game assignment pending."
+}

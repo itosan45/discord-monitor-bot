@@ -1,0 +1,16 @@
+{
+  "weapon": "軍配",
+  "name": "武田信玄_勝鬨_4コマ_v1.png",
+  "char": "武田信玄",
+  "status": "qa_passed_ready_to_push",
+  "candidateCount": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_待機_4コマ.png",
+  "prompt": "Use the exact same 武田信玄 from 武田信玄_待機_4コマ.png: preserve 同じ顔、体格、赤茶色の重厚な鎧、白い毛飾りの兜、旗、軍配, exact painterly game style. Four full-body poses facing right 3/4, same standing character size and exact planted feet baseline as reference. Left hand holds his usual 軍配 lowered beside body in every pose; right hand is empty and clenched. Sequence: 1 chest proud, fist gathered before chest; 2 fist raised vertically overhead, mouth open silently cheering; 3 fist lowered beside face; 4 fist highest overhead, slight backward lean and mouth open triumphantly. Keep same full equipment, flag, helmet, ornaments and armor details present in all frames; only slight natural cloth/banner flutter in frame4. Four distinct separated poses across one horizontal row, with flat pure #FF00FF background. No text/bubbles/shadows/effects/glow/borders/grid/extra people/cropping/neighbor fragments. Do not give weapon to right hand; no second hand weapon.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-cf776a6a-f3f1-43fb-ab63-2c92e3eefa86.png",
+  "sourceSize": [
+    2170,
+    725
+  ],
+  "visualReview": "Four victory beats with red armor, white fur, flag, helmet and gunbai; visible consistent across frames. QA pending. Normalized 1024x256; checker passed; GIF 4/4 frames decoded; final contact inspected; OCR runtime unavailable.",
+  "ocrReview": "Windows OCR (Windows PowerShell 5.1) success; no recognized text."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "回復アイテム_兵糧_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce any people.\nComposition/framing: one complete object centered in one square 256x256 game cell, resting on the ground and occupying about 70-80% of the canvas, at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, period materials, consistent with Image 1.\nScene/backdrop: perfectly flat pure RGB(255,0,255) magenta (#FF00FF), no floor or cast shadow.\nConstraints: one pickup only, fully visible and physically plausible; no hands/characters, no text/letters/numbers/labels, border, extra props, glow, or watermark.\nPrimary request: one compact Sengoku field-ration bundle as a game recovery pickup: a small tightly wrapped cloth packet with visible dry rice cakes and millet grain at one open corner, tied with a simple cord. Make it look like durable travel food a soldier could carry, distinct from a rice ball.\nMaterials/textures: coarse indigo-brown cloth, straw cord, pale dried rice cake and golden millet.\nAvoid: modern plastic, printed labels, bowl, plate, multiple separate items, text.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-8990f562-d1d3-4953-86ed-5e57390463dd.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\回復アイテム_兵糧_v1.png",
+  "sha256": "c2c782dd2b519fe15243dd7a420a9e34ef276c4ad8acf88a5c7813f15edde600"
+}

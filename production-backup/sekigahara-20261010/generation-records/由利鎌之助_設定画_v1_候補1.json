@@ -1,0 +1,11 @@
+{
+  "name": "由利鎌之助_設定画_v1.png",
+  "prompt": "Original Yuri Kamanosuke Sengoku game character reference, THREE fullbody views FRONT, RIGHT SIDE, BACK, same outfit face equipment scale and aligned feet. Input ONLY gritty painted game style/layout, not its face or dagger. Agile muscular Japanese warrior mid30s, wild tied-back black hair, short stubble, fierce focused eyes, no helmet. Muted dark green sleeveless practical jacket, compact worn black lamellar chest vest, dark pants, maroon sash, leather forearm guards, shin wraps straw sandals; small six-red-coins chest badge2rows3. Weapon REALISTIC KUSARIGAMA: wooden sickle handle about35cm with single curved steel blade about20cm, chain attached to handle butt ending in small palm-sized iron weight. Right hand holds sickle low beside thigh with entire curved blade visible; left hand holds gathered chain loops, only short slack segment hangs between hands, iron weight clearly visible below left fist. No spinning, no flying weight, no extra blades, no enormous chain/weapon. Exact same kusarigama design each view, back view show complete weapon beside body. Full head/blade/weight/feet with generous margins, no overlap between views. Landscape1536x1024 pureflat#FF00FF PNG, no effects/shadow/text/grid/scene.",
+  "status": "qa_rejected_chain_attachment",
+  "candidateCount": 1,
+  "char": "由利鎌之助",
+  "kind": "character_reference",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c4e5ab50-92d7-4133-b239-c57e6b98fcca.png",
+  "visualApproved": false,
+  "visualReview": "Chain appears to emerge from belt/hip rather than visibly attaching to sickle handle butt; attachment cannot be verified. Hold, targeted correction only; no duplicate full regeneration."
+}

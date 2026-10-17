@@ -1,0 +1,18 @@
+{
+  "name": "宮本武蔵_手ぶら_待機_4コマ_v2.png",
+  "candidate": 1,
+  "status": "qa_passed",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5271cd8e-542e-4444-a399-95ba5b938422.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+  "action": "手ぶら待機4コマ",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "rawSourceSha256": "f815d237f1699f326cbabfd3f5ef1493a05d2f671e0ae6a1a40400b8c7aa5e69",
+  "outputSha256": "ca083e1a035c169c03d178056fabef5e3b1865513ffa9ef219e841413725eef4",
+  "prompt": "Create exactly one horizontal 4-frame game sprite strip of the specific Miyamoto Musashi shown on the attached setting sheet, using its side-view design, not the front or back views. Canvas 1024x256 pixels, four equal 256x256 square cells with no gutters, borders, or overlap. One full-body character per cell, strict right-facing profile. Preserve the same lean adult swordsman rough tied-back black hair, white headband and trailing tails, stubble and intense eyes, worn gray-brown kimono with the right sleeve off, light leg wraps and dark straw sandals. No armor. UNARMED: remove both swords completely, no weapons at the waist, and both hands are empty closed fists held in a steady long-weapon grip pose, right fist forward and left fist behind. Idle breathing loop: frame 1 low ready guard; frame 2 chest rises slightly and headband tails sway back; frame 3 chest eases down and loose kimono hem shifts subtly; frame 4 settles toward the starting pose. All four poses differ subtly, while face, clothing, scale, feet and fist positions stay consistent. Feet on y=230, full standing height about 205 pixels, centered in each cell, at least 16 pixels clearance from top/left/right edges. Crisp dark outline and painted anime-realistic arcade beat-em-up rendering. Background exactly flat pure RGB #FF00FF throughout, no floor, shadow, gradient, vignette, text, labels, extra people, scenery, objects, weapons, or borders.",
+  "visualReview": "設定画の右向き武蔵を目視照合。両刀と腰武器は完全になく、空の両拳は持ち替え用の前後グリップ位置を維持。4コマに呼吸・布・鉢巻の差分、頭身・接地・衣装と側面向きを確認。",
+  "qaRecord": "musashi-unarmed-idle-v2-record.json",
+  "qaResult": "OK",
+  "ocr": "成功・文字なし",
+  "gif": "4 frames, 80ms each; decoded contact sheet visually reviewed"
+}

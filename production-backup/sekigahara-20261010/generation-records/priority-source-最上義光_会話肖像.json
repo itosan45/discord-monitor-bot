@@ -1,0 +1,11 @@
+{
+  "name": "最上義光_会話肖像.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d8f63453-d15a-4bd4-81cd-ee4251ab7962.png",
+  "prompt": "Make a localized crest correction ONLY to reference1 dialogue portrait of 最上義光. Reference2 is the original exact character design. Preserve every aspect of reference1: left-facing face, helmet shape, armor colors, hair, shoulders, lighting, square chest-up composition and transparent alpha. The generated portrait incorrectly copied Tokugawa three-leaf aoi crests from a style reference. Replace ALL three-leaf aoi emblems on helmet/chest/shoulders with silver-white five-petal flower crests EXACTLY matching the same emblem in original character reference2. Five rounded petals around small round center, not three leaves. Match original emblem metal colors. Do not change face, expression, armor shape, pose, crop or dimensions.1254x1254 transparent PNG, no text, effects or background.",
+  "size": [
+    1254,
+    1254
+  ],
+  "transparent": true,
+  "candidateCount": 2
+}

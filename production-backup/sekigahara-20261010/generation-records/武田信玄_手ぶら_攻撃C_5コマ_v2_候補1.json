@@ -1,0 +1,106 @@
+{
+  "name": "武田信玄_手ぶら_攻撃C_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d3860bba-79a1-44cf-bffe-2cf37d4e7ce6.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_手ぶら_攻撃C_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.4964871194379391,
+  "sourceBounds": [
+    [
+      134,
+      9,
+      436,
+      436
+    ],
+    [
+      746,
+      22,
+      1066,
+      436
+    ],
+    [
+      1346,
+      16,
+      1681,
+      436
+    ],
+    [
+      146,
+      453,
+      474,
+      870
+    ],
+    [
+      750,
+      458,
+      1054,
+      872
+    ]
+  ],
+  "placements": [
+    [
+      53,
+      18,
+      150,
+      212
+    ],
+    [
+      48,
+      24,
+      159,
+      206
+    ],
+    [
+      45,
+      21,
+      166,
+      209
+    ],
+    [
+      46,
+      23,
+      163,
+      207
+    ],
+    [
+      52,
+      24,
+      151,
+      206
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "eabfe4f9fb60489eb40a7ddaf328d8103901096aa421c4c0a7e481f29305d0f1",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison: low rear windup, rising diagonal swing, high paired-hand finish, then guard recovery. Stocky Shingen face, red gold armor and tiger surcoat, gold horn helmet, white lion mane, black four-diamond 風林火山 banner retained. EMPTY hands, no gunbai or weapons, all right-facing, soles230px, compact silhouette and same anatomical scale. No effects, clipping or neighbor contamination. OCR reviewed: existing banner characters and emblem only; A empty.",
+  "normalizationReview": "All full connected figures preserved, common uniform scale, no cropping, no grid-band erasure. Compact original poses retain idle body scale inside16px margins.",
+  "gitVerified": true,
+  "gitCommit": "742becfcb8380b2c4995640d4e3fa54f936d8e35",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "eabfe4f9fb60489eb40a7ddaf328d8103901096aa421c4c0a7e481f29305d0f1",
+  "prompt": "FIVE-frame game animation: Takeda Shingen UNARMED diagonal UPWARD two-hand swing. Image1 exact identity authority: stocky muscular older warrior, stern beard, red/gold lamellar armor, tall gold horn helmet with white lion mane, red tiger-pattern surcoat, REQUIRED black back banner gold four diamonds and 風林火山. Image2 body scale/ready stance ONLY; do NOT copy missing banner. ALL5 figures show complete black banner/pole. NO gunbai/fan/sword/stick/weapon, both hands EMPTY close clenched fists in imaginary two-handed grip.1 low guard;2 crouch and wind fists LOW beside rear hip;3 rise knees/rotate hips swing BOTH fists diagonally UP across chest toward RIGHT;4 BOTH fists finish HIGH above front shoulder, feet remain on ground;5 recoil waist guard. All RIGHT-facing, real weight transfer, same anatomy sizes, nojump. Compact silhouette: white mane and surcoat hang close, no huge rearward flare or split-leg stance. Total width inclfists/cape<=helmet-to-sole height, retain idle anatomy scale. Full horns/flag/mane/fists/boots within isolated frame. Solid pure #FF00FF no effects/shadow/light/slash/flames/UI/labels/numbers. Intermediate3columns x2rows atlas,5 full figures row-major, bottom-right blank magenta. Equal square cells, generous gutters, NO grid. Helmet-to-sole80%cellheight, soles90%. Pack1280x256 later.",
+  "ocrSuccess": true,
+  "ocrText": ") 風 林 火",
+  "updatedAt": "2026-10-07T13:25:02.071454+09:00"
+}

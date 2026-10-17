@@ -1,0 +1,205 @@
+{
+  "name": "上杉景勝_鎖鎌_移動旋回_8コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\上杉景勝_鎖鎌_移動旋回_8コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e85b1fc6-3044-4fd1-8611-56f1c73c860a.png",
+  "status": "git_verified",
+  "scale": 0.5525606469002695,
+  "standingHeightSource": 371.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        17,
+        219,
+        270,
+        591
+      ],
+      "destination": [
+        58,
+        25,
+        140,
+        206
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        287,
+        227,
+        566,
+        591
+      ],
+      "destination": [
+        51,
+        30,
+        154,
+        201
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        563,
+        227,
+        824,
+        591
+      ],
+      "destination": [
+        56,
+        30,
+        144,
+        201
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        833,
+        228,
+        1079,
+        590
+      ],
+      "destination": [
+        60,
+        31,
+        136,
+        200
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1100,
+        219,
+        1354,
+        591
+      ],
+      "destination": [
+        58,
+        25,
+        140,
+        206
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1373,
+        227,
+        1653,
+        591
+      ],
+      "destination": [
+        50,
+        30,
+        155,
+        201
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1648,
+        227,
+        1908,
+        591
+      ],
+      "destination": [
+        56,
+        30,
+        144,
+        201
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1919,
+        227,
+        2163,
+        590
+      ],
+      "destination": [
+        60,
+        30,
+        135,
+        201
+      ],
+      "scale": 0.5525606469002695,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    }
+  ],
+  "sha256": "d917b7f17a697b608271e82591f8d42d07b967dbc250df3823fc1e987a2ed4ad",
+  "backgroundSource": [
+    237,
+    23,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": "135,407,679,951,1223,1495,1767,2039",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "candidateCount": 1,
+  "visualApproved": true,
+  "visualReview": "GIF復号8コマを確認。景勝の濃紺銀鎧、金三日月兜、毘旗、マントを維持。鎌と分銅の周回が見え、全身右向き。既存歩きと同じ約205px縮尺・足元y230。隣セル混入、枠切れ、影、効果なし。4姿勢の歩行相が8コマに反復するが、既存歩き絵の位相と整合。",
+  "qaResult": "PASS with motion-cycle caution",
+  "checkResults": [
+    "30_check_strip.py: size 2048x256, 8x256 cells, pure magenta 80%, median height 78%, no cell-edge/ground NG.",
+    "OCR native: success, no detected text.",
+    "GIF: 8 frames, 80ms each, decoded successfully; contact sheet visually reviewed."
+  ],
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "gitVerified": true,
+  "updatedAt": "2026-10-08T07:44:48+09:00",
+  "gitCommit": "f53c59b73019ef1a218b81339fe60973a0de11c7",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "d917b7f17a697b608271e82591f8d42d07b967dbc250df3823fc1e987a2ed4ad"
+}

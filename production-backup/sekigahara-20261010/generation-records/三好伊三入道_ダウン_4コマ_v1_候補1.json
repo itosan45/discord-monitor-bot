@@ -1,0 +1,116 @@
+{
+  "name": "三好伊三入道_ダウン_4コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\三好伊三入道_ダウン_4コマ_v1_候補1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d7f097ff-3965-4e51-bb17-c538bb29779f.png",
+  "status": "qa_hold_scale",
+  "scale": 0.4340002117074203,
+  "standingHeightSource": 472.35,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        103,
+        171,
+        444,
+        598
+      ],
+      "destination": [
+        54,
+        46,
+        148,
+        185
+      ],
+      "scale": 0.4340002117074203,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        565,
+        195,
+        956,
+        605
+      ],
+      "destination": [
+        43,
+        53,
+        170,
+        178
+      ],
+      "scale": 0.4340002117074203,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1081,
+        419,
+        1548,
+        601
+      ],
+      "destination": [
+        26,
+        152,
+        203,
+        79
+      ],
+      "scale": 0.4340002117074203,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1618,
+        426,
+        2134,
+        601
+      ],
+      "destination": [
+        16,
+        155,
+        224,
+        76
+      ],
+      "scale": 0.4340002117074203,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "4891690699c84ac45154cfc658fcd57f8107fa108df37b06774233618d178e55",
+  "backgroundSource": [
+    239,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "274,760,1315,1876",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの50%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    19744,
+    16770,
+    13552,
+    19527
+  ],
+  "qaResult": "30_check_strip NG: median figure height 50% at the largest uniform scale that keeps the full staff and body within 16px margins.",
+  "visualReview": "The fall sequence is clear, but the horizontal staff limits safe scale. Enlarging further would exceed the per-cell margin; do not deliver. OCR/GIF review skipped after scale failure.",
+  "noRegeneration": "Do not regenerate this fall immediately; move to another character/task.",
+  "finalizedAt": "2026-10-08T12:00:00+09:00"
+}

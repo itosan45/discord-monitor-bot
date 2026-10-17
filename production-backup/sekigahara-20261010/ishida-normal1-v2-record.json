@@ -1,0 +1,159 @@
+{
+  "name": "石田三成_通常1_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_通常1_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-774eda2b-8874-4441-be30-1bb657d8f954.png",
+  "status": "git_verified",
+  "scale": 0.3349673202614379,
+  "standingHeightSource": 612.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        25,
+        107,
+        329,
+        726
+      ],
+      "destination": [
+        77,
+        24,
+        102,
+        207
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        385,
+        106,
+        755,
+        725
+      ],
+      "destination": [
+        66,
+        24,
+        124,
+        207
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        787,
+        117,
+        1234,
+        723
+      ],
+      "destination": [
+        53,
+        28,
+        150,
+        203
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1198,
+        149,
+        1650,
+        723
+      ],
+      "destination": [
+        52,
+        39,
+        151,
+        192
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1628,
+        107,
+        1940,
+        726
+      ],
+      "destination": [
+        75,
+        24,
+        105,
+        207
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "1ec70ed0e665258b3d00f433e1def7abab2cc3a044b272abf363f170521d1161",
+  "backgroundSource": [
+    239,
+    23,
+    239
+  ],
+  "sourceIndices": null,
+  "groupCenters": "200,595,991,1387,1783",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    16543,
+    18476,
+    15258,
+    16416,
+    13288
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_通常1_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_通常1_5コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "qaRecord": "ishida-normal1-v2-record.json",
+  "candidate": 1,
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "visualReview": "通常2の裏打ちと違い、左手の扇を高く引いてから斜め下へ振り、低い位置で余韻の後に回収。右手火縄銃・旗・衣装は全コマ保持。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  },
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

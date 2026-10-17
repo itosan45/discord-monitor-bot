@@ -1,0 +1,125 @@
+{
+  "character": "黒田長政",
+  "asset": "黒田長政_斬り上げ_6コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    3072,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 6,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_crop_boxes": [
+    [
+      0,
+      0,
+      384,
+      512
+    ],
+    [
+      384,
+      0,
+      768,
+      512
+    ],
+    [
+      768,
+      0,
+      1152,
+      512
+    ],
+    [
+      1152,
+      0,
+      1536,
+      512
+    ],
+    [
+      0,
+      512,
+      768,
+      1024
+    ],
+    [
+      768,
+      512,
+      1536,
+      1024
+    ]
+  ],
+  "scale_by_frame": [
+    0.3941299790356394,
+    0.5662650602409639,
+    0.44655581947743467,
+    0.41409691629955947,
+    0.3671875,
+    0.42630385487528344
+  ],
+  "frame_foreground_bboxes": [
+    [
+      180,
+      175,
+      330,
+      362
+    ],
+    [
+      147,
+      175,
+      363,
+      362
+    ],
+    [
+      170,
+      175,
+      340,
+      362
+    ],
+    [
+      182,
+      175,
+      328,
+      362
+    ],
+    [
+      130,
+      175,
+      380,
+      362
+    ],
+    [
+      95,
+      175,
+      415,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 6,
+  "unique_frame_count": 6,
+  "adjacent_changed_pixel_fraction": [
+    0.1182,
+    0.1214,
+    0.0909,
+    0.0954,
+    0.1298
+  ],
+  "sha256": "5ba99f73eb980c3a4ad2061bf19f77388551b065fef97d2dfb969dc25f4a34e2",
+  "generation": "OpenAI built-in imagegen using Kuroda setting; AI generated/composed into cells, not hand-drawn. v2 preserves all foreground components to avoid deleting thin sword details.",
+  "notes": "Six visibly distinct poses of two-sword rising launcher. v1 was an overly aggressive component-filter experiment and is not used. Candidate; gameplay review pending."
+}

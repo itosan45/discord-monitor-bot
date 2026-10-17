@@ -1,0 +1,133 @@
+{
+  "name": "敵_騎馬武者_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬武者_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-7cbd9303-a126-453f-b713-63850e975f11.png",
+  "status": "git_verified",
+  "scale": 0.5293103448275862,
+  "standingHeightSource": 580.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        14,
+        112,
+        516,
+        692
+      ],
+      "destination": [
+        59,
+        40,
+        266,
+        307
+      ],
+      "scale": 0.5293103448275862,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        548,
+        112,
+        1044,
+        692
+      ],
+      "destination": [
+        60,
+        40,
+        263,
+        307
+      ],
+      "scale": 0.5293103448275862,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1078,
+        127,
+        1602,
+        692
+      ],
+      "destination": [
+        53,
+        48,
+        277,
+        299
+      ],
+      "scale": 0.5293103448275862,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1633,
+        112,
+        2135,
+        692
+      ],
+      "destination": [
+        59,
+        40,
+        266,
+        307
+      ],
+      "scale": 0.5293103448275862,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "acb35eaba882a8ac3d1038bcc9dca85460b8aea82bfbf7ae8c283838bdbaf063",
+  "backgroundSource": [
+    238,
+    23,
+    237
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 74%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    42784,
+    45551,
+    44936,
+    42013
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬武者_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 2,
+  "retries": 1,
+  "selectedCandidate": 2,
+  "ocrReview": "OCR物/をは金縁鎧・鞍意匠の誤認。拡大目視で文字なし",
+  "qaNote": "最新11の薙刀へ設定優先、参照の刀は腰の鞘へ。金角兜・青い外套・茶馬・青い房と金縁鞍。4蹄の接地、呼吸・頭の小さな上下・尾と外套差分、307等価縮尺確認。",
+  "visualReview": "384セル4コマGIF12.5fps/規格合格。人物と馬は同じ体格、4蹄接地346、頭と馬胸の呼吸・尾・外套の微変化。薙刀の角度を調整して身体を縮めず全先端を16余白内へ。OCR鎧・鞍の意匠誤認で文字なし。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_待機_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-e97b1113-9180-45f2-a469-81c766bbf1c4.png",
+  "prompt": "Create FOUR-frame IDLE animation of exactly this blue ashigaru MATCHLOCK GUNNER, sameblackconicalhelmetfacialstubblebodyarmorbluefoldedsleevesblackshinguardsstrawsandals matchlock gunpouches. Ignoretinyunrelatedfragmentatbottomright ofreference; ONLYonecompletegunner perframe. Lowergun fromaim to DIAGONALCHESTREADYGUARD: right handtriggergripnearshoulder, left handsupportsforestock, muzzleangledforwardup30degrees not firing. Lowbentkneesandforwardcenterofgravity, rearfootatleft/frontfootright alltoes strictsideprofileRIGHT, rearheelcanraise buttoesright. FOURdistinctsubtlebreathingframes:1neutral2chestinhale3softshoulderrelax4returnready, torsoandgunstable smallmotionsonly. Same anatomyheadtorsoleg dimensions all4, standingequivalent205per256squarecell. Entirelongguninsideowncell with16pxmargin bydiagonalheldcloseelbowbent, no shrinkperson orshortengun. FullbodyRIGHT-facing equal squarecells onehorizontalrow4 isolatedfigures. PureopaqueRGB#FF00FF no textlabelsgridshadowborderfloor effectsscenery.",
+  "attempt": 1,
+  "status": "candidate_repair_rear_feet"
+}

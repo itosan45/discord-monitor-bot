@@ -1,0 +1,186 @@
+[
+  {
+    "name": "真田幸村_通常1_5コマ_v2.png",
+    "tag": "a1",
+    "source": [
+      "exec-305e540b-0960-4a45-bf6e-88276bea0686.png",
+      "exec-8f69d81a-b373-4ba5-ab07-afeb9786bfd2.png"
+    ],
+    "status": "git_verified",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常1_5コマ_v2.png",
+    "sourceBounds": [
+      [
+        4,
+        197,
+        417,
+        556
+      ],
+      [
+        429,
+        195,
+        856,
+        556
+      ],
+      [
+        864,
+        195,
+        1320,
+        556
+      ],
+      [
+        1320,
+        195,
+        1770,
+        556
+      ],
+      [
+        1782,
+        196,
+        2160,
+        556
+      ]
+    ],
+    "placements": [
+      [
+        31,
+        88,
+        164,
+        142
+      ],
+      [
+        31,
+        87,
+        169,
+        143
+      ],
+      [
+        33,
+        87,
+        181,
+        143
+      ],
+      [
+        35,
+        87,
+        179,
+        143
+      ],
+      [
+        32,
+        87,
+        150,
+        143
+      ]
+    ],
+    "uniformScale": 0.39681133746678476,
+    "anchor": 86.43401240035429,
+    "runtimeScale": 1.326362781954887,
+    "checkResults": [
+      "OK 純マゼンタの割合 89%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+      "OK 人物の高さ（中央値）はセルの55%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+      "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+    ],
+    "gifFrames": 5,
+    "normalizationNotes": "a2 opening replaced by complete a1 ready frame; a2 fourth frame mirrored to face right. No painting/feature edits.",
+    "sha256": "a405ebc51231932cb5253d79d8006bf9c084a60791f4e81594035569c7eef59c",
+    "gitCommit": "429a9b0f5815eb0a7b5a167af06d9974e59be458",
+    "gitVerified": true,
+    "qaResult": "OK",
+    "runtimeCases": 72,
+    "productionCases": 72,
+    "ocr": "empty success",
+    "visual": "decoded GIF and runtime impact screens reviewed"
+  },
+  {
+    "name": "真田幸村_通常2_5コマ_v4.png",
+    "tag": "a2",
+    "source": [
+      "exec-305e540b-0960-4a45-bf6e-88276bea0686.png",
+      "exec-8f69d81a-b373-4ba5-ab07-afeb9786bfd2.png"
+    ],
+    "status": "git_verified",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常2_5コマ_v4.png",
+    "sourceBounds": [
+      [
+        1782,
+        196,
+        2160,
+        556
+      ],
+      [
+        438,
+        194,
+        732,
+        557
+      ],
+      [
+        814,
+        194,
+        1335,
+        557
+      ],
+      [
+        1275,
+        194,
+        1688,
+        557
+      ],
+      [
+        1742,
+        193,
+        2157,
+        557
+      ]
+    ],
+    "placements": [
+      [
+        32,
+        87,
+        150,
+        143
+      ],
+      [
+        16,
+        86,
+        117,
+        144
+      ],
+      [
+        33,
+        86,
+        207,
+        144
+      ],
+      [
+        28,
+        86,
+        164,
+        144
+      ],
+      [
+        31,
+        86,
+        165,
+        144
+      ]
+    ],
+    "uniformScale": 0.39681133746678476,
+    "anchor": 86.43401240035429,
+    "runtimeScale": 1.326362781954887,
+    "checkResults": [
+      "OK 純マゼンタの割合 88%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+      "OK 人物の高さ（中央値）はセルの56%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+      "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+    ],
+    "gifFrames": 5,
+    "normalizationNotes": "a2 opening replaced by complete a1 ready frame; a2 fourth frame mirrored to face right. No painting/feature edits.",
+    "sha256": "584d6aa59202cdfb66d989e098fa54baba485385ad95735e9ab0fc6a4bcff937",
+    "gitCommit": "429a9b0f5815eb0a7b5a167af06d9974e59be458",
+    "gitVerified": true,
+    "qaResult": "OK",
+    "runtimeCases": 72,
+    "productionCases": 72,
+    "ocr": "empty success",
+    "visual": "decoded GIF and runtime impact screens reviewed"
+  }
+]

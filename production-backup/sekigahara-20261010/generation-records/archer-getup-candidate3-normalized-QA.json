@@ -1,0 +1,124 @@
+{
+  "name": "敵_弓足軽_起き上がり_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_弓足軽_起き上がり_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-75eace65-58a9-4f28-a72b-ab33fd4d0947.png",
+  "status": "candidate",
+  "scale": 0.41414141414141414,
+  "standingHeightSource": 495.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        57,
+        205,
+        546,
+        588
+      ],
+      "destination": [
+        26,
+        72,
+        203,
+        159
+      ],
+      "scale": 0.41414141414141414,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        639,
+        183,
+        1058,
+        591
+      ],
+      "destination": [
+        41,
+        62,
+        174,
+        169
+      ],
+      "scale": 0.41414141414141414,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1157,
+        168,
+        1531,
+        589
+      ],
+      "destination": [
+        50,
+        57,
+        155,
+        174
+      ],
+      "scale": 0.41414141414141414,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1722,
+        110,
+        2101,
+        588
+      ],
+      "destination": [
+        49,
+        33,
+        157,
+        198
+      ],
+      "scale": 0.41414141414141414,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "a3ebb29093af918deefd92ea3485ada9d2aea0a6cc94eebc14f96787961260b4",
+  "backgroundSource": [
+    242,
+    23,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14497,
+    16656,
+    18349,
+    19763
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_弓足軽_起き上がり_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_弓足軽_起き上がり_4コマ_v2_GIF復号確認.png"
+  }
+}

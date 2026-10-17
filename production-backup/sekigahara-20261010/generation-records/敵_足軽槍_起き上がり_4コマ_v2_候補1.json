@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_起き上がり_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-60dc3a44-30b2-4f28-a7cf-721d9450d4e3.png",
+  "prompt": "Draw FOUR-frame get-up animation of EXACT blue ashigaru spearman in reference1; reference2 gives only starting lying pose. Same anatomy, face, black cone helmet, black lamellar armor, blue tunic/hakama, straw sandals. 1 on back, knees bent, complete spear on ground diagonally across bent legs;2 roll onto rear hip, left hand supports torso from ground, right hand grasps spear shaft;3 one knee under hips planted, pushes torso upward using legs, holds spear in both hands;4 low standing combat guard, both hands spear diagonally forward, both toe tips right, matching reference1. Full physical progression via rolling hips/arm support/knee then rise, no same standing pose rotation. Same anatomical dimensions all4, standing equivalent80%cellheight, don't enlarge lying body. Complete spear with same length as idle, fit by diagonal orientation and bent elbows, all art within own square16px margins. FOUR equal square cells in one horizontal row, one whole soldier per cell, pure solid #FF00FF opaque background no text/border/shadow.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

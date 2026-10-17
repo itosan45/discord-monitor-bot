@@ -1,0 +1,277 @@
+{
+  "sprite": "徳川家康_防御_受け流し_8コマ_v4.png",
+  "preview_gif": "徳川家康_防御_受け流し_preview-v4.gif",
+  "review_grid": "徳川家康_防御_受け流し_review-v4.png",
+  "frames": 8,
+  "size": [
+    4096,
+    384
+  ],
+  "unique_frames": 8,
+  "frame_details": [
+    {
+      "frame": 1,
+      "source_row_y": [
+        0,
+        272
+      ],
+      "source_bbox": [
+        259,
+        15,
+        468,
+        270
+      ],
+      "largest_components": [
+        21975,
+        1
+      ],
+      "removed_small_components": [
+        1
+      ],
+      "output_bbox": [
+        166,
+        175,
+        320,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 2,
+      "source_row_y": [
+        0,
+        272
+      ],
+      "source_bbox": [
+        997,
+        36,
+        1215,
+        270
+      ],
+      "largest_components": [
+        22014,
+        1,
+        1
+      ],
+      "removed_small_components": [
+        1,
+        1
+      ],
+      "output_bbox": [
+        165,
+        175,
+        340,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 3,
+      "source_row_y": [
+        272,
+        510
+      ],
+      "source_bbox": [
+        238,
+        283,
+        513,
+        507
+      ],
+      "largest_components": [
+        24761
+      ],
+      "removed_small_components": [],
+      "output_bbox": [
+        137,
+        175,
+        368,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 4,
+      "source_row_y": [
+        272,
+        510
+      ],
+      "source_bbox": [
+        990,
+        286,
+        1304,
+        507
+      ],
+      "largest_components": [
+        25109,
+        1
+      ],
+      "removed_small_components": [
+        1
+      ],
+      "output_bbox": [
+        135,
+        175,
+        402,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 5,
+      "source_row_y": [
+        510,
+        750
+      ],
+      "source_bbox": [
+        248,
+        517,
+        643,
+        740
+      ],
+      "largest_components": [
+        28467,
+        2,
+        1
+      ],
+      "removed_small_components": [
+        2,
+        1
+      ],
+      "output_bbox": [
+        130,
+        175,
+        463,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 6,
+      "source_row_y": [
+        510,
+        750
+      ],
+      "source_bbox": [
+        969,
+        540,
+        1312,
+        743
+      ],
+      "largest_components": [
+        23629,
+        39,
+        2
+      ],
+      "removed_small_components": [
+        39,
+        2,
+        2,
+        1
+      ],
+      "output_bbox": [
+        135,
+        175,
+        453,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 7,
+      "source_row_y": [
+        750,
+        1024
+      ],
+      "source_bbox": [
+        250,
+        757,
+        500,
+        996
+      ],
+      "largest_components": [
+        26593
+      ],
+      "removed_small_components": [],
+      "output_bbox": [
+        146,
+        175,
+        343,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 8,
+      "source_row_y": [
+        750,
+        1024
+      ],
+      "source_bbox": [
+        995,
+        750,
+        1225,
+        1003
+      ],
+      "largest_components": [
+        24655,
+        2,
+        1
+      ],
+      "removed_small_components": [
+        2,
+        1
+      ],
+      "output_bbox": [
+        155,
+        175,
+        326,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    }
+  ],
+  "adjacent_pixel_difference_sum": [
+    4237818.0,
+    6195005.0,
+    4172480.0,
+    4851146.0,
+    6824933.0,
+    6285544.0,
+    5107368.0
+  ],
+  "candidate_only": true,
+  "integrated": false,
+  "notes": "Per-row crop bounds adjusted to source character gaps; detached components under 51px removed. Runtime/hitbox not verified."
+}

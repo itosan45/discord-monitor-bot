@@ -1,0 +1,55 @@
+{
+  "name": "回復アイテム_おにぎり_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\回復アイテム_おにぎり_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-02f92194-2be3-41a7-8ab1-a4c5f087380a.png",
+  "status": "git_verified",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.2243797195253506,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    163,
+    211,
+    1090,
+    1091
+  ],
+  "destination": [
+    24,
+    33,
+    208,
+    197
+  ],
+  "backgroundSource": [
+    238,
+    23,
+    241
+  ],
+  "foregroundPixels": 537985,
+  "sha256": "66b7ba8c03c9d8b154256da7a94c85aed90621b8abf6dae72280f3608dacba30",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 58%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの77%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    0
+  ],
+  "kind": "healing_item",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "qaResult": "OK",
+  "visualReview": "おにぎりの拾得物を目視し、向き・寸法・全体表示を確認。",
+  "ocrReview": "Windows OCR成功・検出文字なし。",
+  "sourceCandidateRecord": "generation-records/回復アイテム_おにぎり_v1_候補1.json",
+  "gitVerified": true,
+  "gitCommit": "536bdf4548c6609ba4c24243c8a06217b4950be9",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

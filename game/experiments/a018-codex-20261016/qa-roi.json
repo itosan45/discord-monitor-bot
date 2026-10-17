@@ -1,0 +1,22 @@
+{
+  "status": "partial experiment, not delivery",
+  "edited_frame_one_based": 13,
+  "edited_region_xyxy": [
+    95,
+    183,
+    145,
+    232
+  ],
+  "changed_pixels": 1441,
+  "other_15_frames_exactly_preserved": true,
+  "original_foreground_mask_preserved": true,
+  "upper_body_above_y183_exactly_preserved": true,
+  "baseline_preserved": true,
+  "remaining": "Other blurred cels and full motion acceptance remain. No assets/sprites delivery.",
+  "official_check_walk_evenness": {
+    "cv_rounded": 0.18,
+    "max_min_rounded": 2.21,
+    "numeric_gate": "pass",
+    "visual_motion_gate": "pending"
+  }
+}

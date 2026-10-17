@@ -1,0 +1,108 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-2d53c14c-c914-4996-83ef-21ce2ccc18e6.png",
+  "sourceSha256": "6c55b8c0e22968e60c6b1a8d43fe560429a5b67b93376ad420d535f8af141714",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "Create ONE new production-ready 4-frame sprite strip for the side-scrolling Sengoku action game Sekigahara Ranbu. Character: Kagekatsu Uesugi. Use reference image 1 only for exact identity (dark navy armor, silver fittings, indigo cloth, black kabuto with gold crescent, stern adult face); image 2 for current in-game painted sprite style and scale; image 3 only as a general fall-progression guide, do not copy its poses, crop, banner, or pixels. Layout: one horizontal row of exactly four distinct, evenly spaced, full-body animation poses, one pose in each equal-width cell; designed for final 1024x256 strip. Face and body point RIGHT in profile in all four frames. Same character, same anatomy and scale in every pose; keep the full silhouette inside its cell with at least 16px safe margin after normalization. Flat solid #FF00FF magenta background, no ground shadow. No words, symbols, labels, numbers, panel lines, borders, blood, detached limbs, or duplicate characters. Motion: (1) impact recoil, torso snaps back, knees bent, grimace, katana held close defensively; (2) balance breaks, shoulders pitch down, one knee buckles, sword arm drops; (3) sinks to one knee and braces the free hand on the ground, head lowered; (4) settles onto his side on the ground facing right, knees folded, katana resting beside him. Natural readable transition, not four near-identical standing poses. Low grounded movement, believable weight, feet/body touching a shared ground line. Preserve armor details and crescent crest without adding a back banner. Crisp painted anime-realistic Sengoku arcade sprite with clean dark outlines, consistent detail, no motion blur or special effects.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/上杉景勝_設定画.png",
+    "assets/sprites/上杉景勝_手ぶら_待機_4コマ_v2.png",
+    "assets/sprites/上杉景勝_やられ_4コマ.png"
+  ],
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_やられ_4コマ_v2_candidate1-normalized-cleaned.png",
+  "actualName": "上杉景勝_やられ_4コマ_v2.png",
+  "sha256": "966e9806d0206154de783bed31882ad71f3ce77980d22f01ee0f3bfca45e1f98",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.39646,
+    "groundLine": 230,
+    "description": "One common scale for all four poses; keyed near-magenta to alpha and composited onto solid magenta; removed only two detached seam specks outside the four main silhouettes; no character or weapon parts were synthesized or erased. Frame cells recentered independently."
+  },
+  "placements": [
+    {
+      "frame": 1,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    }
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_uesugi_hurt_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_uesugi_hurt_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": ""
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_uesugi_hurt_candidate1\\strip-preview-80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "0e1b9307fdb885f59caceac0bb7f12cd389a4873aef44d33cb4a42f0f3d7d561",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_uesugi_hurt_candidate1\\gif-decoded-contact-2x.png"
+  },
+  "visualReview": "全4コマの景勝の顔・黒紺銀鎧・金の三日月前立て・右向き・太刀を確認。衝撃後退→膝崩れ→膝つき→横たわる動作が全て異なり、頭・鎧・足・刀先の欠け、文字なし。接地とセル余白を確認。",
+  "qaResult": "OK",
+  "supersededLocalNormalization": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_やられ_4コマ_v2_candidate1-normalized.png",
+    "sha256": "8074415d6d35472bd8a5af3ad28ab42ce8a0f3e0ed0a6da807a979d5dfbaf0e3",
+    "status": "not_selected",
+    "reason": "First deterministic layout included tiny adjacent-cell seam fragments and missed the 55% median-height threshold; replaced by cleaned normalization from the same single generated source, no regeneration."
+  },
+  "automaticCheck": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの56%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    23448,
+    21595,
+    16711,
+    24628
+  ],
+  "gitCommit": "a4e1eeb9324e176c949d7861cfbc1b28dcf956d4",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "ebd82bc126a524bae297352636d2d781062273a3",
+  "remoteSha256": "966e9806d0206154de783bed31882ad71f3ce77980d22f01ee0f3bfca45e1f98",
+  "remoteByteMatch": true,
+  "commitContainsOnlyTargetPng": true,
+  "completedAt": "2026-10-07T09:11:03+09:00"
+}

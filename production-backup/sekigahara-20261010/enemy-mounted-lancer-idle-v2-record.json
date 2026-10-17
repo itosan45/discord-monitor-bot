@@ -1,0 +1,133 @@
+{
+  "name": "敵_騎馬兵_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬兵_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-2294bb07-028b-4f1c-89cf-2223e70d349f.png",
+  "status": "git_verified",
+  "scale": 0.7309523809523809,
+  "standingHeightSource": 420.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        12,
+        310,
+        414,
+        734
+      ],
+      "destination": [
+        45,
+        37,
+        294,
+        310
+      ],
+      "scale": 0.7309523809523809,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        371,
+        307,
+        794,
+        735
+      ],
+      "destination": [
+        37,
+        34,
+        309,
+        313
+      ],
+      "scale": 0.7309523809523809,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        745,
+        319,
+        1174,
+        735
+      ],
+      "destination": [
+        35,
+        43,
+        314,
+        304
+      ],
+      "scale": 0.7309523809523809,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1130,
+        309,
+        1534,
+        735
+      ],
+      "destination": [
+        44,
+        36,
+        295,
+        311
+      ],
+      "scale": 0.7309523809523809,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "41af1ac97e1971665f1e75c49cee8ecc3ec46faf7149823e2c2fa18bec068af3",
+  "backgroundSource": [
+    241,
+    29,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    45734,
+    48155,
+    48198,
+    46472
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬兵_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬兵_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "陣笠・青灰鎧・槍・茶馬・青房。4蹄接地、馬の胸と頭の呼吸・尾差分、上半身・槍安定、頭と馬体は参照照合。同じ倍率307/420。",
+  "visualReview": "384セル4コマGIF/規格合格OCR空。4蹄を床346へ置き、馬の胸と頭・尾に呼吸差分。陣笠の人物が槍を構え保持、同じ馬体と人物頭部・鎧を照合。槍穂先と柄尻・全耳蹄尾が余白内。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

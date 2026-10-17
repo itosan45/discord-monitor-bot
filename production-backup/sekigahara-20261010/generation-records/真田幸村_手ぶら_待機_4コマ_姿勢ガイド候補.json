@@ -1,0 +1,10 @@
+{
+  "name": "真田幸村_手ぶら_待機_4コマ_姿勢ガイド候補",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-c3f225cb-2340-4b78-9a58-73c427582e04.png",
+  "prompt": "Image1 only right-facing profile Yukimura CHARACTER design, exactredlacqueredarmor/goldantlers/redscarf/white sash/brownhakama/redgreaves/sandals/sixcoin backbanner. Image2 pose-only diagram for FOUR UNARMED idleframes. COPYimage2 BODY/ARM/FIST JOINT POSITIONS faithfully: ORANGE marks NEAR RIGHT arm/fist at front/right; BLUE marks FAR LEFT arm/fist behind/left, BOTH emptyfists inFRONToftorso, rightfistforward atchestlevel,leftfistbackward atabdomen. DoNOT letleftarmhangbehindbody. DoNOT change guidecolorsintocostumecolors; renderredarmoronly. Remove handheldweapons COMPLETELY. No pole/rod/sword/fan/gun/ghostweapon. Hands tightlyCLOSED EMPTY fist grips, spacedasgrippinglongpole, samefistdistanceall4. Lowbentkneesbattleidle, subtlebreathing/scarfbannerswayloop, upperbodyfistsnearlystationary. Behind-backbanner/poleallowed. ONEhorizontalrow FOUR wholefigure right-facingprofile frames, no front/backviews. Physicalstanding205px in256cells, headtorsolegs same reference proportions, feet230px,16pxmargins, ample puremagenta gaps/outsidemargins. No croppedcloth/antlers/banner. Originalcrispoutlinedanime-realistic arcadestyle. PUREflat#FF00FF notwhite, no shadows/text/numbers/grids/borders. No coloredstickfigures in final.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+    "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\pose-guides\\右拳前_左拳後_手ぶら待機4コマ_姿勢のみ.png"
+  ],
+  "status": "candidate_pending_QA"
+}

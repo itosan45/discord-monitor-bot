@@ -1,0 +1,12 @@
+{
+  "status": "motion_review_hold",
+  "cellId": "4516",
+  "guide": "qa/musashi-walk-anatomical-guide.png",
+  "references": [
+    "宮本武蔵_待機_4コマ.png"
+  ],
+  "invariant": "near leg front in1,back in5; far leg passes3,near leg passes7; upright empty hands",
+  "gitVerified": false,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-3ea2e177-e934-452c-ada7-c3e0f33e0b8f.png",
+  "reason": "Explicit near/far guide still yields same passing-leg shape in3/7; do not deliver. Three strip attempts total across this task, stop regenerating this motion and continue other fixes."
+}

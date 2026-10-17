@@ -1,0 +1,12 @@
+{
+  "name": "拾得武器_棍棒_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single dropped-weapon pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only a style reference for the game's painted sprite rendering and magenta background; do not reproduce any soldier.\nComposition/framing: one complete weapon resting diagonally on the ground, centered in a single square 256x256 game cell, occupying about 70% of the canvas, with at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite with crisp dark outlines, cel-shaded steel and wood highlights, consistent with Image 1.\nScene/backdrop: perfectly flat pure #FF00FF magenta, no ground plane or cast shadow.\nConstraints: a single unheld, dropped weapon, fully visible and physically plausible; no hands or characters; no text, labels, frame, border, extra items or watermark.\nPrimary request: a historically plausible Japanese Sengoku wooden war club pickup, about forearm-to-shoulder length, dark hardwood shaft with two or three simple iron reinforcement bands and a blunt iron cap. Rest it diagonally on the ground with the grip end at lower-left and striking end at upper-right.\nMaterials/textures: worn hard wood grain, forged iron bands, modest use marks.\nAvoid: oversized fantasy kanabo, spikes, ornate decoration, glow, sparks, blood.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-72517cf5-9f93-47d8-b485-a7fb8762bc41.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_棍棒_v1.png",
+  "sha256": "3706f5c53bb4968ffa08aaae6040f944952b54ca883df79138b4674d78c63821"
+}

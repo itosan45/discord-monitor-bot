@@ -1,0 +1,78 @@
+{
+  "asset": "黒田長政_斬り上げ_6コマ_v3.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    3072,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 6,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "frame_foreground_bboxes": [
+    [
+      180,
+      175,
+      330,
+      362
+    ],
+    [
+      147,
+      175,
+      363,
+      362
+    ],
+    [
+      170,
+      175,
+      340,
+      362
+    ],
+    [
+      182,
+      175,
+      328,
+      362
+    ],
+    [
+      130,
+      175,
+      380,
+      362
+    ],
+    [
+      95,
+      175,
+      415,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 6,
+  "unique_frame_count": 6,
+  "adjacent_changed_pixel_fraction": [
+    0.1178,
+    0.1211,
+    0.0909,
+    0.0954,
+    0.1298
+  ],
+  "sha256": "1bc93de53977683d7d839f4d66fd4017e6cd3773732e41f86621b83910ededef",
+  "generation": "AI generated/composed into cells, not hand-drawn.",
+  "notes": "OpenAI built-in imagegen using Kuroda setting. v3 removes only the isolated 11x10px fragment below frame 2; no connected character or weapon pixels touched."
+}

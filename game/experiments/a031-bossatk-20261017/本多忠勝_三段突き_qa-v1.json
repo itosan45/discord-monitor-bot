@@ -1,0 +1,113 @@
+{
+  "character": "本多忠勝",
+  "asset": "本多忠勝_三段突き_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_grid": [
+    2,
+    4
+  ],
+  "source_cell_size": [
+    724,
+    271
+  ],
+  "scale_by_frame": [
+    0.6770098730606487,
+    0.6937269372693727,
+    0.6629834254143646,
+    0.6937269372693727,
+    0.6629834254143646,
+    0.6937269372693727,
+    0.6713286713286714,
+    0.6741573033707865
+  ],
+  "frame_foreground_bboxes": [
+    [
+      16,
+      180,
+      495,
+      362
+    ],
+    [
+      68,
+      175,
+      442,
+      362
+    ],
+    [
+      16,
+      183,
+      495,
+      362
+    ],
+    [
+      19,
+      175,
+      491,
+      362
+    ],
+    [
+      16,
+      183,
+      495,
+      362
+    ],
+    [
+      50,
+      175,
+      460,
+      362
+    ],
+    [
+      16,
+      185,
+      495,
+      362
+    ],
+    [
+      16,
+      192,
+      495,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1758,
+    0.1866,
+    0.1915,
+    0.1963,
+    0.2066,
+    0.2003,
+    0.2103
+  ],
+  "sha256": "29b7fd7ed78db8e7e11ebcce5fd045d9a2f01e874e6e991c064a06329f4f2ac2",
+  "generation": "OpenAI built-in imagegen using Honda Tadakatsu setting sheet; AI generated/composed into cells, not hand-drawn.",
+  "notes": "Three thrusts separated by distinct reload/retract phases: ready, load, chest thrust, retract, low thrust, reset, decisive high thrust, guard. Candidate; gameplay timing/hit boxes pending."
+}

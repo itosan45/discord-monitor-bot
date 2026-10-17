@@ -1,0 +1,162 @@
+{
+  "name": "武田信玄_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\武田信玄_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-9aac9858-894d-4efc-bf03-a86715d9ffc0.png",
+  "status": "candidate",
+  "scale": 0.5857142857142857,
+  "standingHeightSource": 350.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        19,
+        197,
+        271,
+        553
+      ],
+      "destination": [
+        54,
+        22,
+        148,
+        209
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        280,
+        197,
+        500,
+        554
+      ],
+      "destination": [
+        63,
+        22,
+        129,
+        209
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        542,
+        197,
+        758,
+        555
+      ],
+      "destination": [
+        64,
+        21,
+        127,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        798,
+        197,
+        1046,
+        553
+      ],
+      "destination": [
+        55,
+        22,
+        145,
+        209
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1066,
+        197,
+        1322,
+        548
+      ],
+      "destination": [
+        53,
+        25,
+        150,
+        206
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1339,
+        197,
+        1574,
+        555
+      ],
+      "destination": [
+        59,
+        21,
+        138,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1602,
+        197,
+        1815,
+        554
+      ],
+      "destination": [
+        65,
+        22,
+        125,
+        209
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1857,
+        197,
+        2093,
+        555
+      ],
+      "destination": [
+        59,
+        21,
+        138,
+        210
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    }
+  ],
+  "sha256": "f45fcff30e4ade879905844d800edc38c7cea7ec50f00e918a532af9ba02244e",
+  "backgroundSource": [
+    235,
+    26,
+    238
+  ],
+  "sourceIndices": null,
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "motionPass": false,
+  "automaticCheck": "全項目OK、2048x256、純マゼンタ76%、人物高中央値81%、接地230px、端16px以上"
+}

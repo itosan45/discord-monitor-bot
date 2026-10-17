@@ -1,0 +1,115 @@
+{
+  "name": "敵_騎馬弓兵_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-52ac4981-d6a8-464f-a9b3-4db7834534a2.png",
+  "status": "candidate",
+  "scale": 0.5716945996275605,
+  "standingHeightSource": 537.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        32,
+        208,
+        544,
+        545
+      ],
+      "destination": [
+        45,
+        154,
+        293,
+        193
+      ],
+      "scale": 0.5716945996275605,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        503,
+        307,
+        1119,
+        591
+      ],
+      "destination": [
+        16,
+        185,
+        352,
+        162
+      ],
+      "scale": 0.5716945996275605,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 321
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1085,
+        342,
+        1623,
+        591
+      ],
+      "destination": [
+        38,
+        205,
+        308,
+        142
+      ],
+      "scale": 0.5716945996275605,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 330
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1626,
+        341,
+        2168,
+        590
+      ],
+      "destination": [
+        37,
+        205,
+        310,
+        142
+      ],
+      "scale": 0.5716945996275605,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 324
+    }
+  ],
+  "sha256": "62f54c172a735f02c4fb07418115b14b8fc6f5674c3c4d9a2aedc55207dbf0e7",
+  "backgroundSource": [
+    235,
+    27,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": "270,815,1350,1900",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの39%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "NG コマ2: 武器を除く身体最低点の推定値321px、配置目標346pxから12px超の差。目視確認が必要",
+    "NG コマ3: 武器を除く身体最低点の推定値330px、配置目標346pxから12px超の差。目視確認が必要",
+    "NG コマ4: 武器を除く身体最低点の推定値324px、配置目標346pxから12px超の差。目視確認が必要"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    31997,
+    26492,
+    20948,
+    29328
+  ]
+}

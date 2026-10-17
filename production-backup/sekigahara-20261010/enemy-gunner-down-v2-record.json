@@ -1,0 +1,135 @@
+{
+  "name": "敵_鉄砲足軽_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-480abcdc-e934-44f9-a33e-4b0bcba2af67.png",
+  "status": "drive_verified",
+  "scale": 0.5,
+  "standingHeightSource": 410.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        80,
+        165,
+        435,
+        592
+      ],
+      "destination": [
+        39,
+        17,
+        178,
+        214
+      ],
+      "scale": 0.5,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        551,
+        137,
+        978,
+        482
+      ],
+      "destination": [
+        21,
+        24,
+        214,
+        172
+      ],
+      "scale": 0.5,
+      "ground": 195,
+      "verticalOffset": -35,
+      "estimatedBodyGround": 196
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1104,
+        332,
+        1516,
+        601
+      ],
+      "destination": [
+        25,
+        97,
+        206,
+        134
+      ],
+      "scale": 0.5,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1691,
+        321,
+        2101,
+        601
+      ],
+      "destination": [
+        25,
+        88,
+        205,
+        140
+      ],
+      "scale": 0.5,
+      "ground": 227,
+      "verticalOffset": -3,
+      "estimatedBodyGround": 227
+    }
+  ],
+  "sha256": "f666284066b479820711f542e21683ae8563f7fae483d958be11b926cdb283bb",
+  "backgroundSource": [
+    239,
+    26,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの61%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    20236,
+    24089,
+    14801,
+    23278
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_ダウン_4コマ_v2_候補保存_20261006_114638_732773_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_ダウン_4コマ_v2_候補保存_20261006_114638_732773_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 2,
+  "retries": 1,
+  "selectedCandidate": 2,
+  "ocrReview": "OCRを全4コマ目視照合。文字なし。",
+  "qaNote": "頭胴を待機と比較し共通205/410。候補1の寝姿の幅を、膝と肘を畳む修正で収めた。空中35px上げ・反動3pxは全身セル移動のみ。",
+  "visualReview": "4コマGIF復号で被弾後の後方反動、空中へ飛ばされ、背を接地して仰向け、肩と膝の小反動を確認。銃を両手で胸に保持、全足先右側面。頭胴同倍率・全銃・接地・余白規格合格。",
+  "driveId": "1Uc56ntbTxfRWq8CBOrIZw2mQANx4qBpG",
+  "readbackSha256": "f666284066b479820711f542e21683ae8563f7fae483d958be11b926cdb283bb",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

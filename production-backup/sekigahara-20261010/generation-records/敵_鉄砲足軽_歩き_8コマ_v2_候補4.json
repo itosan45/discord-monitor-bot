@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-716092f1-559e-4672-b2ed-690cf28ff36e.png",
+  "prompt": "Finalrepair fifthpose only. This8framewalk repeats legvisibilitywrong. REDRAWFRAME5 as oppositelegcontact: NEARLEG closestcamera extends BACK toLEFT side, FARLEG extends FRONT toRIGHT side. NearbacklegTHIGH passes visibly INFRONTof farfrontTHIGH atHIP then kneeLEFT andfootLEFT. Farfront kneeRIGHT footRIGHT flatground. Frontleg mustvisiblyemergeFROMBEHINDnearbackthigh. Differentthighoverlapthanframe1nearfront. Bothboots toeRIGHT heelLEFT, nevermirrorboots. Keepallother7poses, chestgunstable exactheadtorsoanatomyclothes, blackmoustachechinbeard. Frame5rearheelonleft raisedjustslight, frontfootfullflat. Samebodydimensions8equalsquarecells horizontalrow, pureopaque#FF00FF no textshadowgrids.",
+  "attempt": 4,
+  "status": "candidate_pending_QA"
+}

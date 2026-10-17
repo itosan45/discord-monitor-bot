@@ -1,0 +1,133 @@
+{
+  "name": "敵_忍者_起き上がり_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_忍者_起き上がり_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-50f8fcee-3814-4d63-ad6f-272b3a34a38a.png",
+  "status": "git_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        71,
+        395,
+        542,
+        565
+      ],
+      "destination": [
+        20,
+        154,
+        215,
+        77
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        611,
+        277,
+        1061,
+        566
+      ],
+      "destination": [
+        25,
+        99,
+        205,
+        132
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1157,
+        207,
+        1540,
+        566
+      ],
+      "destination": [
+        41,
+        67,
+        174,
+        164
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1748,
+        208,
+        2067,
+        576
+      ],
+      "destination": [
+        55,
+        63,
+        145,
+        168
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "2c7bfe02ceb8560ea7b6fb3ca67e3980c5363fe9724e97c63ba51c41e4d2794d",
+  "backgroundSource": [
+    240,
+    25,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの57%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    15596,
+    19372,
+    16704,
+    18308
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_起き上がり_4コマ_v2_候補保存_20261006_123112_780249_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_起き上がり_4コマ_v2_候補保存_20261006_123112_780249_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "仰向け→左手支持で上体を起こす→片膝→低い構え。短刀の露出刃、片手接地時の手2本、全靴の右向き、頭・胴体の同じ縮尺を確認。",
+  "visualReview": "4コマGIF規格全合格OCR空。左の接地手が上体を押し上げ、片膝から両脚低い構えへ戻る。右手の露出短刀、左手支持、右向き靴、衣装と頭部縮尺、足元を確認。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

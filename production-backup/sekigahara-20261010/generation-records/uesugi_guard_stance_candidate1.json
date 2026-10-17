@@ -1,0 +1,127 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b520c980-03fd-42d0-98dc-c9472c7a7012.png",
+  "sourceSha256": "738e4f7cc1eec7bd9f9f5168d096a49de69ef676162f3c5ced1e204619160871",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "prompt": "One candidate only: 上杉景勝_ガード構え_2コマ_v2.png. Preserve the identity and appropriate weapon shown in the setting sheet; 2-cell right-facing full-body guard stance, two subtly distinct phases, 256px cells, exact magenta key, consistent scale and feet baseline, weapon fully in-cell. No text or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/上杉景勝_設定画.png",
+    "assets/sprites/真田幸村_ガード構え_2コマ_v2.png"
+  ],
+  "requestedName": "上杉景勝_ガード構え_2コマ_v2.png",
+  "actualName": "上杉景勝_ガード構え_2コマ_v2_candidate1-final-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_ガード構え_2コマ_v2_candidate1-final-normalized.png",
+  "sha256": "611f960f35445a61a66bd7b06f12ac5d220fa110622639f4ebe3dd075dae2478",
+  "n": 2,
+  "cell": 256,
+  "outputDimensions": [
+    512,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "sourceCellSize": [
+      887,
+      887
+    ],
+    "finalSize": [
+      512,
+      256
+    ],
+    "commonScale": 0.2635294117647059,
+    "placement": "Preserved one common uniform scale across both poses; visible object centered in each 256px cell, feet aligned to baseline y=229, exact RGB(255,0,255) background. Scale selected to keep the full weapon/cape silhouette within >=16px margins."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "sourceBBox": [
+        32,
+        127,
+        882,
+        779
+      ],
+      "bbox": [
+        16,
+        58,
+        240,
+        230
+      ],
+      "heightPx": 172,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 58
+      }
+    },
+    {
+      "frame": 2,
+      "sourceBBox": [
+        56,
+        99,
+        802,
+        779
+      ],
+      "bbox": [
+        286,
+        51,
+        483,
+        230
+      ],
+      "heightPx": 179,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 30,
+        "right": 29,
+        "top": 51
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    19073
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。復号コンタクトシートで両コマを目視し、文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\uesugi_80ms.gif",
+    "frameCount": 2,
+    "durationsMs": [
+      80,
+      80
+    ],
+    "sha256": "f040c544db6881693b48e5e8c9b35c62ca20174d1e333b7b02eaeffe62b6559c",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_stance_candidate1\\uesugi_gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "深い青銀の鎧と三日月前立て、右向き全身。長刀の先端、両手の保持、外套を全セル内で確認。低く幅広い構えで人物高中央値68%のため要注意として記録。 GIF2コマ80ms復号、全コマ目視。",
+  "qaResult": "要注意",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "gitCommit": "e89476e86fe22988ea27359ed085ab7817baedba",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "fe8c029414169f244621dcc2509405bb4c402ae2",
+  "remoteSha256": "611f960f35445a61a66bd7b06f12ac5d220fa110622639f4ebe3dd075dae2478",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 85978,
+  "completedAt": "2026-10-07T10:36:53+09:00"
+}

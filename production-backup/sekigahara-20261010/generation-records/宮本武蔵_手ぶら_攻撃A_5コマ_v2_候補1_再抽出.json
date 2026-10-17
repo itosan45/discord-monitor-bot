@@ -1,0 +1,107 @@
+{
+  "name": "宮本武蔵_手ぶら_攻撃A_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-7fdb7766-80f4-47ae-bd7d-9bd83496e212.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_攻撃A_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3338762214983713,
+  "sourceBounds": [
+    [
+      18,
+      110,
+      380,
+      724
+    ],
+    [
+      398,
+      106,
+      802,
+      724
+    ],
+    [
+      787,
+      112,
+      1203,
+      724
+    ],
+    [
+      1202,
+      181,
+      1615,
+      724
+    ],
+    [
+      1622,
+      110,
+      1975,
+      724
+    ]
+  ],
+  "placements": [
+    [
+      67,
+      25,
+      121,
+      205
+    ],
+    [
+      60,
+      24,
+      135,
+      206
+    ],
+    [
+      58,
+      26,
+      139,
+      204
+    ],
+    [
+      59,
+      49,
+      138,
+      181
+    ],
+    [
+      69,
+      25,
+      118,
+      205
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "fcc3abdc865a694533bb23781bbdcfc85b0bd9d35927710ffb2bd204229f64c7",
+  "recoveredWithoutGeneration": true,
+  "extractionReview": "Four-connected labeling naturally separates5 main figures; only diagonal toe-outline adjacency caused prior8-connected merge. No ownership seam used, no foreground pixels removed. Every foreground pixel assigned exactly once; small disconnected details assigned to nearest figure. Prior rejected record preserved.",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison: overhead windup, diagonal downward swing, low follow-through, return to ready; original candidate recovered with four-connected segmentation, full feet naturally separate. Same rough topknot, white headband/tails, lean muscular anatomy, torn charcoal brown robe, wrist/shin wraps and sandals. EMPTY hands, no swords/helmet/banner, all right-facing, soles230px, anatomical scale matches idle, no effects/clipping/neighbor contamination. OCR empty. Source contact zoom reviewed for A; no toes removed.",
+  "gitVerified": true,
+  "gitCommit": "be5daf919c79bf820e7277b972d287e02a3fb8d5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "fcc3abdc865a694533bb23781bbdcfc85b0bd9d35927710ffb2bd204229f64c7",
+  "prompt": "Original candidate prompt summary retained: 宮本武蔵の設定を保持し、純粋な素手で斩り下ろし攻撃を5コマで表現。純マゼンタ背景、武器なし。 No new generation; recover original full figures using four-connected labeling, retain all foreground pixels, uniform205/614 scale and230px ground.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:32:15.803815+09:00"
+}

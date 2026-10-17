@@ -1,0 +1,106 @@
+{
+  "name": "武田信玄_通常1_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d36739e7-1556-4532-9b17-fa397bbef864.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_通常1_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.35510887772194305,
+  "sourceBounds": [
+    [
+      22,
+      125,
+      376,
+      698
+    ],
+    [
+      415,
+      101,
+      765,
+      698
+    ],
+    [
+      787,
+      128,
+      1219,
+      698
+    ],
+    [
+      1194,
+      132,
+      1622,
+      698
+    ],
+    [
+      1629,
+      127,
+      1962,
+      698
+    ]
+  ],
+  "placements": [
+    [
+      65,
+      27,
+      126,
+      203
+    ],
+    [
+      66,
+      18,
+      124,
+      212
+    ],
+    [
+      51,
+      28,
+      153,
+      202
+    ],
+    [
+      52,
+      29,
+      152,
+      201
+    ],
+    [
+      69,
+      27,
+      118,
+      203
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "414745dc67e5cdcdde85a0f4dbc8d9d5d915ac62de427b576ffbafca0d9caf64",
+  "visualApproved": true,
+  "visualReview": "Five decoded frames and idle comparison reviewed. Latest11 normal1 downward gunbai swing: guard, overhead anticipation, downward forward impact, low followthrough, guard recovery. Full flag/weapon/body, no effects, common ground and uniform scale retained. Source poses remain similar in legs. Older idle is larger than normalized attack; record scale caution rather than exact match.",
+  "motionCaution": "Older idle reference is larger than this strip; exact idle scale matching not established. Legs have limited weight-transfer variation.",
+  "gitVerified": true,
+  "gitCommit": "4399a31a8e748750b070eb69a361ef3137e2475a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "414745dc67e5cdcdde85a0f4dbc8d9d5d915ac62de427b576ffbafca0d9caf64",
+  "prompt": "Create FIVE chronological animation frames Takeda Shingen heavy DOWNWARD GUNBAI swing. Exact reference1 identity gold horn helmet, white yak mane, redgold armor/tiger surcoat, blackgold fourdiamond 風林火山 attached backbanner, stocky face/build. Reference2 anatomy scale. Keep fan redblack oval short goldhandle, sheathed katana and complete banner EVERY frame. Rightfacing sideview. 1 low ready gunbai in right hand at chest, knees bent. 2 anticipation right elbow bends gunbai above forehead, torso leans back, left fist close waist. 3 downward impact right arm drives fan diagonally down-forward at waist height, powerful hip turn, deep planted frontknee. 4 followthrough fan low beside front knee, shoulders forward, legs retain weight, left hand balancing nearwaist. 5 recover gunbai to chest ready. Clearly different fan angles and torso rotation; no fistattack or kick. All feet grounded samebaseline; no jumping. Same head/torso/bone scale EVERY frame, standing equivalent205px in256px cell. Compact mane/cloth and arm arc; silhouette width no greater than standing height, noshrinking to fit. Full horns/flag/pole/fan/feet inside generous margins. NO slashtrail/flame/glow/shockwave/speedline/shadow/effects. Pureflat #FF00FF. Intermediate3x2 atlas five separate figures rowmajor,bottomright blank, equal square cells, largegutters, NOgrid/text/UI/numbers except bannerinscription. Final1280x256 horizontal5cells.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:58:00.842518+09:00"
+}

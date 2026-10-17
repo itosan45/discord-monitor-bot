@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_攻撃_6コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-ee1ac782-b32f-4169-b24e-0689c82a6599.png",
+  "prompt": "Repair BOW ORIENTATION and RELEASE ARROW in this6frame archer attack. Keep exact same archer anatomy, face, clothes, quiver and actionposes. In frames2,3,4,5 cant the ENTIRE bow axis clearly40degrees FORWARD: bow TOP moves toward upperRIGHT, bowBOTTOM toward lowerLEFT, grip stays atleft hand. Bowlengthunchanged, bothendswithinhelmet-to-footverticalbounds. Currentbows almostverticalwhich iswrong, theymust visiblydiagonal. Stringbetweenbowends follows rotation, arrowstillaimsright, RIGHThanddrawingthenfingersopening. Frame4 releaseinstant arrowSHAFT still OVERLAPS bow (tailinsidebowstring, tiponlyjustbeyondbow), no separate flyingarrowfragmentbetweenfigures, arrownearbowonly. Frames1and6remainlowwaistguardbowupright. Keep preparation→draw→aim→release→followthrough→recovery6distinctposes. One fullarcher per equal squarecell single row6, allbodybowstringarrowquiverfullinside16pxequivalentmargins, uniformscale, pure#FF00FF no shadowtextbordergrid. Never shrink archer tofitbow.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

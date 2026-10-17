@@ -1,0 +1,56 @@
+{
+  "name": "拾得武器_薙刀_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_薙刀_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-566beddf-b6a6-4513-b230-2e9451897e9c.png",
+  "status": "git_verified",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.17537942664418213,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    33,
+    33,
+    1219,
+    1187
+  ],
+  "destination": [
+    24,
+    28,
+    208,
+    202
+  ],
+  "backgroundSource": [
+    238,
+    25,
+    241
+  ],
+  "foregroundPixels": 67244,
+  "sha256": "7ddf3eb7f81f05269d4e6713b18f7a53290c69f01b6b1db10ae0bed28b03f193",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 97%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ1: 空、または小さすぎる"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    0
+  ],
+  "manualVisualException": true,
+  "manualVisualExceptionReason": "30_check_strip.pyの3000 foreground pixels最低閾値は人物向け。薙刀は刀身と柄を含む全体208x202pxで視認でき、物理的な細さを維持するため要注意採用。",
+  "kind": "pickup_weapon",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "qaResult": "要注意",
+  "visualReview": "薙刀の拾得物を目視し、向き・寸法・全体表示を確認。 30_check_strip.pyの3000 foreground pixels最低閾値は人物向け。薙刀は刀身と柄を含む全体208x202pxで視認でき、物理的な細さを維持するため要注意採用。",
+  "ocrReview": "Windows OCR成功・検出文字なし。",
+  "sourceCandidateRecord": "generation-records/拾得武器_薙刀_v1_候補1.json",
+  "gitVerified": true,
+  "gitCommit": "536bdf4548c6609ba4c24243c8a06217b4950be9",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

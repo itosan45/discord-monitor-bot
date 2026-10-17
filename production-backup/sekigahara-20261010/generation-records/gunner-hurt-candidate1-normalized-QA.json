@@ -1,0 +1,82 @@
+{
+  "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-dda67e61-bc16-4855-8b9f-9e5a15e87cad.png",
+  "status": "candidate",
+  "scale": 0.2411764705882353,
+  "standingHeightSource": 850.0,
+  "standingHeightTarget": 205,
+  "n": 2,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        202,
+        120,
+        681,
+        832
+      ],
+      "destination": [
+        70,
+        59,
+        116,
+        172
+      ],
+      "scale": 0.2411764705882353,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        896,
+        129,
+        1508,
+        832
+      ],
+      "destination": [
+        54,
+        61,
+        148,
+        170
+      ],
+      "scale": 0.2411764705882353,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "5b8d52f0523051017f8f7fcc64b98cb15df85c633e352be9b2edec50852497a2",
+  "backgroundSource": [
+    242,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの66%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    13849,
+    13849
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_被弾_2コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 2,
+    "durationMs": [
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_被弾_2コマ_v2_GIF復号確認.png"
+  }
+}

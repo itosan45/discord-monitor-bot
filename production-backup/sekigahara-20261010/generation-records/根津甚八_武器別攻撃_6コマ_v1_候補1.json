@@ -1,0 +1,58 @@
+{
+  "name": "根津甚八_武器別攻撃_6コマ_v1.png",
+  "requestedName": "根津甚八_武器別攻撃_6コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_武器別攻撃_6コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-87266c20-cf8f-4b01-9e4e-5bf3bf93fbcd.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "kind": "sprite_motion",
+  "char": "根津甚八",
+  "motion": "低い構えから踏み込み、刀を頭上へ構え、斜め斬り下ろし、低い横薙ぎ、振り抜き、構えへ戻る",
+  "placements": [],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sourceNormalization": "元画像全体から左から順に6つの大連結シルエットを個別抽出。全フレーム共通0.4倍、各シルエットの足元をy=230へ揃え、各セル中央へ配置。",
+  "sha256": "65a31118649814a9892666f26ebe0559be0e6c5509829b31667da2faf6ac0995",
+  "visualApproved": true,
+  "visualReview": "待機絵の根津甚八と同じ暗藍色・焦茶の鎧、赤六文銭、臙脂帯、髷と刀を維持。6コマで低い構え→頭上構え→斬り下ろし→低い薙ぎ→振り抜き→戻りが区別できる。全コマ右向き、背景は純マゼンタ、刀・体の欠けと隣セル混入なし。効果描写なし。",
+  "generationPrompt": "Existing recovered candidate; no duplicate generation. Six 256px frames in one horizontal strip, right-facing Nezu Jinpachi matching the existing idle sprite design and scale: low guard, overhead windup, diagonal downward slash, low forward sweep, follow-through, return guard. Grounded feet, same katana/scabbard and armor, pure #FF00FF background, no effects, no cell clipping or cross-cell overlap.",
+  "promptSourceNote": "Prompt reconstructed from the active-turn generation brief because no candidate JSON was written before the previous turn ended.",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 87%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの62%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    15278,
+    13870,
+    10579,
+    11728,
+    11326,
+    10539
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "gitVerified": true,
+  "gitCommit": "513728d19580575efa0435fe608da632df444496",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "65a31118649814a9892666f26ebe0559be0e6c5509829b31667da2faf6ac0995",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "qaResult": "OK",
+  "completedAt": "2026-10-08T06:52:20+09:00",
+  "actualName": "根津甚八_武器別攻撃_6コマ_v1.png"
+}

@@ -1,0 +1,72 @@
+{
+  "name": "小早川秀秋_バストアップ.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-039edfe0-7313-48e4-b6eb-caa4f74a5c7a.png",
+  "sourceSha256": "380881fe31851909ccc9b8ecb9d696ab62d832f8ed74968a18bdd83e5e7023e8",
+  "referencePath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\小早川秀秋_設定画.png",
+  "prompt": "Use case: stylized-concept\nAsset type: 512x512 in-game boss bust portrait for Sekigahara Ranbu.\nPrimary request: Draw one fierce, slightly-right-facing head-and-shoulders portrait of Kobayakawa Hideaki, matching the attached character sheet exactly.\nSubject: Preserve his youthful face, dark teal and green armor, gold-edged helmet with paired upward horns, and subtle purple accent associated with his yokai blade. Frame the entire horn tips, face, shoulders, and upper chest.\nStyle/medium: Painted anime-realistic Japanese action-game portrait, crisp dark outlines, refined armor detail, dramatic restrained lighting; keep the face readable.\nComposition/framing: One person, centered bust with visible flat-magenta margin on every edge.\nScene/backdrop: Exactly flat pure RGB(255,0,255) / #FF00FF.\nConstraints: Match the reference identity and costume. The sword is a yokai blade, but omit it if it does not fit a head-and-shoulders portrait.\nAvoid: Text, letters, numbers, labels, UI, border, scenery, extra people, cropped horns or shoulders, gradients, background shadow, watermark.",
+  "status": "git_verified",
+  "candidateStatus": "git_verified",
+  "createdAt": "2026-10-07",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\小早川秀秋_バストアップ.png",
+  "normalizedSha256": "4f5146ba9f39e12b778180f0bdd117682a3b32e04dfda819dcb19753908d93b5",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "pureMagentaRatio": 0.4711,
+  "visibleBBox": [
+    0,
+    0,
+    512,
+    512
+  ],
+  "visibleMargins": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "automaticCheck": {
+    "dimension": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "exactMagentaRatio": 0.4721,
+    "visibleBBox": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "visibleMargins": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "result": "PASS for base UI bust portrait; bust crop intentionally fills canvas."
+  },
+  "note": "One candidate only. No regeneration; preserve this source and record any QA caution.",
+  "normalizedPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_base_boss_portraits_candidate1_bgclean\\小早川秀秋_バストアップ.png",
+  "backgroundNormalization": "Flood-filled only border-connected near-magenta background to exact #FF00FF, then uniform 512x512 Lanczos resize; no subject-component edits and no recrop.",
+  "qaResult": "要注意",
+  "visualReview": "若い顔立ち・青緑甲冑・二本立物を確認。立物先端が上端に接近するため要注意。 6枚の512x512一覧で衣装・顔・向き・背景・フレーム境界を目視。追加候補なし。",
+  "ocrReview": "Windows PowerShell 5.1 native OCR succeeded; no text detected.",
+  "attempts": 1,
+  "gitVerified": true,
+  "sha256": "4f5146ba9f39e12b778180f0bdd117682a3b32e04dfda819dcb19753908d93b5",
+  "gitSha256": "4f5146ba9f39e12b778180f0bdd117682a3b32e04dfda819dcb19753908d93b5",
+  "gitVerifiedAt": "2026-10-07T12:00:36+09:00",
+  "gitCommit": "6399176643864b97c1a7e297eda78f5eeebe6fb8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "02740cc6b11b9a0f9deae004b9825887da62ed79",
+  "gitBytes": 324051,
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T12:00:36+09:00",
+  "qaRepairPending": false
+}

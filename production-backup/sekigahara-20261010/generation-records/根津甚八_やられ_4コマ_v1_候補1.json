@@ -1,0 +1,112 @@
+{
+  "name": "根津甚八_やられ_4コマ_v1.png",
+  "char": "根津甚八",
+  "kind": "ten_braves_sprite_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5467df00-b3f3-4e8f-94e3-6772b37f5e38.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\根津甚八_やられ_4コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "uniformScale": 0.39,
+  "sourceBands": [
+    [
+      0,
+      543
+    ],
+    [
+      543,
+      1086
+    ],
+    [
+      1086,
+      1629
+    ],
+    [
+      1629,
+      2172
+    ]
+  ],
+  "sourceBounds": [
+    [
+      105,
+      116,
+      471,
+      648
+    ],
+    [
+      644,
+      117,
+      975,
+      643
+    ],
+    [
+      1153,
+      218,
+      1509,
+      640
+    ],
+    [
+      1725,
+      217,
+      2034,
+      645
+    ]
+  ],
+  "placements": [
+    [
+      56,
+      23,
+      143,
+      207
+    ],
+    [
+      63,
+      25,
+      129,
+      205
+    ],
+    [
+      58,
+      65,
+      139,
+      165
+    ],
+    [
+      67,
+      63,
+      121,
+      167
+    ]
+  ],
+  "checkResults": [
+    "30_check_strip.py: PASS; pure magenta 80%; median sprite height 72%; per-cell margins and ground baseline pass.",
+    "Windows PowerShell 5.1 OCR success; detected ~ 一 を し 心, enlarged visual inspection identified armor/sword pattern false positives with no legible text.",
+    "GIF decoded all 4 frames at 80ms."
+  ],
+  "visualReview": "Weathered dark brown-black armor, tied hair/moustache, burgundy sash, six-coin chest emblem, katana and sheath match settings/idle. Four clear reactions: recoil, stagger, kneel with sword upright, final lower kneeling settle. Sword stays continuous in right hand. Frames 3/4 are similar but show distinct settling. OCR detections are visual pattern false positives.",
+  "qaResult": "git_verified_caution",
+  "sha256": "4924f3b0171b52579db02b5fdfde099e8bf43a3b8a02cd6be6ee5b185ad65611",
+  "gitVerified": true,
+  "gitCommit": "e7e4c75bea429e9008b7adfedcc757a5657f3038",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "4924f3b0171b52579db02b5fdfde099e8bf43a3b8a02cd6be6ee5b185ad65611",
+  "ocrSuccess": true,
+  "ocrText": "~ 一 を し 心",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "attempts": 1,
+  "updatedAt": "2026-10-08T10:20:00+09:00",
+  "prompt": "Use case: stylized-concept. Production side-scrolling game sprite sheet, exactly FOUR sequential 256x256 cells in one horizontal row, final 1024x256. Image 1 is the exact in-game idle sprite and scale reference. Image 2 is the same character three-view design and equipment. Preserve the same weathered, mustached Japanese samurai with dark tied-back hair, black-brown lacquered armor with subtle red cords, burgundy sash, six-coin chest crest, dark trousers, wrapped shins, sandals, one katana in right hand and sheath at left hip. Same face, build, armor, palette, crest and weapon in every frame. Right-facing 3/4 throughout. Same anatomy and sprite scale as idle (~80% cell), ground y=230, entire figure/sword/sheath inside each cell >=16px margins, no cell overlap. Pure #FF00FF background, no shadows, blood, gore, FX, text, labels or scenery. Four defeat poses: 1 braces after unseen impact, torso recoils, feet planted, sword low beside hip; 2 staggers back, knees bend and sword arm lowers diagonally; 3 drops to one knee, steadies with katana point-up near ground; 4 final resolute kneeling pose, torso straightens slightly/head bows, sword remains in hand with same dimensions. Clear weight changes, grounded, matching gritty painted game art."
+}

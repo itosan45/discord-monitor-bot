@@ -1,0 +1,132 @@
+{
+  "name": "敵_鉄砲足軽_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-908be310-ed5d-4a65-8a30-de98c571e19f.png",
+  "status": "git_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        114,
+        178,
+        491,
+        565
+      ],
+      "destination": [
+        42,
+        55,
+        172,
+        176
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        597,
+        243,
+        1035,
+        574
+      ],
+      "destination": [
+        28,
+        80,
+        200,
+        151
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1142,
+        333,
+        1560,
+        575
+      ],
+      "destination": [
+        33,
+        121,
+        190,
+        110
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1648,
+        418,
+        2115,
+        576
+      ],
+      "destination": [
+        21,
+        159,
+        213,
+        72
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "9fffed457b349c06512ea717632e37f85c5b0b5a54a05ec85a7646d9a3975a9a",
+  "backgroundSource": [
+    242,
+    23,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの51%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    17769,
+    16867,
+    13264,
+    18173
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_やられ_4コマ_v2_候補保存_20261006_120449_596909_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_やられ_4コマ_v2_候補保存_20261006_120449_596909_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "共通縮尺205/450は起き上がりと同じ頭・胴体。横臥による高さ中央値51%NG。2/4の足先がカメラ方向、接地銃は保持銃より長め。初回+修正3回で選定。",
+  "visualReview": "4コマGIF/OCR/目視確認。脱力→銃を離す→前腕支持して倒れる→横臥静止。純マゼンタ・16余白・接地合格。自然な横臥による高さ中央値51%NG、足先方向と銃の長さ継続性を要注意記録。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

@@ -1,0 +1,74 @@
+{
+  "character": "黒田長政",
+  "action": "連撃1",
+  "frames": 12,
+  "source": "黒田長政_連撃1_source-v1.png",
+  "source_size": [
+    1448,
+    1086
+  ],
+  "source_grid": "4x3, 362x362 each",
+  "output": "黒田長政_連撃1_12コマ_v1.png",
+  "output_size": [
+    6144,
+    384
+  ],
+  "sha256": "02eb038fc04e60c948a088c79ad478a178f882af84700b751e9b9beb49e1921b",
+  "preview_gif": "黒田長政_連撃1_preview-v1.gif",
+  "review_grid": "黒田長政_連撃1_review-grid-v1.png",
+  "frame_sha256": [
+    "90b959b75f1ebdc1d001d45b8a6fcbfaa9ca60e822fe03101dfcf64570cc25a1",
+    "4354af38624e3e23f8a70cc343e7b9e891b8baa47d8278748042f37cfe47e5b9",
+    "2ab5ddc31d27f3d9746965c4fa0869e0299dc2854b15e00afaf6e9e4bd90c2b3",
+    "61c9958920b3f54226915cf1d9cb0a60878605979c3d66081c5cd3af97ae70e9",
+    "81f78b1c196c3d68ddc0e7cd3e855dab41dac02f9e0f4aa013e63fce2c83dc82",
+    "5cfff4a109cc1d8eb4123d4db0b1525cfbd7d408a42ff91770c22732330a372c",
+    "92f965593e6bcd318d044d21952ee6a6d35c2559af253557523cb23e83ed68ee",
+    "e9c7c45211e40c60da6f7536a2fc779e7e0363c12f0fba80f61d81e2f934727b",
+    "27d3f5750f420bc79c350521554776dedd47cddaf9305002c46b8fefef567b9b",
+    "1e7ba52fd0ffda95253e78363a4bb1e91b07d2b2fa459de35ac8e947255b8ca0",
+    "c36a0cfe64d4d5ce61cf53216d5ea026171df4a3392f3bb0f4f39aad2322d849",
+    "075b6da66a13fa6b3172993fb4e1d993f21380376ba7036ed1579372a167657d"
+  ],
+  "adjacent_pixel_difference_sum": [
+    5444002.0,
+    6087583.0,
+    6504505.0,
+    6265883.0,
+    5540679.0,
+    8537039.0,
+    8478198.0,
+    5817770.0,
+    6121176.0,
+    5392370.0,
+    7146079.0
+  ],
+  "ground_anchor_y": 363,
+  "estimated_hit_frames": [
+    7
+  ],
+  "forward_step_frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "sequence": [
+    "neutral low guard",
+    "compress and turn",
+    "dual sword windup",
+    "step and start diagonal cut",
+    "hips rotate and descend",
+    "diagonal strike",
+    "contact peak",
+    "follow-through",
+    "arms extend and cape trails",
+    "low forward lunge",
+    "retract one sword",
+    "low crossed-sword bridge pose"
+  ],
+  "notes": "AI-generated 4x3 pose sheet cropped, background-keyed, uniformly scaled and composited; not hand-drawn. Candidate timing only; hit frames are visual estimates, not game hitboxes. Frame 12 is the intended start pose for combo stage 2."
+}

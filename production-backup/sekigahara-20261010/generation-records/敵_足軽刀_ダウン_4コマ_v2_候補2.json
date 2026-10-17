@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-a4ff668f-3a64-46be-b46f-a9f81ad8ce37.png",
+  "prompt": "Repair FOUR-frame blue katana ashigaru knockdown preserving exact anatomy, character and scale. Frame1recoils unchanged. Frame2 airborne reflex: hips lifted backward, rear knee tucked, FRONT leg extends diagonally DOWNRIGHT toward ground while still airborne; both legs not tightly folded together. Keep same limb lengths. Frame3lands onback kneesbent, right hand holds katana close to chest with blade upright pointing up-right, blade tip noticeably above helmet;4small shoulder/legbounce sameback pose and bladeprotectivelyupright. Preserve actual full weight-driven knockback, don't only change weapon angles. Same body dimension acrossallfour, standing equiv80%cellheight, one whole soldier per equallysizedsquarecell horizontal. All sword/hilt/scabbard and toescomplete, rightfacing, wide16px-equivalentmargins, pure#FF00FF opaque no shadows/text/grid. Don't enlarge lyingbody or shrink standingbody. Need projected heightmedian >55%cell while preservingphysicallycorrectfall.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

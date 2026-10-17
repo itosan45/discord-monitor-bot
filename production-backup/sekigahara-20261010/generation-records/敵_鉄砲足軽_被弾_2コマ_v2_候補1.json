@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-dda67e61-bc16-4855-8b9f-9e5a15e87cad.png",
+  "prompt": "Create TWO-frame HITREACTION animation ofEXACTsameblueashigarumatchlockgunner acceptedidle. SAMEshortblackmoustachechinbeardblackconicalhatarmorrolledsleevespouchesandgun. Frame1flinchesBACKWARD inpain: chestjerksback, shouldersraisefacegrimaces,kneesbend, rightgungripkeepsstockagainstchestleftsupporthandholdsforestock, gunmuzzle tilts slightlyup. Frame2RECOVERSLOWGUARD: torsoleansforward recoveringweightontoFRONTfoot, rearHEELraisedslightly, gunreturnsdiagonalchest. Distinct torsohipweightshift notjustrotatedhead. SAMEheadtorsoandlimbsizeofreference andbothframes, standingequiv205px256cell, no bodyshrink. BOTHfeetstrictRIGHTFACINGPROFILE heelLEFTtoesRIGHT inclrearfoot, no frontrowtoescamera. Samefullgunlength visiblemuzzlestocktriggercord, foldedelbowskeepguninsidecell16margin. Onecompletegunnerpercell2equalsquarecells horizontalrow. Pureopaque#FF00FF no textgridshadowborderfloor scenery gore or effects.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

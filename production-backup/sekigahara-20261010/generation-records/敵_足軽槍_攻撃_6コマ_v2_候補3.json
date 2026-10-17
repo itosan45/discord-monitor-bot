@@ -1,0 +1,8 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-09cd0fea-15a9-4a4a-a38c-1eb768212e92.png",
+  "prompt": "Targeted pose correction on this exact six-frame ashigaru thrust strip, canvas2172x724. Keep all heads, torsos, hands, spears and frames1,2,5,6 unchanged. ONLY compact rear-leg footwork of3 and4 without shrinking anatomy. In frame3 rear foot currently at x~680: STEP it FORWARD about24px to x~704, bend rear knee slightly. In frame4 rear foot is x~1050 while spear tip x~1500: STEP rear foot FORWARD about80px to x~1130, directly below rear hip, with lifted rear heel and bent knee, toe contacting ground at same y~530. The supporting FRONT foot and deeply bent front knee remain in place, torso still strongly leans/thrusts forward. Fold the same leg lengths through knee angle, do NOT shorten legs, shrink body, retract arms or shorten spear. This is a compact forward lunge where the back leg follows in, not a splits pose. Preserve clear rear-foot push and hip weight over front knee. All sandals toe RIGHT. All6 spear butts/tips already fully visible, retain margins. Same flat pure magenta, no grid numbers text shadows. Six equal-region full bodies in one row, same anatomical scale, no floating fragments.",
+  "status": "candidate_needs_more_compact_followthrough",
+  "attempt": 3,
+  "retries": 2,
+  "visualReview": "3後足を前へ追わせる動きを改善。4の足幅がまだ大きいため、最終修正で追い足を臀部直下に置く。人物縮小では解決しない。"
+}

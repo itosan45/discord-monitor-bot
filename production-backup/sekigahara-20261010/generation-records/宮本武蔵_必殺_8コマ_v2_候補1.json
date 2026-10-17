@@ -1,0 +1,19 @@
+{
+  "name": "宮本武蔵_必殺_8コマ_v2.png",
+  "char": "宮本武蔵",
+  "kind": "hero_finisher",
+  "status": "rejected_connected_frames",
+  "candidateCount": 2,
+  "reference": [
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_設定画.png",
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\宮本武蔵_待機_4コマ.png"
+  ],
+  "prompt": "Create a horizontal 8-frame sprite source for Miyamoto Musashi finisher, preserving exact face, rough tied black hair and white headband, worn gray-brown kimono with right sleeve off, wraps and sandals from refs. Right-facing 3/4, full body, same scale, planted baseline and equipment across all frames. He wields two katana: long sword in his right hand and short sword in his left. Motion is one forward charge with a rapid flurry of dual-sword attacks; eight visibly distinct sequential poses: grounded ready crouch; first step/weight transfer; long-sword rising diagonal cut; reverse short-sword cut; advancing crossover cut; second double-blade cross slash; deepest forward finishing lunge; recovery into controlled low guard. Swap support and stride across frames; do not repeat static poses. Thin white slash lines only on impact poses, no fire, no aura, no text. Output one clean horizontal row of exactly eight isolated full-body poses intended for 8 equal 256x256 cells, each pose fully contained with clear gaps, no neighbor bleed, pure flat #FF00FF background. No labels, borders, shadows, extra characters or cropped swords/limbs.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3eb567f8-96c2-4dd9-863a-0e1de52e15ec.png",
+  "sourceSize": [
+    2089,
+    753
+  ],
+  "visualReview": "Both initial and one targeted layout-repair source still have connected sword/slash strokes crossing adjacent pose zones. Eight-frame safe crops would cut weapons/neighbor art; no finished PNG or Git add. Do not regenerate this same task immediately.",
+  "repairSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0ae26f50-319d-4cef-89e2-f62e7c9f919a.png"
+}

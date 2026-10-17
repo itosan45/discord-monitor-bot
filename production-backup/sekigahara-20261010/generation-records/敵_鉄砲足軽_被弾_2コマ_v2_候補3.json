@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-094cf872-0649-4550-b756-167597acf0ac.png",
+  "prompt": "Strictlocaldetailrepair: REMOVEALLGOLD RINGS/BUCKLESfromearsandhelmetchinstrapsinbothfigures. Atsecondfigure near(x1198,y248)theearlobegoldringisstillvisible; replacewithbareordinaryearskin. Atfirstfigure near(x313,y233)goldring/buckle also remove. Helmetchinstrap plainDARKBROWNstrap no metalrings no jewelry no earpiercing. Redrawearlobesnaturalskin, preservefacebeardhat andallotherpixels/bodyposesgunfeet. TWOcompletefigures horizontalrowpureopaque#FF00FF no textshadowgrid.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

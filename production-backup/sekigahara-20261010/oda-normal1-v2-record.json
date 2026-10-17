@@ -1,0 +1,164 @@
+{
+  "name": "織田信長_通常1_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_通常1_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-53a80bc3-2732-4ffd-8b75-2f0b67eda643.png",
+  "status": "git_verified",
+  "scale": 0.3366174055829228,
+  "standingHeightSource": 609.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        11,
+        119,
+        443,
+        723
+      ],
+      "destination": [
+        55,
+        28,
+        145,
+        203
+      ],
+      "scale": 0.3366174055829228,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        376,
+        88,
+        760,
+        724
+      ],
+      "destination": [
+        63,
+        17,
+        129,
+        214
+      ],
+      "scale": 0.3366174055829228,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        754,
+        116,
+        1179,
+        725
+      ],
+      "destination": [
+        56,
+        26,
+        143,
+        205
+      ],
+      "scale": 0.3366174055829228,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1142,
+        129,
+        1668,
+        720
+      ],
+      "destination": [
+        39,
+        32,
+        177,
+        199
+      ],
+      "scale": 0.3366174055829228,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1605,
+        113,
+        1973,
+        724
+      ],
+      "destination": [
+        66,
+        25,
+        124,
+        206
+      ],
+      "scale": 0.3366174055829228,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "87b231680b6e7732ebdc68b3ce62cb955e561340dca7fb36a32ea58462f1d6fb",
+  "backgroundSource": [
+    239,
+    21,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    18199,
+    17988,
+    16632,
+    16210,
+    15680
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\織田信長_通常1_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\織田信長_通常1_5コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "rawSourceSha256": "e5f506e2fe79a02d0677ac3e7da835baa4c4dc186d8c08b146fda6eaebe6887f",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\織田信長_設定画.png",
+  "action": "通常1・刀の斜め斬り5コマ",
+  "promptSummary": "Reference-faithful game sprite strip; one candidate, separated full-body poses and pure magenta background.",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "oda-normal1-v2-record.json",
+  "qaNote": "信長の刀斜め斬り5段階。30規格PASS、OCR文字なし、GIF 5コマ復号80ms、復号後目視OK。",
+  "visualReview": "信長の黒赤金甲冑・三日月前立・家紋旗を維持。納刀構え→振り上げ→斜め斬り→低い振り抜き→構えの5段階が明確。30規格PASS、人物80%、GIF復号5枚を目視。",
+  "ocrReview": "OCR成功、文字列なし",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

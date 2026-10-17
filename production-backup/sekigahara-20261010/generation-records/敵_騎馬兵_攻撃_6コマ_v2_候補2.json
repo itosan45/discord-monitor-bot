@@ -1,0 +1,7 @@
+{
+  "name": "敵_騎馬兵_攻撃_6コマ_v2.png",
+  "candidate": 2,
+  "prompt": "Correct the referenced six-frame mounted lancer thrust strip. PRESERVE exact rider and horse anatomy/head sizes, costume, cone helmet, blue caparison, brown horse, full RIGHT profile. The frame4 silhouette is too wide. Make frames3/4 compact without shrinking ANY anatomy: horse front legs reach less far and hind legs gather closer belly; rider keeps weapon-hand elbow slightly bent during impact; shift both grips along the physically SAME long spear so its rear end stays close behind saddle and front tip just beyond horse nose. Keep long spear SAME length across6 frames, enough diagonal inclination 12 degrees during3/4 to reduce horizontal extent. Target max silhouette width450 source pixels at current image height724, keep head torso same size. Strong thrust still visibly extends hands and spear tip farther in4 than2; show anticipation2, drive3, impact4, retract5,recover6. Six equal square cells ONE ROW all full weapons tails hooves inside ample magenta margins. Exactly four horse legs two human hands; pure#FF00FF no text shadows borders effects. Do not simply scale down figures.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-deaec520-bbf1-4713-8ee3-14559fd33d66.png",
+  "status": "generated"
+}

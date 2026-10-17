@@ -1,0 +1,12 @@
+{
+  "name": "拾得武器_竹槍_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: one dropped-weapon pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce people.\nComposition/framing: one complete pickup centered in one 256x256 square cell, resting diagonally on the ground and occupying about 70-80% of the canvas. At least 20px clear margin. \nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, realistic period materials, consistent with Image 1.\nScene/backdrop: perfectly flat solid RGB(255,0,255) magenta (#FF00FF), no ground plane or cast shadow.\nConstraints: fully visible, physically plausible, one weapon pickup only, no hands/characters, no text/letters/numbers/labels, border, effects, extra items or watermark.\nPrimary request: a dropped Japanese bamboo spear, practical Sengoku ashigaru weapon. Long straight green-gold bamboo shaft with natural nodes and a narrow, simple forged iron spearhead securely mounted at the upper-right end, with a small iron collar. Lay it diagonally from lower-left to upper-right at realistic infantry length.\nMaterials/textures: mature bamboo nodes, modest wear, dark forged iron and steel.\nAvoid: leaf-shaped fantasy blade, extra decorations, oversized spearhead, glow, sparks, blood.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-94fb4558-2696-41b9-a294-4d11f2c8d814.png",
+  "status": "qa_passed",
+  "qaResult": "要注意",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_竹槍_v1.png",
+  "sha256": "96efd6df5e16be91a5b685103579d3c94f87d2bf1a5a92c385fc4d379bc92a42"
+}

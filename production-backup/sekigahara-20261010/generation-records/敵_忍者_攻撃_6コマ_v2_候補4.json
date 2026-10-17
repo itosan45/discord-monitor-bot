@@ -1,0 +1,7 @@
+{
+  "name": "敵_忍者_攻撃_6コマ_v2.png",
+  "attempt": 4,
+  "prompt": "FINALREPAIR6frame ninja dashslash. FRAME4 body+swordWIDTHcurrentlymuchlarger thanothercells, cannotfitSAMEbody SCALE. Do NOTshrinkANYbody/head. Makeframe4 COMPACTdeepforwardlunge: bendfrontweaponelbowabout60degrees sohandscloseinfrontofshoulder, swordrisesSTEEPLY70degUPRIGHT closebody; rearleg knee bendsso rearfootcloserunderbackhip, frontkneeremainsloaded. Shortenssilhouettewidthfromwideoutstretchedpose toabout400rawpx max atsameheadsize. Frame5 similarlyswordsteepUPrightbentelbow, remainfollowthroughrearheelraised withtoeright. Scarfshortcompact atbackallframeskeep16margin. Allother1/2/3/6unchanged, sameanatomy limbs length costumedhoodmaskeyesgraywrapsblackboots, sameactualexposedshortsteelbladenotsheath. SixequalSQUAREcellsrow NOpartsextendingintoneighbors no textgridshadow opaque#FF00FF.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-e8b2a017-7d23-4918-a43a-b9da5b5564ef.png",
+  "status": "generated"
+}

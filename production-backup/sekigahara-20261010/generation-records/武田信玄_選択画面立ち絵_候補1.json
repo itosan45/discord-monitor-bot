@@ -1,0 +1,64 @@
+{
+  "name": "武田信玄_選択画面立ち絵.png",
+  "char": "武田信玄",
+  "group": "ui",
+  "kind": "character_select_full_body",
+  "priority": 5,
+  "status": "git_verified",
+  "attemptCount": 1,
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_選択画面立ち絵.png",
+  "actualName": "武田信玄_選択画面立ち絵.png",
+  "sha256": "2c405935d6ab922fa791a0d4d62b1ca8ced1f3639af4b94c3e055a4ef367ccc0",
+  "generationSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ad63df6c-438e-4fd4-a649-182772cc0edd.png",
+  "generatedSourceSha256": "0f512f40bdbff56ee9ecf72ac2a8f9b02605f38c99ea66ba8f722dd22b08a92d",
+  "sourceReference": "assets/sprites/武田信玄_設定画.png",
+  "referenceAsset": "assets/sprites/武田信玄_設定画.png",
+  "prompt": "Use the approved Takeda Shingen setting sheet only for identity, face, armor, and palette. Create ONE vertical 2:3 full-body character-select standing portrait, a single full-length figure centered and facing three-quarter right. Shingen: imposing older Japanese commander with thick dark moustache and beard, massive flowing white mane, black kabuto with very tall paired gold crescent horns and a central gold diamond crest, rich dark-red and black lamellar armor with antique-gold edges, white braided cords and fur mantle. Give him a still, commanding stance, holding a plain round military war fan at his side with no writing; one sheathed sword at the waist. Show complete horn tips, hair, armor, legs and both sandals inside the canvas with breathing room. Dramatic painterly Japanese historical action-game art, readable silhouette at game-select scale. Exact flat pure magenta #FF00FF background edge to edge. Do not reproduce the reference triptych, standards, lettering, battlefield, text, watermark, frame, extra people, or cropped limbs.",
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "sourceMode": "RGB",
+  "size": [
+    512,
+    768
+  ],
+  "mode": "RGB",
+  "background": "#FF00FF exact pure magenta; outer16 pixels verified",
+  "placementTransform": "Keyed generated near-magenta background: alpha zero at max(255-R,G,255-B)<=38, opaque at >=60, linear antialias between; cropped to visible silhouette and uniformly fitted within a 464x720 area, centered on exact #FF00FF RGB 512x768 canvas. Original generated source preserved unchanged.",
+  "visibleBBox": [
+    49,
+    24,
+    463,
+    744
+  ],
+  "visibleMargins": [
+    49,
+    24,
+    49,
+    24
+  ],
+  "outer16PureMagenta": true,
+  "automaticCheck": [
+    "PASS: 512x768 RGB",
+    "PASS: exact #FF00FF outer16",
+    "PASS: visible silhouette margins >=16px"
+  ],
+  "qaResult": "OK",
+  "visualReview": "Full tall horns, white mane, war fan, armor, legs and both sandals visible. Red/black/gold matches setting art. Fan has no text. Native 512x768 view and margins confirmed.",
+  "ocrResult": {
+    "name": "武田信玄_選択画面立ち絵.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded with no text detected; post-OCR visual inspection completed.",
+  "gitVerified": true,
+  "gitSha256Verified": true,
+  "gitCommit": "a6061bc1c56ad1cca1c82aafb3ce7a79d992edfd",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "a6061bc1c56ad1cca1c82aafb3ce7a79d992edfd",
+  "gitVerifiedAt": "2026-10-07T08:34:29+09:00",
+  "reviewDate": "2026-10-07"
+}

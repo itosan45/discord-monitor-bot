@@ -1,0 +1,106 @@
+{
+  "character": "徳川秀忠",
+  "asset": "徳川秀忠_跳び込み攻撃_8コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      163,
+      222,
+      370,
+      363
+    ],
+    [
+      148,
+      110,
+      337,
+      282
+    ],
+    [
+      175,
+      88,
+      361,
+      281
+    ],
+    [
+      149,
+      111,
+      339,
+      297
+    ],
+    [
+      144,
+      203,
+      383,
+      365
+    ],
+    [
+      153,
+      155,
+      364,
+      366
+    ],
+    [
+      164,
+      167,
+      375,
+      361
+    ],
+    [
+      140,
+      167,
+      349,
+      364
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    183514,
+    183364,
+    181759,
+    182517,
+    178860,
+    179894,
+    180206,
+    180630
+  ],
+  "sha256": "23f4b0387ca9088b20223a2ee9d07e7b057ef1f808480cb89125c0fcb2dc69ba",
+  "generation": "OpenAI built-in imagegen; source references: Hidetada setting sheet and jump_4frame_v2. AI generated and composited; not hand-drawn.",
+  "notes": "v1 is retained as a failed experiment: background segmentation accidentally included non-background label 0. v2 excludes label 0. Frames 5-6 remain visually similar and need animation review; no runtime QA.",
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1316,
+    0.1001,
+    0.1053,
+    0.1405,
+    0.104,
+    0.1133,
+    0.1123
+  ]
+}

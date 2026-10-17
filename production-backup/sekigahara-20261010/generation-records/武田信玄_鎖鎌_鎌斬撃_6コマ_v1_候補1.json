@@ -1,0 +1,126 @@
+{
+  "name": "武田信玄_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-4acec598-af35-48ed-aa20-2f3f76343c40.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_鎖鎌_鎌斬撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5888888888888889,
+  "sourceBounds": [
+    [
+      32,
+      212,
+      327,
+      533
+    ],
+    [
+      383,
+      173,
+      659,
+      533
+    ],
+    [
+      747,
+      212,
+      1085,
+      533
+    ],
+    [
+      1108,
+      223,
+      1425,
+      533
+    ],
+    [
+      1475,
+      235,
+      1807,
+      533
+    ],
+    [
+      1850,
+      211,
+      2139,
+      533
+    ]
+  ],
+  "placements": [
+    [
+      41,
+      41,
+      174,
+      189
+    ],
+    [
+      46,
+      18,
+      163,
+      212
+    ],
+    [
+      28,
+      41,
+      199,
+      189
+    ],
+    [
+      34,
+      47,
+      187,
+      183
+    ],
+    [
+      30,
+      55,
+      196,
+      175
+    ],
+    [
+      43,
+      40,
+      170,
+      190
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの73%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "3016953451d9fddc4327ce9e2e46f2c0acfe41cb867aa2333f01982f2c20ed8a",
+  "prompt": "undefined\n",
+  "char": "武田信玄",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "全6コマ奥手で鎌、手前手で鎖を保持。",
+    "待機より人物がやや小さめ。",
+    "鎖が柄の刃側寄りに接続して見える箇所あり。",
+    "鎧装飾線に待機との差あり。OCRは装飾と鎖の誤認、描画文字なし。",
+    "ゲーム内連動未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "ea8ffca722841f3d71837cbfae196462ade78236",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "3016953451d9fddc4327ce9e2e46f2c0acfe41cb867aa2333f01982f2c20ed8a",
+  "ocrSuccess": true,
+  "ocrText": "ト , 新 1 〔 」",
+  "updatedAt": "2026-10-07T22:35:12.529219+09:00"
+}

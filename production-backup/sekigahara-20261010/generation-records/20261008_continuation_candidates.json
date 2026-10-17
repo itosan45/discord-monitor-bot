@@ -1,0 +1,35 @@
+[
+  {
+    "task": "織田信長_必殺_8コマ_v2.png",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b8addb75-a6d5-4156-be44-9dcb064d318e.png",
+    "normalizedCandidate": "qa/織田信長_必殺_候補1_未採用.png",
+    "status": "rejected_layout",
+    "reason": "30_check_strip.py dimension/background/height checks pass after normalization, but visible fragments from neighboring figures remain at cell edges 2-4; not eligible for delivery.",
+    "candidateCount": 1
+  },
+  {
+    "task": "石田三成_手ぶら_歩き_8コマ_v2.png",
+    "sources": [
+      "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5049e828-a91f-4b8b-9d76-86d76c917559.png",
+      "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-cfcfdbc2-31d9-4052-ac86-44bbcbd439f9.png",
+      "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0ec57ed8-171a-495d-bcc9-f5c6de750cee.png"
+    ],
+    "status": "rejected_motion",
+    "reason": "Candidates repeat a 4-pose walk in the second half; frame1/frame5 support legs do not exchange. Stop further retries in this batch."
+  },
+  {
+    "task": "猿飛佐助_ダウン_4コマ_v1.png",
+    "sources": [
+      "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ff95f440-62bf-4497-a73e-51dab01dd497.png",
+      "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0c35a811-ba15-4383-8fa8-49499b93bc3a.png"
+    ],
+    "status": "qa_hold_scale",
+    "reason": "4-stage reaction is legible, but preserving same anatomical scale makes two prone poses too short for generic 30_check_strip.py median-height threshold; no push."
+  },
+  {
+    "task": "猿飛佐助_低姿勢歩き_8コマ_v1.png",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-860a6f01-2dd7-4a80-b7a5-953684af6a7c.png",
+    "status": "rejected_motion",
+    "reason": "Eight figures alternate across four poses, then repeat the same four poses in frames5-8. No leg support exchange; do not regenerate the same strip immediately."
+  }
+]

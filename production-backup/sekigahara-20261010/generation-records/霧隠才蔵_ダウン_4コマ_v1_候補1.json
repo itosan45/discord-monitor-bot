@@ -1,0 +1,14 @@
+{
+  "name": "霧隠才蔵_ダウン_4コマ_v1.png",
+  "candidateCount": 1,
+  "status": "rejected_bounds",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8e038a14-8e60-40d9-9ebb-d0bd4ddfe4a8.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\霧隠才蔵_設定画_v1.png",
+  "prompt": "One four-frame grounded-to-fall animation strip for Kiri-gakure Saizo, using the reference setting sheet for exact character design: same young Japanese man, dark indigo-gray practical ninja clothes, gray headband, red six-circle chest emblem, katana/scabbard, same build and painterly realistic game illustration. Four distinct sequential full-body frames in strict right-facing side view: 1. braced battle stance, 2. sudden impact recoil with torso tipping backward and feet briefly leaving the ground, 3. falls onto his back/side with bent knees and one hand bracing, sword retained at safe angle, 4. lies still on the ground facing right. Clear motion and weight; no gore or wounds. Exactly four equal 256x256 cells in one horizontal strip, final 1024x256, each pose isolated, no body or weapon clipped, matching scale; pure flat magenta #FF00FF background, no shadows/effects/text/borders/cell lines. If output source is taller than 256px, arrange all four poses in one thin centered horizontal band and leave all other pixels pure magenta.",
+  "sourceSize": [
+    2172,
+    724
+  ],
+  "candidateCopy": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\霧隠才蔵_ダウン_4コマ_v1_候補1.png",
+  "rejection": "第3/4コマの全身+刀の横幅が、共通縮尺と16px余白を保つ256pxセル幅を超過。"
+}

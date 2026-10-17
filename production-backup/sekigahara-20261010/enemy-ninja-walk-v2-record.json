@@ -1,0 +1,217 @@
+{
+  "name": "敵_忍者_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_忍者_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-a789cc19-45c4-4772-86dc-89a207aaa288.png",
+  "status": "git_verified",
+  "scale": 0.5540540540540541,
+  "standingHeightSource": 370.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        23,
+        216,
+        275,
+        532
+      ],
+      "destination": [
+        58,
+        56,
+        140,
+        175
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        297,
+        217,
+        544,
+        534
+      ],
+      "destination": [
+        59,
+        55,
+        137,
+        176
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        566,
+        217,
+        806,
+        530
+      ],
+      "destination": [
+        61,
+        58,
+        133,
+        173
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        823,
+        216,
+        1074,
+        530
+      ],
+      "destination": [
+        58,
+        57,
+        139,
+        174
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1107,
+        217,
+        1360,
+        531
+      ],
+      "destination": [
+        58,
+        57,
+        140,
+        174
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1382,
+        217,
+        1620,
+        533
+      ],
+      "destination": [
+        62,
+        56,
+        132,
+        175
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1641,
+        216,
+        1877,
+        533
+      ],
+      "destination": [
+        62,
+        55,
+        131,
+        176
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1896,
+        217,
+        2142,
+        534
+      ],
+      "destination": [
+        60,
+        55,
+        136,
+        176
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "43ce57c012e2c5e329b6f00228c27946f2d4dceab19b78d2f627fc8015b822f5",
+  "backgroundSource": [
+    241,
+    22,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14695,
+    14664,
+    14733,
+    13665,
+    14096,
+    13866,
+    14663,
+    13811
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_歩き_8コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 8,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_歩き_8コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 3,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "3/7で脚を寄せた通過姿勢、1/5パンツの重なりは変化したが左右脚の入替証明が弱い。7後ろ靴は下向き/左寄り、最終4は靴底が更に左へ向くため候補3を選定。 追加拡大検品:右手の黒い武器は鞘状に見え露出刃が不明確。修正上限4候補後の要注意項目として記録。",
+  "visualReview": "8コマGIF・規格・OCR確認。低い腰、逆手短刀、上半身安定、通過姿勢3/7改善。1/5脚の完全交代は弱く、7後ろ足先の向きを要注意。初回+3修正後最良3を採用。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

@@ -1,0 +1,125 @@
+{
+  "name": "石田三成_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-e92f97ce-2706-4c04-bc94-8c272c0ff16b.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5989304812834224,
+  "sourceBounds": [
+    [
+      45,
+      192,
+      351,
+      503
+    ],
+    [
+      399,
+      191,
+      694,
+      504
+    ],
+    [
+      762,
+      190,
+      1048,
+      504
+    ],
+    [
+      1077,
+      190,
+      1404,
+      503
+    ],
+    [
+      1459,
+      202,
+      1833,
+      503
+    ],
+    [
+      1856,
+      191,
+      2133,
+      503
+    ]
+  ],
+  "placements": [
+    [
+      36,
+      44,
+      183,
+      186
+    ],
+    [
+      39,
+      43,
+      177,
+      187
+    ],
+    [
+      42,
+      42,
+      171,
+      188
+    ],
+    [
+      30,
+      43,
+      196,
+      187
+    ],
+    [
+      16,
+      50,
+      224,
+      180
+    ],
+    [
+      45,
+      43,
+      166,
+      187
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの73%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "8863dda0d98b969c8d813a83b6f0f7093d4c7e382fd28201e879d3e7f00326dd",
+  "prompt": "Six right-facing Mitsunari chain hauling phases. Same purple and gold armor and fan helmet. Left hand holds sickle, right hand pulls chain backward; planted feet; pure magenta; no effects. Rear knee bent and hips retreat.",
+  "char": "石田三成",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "待機比で人物が小さめ。幅224制限により高さ約187px。",
+    "後ろ膝の曲げと腰の後退が弱い。鎖の接続先が刃寄りに見えるコマあり。",
+    "OCR文字は装飾と鎖の誤認で、描画文字なし。",
+    "ゲーム内連動は未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "0c8df6ce6698806e17a713bc76cf43d9c2d487cb",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "8863dda0d98b969c8d813a83b6f0f7093d4c7e382fd28201e879d3e7f00326dd",
+  "ocrSuccess": true,
+  "ocrText": "“ ダ い ー 三",
+  "updatedAt": "2026-10-07T22:04:00.547606+09:00"
+}

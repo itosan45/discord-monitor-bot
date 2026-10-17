@@ -1,0 +1,10 @@
+{
+  "name": "真田幸村_手ぶら_攻撃A_5コマ_姿勢ガイド候補",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-807c0e26-3de9-4d24-96ab-aba48f2a32f5.png",
+  "prompt": "Image1 RIGHT-facing profile Yukimura gives exactcharacterdesign, crimsonarmor/goldantlers/scarf/white sash/brownpants/redgreaves/sandals/sixcoinbackbanner. Image2 five-frame POSEguide gives EXACT arm/fist/leg jointpositions: ORANGE is anatomicalRIGHT NEAR arm/fist, BLUE is LEFT FAR arm/fist. Renderguideposes withoriginalredcostume (no orangeblueguidepaint). FIVE frames of UNARMED downwarddiagonal emptytwo-handgrip swing: ready, nearhead windup, swingdown, lowfrontfollowthrough,recover. Both CLOSED EMPTY FISTS spacedconstantly, RIGHT near fist is FORWARD/right of LEFTfarfist in ALL5 frames, both fists infront oftorso; never leaveleftarmhangingbehind. Preservecorrect near-rightarm layering. No handheldweaponanywhere, no pole/sword/spear/gun/fan/translucentrod. Backbannerpoleallowed. Bothhandsstayfistsnotopenpalms; noextraarms/hands. Wholefigure right-facingstrictprofile everyframe; characteranatomicaldimensionssame, no shrink duringattack. Use lowcombatstancedrawlegsandarmguideposesfaithfully. Onehorizontalrow5 fullbodies, clearpuremagenta gaps betweenfullsilhouettes andoutermargins,wholeantlers/scarf/banner included.256squarecells,standing-equivalent205px,230pxsoles,16pxmargin. Originalarcadepainted anime-realisticdarkoutline/celshade. Flatpure#FF00FF (notwhite), noshadow/labels/numbers/text/grid/borders, no guide shapes/colors.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+    "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\pose-guides\\右拳前_左拳後_手ぶら下降斬り5コマ_姿勢のみ.png"
+  ],
+  "status": "candidate_pending_QA"
+}

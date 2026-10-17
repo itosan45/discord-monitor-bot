@@ -1,0 +1,16 @@
+{
+  "name": "真田幸村_鎖鎌_移動旋回_8コマ_v1.png",
+  "char": "真田幸村",
+  "prompt": "undefined\n Candidate2 layoutspacing andoppositelegs correction requested.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-2ff22d9d-e122-4185-89a7-4496b32f14a4.png",
+  "initialSource": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c2ebf0d0-4608-4ca9-944b-f4131c659f7c.png",
+  "status": "held_visual_failure",
+  "visualApproved": false,
+  "gitVerified": false,
+  "candidateCount": 2,
+  "warnings": [
+    "1・5の先行脚が同じ。2/6・3/7も同じ脚で8歩行周期になっていない。",
+    "隣マントと鎌の間隔不足。切り分けで接触検査が必要。"
+  ],
+  "nextAction": "4～8の脚を対象に左右交替を修正。画面内の脚位置だけでなく膝と股関節の前後重なりを指定する。候補保存済み、同じ全体再生成を反復しない。"
+}

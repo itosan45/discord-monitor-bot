@@ -1,0 +1,94 @@
+{
+  "name": "穴山小助_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-014c608d-ffd2-4d92-803c-cf3c1f40c532.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\穴山小助_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3271604938271605,
+  "sourceBounds": [
+    [
+      163,
+      42,
+      369,
+      690
+    ],
+    [
+      705,
+      42,
+      912,
+      690
+    ],
+    [
+      1248,
+      42,
+      1456,
+      690
+    ],
+    [
+      1791,
+      42,
+      1999,
+      690
+    ]
+  ],
+  "placements": [
+    [
+      94,
+      18,
+      67,
+      212
+    ],
+    [
+      94,
+      18,
+      68,
+      212
+    ],
+    [
+      94,
+      18,
+      68,
+      212
+    ],
+    [
+      94,
+      18,
+      68,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 88%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "755d2847b488cd2d2042674e459f461814c2ef16ace4206c08c4b6aa3dd2d015",
+  "prompt": "Anayama Kosuke idle breathing FOUR chronological fullbody frames SINGLE HORIZONTAL ROW. EXACT same samurai as reference RIGHT-side view: young clean-shaven face black kabuto sixredcoins crest, worn crimson black lamellar armor, dark pants red shin guards sandals, red banner sixBLACKcoins2rows3 completepole, black sheathedshortsword lefthip. Primary straight yari same long brown shaft steelhead as reference about1.15xbodyheight. Hold upright right hand atwaist left supports shaft, butt near ground, spearpoint abovehead fullyvisible ALLframes and exactly same length. Fixed camera/body scale, fixed planted footpositions, balanced slightly flexed knees. 1 relaxed exhale,2 chest expands inhale,3 shoulders/head rise slightly peak inhale,4 settles toward1; feet remain fixed and spear stays upright stable. No walking/attack. FOUR equal cells separatedmagenta, all spear tips/butts/flags/head/feet inside owncell generousmargins. Whole speartip tofeet approx82%cellheight, keep realistic body-to-spear proportion. Wide horizontalPNG, pureflat#FF00FF background, gritty painted game sprite matchingreference. Noeffects/shadows/text/grid/scenery.",
+  "char": "穴山小助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "Reviewed all four GIF-decoded frames against source/reference: same crimson armor black kabuto, six-coin banner and pole, full straight yari equal length, both hands grip, full feet. Uniform scale and ground, no clipping/effects/text; OCR armor patterns only. Breathing and knee flex shallow; spear butt floats slightly above feet ground as in grip stance, caution. Own idle scale established.",
+  "gitVerified": true,
+  "gitCommit": "42f62839c11fdc36d5bbd50ebdbf874ad5e4a905",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "755d2847b488cd2d2042674e459f461814c2ef16ace4206c08c4b6aa3dd2d015",
+  "ocrSuccess": true,
+  "ocrText": ": へ を 第 く べ を 下 く",
+  "updatedAt": "2026-10-07T15:35:48.992105+09:00"
+}

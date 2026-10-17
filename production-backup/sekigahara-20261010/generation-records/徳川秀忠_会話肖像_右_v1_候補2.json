@@ -1,0 +1,39 @@
+{
+  "name": "徳川秀忠_会話肖像_右_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-51e49895-234f-4673-8713-78e11671f2f5.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\徳川秀忠_会話肖像_右_v1.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sourceBounds": [
+    45,
+    50,
+    1222,
+    1208
+  ],
+  "placement": [
+    64,
+    82
+  ],
+  "candidateCount": 2,
+  "status": "git_verified",
+  "sha256": "b8cd16640da9b33cbe19dc05bd667023a980bad2872b1c6f92471d939858c79f",
+  "updatedAt": "2026-10-07T14:36:24.207207+09:00",
+  "prompt": "Preserve this exact rightfacing Tokugawa Hidetada portrait identity, face, helmet, horn shape, armor, crests, colors, composition and rendering. ONLY zoomout figure about12percent within same1254square transparentcanvas, restore complete outer shoulder armor curves on BOTH sides with generous64px transparentmargin. Full horns/hair/shoulders/chest inside canvas. Do notcrop or change design. Realtransparent PNG, noeffects/text.",
+  "kind": "dialogue_portrait",
+  "char": "徳川秀忠",
+  "direction": "右向き",
+  "visualApproved": true,
+  "ocrReview": "OCR fragments are repeated armor plates, cords and motifs; no lettering visible. Full opposite-view identity and margin inspected.",
+  "gitVerified": true,
+  "gitCommit": "673ea8e253b19d071913ba7518badc3b8172c78b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b8cd16640da9b33cbe19dc05bd667023a980bad2872b1c6f92471d939858c79f",
+  "qaResult": "OK",
+  "ocrSuccess": true,
+  "ocrText": "に 可 コ コ ー ■ ー ■ ー ー を 一 ■ 一 ■ ■ 「 を",
+  "visualReview": "Stern young warrior, twin gold horn helmet, Tokugawa three-leaf crests, navy gold armor and blue cords. Right-facing chest-up, full hair/beard/shoulders, alpha/margins and OCR reviewed."
+}

@@ -1,0 +1,129 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-6d3b7267-75c2-4b62-b4bd-b86de391c83f.png",
+  "sourceSha256": "0e60adcf23130efbaaf681ab86fc8da21dfff887751ba9ec0754092806d4a19b",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "Create ONE original production sprite strip for the side-scrolling Sengoku action game Sekigahara Ranbu: Ishida Mitsunari, 4-frame defeat animation. Reference 1 is identity only (dark samurai armor, purple-and-gold coat, gold fan-shaped helmet crest, stern mature face); reference 2 is current game sprite style, anatomy and weapon identity only (right-hand matchlock gun and left-hand war fan); reference 3 is only a generic fall-progression guide. Do not copy any reference frame, text, banner, crop or pixels. One horizontal row with exactly four distinct, evenly spaced, full-body poses, one per equal-width cell for a final 1024x256 strip. Side profile facing RIGHT in every frame. Same adult character and identical anatomical scale throughout; complete body and weapon silhouettes, minimum 16px cell margins after normalization. Solid flat RGB magenta #FF00FF background. Four key poses: (1) hit recoil, leaning back with knees bent, grimacing, matchlock held close across the torso and war fan still in left hand; (2) balance breaks, shoulders pitch down, knees buckle, gun lowers safely and fan slips toward ground; (3) drops to one knee and braces one hand on ground, gun and fan settle naturally beside him; (4) lies on his side facing right, knees folded, matchlock and fan resting next to him, not floating. A readable impact-to-collapse sequence, not repeated standing poses. Keep face, purple/gold armor, crest, gun and fan recognizable and consistent. No back banner, words or symbols, labels, numbers, grid, borders, blood, extra people, detached body parts, shadows, motion blur or special effects. Crisp painted anime-realistic Sengoku arcade sprite with clean outlines and grounded believable weight.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/石田三成_設定画.png",
+    "assets/sprites/石田三成_歩き_8コマ_v2.png",
+    "assets/sprites/石田三成_やられ_4コマ.png"
+  ],
+  "actualName": "石田三成_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_やられ_4コマ_v2_candidate1-normalized-tight.png",
+  "sha256": "8f0dbc9d2ce0440c9aa75502c33a34e220a660e8db3c06d19c0dbe6cd4ed09fc",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.405797,
+    "groundLine": 230,
+    "description": "A single shared scale across frames; near-magenta keyed to alpha then composited on solid magenta. Recentered each full pose into an equal-width cell. Excluded one 145px isolated seam speck outside the frame-3 main silhouette; no body or weapon components removed or synthesized."
+  },
+  "sourceMainBoxes": [
+    [
+      38,
+      138,
+      522,
+      620
+    ],
+    [
+      543,
+      206,
+      1041,
+      617
+    ],
+    [
+      1073,
+      338,
+      1570,
+      625
+    ],
+    [
+      1594,
+      451,
+      2145,
+      635
+    ]
+  ],
+  "placements": [
+    {
+      "frame": 1,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "ground": 230,
+      "estimatedBodyGround": 229
+    }
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_ishida_hurt_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_ishida_hurt_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": ""
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_ishida_hurt_candidate1\\strip-preview-80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "0525f3783854dce99565e6d2ab8435a0c1481c439d5e91164af072ae3aefa33d",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_ishida_hurt_candidate1\\gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "全4コマの三成の顔・金色扇形前立て・紫金衣装・右向き、右手の火縄銃と左手の軍扇を確認。衝撃後退→膝崩れ→膝つき→横たわる動きが異なり、最終コマで銃と扇が自然に横へ置かれる。頭・足・銃身・扇の欠け、文字なし。接地・セル余白を確認。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの55%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    25377,
+    21690,
+    17138,
+    25120
+  ],
+  "gitCommit": "8230aa2fcf2d85f40c1fd7c97b7cd4fdbeb1b070",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "673b02d19111a06a043c34f2b911a5dc2139cdd4",
+  "remoteSha256": "8f0dbc9d2ce0440c9aa75502c33a34e220a660e8db3c06d19c0dbe6cd4ed09fc",
+  "remoteByteMatch": true,
+  "commitContainsOnlyTargetPng": true,
+  "completedAt": "2026-10-07T09:17:17+09:00"
+}

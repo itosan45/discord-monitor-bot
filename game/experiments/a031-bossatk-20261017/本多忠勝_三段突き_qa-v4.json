@@ -1,0 +1,94 @@
+{
+  "asset": "本多忠勝_三段突き_8コマ_v4.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "frame_foreground_bboxes": [
+    [
+      22,
+      175,
+      488,
+      362
+    ],
+    [
+      68,
+      175,
+      442,
+      362
+    ],
+    [
+      16,
+      179,
+      495,
+      362
+    ],
+    [
+      34,
+      175,
+      466,
+      362
+    ],
+    [
+      19,
+      175,
+      491,
+      346
+    ],
+    [
+      41,
+      175,
+      469,
+      362
+    ],
+    [
+      29,
+      175,
+      482,
+      362
+    ],
+    [
+      16,
+      184,
+      495,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1908,
+    0.1986,
+    0.1913,
+    0.1929,
+    0.2168,
+    0.2379,
+    0.2525
+  ],
+  "sha256": "7da8fd9d6883e81b98b17255b3262a9d92af5c735d3235c2e2d7fa74802ce948",
+  "generation": "AI generated/composed into cells, not hand-drawn.",
+  "notes": "v4 masks two manually reviewed below-foot ROIs in frame 5 to remove detached antler and spear-tip fragments. Main legs, active spear, and hit spark stay outside the masks. Candidate only; game timing and hitboxes pending."
+}

@@ -1,0 +1,8 @@
+{
+  "name": "敵_騎馬弓兵_やられ_4コマ_v2.png",
+  "candidate": 2,
+  "prompt": "Use case: game-asset precise-object-edit\\nAsset type: corrected 4-frame defeated archer sprite strip\\nInput images: Image 1 is the exact strip to edit.\\nPrimary request: Make one localized physical-contact correction to this strip. In frames 2, 3, and 4, the prone archer's lowest body parts (legs, hips, elbow/forearm) must visibly rest on the same implied ground line as the final resting pose; do not make the body float 20-25 pixels above the ground. Move the yumi bow upward beside/across the torso so its tip does not define a lower ground line than the body. Keep the same relaxed defeated side-lying action.\\nConstraints: preserve exactly four equal 384x384 cells in one horizontal strip (1536x384 total), exact same archer design, face, armor, scale, colors, linework, poses and equipment. Preserve frame 1 unchanged as much as possible. Do not shrink or enlarge the person. Keep the horse entirely absent in all frames. Do not crop the body or bow. Keep a flat pure #FF00FF background and at least 16px edge margin. Retain the right-facing profile and smooth sequence from fall to stillness.\\nAvoid: redesign, new props, horse, blood, shadows, background scenery, text, labels, cell borders, duplicated limbs, floating body or weapon, changes to identity or palette, watermark.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c2ee08f0-a96e-4bc6-9360-f5efd2d71b19.png",
+  "editedFrom": "C:/Users/user/Desktop/output/sekigahara-new-20261006/scale-candidates/敵_騎馬弓兵_やられ_4コマ_v2.png",
+  "status": "generated"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "織田信長_手ぶら_歩き_8コマ_v2.png",
+  "char": "織田信長",
+  "kind": "sprite_motion",
+  "candidate": 1,
+  "status": "rejected_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-6e9e9fc3-2ce4-4c89-a41d-af098ded09eb.png",
+  "candidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261008_oda_unarmed_walk\\candidate-01.png",
+  "prompt": "Unarmed Oda Nobunaga right-facing combat walk, both empty fists held in consistent grip; 8 frames: 1 right-foot contact, 2 weight shift, 3 left pass, 4 left swing, 5 left-foot contact opposite frame1, 6 weight shift, 7 right pass, 8 right swing. Same exact setting and idle design, flag, armor, scale, ground line and magenta background.",
+  "automaticPass": true,
+  "visualApproved": false,
+  "qaResult": "NG",
+  "reason": "Frames 1/5 repeat nearly the same leg lead; normalized lower-body silhouette IoU=0.925. Rejected despite passing geometry checks."
+}

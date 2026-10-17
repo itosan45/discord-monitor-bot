@@ -1,0 +1,176 @@
+{
+  "name": "真田幸村_歩き_8コマ_依頼仕様版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\真田幸村_歩き_8コマ_依頼仕様版.png",
+  "status": "candidate",
+  "width": 2048,
+  "height": 256,
+  "n": 8,
+  "cell": 256,
+  "margin": 16,
+  "scale": 0.36661211129296234,
+  "baseline": 239,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBox": [
+        22,
+        70,
+        631,
+        644
+      ],
+      "dest": [
+        16,
+        29,
+        223,
+        210
+      ],
+      "sourceGround": 642
+    },
+    {
+      "frame": 2,
+      "sourceBox": [
+        533,
+        74,
+        1140,
+        647
+      ],
+      "dest": [
+        16,
+        29,
+        223,
+        210
+      ],
+      "sourceGround": 646
+    },
+    {
+      "frame": 3,
+      "sourceBox": [
+        1059,
+        70,
+        1646,
+        648
+      ],
+      "dest": [
+        20,
+        27,
+        215,
+        212
+      ],
+      "sourceGround": 647
+    },
+    {
+      "frame": 4,
+      "sourceBox": [
+        1558,
+        73,
+        2163,
+        650
+      ],
+      "dest": [
+        17,
+        28,
+        222,
+        212
+      ],
+      "sourceGround": 648
+    },
+    {
+      "frame": 5,
+      "sourceBox": [
+        0,
+        0,
+        611,
+        558
+      ],
+      "dest": [
+        16,
+        35,
+        224,
+        205
+      ],
+      "sourceGround": 557
+    },
+    {
+      "frame": 6,
+      "sourceBox": [
+        523,
+        71,
+        1133,
+        618
+      ],
+      "dest": [
+        16,
+        39,
+        224,
+        201
+      ],
+      "sourceGround": 616
+    },
+    {
+      "frame": 7,
+      "sourceBox": [
+        1044,
+        69,
+        1647,
+        637
+      ],
+      "dest": [
+        17,
+        31,
+        221,
+        208
+      ],
+      "sourceGround": 636
+    },
+    {
+      "frame": 8,
+      "sourceBox": [
+        1558,
+        71,
+        2153,
+        636
+      ],
+      "dest": [
+        19,
+        33,
+        218,
+        207
+      ],
+      "sourceGround": 634
+    }
+  ],
+  "parts": [
+    {
+      "key": "a",
+      "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\originals\\幸村_戦闘構え_a_原本.png",
+      "sha256": "6ec964c44d873ab5352b4a931aab433e790d934b275c0daad407b2eb8da8fe8b",
+      "background": [
+        240,
+        23,
+        239
+      ]
+    },
+    {
+      "key": "b",
+      "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\originals\\幸村_戦闘構え_b_原本.png",
+      "sha256": "c0389e527ef2b72e844cd62bf6e284a769d3d4e3ab8109e1dc17a9b99b714b1a",
+      "background": [
+        241,
+        21,
+        239
+      ]
+    },
+    {
+      "key": "phase5",
+      "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\originals\\幸村_戦闘構え_phase5_原本.png",
+      "sha256": "1c596133a0fc5e5d92e1b4058c48c0010e5d6f16e951ece90d515f2364e74611",
+      "background": [
+        240,
+        22,
+        240
+      ],
+      "normalizedToSourceBodyRatio": 0.5242165242165242
+    }
+  ],
+  "sha256": "07fbaee03dc90411261ee3d2f9f13e4d9429bd8ad38c8d9ddda2ebc2b2ca6df1"
+}

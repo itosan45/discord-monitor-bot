@@ -1,0 +1,8 @@
+{
+  "name": "敵_足軽刀_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-92f9fd4e-5bd6-4970-bd7f-4ca1a454508b.png",
+  "prompt": "Make a targeted edit to ONLY legs in frame5 and6 of this8-cell blue ashigaru katana walk. All head/torso/clothes/katana and other6cells unchanged. Frame5 current leg arrangement repeats1. Replace it with opposite leg contact: NEAR leg must be the REAR leg, its thigh extends diagonally DOWN-LEFT from hip, knee behind body, shin angled toward a rear right-pointing sandal; FAR leg extends DOWN-RIGHT from hip, knee in front, sole planted ahead. The near rear thigh visibly overlaps/occludes far thigh at hip. Frame6 transfer weight onto FAR FRONT knee, NEAR REAR foot lifts heel. Preserve thigh/greave/feet costume sizes, both toes right, hips low. Do not just move feet or mirror footwear; change anatomical thigh overlap and knee placement. Eight fullbody equal squarecells row, complete blade8 within margin, pure#FF00FF no text/shadows/grid. Upperbodyweaponstable.",
+  "attempt": 4,
+  "status": "candidate_pending_QA",
+  "visualReview": "1/5脚の遮蔽交換は弱い。3/7通過、全刀先、右向き保持。8武器が少し上がり要注意。"
+}

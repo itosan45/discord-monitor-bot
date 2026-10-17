@@ -1,0 +1,133 @@
+{
+  "name": "敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_起き上がり_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-813709fa-0bb7-4ed2-a48a-3deac61c22ab.png",
+  "status": "git_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        52,
+        344,
+        518,
+        567
+      ],
+      "destination": [
+        22,
+        129,
+        212,
+        102
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        588,
+        269,
+        1047,
+        567
+      ],
+      "destination": [
+        23,
+        95,
+        209,
+        136
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1127,
+        194,
+        1576,
+        568
+      ],
+      "destination": [
+        25,
+        61,
+        205,
+        170
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1722,
+        194,
+        2080,
+        566
+      ],
+      "destination": [
+        46,
+        62,
+        163,
+        169
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "818d97413474e562b6ac6f8eb130a1f3b7f8bdabe53be3548c3f7596d1ad6be7",
+  "backgroundSource": [
+    240,
+    24,
+    239
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの59%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    16488,
+    20003,
+    17985,
+    18939
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_起き上がり_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_起き上がり_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 4,
+  "retries": 3,
+  "selectedCandidate": 4,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "仰向け→片手支持→片膝→構え。余分な第三の手は修正済み。3コマ目の後ろ足先が左向きのまま残る。共通縮尺205/450で頭部・胴体は待機と照合。",
+  "visualReview": "規格合格、GIF4コマ12.5fps確認、OCR空。仰向けから片手と片膝を使い起立。第3コマ後ろ足先左向きが3回修正後も残るため要注意。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

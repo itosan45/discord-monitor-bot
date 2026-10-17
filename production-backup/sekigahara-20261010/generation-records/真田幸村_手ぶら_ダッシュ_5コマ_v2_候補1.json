@@ -1,0 +1,106 @@
+{
+  "name": "真田幸村_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-54a31793-b715-4be1-9f4e-e92afcea7b74.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.53,
+  "sourceBounds": [
+    [
+      22,
+      29,
+      322,
+      429
+    ],
+    [
+      406,
+      29,
+      743,
+      427
+    ],
+    [
+      815,
+      29,
+      1150,
+      427
+    ],
+    [
+      1216,
+      36,
+      1582,
+      426
+    ],
+    [
+      1649,
+      30,
+      1950,
+      429
+    ]
+  ],
+  "placements": [
+    [
+      48,
+      18,
+      159,
+      212
+    ],
+    [
+      38,
+      19,
+      179,
+      211
+    ],
+    [
+      39,
+      19,
+      178,
+      211
+    ],
+    [
+      31,
+      23,
+      194,
+      207
+    ],
+    [
+      48,
+      19,
+      160,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "0a1d5d59cdd3b8b8d7fcf9022cf49a18e678514964ba88e3312c4c0373e36163",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison. Exact character helmet/armor/cape/banner retained; full empty fists extend during forward lunge, rear push/heel lift and body lean then recoil. Right-facing, same ground230px, anatomy scale retained with low forward lean. All horns/flag/feet/hands inside margins, no effects/cropping/neighbor contamination, OCR empty. Caution: passing-step leg exchange is weak; this is a short burst lunge rather than convincing alternating running stride.",
+  "motionCaution": "Weak leg-phase exchange; do not claim cyclic run motion verified. Preserve candidate1 and deliver reviewed caution without repeated generation.",
+  "gitVerified": true,
+  "gitCommit": "8bef532c4b7247a6973210505cefaeae8f24e462",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "0a1d5d59cdd3b8b8d7fcf9022cf49a18e678514964ba88e3312c4c0373e36163",
+  "prompt": "FIVE chronological gameplay frames: Sanada Yukimura UNARMED DASH ATTACK, visibly rapid forward driving step plus paired-fist thrust, not five static guards. Reference1 exact face/red-gold armor/gold deer-antler helmet/red scarf and cape, REQUIRED red back banner gold six coins (2rows3) and full pole. Reference2 ONLY idle anatomy and scale; do NOT copy absent banner. Every figure shows complete banner. NO spear/sword/scabbard/stick/weapon, EMPTY clenched fists close as two-hand imaginary grip.1 low anticipation weight rear fists near waist;2 push strongly off rear foot, front knee drives forward, torso leans RIGHT, both fists begin extending;3 passing step front foot plants and other knee advances, hips move forward, BOTH fists thrust RIGHT;4 firm compact front lunge, BOTH arms extended with TWO stacked visible fists, rear heel raised but toes grounded;5 brake front foot, rear foot collects and both fists recoil waist guard. Clearly different leg positions and arm extension, at leastONE sole or toes on same ground in each pose, no airborne leap. All face RIGHT, same anatomical head/torso/limb scale. Moderate compact strides, cape/scarf close behind body, total width inclfists/cape<=helmet-to-sole height. Full antlers/flag/hands/boots within each isolated frame. Pure #FF00FF, no effects/speedlines/shadows/flames/light/UI/labels/numbers. Intermediate3columns x2rows atlas,5 figures row-major, bottom-right blank. Square cells, generous gutters, NO grid. Helmet-to-sole80%cellheight, ground90%. Pack1280x256 later.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:40:08.741773+09:00"
+}

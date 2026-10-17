@@ -1,0 +1,25 @@
+{
+  "commit": "55bb7c39b62d0e9ad74a03798fdb0f7350288485",
+  "remote": "55bb7c39b62d0e9ad74a03798fdb0f7350288485",
+  "verifiedAt": "2026-10-06T17:19:25.890997+00:00",
+  "assets": [
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "織田信長_通常4_6コマ_v2.png",
+      "name": "織田信長_通常4_6コマ_v2.png",
+      "sha256": "eaeef0aaa577524d8f2f061995dd13de4d3da141c948f3885252d298b0369339",
+      "qaResult": "OK",
+      "record": "oda-normal4-v2-record.json",
+      "priorStatus": "qa_passed"
+    },
+    {
+      "taskFile": "tasks-v2.json",
+      "taskName": "武田信玄_通常3_5コマ_v2.png",
+      "name": "武田信玄_通常3_5コマ_v2.png",
+      "sha256": "372aff490994f0824432f167d0f1e3b0d7298591158561ff9933c8549492a584",
+      "qaResult": "OK",
+      "record": "shingen-normal3-v2-record.json",
+      "priorStatus": "qa_passed"
+    }
+  ]
+}

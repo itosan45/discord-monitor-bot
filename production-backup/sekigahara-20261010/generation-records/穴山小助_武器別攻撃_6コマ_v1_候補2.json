@@ -1,0 +1,17 @@
+{
+  "name": "穴山小助_武器別攻撃_6コマ_v1.png",
+  "candidate": 2,
+  "char": "穴山小助",
+  "action": "武器別攻撃",
+  "weapon": "槍",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4486e9a8-19a3-4c1e-b6e1-1f0e4f9228c4.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\穴山小助_待機_4コマ_v1.png",
+  "prompt": "Edit the attached 3x2 storyboard atlas while preserving the exact same six poses, Anayama Kosuke identity, red-black armor, six-coin flag, painterly style and full character scale. Correct only spear orientation and clearance: keep the spear at the same realistic full length in every pose, but angle it more upright in frames 2 and 3, and angle it about 25 degrees upward in the forward thrust/follow-through frames 4 and 5. This reduces horizontal projection without shortening the shaft or cropping the point/butt. Keep every object at least 32 source pixels inside its 512px square panel (equivalent to 16px after output at 256px); no weapon, banner, limbs or adjacent pose crosses any cell edge. Keep soles aligned at the same source y for standing/lunging poses, with the thrust lunge natural and weight committed forward. Clear attack sequence and no repeated static frames. Do not shrink the character; maintain same helmet-to-sandal height as the wait reference. Exact 3 columns x 2 rows, frames1-3 top, 4-6 bottom, flat pure #FF00FF background, no text/effects/shadows/borders/grid/extra characters.",
+  "createdAt": "2026-10-08",
+  "correctionReason": "keep full spear and body scale inside sprite frame margins",
+  "noFurtherRegenerationPlanned": true,
+  "sourceDimensions": "1536x1024",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-de9e7e91-11f7-44c7-88e1-0741c83702f7.png",
+  "status": "rejected_cell_overflow_corrected_in_candidate3",
+  "rejectionReason": "Frame5 bounding width 484 source px; global scale 0.5 would leave only 14px margins. One final correction raises spear angle in frames4-5 without shortening spear or shrinking character."
+}

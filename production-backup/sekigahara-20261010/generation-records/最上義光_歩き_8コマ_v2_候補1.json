@@ -1,0 +1,145 @@
+{
+  "name": "最上義光_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-aa8fd910-0fc2-4011-b6b8-6cb0b4051c0e.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\最上義光_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.6422594142259415,
+  "sourceBounds": [
+    [
+      74,
+      16,
+      302,
+      490
+    ],
+    [
+      465,
+      15,
+      679,
+      492
+    ],
+    [
+      855,
+      15,
+      1057,
+      492
+    ],
+    [
+      1236,
+      15,
+      1446,
+      490
+    ],
+    [
+      68,
+      520,
+      303,
+      994
+    ],
+    [
+      453,
+      519,
+      684,
+      995
+    ],
+    [
+      842,
+      520,
+      1064,
+      996
+    ],
+    [
+      1234,
+      519,
+      1465,
+      997
+    ]
+  ],
+  "placements": [
+    [
+      119,
+      42,
+      146,
+      304
+    ],
+    [
+      123,
+      40,
+      137,
+      306
+    ],
+    [
+      127,
+      40,
+      130,
+      306
+    ],
+    [
+      124,
+      41,
+      135,
+      305
+    ],
+    [
+      116,
+      42,
+      151,
+      304
+    ],
+    [
+      118,
+      40,
+      148,
+      306
+    ],
+    [
+      120,
+      40,
+      143,
+      306
+    ],
+    [
+      118,
+      39,
+      148,
+      307
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "76b78c330fa7e120d7c2b2641b5782f7ea5b650920d4e67f91f67177761c6a5c",
+  "visualApproved": true,
+  "visualReview": "全8コマをGIF復号後に目視。右向き、緑の鎧・白花紋・兜・弓・矢筒を保ち、1/5で支持脚が交替、通過・踏み出しポーズを識別。全身・弓・矢筒の欠けやセル越境なし。OCR空。既存待機絵の人物尺度は現行ボス規格の約307px高より小さく見えるため、旧待機との尺度互換は要注意。",
+  "cautionSummary": "旧待機絵の人物尺度と現行ボス歩き規格に差がある。",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gitVerified": true,
+  "gitCommit": "c65ea45bdcf8ab1206d3ca77c342fac1fba464a5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "76b78c330fa7e120d7c2b2641b5782f7ea5b650920d4e67f91f67177761c6a5c",
+  "prompt": "Create an 8-pose right-facing combat walk sprite atlas for Mogami Yoshiaki using the references. Preserve his exact green and dark armor, silver flower crests, helmet, face, quiver and tall Japanese bow. Reference 1 defines character design; reference 2 defines existing game sprite style and scale. Arrange exactly 8 full-body poses in a clean 4-column by 2-row grid on perfectly flat pure #FF00FF magenta. No visible grid, borders, text, labels, effects, shadows, scenery, arrows in flight, or attack action. Keep his bow in a steady ready carry. Make a real grounded walk cycle: frame 1 right-foot-forward contact, 2 weight transfer, 3 left foot passes, 4 left foot swings forward, 5 opposite contact with left foot forward/right foot back, 6 weight transfer, 7 right foot passes, 8 right foot swings into frame 1. Ensure clear support-leg exchange at frames 1 and 5 and distinct passing/stride poses. Stable torso and bow. Identical anatomy and scale in every panel; complete antlers, clothing, bow, quiver and body comfortably inside each invisible cell, no cross-cell overlaps.",
+  "updatedAt": "2026-10-08T05:49:45.670121+09:00"
+}

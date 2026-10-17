@@ -1,0 +1,126 @@
+{
+  "character": "本多忠勝",
+  "asset": "本多忠勝_跳び込み攻撃_8コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      142,
+      220,
+      379,
+      366
+    ],
+    [
+      141,
+      93,
+      332,
+      264
+    ],
+    [
+      147,
+      94,
+      368,
+      274
+    ],
+    [
+      155,
+      96,
+      360,
+      291
+    ],
+    [
+      139,
+      176,
+      378,
+      361
+    ],
+    [
+      136,
+      179,
+      376,
+      362
+    ],
+    [
+      136,
+      166,
+      379,
+      360
+    ],
+    [
+      118,
+      166,
+      383,
+      360
+    ]
+  ],
+  "magenta_counts": [
+    184011,
+    186569,
+    182805,
+    185487,
+    179409,
+    179767,
+    180847,
+    180533
+  ],
+  "edge_specks_removed_per_frame": [
+    0,
+    0,
+    0,
+    0,
+    26,
+    2,
+    0,
+    0
+  ],
+  "sha256": "e0c3fc42003167eb2ddafce62493a79da59c257bebcfe25bc4a939787d02f0c1",
+  "generation": "OpenAI built-in imagegen; Honda setting sheet and jump_4frame_v2 referenced; AI generated and composited, not hand-drawn.",
+  "notes": "v1 retained with small unconnected debris touching bottom edge in frames 5-6. v2 removes only disconnected edge specks. Runtime/game QA pending.",
+  "exact_magenta_pixels_per_cell": [
+    184011,
+    186569,
+    182805,
+    185487,
+    179409,
+    179767,
+    180847,
+    180533
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1151,
+    0.0785,
+    0.0883,
+    0.1371,
+    0.1046,
+    0.1181,
+    0.1131
+  ]
+}

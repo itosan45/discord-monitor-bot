@@ -1,0 +1,94 @@
+{
+  "name": "霧隠才蔵_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0149e530-be1d-4165-a857-4a55027db2d9.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3212121212121212,
+  "sourceBounds": [
+    [
+      185,
+      52,
+      480,
+      696
+    ],
+    [
+      695,
+      47,
+      995,
+      696
+    ],
+    [
+      1211,
+      36,
+      1505,
+      696
+    ],
+    [
+      1723,
+      52,
+      2018,
+      696
+    ]
+  ],
+  "placements": [
+    [
+      80,
+      23,
+      95,
+      207
+    ],
+    [
+      80,
+      22,
+      96,
+      208
+    ],
+    [
+      81,
+      18,
+      94,
+      212
+    ],
+    [
+      80,
+      23,
+      95,
+      207
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 88%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "2f45207bf31affb01d31f2a91d62452ca12819aedc5c52f195661353f60ff7c2",
+  "prompt": "Kirigakure Saizo IDLE breathing sprite FOUR chronological frames SINGLE HORIZONTAL ROW. EXACT same character as reference middle RIGHT-facing side view: handsome clean-shaven face, blue-gray headwrap tied hair, worn indigo-gray ninja jacket/pants, red six-coin chest badge2x3, brown sash pouches, dark forearm guards shinwraps sandals, dark left-hip sheath, same short sword held low in right hand angled down-forward. Preserve reference blade length; no new weapon. Four equally spaced fullbody views right-facing, fixed camera and same anatomical scale, head/body ~80% cellheight. Feet planted at SAME xpositions and ground throughout, knees flexed low guarded. 1 exhale shoulders low,2 inhale chest expands shoulder/head rise slightly,3 peak inhale head ~2%height above1 while feetfixed,4 exhale returning near1. Clearly readable subtle torso/knee breathing, not four identical copies, no attacks or walking. Entire hair/swordtip/sheath/feet inside eachcell amplemagenta margins; no touching adjacentviews. Pureflat#FF00FF background, no text/grid/shadow/effects/scenery. Wide landscapePNG4frames, gritty painted original game style matching reference.",
+  "char": "霧隠才蔵",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames compared to reference: same indigo-gray costume, face/headwrap, sheath/blade, right-facing and full body. Uniform scale, fixed ground, visible peak-inhale third frame and return fourth. OCR empty, no effects/clipping. Guarded knee flex shallow and chest emblem partly obscured by side view; recorded caution. Idle is own scale reference for subsequent motions.",
+  "gitVerified": true,
+  "gitCommit": "6e57fdf9ea6a10b0a9a71aa4402cf2439335e901",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "2f45207bf31affb01d31f2a91d62452ca12819aedc5c52f195661353f60ff7c2",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:27:56.850450+09:00"
+}

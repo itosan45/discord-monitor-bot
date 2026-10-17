@@ -1,0 +1,7 @@
+{
+  "name": "石田三成_手ぶら_歩き_8コマ_v2.png",
+  "status": "qa_rejected_leg_cycle",
+  "candidateCount": 2,
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-a89b2761-4771-4975-989e-6a5194ba20da.png",
+  "visualReview": "局所修正後も1と5の踏み出し脚が同じ。未承認・未納品。次は後半の脚を識別できる重なりから修正し、同じ全体生成を繰り返さない。"
+}

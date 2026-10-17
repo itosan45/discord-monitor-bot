@@ -1,0 +1,46 @@
+{
+  "name": "三好清海入道_ダウン_4コマ_v1.png",
+  "kind": "ten_braves_sprite_motion",
+  "reference": "三好清海入道_設定画_v1.png",
+  "idleReference": "三好清海入道_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0fd62b81-c5e7-40c9-aea5-96bd0874d30d.png",
+  "sourceSha256": "d4b53737fddca2af7ba802e59249dc1af6f6fb27044b19866bf4cda0e768abe0",
+  "rawSize": [
+    2170,
+    725
+  ],
+  "mode": "RGB",
+  "prompt": "Create a four-pose horizontal sprite sequence of the same Sanada Ten Braves monk Miyoshi Seikai Nyudo in the references. Preserve his bald head, stern bearded face, huge muscular build, large wooden prayer beads, ochre tattered sleeveless monk robe, dark loose trousers, red sash with the six-coin mark, wrapped greaves and sandals. Preserve one realistic iron staff, about his standing height, continuously in both hands and visible in every pose. Right-facing three-quarter view for a side-scrolling action game. Knockdown sequence: 1 recoils while standing and gripping the staff, 2 drops to one knee and braces with the staff, 3 tips onto his side with staff held alongside his body, 4 lies settled on the ground, still holding the staff. Four visibly different poses. Match the idle scale and align the lowest body point consistently. Four isolated complete poses, each centered in an equal-width cell, with the full figure and staff safely inside its own cell. Pure flat #FF00FF background, no shadows, no effects, no text, no borders, no extra characters or objects.",
+  "attempts": 1,
+  "status": "rejected_component_width",
+  "normalizationTrials": [
+    {
+      "result": "rejected_horizontal_bounds",
+      "scale": 0.400390625,
+      "frame": 3,
+      "standingHeight": 512,
+      "minimumMargin": 16,
+      "destination": [
+        10,
+        124,
+        236,
+        107
+      ]
+    },
+    {
+      "result": "rejected_horizontal_bounds",
+      "scale": 0.376146789,
+      "frame": 3,
+      "standingHeight": 545,
+      "minimumMargin": 16,
+      "destination": [
+        14,
+        164,
+        228,
+        67
+      ]
+    }
+  ],
+  "visualReview": "One raw four-pose candidate shows a clear standing recoil, kneel, side fall, and settled prone sequence. Seikai Nyudo design and continuous iron staff look consistent with the setting and idle references. Frame 3 plus staff is too wide to fit with 16px margins at reference scale. Reducing uniform scale further would undersize the character; no finished strip or delivery.",
+  "qaResult": "Not delivered: both safe-margin normalizations failed width bounds. Do not generate the same task immediately."
+}

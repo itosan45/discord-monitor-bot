@@ -1,0 +1,13 @@
+﻿{
+  "verifiedAt": "2026-10-07T07:43:16+09:00",
+  "branch": "ccr-851ab851-t271uq",
+  "commit": "b1c10a6c36aa027a89b9959793a56f12575ab43c",
+  "remoteTip": "b1c10a6c36aa027a89b9959793a56f12575ab43c",
+  "asset": "上杉景勝_手ぶら_待機_4コマ_v2.png",
+  "sha256": "cfb4878d9c7800294acf3a77ea3b337af508fb959b57ae6d297187cd3f609045",
+  "bytes": 143274,
+  "exactBytesMatch": true,
+  "commitDiff": [
+    "A assets/sprites/上杉景勝_手ぶら_待機_4コマ_v2.png"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "name": "上杉景勝_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-1c88f7b6-db56-4b9d-9347-4c251cc71af6.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_ダウン_4コマ_v2.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.4375,
+  "sourceBounds": [
+    [
+      50,
+      188,
+      478,
+      638
+    ],
+    [
+      508,
+      225,
+      1020,
+      590
+    ],
+    [
+      1097,
+      397,
+      1531,
+      623
+    ],
+    [
+      1611,
+      439,
+      2085,
+      629
+    ]
+  ],
+  "placements": [
+    [
+      34,
+      33,
+      187,
+      197
+    ],
+    [
+      16,
+      70,
+      224,
+      160
+    ],
+    [
+      33,
+      131,
+      190,
+      99
+    ],
+    [
+      24,
+      147,
+      207,
+      83
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK ダウン用縮尺: 先頭の立ち姿高 197px、伏せ姿勢は縮小せず同一倍率"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "7ee40642b0c17dd74e84122706ed1ce40af913601896b9bdc3f77ff4ffdba921",
+  "visualApproved": true,
+  "visualWarnings": [
+    "伏せ姿勢の刀身に青い発光表現のような色味が残る。",
+    "倒れ姿勢の人物高さは約83-99pxで、立ち姿197px。姿勢差による見かけの高さ変化。"
+  ],
+  "visualReview": "All four frames visible and contained, blue banner readable. Down sequence stagger→airborne→impact→supine. Uniform scale 0.4375 across all frames; first standing pose197px matches canonical idle approx210px. Ground-foot alignment exempt for down action. OCR success, GIF 4x80ms.",
+  "gitVerified": true,
+  "gitCommit": "70dc2a3e08aef5455f9cfe0a8360f8efbcec742e",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "7ee40642b0c17dd74e84122706ed1ce40af913601896b9bdc3f77ff4ffdba921",
+  "prompt": "Targeted edit only fall frames3 and4: knees folded, sword compact across torso and thighs, banner angled at back; preserve stagger and airborne firstframes and canonical Kagekatsu design.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-08T05:27:55.400062+09:00"
+}

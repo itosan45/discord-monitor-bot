@@ -1,0 +1,40 @@
+{
+  "name": "望月六郎_ダウン_4コマ_v1.png",
+  "kind": "ten_braves_sprite_motion",
+  "reference": "望月六郎_設定画_v1.png",
+  "idleReference": "望月六郎_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-76a7a8fd-db58-4730-a948-074bb9af5bb3.png",
+  "sourceSha256": "5a9772105b4fbe1fb1f8e4d0be8911a8ea6cc1594cdf9adc83c197b9781874e2",
+  "rawSize": [
+    2170,
+    725
+  ],
+  "mode": "RGB",
+  "prompt": "Create one horizontal four-pose defeat/down sprite sequence of the exact Mochizuki Rokuro shown in the references. Match the same lean adult ninja, olive-brown practical clothing, brown headband and tied dark hair, red six-coin chest mark, closed powder pouches and short tanto in its belt sheath. Right-facing three-quarter side-scrolling game sprite. Four consecutive readable poses: 1 takes a hit and recoils while still on both feet, 2 drops into a low off-balance kneel and reaches toward the ground, 3 falls onto his side with the sheathed tanto retained at his belt, 4 lies settled on the ground in a clearly different final pose. No blood or injury marks. Keep clothing, sash, six-coin mark, pouches, sheath and face consistent in all frames. Keep body scale matched to the idle reference; same ground baseline at 90% cell height; complete figure and equipment safely within each of four equal-width cells with at least 16px clear margins. Four isolated poses spaced apart in one horizontal strip. Flat pure #FF00FF background, no shadow, no effects, no text, no borders, no extra objects or characters.",
+  "attempts": 1,
+  "status": "qa_hold_scale",
+  "normalizationTrials": [
+    {
+      "frame": 4,
+      "destination": [
+        9,
+        171,
+        238,
+        60
+      ],
+      "minimumMargin": 16,
+      "result": "rejected_horizontal_bounds",
+      "standingHeight": 480,
+      "scale": 0.427083333
+    },
+    {
+      "medianHeight": 42,
+      "minimumMargin": 16,
+      "result": "30_checker_height_fail",
+      "standingHeight": 510,
+      "scale": 0.401960784
+    }
+  ],
+  "visualReview": "The four raw poses show a clear recoil, kneel, side fall, and prone settle, with the short tanto kept in its sheath. To fit the long supine silhouette within 16px margins, the uniform scale makes the 30 checker median silhouette only 42%, below the required floor. No delivered strip; keep candidate on hold and do not regenerate immediately.",
+  "qaResult": "Not delivered: wider scale exceeds cell margin; smaller scale fails 30 checker median height (42%)."
+}

@@ -1,0 +1,151 @@
+{
+  "name": "真田幸村_鎖鎌_移動旋回_8コマ_v1.png",
+  "source": "./qa/20261007_yukimura_kusarigama_move_spin/source-magenta-region.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_鎖鎌_移動旋回_8コマ_v1.png",
+  "size": [
+    2048,
+    256
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 256,
+  "candidateCount": 4,
+  "status": "git_verified",
+  "uniformScale": 0.9636363636363636,
+  "sourceBounds": [
+    [
+      64,
+      25,
+      251,
+      245
+    ],
+    [
+      336,
+      25,
+      522,
+      245
+    ],
+    [
+      611,
+      25,
+      792,
+      245
+    ],
+    [
+      880,
+      25,
+      1066,
+      245
+    ],
+    [
+      1150,
+      25,
+      1336,
+      245
+    ],
+    [
+      1422,
+      25,
+      1609,
+      245
+    ],
+    [
+      1696,
+      25,
+      1878,
+      245
+    ],
+    [
+      1964,
+      26,
+      2148,
+      245
+    ]
+  ],
+  "placements": [
+    [
+      38,
+      18,
+      180,
+      212
+    ],
+    [
+      38,
+      18,
+      179,
+      212
+    ],
+    [
+      41,
+      18,
+      174,
+      212
+    ],
+    [
+      38,
+      18,
+      179,
+      212
+    ],
+    [
+      38,
+      18,
+      179,
+      212
+    ],
+    [
+      38,
+      18,
+      180,
+      212
+    ],
+    [
+      40,
+      18,
+      175,
+      212
+    ],
+    [
+      39,
+      19,
+      177,
+      211
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "b0e4196e9097f5a4e78afdfc60c4aeced6522800a216467390bd0bdaecc0332e",
+  "prompt": "Edit canonical unarmed walk8 to add sickle farhand and spinningweight nearhand. Preservewalkinglegs. Quadrants above right below left twice. Puremagenta.",
+  "char": "真田幸村",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "左右の脚の交替が弱く、前後半で似た歩行を繰り返す。",
+    "六文銭の旗指物が描かれていない。",
+    "鎖の接続と旋回軌道の連続性は要注意。ゲーム内移動連動は未検証。"
+  ],
+  "acceptance": "暫定素材として納品。共通ルール完全適合扱いにしない。",
+  "gitVerified": true,
+  "gitCommit": "43079f5f1f5b2073e363b24d66c57a697493216d",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b0e4196e9097f5a4e78afdfc60c4aeced6522800a216467390bd0bdaecc0332e",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:27:08.135358+09:00"
+}

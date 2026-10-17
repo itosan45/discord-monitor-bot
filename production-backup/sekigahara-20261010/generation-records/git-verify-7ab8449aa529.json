@@ -1,0 +1,13 @@
+﻿{
+  "verifiedAt": "2026-10-07T07:38:14+09:00",
+  "branch": "ccr-851ab851-t271uq",
+  "commit": "7ab8449aa5290b19795840f4cf7e2196f836776c",
+  "remoteTip": "7ab8449aa5290b19795840f4cf7e2196f836776c",
+  "asset": "真田幸村_手ぶら_待機_4コマ_v2.png",
+  "sha256": "1f000c4843e2fd0dfac37e768f530bb0ad871685ad51f4f79609ebbda7a00f2b",
+  "bytes": 161856,
+  "exactBytesMatch": true,
+  "commitDiff": [
+    "A assets/sprites/真田幸村_手ぶら_待機_4コマ_v2.png"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "character": "徳川秀忠",
+  "attack": "跳び込み銃床打ち",
+  "asset": "徳川秀忠_跳び込み攻撃_16コマ_v2.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    8192,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 16,
+  "source_grid_size": [
+    1254,
+    1254
+  ],
+  "source_grid": "4x4, row-major",
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "frame_foreground_bboxes": [
+    [
+      111,
+      81,
+      425,
+      363
+    ],
+    [
+      114,
+      123,
+      416,
+      363
+    ],
+    [
+      102,
+      178,
+      405,
+      363
+    ],
+    [
+      119,
+      125,
+      403,
+      361
+    ],
+    [
+      133,
+      81,
+      417,
+      343
+    ],
+    [
+      116,
+      76,
+      414,
+      316
+    ],
+    [
+      129,
+      63,
+      380,
+      349
+    ],
+    [
+      121,
+      50,
+      398,
+      344
+    ],
+    [
+      122,
+      41,
+      398,
+      378
+    ],
+    [
+      134,
+      60,
+      394,
+      332
+    ],
+    [
+      118,
+      72,
+      396,
+      355
+    ],
+    [
+      93,
+      131,
+      411,
+      359
+    ],
+    [
+      116,
+      41,
+      409,
+      334
+    ],
+    [
+      96,
+      64,
+      390,
+      329
+    ],
+    [
+      87,
+      55,
+      401,
+      335
+    ],
+    [
+      87,
+      56,
+      396,
+      335
+    ]
+  ],
+  "magenta_pixel_counts_per_cell": [
+    158757,
+    163023,
+    165549,
+    159623,
+    165556,
+    162679,
+    160715,
+    161163,
+    160457,
+    163455,
+    157456,
+    155066,
+    154720,
+    158712,
+    158265,
+    159153
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 16,
+  "unique_frame_count": 16,
+  "adjacent_changed_pixel_fraction": [
+    0.2266,
+    0.2176,
+    0.2486,
+    0.2248,
+    0.2072,
+    0.237,
+    0.2191,
+    0.2385,
+    0.2204,
+    0.2405,
+    0.2837,
+    0.3109,
+    0.2654,
+    0.2408,
+    0.2079
+  ],
+  "sha256": "02a64527bc14b0b1ab2f7080d4dce27698ef4661a757a7199969a21518ed9cd8",
+  "generation": "OpenAI built-in imagegen; references: existing Hidetada 8-frame jump sheet and prior rejected 16-pose attempt. AI-generated source, cell extraction and uniform scaling; not hand-drawn.",
+  "notes": "v2 uniformly aligns all cells using the opening pose groundline while preserving relative vertical travel. Sixteen poses cover crouch, launch, ascent, midair gun-butt wind-up, descent, impact and recovery. Candidate only; visual/runtime review pending.",
+  "uniform_vertical_shift_to_groundline_y363": 33
+}

@@ -1,0 +1,117 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-b9826e73-2fc8-4127-a877-e50fe57576a3.png",
+  "sourceSha256": "1911fc2fbfbdd3af7d285212fb3ea99d00a61c2d62797ec5738e9d9f52915ed0",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "prompt": "Create one production-ready 2-frame guard stance sprite strip for the side-scrolling Sengoku action game Sekigahara Ranbu. Sanada Yukimura; identity from setting sheet, current painted game style and cross-spear from approved walk. Exactly two full-body right-facing profile poses in equal cells for final 512x256. Same anatomy and scale, about 80% cell height, feet y=230, complete spear with 16px safe margins. Both are low combat guard, knees bent and hips lowered, both hands grip the cross-spear diagonally from lower-left rear to upper-right front, right hand forward and left hand back. Frame 1 ready guard; frame 2 shifts weight subtly to rear foot and adjusts spear a few degrees into a firmer block, scarf sways. No attack, no banner/text/grid/border/shadow/effects.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/真田幸村_設定画.png",
+    "assets/sprites/真田幸村_歩き_8コマ_依頼仕様版.png"
+  ],
+  "actualName": "真田幸村_ガード構え_2コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_ガード構え_2コマ_v2_candidate1-normalized.png",
+  "sha256": "774745ea49999def19eda2f899e54702df33413195e6517c6decb62077bde44d",
+  "n": 2,
+  "cell": 256,
+  "outputDimensions": [
+    512,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "cellBounds": [
+      0,
+      887,
+      1774
+    ],
+    "finalSize": [
+      512,
+      256
+    ],
+    "commonScale": 0.261682,
+    "groundLine": 230,
+    "description": "Same uniform scale in both frames, near-magenta key and exact magenta composite; equal half-width split then full pose centered per cell."
+  },
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBox": [
+        23,
+        71,
+        874,
+        816
+      ],
+      "output": [
+        16,
+        35,
+        224,
+        196
+      ],
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBox": [
+        890,
+        83,
+        1738,
+        812
+      ],
+      "output": [
+        273,
+        39,
+        223,
+        192
+      ],
+      "ground": 230
+    }
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_guard_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_guard_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "イ を / 亠",
+    "postReview": "誤認は胸の六文銭丸紋と甲冑金具。拡大目視で語句・ラベル・文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_guard_candidate1\\strip-preview-80ms.gif",
+    "frameCount": 2,
+    "durationsMs": [
+      80,
+      80
+    ],
+    "sha256": "b67964b3ae63218f526bd75db72ba0ab74390b01043f14e93da672b48baefc10",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_yukimura_guard_candidate1\\gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "2ポーズの幸村の顔・赤備え・鹿角前立て・右向き・低いガードを確認。両手が十文字槍を連続して握り、刃先・石突とも欠けなし。二枚目は重心と槍角度が少し変化。純マゼンタ背景、全身と16px余白。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    20168,
+    20168
+  ],
+  "gitCommit": "15a98ddae5de332af086d678525befeedbbc723a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "29827dc3ee8a5113eb8ac2e3bf178d7ea6bebbd4",
+  "remoteSha256": "774745ea49999def19eda2f899e54702df33413195e6517c6decb62077bde44d",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 98410,
+  "completedAt": "2026-10-07T09:34:14+09:00"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-835b2d45-01a7-4ef2-a2fd-d13490ac4fdb.png",
+  "prompt": "Use attached idle strip as EXACT character and proportions: blue tunic black armored ashigaru, conical black iron hat, straw sandals, same long spear. Draw TWO square cells horizontally: 1 hit reaction chest recoils backward, knees bent to absorb force, grimacing; 2 recovers low spear-ready combat stance. Both full bodies right-facing, toe tips right. Both hands hold spear. To fit cell, spear is diagonal steeply upward (~50deg), butt near rear shin, spear tip no higher than helmet top, hands close to chest and elbows folded. Whole soldier and spear inside central86% of square width with16px equivalent margins; body standing-equivalent80%cellheight, same small-head anatomical proportions as idle reference. Do not elongate spear relative to idle. Clear torso/hip/knee change, not just tilting portrait. Pure flat solid #FF00FF background, opaque, no shadow/text/grid/border. One soldier per cell, uniform scale across both.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

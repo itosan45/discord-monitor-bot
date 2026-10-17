@@ -1,0 +1,16 @@
+{
+  "name": "穴山小助_ダウン_4コマ_v1.png",
+  "char": "穴山小助",
+  "kind": "ten_braves_sprite_motion",
+  "candidateNumber": 3,
+  "candidateCount": 4,
+  "attempts": 3,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-40e01957-653b-43de-b528-1e47adef0881.png",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "status": "rejected_top_margin",
+  "rejection": "At reference body scale, the upward-pointed yari placed the first frame above the required 16px top margin. Lowering the art uniformly would make the standing-body scale smaller than the idle reference. No normalized sprite delivered. Candidate 4 kept the first-frame yari horizontal and within the cell.",
+  "prompt": "Refine pose sequence: recoil, airborne, impact with legs lifted, settle flatter; keep Anayama design and exact body scale; keep spear steep/close except avoid top overflow. Flat magenta."
+}

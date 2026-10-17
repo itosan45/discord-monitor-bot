@@ -1,0 +1,163 @@
+{
+  "name": "石田三成_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-a782049a-2da2-4f99-a083-36426e33ec8b.png",
+  "status": "drive_verified",
+  "scale": 0.5857142857142857,
+  "standingHeightSource": 350.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        20,
+        197,
+        278,
+        534
+      ],
+      "destination": [
+        52,
+        34,
+        151,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        285,
+        197,
+        535,
+        533
+      ],
+      "destination": [
+        55,
+        34,
+        146,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        538,
+        197,
+        783,
+        535
+      ],
+      "destination": [
+        56,
+        33,
+        144,
+        198
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        783,
+        196,
+        1033,
+        534
+      ],
+      "destination": [
+        55,
+        33,
+        146,
+        198
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1054,
+        197,
+        1301,
+        533
+      ],
+      "destination": [
+        55,
+        34,
+        145,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1322,
+        197,
+        1572,
+        533
+      ],
+      "destination": [
+        55,
+        34,
+        146,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1578,
+        197,
+        1824,
+        537
+      ],
+      "destination": [
+        56,
+        32,
+        144,
+        199
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1824,
+        196,
+        2078,
+        533
+      ],
+      "destination": [
+        53,
+        34,
+        149,
+        197
+      ],
+      "scale": 0.5857142857142857,
+      "ground": 230
+    }
+  ],
+  "sha256": "97c1aefd8856115bfcd24a6e43f23208dee7c40094bb5409d417939cd08a8272",
+  "backgroundSource": [
+    240,
+    24,
+    240
+  ],
+  "sourceIndices": null,
+  "qaResult": "要注意",
+  "attempts": 3,
+  "automaticCheck": "全項目OK・純マゼンタ80%・高さ77%",
+  "visualReview": "右手鉄砲・左手扇、旗、全8コマ、同一縮尺と武器の刃先/銃口、全背景純マゼンタ、余白16px、接地230pxを確認。3回の最良候補。脚の左右交代と腰の低さがまだ弱く要注意。OCRは旗文字と模様の認識、字幕等なし。",
+  "driveId": "1J8STK2mPBrHzlcSgvyZAQCgBDr5oKfig",
+  "readbackSha256": "97c1aefd8856115bfcd24a6e43f23208dee7c40094bb5409d417939cd08a8272"
+}

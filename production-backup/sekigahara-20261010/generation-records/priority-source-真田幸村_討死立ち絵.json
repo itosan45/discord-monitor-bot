@@ -1,0 +1,11 @@
+{
+  "name": "真田幸村_討死立ち絵.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-08436bc1-e292-4580-b3a1-c1ccfaa561a8.png",
+  "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 真田幸村. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing jumonji cross spear is held upright, its butt planted firmly on ground; preserve six-coins back flag and antler helmet. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+  "size": [
+    512,
+    768
+  ],
+  "transparent": false,
+  "candidateCount": 1
+}
