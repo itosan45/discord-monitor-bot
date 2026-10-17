@@ -1,5 +1,6 @@
 // からくり武者の専用必殺(2026-10-17)の検査。
 // 2026-10-17 オーナー指示で突進をゆっくり(1コマ約6px)にしたため、突進は約2秒かかる(ループ上限を460コマに)。
+// 突進の距離は画面の端までなので、左向きは右端から始まり短くなる(時間を止めなくなりカメラが動くため、走れる距離は場合によって変わる。150px以上を確認)。
 // Lv1=独楽の突進: 回転(kspin)が有限で、前へ進み、通り道の敵が多段で削られ、最後に弾き飛ばされる。時間は突進中だけ止まり、終わりに動く。
 // Lv2=突進のあと砲弾: 砲弾(k:'shell')が飛んで爆発し、敵が吹き飛ぶ。爆発で時間の停止が解ける。
 // 左右両向き。描画エラー・有限でない粒(PT)の警告が出ない。カットイン(顔のアップ)が描かれる。
@@ -21,6 +22,6 @@ const {chromium}=require(process.env.PLAYWRIGHT||'playwright');
     if(P.state!=='spc'&&k>20)break;}
    o.dmg=en.map((e,i)=>Math.round(hp0[i]-e.hp));o.moved=Math.round(o.xMax);o.endState=P.state;return o;},[lv,side]);
   out.push(r);}
- const bad=[];for(const r of out){if(!r.spinOK)bad.push('spin NaN '+r.lv+'/'+r.side);if(!r.spun)bad.push('no spin');if(!r.cutSeen)bad.push('no cut-in');if(r.moved<300)bad.push('rush short '+r.moved);if(!r.dmg.some(d=>d>=12))bad.push('no multi hit '+r.dmg);if(!r.bounced)bad.push('no knockback');if(r.frozeDuringRush)bad.push('time was frozen (enemies must keep moving)');if(!r.farMoved)bad.push('free enemy did not act during the spin');if(r.lv===2&&!r.shell)bad.push('no shell');if(r.lv===1&&r.shell)bad.push('Lv1 fired shell');if(r.endState==='spc')bad.push('special did not end');}
+ const bad=[];for(const r of out){if(!r.spinOK)bad.push('spin NaN '+r.lv+'/'+r.side);if(!r.spun)bad.push('no spin');if(!r.cutSeen)bad.push('no cut-in');if(r.moved<150)bad.push('rush short '+r.moved);if(!r.dmg.some(d=>d>=12))bad.push('no multi hit '+r.dmg);if(!r.bounced)bad.push('no knockback');if(r.frozeDuringRush)bad.push('time was frozen (enemies must keep moving)');if(!r.farMoved)bad.push('free enemy did not act during the spin');if(r.lv===2&&!r.shell)bad.push('no shell');if(r.lv===1&&r.shell)bad.push('Lv1 fired shell');if(r.endState==='spc')bad.push('special did not end');}
  console.log(JSON.stringify({out,bad,errors}));if(bad.length||errors.length)process.exitCode=1;
 }finally{await b.close();}})();
