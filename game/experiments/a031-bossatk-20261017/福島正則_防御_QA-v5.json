@@ -1,0 +1,781 @@
+{
+  "character": "福島正則",
+  "candidate_only": true,
+  "integrated": false,
+  "generation": "built-in image_gen AI source poses, boundary-connected magenta flood removal, 1px erosion, uniform scale and cell placement",
+  "cell_size": [
+    512,
+    384
+  ],
+  "anchor": {
+    "lower_body_center_x": 256,
+    "ground_y": 363
+  },
+  "target_height_px": 188,
+  "actions": {
+    "構え": {
+      "sprite": "福島正則_防御_構え_6コマ_v5.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "d3a58ad7364a87513e01b107b7eaa693478e70aba7f5078263c2e63b0fc60ceb",
+      "unique_frames": 6,
+      "source": "福島正則_防御_構え_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "福島正則_防御_構え_preview-v5.gif",
+      "review_grid": "福島正則_防御_構え_review-v5.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "mask_bbox": [
+            28,
+            63,
+            512,
+            441
+          ],
+          "output_bbox": [
+            152,
+            175,
+            393,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.497354,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "mask_bbox": [
+            545,
+            105,
+            1024,
+            440
+          ],
+          "output_bbox": [
+            142,
+            175,
+            411,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.561194,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            1052,
+            88,
+            1519,
+            440
+          ],
+          "output_bbox": [
+            146,
+            175,
+            395,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.534091,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            22,
+            548,
+            512,
+            926
+          ],
+          "output_bbox": [
+            140,
+            175,
+            384,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.497354,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            549,
+            586,
+            1024,
+            924
+          ],
+          "output_bbox": [
+            144,
+            175,
+            408,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.556213,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            1046,
+            550,
+            1519,
+            926
+          ],
+          "output_bbox": [
+            152,
+            175,
+            388,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.5,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        4666908.0,
+        4716525.0,
+        3907400.0,
+        5119561.0,
+        4912246.0
+      ],
+      "candidate_contact_frame": null,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    },
+    "受け止め": {
+      "sprite": "福島正則_防御_受け止め_4コマ_v5.png",
+      "frames": 4,
+      "size": [
+        2048,
+        384
+      ],
+      "sha256": "76f421fc72e570cf077ce80b610a847e31b467c12abd418516d34a0fbfac6c1e",
+      "unique_frames": 4,
+      "source": "福島正則_防御_受け止め_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "福島正則_防御_受け止め_preview-v5.gif",
+      "review_grid": "福島正則_防御_受け止め_review-v5.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            768,
+            512
+          ],
+          "mask_bbox": [
+            132,
+            14,
+            600,
+            477
+          ],
+          "output_bbox": [
+            157,
+            175,
+            347,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.406048,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            768,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            893,
+            17,
+            1358,
+            477
+          ],
+          "output_bbox": [
+            169,
+            175,
+            359,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.408696,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            768,
+            1024
+          ],
+          "mask_bbox": [
+            107,
+            512,
+            671,
+            962
+          ],
+          "output_bbox": [
+            131,
+            175,
+            367,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.417778,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            768,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            890,
+            512,
+            1369,
+            964
+          ],
+          "output_bbox": [
+            148,
+            175,
+            347,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.415929,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        3564475.0,
+        5437723.0,
+        5579068.0
+      ],
+      "candidate_contact_frame": 3,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    },
+    "受け流し": {
+      "sprite": "福島正則_防御_受け流し_8コマ_v5.png",
+      "frames": 8,
+      "size": [
+        4096,
+        384
+      ],
+      "sha256": "132cc00241d05789d8d2ae2c505346b73e1c906f40f2d44753c7c233c44faea3",
+      "unique_frames": 8,
+      "source": "福島正則_防御_受け流し_source-v1.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "preview_gif": "福島正則_防御_受け流し_preview-v5.gif",
+      "review_grid": "福島正則_防御_受け流し_review-v5.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "mask_bbox": [
+            24,
+            111,
+            433,
+            406
+          ],
+          "output_bbox": [
+            153,
+            175,
+            414,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.637288,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            444,
+            0,
+            887,
+            444
+          ],
+          "mask_bbox": [
+            470,
+            137,
+            887,
+            410
+          ],
+          "output_bbox": [
+            140,
+            175,
+            427,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.688645,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            887,
+            0,
+            1330,
+            444
+          ],
+          "mask_bbox": [
+            899,
+            91,
+            1320,
+            410
+          ],
+          "output_bbox": [
+            157,
+            175,
+            405,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.589342,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            4,
+            1
+          ],
+          "crop_box": [
+            1330,
+            0,
+            1774,
+            444
+          ],
+          "mask_bbox": [
+            1356,
+            22,
+            1706,
+            408
+          ],
+          "output_bbox": [
+            172,
+            175,
+            342,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.487047,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            444,
+            444,
+            887
+          ],
+          "mask_bbox": [
+            19,
+            444,
+            432,
+            829
+          ],
+          "output_bbox": [
+            171,
+            175,
+            373,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.488312,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            444,
+            444,
+            887,
+            887
+          ],
+          "mask_bbox": [
+            444,
+            479,
+            887,
+            829
+          ],
+          "output_bbox": [
+            165,
+            175,
+            403,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.537143,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "mask_bbox": [
+            887,
+            515,
+            1330,
+            829
+          ],
+          "output_bbox": [
+            163,
+            175,
+            428,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.598726,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            4,
+            2
+          ],
+          "crop_box": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "mask_bbox": [
+            1344,
+            525,
+            1761,
+            829
+          ],
+          "output_bbox": [
+            149,
+            175,
+            407,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.618421,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        6017510.0,
+        6204019.0,
+        4826586.0,
+        2831443.0,
+        3563825.0,
+        4498331.0,
+        4168568.0
+      ],
+      "candidate_contact_frame": 5,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    },
+    "崩れ": {
+      "sprite": "福島正則_防御_崩れ_6コマ_v5.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "cc5ac7dc3b814d6de96cb7315e7ba7d04e06479a0ccaa846bf93e34d4dce478d",
+      "unique_frames": 6,
+      "source": "福島正則_防御_崩れ_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "福島正則_防御_崩れ_preview-v5.gif",
+      "review_grid": "福島正則_防御_崩れ_review-v5.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "mask_bbox": [
+            23,
+            34,
+            485,
+            465
+          ],
+          "output_bbox": [
+            151,
+            175,
+            353,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.436195,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "mask_bbox": [
+            512,
+            136,
+            1024,
+            465
+          ],
+          "output_bbox": [
+            122,
+            175,
+            415,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.571429,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            1024,
+            137,
+            1521,
+            463
+          ],
+          "output_bbox": [
+            163,
+            175,
+            450,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.576687,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            25,
+            675,
+            512,
+            935
+          ],
+          "output_bbox": [
+            113,
+            175,
+            465,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.723077,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            535,
+            615,
+            1000,
+            934
+          ],
+          "output_bbox": [
+            160,
+            175,
+            434,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.589342,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            1036,
+            550,
+            1519,
+            938
+          ],
+          "output_bbox": [
+            165,
+            175,
+            399,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.484536,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        6220689.0,
+        9684768.0,
+        9972982.0,
+        9568872.0,
+        6558435.0
+      ],
+      "candidate_contact_frame": 1,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    }
+  }
+}
