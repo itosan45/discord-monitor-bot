@@ -1,0 +1,225 @@
+{
+  "status": "candidate_not_integrated",
+  "file": "game/experiments/munenori-attacks-20261018/柳生宗矩_居合斬り_12コマ_v1.png",
+  "dimensions": [
+    6144,
+    384
+  ],
+  "cell": [
+    512,
+    384
+  ],
+  "frames": 12,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "frame_edge_contact": false,
+  "estimated_body_height_center_region_px": {
+    "min": 180,
+    "median": 191.5,
+    "max": 198
+  },
+  "impact_frame": [
+    7
+  ],
+  "suggested_forward_travel_px": 22,
+  "frame_measurements": [
+    {
+      "frame": 1,
+      "body_height_px_center_region": 196,
+      "bbox_source": [
+        70,
+        65,
+        237,
+        355
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 86,
+        "y": 79
+      }
+    },
+    {
+      "frame": 2,
+      "body_height_px_center_region": 195,
+      "bbox_source": [
+        70,
+        66,
+        239,
+        354
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 86,
+        "y": 79
+      }
+    },
+    {
+      "frame": 3,
+      "body_height_px_center_region": 188,
+      "bbox_source": [
+        73,
+        74,
+        271,
+        352
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 84,
+        "y": 75
+      }
+    },
+    {
+      "frame": 4,
+      "body_height_px_center_region": 184,
+      "bbox_source": [
+        78,
+        80,
+        282,
+        351
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 81,
+        "y": 72
+      }
+    },
+    {
+      "frame": 5,
+      "body_height_px_center_region": 190,
+      "bbox_source": [
+        174,
+        75,
+        517,
+        500
+      ],
+      "scale_factor": 0.4474,
+      "edge_contact": false,
+      "placement": {
+        "x": 16,
+        "y": 106
+      }
+    },
+    {
+      "frame": 6,
+      "body_height_px_center_region": 190,
+      "bbox_source": [
+        112,
+        76,
+        528,
+        501
+      ],
+      "scale_factor": 0.4474,
+      "edge_contact": false,
+      "placement": {
+        "x": 44,
+        "y": 105
+      }
+    },
+    {
+      "frame": 7,
+      "body_height_px_center_region": 191,
+      "bbox_source": [
+        105,
+        39,
+        705,
+        467
+      ],
+      "scale_factor": 0.4474,
+      "edge_contact": false,
+      "placement": {
+        "x": 47,
+        "y": 137
+      }
+    },
+    {
+      "frame": 8,
+      "body_height_px_center_region": 180,
+      "bbox_source": [
+        68,
+        64,
+        678,
+        467
+      ],
+      "scale_factor": 0.4474,
+      "edge_contact": false,
+      "placement": {
+        "x": 64,
+        "y": 126
+      }
+    },
+    {
+      "frame": 9,
+      "body_height_px_center_region": 192,
+      "bbox_source": [
+        50,
+        29,
+        354,
+        312
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 100,
+        "y": 133
+      }
+    },
+    {
+      "frame": 10,
+      "body_height_px_center_region": 194,
+      "bbox_source": [
+        56,
+        27,
+        270,
+        313
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 95,
+        "y": 133
+      }
+    },
+    {
+      "frame": 11,
+      "body_height_px_center_region": 197,
+      "bbox_source": [
+        64,
+        23,
+        243,
+        314
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 90,
+        "y": 135
+      }
+    },
+    {
+      "frame": 12,
+      "body_height_px_center_region": 198,
+      "bbox_source": [
+        71,
+        22,
+        245,
+        314
+      ],
+      "scale_factor": 0.6772,
+      "edge_contact": false,
+      "placement": {
+        "x": 85,
+        "y": 136
+      }
+    }
+  ],
+  "sha256": "3f276d34a263bfd37a1382b386592c3f3d278ce14891014f1bbf9b787791ff36",
+  "preview_gif": "柳生宗矩_居合斬り_12コマ_v1.gif",
+  "contact_sheet": "柳生宗矩_居合斬り_12コマ_v1-contact.png"
+}

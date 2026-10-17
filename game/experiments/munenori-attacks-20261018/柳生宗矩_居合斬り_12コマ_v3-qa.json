@@ -1,0 +1,189 @@
+{
+  "status": "candidate_not_integrated",
+  "dimensions": [
+    6144,
+    384
+  ],
+  "cell": [
+    512,
+    384
+  ],
+  "frames": 12,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "edge_contact_any_frame": false,
+  "body_height_px": {
+    "min": 173,
+    "median": 188.0,
+    "max": 195
+  },
+  "adjacent_changed_pixel_ratio": [
+    0.355,
+    0.6,
+    0.516,
+    0.466,
+    0.776,
+    0.633,
+    0.587,
+    0.74,
+    0.845,
+    0.881,
+    0.643
+  ],
+  "impact_frame": [
+    7
+  ],
+  "suggested_forward_travel_px": 22,
+  "sha256": "5822394688d806a7c6d3a7143fa1483f6ad4d2fb8fab5216a9bd2408f287d7e9",
+  "preview_gif": "柳生宗矩_居合斬り_12コマ_v3.gif",
+  "contact_sheet": "柳生宗矩_居合斬り_12コマ_v3-contact.png",
+  "frame_measurements": [
+    {
+      "frame": 1,
+      "height_px": 195,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        191,
+        37,
+        484,
+        509
+      ],
+      "scale": 0.4141
+    },
+    {
+      "frame": 2,
+      "height_px": 193,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        195,
+        43,
+        480,
+        509
+      ],
+      "scale": 0.4141
+    },
+    {
+      "frame": 3,
+      "height_px": 183,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        168,
+        52,
+        505,
+        494
+      ],
+      "scale": 0.4141
+    },
+    {
+      "frame": 4,
+      "height_px": 181,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        169,
+        50,
+        540,
+        488
+      ],
+      "scale": 0.4141
+    },
+    {
+      "frame": 5,
+      "height_px": 188,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        174,
+        75,
+        517,
+        500
+      ],
+      "scale": 0.4424
+    },
+    {
+      "frame": 6,
+      "height_px": 188,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        112,
+        76,
+        528,
+        501
+      ],
+      "scale": 0.4424
+    },
+    {
+      "frame": 7,
+      "height_px": 189,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        105,
+        39,
+        705,
+        467
+      ],
+      "scale": 0.4424
+    },
+    {
+      "frame": 8,
+      "height_px": 178,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        68,
+        64,
+        678,
+        467
+      ],
+      "scale": 0.4424
+    },
+    {
+      "frame": 9,
+      "height_px": 173,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        132,
+        74,
+        713,
+        485
+      ],
+      "scale": 0.4211
+    },
+    {
+      "frame": 10,
+      "height_px": 181,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        168,
+        57,
+        432,
+        486
+      ],
+      "scale": 0.4211
+    },
+    {
+      "frame": 11,
+      "height_px": 195,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        254,
+        17,
+        506,
+        481
+      ],
+      "scale": 0.4211
+    },
+    {
+      "frame": 12,
+      "height_px": 195,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        224,
+        17,
+        432,
+        481
+      ],
+      "scale": 0.4211
+    }
+  ]
+}

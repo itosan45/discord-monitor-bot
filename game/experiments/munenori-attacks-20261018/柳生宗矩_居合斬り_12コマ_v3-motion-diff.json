@@ -1,0 +1,19 @@
+{
+  "method": "adjacent frame RGB-change ratio above 28 across union of non-magenta silhouettes; screening metric, not a motion pass",
+  "ratios": [
+    0.355,
+    0.6,
+    0.516,
+    0.466,
+    0.776,
+    0.633,
+    0.587,
+    0.74,
+    0.845,
+    0.881,
+    0.643
+  ],
+  "min": 0.355,
+  "median": 0.633,
+  "max": 0.881
+}

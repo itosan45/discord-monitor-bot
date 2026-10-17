@@ -1,0 +1,224 @@
+{
+  "status": "candidate_not_integrated",
+  "dimensions": [
+    6144,
+    384
+  ],
+  "cell": [
+    512,
+    384
+  ],
+  "frames": 12,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "edge_contact_any_frame": false,
+  "body_height_estimate_px": {
+    "min": 180,
+    "median": 191.5,
+    "max": 198
+  },
+  "impact_frame": [
+    7
+  ],
+  "suggested_forward_travel_px": 22,
+  "sha256": "d7d5db13c46d793580d90f0e6ded706031be6cad797f90779d2ea7c46a0c1441",
+  "preview_gif": "柳生宗矩_居合斬り_12コマ_v2.gif",
+  "contact_sheet": "柳生宗矩_居合斬り_12コマ_v2-contact.png",
+  "frames_detail": [
+    {
+      "frame": 1,
+      "body_height_estimate_px": 196,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        70,
+        65,
+        237,
+        355
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        181,
+        167
+      ]
+    },
+    {
+      "frame": 2,
+      "body_height_estimate_px": 195,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        70,
+        66,
+        239,
+        354
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        181,
+        169
+      ]
+    },
+    {
+      "frame": 3,
+      "body_height_estimate_px": 188,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        73,
+        74,
+        271,
+        352
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        183,
+        175
+      ]
+    },
+    {
+      "frame": 4,
+      "body_height_estimate_px": 184,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        78,
+        80,
+        282,
+        351
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        186,
+        180
+      ]
+    },
+    {
+      "frame": 5,
+      "body_height_estimate_px": 190,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        174,
+        75,
+        517,
+        500
+      ],
+      "scale": 0.4474,
+      "offset_in_cell": [
+        172,
+        173
+      ]
+    },
+    {
+      "frame": 6,
+      "body_height_estimate_px": 190,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        112,
+        76,
+        528,
+        501
+      ],
+      "scale": 0.4474,
+      "offset_in_cell": [
+        144,
+        173
+      ]
+    },
+    {
+      "frame": 7,
+      "body_height_estimate_px": 191,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        105,
+        39,
+        705,
+        467
+      ],
+      "scale": 0.4474,
+      "offset_in_cell": [
+        141,
+        172
+      ]
+    },
+    {
+      "frame": 8,
+      "body_height_estimate_px": 180,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        68,
+        64,
+        678,
+        467
+      ],
+      "scale": 0.4474,
+      "offset_in_cell": [
+        124,
+        183
+      ]
+    },
+    {
+      "frame": 9,
+      "body_height_estimate_px": 192,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        50,
+        29,
+        354,
+        312
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        167,
+        172
+      ]
+    },
+    {
+      "frame": 10,
+      "body_height_estimate_px": 194,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        56,
+        27,
+        270,
+        313
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        171,
+        170
+      ]
+    },
+    {
+      "frame": 11,
+      "body_height_estimate_px": 197,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        64,
+        23,
+        243,
+        314
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        177,
+        167
+      ]
+    },
+    {
+      "frame": 12,
+      "body_height_estimate_px": 198,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        71,
+        22,
+        245,
+        314
+      ],
+      "scale": 0.6772,
+      "offset_in_cell": [
+        182,
+        166
+      ]
+    }
+  ]
+}
