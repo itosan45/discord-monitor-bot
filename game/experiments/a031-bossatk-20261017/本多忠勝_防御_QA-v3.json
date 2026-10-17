@@ -1,0 +1,781 @@
+{
+  "character": "本多忠勝",
+  "candidate_only": true,
+  "integrated": false,
+  "generation": "built-in image_gen AI source poses, boundary-connected magenta flood removal, 1px erosion, uniform scale and cell placement",
+  "cell_size": [
+    512,
+    384
+  ],
+  "anchor": {
+    "lower_body_center_x": 256,
+    "ground_y": 363
+  },
+  "target_height_px": 188,
+  "actions": {
+    "構え": {
+      "sprite": "本多忠勝_防御_構え_6コマ_v3.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "8bfaa970823b1330a15065b703342ac935faffd23c688c4b9503bd6bc1a9d761",
+      "unique_frames": 6,
+      "source": "本多忠勝_防御_構え_source-v3.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "本多忠勝_防御_構え_preview-v3.gif",
+      "review_grid": "本多忠勝_防御_構え_review-v3.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "mask_bbox": [
+            53,
+            91,
+            476,
+            463
+          ],
+          "output_bbox": [
+            175,
+            175,
+            389,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.505376,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "mask_bbox": [
+            550,
+            112,
+            983,
+            461
+          ],
+          "output_bbox": [
+            166,
+            175,
+            399,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.538682,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            1034,
+            113,
+            1507,
+            462
+          ],
+          "output_bbox": [
+            160,
+            175,
+            415,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.538682,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            54,
+            539,
+            426,
+            953
+          ],
+          "output_bbox": [
+            179,
+            175,
+            348,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.454106,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            512,
+            617,
+            995,
+            947
+          ],
+          "output_bbox": [
+            146,
+            175,
+            421,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.569697,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            1085,
+            583,
+            1506,
+            951
+          ],
+          "output_bbox": [
+            176,
+            175,
+            391,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.51087,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        4052491.0,
+        3010317.0,
+        4415486.0,
+        5873132.0,
+        5320417.0
+      ],
+      "candidate_contact_frame": null,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    },
+    "受け止め": {
+      "sprite": "本多忠勝_防御_受け止め_4コマ_v3.png",
+      "frames": 4,
+      "size": [
+        2048,
+        384
+      ],
+      "sha256": "5bb44bb929e13e77904396408917ed8018bb490c7bba01060af8e74f3e1c842c",
+      "unique_frames": 4,
+      "source": "本多忠勝_防御_受け止め_source-v2.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "本多忠勝_防御_受け止め_preview-v3.gif",
+      "review_grid": "本多忠勝_防御_受け止め_review-v3.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            768,
+            512
+          ],
+          "mask_bbox": [
+            257,
+            28,
+            622,
+            481
+          ],
+          "output_bbox": [
+            193,
+            175,
+            344,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.415011,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            768,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            887,
+            42,
+            1249,
+            481
+          ],
+          "output_bbox": [
+            175,
+            175,
+            330,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.428246,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            768,
+            1024
+          ],
+          "mask_bbox": [
+            209,
+            528,
+            648,
+            966
+          ],
+          "output_bbox": [
+            166,
+            175,
+            354,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.429224,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            768,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            928,
+            528,
+            1328,
+            966
+          ],
+          "output_bbox": [
+            180,
+            175,
+            352,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.429224,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        3932041.0,
+        3798146.0,
+        3848049.0
+      ],
+      "candidate_contact_frame": 2,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    },
+    "受け流し": {
+      "sprite": "本多忠勝_防御_受け流し_8コマ_v3.png",
+      "frames": 8,
+      "size": [
+        4096,
+        384
+      ],
+      "sha256": "4057f0a9fd56e8421d7f2b962842f5b77608dbb3c5ae04923c65bdfc2f4d0d28",
+      "unique_frames": 8,
+      "source": "本多忠勝_防御_受け流し_source-v3.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "本多忠勝_防御_受け流し_preview-v3.gif",
+      "review_grid": "本多忠勝_防御_受け流し_review-v3.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            341
+          ],
+          "mask_bbox": [
+            96,
+            17,
+            422,
+            301
+          ],
+          "output_bbox": [
+            169,
+            175,
+            385,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.661972,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            341
+          ],
+          "mask_bbox": [
+            619,
+            34,
+            944,
+            302
+          ],
+          "output_bbox": [
+            176,
+            175,
+            404,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.701493,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            341
+          ],
+          "mask_bbox": [
+            1130,
+            24,
+            1377,
+            302
+          ],
+          "output_bbox": [
+            168,
+            175,
+            335,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.676259,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            341,
+            512,
+            683
+          ],
+          "mask_bbox": [
+            131,
+            341,
+            354,
+            659
+          ],
+          "output_bbox": [
+            190,
+            175,
+            322,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.591195,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            341,
+            1024,
+            683
+          ],
+          "mask_bbox": [
+            624,
+            341,
+            871,
+            660
+          ],
+          "output_bbox": [
+            176,
+            175,
+            322,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.589342,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            341,
+            1536,
+            683
+          ],
+          "mask_bbox": [
+            1119,
+            355,
+            1378,
+            660
+          ],
+          "output_bbox": [
+            177,
+            175,
+            337,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.616393,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            3
+          ],
+          "crop_box": [
+            0,
+            683,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            79,
+            693,
+            413,
+            982
+          ],
+          "output_bbox": [
+            163,
+            175,
+            380,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.650519,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            3
+          ],
+          "crop_box": [
+            512,
+            683,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            589,
+            695,
+            938,
+            981
+          ],
+          "output_bbox": [
+            161,
+            175,
+            390,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.657343,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        4034107.0,
+        3693407.0,
+        3998017.0,
+        3178092.0,
+        3264154.0,
+        4264460.0,
+        2627834.0
+      ],
+      "candidate_contact_frame": 5,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    },
+    "崩れ": {
+      "sprite": "本多忠勝_防御_崩れ_6コマ_v3.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "88b904c20f5ba20c6e79ed4f164835c473c90655f80b4fd1b698f5aeec44b546",
+      "unique_frames": 6,
+      "source": "本多忠勝_防御_崩れ_source-v2.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "本多忠勝_防御_崩れ_preview-v3.gif",
+      "review_grid": "本多忠勝_防御_崩れ_review-v3.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "mask_bbox": [
+            48,
+            73,
+            512,
+            471
+          ],
+          "output_bbox": [
+            168,
+            175,
+            387,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.472362,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "mask_bbox": [
+            577,
+            68,
+            1024,
+            471
+          ],
+          "output_bbox": [
+            158,
+            175,
+            367,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.466501,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            1091,
+            84,
+            1502,
+            471
+          ],
+          "output_bbox": [
+            159,
+            175,
+            359,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.485788,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            46,
+            532,
+            469,
+            945
+          ],
+          "output_bbox": [
+            172,
+            175,
+            365,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.455206,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            555,
+            588,
+            972,
+            949
+          ],
+          "output_bbox": [
+            173,
+            175,
+            390,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.520776,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            1038,
+            572,
+            1514,
+            955
+          ],
+          "output_bbox": [
+            155,
+            175,
+            389,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.490862,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        4507874.0,
+        4198490.0,
+        7361553.0,
+        5224105.0,
+        7286165.0
+      ],
+      "candidate_contact_frame": null,
+      "forward_step_frame": null,
+      "notes": "候補。目視から置いた接触候補はゲーム判定ではない。ゲーム統合、左右向き、実機は未確認。"
+    }
+  }
+}
