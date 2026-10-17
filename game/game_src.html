@@ -190,7 +190,9 @@ const AU={ac:null,mg:null,bg:null,nb:null,muted:false,bgmBuf:[],voBuf:{},scBuf:[
   case 'pick':A.tone(880,.12,'sine',.25);A.tone(1320,.2,'sine',.22,null,.08);A.tone(1760,.25,'sine',.15,null,.16);break;
   case 'die':A.tone(300,.5,'sawtooth',.14,60);break;
   case 'break':A.noise(.25,.5,'bandpass',300,1500,.8);A.tone(150,.15,'square',.12,70);break;
-  case 'boom':A.tone(80,.7,'sine',.9,25);A.noise(.5,.6,'lowpass',2000,100);break;
+  case 'creak':/* からくり武者の軋み: 歯車が噛む音と金属のきしみ */A.tone(150,.55,'sawtooth',.09,95);A.tone(310,.5,'square',.045,190,.1);A.noise(.55,.16,'bandpass',1400,350,3);for(let i=0;i<5;i++)A.tone(1500+i*140,.035,'square',.05,900,.08+i*.09);break;
+ case 'gear':A.tone(1100,.03,'square',.05,700);A.noise(.04,.12,'highpass',2500,6000);break;
+ case 'boom':A.tone(80,.7,'sine',.9,25);A.noise(.5,.6,'lowpass',2000,100);break;
   case 'don':A.tone(110,.4,'sine',.9,40);A.noise(.1,.4,'lowpass',500,200);break;
   case 'roar':A.tone(95,1,'sawtooth',.25,45);A.tone(140,1,'square',.1,60);A.noise(.9,.25,'lowpass',900,200);break;
   case 'spc1':A.noise(.6,.4,'bandpass',300,3500,.8);A.tone(70,.5,'sine',.8,30);A.tone(400,.5,'sawtooth',.08,900);break;
@@ -540,7 +542,8 @@ const TIME_LIMIT=300;
 const DEMO_PLAN=[{ch:'yuki',st:0},{ch:'kage',st:4},{ch:'mitsu',st:1}];
 
 function mk(type,x,y,team){const T=TY[type];return{type,T,team,x,y,z:0,vx:0,vy:0,vz:0,face:team===0?1:-1,hp:T.hp,maxhp:T.hp,state:'idle',st:0,t:Math.random()*100|0,sc:T.sc,hit:new Set(),inv:0,flash:0,cool:rndi(20,60),wp:0,ki:team===0?30:0,combo:0,buf:false,cur:null,trail:[],poise:0,kd:0,showBar:0,spd:T.spd,dm:team===0?1.4:1};}
-function PT(o){if(G.parts.length>(G.lowq?250:_ISTOUCH?420:1500))return;G.parts.push(Object.assign({x:0,y:0,z:0,vx:0,vy:0,vz:0,g:0,life:30,sz:3,col:'#fff',k:'dot',fr:1},o));const p=G.parts[G.parts.length-1];p.max=p.life;}
+const PT_CHK=['x','y','z','vx','vy','vz','g','life','sz'];
+function PT(o){if(G.parts.length>(G.lowq?250:_ISTOUCH?420:1500))return;/* 有限でない値(NaN・undefined)や寿命0の粒は作らない。描画の createRadialGradient が毎コマ例外を出し、画面が止まって見える不具合の予防(2026-10-17)。最初の1件だけ呼び出し元を記録する */for(const k of PT_CHK)if((k in o)&&!Number.isFinite(o[k])){if(!G._badPT){G._badPT='PT '+k+'='+o[k]+' kind='+o.k+' '+new Error().stack;console.warn(G._badPT);}return;}if(o.life!==undefined&&!(o.life>0))return;G.parts.push(Object.assign({x:0,y:0,z:0,vx:0,vy:0,vz:0,g:0,life:30,sz:3,col:'#fff',k:'dot',fr:1},o));const p=G.parts[G.parts.length-1];p.max=p.life;}
 function burst(x,y,z,n,col,sp,life){for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rnd(sp*0.3,sp);PT({x,y,z,vx:Math.cos(a)*s,vy:Math.sin(a)*s*0.3,vz:Math.sin(a*1.7)*s*0.8+1,g:0.25,life:life||rndi(10,20),sz:rnd(1.5,3.5),col,k:'spark'});}}
 function dust(x,y,n){for(let i=0;i<(n||4);i++)PT({x:x+rnd(-10,10),y,z:2,vx:rnd(-1.2,1.2),vz:rnd(0.3,1.2),life:rndi(16,28),sz:rnd(8,16),col:'rgba(160,140,110,0.5)',k:'smoke'});}
 function popup(s,x,y,z,col,sz){PT({x,y,z,vz:1.2,life:42,k:'text',s,col:col||'#fff',sz:sz||22,vx:rnd(-.3,.3)});}
@@ -1181,7 +1184,7 @@ function updUltM(u){const p=u.p;u.t++;p.t++;const t=u.t,L=G.camx,R=G.camx+W,fs=G
   if(t>=s0+d&&t<s0+d+MU.gap&&i<3){ph='gap';p.z=0;p.ultAn='jslash';p.ultPos=4;}}
  if(t<MU.arm){p.ultAn='big';p.ultPos=Math.min(2,Math.floor(t/20));p.z=0;p.x=u.x0;}
  else if(t>=muStart(3)+MU.dur[3]&&t<MU.blast){p.z=0;p.ultAn='a1';p.ultPos=t<MU.blast-14?4:3;/* 斬り抜けたあと、静かに刀を納める */}
- if(t===MU.blast){for(const e of fs){p.hit.clear();hurt(e,p,{pz:'swing',dmg:e.T.boss?40:60,kb:9,launch:true});}G.shake=30;AU.sfx('boom');ring(p.x,p.y,360,'rgba(150,255,200,0.95)',34);ring(p.x,p.y,220,'rgba(255,255,255,0.8)',22);dust(p.x,p.y,20);u.fl=4;}
+ if(t===MU.blast){for(const e of fs){p.hit.clear();hurt(e,p,{pz:'swing',dmg:e.T.boss?40:60,kb:9,launch:true});}G.shake=30;AU.sfx('boom');ring(p.x,p.y,360,'rgba(150,255,200,0.95)',34);ring(p.x,p.y,220,'rgba(255,255,255,0.8)',22);dust(p.x,p.y,20);u.fl=3;}
  if(u.gh.length>28)u.gh.splice(0,u.gh.length-28);for(const g of u.gh)g.age++;
  if(t>=MU.end){G.ult=null;p.state='idle';p.st=0;p.z=0;p.inv=40;p.ultAn=null;p.x=clamp(p.x,G.camx+40,G.camx+W-40);}}
 /* 緑の風: 画面全体をゆっくり吹く長い曲線と、空から斜めに降りてくる曲線 */
@@ -1200,7 +1203,7 @@ function drawUltM(u){const t=u.t,p=u.p;
  /* 通り道の光(×は政宗の動きだけで描く) */
  ctx.save();ctx.globalCompositeOperation='lighter';ctx.lineCap='round';for(let i=0;i<4;i++){const s0=muStart(i),d=MU.dur[i];if(t<s0)break;const right=i%2===0,L=G.camx,R=G.camx+W,xa=right?L+70:R-70,xb=right?R-70:L+70,k=Math.min(1,(t-s0)/d),e=k*k*(3-2*k)*0.25+k*0.75,age=Math.max(0,t-(s0+d)),al=Math.max(0,1-age/26);if(al<=0)continue;
   ctx.strokeStyle=`rgba(190,255,220,${0.85*al})`;ctx.lineWidth=2+8*al;ctx.beginPath();ctx.moveTo(xa-G.camx,p.y-360-70);ctx.lineTo(xa+(xb-xa)*e-G.camx,p.y-360*(1-e)-70);ctx.stroke();}ctx.restore();
- if(u.fl>0){ctx.fillStyle=`rgba(220,255,235,${0.12*u.fl})`;ctx.fillRect(0,0,W,H);u.fl--;}}
+ if(u.fl>0){ctx.fillStyle=`rgba(220,255,235,${0.1*u.fl})`;ctx.fillRect(0,0,W,H);u.fl--;}}
 // 信長の必殺Lv2「魔王の火刑」: 画面内の敵(最大6体、近い順)の足元から火柱が立ち、燃やし続けたあと爆ぜる
 function kakeiStep(p,st){const once=p._kst!==st;p._kst=st; // 当たった瞬間の一時停止中は同じ st で何度も呼ばれるので、節目の処理は1回だけ
  if(st===8&&once){p.kakei=G.fighters.filter(e=>e.team===1&&e.hp>0&&!e.isProp&&e.entered!==false&&e.x>G.camx+20&&e.x<G.camx+W-20).sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x)).slice(0,6);
@@ -1214,8 +1217,8 @@ function kakeiStep(p,st){const once=p._kst!==st;p._kst=st; // 当たった瞬間
  if(st===50&&once){G.shake=Math.max(G.shake,16);AU.sfx('boom');p.kakei=null;}}
 function startSpecial(p){const lv=spLevel(p);if(lv>=3&&p===G.player){startUlt(p);return;}if(p.isPartner&&p.T.lowSpc){p.spcCdT=G.t+700;p.spcAlt=lv<2;}/* 才蔵・根津: 1本目(Lv1)を撃ったら次はゲージ2本(Lv2)を待つ。実際に出した時だけ切り替える */p.spLv=Math.max(1,lv);p.ki-=p.spLv*100;p.state='spc';p.st=0;p.inv=999;p.hit.clear();p.cur=SPD[p.type];G.spcScene={p,t:G.t};{const S2=p.spLv===2&&SPC2[p.type];G.cut={t:0,name:S2?S2[0]:p.T.spcName+(p.spLv===2?'・極':''),sub:S2?S2[1]:p.spLv===2?'— 必殺 Lv2 —':p.T.spcSub,type:p.type,lv:p.spLv,mine:p===G.player};}if(p.spLv===2){G.flashT=8;}G.hitstop=18;AU.sfx('don');AU.spv&&AU.spv(p.type);setTimeout(()=>AU.sfx({yuki:'spc1',kage:'spc2',mitsu:'spc3',nobu:'spc3',shin:'spc2',musashi:'spc1'}[p.type]||'spc1'),120);}
 // 必殺Lv2で別の技になる武将(信長: Lv1=鉄砲、Lv2=火刑)
-const SPC2={nobu:['魔王の火刑','我に逆らう者、灰となれ'],saizo:['水遁・大水龍','水は千変万化'],sasuke:['火遁・業火の術','炎よ、すべてを焼け'],nezu:['大岩落とし','天より岩を降らせる']};
-const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36},saizo:{pz:'throw',dur:64,hs:10,he:50},sasuke:{pz:'throw',dur:62,hs:10,he:48},nezu:{pz:'raise',dur:60,hs:10,he:46}};
+const SPC2={karakuri:['独楽砲撃','ギ…ギギ…'],nobu:['魔王の火刑','我に逆らう者、灰となれ'],saizo:['水遁・大水龍','水は千変万化'],sasuke:['火遁・業火の術','炎よ、すべてを焼け'],nezu:['大岩落とし','天より岩を降らせる']};
+const SPD={yuki:{pz:'rush',dur:46,hs:8,he:34},kage:{pz:'swing',a0:-3.0,a1:1.4,r:40,dur:56,hs:24,he:30},mitsu:{pz:'raise',dur:96,hs:10,he:80},karakuri:{pz:'rush',dur:80,hs:10,he:40},nobu:{pz:'shoot',dur:58,hs:10,he:46},shin:{pz:'rush',dur:50,hs:6,he:14},musashi:{pz:'rush',dur:46,hs:6,he:36},saizo:{pz:'throw',dur:64,hs:10,he:50},sasuke:{pz:'throw',dur:62,hs:10,he:48},nezu:{pz:'raise',dur:60,hs:10,he:46}};
 // 幸村の必殺「赤備え突貫」: ①前の雑兵を槍に掛け、画面の端まで突き抜けながら連続で突く(多段) ②端で最後の一突き、まとめて吹き飛ばす。
 // 最後の一突きで時間の停止を解き、吹き飛ぶ敵がそのまま見える(端で跳ね返る)。Lv2(・極)は最後に十文字の炎が走る。
 function yukiSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?18:16;
@@ -1242,10 +1245,59 @@ function yukiSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[])
   for(let i=0;i<40;i++)PT({x:cx+rnd(-170,170),y:p.y+rnd(-30,30),z:rnd(0,60),vx:rnd(-1,1),vz:rnd(2,7),g:-0.05,life:rndi(18,34),sz:rnd(14,30),col:i%2?'rgba(255,90,30,0.7)':'rgba(255,200,90,0.7)',k:'fire'});
   for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying)continue;if(Math.abs(e.x-cx)<230&&Math.abs(e.y-p.y)<60){p.hit.delete(e);e.inv=0;hurt(e,p,{dmg:16,kb:6,launch:true,noDecap:true,unblock:true});}}}
  if(st>=p.cur.dur-1)H.length=0;}
+/* からくり武者の必殺(オーナー案 2026-10-17): Lv1=独楽の突進(回りながら画面の端まで前へ突っ込み、通り道の敵を巻き込んで多段ヒット→最後に弾き飛ばす)。
+   Lv2(極)=突進のあと、体の仕掛けが開いて砲弾を発射(着弾で爆発・まとめて吹き飛ばす)。奥義(ゲージ3本)は「回る剣の陣」のまま。
+   時間は止まったまま(updSpc と本人の砲弾 updProj(onlyOwner) だけが進む)。 */
+function karaSpc(p,st){const f=p.face,lv2=p.spLv===2,H=p.spcHeld||(p.spcHeld=[]),spd=lv2?17:19,WIND=10;
+ if(!p.kinit){/* 最初の1回(st===0は呼ばれないことがあるので、印で判断する) */p.kinit=true;H.length=0;p.cur=Object.assign({},SPD.karakuri);p.kspin=0;p.kcan=0;p.krec=0;p.kfired=false;AU.sfx('creak');}
+ if(st===WIND){const m=fighterScreenMargin(p),edge0=f>0?G.camx+W-m:G.camx+m,edge=lv2?edge0-f*250:edge0/* Lv2は端の手前で止まり、壁際に追い込んだ敵へ砲弾を撃つ */,dist=Math.max(0,(edge-p.x)*f);p.rushEnd=WIND+clamp(Math.ceil(dist/spd),12,58);p.rushEdge=edge;p.cur.he=p.rushEnd;p.cur.dur=p.rushEnd+(lv2?52:20);}
+ const RE=p.rushEnd||34;
+ if(st<WIND){p.kspin+=0.2+st*0.09;p.z=0;if(st%3===1){AU.sfx('gear');PT({x:p.x+rnd(-24,24),y:p.y,z:rnd(20,120),vx:rnd(-2,2),vz:rnd(1,4),g:0.2,life:12,sz:rnd(2,4),col:'#ffd890',k:'spark'});}}
+ if(st>=WIND&&st<=RE){p.kspin+=1.05;p.x+=f*spd;if((p.x-p.rushEdge)*f>0)p.x=p.rushEdge;
+  for(const e of G.fighters){if(e.team!==1||e.hp<=0||e.dying||e.state==='dead'||H.includes(e))continue;const dx=(e.x-p.x)*f;if(dx>-10&&dx<150&&Math.abs(e.y-p.y)<46&&Math.abs(e.z||0)<90){H.push(e);e.inv=0;}}
+  const wallX=G.camx+(f>0?W-30:30);
+  for(let i=H.length-1;i>=0;i--){const e=H[i];if(e.hp<=0||e.dying||!G.fighters.includes(e)){H.splice(i,1);continue;}
+   if(!e.T.boss){e.state='hurt';e.st=0;e.hurtT=30;e.cur=null;e.vx=0;let tx=p.x+f*(86+i*24);if((tx-wallX)*f>-i*12)tx=wallX-f*i*12;e.x+=(tx-e.x)*0.55;e.y+=(p.y-e.y)*0.2;e.z=Math.min(30,(e.z||0)+5);e.face=-f;}}
+  if((st-WIND)%4===0){for(const e of H){p.hit.delete(e);hurt(e,p,{dmg:2,kb:0,launch:false,noDecap:true});if(e.hp>0&&!e.T.boss&&e.state==='down'){e.state='hurt';e.vz=0;}PT({x:e.x-f*16,y:e.y,z:(e.z||0)+70,life:6,k:'star',sz:28,col:'#fff'});}
+   if(H.length)AU.sfx('slash');AU.sfx('gear');}
+  for(let i=0;i<3;i++)PT({x:p.x-f*rnd(0,50),y:p.y+rnd(-10,10),z:rnd(10,100),vx:-f*rnd(2,6),vz:rnd(0.5,3),g:0.1,life:rndi(8,16),sz:rnd(2,4),col:i%2?'#ffd890':'#ffffff',k:'spark'});
+  if(st%2===0)PT({x:p.x-f*rnd(10,50),y:p.y+rnd(-4,4),z:rnd(0,8),vx:-f*rnd(1,3),vz:rnd(0.5,1.5),life:14,sz:rnd(14,26),col:'rgba(150,140,125,0.55)',k:'smoke'});}
+ if(st===RE+1){p.kspin=undefined;p.hit.clear();
+  if(!lv2){const tx=p.x+f*120,aw=Math.abs(p.x-p.rushEdge)<4,bd=aw?-f:f;G.spcScene=null;/* 時間の停止を解く(吹き飛ぶ様子をその場で見せる) */
+   for(const e of H){if(e.hp>0&&!e.dying){p.hit.delete(e);hurt(e,p,{dmg:16,kb:14,launch:true,noDecap:true});if(!e.T.boss&&(e.state==='down'||e.dying)){e.vx=bd*(aw?10:15);e.vz=11;e.z=Math.max(e.z,1);e.bowl=p;e.wallB=0;}}}
+   strike(p,{rng:190,dmg:16,kb:12,dep:52,launch:true,around:true});G.hitstop=Math.max(G.hitstop,12);G.shake=Math.max(G.shake,20);AU.sfx('boom');AU.sfx('hitH');ring(tx,p.y,150,'rgba(255,200,120,0.95)',24);ring(tx,p.y,80,'rgba(255,255,255,0.9)',14);
+   for(let i=0;i<30;i++){const a=rnd(-0.7,0.7);PT({x:tx,y:p.y+rnd(-14,14),z:rnd(40,110),vx:bd*Math.cos(a)*rnd(4,11),vz:Math.sin(a)*rnd(3,8)+2,life:rndi(14,26),sz:rnd(2,4),col:i%3?'#ffd890':'#ffffff',k:'spark'});}
+   popup(H.length>1?H.length+'人まとめて！':'独楽突き！',tx-f*60,p.y,210,'#ffcf6a',30);}
+  else{AU.sfx('creak');G.shake=Math.max(G.shake,8);const wx=G.camx+(f>0?W-40:40);H.forEach((e,i)=>{if(e.T.boss)return;let tx=p.x+f*(240+i*30);if((tx-wx)*f>0)tx=wx-f*i*16;e.x=tx;e.y=clamp(p.y+(i%3-1)*16,YMIN,YMAX);});/* 追い込んだ敵を、砲弾が飛ぶ距離ぶん前へ離して並べる */}}
+ if(lv2&&st>RE+1){const k=st-(RE+1);p.kcan=Math.min(1,k/10);
+  if(k===14&&!p.kfired){p.kfired=true;p.krec=1;AU.sfx('gun');AU.sfx('heavy');G.shake=Math.max(G.shake,12);addProj({x:p.x+f*70,y:p.y,z:p.z+74,vx:f*20,vy:0,vz:0.4,team:0,dmg:26,face:f,owner:p,k:'shell',w:0,life:60,kb:12,R:230});for(let i=0;i<12;i++)PT({x:p.x+f*(60+rnd(0,40)),y:p.y+rnd(-8,8),z:p.z+74+rnd(-10,10),vx:f*rnd(3,9),vz:rnd(-1,2),g:0.05,life:rndi(8,16),sz:rnd(12,24),col:i%2?'rgba(255,190,80,0.85)':'rgba(160,160,160,0.6)',k:i%2?'fire':'smoke'});}
+  if(p.krec>0)p.krec=Math.max(0,p.krec-0.09);}
+ if(st>=p.cur.dur-1){H.length=0;p.kspin=undefined;p.kcan=0;p.krec=0;p.kinit=false;}}
+/* からくり武者の必殺カットイン: 絵(SPR.cutin)が無いので、コードで描いた頭部を拡大した顔のアップ+「ギ……ギギ……」(機械の軋みの音は startSpecial の直後に karaSpc が鳴らす)。専用の絵が届いたら差し替える */
+function drawKaraCut(t){const k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(1,(44-t)/10);
+ ctx.save();ctx.globalAlpha=a;ctx.translate(-W*(1-ex),0);
+ ctx.fillStyle='rgba(16,18,24,0.94)';ctx.beginPath();ctx.moveTo(0,190);ctx.lineTo(W,160);ctx.lineTo(W,430);ctx.lineTo(0,460);ctx.closePath();ctx.fill();
+ ctx.save();ctx.beginPath();ctx.moveTo(0,190);ctx.lineTo(W,160);ctx.lineTo(W,430);ctx.lineTo(0,460);ctx.closePath();ctx.clip();
+ for(const [cx,cy,r,sp] of[[W*0.2,330,150,0.04],[W*0.88,260,110,-0.06],[W*0.55,470,90,0.07]]){ctx.save();ctx.translate(cx,cy);ctx.rotate(t*sp);ctx.fillStyle='rgba(60,64,76,0.55)';ctx.beginPath();for(let i=0;i<16;i++){const a0=i/16*TAU;ctx.lineTo(Math.cos(a0)*r,Math.sin(a0)*r);ctx.lineTo(Math.cos(a0+0.12)*(r+16),Math.sin(a0+0.12)*(r+16));ctx.lineTo(Math.cos(a0+0.26)*(r+16),Math.sin(a0+0.26)*(r+16));ctx.lineTo(Math.cos(a0+0.38)*r,Math.sin(a0+0.38)*r);}ctx.closePath();ctx.fill();ctx.fillStyle='rgba(16,18,24,0.9)';ctx.beginPath();ctx.arc(0,0,r*0.45,0,TAU);ctx.fill();ctx.restore();}
+ /* 顔のアップ */
+ ctx.save();ctx.translate(W*0.66,312);ctx.scale(2.3,2.3);const J=Math.sin(t*1.9)*(t<30?1.4:0.4);ctx.translate(J,0);
+ ctx.fillStyle=metalG(-60,-90,60,70,'#8a8f9c');ctx.strokeStyle='#07080b';ctx.lineWidth=3;
+ ctx.beginPath();ctx.moveTo(-58,-34);ctx.quadraticCurveTo(-60,-92,0,-100);ctx.quadraticCurveTo(60,-92,58,-34);ctx.lineTo(48,10);ctx.quadraticCurveTo(0,40,-48,10);ctx.closePath();ctx.fill();ctx.stroke();/* 兜 */
+ ctx.fillStyle='#d6a638';ctx.beginPath();ctx.moveTo(-10,-98);ctx.quadraticCurveTo(-70,-120,-74,-168);ctx.quadraticCurveTo(-46,-126,-4,-102);ctx.closePath();ctx.fill();ctx.stroke();ctx.beginPath();ctx.moveTo(10,-98);ctx.quadraticCurveTo(70,-120,74,-168);ctx.quadraticCurveTo(46,-126,4,-102);ctx.closePath();ctx.fill();ctx.stroke();/* 前立て */
+ ctx.fillStyle='#4a4e5a';ctx.fillRect(-50,-48,100,16);ctx.strokeRect(-50,-48,100,16);/* 目庇 */
+ ctx.fillStyle='#161820';ctx.beginPath();ctx.moveTo(-44,-30);ctx.lineTo(44,-30);ctx.lineTo(40,18);ctx.quadraticCurveTo(0,34,-40,18);ctx.closePath();ctx.fill();ctx.stroke();/* 面 */
+ const fl=0.7+0.3*Math.sin(t*0.9),open=Math.min(1,t/10);ctx.globalCompositeOperation='lighter';for(const sd of[-1,1]){const g=ctx.createRadialGradient(sd*22,-14,1,sd*22,-14,34);g.addColorStop(0,`rgba(255,80,50,${0.95*fl*open})`);g.addColorStop(1,'rgba(255,40,20,0)');ctx.fillStyle=g;ctx.fillRect(sd*22-34,-48,68,68);}ctx.globalCompositeOperation='source-over';
+ ctx.fillStyle=`rgba(255,${Math.round(130+90*fl)},90,${open})`;for(const sd of[-1,1]){ctx.beginPath();ctx.moveTo(sd*10,-18);ctx.lineTo(sd*34,-22);ctx.lineTo(sd*32,-8);ctx.lineTo(sd*12,-6);ctx.closePath();ctx.fill();}/* 赤く光る目 */
+ ctx.strokeStyle='#5a5f6c';ctx.lineWidth=2;for(let i=-3;i<=3;i++){ctx.beginPath();ctx.moveTo(i*9,2);ctx.lineTo(i*9,16);ctx.stroke();}/* 口の格子 */
+ ctx.fillStyle='#8a8f9c';for(const sd of[-1,1]){ctx.beginPath();ctx.arc(sd*58,-10,15,0,TAU);ctx.fill();ctx.stroke();ctx.fillStyle='#3a3e48';ctx.beginPath();ctx.arc(sd*58,-10,6,0,TAU);ctx.fill();ctx.fillStyle='#8a8f9c';}/* 耳の歯車 */
+ ctx.restore();ctx.restore();
+ const sh=t<30?Math.sin(t*2.3)*3:0;txt('ギ……ギギ……',W*0.2+sh,318,54,'#e6e8ee','center','#07080b',8);
+ ctx.restore();}
 function updSpc(p){
  const st=p.st,k=p.type;p.inv=Math.max(p.inv,3);
  if(k==='yuki'){yukiSpc(p,st);
- }else if((k==='kage'||k==='karakuri')){
+ }else if(k==='karakuri'){karaSpc(p,st);
+ }else if(k==='kage'){
   if(st<24){PT({x:p.x+p.face*rnd(-10,40),y:p.y,z:rnd(60,190),vx:rnd(-1,1),vz:rnd(-1,2),life:14,sz:rnd(2,4),col:'#9fd8ff',k:'spark'});if(st%5===0)PT({x:p.x+p.face*20,y:p.y,z:150,life:6,k:'bolt',sz:90,col:'#bfe8ff',seed:Math.random()*100});}
   if(st===24){strike(p,{rng:190,dmg:26,kb:8,dep:90,launch:true});crescent(p,{pal:1,dmg:22,big:1.15});/* 2026-10-16 両側の風の波をやめ、進行方向へ横の三日月(全列) */G.shake=22;G.flashT=8;ring(p.x,p.y,220,'rgba(160,220,255,0.95)',30);dust(p.x,p.y,12);for(let i=0;i<4;i++)PT({x:p.x+rnd(-120,120),y:p.y,z:0,life:9,k:'bolt',sz:300,col:'#dff4ff',seed:Math.random()*100});AU.sfx('boom');}
  }else if(k==='nobu'&&p.spLv===2){kakeiStep(p,st);
@@ -1278,7 +1330,8 @@ function updSpc(p){
   if(st>=14&&st<=76&&st%7===0){const x=clamp(p.x+p.face*rnd(60,520),G.camx+50,G.camx+W-50);fall(x,rnd(YMIN+8,YMAX),0,18,90,0,p);}
   if(st%4===0)PT({x:p.x+rnd(-30,30),y:p.y,z:rnd(100,200),vx:rnd(-1,1),vz:rnd(0.5,2),life:22,sz:rnd(2,4),col:'#d6a8ff',k:'spark'});
  }
- if(p.spLv===2&&st===p.cur.dur-2&&(k==='kage'||k==='karakuri'||k==='musashi')){if(k==='kage'||k==='karakuri')crescent(p,{pal:1,dmg:20,big:1.3,off:40});}/* 上杉の2本目は1本目と約450px離れて重ならない。武蔵は1本だけ *//* 斬撃の2本目も進行方向だけ */
+ if(k==='karakuri'){/* 専用の必殺(karaSpc)。上杉の三日月は撃たない */}
+ else if(p.spLv===2&&st===p.cur.dur-2&&(k==='kage'||k==='karakuri'||k==='musashi')){if(k==='kage'||k==='karakuri')crescent(p,{pal:1,dmg:20,big:1.3,off:40});}/* 上杉の2本目は1本目と約450px離れて重ならない。武蔵は1本だけ *//* 斬撃の2本目も進行方向だけ */
  else if(p.spLv===2&&st===p.cur.dur-2){for(const sd of[1,-1])addProj({x:p.x+sd*30,y:p.y,z:6,vx:sd*11,team:0,dmg:20,face:sd,owner:p,k:'wave',w:56,life:50,launch:true,kb:7,pierce:99});G.shake=16;ring(p.x,p.y,240,'rgba(255,220,120,0.95)',30);AU.sfx('boom');}
  if(st>=p.cur.dur){p.state='idle';p.st=0;p.inv=20;}
 }
@@ -1712,6 +1765,16 @@ function updProj(onlyOwner){
   if(q.k==='rock'){q.x+=q.vx;q.y+=q.vy;q.z+=q.vz;q.vz-=0.6;q.rot=(q.rot||0)+0.3;
    if(q.z<=0){G.proj.splice(i,1);AU.sfx('boom');G.shake=Math.max(G.shake,9);ring(q.x,q.y,80,'rgba(190,170,140,0.95)',18);for(let k=0;k<14;k++)PT({x:q.x+rnd(-26,26),y:q.y+rnd(-8,8),z:rnd(0,30),vx:rnd(-3,3),vz:rnd(1,5),g:0.25,life:rndi(14,26),sz:rnd(6,14),col:k<7?'#8a7a68':'rgba(120,110,100,0.6)',k:k<7?'spark':'smoke'});
     for(const t of G.fighters){if(t.team!==1||t.hp<=0||t.dying||t.state==='dead')continue;if(Math.abs(t.x-q.x)<72&&Math.abs(t.y-q.y)<36&&t.z<50){const o=q.owner||G.player;if(o&&o.hit)o.hit.delete(t);t.inv=0;hurt(t,o,{dmg:q.dmg,kb:q.kb||7,launch:true,noDecap:true,unblock:true});}}}
+   continue;}
+  if(q.k==='shell'){/* からくり武者の砲弾: まっすぐ飛び、敵・端・地面に当たると爆発して周りをまとめて吹き飛ばす */q.x+=q.vx;q.y+=(q.vy||0);q.z+=q.vz;q.vz-=0.05;q.rot=(q.rot||0)+0.35;
+   if(G.t%2===0)PT({x:q.x-q.face*14,y:q.y,z:q.z,vx:-q.face*rnd(0.5,1.5),vz:rnd(0,0.8),life:12,sz:rnd(9,16),col:'rgba(120,120,120,0.55)',k:'smoke'});PT({x:q.x-q.face*8,y:q.y,z:q.z,vx:0,vz:0,life:6,sz:rnd(5,9),col:'rgba(255,170,60,0.85)',k:'flame'});
+   let boom=q.z<=0||q.life<=0||q.x<G.camx+24||q.x>G.camx+W-24;
+   if(!boom)for(const t of G.fighters){if(t.team!==1||t.hp<=0||t.dying||t.state==='dead'||t.isProp)continue;if(Math.abs(t.x-q.x)<48&&Math.abs(t.y-q.y)<34&&q.z<(t.z||0)+130){boom=true;break;}}
+   if(boom){G.proj.splice(i,1);const o=q.owner||G.player,R=q.R||200;AU.sfx('boom');AU.sfx('hitH');G.shake=Math.max(G.shake,24);G.hitstop=Math.max(G.hitstop,8);ring(q.x,q.y,R*1.1,'rgba(255,170,70,0.95)',28);ring(q.x,q.y,R*0.6,'rgba(255,240,200,0.95)',18);dust(q.x,q.y,16);
+    for(let k=0;k<26;k++){const a=rnd(0,TAU),v=rnd(2,9);PT({x:q.x,y:q.y,z:q.z+rnd(10,60),vx:Math.cos(a)*v,vy:Math.sin(a)*v*0.35,vz:rnd(1,7),g:0.25,life:rndi(16,30),sz:rnd(12,28),col:k%3?'rgba(255,120,40,0.8)':'rgba(255,220,120,0.85)',k:'fire'});}
+    for(const t of G.fighters){if(t.team!==1||t.hp<=0||t.dying||t.state==='dead'||t.isProp)continue;if(Math.abs(t.x-q.x)<R&&Math.abs(t.y-q.y)<R*0.5){if(o&&o.hit)o.hit.delete(t);t.inv=0;hurt(t,{x:q.x-q.face*40,face:q.face,team:0,owner:o,hit:null},{dmg:q.dmg,kb:q.kb||11,launch:true,noDecap:true,unblock:true});if(!t.T.boss&&(t.state==='down'||t.dying)){t.vx=sgn(t.x-q.x||q.face)*rnd(8,13);t.vz=rnd(9,13);t.z=Math.max(t.z||0,1);t.bowl=o;t.wallB=0;}}}
+    if(G.spcScene&&G.spcScene.p===o)G.spcScene=null;/* 爆発で時間の停止を解く(吹き飛ぶ様子がそのまま見える) */
+    popup('砲撃！',q.x,q.y,200,'#ffcf6a',28);}
    continue;}
   if(q.k==='bomb'){q.x+=q.vx;q.y+=q.vy;q.z+=q.vz;q.vz-=0.6;if(G.t%2===0)PT({x:q.x,y:q.y,z:q.z+10,vx:rnd(-0.5,0.5),vz:rnd(0,1),life:8,sz:rnd(2,4),col:'#ffd070',k:'spark'});
    if(q.z<=0){G.proj.splice(i,1);AU.sfx('boom');G.shake=Math.max(G.shake,10);blast(q.x,q.y,q.cannon?1.7:q.big?1.25:1);if(q.cannon){ring(q.x,(YMIN+YMAX)/2,300,'rgba(255,200,120,0.9)',26);G.shake=Math.max(G.shake,16);for(let k=0;k<18;k++)dust(q.x+rnd(-290,290),rnd(YMIN,YMAX),1);}/* 地響き: 地面の全列に広がる */
@@ -2689,9 +2752,10 @@ function drawFighterP(f){
  if(f.state==='dead'&&f.team===1&&f.st>172&&(f.st&2))ctx.globalAlpha=0.35;
  if(f.team===0&&f.inv>0&&f.inv<900&&f.state!=='spc'&&(G.t&2))ctx.globalAlpha=0.55;else if(f.team===1&&f.wakeInv>G.t&&(G.t&4))ctx.globalAlpha=0.6;/* ボスの起き上がり無敵(2.5秒)は点滅で見分ける */
  ctx.scale(f.face*sc,sc);
+ if(f.kspin!==undefined&&f.state==='spc'){/* からくり武者の独楽: 体の中心を軸に、横幅を縮め伸ばしながら回し、傾けて独楽に見せる */const c=Math.cos(f.kspin),sg=c<0?-1:1;ctx.translate(0,-70);ctx.rotate(-0.28);ctx.scale(sg*Math.max(0.2,Math.abs(c)),1);ctx.translate(0,70);}
  if(o.rot){const drop=52*clamp(-o.rot/1.45,0,1);ctx.translate(0,-64+drop);ctx.rotate(o.rot);ctx.translate(0,64);}
  const sx=o.sx,sy=o.sy,hy=o.hy;
- if(f.state==='spc'){ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,-70,5,0,-70,90);g.addColorStop(0,`rgba(${T.trail},0.55)`);g.addColorStop(1,`rgba(${T.trail},0)`);ctx.fillStyle=g;ctx.fillRect(-100,-170,200,200);ctx.globalCompositeOperation='source-over';}
+ if(f.state==='spc'&&f.kspin===undefined){/* 独楽の回転中は光の四角が傾いて見えるので出さない */ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,-70,5,0,-70,90);g.addColorStop(0,`rgba(${T.trail},0.55)`);g.addColorStop(1,`rgba(${T.trail},0)`);ctx.fillStyle=g;ctx.fillRect(-100,-170,200,200);ctx.globalCompositeOperation='source-over';}
  if(T.horse&&!['down','dead','getup','hurt'].includes(f.state)){drawHorse(f.wp,f.t);ctx.translate(0,-32);}
  drawBanner(f,o,K);
  // cape
@@ -2730,6 +2794,9 @@ function drawFighterP(f){
   const wpx=f.wpn?WPN[f.wpn.k]:null,TIP=wpx?wpx.tip:T.tip,WN=wpx?wpx.draw:T.wp;
   if(act&&TIP>20&&WN!=='teppo'&&d.pz!=='shoot'&&d.pz!=='aim'&&d.pz!=='bow'&&d.pz!=='raise'){const m=ctx.getTransform(),ca=Math.cos(o.wa),sa=Math.sin(o.wa),tx=o.hf[0]+ca*TIP,ty=o.hf[1]+sa*TIP,mx=o.hf[0]+ca*TIP*0.35,my=o.hf[1]+sa*TIP*0.35;
    f.trail.push({x1:m.a*tx+m.c*ty+m.e+G.camx,y1:m.b*tx+m.d*ty+m.f,x2:m.a*mx+m.c*my+m.e+G.camx,y2:m.b*mx+m.d*my+m.f});if(f.trail.length>9)f.trail.shift();f.trailOn=true;}}
+ if(f.kcan>0&&f.state==='spc'){/* 体の仕掛けが開いて砲身が出る(kcan: 開き具合0〜1、krec: 発射の反動) */const k=Math.min(1,f.kcan),rc=f.krec||0;ctx.save();ctx.translate(8,-74);ctx.fillStyle='#2a2d35';ctx.strokeStyle='#0c0d10';ctx.lineWidth=2;for(const sd of[-1,1]){ctx.save();ctx.rotate(sd*k*1.1);ctx.fillRect(-6,sd>0?-2:-14,26,12);ctx.strokeRect(-6,sd>0?-2:-14,26,12);ctx.restore();}
+  const L=(20+46*k)-rc*14;ctx.fillStyle=metalG(0,-9,L,9,'#7c8290');ctx.fillRect(0,-9,L,18);ctx.strokeRect(0,-9,L,18);ctx.fillStyle='#14161a';ctx.fillRect(L-6,-11,10,22);ctx.fillStyle='#050608';ctx.beginPath();ctx.ellipse(L+4,0,3,7,0,0,TAU);ctx.fill();
+  if(rc>0){ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(L+10,0,2,L+10,0,60*rc);g.addColorStop(0,'rgba(255,240,180,0.95)');g.addColorStop(1,'rgba(255,120,30,0)');ctx.fillStyle=g;ctx.fillRect(L-50,-60,140,120);}ctx.restore();}
  ctx.restore();
 }
 // 回避の見せ方: 出だしの輪と風切り線、動いている間の残像
@@ -2759,6 +2826,7 @@ function drawItem(it){
 }
 function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.camx,q.y-q.z,Math.atan2(-q.vz,q.vx),34,q.fire);return;}
  if(q.k==='rock'){ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.rotate(q.rot||0);ctx.fillStyle='#6f6558';ctx.strokeStyle='#241e18';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-16,-4);ctx.lineTo(-8,-15);ctx.lineTo(8,-13);ctx.lineTo(17,-2);ctx.lineTo(10,12);ctx.lineTo(-9,13);ctx.closePath();ctx.fill();ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.18)';ctx.beginPath();ctx.moveTo(-10,-8);ctx.lineTo(-2,-12);ctx.lineTo(2,-4);ctx.closePath();ctx.fill();ctx.restore();return;}
+ if(q.k==='shell'){ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.globalCompositeOperation='lighter';const g=ctx.createRadialGradient(0,0,2,0,0,30);g.addColorStop(0,'rgba(255,200,90,0.8)');g.addColorStop(1,'rgba(255,100,20,0)');ctx.fillStyle=g;ctx.fillRect(-30,-30,60,60);ctx.restore();ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.rotate(q.rot||0);ctx.fillStyle=metalG(-11,-11,11,11,'#6a6f7a');ctx.strokeStyle='#0c0d10';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(0,0,11,0,TAU);ctx.fill();ctx.stroke();ctx.fillStyle='#b8bcc6';ctx.fillRect(-7,-2,14,3);ctx.restore();return;}
  if(q.k==='bomb'){ctx.save();ctx.strokeStyle=`rgba(255,60,40,${0.5+0.4*Math.sin(G.t*0.5)})`;ctx.lineWidth=3;ctx.beginPath();if(q.cannon){ctx.ellipse(q.tx-G.camx,(YMIN+YMAX)/2,300,(YMAX-YMIN)/2+10,0,0,TAU);ctx.stroke();ctx.restore();ctx.save();if(G.t%30<18)txt('跳べ！',q.tx-G.camx,YMIN-20,30,'#ffdd66','center','#600',5);}else{ctx.ellipse(q.tx-G.camx,q.ty,70,20,0,0,TAU);ctx.stroke();}ctx.restore();ctx.save();ctx.translate(q.x-G.camx,q.y-q.z);ctx.fillStyle='#2a2420';ctx.beginPath();ctx.arc(0,0,11,0,TAU);ctx.fill();ctx.strokeStyle='#000';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='rgba(255,255,255,0.25)';ctx.beginPath();ctx.arc(-3,-4,4,0,TAU);ctx.fill();ctx.strokeStyle='#c8a060';ctx.beginPath();ctx.moveTo(4,-9);ctx.quadraticCurveTo(10,-18,6,-22);ctx.stroke();ctx.restore();return;}
  const x=q.x-G.camx,y=q.y-q.z;ctx.save();ctx.translate(x,y);
  if(q.k==='arrow'){ctx.scale(q.face,1);if(q.vy)ctx.rotate(Math.atan2(q.vy,Math.abs(q.vx)));line(-22,0,18,0,2.5,'#d8c8a0');poly([[18,-4],[28,0],[18,4]],'#ddd');poly([[-22,0],[-28,-4],[-18,0]],'#c33');poly([[-22,0],[-28,4],[-18,0]],'#c33');}
@@ -2780,7 +2848,7 @@ function drawProj(q){if(q.k==='arrowfall'){if(q.wait>0)return;drawArrow(q.x-G.ca
    if(q.wait<=0){ctx.restore();ctx.save();ctx.translate(x,y);drawFlame(0,16,128,30,G.t*.6,1,0,q.team===0?FLAME_P:null);circ(0,4,9,'rgba(255,250,225,0.95)');}}}
  ctx.restore();}
 function drawParts(){
- for(const p of G.parts){const x=p.x-G.camx,y=p.y-p.z,a=clamp(p.life/p.max,0,1);
+ for(const p of G.parts){if(!(Number.isFinite(p.x)&&Number.isFinite(p.y)&&Number.isFinite(p.z)&&Number.isFinite(p.sz)&&p.max>0)){p.life=0;continue;}const x=p.x-G.camx,y=p.y-p.z,a=clamp(p.life/p.max,0,1);ctx.save();try{/* 例外が出ても描画状態(合成モードなど)を粒ごとに元へ戻す。さもないと 'lighter' のまま残って画面が白く見える */
   switch(p.k){
    case'qfx':{const QS=SPR.monkfx,QA=QS&&QS.ready&&QS.a.quake;if(QA){const qi=Math.min(QA.length-1,Math.floor((1-a)*QA.length)),Q=QA[qi];ctx.globalAlpha=Math.min(1,a*2.2);ctx.drawImage(QS.img,Q[0],Q[1],Q[2],Q[3],x+Q[4]*p.sz,y+Q[5]*p.sz,Q[2]*p.sz,Q[3]*p.sz);ctx.globalAlpha=1;}break;}
    case'spark':ctx.strokeStyle=p.col;ctx.globalAlpha=a;ctx.lineWidth=p.sz;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-p.vx*2.2,y+p.vz*2.2-p.vy*0.6);ctx.stroke();ctx.globalAlpha=1;break;
@@ -2804,7 +2872,7 @@ function drawParts(){
    case'text':ctx.globalAlpha=Math.min(1,a*2);txt(p.s,x,y,p.sz,p.col,'center','#000',4,'Arial Black,Impact,sans-serif');ctx.globalAlpha=1;break;
    case'bolt':{ctx.globalCompositeOperation='lighter';ctx.strokeStyle=p.col;ctx.lineWidth=3;ctx.globalAlpha=a;ctx.beginPath();let bx=x,by=y;ctx.moveTo(bx,by);const r=mkrng(p.seed+p.life);for(let i=0;i<8;i++){bx+=(r()-.5)*40;by-=p.sz/8;ctx.lineTo(bx,by);}ctx.stroke();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';break;}
    default:ctx.globalAlpha=a;circ(x,y,p.sz,p.col);ctx.globalAlpha=1;
-  }}
+  }}catch(e){p.life=0;if(!G._badDraw){G._badDraw=1;console.warn('drawParts',p.k,e&&e.message);}}ctx.restore();}
 }
 
 /* ===================== WEATHER / HUD ===================== */
@@ -2857,7 +2925,7 @@ function drawOverlays(){drawChaseSpeed();drawSays();drawRear();drawKachi();drawU
   else{ctx.fillStyle='rgba(0,0,0,0.5)';ctx.fillRect(0,240,W,150);txt(b.jp,W/2,282,34,'#e8c35a','center','#000',5);txt(b.title,W/2,336,66,'#fff','center','#300',8);txt(b.en,W/2,376,18,'#ddd','center','#000',3,'Arial');}ctx.globalAlpha=1;}}}
  // special cut-in
  // 必殺のカットイン: 文字なしの細帯(画像担当の納品)。左から滑り込み→少し止まり→消える。主人公本人の必殺だけ・画面の左上寄り(HUDと打点を避ける)
- if(G.cut&&G.cut.mine&&G.cut.t<=44){const CS=SPR.cutin,CQ=CS&&CS.ready&&CS.a[G.cut.type]&&CS.a[G.cut.type][0];if(CQ){const t=G.cut.t,k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(1,(44-t)/10),w=700,h=w*CQ[3]/CQ[2],x=-w+ex*(w+60),y=150;ctx.save();ctx.globalAlpha=a;ctx.drawImage(CS.img,CQ[0],CQ[1],CQ[2],CQ[3],x,y,w,h);ctx.restore();}}
+ if(G.cut&&G.cut.mine&&G.cut.t<=44&&G.cut.type==='karakuri')drawKaraCut(G.cut.t);else if(G.cut&&G.cut.mine&&G.cut.t<=44){const CS=SPR.cutin,CQ=CS&&CS.ready&&CS.a[G.cut.type]&&CS.a[G.cut.type][0];if(CQ){const t=G.cut.t,k=Math.min(1,t/8),ex=1-Math.pow(1-k,3),a=Math.min(1,(44-t)/10),w=700,h=w*CQ[3]/CQ[2],x=-w+ex*(w+60),y=150;ctx.save();ctx.globalAlpha=a;ctx.drawImage(CS.img,CQ[0],CQ[1],CQ[2],CQ[3],x,y,w,h);ctx.restore();}}
  if(G.cut){G.cut.t++;if(G.cut.t>44||G.vo)G.cut=null;} // 必殺の文字カットインは出さない(文字なしの細帯だけ。オーナー指示 2026-10-11)
  // 敵将討ち取ったり
  if(G.vo){const v=G.vo;v.t++;const L=v.small?110:(v.name&&!G.demo?132:260);if(v.t>L)G.vo=null;else{const s=v.t<12?1+(1-v.t/12)*1.2:1,a=v.t>L-20?(L-v.t)/20:1;ctx.save();ctx.globalAlpha=a;ctx.translate(W/2,v.small?230:300);ctx.scale(s,s);const fs=v.small?64:96;
