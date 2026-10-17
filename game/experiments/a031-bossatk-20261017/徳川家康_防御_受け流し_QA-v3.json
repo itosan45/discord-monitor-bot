@@ -1,0 +1,255 @@
+{
+  "sprite": "徳川家康_防御_受け流し_8コマ_v3.png",
+  "preview_gif": "徳川家康_防御_受け流し_preview-v3.gif",
+  "review_grid": "徳川家康_防御_受け流し_review-v3.png",
+  "frames": 8,
+  "size": [
+    4096,
+    384
+  ],
+  "unique_frames": 8,
+  "frame_details": [
+    {
+      "frame": 1,
+      "grid_cell": [
+        1,
+        1
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        259,
+        15,
+        468,
+        270
+      ],
+      "kept_components": [
+        21975
+      ],
+      "output_bbox": [
+        166,
+        175,
+        320,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 2,
+      "grid_cell": [
+        2,
+        1
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        997,
+        36,
+        1215,
+        270
+      ],
+      "kept_components": [
+        22014
+      ],
+      "output_bbox": [
+        165,
+        175,
+        340,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 3,
+      "grid_cell": [
+        1,
+        2
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        238,
+        238,
+        513,
+        507
+      ],
+      "kept_components": [
+        24761,
+        605,
+        594
+      ],
+      "output_bbox": [
+        163,
+        175,
+        355,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 4,
+      "grid_cell": [
+        2,
+        2
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        990,
+        238,
+        1304,
+        507
+      ],
+      "kept_components": [
+        25109,
+        653,
+        592
+      ],
+      "output_bbox": [
+        159,
+        175,
+        378,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 5,
+      "grid_cell": [
+        1,
+        3
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        248,
+        517,
+        643,
+        786
+      ],
+      "kept_components": [
+        28467,
+        1170
+      ],
+      "output_bbox": [
+        154,
+        175,
+        430,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 6,
+      "grid_cell": [
+        2,
+        3
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        969,
+        540,
+        1312,
+        786
+      ],
+      "kept_components": [
+        23629,
+        800
+      ],
+      "output_bbox": [
+        134,
+        175,
+        396,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 7,
+      "grid_cell": [
+        1,
+        4
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        250,
+        757,
+        500,
+        996
+      ],
+      "kept_components": [
+        26593
+      ],
+      "output_bbox": [
+        146,
+        175,
+        343,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    },
+    {
+      "frame": 8,
+      "grid_cell": [
+        2,
+        4
+      ],
+      "row_overlap_px": 18,
+      "source_bbox": [
+        995,
+        750,
+        1225,
+        1003
+      ],
+      "kept_components": [
+        24655
+      ],
+      "output_bbox": [
+        155,
+        175,
+        326,
+        363
+      ],
+      "foot_anchor": [
+        256,
+        363
+      ],
+      "frame_edge_contact": false
+    }
+  ],
+  "adjacent_pixel_difference_sum": [
+    4237818.0,
+    4054618.0,
+    3551061.0,
+    6969830.0,
+    4629576.0,
+    5337901.0,
+    5107368.0
+  ],
+  "candidate_only": true,
+  "integrated": false,
+  "notes": "Overlapped source row crops by 18px and retained the main character components to remove adjacent-row fragments. Game runtime and hitbox not verified."
+}

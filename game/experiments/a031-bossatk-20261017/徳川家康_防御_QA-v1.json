@@ -1,0 +1,769 @@
+{
+  "character": "徳川家康(影武者)",
+  "candidate_only": true,
+  "integrated": false,
+  "pipeline": "built-in imagegen source -> magenta flood-background threshold/1px shrink -> uniform scaling -> foot-anchor placement",
+  "cell_size": [
+    512,
+    384
+  ],
+  "anchor": {
+    "foot_x": 256,
+    "ground_y": 363
+  },
+  "target_character_height_px": 188,
+  "actions": {
+    "構え": {
+      "sprite": "徳川家康_防御_構え_6コマ_v1.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "7ddba1efca77fd9e8d5d4eee66d43ed69008720f317ee5e4019f53a4698e2dbf",
+      "unique_frames": 6,
+      "source": "徳川家康_防御_構え_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "徳川家康_防御_構え_preview-v1.gif",
+      "frames_detail": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "source_bbox": [
+            34,
+            16,
+            402,
+            512
+          ],
+          "output_bbox": [
+            174,
+            175,
+            313,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.37903,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "source_bbox": [
+            536,
+            31,
+            922,
+            486
+          ],
+          "output_bbox": [
+            170,
+            175,
+            329,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.41319,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "source_bbox": [
+            1071,
+            21,
+            1470,
+            512
+          ],
+          "output_bbox": [
+            174,
+            175,
+            327,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.38289,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "source_bbox": [
+            36,
+            512,
+            422,
+            997
+          ],
+          "output_bbox": [
+            175,
+            175,
+            325,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.38763,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "source_bbox": [
+            547,
+            526,
+            951,
+            996
+          ],
+          "output_bbox": [
+            170,
+            175,
+            332,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.4,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "source_bbox": [
+            1086,
+            512,
+            1468,
+            997
+          ],
+          "output_bbox": [
+            172,
+            175,
+            320,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.38763,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        3509724.0,
+        3184568.0,
+        2654162.0,
+        2650567.0,
+        3512760.0
+      ],
+      "notes": "候補のみ。ゲーム組み込み・左右向き・実速度・当たり判定は未確認。"
+    },
+    "受け止め": {
+      "sprite": "徳川家康_防御_受け止め_4コマ_v1.png",
+      "frames": 4,
+      "size": [
+        2048,
+        384
+      ],
+      "sha256": "a55184d9bb547d05f4a12c2d7bdc0a3c25232e7fc6d8417442a5ff151d21cbea",
+      "unique_frames": 4,
+      "source": "徳川家康_防御_受け止め_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "徳川家康_防御_受け止め_preview-v1.gif",
+      "frames_detail": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "source_bbox": [
+            135,
+            9,
+            561,
+            512
+          ],
+          "output_bbox": [
+            163,
+            175,
+            322,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.37376,
+          "source_cell_size": [
+            768,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "source_bbox": [
+            828,
+            9,
+            1288,
+            512
+          ],
+          "output_bbox": [
+            156,
+            175,
+            328,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.37376,
+          "source_cell_size": [
+            768,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "source_bbox": [
+            117,
+            512,
+            706,
+            990
+          ],
+          "output_bbox": [
+            106,
+            175,
+            338,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.39331,
+          "source_cell_size": [
+            768,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "source_bbox": [
+            886,
+            512,
+            1320,
+            997
+          ],
+          "output_bbox": [
+            165,
+            175,
+            333,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.38763,
+          "source_cell_size": [
+            768,
+            512
+          ]
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        2552267.0,
+        5248663.0,
+        5768163.0
+      ],
+      "notes": "候補のみ。ゲーム組み込み・左右向き・実速度・当たり判定は未確認。"
+    },
+    "受け流し": {
+      "sprite": "徳川家康_防御_受け流し_8コマ_v1.png",
+      "frames": 8,
+      "size": [
+        4096,
+        384
+      ],
+      "sha256": "b579ac6bb82a477e6cf2c6987a72156de1070d9065e466d2543402bf63d61f5f",
+      "unique_frames": 8,
+      "source": "徳川家康_防御_受け流し_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "徳川家康_防御_受け流し_preview-v1.gif",
+      "frames_detail": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "source_bbox": [
+            20,
+            35,
+            374,
+            468
+          ],
+          "output_bbox": [
+            177,
+            175,
+            331,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.43418,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "source_bbox": [
+            392,
+            35,
+            768,
+            468
+          ],
+          "output_bbox": [
+            181,
+            175,
+            344,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.43418,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "source_bbox": [
+            768,
+            45,
+            1152,
+            471
+          ],
+          "output_bbox": [
+            182,
+            175,
+            351,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.44131,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            4,
+            1
+          ],
+          "source_bbox": [
+            1152,
+            65,
+            1522,
+            512
+          ],
+          "output_bbox": [
+            153,
+            175,
+            309,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.42058,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "source_bbox": [
+            19,
+            561,
+            384,
+            950
+          ],
+          "output_bbox": [
+            148,
+            175,
+            324,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.48329,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "source_bbox": [
+            384,
+            570,
+            768,
+            967
+          ],
+          "output_bbox": [
+            190,
+            175,
+            372,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.47355,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "source_bbox": [
+            768,
+            538,
+            1152,
+            975
+          ],
+          "output_bbox": [
+            176,
+            175,
+            341,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.43021,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            4,
+            2
+          ],
+          "source_bbox": [
+            1152,
+            512,
+            1516,
+            984
+          ],
+          "output_bbox": [
+            178,
+            175,
+            323,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.39831,
+          "source_cell_size": [
+            384,
+            512
+          ]
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        3389853.0,
+        2861273.0,
+        5917751.0,
+        5054776.0,
+        8669765.0,
+        5462031.0,
+        4458487.0
+      ],
+      "notes": "候補のみ。ゲーム組み込み・左右向き・実速度・当たり判定は未確認。"
+    },
+    "崩れ": {
+      "sprite": "徳川家康_防御_崩れ_6コマ_v1.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "7c13f4f8062e5516151f936e45bc0b6a7f6ec233def7c7c91a4a9e0535020ece",
+      "unique_frames": 6,
+      "source": "徳川家康_防御_崩れ_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "徳川家康_防御_崩れ_preview-v1.gif",
+      "frames_detail": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "source_bbox": [
+            34,
+            15,
+            512,
+            486
+          ],
+          "output_bbox": [
+            174,
+            175,
+            365,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.39915,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "source_bbox": [
+            512,
+            77,
+            1024,
+            487
+          ],
+          "output_bbox": [
+            139,
+            175,
+            374,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.45854,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "source_bbox": [
+            1024,
+            69,
+            1507,
+            486
+          ],
+          "output_bbox": [
+            129,
+            175,
+            347,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.45084,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "source_bbox": [
+            41,
+            562,
+            505,
+            951
+          ],
+          "output_bbox": [
+            166,
+            175,
+            390,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.48329,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "source_bbox": [
+            533,
+            618,
+            986,
+            935
+          ],
+          "output_bbox": [
+            119,
+            175,
+            388,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.59306,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "source_bbox": [
+            1032,
+            551,
+            1492,
+            951
+          ],
+          "output_bbox": [
+            162,
+            175,
+            378,
+            363
+          ],
+          "foot_anchor": [
+            256,
+            363
+          ],
+          "scale": 0.47,
+          "source_cell_size": [
+            512,
+            512
+          ]
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        6631613.0,
+        6487633.0,
+        9775854.0,
+        9623704.0,
+        8686201.0
+      ],
+      "notes": "候補のみ。ゲーム組み込み・左右向き・実速度・当たり判定は未確認。"
+    }
+  }
+}
