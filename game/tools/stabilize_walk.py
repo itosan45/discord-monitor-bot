@@ -21,12 +21,17 @@ for k in keys:
         ys = np.where(a.any(1))[0]
         top, bot = ys[0], ys[-1]
         hh = bot - top
-        band = a[top + int(hh * 0.12):top + int(hh * 0.55)]  # 頭〜腰(刀の先や脚の開きは入れない)
+        band = a[top + int(hh * 0.10):top + int(hh * 0.42)]  # 頭〜胸(刀・旗・マントの端や脚の開きは入れない)
         xs = np.where(band)[1]
         cx.append(float(np.median(xs)) * (f[6] or 1) + f[4])  # 胴体の横位置(足元の基準からの距離)
     tgt = float(np.mean(cx))
     print(k, '胴体x(補正前)', [round(c, 1) for c in cx], '→目標', round(tgt, 1))
-    for f, c in zip(fr, cx):
+    # 目標は中央値(はずれ値に引きずられない)。測り間違いらしい大きなずれ(15px超)は触らず知らせる
+    tgt = float(np.median(cx))
+    for i, (f, c) in enumerate(zip(fr, cx)):
+        if abs(tgt - c) > 15:
+            print('  コマ%d は差が大きいので補正しない(%.1fpx)。目で見て確認' % (i, tgt - c))
+            continue
         f[4] = round(f[4] + (tgt - c), 2)
     if not dry:
         M[k]['walk'] = fr
