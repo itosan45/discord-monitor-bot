@@ -1,0 +1,12 @@
+{
+  "name": "回復アイテム_寿司_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single Sengoku-era recovery-food pickup sprite for a 2D beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce any people.\nComposition/framing: one complete food item centered in one 256x256 square cell, resting on the ground and occupying about 70-80% of the canvas, at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, natural food textures, consistent with Image 1.\nScene/backdrop: perfectly flat pure RGB(255,0,255) magenta (#FF00FF), no floor or cast shadow.\nConstraints: one recognizable pickup food item only, no characters, plate, cutlery, wrapper text, label, border, extra props or watermark.\nPrimary request: one compact piece of traditional pressed mackerel sushi (saba-zushi) as a recovery pickup, plausible as preserved Sengoku-era food. A neat rectangular pressed rice block topped with one silver-skinned fish fillet, lightly held in a small dark-green bamboo leaf strip. Show a little white rice along one edge so it is immediately recognizable as sushi.\nMaterials/textures: tightly pressed rice grains, silver-blue fish skin, simple natural bamboo leaf.\nAvoid: modern plastic tray, printed wrappers, modern toppings, multiple pieces, plate, chopsticks, text.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-ec8b167b-8522-4f84-950e-17d01b270d43.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\回復アイテム_寿司_v1.png",
+  "sha256": "96300d313d17c05134219435d626ca57c8ddad3c418f7452715c4f89878fffe6"
+}

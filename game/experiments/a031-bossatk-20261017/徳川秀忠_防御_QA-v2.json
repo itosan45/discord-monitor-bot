@@ -1,0 +1,1080 @@
+{
+  "candidate_only": true,
+  "integrated": false,
+  "generated_and_composited": true,
+  "component_cleanup": "Remove isolated RGB components of <=25 pixels after scale; retain connected figure/weapon silhouette.",
+  "actions": {
+    "構え": {
+      "sprite": "徳川秀忠_防御_構え_6コマ_v2.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "8f9b1e4a46adbd34af147a1b9bdf2c1e4feab727884a0c19b124ba58bfafa98d",
+      "unique_frames": 6,
+      "sources": [
+        "徳川秀忠_防御_構え_source-v1.png"
+      ],
+      "review_grid": "徳川秀忠_防御_構え_review-v2.png",
+      "preview_gif": "徳川秀忠_防御_構え_preview-v2.gif",
+      "frames_detail": [
+        {
+          "frame": 1,
+          "source": "徳川秀忠_防御_構え_source-v1.png",
+          "source_cell": 1,
+          "source_bbox_alpha_gt24": [
+            107,
+            24,
+            504,
+            491
+          ],
+          "output_bbox": [
+            174,
+            157,
+            349,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.4408,
+          "removed_isolated_components_px": [
+            8,
+            1,
+            11,
+            1,
+            3,
+            1,
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            11
+          ]
+        },
+        {
+          "frame": 2,
+          "source": "徳川秀忠_防御_構え_source-v1.png",
+          "source_cell": 2,
+          "source_bbox_alpha_gt24": [
+            65,
+            62,
+            447,
+            490
+          ],
+          "output_bbox": [
+            168,
+            174,
+            336,
+            363
+          ],
+          "foot_anchor": [
+            255.5,
+            363
+          ],
+          "scale": 0.4408,
+          "removed_isolated_components_px": [
+            2,
+            1,
+            17,
+            6,
+            2,
+            2,
+            3,
+            1,
+            3,
+            6,
+            6,
+            2,
+            1,
+            1,
+            11,
+            8,
+            1,
+            13
+          ]
+        },
+        {
+          "frame": 3,
+          "source": "徳川秀忠_防御_構え_source-v1.png",
+          "source_cell": 3,
+          "source_bbox_alpha_gt24": [
+            49,
+            55,
+            438,
+            490
+          ],
+          "output_bbox": [
+            170,
+            171,
+            341,
+            363
+          ],
+          "foot_anchor": [
+            255.5,
+            363
+          ],
+          "scale": 0.4408,
+          "removed_isolated_components_px": [
+            25,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            1,
+            7,
+            1,
+            1,
+            1,
+            2,
+            1,
+            10,
+            1,
+            7,
+            2,
+            2,
+            5,
+            2,
+            1,
+            1,
+            1,
+            4
+          ]
+        },
+        {
+          "frame": 4,
+          "source": "徳川秀忠_防御_構え_source-v1.png",
+          "source_cell": 4,
+          "source_bbox_alpha_gt24": [
+            75,
+            38,
+            512,
+            456
+          ],
+          "output_bbox": [
+            165,
+            179,
+            358,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.4408,
+          "removed_isolated_components_px": [
+            16,
+            4,
+            3,
+            1,
+            6,
+            2,
+            2,
+            2,
+            7,
+            11,
+            5,
+            2,
+            1,
+            5,
+            1,
+            1,
+            4,
+            1,
+            3,
+            11,
+            1,
+            1,
+            3,
+            12
+          ]
+        },
+        {
+          "frame": 5,
+          "source": "徳川秀忠_防御_構え_source-v1.png",
+          "source_cell": 5,
+          "source_bbox_alpha_gt24": [
+            0,
+            32,
+            478,
+            457
+          ],
+          "output_bbox": [
+            140,
+            176,
+            351,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.4408,
+          "removed_isolated_components_px": [
+            11,
+            5,
+            1,
+            9,
+            2,
+            3,
+            2,
+            14,
+            22,
+            1,
+            1,
+            1,
+            2,
+            13,
+            1,
+            1,
+            1,
+            5,
+            1
+          ]
+        },
+        {
+          "frame": 6,
+          "source": "徳川秀忠_防御_構え_source-v1.png",
+          "source_cell": 6,
+          "source_bbox_alpha_gt24": [
+            39,
+            35,
+            445,
+            457
+          ],
+          "output_bbox": [
+            165,
+            177,
+            344,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.4408,
+          "removed_isolated_components_px": [
+            8,
+            1,
+            1,
+            1,
+            4,
+            1,
+            3,
+            1,
+            10,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            5,
+            1,
+            1,
+            2
+          ]
+        }
+      ],
+      "notes": "AI-generated source with crop, alpha extraction, uniform per-action scaling and anchor placement; candidate only; runtime not checked."
+    },
+    "受け止め": {
+      "sprite": "徳川秀忠_防御_受け止め_4コマ_v2.png",
+      "frames": 4,
+      "size": [
+        2048,
+        384
+      ],
+      "sha256": "9eaa517901d2578fe8ec87bcee2c492977b72f24635f51b58c558f738f542b39",
+      "unique_frames": 4,
+      "sources": [
+        "徳川秀忠_防御_受け止め_source-v1.png"
+      ],
+      "review_grid": "徳川秀忠_防御_受け止め_review-v2.png",
+      "preview_gif": "徳川秀忠_防御_受け止め_preview-v2.gif",
+      "frames_detail": [
+        {
+          "frame": 1,
+          "source": "徳川秀忠_防御_受け止め_source-v1.png",
+          "source_cell": 1,
+          "source_bbox_alpha_gt24": [
+            127,
+            16,
+            683,
+            509
+          ],
+          "output_bbox": [
+            132,
+            159,
+            362,
+            363
+          ],
+          "foot_anchor": [
+            255.5,
+            363
+          ],
+          "scale": 0.41319,
+          "removed_isolated_components_px": [
+            1,
+            14,
+            8,
+            3,
+            3,
+            5,
+            7,
+            1,
+            1,
+            7,
+            9,
+            1,
+            1,
+            18,
+            1,
+            1,
+            1,
+            19,
+            4,
+            1,
+            2,
+            9
+          ]
+        },
+        {
+          "frame": 2,
+          "source": "徳川秀忠_防御_受け止め_source-v1.png",
+          "source_cell": 2,
+          "source_bbox_alpha_gt24": [
+            81,
+            125,
+            628,
+            506
+          ],
+          "output_bbox": [
+            136,
+            206,
+            362,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41319,
+          "removed_isolated_components_px": [
+            6,
+            1,
+            4,
+            3,
+            1
+          ]
+        },
+        {
+          "frame": 3,
+          "source": "徳川秀忠_防御_受け止め_source-v1.png",
+          "source_cell": 3,
+          "source_bbox_alpha_gt24": [
+            96,
+            24,
+            683,
+            479
+          ],
+          "output_bbox": [
+            109,
+            175,
+            352,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41319,
+          "removed_isolated_components_px": [
+            15,
+            3,
+            2,
+            1,
+            2,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "frame": 4,
+          "source": "徳川秀忠_防御_受け止め_source-v1.png",
+          "source_cell": 4,
+          "source_bbox_alpha_gt24": [
+            63,
+            23,
+            671,
+            478
+          ],
+          "output_bbox": [
+            127,
+            175,
+            378,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41319,
+          "removed_isolated_components_px": [
+            4,
+            12,
+            6,
+            1,
+            3,
+            1,
+            2,
+            2,
+            1,
+            11,
+            2,
+            8,
+            1,
+            1,
+            4
+          ]
+        }
+      ],
+      "notes": "AI-generated source with crop, alpha extraction, uniform per-action scaling and anchor placement; candidate only; runtime not checked."
+    },
+    "受け流し": {
+      "sprite": "徳川秀忠_防御_受け流し_8コマ_v2.png",
+      "frames": 8,
+      "size": [
+        4096,
+        384
+      ],
+      "sha256": "276eb3c8152179db304ab4ec45e99fb014fcfc7f274478b798f4c3d38a5896a4",
+      "unique_frames": 8,
+      "sources": [
+        "徳川秀忠_防御_受け流し_source-1-v1.png",
+        "徳川秀忠_防御_受け流し_source-2-v1.png"
+      ],
+      "review_grid": "徳川秀忠_防御_受け流し_review-v2.png",
+      "preview_gif": "徳川秀忠_防御_受け流し_preview-v2.gif",
+      "frames_detail": [
+        {
+          "frame": 1,
+          "source": "徳川秀忠_防御_受け流し_source-1-v1.png",
+          "source_cell": 1,
+          "source_bbox_alpha_gt24": [
+            115,
+            37,
+            646,
+            486
+          ],
+          "output_bbox": [
+            149,
+            175,
+            372,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            2,
+            1,
+            1,
+            1,
+            2,
+            10,
+            2,
+            3,
+            6,
+            7,
+            1,
+            1,
+            9,
+            9,
+            1,
+            18,
+            1,
+            4,
+            1,
+            21,
+            1,
+            1,
+            2,
+            1,
+            1,
+            10,
+            10,
+            3,
+            7,
+            1,
+            1,
+            3,
+            8,
+            1,
+            1,
+            6,
+            2,
+            1,
+            16,
+            5,
+            1,
+            1,
+            2,
+            5,
+            1
+          ]
+        },
+        {
+          "frame": 2,
+          "source": "徳川秀忠_防御_受け流し_source-1-v1.png",
+          "source_cell": 2,
+          "source_bbox_alpha_gt24": [
+            94,
+            40,
+            675,
+            485
+          ],
+          "output_bbox": [
+            149,
+            176,
+            393,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            10,
+            2,
+            15,
+            3,
+            1,
+            2,
+            1,
+            1,
+            1,
+            5,
+            1,
+            6,
+            1,
+            2,
+            1,
+            2,
+            1,
+            8,
+            1,
+            14,
+            1,
+            1,
+            11,
+            6,
+            1,
+            2,
+            2,
+            3,
+            4,
+            4,
+            1,
+            4,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            2,
+            7,
+            2,
+            1,
+            3,
+            1,
+            1,
+            7,
+            1,
+            1,
+            4,
+            6,
+            2
+          ]
+        },
+        {
+          "frame": 3,
+          "source": "徳川秀忠_防御_受け流し_source-1-v1.png",
+          "source_cell": 3,
+          "source_bbox_alpha_gt24": [
+            134,
+            2,
+            643,
+            471
+          ],
+          "output_bbox": [
+            146,
+            166,
+            359,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            2,
+            3,
+            5,
+            1,
+            2,
+            9,
+            2,
+            4,
+            1,
+            1,
+            1,
+            1,
+            2,
+            1,
+            2,
+            12,
+            1,
+            1,
+            1,
+            10,
+            1,
+            1,
+            1,
+            3,
+            1,
+            11,
+            1,
+            1
+          ]
+        },
+        {
+          "frame": 4,
+          "source": "徳川秀忠_防御_受け流し_source-1-v1.png",
+          "source_cell": 4,
+          "source_bbox_alpha_gt24": [
+            138,
+            34,
+            636,
+            470
+          ],
+          "output_bbox": [
+            136,
+            180,
+            345,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            2,
+            2,
+            1,
+            8,
+            1,
+            3,
+            1,
+            1,
+            10,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            4
+          ]
+        },
+        {
+          "frame": 5,
+          "source": "徳川秀忠_防御_受け流し_source-2-v1.png",
+          "source_cell": 1,
+          "source_bbox_alpha_gt24": [
+            123,
+            29,
+            768,
+            481
+          ],
+          "output_bbox": [
+            117,
+            174,
+            387,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            2,
+            1,
+            1,
+            3,
+            1,
+            2
+          ]
+        },
+        {
+          "frame": 6,
+          "source": "徳川秀忠_防御_受け流し_source-2-v1.png",
+          "source_cell": 2,
+          "source_bbox_alpha_gt24": [
+            0,
+            61,
+            702,
+            482
+          ],
+          "output_bbox": [
+            133,
+            187,
+            390,
+            363
+          ],
+          "foot_anchor": [
+            255.5,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            1,
+            1,
+            1,
+            15,
+            6,
+            3,
+            1,
+            3,
+            4,
+            1,
+            11,
+            2
+          ]
+        },
+        {
+          "frame": 7,
+          "source": "徳川秀忠_防御_受け流し_source-2-v1.png",
+          "source_cell": 3,
+          "source_bbox_alpha_gt24": [
+            148,
+            19,
+            644,
+            467
+          ],
+          "output_bbox": [
+            124,
+            175,
+            332,
+            363
+          ],
+          "foot_anchor": [
+            255.5,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            1,
+            1
+          ]
+        },
+        {
+          "frame": 8,
+          "source": "徳川秀忠_防御_受け流し_source-2-v1.png",
+          "source_cell": 4,
+          "source_bbox_alpha_gt24": [
+            93,
+            19,
+            584,
+            469
+          ],
+          "output_bbox": [
+            130,
+            174,
+            336,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.41918,
+          "removed_isolated_components_px": [
+            2,
+            4,
+            1,
+            23,
+            7
+          ]
+        }
+      ],
+      "notes": "AI-generated source with crop, alpha extraction, uniform per-action scaling and anchor placement; candidate only; runtime not checked."
+    },
+    "崩れ": {
+      "sprite": "徳川秀忠_防御_崩れ_6コマ_v2.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "45a9b46bac996381eb3ec38132457e006b538d0542810230b067860b3898f542",
+      "unique_frames": 6,
+      "sources": [
+        "徳川秀忠_防御_崩れ_source-v1.png"
+      ],
+      "review_grid": "徳川秀忠_防御_崩れ_review-v2.png",
+      "preview_gif": "徳川秀忠_防御_崩れ_preview-v2.gif",
+      "frames_detail": [
+        {
+          "frame": 1,
+          "source": "徳川秀忠_防御_崩れ_source-v1.png",
+          "source_cell": 1,
+          "source_bbox_alpha_gt24": [
+            68,
+            53,
+            479,
+            498
+          ],
+          "output_bbox": [
+            216,
+            161,
+            403,
+            363
+          ],
+          "foot_anchor": [
+            256.5,
+            363
+          ],
+          "scale": 0.45411,
+          "removed_isolated_components_px": [
+            7,
+            19,
+            1,
+            1,
+            2,
+            6,
+            3,
+            1,
+            1,
+            1,
+            2,
+            2,
+            2,
+            3,
+            1,
+            2,
+            1,
+            1,
+            7,
+            1,
+            2
+          ]
+        },
+        {
+          "frame": 2,
+          "source": "徳川秀忠_防御_崩れ_source-v1.png",
+          "source_cell": 2,
+          "source_bbox_alpha_gt24": [
+            68,
+            38,
+            512,
+            500
+          ],
+          "output_bbox": [
+            216,
+            153,
+            418,
+            363
+          ],
+          "foot_anchor": [
+            256.5,
+            363
+          ],
+          "scale": 0.45411,
+          "removed_isolated_components_px": [
+            1,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "frame": 3,
+          "source": "徳川秀忠_防御_崩れ_source-v1.png",
+          "source_cell": 3,
+          "source_bbox_alpha_gt24": [
+            0,
+            89,
+            453,
+            500
+          ],
+          "output_bbox": [
+            131,
+            176,
+            337,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.45411,
+          "removed_isolated_components_px": [
+            24,
+            2,
+            2,
+            2,
+            1,
+            22,
+            6,
+            2,
+            1,
+            3,
+            1,
+            2,
+            12,
+            1,
+            3
+          ]
+        },
+        {
+          "frame": 4,
+          "source": "徳川秀忠_防御_崩れ_source-v1.png",
+          "source_cell": 4,
+          "source_bbox_alpha_gt24": [
+            59,
+            78,
+            498,
+            437
+          ],
+          "output_bbox": [
+            158,
+            200,
+            357,
+            363
+          ],
+          "foot_anchor": [
+            256.5,
+            363
+          ],
+          "scale": 0.45411,
+          "removed_isolated_components_px": [
+            1,
+            4,
+            3,
+            24,
+            15,
+            1,
+            4,
+            2,
+            8,
+            6,
+            2,
+            4,
+            1,
+            3,
+            3
+          ]
+        },
+        {
+          "frame": 5,
+          "source": "徳川秀忠_防御_崩れ_source-v1.png",
+          "source_cell": 5,
+          "source_bbox_alpha_gt24": [
+            23,
+            41,
+            506,
+            442
+          ],
+          "output_bbox": [
+            152,
+            181,
+            371,
+            363
+          ],
+          "foot_anchor": [
+            256.5,
+            363
+          ],
+          "scale": 0.45411,
+          "removed_isolated_components_px": [
+            1,
+            1,
+            1,
+            5,
+            5,
+            7
+          ]
+        },
+        {
+          "frame": 6,
+          "source": "徳川秀忠_防御_崩れ_source-v1.png",
+          "source_cell": 6,
+          "source_bbox_alpha_gt24": [
+            72,
+            36,
+            459,
+            453
+          ],
+          "output_bbox": [
+            166,
+            174,
+            342,
+            363
+          ],
+          "foot_anchor": [
+            256.0,
+            363
+          ],
+          "scale": 0.45411,
+          "removed_isolated_components_px": [
+            1,
+            1,
+            1,
+            6,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "notes": "AI-generated source with crop, alpha extraction, uniform per-action scaling and anchor placement; candidate only; runtime not checked."
+    }
+  },
+  "contact_frames": {
+    "guard": "no hitbox/no advance",
+    "block": "incoming contact on frame 2; no advance",
+    "parry": "deflection/contact on frame 4; step on frame 2",
+    "stagger": "incoming impact on frame 1; no advance"
+  },
+  "limitations": [
+    "Defensive motion only; does not count toward the requested five attack variants.",
+    "No runtime, hitbox, facing-left or mobile check.",
+    "Source is AI-generated and composites; not hand-painted."
+  ]
+}

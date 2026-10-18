@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-7ac30b13-871c-4ec4-9350-6075ebd1843a.png",
+  "prompt": "Repair this4framegunnerdeath physicalcollapse staging. InFRAME3 dyingbodyisstillfalling beforefinal4: prop LEFTFOREARMground withupperarmbearingweight and TORSO45DEGREESabovehorizontal, hipsgrounded andkneesbent, rightarmacrosschestinpain. Raisechestheadbyarticulatinghipspineelbow, NOTenlargingorrotatingwholecutout. Frame4fullyside-lyingmotionlessunchanged. Frame2rearfoot andbothfeet4 strictsideprofileTOESRIGHT heelLEFT, currenttoesfronttowardviewerwrong. Redrawlonghorizontalsole sidewaysRIGHT without changinglegbone lengths. Samegunfullstockbarrelcordphysicalsize all4, groundgun3/4unchangedposition andsamegroundasbodylowest. Sameallheadtorsoanatomydimensionscostumesface all4. No shrinkpersontofit. Fourcompleteisolatedfigures horizontalrowequalcells pureopaque#FF00FF no textgridshadowborderfloor.",
+  "attempt": 3,
+  "status": "candidate_repair_final_boots_weapon"
+}

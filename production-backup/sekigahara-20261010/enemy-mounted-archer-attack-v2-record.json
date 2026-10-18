@@ -1,0 +1,175 @@
+{
+  "name": "敵_騎馬弓兵_攻撃_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬弓兵_攻撃_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-72c6260f-8036-4c37-b537-3b5f372f808e.png",
+  "status": "git_verified",
+  "scale": 0.748780487804878,
+  "standingHeightSource": 410.0,
+  "standingHeightTarget": 307,
+  "n": 6,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        4,
+        264,
+        306,
+        614
+      ],
+      "destination": [
+        79,
+        85,
+        226,
+        262
+      ],
+      "scale": 0.748780487804878,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        304,
+        196,
+        590,
+        621
+      ],
+      "destination": [
+        85,
+        29,
+        214,
+        318
+      ],
+      "scale": 0.748780487804878,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        591,
+        189,
+        910,
+        623
+      ],
+      "destination": [
+        72,
+        22,
+        239,
+        325
+      ],
+      "scale": 0.748780487804878,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        896,
+        194,
+        1289,
+        619
+      ],
+      "destination": [
+        45,
+        29,
+        294,
+        318
+      ],
+      "scale": 0.748780487804878,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1241,
+        260,
+        1562,
+        622
+      ],
+      "destination": [
+        72,
+        76,
+        240,
+        271
+      ],
+      "scale": 0.748780487804878,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 340
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1565,
+        260,
+        1863,
+        619
+      ],
+      "destination": [
+        80,
+        78,
+        223,
+        269
+      ],
+      "scale": 0.748780487804878,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    }
+  ],
+  "sha256": "1dec91912dfaf4a90c6747c7f12b2e83dec199e50593e028c635a2c35dbfcaf7",
+  "backgroundSource": [
+    242,
+    23,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの76%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    34030,
+    35235,
+    41859,
+    41413,
+    34821,
+    33360
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_攻撃_6コマ_v2_候補保存_20261006_221823_543200_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_攻撃_6コマ_v2_候補保存_20261006_221823_543200_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 2,
+  "retries": 1,
+  "selectedCandidate": 2,
+  "ocrReview": "を 毳 驀 第: 鎧と馬具を誤認、目視文字なし。",
+  "qaNote": "候補2で四白脚統一。構え→引き絞り→狙い→矢放ち→回収→矢筒。馬脚の伸展収縮、武器全端と同一頭胴、セル余白を確認。初期460換算は身体が小さく見えたため410換算で待機との馬体・頭部尺度を合わせた。",
+  "visualReview": "6コマ復号目視。弓の引き絞り3、解放4、矢筒回収6、四白脚と衣装、全身右向き、文字なし。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

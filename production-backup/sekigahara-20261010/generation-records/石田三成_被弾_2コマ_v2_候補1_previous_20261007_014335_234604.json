@@ -1,0 +1,12 @@
+{
+  "name": "石田三成_被弾_2コマ_v2.png",
+  "candidate": 1,
+  "status": "generation_started",
+  "source": null,
+  "reference": "石田三成_設定画.png",
+  "action": "被弾",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T01:38:24.6570580+09:00",
+  "noDuplicateGeneration": true,
+  "note": "Single candidate reserved before generation; inspect existing records and outputs first."
+}

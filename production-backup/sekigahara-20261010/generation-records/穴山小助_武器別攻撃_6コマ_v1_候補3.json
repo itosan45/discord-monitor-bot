@@ -1,0 +1,139 @@
+{
+  "name": "穴山小助_武器別攻撃_6コマ_v1.png",
+  "candidate": 3,
+  "status": "git_verified_caution",
+  "char": "穴山小助",
+  "action": "武器別攻撃",
+  "weapon": "槍",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-de9e7e91-11f7-44c7-88e1-0741c83702f7.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\穴山小助_待機_4コマ_v1.png",
+  "prompt": "Edit the attached 3x2 storyboard atlas. Preserve all six poses, character design, scale, spear length, flag, armor and colors. Make only the thrust/follow-through spear angle safer: in frame4 (bottom-left) and frame5 (bottom-center), raise the spear shaft to about 35 degrees above horizontal while still thrusting forward. Keep the hands gripping the same full-length shaft; do not shorten or crop the spear, do not shrink or reposition the character scale. Ensure spear tip, butt, body, flag, hands and feet have at least 32px (source pixels) inside each 512px panel. Leave frames1-3 and 6 unchanged in pose and equipment. Keep 3x2 order and flat pure magenta background, no text or effects.",
+  "createdAt": "2026-10-08",
+  "correctionReason": "candidate2 frame5 horizontal projection exceeds safe margin",
+  "noFurtherRegenerationPlanned": true,
+  "sourceDimensions": "1536x1024",
+  "sourceSha256": "f88ee114fc03bb717de6390743212576dbf2340032af4a8b7083a160a21ac5e3",
+  "normalizedCandidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\穴山小助_武器別攻撃_6コマ_v1_候補3.png",
+  "normalizedSha256": "623506597cd77be321f2e489b7d6b42bf2c2ca4c021bc1bc08775a141fa30980",
+  "normalization": {
+    "uniformScale": 0.456,
+    "groundY": 230,
+    "method": "six whole-frame crops, uniform scale, centered, magenta normalized"
+  },
+  "metrics": [
+    {
+      "frame": 1,
+      "source_bbox": [
+        65,
+        81,
+        496,
+        462
+      ],
+      "size": [
+        197,
+        174
+      ],
+      "position": [
+        29,
+        56
+      ],
+      "groundY": 230
+    },
+    {
+      "frame": 2,
+      "source_bbox": [
+        95,
+        22,
+        349,
+        466
+      ],
+      "size": [
+        116,
+        202
+      ],
+      "position": [
+        326,
+        28
+      ],
+      "groundY": 230
+    },
+    {
+      "frame": 3,
+      "source_bbox": [
+        39,
+        35,
+        314,
+        470
+      ],
+      "size": [
+        125,
+        198
+      ],
+      "position": [
+        577,
+        32
+      ],
+      "groundY": 230
+    },
+    {
+      "frame": 4,
+      "source_bbox": [
+        36,
+        53,
+        511,
+        424
+      ],
+      "size": [
+        217,
+        169
+      ],
+      "position": [
+        787,
+        61
+      ],
+      "groundY": 230
+    },
+    {
+      "frame": 5,
+      "source_bbox": [
+        21,
+        57,
+        511,
+        427
+      ],
+      "size": [
+        223,
+        169
+      ],
+      "position": [
+        1040,
+        61
+      ],
+      "groundY": 230
+    },
+    {
+      "frame": 6,
+      "source_bbox": [
+        83,
+        33,
+        465,
+        427
+      ],
+      "size": [
+        174,
+        180
+      ],
+      "position": [
+        1321,
+        50
+      ],
+      "groundY": 230
+    }
+  ],
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\穴山小助_武器別攻撃_6コマ_v1.png",
+  "finalSha256": "623506597cd77be321f2e489b7d6b42bf2c2ca4c021bc1bc08775a141fa30980",
+  "gitCommit": "2a886818c6cd2ed7f4a0abc3dd738356ab8b1e3a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "qaResult": "要注意: 30_check_strip/OCR/GIFはPASS。人物高中央値69%（待機82%）で小さめ、4・5コマ目の差も控えめ。"
+}

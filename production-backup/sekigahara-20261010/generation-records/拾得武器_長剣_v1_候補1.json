@@ -1,0 +1,12 @@
+{
+  "name": "拾得武器_長剣_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: single dropped-weapon pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only a style reference for the game's painted sprite rendering and magenta background; do not reproduce any soldier.\nComposition/framing: one complete weapon resting diagonally on the ground, centered in a single square 256x256 game cell, occupying about 70% of the canvas, with at least 20px clear margin.\nStyle/medium: detailed painted anime-realistic 2D arcade sprite with crisp dark outlines, cel-shaded steel and wood highlights, consistent with Image 1.\nScene/backdrop: perfectly flat pure #FF00FF magenta, no ground plane or cast shadow.\nConstraints: a single unheld, dropped weapon, fully visible and physically plausible; no hands or characters; no text, labels, frame, border, extra items or watermark.\nPrimary request: a practical Japanese Sengoku long sword (katana): a straight single-edged steel blade with a modest curve, dark wrapped hilt, simple iron tsuba, and realistic proportions. Rest it diagonally with the hilt at lower-left and blade point at upper-right. Keep the entire weapon within the square.\nMaterials/textures: forged steel, understated hamon line, dark cord wrap, plain iron guard.\nAvoid: European crossguard, oversized fantasy blade, scabbard covering the blade, glow, sparks, blood.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-6324f4c4-c979-4256-b829-5d335f9bb145.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_長剣_v1.png",
+  "sha256": "5d77223c4c5d5d65b434094aa63312cf701a8b8b2487bddc234bc6805a83acca"
+}

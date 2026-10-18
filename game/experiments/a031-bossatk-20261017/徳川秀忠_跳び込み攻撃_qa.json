@@ -1,0 +1,80 @@
+{
+  "character": "徳川秀忠",
+  "asset": "徳川秀忠_跳び込み攻撃_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "source": "徳川秀忠_跳び込み攻撃_2x4生成原画.png",
+  "source_size": [
+    1024,
+    1536
+  ],
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "target_foot_x": 256,
+  "normalization": "magenta-like connected background flood fill; uniform 0.55 scale; anchored ground poses",
+  "frame_foreground_bboxes": [
+    [
+      163,
+      222,
+      370,
+      363
+    ],
+    [
+      148,
+      110,
+      337,
+      282
+    ],
+    [
+      175,
+      88,
+      361,
+      281
+    ],
+    null,
+    [
+      371,
+      312,
+      371,
+      312
+    ],
+    [
+      298,
+      330,
+      298,
+      330
+    ],
+    [
+      313,
+      228,
+      316,
+      230
+    ],
+    null
+  ],
+  "exact_magenta_pixels_per_cell": [
+    183514,
+    183364,
+    181759,
+    196608,
+    196607,
+    196607,
+    196606,
+    196608
+  ],
+  "sha256": "e671eccf8d21c6617533d4d61be7a1e3b4cd6c4e0c80db8477037db0473ebe83",
+  "generation": "OpenAI built-in imagegen; source references: Hidetada setting sheet and jump_4frame_v2. AI generated and composited; not hand-drawn.",
+  "visual_notes": "Frame 5 stock-to-ground contact depicted; frames 5-6 are similar impact/recoil crouches. Must inspect visually before acceptance. No runtime/game QA yet."
+}

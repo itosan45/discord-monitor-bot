@@ -1,0 +1,130 @@
+{
+  "character": "徳川家康（影武者）",
+  "asset": "徳川家康_二段斬り_v1_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_grid": [
+    2,
+    4
+  ],
+  "main_component_area_per_frame": [
+    753,
+    196,
+    197,
+    205,
+    212,
+    425,
+    1544,
+    1184
+  ],
+  "source_crop_boxes": "8 cells of 768x256",
+  "scale_by_frame": [
+    0.8703703703703703,
+    0.9591836734693877,
+    0.9543147208121827,
+    0.9170731707317074,
+    0.8867924528301887,
+    5.081081081081081,
+    0.8785046728971962,
+    0.9740932642487047
+  ],
+  "frame_foreground_bboxes": [
+    [
+      147,
+      175,
+      363,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      255,
+      175,
+      255,
+      362
+    ],
+    [
+      124,
+      175,
+      387,
+      362
+    ],
+    [
+      147,
+      175,
+      363,
+      362
+    ],
+    [
+      130,
+      175,
+      381,
+      362
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    185654,
+    196420,
+    196420,
+    196420,
+    196420,
+    169365,
+    181000,
+    183428
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.0566,
+    0.001,
+    0.001,
+    0.001,
+    0.1389,
+    0.1791,
+    0.1128
+  ],
+  "sha256": "4deb156a572278c34e8458ee8feda047427de0a0a039ab7cec3aadf642498c52",
+  "generation": "OpenAI built-in imagegen; reference: Ieyasu shadow setting. AI generated and composed into cells, not hand-drawn. Retained main pose component to exclude row-overlap fragments.",
+  "notes": "Second attempt after v1 crop cut row-overlap fragments. Eight pose phases: ready, load, first slash, follow-through, reverse load, rising return cut, extension, recovery. Motion and sword path differ across frames; candidate, game review pending."
+}

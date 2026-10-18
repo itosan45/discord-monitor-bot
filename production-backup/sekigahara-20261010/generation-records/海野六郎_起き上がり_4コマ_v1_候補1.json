@@ -1,0 +1,149 @@
+{
+  "name": "海野六郎_起き上がり_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\海野六郎_起き上がり_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c567b2a6-d9ad-4479-882f-af26fbfe32f1.png",
+  "status": "git_verified_caution",
+  "scale": 0.35776614310645727,
+  "standingHeightSource": 573.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        29,
+        359,
+        654,
+        613
+      ],
+      "destination": [
+        16,
+        140,
+        224,
+        91
+      ],
+      "scale": 0.35776614310645727,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        692,
+        258,
+        1163,
+        628
+      ],
+      "destination": [
+        43,
+        99,
+        169,
+        132
+      ],
+      "scale": 0.35776614310645727,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1256,
+        184,
+        1614,
+        616
+      ],
+      "destination": [
+        64,
+        76,
+        128,
+        155
+      ],
+      "scale": 0.35776614310645727,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1793,
+        43,
+        2098,
+        643
+      ],
+      "destination": [
+        73,
+        16,
+        109,
+        215
+      ],
+      "scale": 0.35776614310645727,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "b524e5acef9f1e8d36605cb22e3b1282d99eac19c52fe388f0e92c3b7e8f9a79",
+  "backgroundSource": [
+    243,
+    23,
+    242
+  ],
+  "sourceIndices": null,
+  "groupCenters": "320,870,1340,1840",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの56%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    15517,
+    16077,
+    15870,
+    18487
+  ],
+  "char": "海野六郎",
+  "kind": "ten_braves_sprite_motion",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\海野六郎_起き上がり_4コマ_v1_候補1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "candidateCount": 1,
+  "sourceSha256": "",
+  "uniformScale": 0.35776614310645727,
+  "checkResults": [
+    "30_check_strip.py PASS; 1024x256 RGB; pure magenta 85%; figure median 56%; all frame margins and ground alignment pass.",
+    "GIF decoded 4 frames at 80ms; decoded contact sheet visually inspected.",
+    "Windows OCR success. Whole strip yielded . 介 朝, but individual 256px frame OCR was blank; visual inspection confirmed no readable text."
+  ],
+  "visualReview": "Unno Rokuro keeps the red-black armor, older face, six-coin red sashimono, katana and sheath consistent with setting and idle. Four readable get-up stages: on back with sword, roll onto elbow, brace into one knee, return to low ready stance. Full outfit/flag/sword stay present in every frame; body and face proportions remain consistent. Final standing height matches the existing idle near 82% cell. Caution: 30-check median silhouette height is 56%, just above the 55% floor because of the back-lying first frame; OCR on combined strip reports shape false positives, while all four frames separately are blank and manual inspection finds no text.",
+  "qaResult": "要注意",
+  "gitVerified": true,
+  "gitCommit": "726393cc49306bb69ca3ec12c6e4f585c702ca24",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b524e5acef9f1e8d36605cb22e3b1282d99eac19c52fe388f0e92c3b7e8f9a79",
+  "ocrSuccess": true,
+  "ocrText": ". 介 朝 (whole-strip shape false positives; per-frame OCR blank)",
+  "ocrPerFrameResults": "qa-ocr/20261008_unno_getup_v1/per_frame/ishida-batch-ocr-results.json",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "attempts": 1,
+  "updatedAt": "2026-10-08T10:27:59+09:00",
+  "prompt": "Use case: stylized-concept. Asset type: 2D Sengoku beat-'em-up game sprite sheet, intended for slicing into four 256x256 cells. Use Image 1 as the exact character design reference (middle-aged Sanada retainer, red-black armor, face, hair, sashimono, sheath and sword). Use Image 2 as the exact in-game scale, side-facing right, line/rendering style, and ground-height reference. Create one horizontal sequence of exactly four distinct full-body frames of the same character getting up after being knocked down: (1) lying on his back, sword still held securely in the near hand; (2) rolling onto one elbow and drawing one knee inward; (3) pushing up into a kneel while bracing with the free hand, sword safely lowered; (4) returning to the same low ready standing pose and scale as the idle reference, sword lowered and sashimono intact. Keep every frame right-facing in the same consistent 3/4 side view, same armor and six-coin banners, face, body proportions, sword and sheath. The standing end frame should match the reference sprite character size and sole height. Make the four stages read clearly as back-lying → elbow roll → kneel → low ready; do not draw four idle poses. Scene/backdrop: perfectly flat pure #FF00FF magenta, no ground plane or cast shadow. Layout: four equally spaced, non-overlapping full characters arranged left-to-right in a single strip; keep generous clear magenta between silhouettes so each frame can be cropped independently. No captions, symbols, text, effects, extra people, or new equipment. Preserve all limbs, sword and banner fully inside the image."
+}

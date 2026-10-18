@@ -1,0 +1,70 @@
+{
+  "name": "根津甚八_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-cc761800-6b1a-4b46-aec3-d322a679fa5c.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3183183183183183,
+  "sourceBounds": [
+    [
+      375,
+      120,
+      678,
+      786
+    ],
+    [
+      1114,
+      129,
+      1519,
+      786
+    ]
+  ],
+  "placements": [
+    [
+      80,
+      18,
+      96,
+      212
+    ],
+    [
+      63,
+      21,
+      129,
+      209
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "15243add220da9a145d325cea8df43013c905fe61cc9f9affc89a0431e88fc5a",
+  "prompt": "Canonical Nezu Jinpachi weathered lightarmor samurai, upright katana beside rear shoulder, two grounded damage recoil frames, freehand defensive, rightfacing magenta.",
+  "char": "根津甚八",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "刀を持つ腕の位置が待機より外へ開き、腕の前後関係に差。甲冑・顔・刀に細部差。2腕、刀保持、接地、被弾動作を確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "f941b39c9dec73957bfcb735950471d1b74ef781",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "15243add220da9a145d325cea8df43013c905fe61cc9f9affc89a0431e88fc5a",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:52:35.279312+09:00"
+}

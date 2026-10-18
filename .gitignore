@@ -6,3 +6,12 @@ node_modules/
 
 # ログ
 *.log
+
+# テストの確認画像
+/*.png
+/*.jpg
+__pycache__/
+
+# テストの既定の保存先(Windowsの C:/ パス)。Windowsで扱えない名前なのでリポジトリに入れない
+C:/
+game/C:/

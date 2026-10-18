@@ -1,0 +1,151 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f88b4557-d5da-4fab-8eba-e75ad15b4847.png",
+  "sourceSha256": "f0ebe7d8bcf5362e23c503071c680fef8b79d0ac5c1cf93370021e09ebc4a305",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "prompt": "One candidate only: 織田信長_手ぶら_待機_4コマ_v2.png. Follow the character setting sheet and existing unarmed sprite style. Four distinct but subtle idle-loop poses (ready, inhale, slight weight/costume shift, return), full-body right-facing, both hands empty, exact 4-cell horizontal strip, 256x256 cells, flat magenta background. No text, labels, extra characters, or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/織田信長_設定画.png",
+    "assets/sprites/真田幸村_手ぶら_待機_4コマ_v2.png"
+  ],
+  "requestedName": "織田信長_手ぶら_待機_4コマ_v2.png",
+  "actualName": "織田信長_手ぶら_待機_4コマ_v2_candidate1-final-normalized.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_手ぶら_待機_4コマ_v2_candidate1-final-normalized.png",
+  "sha256": "9005c836039fb4c89eac5a6e50c1f10860438bf3c011ebae8f82953dd0c01263",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellSize": [
+      543,
+      724
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.34,
+    "placement": "Each frame centered by its visible bounding box and aligned to baseline y=229; magenta-family background keyed to exact RGB(255,0,255)."
+  },
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        46,
+        29,
+        211,
+        230
+      ],
+      "heightPx": 201,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 46,
+        "right": 45,
+        "top": 29
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        46,
+        29,
+        211,
+        230
+      ],
+      "heightPx": 201,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 46,
+        "right": 45,
+        "top": 29
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        45,
+        34,
+        211,
+        230
+      ],
+      "heightPx": 196,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 45,
+        "right": 45,
+        "top": 34
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        46,
+        29,
+        211,
+        230
+      ],
+      "heightPx": 201,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 46,
+        "right": 45,
+        "top": 29
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    15384,
+    15367,
+    15126
+  ],
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_idle_candidate1_final\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_idle_candidate1_final\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR空。復号コンタクトシート全コマを確認、文字・ラベルなし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_idle_candidate1_final\\oda_idle_80ms.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "sha256": "92e0ddb906293053a9ebe59ebde9449be2bd922334bb40d5e2aca9f4a7e2c06e",
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_hero_idle_candidate1_final\\oda_idle_gif-decoded-contact.png",
+    "contactReviewed": true
+  },
+  "visualReview": "黒赤金甲冑と弧形前立てを保った右向き全身。空手の構えと赤い羽織の微細な揺れが4相で見える。縮尺・接地・輪郭が一定。 GIF4コマ80ms復号、全コマ目視。",
+  "qaResult": "OK",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "gitCommit": "bddc846e63ab956c7d769dae251bf61393e90319",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "173a34a1e2307755cfcbce5f66fbf2061d12ec52",
+  "remoteSha256": "9005c836039fb4c89eac5a6e50c1f10860438bf3c011ebae8f82953dd0c01263",
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "gitBytes": 154974,
+  "completedAt": "2026-10-07T10:26:41+09:00"
+}

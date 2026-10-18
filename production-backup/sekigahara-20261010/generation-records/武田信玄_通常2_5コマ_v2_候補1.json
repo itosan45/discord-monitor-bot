@@ -1,0 +1,23 @@
+{
+  "name": "武田信玄_通常2_5コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_connected_frames",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-569caf70-8069-4113-aeb9-6e2a5053ff83.png",
+  "reference": "武田信玄_設定画.png",
+  "action": "通常2",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T02:22:08.0805028+09:00",
+  "noDuplicateGeneration": true,
+  "note": "One candidate reserved after matching all existing history/output.",
+  "rawSourceSha256": "9b0072d370253e65a7db5d13ff574d2307a1a5c8ef03122009772cc85fb524d3",
+  "requiredFrames": 5,
+  "identifiedFigureComponents": 4,
+  "mergedComponentBounds": [
+    771,
+    82,
+    1576,
+    707
+  ],
+  "rejectionReason": "候補1の前景連結成分は5体分に分離せず4つで、大きな成分bbox [771,82,1576,707] が3・4コマをまとめて含む。1コマずつ無損失分離できないため不採用。再生成しない。",
+  "visualReview": "候補1の前景連結成分は5体分に分離せず4つで、大きな成分bbox [771,82,1576,707] が3・4コマをまとめて含む。1コマずつ無損失分離できないため不採用。再生成しない。"
+}

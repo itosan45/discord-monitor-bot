@@ -1,0 +1,112 @@
+{
+  "name": "霧隠才蔵_武器別攻撃_6コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1ba3ae4a-7f07-4290-91fd-e1c648f1e905.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_武器別攻撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "qa_rejected_frame5_scale",
+  "uniformScale": 0.4700665188470067,
+  "sourceBounds": [
+    [
+      90,
+      152,
+      295,
+      579
+    ],
+    [
+      396,
+      128,
+      630,
+      579
+    ],
+    [
+      694,
+      189,
+      1082,
+      578
+    ],
+    [
+      1084,
+      232,
+      1483,
+      578
+    ],
+    [
+      1549,
+      187,
+      1783,
+      578
+    ],
+    [
+      1898,
+      152,
+      2105,
+      579
+    ]
+  ],
+  "placements": [
+    [
+      80,
+      29,
+      96,
+      201
+    ],
+    [
+      73,
+      18,
+      110,
+      212
+    ],
+    [
+      37,
+      47,
+      182,
+      183
+    ],
+    [
+      34,
+      67,
+      188,
+      163
+    ],
+    [
+      73,
+      46,
+      110,
+      184
+    ],
+    [
+      79,
+      29,
+      97,
+      201
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 87%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "6ceeb20ff3dc53355412822cf50bbc1008d8f7c9d2353787ef1b0735d0ed58e4",
+  "prompt": "Localized edit ONLY FIFTH figure from left in this six-frame Saizo attack sprite row. Keep figures1,2,3,4,6, all backgrounds, camera, body scale, same face/clothes/equipment. Current fifth wrongly repeats overhead windup. Replace ONLY fifth pose with RECOVERY after frame4 low diagonal cut: torso straightens halfway toward ready6, weight shifts back, rear knee slightly bends, right elbow draws back close to right waist, sword hand at hip/waist level and blade points diagonally down-forward close beside thigh, left hand relaxed forward near abdomen. NO overhead sword, no new attack. Fifth feet draw slightly closer than4 but both planted same ground. Keep exact same sword dimensions costume body anatomy as otherfigures. Entirefigure/sword/scabbard within fifthregion amplemargin, no touching fourth/sixth. Preserve all six frames horizontal, pureflat#FF00FF no effects/text/grid/shadows. Same image dimensions.",
+  "char": "霧隠才蔵",
+  "kind": "sprite_motion",
+  "visualApproved": false,
+  "visualReview": "Recovery motion5 corrected and OCR/structure/GIF6 frames pass. Idle comparison shows edited frame5 anatomy visibly smaller than other frames, violating equal body scale. Hold, do not publish. Preserve candidates; next correction should enlarge only frame5 to match anatomy, not regenerate whole strip."
+}

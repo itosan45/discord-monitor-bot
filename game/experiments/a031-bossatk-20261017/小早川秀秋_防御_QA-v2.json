@@ -1,0 +1,781 @@
+{
+  "character": "小早川秀秋",
+  "candidate_only": true,
+  "integrated": false,
+  "generation": "built-in image_gen AI source poses, boundary-connected magenta flood removal, uniform scale and cell placement",
+  "cell_size": [
+    512,
+    384
+  ],
+  "anchor": {
+    "center_x": 256,
+    "ground_y": 363
+  },
+  "target_height_px": 188,
+  "actions": {
+    "構え": {
+      "sprite": "小早川秀秋_防御_構え_6コマ_v2.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "b2abb9b7be24fb7dd20963ca71cc9d0bf8d484ba2b0988bc16fe0a5196e87911",
+      "unique_frames": 6,
+      "source": "小早川秀秋_防御_構え_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "小早川秀秋_防御_構え_preview-v2.gif",
+      "review_grid": "小早川秀秋_防御_構え_review-v2.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "mask_bbox": [
+            23,
+            19,
+            411,
+            494
+          ],
+          "output_bbox": [
+            179,
+            175,
+            333,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.395789,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "mask_bbox": [
+            554,
+            69,
+            933,
+            492
+          ],
+          "output_bbox": [
+            172,
+            175,
+            340,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.444444,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            1085,
+            32,
+            1492,
+            496
+          ],
+          "output_bbox": [
+            174,
+            175,
+            339,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.405172,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            58,
+            522,
+            484,
+            991
+          ],
+          "output_bbox": [
+            170,
+            175,
+            341,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.400853,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            570,
+            512,
+            950,
+            995
+          ],
+          "output_bbox": [
+            182,
+            175,
+            330,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.389234,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            1082,
+            542,
+            1487,
+            995
+          ],
+          "output_bbox": [
+            172,
+            175,
+            340,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.415011,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        2971409.0,
+        3372599.0,
+        5660565.0,
+        5230408.0,
+        4150840.0
+      ],
+      "contact_frame": "候補目安なし。ゲーム側で防御処理と同期する",
+      "forward_step_frame": "なし。受け流しの相対位置移動はClaude側で処理する",
+      "notes": "候補素材。実ゲームの当たり判定、速度、左右向き、実機は未確認。防御は攻撃バリエーションに含めない。"
+    },
+    "受け止め": {
+      "sprite": "小早川秀秋_防御_受け止め_4コマ_v2.png",
+      "frames": 4,
+      "size": [
+        2048,
+        384
+      ],
+      "sha256": "164274c852829910aa218b3b8446eafa40930d157849892c3b6797e05b7c6395",
+      "unique_frames": 4,
+      "source": "小早川秀秋_防御_受け止め_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "小早川秀秋_防御_受け止め_preview-v2.gif",
+      "review_grid": "小早川秀秋_防御_受け止め_review-v2.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            768,
+            512
+          ],
+          "mask_bbox": [
+            94,
+            28,
+            571,
+            477
+          ],
+          "output_bbox": [
+            156,
+            175,
+            356,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.418708,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            768,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            826,
+            27,
+            1259,
+            478
+          ],
+          "output_bbox": [
+            166,
+            175,
+            346,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.416851,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            768,
+            1024
+          ],
+          "mask_bbox": [
+            70,
+            512,
+            685,
+            979
+          ],
+          "output_bbox": [
+            132,
+            175,
+            380,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.40257,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            768,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            825,
+            512,
+            1332,
+            979
+          ],
+          "output_bbox": [
+            154,
+            175,
+            358,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.40257,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        3811901.0,
+        6262090.0,
+        5585318.0
+      ],
+      "contact_frame": "候補目安なし。ゲーム側で防御処理と同期する",
+      "forward_step_frame": "なし。受け流しの相対位置移動はClaude側で処理する",
+      "notes": "候補素材。実ゲームの当たり判定、速度、左右向き、実機は未確認。防御は攻撃バリエーションに含めない。"
+    },
+    "受け流し": {
+      "sprite": "小早川秀秋_防御_受け流し_8コマ_v2.png",
+      "frames": 8,
+      "size": [
+        4096,
+        384
+      ],
+      "sha256": "98c6294acd73cd7a660146ccd3596d237a01ef0911451563d2e2a23fab4785f2",
+      "unique_frames": 8,
+      "source": "小早川秀秋_防御_受け流し_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "小早川秀秋_防御_受け流し_preview-v2.gif",
+      "review_grid": "小早川秀秋_防御_受け流し_review-v2.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            768,
+            268
+          ],
+          "mask_bbox": [
+            228,
+            16,
+            489,
+            266
+          ],
+          "output_bbox": [
+            158,
+            175,
+            354,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.752,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            768,
+            0,
+            1536,
+            268
+          ],
+          "mask_bbox": [
+            970,
+            21,
+            1273,
+            265
+          ],
+          "output_bbox": [
+            140,
+            175,
+            373,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.770492,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            268,
+            768,
+            520
+          ],
+          "mask_bbox": [
+            213,
+            268,
+            569,
+            518
+          ],
+          "output_bbox": [
+            122,
+            175,
+            390,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.752,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            768,
+            268,
+            1536,
+            520
+          ],
+          "mask_bbox": [
+            957,
+            268,
+            1425,
+            515
+          ],
+          "output_bbox": [
+            78,
+            175,
+            434,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.761134,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            3
+          ],
+          "crop_box": [
+            0,
+            520,
+            768,
+            760
+          ],
+          "mask_bbox": [
+            212,
+            520,
+            605,
+            756
+          ],
+          "output_bbox": [
+            100,
+            175,
+            413,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.79661,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            3
+          ],
+          "crop_box": [
+            768,
+            520,
+            1536,
+            760
+          ],
+          "mask_bbox": [
+            945,
+            522,
+            1320,
+            757
+          ],
+          "output_bbox": [
+            106,
+            175,
+            406,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.8,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            4
+          ],
+          "crop_box": [
+            0,
+            760,
+            768,
+            1024
+          ],
+          "mask_bbox": [
+            210,
+            760,
+            541,
+            1012
+          ],
+          "output_bbox": [
+            132,
+            175,
+            379,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.746032,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            4
+          ],
+          "crop_box": [
+            768,
+            760,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            983,
+            763,
+            1266,
+            1012
+          ],
+          "output_bbox": [
+            149,
+            175,
+            363,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.75502,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        5870374.0,
+        5438887.0,
+        8835867.0,
+        8670156.0,
+        6507255.0,
+        6587141.0,
+        5337602.0
+      ],
+      "contact_frame": "候補目安なし。ゲーム側で防御処理と同期する",
+      "forward_step_frame": "なし。受け流しの相対位置移動はClaude側で処理する",
+      "notes": "候補素材。実ゲームの当たり判定、速度、左右向き、実機は未確認。防御は攻撃バリエーションに含めない。"
+    },
+    "崩れ": {
+      "sprite": "小早川秀秋_防御_崩れ_6コマ_v2.png",
+      "frames": 6,
+      "size": [
+        3072,
+        384
+      ],
+      "sha256": "aaff9bb8c36425c1cbb83e42c813e5693ee5acfd141d378b9150dce9a912337e",
+      "unique_frames": 6,
+      "source": "小早川秀秋_防御_崩れ_source-v1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "preview_gif": "小早川秀秋_防御_崩れ_preview-v2.gif",
+      "review_grid": "小早川秀秋_防御_崩れ_review-v2.png",
+      "frame_details": [
+        {
+          "source_cell": [
+            1,
+            1
+          ],
+          "crop_box": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "mask_bbox": [
+            28,
+            49,
+            477,
+            480
+          ],
+          "output_bbox": [
+            158,
+            175,
+            354,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.436195,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            1
+          ],
+          "crop_box": [
+            512,
+            0,
+            1024,
+            512
+          ],
+          "mask_bbox": [
+            519,
+            33,
+            1018,
+            479
+          ],
+          "output_bbox": [
+            151,
+            175,
+            361,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.421525,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            1
+          ],
+          "crop_box": [
+            1024,
+            0,
+            1536,
+            512
+          ],
+          "mask_bbox": [
+            1046,
+            35,
+            1478,
+            479
+          ],
+          "output_bbox": [
+            164,
+            175,
+            347,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.423423,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            1,
+            2
+          ],
+          "crop_box": [
+            0,
+            512,
+            512,
+            1024
+          ],
+          "mask_bbox": [
+            38,
+            540,
+            512,
+            914
+          ],
+          "output_bbox": [
+            137,
+            175,
+            375,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.502674,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            2,
+            2
+          ],
+          "crop_box": [
+            512,
+            512,
+            1024,
+            1024
+          ],
+          "mask_bbox": [
+            566,
+            614,
+            1024,
+            934
+          ],
+          "output_bbox": [
+            122,
+            175,
+            391,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.5875,
+          "edge_contact": false
+        },
+        {
+          "source_cell": [
+            3,
+            2
+          ],
+          "crop_box": [
+            1024,
+            512,
+            1536,
+            1024
+          ],
+          "mask_bbox": [
+            1061,
+            548,
+            1503,
+            935
+          ],
+          "output_bbox": [
+            148,
+            175,
+            363,
+            363
+          ],
+          "ground_contact_y": 362,
+          "scale": 0.485788,
+          "edge_contact": false
+        }
+      ],
+      "adjacent_pixel_difference_sum": [
+        5196646.0,
+        5562729.0,
+        7097694.0,
+        9469567.0,
+        8177790.0
+      ],
+      "contact_frame": "候補目安なし。ゲーム側で防御処理と同期する",
+      "forward_step_frame": "なし。受け流しの相対位置移動はClaude側で処理する",
+      "notes": "候補素材。実ゲームの当たり判定、速度、左右向き、実機は未確認。防御は攻撃バリエーションに含めない。"
+    }
+  }
+}

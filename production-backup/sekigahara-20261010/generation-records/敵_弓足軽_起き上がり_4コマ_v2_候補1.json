@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_起き上がり_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-85010a62-c32a-49da-a208-b491ecc94fa5.png",
+  "prompt": "Create FOUR-frame GETTING UP animation of exactsame blue ashigaru archer, matchingreferenceheadbodycostumebowquiver. Exactsequence:1LYING ON BACK,2raises torso supporting onRIGHTpalm,3ONE KNEE kneeling withfrontfootplanted,4returns lowarmedready stance withbow heldleft and arrowrightatwaist. Frame1backheadhipsgrounded, knees foldedupwithfeetright, bowleft hand diagonallynearbody, faceup/right. Frame2pushground withrightpalm and bendwaist to raisechest, bothkneesfolded. Frame3one knee supportsweight, right palm nearforwardknee lifting, bowleft heldforwardcanted. Frame4same lowguard as reference. ALL4 exactsame anatomy and sizeofheadtorso limbs; no smalllyingfigure orlarge standingfigure. Foldknees/cantbow tofit equalcellswithoutshrinkingchar. FullbodyfacesRIGHT, alltoesstrictsideprofileRIGHT. One person andonebowpercell, quiversecure withsamearrows. Four equalsquarecells horizontalrow, no extrafigures. PureopaqueRGB#FF00FF no textlabelsgridshadowborderfloor scenery effects. Entirebowsstringshandsfeetinowncell with16pxequivalent margin, groundsame90%cellexceptnaturalraise. Naturalweightthroughpalmfootknee.",
+  "attempt": 1,
+  "status": "candidate_repair_feet_quiver"
+}

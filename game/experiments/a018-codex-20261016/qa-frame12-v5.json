@@ -1,0 +1,14 @@
+{
+  "candidate": "armed16-frame12-shins-trial-v5.png",
+  "changed_pixels": 1191,
+  "roi": [
+    104,
+    176,
+    140,
+    214
+  ],
+  "other_frames_identical": true,
+  "shoe_pixels_below_y214_identical": true,
+  "foreground_mask_identical": true,
+  "acceptance": "candidate only; motion review pending"
+}

@@ -1,0 +1,111 @@
+{
+  "name": "宮本武蔵_ダッシュ_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-88077b0a-d1d0-4e51-bdde-344f2576a48e.png",
+  "status": "drive_verified",
+  "scale": 0.5924855491329479,
+  "standingHeightSource": 346.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        113,
+        190,
+        319,
+        532
+      ],
+      "destination": [
+        67,
+        28,
+        122,
+        203
+      ],
+      "scale": 0.5924855491329479,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        496,
+        264,
+        772,
+        523
+      ],
+      "destination": [
+        46,
+        78,
+        164,
+        153
+      ],
+      "scale": 0.5924855491329479,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        943,
+        233,
+        1307,
+        526
+      ],
+      "destination": [
+        20,
+        57,
+        216,
+        174
+      ],
+      "scale": 0.5924855491329479,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1379,
+        252,
+        1674,
+        525
+      ],
+      "destination": [
+        40,
+        69,
+        175,
+        162
+      ],
+      "scale": 0.5924855491329479,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1851,
+        190,
+        2056,
+        532
+      ],
+      "destination": [
+        67,
+        28,
+        121,
+        203
+      ],
+      "scale": 0.5924855491329479,
+      "ground": 230
+    }
+  ],
+  "sha256": "6b1511c40170559bab0438b906b098e7175c3f4557d24e30e34d9cbdd72b2d23",
+  "backgroundSource": [
+    240,
+    23,
+    241
+  ],
+  "sourceIndices": null,
+  "visualReview": "OCR成功・文字なし。自動チェック全項目OK。二刀の全刃先、全身同一縮尺、右向き、攻撃ピーク3→回収4→構え5を目視確認。頭胴の寸法一定、走り姿勢の全高低下は脚の折り畳み。新依頼優先1-A完了後に納品。",
+  "driveId": "1pIk8IpDyY5_gpBb_dz8vgHRkwjMmPXEO",
+  "readbackSha256": "6b1511c40170559bab0438b906b098e7175c3f4557d24e30e34d9cbdd72b2d23",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

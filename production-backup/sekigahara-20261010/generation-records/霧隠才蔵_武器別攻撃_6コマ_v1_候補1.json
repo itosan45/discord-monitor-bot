@@ -1,0 +1,112 @@
+{
+  "name": "霧隠才蔵_武器別攻撃_6コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-76a29796-fa30-4b54-a568-44b65d220c22.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_武器別攻撃_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "qa_rejected_recovery_pose",
+  "uniformScale": 0.4700665188470067,
+  "sourceBounds": [
+    [
+      89,
+      151,
+      295,
+      580
+    ],
+    [
+      396,
+      128,
+      630,
+      579
+    ],
+    [
+      694,
+      189,
+      1083,
+      578
+    ],
+    [
+      1085,
+      232,
+      1484,
+      578
+    ],
+    [
+      1533,
+      128,
+      1767,
+      579
+    ],
+    [
+      1899,
+      151,
+      2106,
+      580
+    ]
+  ],
+  "placements": [
+    [
+      79,
+      28,
+      97,
+      202
+    ],
+    [
+      73,
+      18,
+      110,
+      212
+    ],
+    [
+      36,
+      47,
+      183,
+      183
+    ],
+    [
+      34,
+      67,
+      188,
+      163
+    ],
+    [
+      73,
+      18,
+      110,
+      212
+    ],
+    [
+      79,
+      28,
+      97,
+      202
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "b76375b7c7affdbd2f0ccf41cd2d231f477b8b07b707934e0f3a027b9437178b",
+  "prompt": "Kirigakure Saizo short-sword attack SIX chronological fullbody frames SINGLE HORIZONTAL ROW. Exact same handsome clean-shaven man indigo-gray ninja clothes bluegray headwrap tiedhair red6coins leatherwristguards belt pouches sheath as reference idle. RIGHT-facing allframes same camera/body scale as idle210px/256 equivalent; keep sword reference length allframes. Controlled real diagonal cut:1 guarded blade low,2 anticipation right elbow draws blade back above shoulder torso twists weightrear,3 leadfoot steps right hipsrotate downward-forward slash,4 impactfollowthrough torso inclines slightly blade finishes besidefrontknee,5 drawsbladeback shiftsweightrear,6 readynear1. Strong readable anticipation/step/hiprotation/recovery, no standingposevariants. Feet grounded same baseline, compact stance and arms keepwholebody blade/sheath/head/feet within owncell amplemargins; DO NOTshrink body for wide lunge. Six equalcells magentagaps nooverlap. Grittypainted gameart matchingreference, widehorizontal6framePNG pureflat#FF00FF, NOslashtrail/light/effects/shadow/text/grid/scenery.",
+  "char": "霧隠才蔵",
+  "kind": "sprite_motion",
+  "visualApproved": false,
+  "visualReview": "All6 decoded frames and idle comparison reviewed. Ground/structure pass, real slash3-4, but frame5 repeats overhead windup rather than requested blade-to-hip recovery. Body also slightly smaller than idle due overhead blade bounds. Hold and target frame5 only; preserve other poses/source. Do not publish."
+}

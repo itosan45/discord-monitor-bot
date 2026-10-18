@@ -1,0 +1,20 @@
+{
+  "name": "宮本武蔵_手ぶら_ダッシュ_5コマ_v2.png",
+  "char": "宮本武蔵",
+  "candidateCount": 2,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-13c8686c-b2a8-4360-abc4-fd93c7314659.png",
+  "status": "qa_hold",
+  "visualApproved": false,
+  "qaResult": "NG",
+  "improved": [
+    "1/5の構え横幅縮小"
+  ],
+  "remaining": [
+    "3コマ目の両拳前突きが消失",
+    "2/3の支持脚交替が弱い",
+    "4コマ目の横幅が依然広く同縮尺収容未達"
+  ],
+  "cause": "全5コマの姿勢修正をまとめて指示したことで、維持すべき3コマ目の攻撃姿勢も変更された。",
+  "nextCorrection": "既存候補1を基に3コマ目の攻撃を維持し、4コマ目の後足と衣服だけを編集。1/5縮小は別に適用。",
+  "updatedAt": "2026-10-08T00:03:27.720812+09:00"
+}

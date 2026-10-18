@@ -1,0 +1,21 @@
+{
+  "name": "真田幸村_通常3_6コマ_v2.png",
+  "candidate": 1,
+  "status": "qa_passed",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0a752924-ee5e-494c-82d6-4f742201edde.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png",
+  "action": "低く後ろへ構えた槍を前上方へ振り上げる6コマ通常3。",
+  "candidateCount": 1,
+  "createdAt": "2026-10-06T16:27:29.009796+00:00",
+  "noDuplicateGeneration": true,
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常3_6コマ_v2.png",
+  "sha256": "2c3c3f0a8686e4efd90364ab9c94e49724b28e70a2bb0b402fd16070e40f68f3",
+  "qaRecord": "yukimura-normal3-record.json",
+  "qaResult": "OK",
+  "visualReview": "目視確認: 幸村の赤備え・鹿角兜・六文銭と両手槍を維持。設定画の真田旗印は全コマで背面装備として一貫。槍筋と穂先、全身の余白、6コマの低位置から振り上げ、または4コマの溜め→跳躍→斬り下ろし→着地を確認。OCR後GIF復号画像でも同じ動きを確認。",
+  "ocrReview": {
+    "name": "真田幸村_通常3_6コマ_v2.png",
+    "text": "",
+    "success": true
+  }
+}

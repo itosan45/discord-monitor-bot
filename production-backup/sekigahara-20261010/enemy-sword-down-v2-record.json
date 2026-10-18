@@ -1,0 +1,135 @@
+{
+  "name": "敵_足軽刀_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-100c816c-53e5-405d-8d79-c28ff873dae1.png",
+  "status": "drive_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        128,
+        158,
+        465,
+        579
+      ],
+      "destination": [
+        51,
+        39,
+        154,
+        192
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        610,
+        191,
+        1080,
+        459
+      ],
+      "destination": [
+        21,
+        59,
+        214,
+        122
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 180,
+      "verticalOffset": -50,
+      "estimatedBodyGround": 179
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1121,
+        309,
+        1549,
+        594
+      ],
+      "destination": [
+        30,
+        101,
+        195,
+        130
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1671,
+        327,
+        2095,
+        593
+      ],
+      "destination": [
+        31,
+        106,
+        193,
+        121
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 226,
+      "verticalOffset": -4,
+      "estimatedBodyGround": 226
+    }
+  ],
+  "sha256": "2401e1c3dd59441cf6da3d19acff7167d9698ea75c78b3236e633d184e2a2cde",
+  "backgroundSource": [
+    242,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの49%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    17416,
+    21074,
+    12189,
+    19701
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_ダウン_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_ダウン_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "成功・文字なし",
+  "qaNote": "高さ中央値49%NG。膝を畳む空中・仰向け姿勢の投影高さ。全コマ共通倍率、身体接地推定229-230px、空中179px。動作は目視確認。",
+  "visualReview": "4コマGIF目視。後傾衝撃→50px浮いて膝が上がる→仰向け着地→脚と肩の反動4px。全刀先端、共通縮尺、右向き保持。airの高さ中央値49%NGを明記、合格扱いせず要注意。",
+  "driveId": "1Z52LrXXQzlwim0EXIbB6AsU4gNCB2LiY",
+  "readbackSha256": "2401e1c3dd59441cf6da3d19acff7167d9698ea75c78b3236e633d184e2a2cde",
+  "deliveryRole": "superseded_reference",
+  "supersededByName": "敵_足軽刀_ダウン_4コマ_v2_再生成版.png",
+  "supersededByDriveId": "1sZdeEftIO9fJvV-C1i5dsYJS0BZ9--vE"
+}

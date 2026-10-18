@@ -1,0 +1,132 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-be30b19e-c236-4f8e-94ab-4ed930e9ed95.png",
+  "sourceSha256": "a61bc1e958a35c6a91748e67514b0d33668ecd21afb657060c8fba622dac9982",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "prompt": "One candidate only. Use the three supplied same-character references for identity, armor, weapons and scale. Two-frame guard-release animation: frame 1 finishing a firm defensive brace; frame 2 lower the held weapon to a ready carry, relax the shoulders, and return the legs toward neutral. Full-body, right-facing, same scale and baseline, clear readable pose change; exact flat magenta background; keep all body and weapon parts safely inside both square cells. No attacker, projectile, attack, effects, text, watermark, extra figures, or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/上杉景勝_設定画.png",
+    "assets/sprites/上杉景勝_ガード構え_2コマ_v2.png",
+    "assets/sprites/上杉景勝_ガード維持_4コマ_v2.png"
+  ],
+  "requestedName": "上杉景勝_ガード解除_2コマ_v2.png",
+  "actualName": "上杉景勝_ガード解除_2コマ_v2_candidate1-final-edgeclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_ガード解除_2コマ_v2_candidate1-final-edgeclean.png",
+  "sha256": "0708a8449dbea32eb5223c22c223ed0ad8c01bcee2d8edf98e3db237797432d1",
+  "n": 2,
+  "cell": 256,
+  "outputDimensions": [
+    512,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "sourceCellSize": [
+      887,
+      887
+    ],
+    "finalSize": [
+      512,
+      256
+    ],
+    "commonScale": 0.2782608695652174,
+    "placement": "Separate left/right square cells by magenta key, remove only tiny disconnected seam-edge fragments below 2% of main subject where present, uniform scale across frames, center per cell and align feet to y=229."
+  },
+  "sourceFrameBboxes": [
+    [
+      50,
+      66,
+      853,
+      825
+    ],
+    [
+      50,
+      93,
+      855,
+      825
+    ]
+  ],
+  "removedSeamComponents": [
+    [],
+    []
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        16,
+        19,
+        239,
+        229
+      ],
+      "heightPx": 211,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 16,
+        "right": 17,
+        "top": 19
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        16,
+        26,
+        240,
+        229
+      ],
+      "heightPx": 204,
+      "bottomY": 229,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 26
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    23405
+  ],
+  "qaResult": "OK",
+  "checker": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.7256,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_release_candidate1\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_release_candidate1\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_release_candidate1\\上杉景勝_ガード解除_2コマ_v2_candidate1-final-edgeclean.gif",
+    "frameCount": 2,
+    "durationsMs": [
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_guard_release_candidate1\\decoded-contact.png"
+  },
+  "visualReview": "2コマの構え終了から武器を下げる動きを目視。設定画に沿う顔・鎧・武器、右向き、接地、コマ間の姿勢差、境界、16px余白、純マゼンタ背景を確認。",
+  "gitCommit": "497926523b92b316d006c6465bc8663505770540",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "68d5f09d21ac860b82487cd39696d9b4feba556a",
+  "gitSha256": "0708a8449dbea32eb5223c22c223ed0ad8c01bcee2d8edf98e3db237797432d1",
+  "remoteSha256Matches": true,
+  "gitBytes": 101782,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:13:04+09:00"
+}

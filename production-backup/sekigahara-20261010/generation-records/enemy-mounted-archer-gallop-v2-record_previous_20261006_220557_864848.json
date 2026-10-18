@@ -1,0 +1,166 @@
+{
+  "name": "敵_騎馬弓兵_疾走_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_疾走_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-528f9d18-dde0-418d-b158-c2e33adcc926.png",
+  "status": "candidate",
+  "scale": 0.7675,
+  "standingHeightSource": 400.0,
+  "standingHeightTarget": 307,
+  "n": 6,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        10,
+        176,
+        385,
+        518
+      ],
+      "destination": [
+        48,
+        85,
+        288,
+        262
+      ],
+      "scale": 0.7675,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        395,
+        176,
+        752,
+        478
+      ],
+      "destination": [
+        55,
+        97,
+        274,
+        232
+      ],
+      "scale": 0.7675,
+      "ground": 328,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 321
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        755,
+        179,
+        1087,
+        518
+      ],
+      "destination": [
+        64,
+        87,
+        255,
+        260
+      ],
+      "scale": 0.7675,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1093,
+        179,
+        1421,
+        476
+      ],
+      "destination": [
+        66,
+        101,
+        252,
+        228
+      ],
+      "scale": 0.7675,
+      "ground": 328,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 321
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1429,
+        178,
+        1795,
+        518
+      ],
+      "destination": [
+        51,
+        86,
+        281,
+        261
+      ],
+      "scale": 0.7675,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1796,
+        176,
+        2162,
+        494
+      ],
+      "destination": [
+        51,
+        93,
+        281,
+        244
+      ],
+      "scale": 0.7675,
+      "ground": 336,
+      "verticalOffset": -10,
+      "estimatedBodyGround": 336
+    }
+  ],
+  "sha256": "acde08c1e24a82e070cb27bf0508a39d1681d78b49665a85c3533c57475e0fc4",
+  "backgroundSource": [
+    238,
+    25,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの65%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    35043,
+    34640,
+    33583,
+    37117,
+    34320,
+    35430
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_疾走_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_疾走_6コマ_v2_GIF復号確認.png"
+  }
+}

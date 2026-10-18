@@ -1,0 +1,165 @@
+{
+  "name": "上杉景勝_歩き_8コマ_v2_再生成版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_歩き_8コマ_v2_再生成版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-d69a3d41-6c44-43ec-9e97-5f1981a58b4d.png",
+  "status": "drive_verified",
+  "scale": 0.45555555555555555,
+  "standingHeightSource": 450.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        9,
+        145,
+        286,
+        611
+      ],
+      "destination": [
+        65,
+        19,
+        126,
+        212
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        262,
+        147,
+        566,
+        611
+      ],
+      "destination": [
+        59,
+        20,
+        138,
+        211
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        519,
+        144,
+        817,
+        611
+      ],
+      "destination": [
+        60,
+        18,
+        136,
+        213
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        769,
+        145,
+        1083,
+        611
+      ],
+      "destination": [
+        56,
+        19,
+        143,
+        212
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1060,
+        145,
+        1362,
+        611
+      ],
+      "destination": [
+        59,
+        19,
+        138,
+        212
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1322,
+        145,
+        1617,
+        611
+      ],
+      "destination": [
+        61,
+        19,
+        134,
+        212
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1591,
+        145,
+        1898,
+        611
+      ],
+      "destination": [
+        58,
+        19,
+        140,
+        212
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1859,
+        145,
+        2164,
+        611
+      ],
+      "destination": [
+        58,
+        19,
+        139,
+        212
+      ],
+      "scale": 0.45555555555555555,
+      "ground": 230
+    }
+  ],
+  "sha256": "8390b667d9717e7a681ea0fec8763429c574066c7990bdba2ceba5bc331c884e",
+  "backgroundSource": [
+    241,
+    23,
+    241
+  ],
+  "sourceIndices": null,
+  "requestedName": "上杉景勝_歩き_8コマ_v2.png",
+  "qaResult": "要注意",
+  "attempts": 3,
+  "namingNote": "既存v2は他実行のPNGのため保護し、再生成版を別名で新規保存。",
+  "automaticCheck": "全項目OK;純マゼンタ80%;高さ82%;足元230",
+  "visualReview": "新10規定の3回試作後の最良候補。旗・刀の前上向き両手構え・低い膝・同一縮尺・8セル・余白・接地は確認。1/5の解剖学的脚の交代がまだ明確でなく要注意。OCRの文字は旗の意匠および甲冑の誤認、字幕等なし。",
+  "driveId": "1UWV5EbBUvpUW1POJpAan_rfv8h84KohY",
+  "readbackSha256": "8390b667d9717e7a681ea0fec8763429c574066c7990bdba2ceba5bc331c884e"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "海野六郎_低姿勢歩き_8コマ_v1.png",
+  "candidate": 2,
+  "status": "queued_bottom_row_correction",
+  "char": "海野六郎",
+  "action": "低姿勢歩き",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ef3742d6-7272-49b2-9dfc-6cb33a1b7bc7.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_待機_4コマ_v1.png",
+  "prompt": "Edit the attached 4x2 storyboard. Preserve the TOP ROW frames1-4 exactly as they are: same Umino identity, armor, flag, sword, scale and poses. Replace ONLY the BOTTOM ROW with four new consecutive poses that complete the opposite half of the walk cycle, not copies of the top row. Frame5 must be a clear mirror contact pose with LEFT foot forward and RIGHT leg behind, opposite to frame1. Frame6 weight shifts onto left foot and body lowers slightly. Frame7 right foot passes close by left leg, body slightly higher. Frame8 right foot swings forward and leads smoothly into frame1. Keep weapon, arms, head and torso nearly still and in low guard; show movement only through legs/hips and slight cloth sway. Both feet are correctly connected to legs. Same upright-equivalent body size, no shrinking. One full character in each square, 4 columns x2 rows in normal reading order; all body, flag and katana have at least 32px inside each 512x512 source cell. Flat pure #FF00FF; no text, shadows, effects, grid/borders or neighbor fragments. Distinct readable leg exchange; no duplicated poses.",
+  "createdAt": "2026-10-08",
+  "correctionReason": "candidate1 duplicates first four poses in frames5-8",
+  "noFurtherRegenerationPlanned": true
+}

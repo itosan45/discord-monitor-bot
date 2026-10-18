@@ -1,0 +1,37 @@
+{
+  "name": "筧十蔵_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8f42cd57-d553-4996-a67a-7455d9fa5e69.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\筧十蔵_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    73,
+    106,
+    1510,
+    936
+  ],
+  "placement": [
+    64,
+    147
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "5ac07445f1446bcddb943bd901a500c1cfb21814b42cead3fb6f2d360ef4139d",
+  "updatedAt": "2026-10-07T15:01:26.250608+09:00",
+  "prompt": "Original Kakei Juzo game character THREEfullbody views FRONT, RIGHTside, BACK same man equipment scale alignedground. Reference ONLY grittypainted style/3viewlayout, not oldface heavysamuraiarmor sword/banner. Calm Japanese marksman early40s leanstrongbuild shortblackhair lowtopknot neatshortmustachegoatee uncoveredhead with narrowdarkredheadband. LIGHTbrownblack lamellarchestvest over mutedgrayindigo jacket, smallshoulderplates leatherforearmguards clothshinwraps darktabi warajisandals, redsixcoinbadge2rows3 onchest. Powderflask and ballpouch onbelt nooversizedcannon. PRIMARY realJapanese MATCHLOCK TANEGASHIMA: overall1.25m aboutthreequartersbodyheight, longstraightdarksteelbarrel brownwoodstock visiblecurvedmatchserpentine and sideprimingpan, shorttraditionalstock not modernrifle. Hold gun BOTHhands diagonallymuzzleup-right, buttnearlefthip, triggerhandright leftsupportbarrel. Samegunproportions EVERYview includingback, fingerscorrect. No muzzleflash/smoke/flames/banner/katana. Readybentknees. Allmuzzle/butt/head/feet fullyinside amplemargins separatedviews. Pureflat #FF00FF noeffects/shadows/text/UI/grid. Landscape1536x1024 PNG originalgamecostume.",
+  "char": "筧十蔵",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "visualReview": "Reviewed front/right/back: intact matchlock muzzle and stock, visible matchlock mechanism, same face/equipment, full feet and margins, no effects or text. Armor coverage is heavier than requested light vest; recorded as design caution.",
+  "gitVerified": true,
+  "gitCommit": "1ecaddb91f4da3d9538ec0beee8aacb295430c14",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "5ac07445f1446bcddb943bd901a500c1cfb21814b42cead3fb6f2d360ef4139d",
+  "ocrSuccess": true,
+  "ocrText": ""
+}

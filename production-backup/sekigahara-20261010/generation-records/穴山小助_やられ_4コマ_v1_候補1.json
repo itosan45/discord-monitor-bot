@@ -1,0 +1,112 @@
+{
+  "name": "穴山小助_やられ_4コマ_v1.png",
+  "char": "穴山小助",
+  "kind": "ten_braves_sprite_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-51246b05-42d1-4571-b780-9101bc6989fa.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\穴山小助_やられ_4コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\穴山小助_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "uniformScale": 0.337,
+  "sourceBands": [
+    [
+      0,
+      543
+    ],
+    [
+      543,
+      1086
+    ],
+    [
+      1100,
+      1629
+    ],
+    [
+      1629,
+      2172
+    ]
+  ],
+  "sourceBounds": [
+    [
+      96,
+      36,
+      421,
+      670
+    ],
+    [
+      654,
+      91,
+      1086,
+      671
+    ],
+    [
+      1195,
+      63,
+      1551,
+      673
+    ],
+    [
+      1772,
+      36,
+      2077,
+      669
+    ]
+  ],
+  "placements": [
+    [
+      73,
+      16,
+      110,
+      214
+    ],
+    [
+      55,
+      35,
+      146,
+      195
+    ],
+    [
+      68,
+      24,
+      120,
+      206
+    ],
+    [
+      76,
+      17,
+      103,
+      213
+    ]
+  ],
+  "background": "Pure #FF00FF after normalization",
+  "checkResults": [
+    "30_check_strip.py: PASS; pure magenta 86%; median figure height 81%; cell margins and baseline pass.",
+    "Windows PowerShell 5.1 OCR success, no recognized text.",
+    "GIF decoded all 4 frames at 80ms."
+  ],
+  "visualReview": "赤備え、六文銭旗、兜、槍を全4コマで維持。1=被弾して反る、2=一歩よろめき槍を斜めに下げる、3=片膝をつき槍で支える、4=膝をついた最期の構え。以前コマ由来の左端槍片はセル範囲補正で除外。3→4の膝姿勢差は控えめのため要注意。旗・槍の大きさと接地を目視。",
+  "qaResult": "git_verified_caution",
+  "sha256": "efdd0c67fc48d6755b10f331312b62b96ca50e3371415afb1d847545bd051a47",
+  "gitVerified": true,
+  "gitCommit": "057756b093b520edfad0bc49c52536f0e1caa125",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "efdd0c67fc48d6755b10f331312b62b96ca50e3371415afb1d847545bd051a47",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "attempts": 1,
+  "updatedAt": "2026-10-08T10:10:00+09:00"
+}

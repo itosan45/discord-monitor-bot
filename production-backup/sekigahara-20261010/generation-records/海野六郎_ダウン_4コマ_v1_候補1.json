@@ -1,0 +1,16 @@
+{
+  "name": "海野六郎_ダウン_4コマ_v1.png",
+  "candidate": 1,
+  "char": "海野六郎",
+  "action": "ダウン",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_待機_4コマ_v1.png",
+  "designReference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_設定画_v1.png",
+  "weapon": "刀",
+  "prompt": "Using the attached 海野六郎_待機_4コマ_v1.png as the exact in-game identity, and 海野六郎_設定画_v1.png only as design detail reference, draw exactly four consecutive full-body knockdown frames. Preserve the same older stern face, red-black lacquer armor, six-coin headband crest, red six-coin sashimono, dark underclothes, katana and painterly game style. Facing right in the same side/three-quarter direction. Keep the figure anatomy and head-to-body scale constant; do not shrink the airborne pose. The four frames: 1 body recoils backward from an unseen hit, knees bend and shoulders jerk, no impact effect; 2 thrown backward through the air with back arched and legs lifted, sword still clearly held; 3 lands lying on his back on the ground, flag and armor still visible, sword alongside but inside the cell; 4 a small settling bounce, limbs/cloth shift slightly and come down. Maintain exactly the same armor pieces, banner and weapon across all frames; no flashing or disappearing gear. Four equal 256x256 cells in one horizontal row, final size 1024x256, right-facing in each cell. Ground plane y=230; airborne frame is above it, lying poses rest on it. At least 16px margin around all objects in every cell; no body, sword, flag, cape or neighboring pose may cross a boundary. Flat pure #FF00FF background, no gradient, shadow, floor line, blood, text, lettering, labels, borders, grid or extra characters. Clear real movement between all four poses, not repeated standing variations.",
+  "createdAt": "2026-10-08",
+  "noPriorCandidate": true,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3b515d08-b41e-483f-945b-7c2a86e5005e.png",
+  "sourceDimensions": "2172x724",
+  "status": "rejected_not_delivered",
+  "rejectionReason": "At reference scale, frame2 horizontal sword/leg extent and lying poses exceed 16px cell margins; frames3-4 are too similar to prove the requested small bounce. One correction will tuck the weapon/legs and distinguish the bounce."
+}

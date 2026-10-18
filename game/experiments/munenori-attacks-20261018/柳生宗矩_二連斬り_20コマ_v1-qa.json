@@ -1,0 +1,354 @@
+{
+  "status": "candidate_not_integrated",
+  "file": "game/experiments/munenori-attacks-20261018/柳生宗矩_二連斬り_20コマ_v1.png",
+  "dimensions": [
+    10240,
+    384
+  ],
+  "cell": [
+    512,
+    384
+  ],
+  "frames": 20,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "frame_edge_contact": false,
+  "estimated_body_height_center_region_px": {
+    "min": 101,
+    "median": 186.5,
+    "max": 221
+  },
+  "impact_frame": [
+    6,
+    14
+  ],
+  "suggested_forward_travel_px": 30,
+  "frame_measurements": [
+    {
+      "frame": 1,
+      "body_height_px_center_region": 183,
+      "bbox_source": [
+        73,
+        39,
+        223,
+        272
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 84,
+        "y": 119
+      }
+    },
+    {
+      "frame": 2,
+      "body_height_px_center_region": 179,
+      "bbox_source": [
+        64,
+        44,
+        227,
+        272
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 92,
+        "y": 115
+      }
+    },
+    {
+      "frame": 3,
+      "body_height_px_center_region": 179,
+      "bbox_source": [
+        59,
+        45,
+        227,
+        272
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 95,
+        "y": 114
+      }
+    },
+    {
+      "frame": 4,
+      "body_height_px_center_region": 194,
+      "bbox_source": [
+        42,
+        26,
+        228,
+        272
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 109,
+        "y": 129
+      }
+    },
+    {
+      "frame": 5,
+      "body_height_px_center_region": 190,
+      "bbox_source": [
+        53,
+        31,
+        226,
+        272
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 100,
+        "y": 125
+      }
+    },
+    {
+      "frame": 6,
+      "body_height_px_center_region": 132,
+      "bbox_source": [
+        179,
+        106,
+        596,
+        456
+      ],
+      "scale_factor": 0.5263,
+      "edge_contact": false,
+      "placement": {
+        "x": -29,
+        "y": 68
+      }
+    },
+    {
+      "frame": 7,
+      "body_height_px_center_region": 178,
+      "bbox_source": [
+        106,
+        117,
+        614,
+        456
+      ],
+      "scale_factor": 0.5263,
+      "edge_contact": false,
+      "placement": {
+        "x": 10,
+        "y": 62
+      }
+    },
+    {
+      "frame": 8,
+      "body_height_px_center_region": 193,
+      "bbox_source": [
+        172,
+        50,
+        638,
+        420
+      ],
+      "scale_factor": 0.5263,
+      "edge_contact": false,
+      "placement": {
+        "x": -25,
+        "y": 116
+      }
+    },
+    {
+      "frame": 9,
+      "body_height_px_center_region": 195,
+      "bbox_source": [
+        150,
+        50,
+        589,
+        420
+      ],
+      "scale_factor": 0.5263,
+      "edge_contact": false,
+      "placement": {
+        "x": -13,
+        "y": 116
+      }
+    },
+    {
+      "frame": 10,
+      "body_height_px_center_region": 207,
+      "bbox_source": [
+        54,
+        0,
+        227,
+        263
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 99,
+        "y": 157
+      }
+    },
+    {
+      "frame": 11,
+      "body_height_px_center_region": 181,
+      "bbox_source": [
+        58,
+        27,
+        246,
+        257
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 96,
+        "y": 140
+      }
+    },
+    {
+      "frame": 12,
+      "body_height_px_center_region": 185,
+      "bbox_source": [
+        42,
+        22,
+        234,
+        257
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 109,
+        "y": 144
+      }
+    },
+    {
+      "frame": 13,
+      "body_height_px_center_region": 187,
+      "bbox_source": [
+        17,
+        19,
+        221,
+        257
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 128,
+        "y": 147
+      }
+    },
+    {
+      "frame": 14,
+      "body_height_px_center_region": 187,
+      "bbox_source": [
+        13,
+        20,
+        273,
+        257
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 132,
+        "y": 146
+      }
+    },
+    {
+      "frame": 15,
+      "body_height_px_center_region": 194,
+      "bbox_source": [
+        8,
+        12,
+        265,
+        258
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 136,
+        "y": 151
+      }
+    },
+    {
+      "frame": 16,
+      "body_height_px_center_region": 221,
+      "bbox_source": [
+        165,
+        29,
+        614,
+        481
+      ],
+      "scale_factor": 0.4898,
+      "edge_contact": false,
+      "placement": {
+        "x": -2,
+        "y": 114
+      }
+    },
+    {
+      "frame": 17,
+      "body_height_px_center_region": 207,
+      "bbox_source": [
+        125,
+        59,
+        606,
+        481
+      ],
+      "scale_factor": 0.4898,
+      "edge_contact": false,
+      "placement": {
+        "x": 17,
+        "y": 99
+      }
+    },
+    {
+      "frame": 18,
+      "body_height_px_center_region": 178,
+      "bbox_source": [
+        171,
+        83,
+        655,
+        449
+      ],
+      "scale_factor": 0.4898,
+      "edge_contact": false,
+      "placement": {
+        "x": -5,
+        "y": 103
+      }
+    },
+    {
+      "frame": 19,
+      "body_height_px_center_region": 101,
+      "bbox_source": [
+        192,
+        50,
+        599,
+        454
+      ],
+      "scale_factor": 0.4898,
+      "edge_contact": false,
+      "placement": {
+        "x": -15,
+        "y": 117
+      }
+    },
+    {
+      "frame": 20,
+      "body_height_px_center_region": 186,
+      "bbox_source": [
+        52,
+        13,
+        205,
+        249
+      ],
+      "scale_factor": 0.7873,
+      "edge_contact": false,
+      "placement": {
+        "x": 101,
+        "y": 158
+      }
+    }
+  ],
+  "sha256": "b68f1015cf3819bb9f6c4ab6742ac8304c96baa6fdc8b0df71243ba67ff31cbc",
+  "preview_gif": "柳生宗矩_二連斬り_20コマ_v1.gif",
+  "contact_sheet": "柳生宗矩_二連斬り_20コマ_v1-contact.png"
+}

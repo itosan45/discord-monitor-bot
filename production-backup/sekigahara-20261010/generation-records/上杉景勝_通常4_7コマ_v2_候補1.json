@@ -1,0 +1,15 @@
+{
+  "name": "上杉景勝_通常4_7コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_scale_bounds",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-867a87a7-6ef6-487d-8389-c3e6eef4c52f.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+  "action": "通常4・重い頭上刀打ち下ろし",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "rawSourceSha256": "890d473348649d39df77dfb1902ec5efe95823ab805256a46627433228373725",
+  "sourceDimensions": "2079x756",
+  "prompt": "Create one seven-frame Uesugi Kagekatsu heavy two-handed overhead katana slam sprite strip. Preserve the stern lord, indigo-black armor, silver trim, gold crescent kabuto, white headband, long navy cape, navy sashimono with white 毘, and faint pale-blue katana edge. Layout seven 256x256 cells, full-body profile facing right, one continuous attack: ready, lift sword, full overhead windup, diagonal downward step/slam, low impact pose with small ground-hugging pale-blue shockwave, settle and recover, return to ready. Keep body scale 205px, grounded feet y=230, 16px top/side margin, no cross-cell overlap, flat pure magenta background, no extra effects or labels.",
+  "rejectionReason": "候補1はフレーム2/3で頭上の刀を含む全景高530px、人物本体高396px。人物を規定205pxへ正規化すると全景が約274pxになり、足元y=230と上端16px余白を両立できない。全景を214px以内へ縮小すると人物本体は約160pxとなり、既存景勝素材との縮尺を保てないため不採用。再生成しない。",
+  "visualReview": "景勝の人物・衣装・右向き、予備動作から打ち下ろしと接地衝撃を確認。人物規定尺度では刀と旗が高さ制約を超える。"
+}

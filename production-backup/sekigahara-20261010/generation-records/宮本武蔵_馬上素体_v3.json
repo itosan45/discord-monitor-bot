@@ -1,0 +1,50 @@
+{
+  "name": "馬上素体_宮本武蔵_5コマ_v3.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-82e6e1aa-1749-431b-a83b-355451c59f00.png",
+  "sourceCells": 6,
+  "selectedCells": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "checks": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "sha256": "96db3f518b5b89c1b400a2db9713f469e966662a5f99ab2c35697a5970183662",
+  "status": "git_verified_device_pending",
+  "hands": [
+    [
+      95,
+      102
+    ],
+    [
+      95,
+      102
+    ],
+    [
+      102,
+      27
+    ],
+    [
+      178,
+      110
+    ],
+    [
+      174,
+      115
+    ]
+  ],
+  "gitVerified": true,
+  "gitCommit": "f34beb7b7fb2dbbf01fc21da3d13bd7feddea784",
+  "remoteByteEqual": true,
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualApproved": true,
+  "visualReview": "全5復号コマで脚と鐙を含む騎乗姿勢、同じ人物・体格、馬蹄の接地を確認。ゲーム内待機/攻撃を目視。実機は未確認。",
+  "path": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\馬上素体_宮本武蔵_5コマ_v3.png"
+}

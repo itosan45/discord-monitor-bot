@@ -1,0 +1,14 @@
+{
+  "name": "上杉景勝_ダッシュ_5コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_unusable_layout",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-601f3320-0b2f-4a6f-a8c4-3a20b3989454.png",
+  "reference": "上杉景勝_設定画.png; finished/上杉景勝_歩き_8コマ_v2_再生成版.png",
+  "action": "ダッシュ",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T01:38:24.6255216+09:00",
+  "noDuplicateGeneration": true,
+  "note": "Single candidate reserved before generation; inspect existing records and outputs first.",
+  "rejectionReason": "候補1は1コマ目の刀身が画像左端、5コマ目の刀身が画像右端で切れている。原画像欠損のため復元せず不採用。",
+  "visualReview": "候補1は1コマ目の刀身が画像左端、5コマ目の刀身が画像右端で切れている。原画像欠損のため復元せず不採用。"
+}

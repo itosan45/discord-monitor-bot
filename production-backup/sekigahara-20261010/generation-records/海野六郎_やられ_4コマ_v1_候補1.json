@@ -1,0 +1,26 @@
+{
+  "name": "海野六郎_やられ_4コマ_v1.png",
+  "char": "海野六郎",
+  "kind": "sprite_motion",
+  "status": "git_verified",
+  "candidateCount": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_設定画_v1.png",
+  "prompt": "Preserve exact Unno Rokuro from ref: older stern samurai with gray moustache, black headgear, dark red-black heavy armor, red six-coin sashimono, sword, same face/build/palette/painted game style. Right-facing 3/4, full body, four hit reaction poses: 1 grounded sturdy guard, sword low; 2 impact flinch with shield arm up and shoulders braced; 3 heavy backward stagger with bent knees, feet planted, sword stays in hand; 4 pulls himself back into guarded stance. Mature strong build and weighty motion, no falling down. Keep banner, helmet, armor, sword consistent in every frame. No blood, wounds, enemy, projectile, flash, text, shadows or effects. Exactly four separated full-body poses for 4 equal 256x256 cells, same body scale and feet baseline, complete banner and sword within each cell, clear pure-magenta gaps, flat #FF00FF background.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-9ef5fe99-15f8-41b6-ad38-de0f393928c1.png",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "visualReview": "Four grounded heavy hit-reaction poses; red six-coin flag, red-black armor, sword consistently held. Crop QA pending.",
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\海野六郎_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "sha256": "cb1ceda93de66d10582570c4946c35c0a10d0f2286f898baefffc299b0a9e3ed",
+  "qaResult": "30_check_strip PASS; pure magenta84%; median height80%; feet y230; GIF4/4 decoded; OCR no text; isolated-figure visual QA.",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitCommit": "49e8afdeabeba3a5d0966b30f9ed0cf0c26281a4",
+  "remoteByteEqual": true
+}

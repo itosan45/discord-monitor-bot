@@ -1,0 +1,112 @@
+{
+  "name": "三好伊三入道_やられ_4コマ_v1.png",
+  "char": "三好伊三入道",
+  "kind": "ten_braves_sprite_motion",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-1945f532-e8fd-451d-a0b0-9dd4dbc89aac.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\三好伊三入道_やられ_4コマ_v1_候補1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好伊三入道_やられ_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "uniformScale": 0.36,
+  "sourceBands": [
+    [
+      0,
+      543
+    ],
+    [
+      543,
+      1086
+    ],
+    [
+      1086,
+      1629
+    ],
+    [
+      1629,
+      2172
+    ]
+  ],
+  "sourceBounds": [
+    [
+      107,
+      88,
+      441,
+      672
+    ],
+    [
+      604,
+      145,
+      1003,
+      672
+    ],
+    [
+      1098,
+      193,
+      1507,
+      671
+    ],
+    [
+      1669,
+      185,
+      2065,
+      671
+    ]
+  ],
+  "placements": [
+    [
+      68,
+      20,
+      120,
+      210
+    ],
+    [
+      56,
+      40,
+      144,
+      190
+    ],
+    [
+      54,
+      58,
+      147,
+      172
+    ],
+    [
+      56,
+      55,
+      143,
+      175
+    ]
+  ],
+  "checkResults": [
+    "30_check_strip.py: PASS; pure magenta 81%; median sprite height 71%; full cell margins and grounded baseline pass.",
+    "Windows PowerShell 5.1 OCR success, no recognized text.",
+    "GIF decoded all 4 frames at 80ms."
+  ],
+  "visualReview": "設定画/待機と比較し、同じ坊主頭・灰色の僧衣・数珠・赤腰布/六文銭・脚絆・草鞋・木棍を維持。1=反動、2=よろめきつつ棍を下げる、3=片膝で棍を支える、4=姿勢を整えた最期の跪き。一本の木棍が全フレーム連続し、接地と余白を目視。要注意: 3→4の跪き姿勢はsettle差が控えめ。",
+  "qaResult": "git_verified_caution",
+  "sha256": "17f7755bcffc36d24f82e21943c22f1b05270d059066fad57571de7dd1170b74",
+  "gitVerified": true,
+  "gitCommit": "3cbcf0bd4e6aff7e89edd75b968fb6f09b1bfc62",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "17f7755bcffc36d24f82e21943c22f1b05270d059066fad57571de7dd1170b74",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "attempts": 1,
+  "updatedAt": "2026-10-08T10:15:00+09:00",
+  "prompt": "Use case: stylized-concept. Production game sprite strip: exactly FOUR sequential 256x256 cells, one horizontal row, final 1024x256 PNG. Reference 1 is the exact idle character and in-game scale; reference 2 is the identity and gear design. Keep the same athletic Japanese monk, shaved head, gray sleeveless ragged robe, large brown prayer beads, red waist sash and six red coins, charcoal trousers, wrapped shins and sandals. Keep one plain medium-brown wooden staff exactly like the idle sprite: same length, straight, continuous, never broken, no fragments. Right-facing 3/4 in every frame. Same full-body scale as idle (~80% cell), grounded at y=230, equal cell scale and baseline, staff and figure completely inside each cell with at least 16px margins. Pure flat #FF00FF background, no shadows, text, labels, scenery, FX, speed lines or blood. Four-frame defeat reaction: 1 torso recoil holding staff vertically by right side; 2 loses balance, bends knees and lowers staff diagonally across front without changing length; 3 settles onto one knee and plants staff for support; 4 holds final resolute kneeling pose, torso upright and head slightly bowed, staff planted beside him. Final kneeling frames differ in arm grip, torso balance and staff angle. Feet/knee ground contact, full figure each cell, no jump. Matching gritty painted game art."
+}

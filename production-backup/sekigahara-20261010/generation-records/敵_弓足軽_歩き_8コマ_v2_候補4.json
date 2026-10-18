@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-186c1e0f-8f00-4553-abf6-033f2bb2f7de.png",
+  "prompt": "Final repair, candidate 4. Create a true eight-frame combat walk cycle of this SAME archer. Current frames 1 and 5 repeat the same legs, which is wrong. Frame 1 NEAR RIGHT leg forward FAR LEFT leg backward. Frame 5 NEAR RIGHT leg backward FAR LEFT leg forward, clearly show the opposite overlap at hips and knees. Frames 3 and 7 are distinct opposite passing poses. 2/4 and 6/8 transition and transfer weight onto alternating feet. Low bent knees, minimal torso bob, stable waist-held nocked bow and quiver. Both toes face RIGHT in every frame, never mirror body or boots. All arrow tips complete with ample blank outer margins. Same exact physique clothing anatomy scale bow dimensions. Eight isolated complete figures, horizontal equal square cells. Pure opaque #FF00FF, no text, grids, shadow or effects. Actively redraw thighs knees and hips so feet truly alternate, do not merely shift ankle positions.",
+  "attempt": 4,
+  "status": "candidate_rejected_passing_pose_lost"
+}

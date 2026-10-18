@@ -1,0 +1,123 @@
+{
+  "name": "敵_鉄砲足軽_ダウン_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_ダウン_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-b5b98737-7964-4378-b7d9-a166854186e9.png",
+  "status": "candidate",
+  "scale": 0.4659090909090909,
+  "standingHeightSource": 440.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        80,
+        185,
+        433,
+        588
+      ],
+      "destination": [
+        46,
+        43,
+        164,
+        188
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        572,
+        153,
+        993,
+        468
+      ],
+      "destination": [
+        30,
+        49,
+        196,
+        147
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 195,
+      "verticalOffset": -35,
+      "estimatedBodyGround": 195
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1096,
+        346,
+        1553,
+        596
+      ],
+      "destination": [
+        21,
+        115,
+        213,
+        116
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1676,
+        346,
+        2100,
+        596
+      ],
+      "destination": [
+        29,
+        112,
+        198,
+        116
+      ],
+      "scale": 0.4659090909090909,
+      "ground": 227,
+      "verticalOffset": -3,
+      "estimatedBodyGround": 228
+    }
+  ],
+  "sha256": "167b35043e139c7d97194556aae54e1a88a428d9c3967b2b5c28747e1d8ff5d4",
+  "backgroundSource": [
+    242,
+    22,
+    241
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの51%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    16620,
+    20033,
+    12273,
+    18794
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_ダウン_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_ダウン_4コマ_v2_GIF復号確認.png"
+  }
+}

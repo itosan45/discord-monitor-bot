@@ -1,0 +1,679 @@
+{
+  "ticket": "A-028",
+  "status": "candidate_not_delivery",
+  "review_note": "Same format as Claude's integrated Naomasa sheets: 384px cells, 188px upright height, magenta background, inclusive groundline y=363. Candidate sheets receive static visual and pixel QA; gameplay timing and runtime integration remain for Claude.",
+  "sheets": [
+    {
+      "character": "最上義光",
+      "action": "転倒",
+      "file": "最上義光_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          122,
+          176,
+          260,
+          363
+        ],
+        [
+          113,
+          211,
+          269,
+          363
+        ],
+        [
+          105,
+          286,
+          277,
+          363
+        ],
+        [
+          105,
+          299,
+          277,
+          363
+        ]
+      ],
+      "sha256": "12d644e86afa7f6fdc573d75e427414d351bd779348962daee6c40b9328520e7",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "最上義光",
+      "action": "起き上がり",
+      "file": "最上義光_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          97,
+          293,
+          285,
+          363
+        ],
+        [
+          108,
+          260,
+          274,
+          363
+        ],
+        [
+          99,
+          218,
+          283,
+          363
+        ],
+        [
+          137,
+          178,
+          246,
+          363
+        ]
+      ],
+      "sha256": "d0ab2b6f5d90f45c30f66c307b0c91b584304d7811bd9dba316e70321b5eb171",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川家康",
+      "action": "転倒",
+      "file": "徳川家康_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          113,
+          178,
+          269,
+          363
+        ],
+        [
+          111,
+          213,
+          272,
+          363
+        ],
+        [
+          97,
+          278,
+          285,
+          363
+        ],
+        [
+          101,
+          295,
+          281,
+          363
+        ]
+      ],
+      "sha256": "22304c9918da302e7bd07f37324e3756be4989369802b7966aeb0c6ef35bc098",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川家康",
+      "action": "起き上がり",
+      "file": "徳川家康_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          101,
+          300,
+          281,
+          363
+        ],
+        [
+          103,
+          276,
+          279,
+          363
+        ],
+        [
+          110,
+          225,
+          272,
+          363
+        ],
+        [
+          112,
+          176,
+          270,
+          363
+        ]
+      ],
+      "sha256": "746faf6759ec0dcdee5da73da33e4a2db3d1d9de67f267581f3c6ccd5490606d",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "小早川秀秋",
+      "action": "転倒",
+      "file": "小早川秀秋_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          110,
+          176,
+          273,
+          363
+        ],
+        [
+          110,
+          236,
+          273,
+          363
+        ],
+        [
+          105,
+          274,
+          277,
+          363
+        ],
+        [
+          104,
+          299,
+          279,
+          363
+        ]
+      ],
+      "sha256": "816ee77fbf1635db95a168999c487c019cb46abd794142915e1e8811fface2e8",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "小早川秀秋",
+      "action": "起き上がり",
+      "file": "小早川秀秋_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          103,
+          300,
+          279,
+          363
+        ],
+        [
+          104,
+          264,
+          278,
+          363
+        ],
+        [
+          106,
+          228,
+          276,
+          363
+        ],
+        [
+          110,
+          185,
+          272,
+          363
+        ]
+      ],
+      "sha256": "f9cfff924ae3ee4651c6043b9fcc538b4ddf4d685ac70940095edb052d294f8f",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川秀忠",
+      "action": "転倒",
+      "file": "徳川秀忠_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          121,
+          194,
+          262,
+          363
+        ],
+        [
+          119,
+          229,
+          263,
+          363
+        ],
+        [
+          109,
+          245,
+          273,
+          363
+        ],
+        [
+          104,
+          301,
+          279,
+          363
+        ]
+      ],
+      "sha256": "580c9674150cce3c305f0a1f35f20f713d9055f23a275e2b82f7378182bee45d",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "徳川秀忠",
+      "action": "起き上がり",
+      "file": "徳川秀忠_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          100,
+          283,
+          283,
+          363
+        ],
+        [
+          112,
+          254,
+          270,
+          363
+        ],
+        [
+          116,
+          217,
+          266,
+          363
+        ],
+        [
+          119,
+          176,
+          264,
+          363
+        ]
+      ],
+      "sha256": "f4c1db91dab1e1b105385d4dcbac2773414c3ac55fcffa32fc31d97382858652",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "本多忠勝",
+      "action": "転倒",
+      "file": "本多忠勝_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          109,
+          193,
+          273,
+          363
+        ],
+        [
+          124,
+          188,
+          258,
+          363
+        ],
+        [
+          102,
+          264,
+          281,
+          363
+        ],
+        [
+          107,
+          305,
+          275,
+          363
+        ]
+      ],
+      "sha256": "18f93c2f9bf49374725d5dfabbd649680440ffbf373af0e08239a2869011c8df",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "本多忠勝",
+      "action": "起き上がり",
+      "file": "本多忠勝_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          98,
+          281,
+          284,
+          363
+        ],
+        [
+          107,
+          248,
+          275,
+          363
+        ],
+        [
+          119,
+          186,
+          263,
+          363
+        ],
+        [
+          111,
+          176,
+          272,
+          363
+        ]
+      ],
+      "sha256": "fb02867bc1a026a66cf8edcb8209afc0ee5e4a35a2438164ada64f86d65ba5f2",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "黒田長政",
+      "action": "転倒",
+      "file": "黒田長政_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          90,
+          185,
+          293,
+          363
+        ],
+        [
+          107,
+          213,
+          275,
+          363
+        ],
+        [
+          75,
+          244,
+          308,
+          363
+        ],
+        [
+          85,
+          289,
+          298,
+          363
+        ]
+      ],
+      "sha256": "c4d1e3a681f80de513ef7b3076a19a01d7314930797b449ebe02b3d1f8b78818",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "黒田長政",
+      "action": "起き上がり",
+      "file": "黒田長政_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          84,
+          286,
+          299,
+          363
+        ],
+        [
+          88,
+          254,
+          294,
+          363
+        ],
+        [
+          105,
+          206,
+          278,
+          363
+        ],
+        [
+          90,
+          176,
+          292,
+          363
+        ]
+      ],
+      "sha256": "b7d5e5bc6c947da4ed7e4e7b50bbad266a086c3e11e6c9bf6e7db55fdbcc53b0",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "福島正則",
+      "action": "転倒",
+      "file": "福島正則_転倒_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          95,
+          176,
+          287,
+          363
+        ],
+        [
+          104,
+          194,
+          279,
+          363
+        ],
+        [
+          91,
+          216,
+          291,
+          363
+        ],
+        [
+          93,
+          284,
+          289,
+          363
+        ]
+      ],
+      "sha256": "f439f3e3fa1ff84660e285a64bacab230c34c0ed62c317d2bd94fbc18eb0aabe",
+      "status": "candidate_not_delivery"
+    },
+    {
+      "character": "福島正則",
+      "action": "起き上がり",
+      "file": "福島正則_起き上がり_4コマ_v1.png",
+      "size": [
+        1536,
+        384
+      ],
+      "frames": 4,
+      "cell_size": [
+        384,
+        384
+      ],
+      "background_rgb": [
+        255,
+        0,
+        255
+      ],
+      "groundline_y_inclusive": 363,
+      "frame_bboxes": [
+        [
+          82,
+          275,
+          300,
+          363
+        ],
+        [
+          99,
+          237,
+          284,
+          363
+        ],
+        [
+          94,
+          229,
+          288,
+          363
+        ],
+        [
+          93,
+          191,
+          289,
+          363
+        ]
+      ],
+      "sha256": "3bfd01dbeabf3638aab4d88c46ab54601e8bf779fc8a08d838a8dab5f2aa27c8",
+      "status": "candidate_not_delivery"
+    }
+  ]
+}

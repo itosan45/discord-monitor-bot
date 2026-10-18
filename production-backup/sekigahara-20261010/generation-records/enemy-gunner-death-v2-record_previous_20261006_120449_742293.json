@@ -1,0 +1,110 @@
+{
+  "name": "敵_鉄砲足軽_やられ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_鉄砲足軽_やられ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-d643f888-8479-48fc-a237-8ffb0c9670e1.png",
+  "status": "candidate",
+  "scale": 0.4880952380952381,
+  "standingHeightSource": 420.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        114,
+        177,
+        489,
+        564
+      ],
+      "destination": [
+        36,
+        42,
+        183,
+        189
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        612,
+        245,
+        1065,
+        575
+      ],
+      "destination": [
+        17,
+        70,
+        221,
+        161
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1153,
+        338,
+        1570,
+        575
+      ],
+      "destination": [
+        26,
+        115,
+        204,
+        116
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1685,
+        411,
+        2113,
+        575
+      ],
+      "destination": [
+        23,
+        151,
+        209,
+        80
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "6574959ee6f790b8714ff7c8e7d940a62dca5a9a3613831d6664829e1acb55a4",
+  "backgroundSource": [
+    242,
+    23,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG 人物の高さ（中央値）はセルの54%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）"
+  ],
+  "automaticPass": false,
+  "adjacentChangedPixels": [
+    19226,
+    19041,
+    14259,
+    19673
+  ]
+}

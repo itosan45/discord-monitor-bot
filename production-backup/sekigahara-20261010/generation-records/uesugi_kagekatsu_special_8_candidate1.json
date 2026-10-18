@@ -1,0 +1,38 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-fbec061d-62f1-4bf3-96c6-e0ff30782b74.png",
+  "sourceSha256": "cec9035a025cdc37420e03ded36bb4b676bbc2ce8c497a78abce66250f549a60",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "actualName": "上杉景勝_必殺_8コマ_v2.png",
+  "prompt": "Create ONE original 8-frame special-attack sprite strip for the side-scrolling Sengoku action game Sekigahara Ranbu. Character: Kagekatsu Uesugi. Reference 1 exact identity; reference 2 current in-game painted style and scale; reference 3 loose legacy motion/electric-slash motif only. One row of exactly 8 full-body right-facing poses for a 2048x256 strip. Same anatomy and body scale; katana and restrained blue-white effects inside each cell with 16px margins; pure RGB magenta background. Motion: ready, crouch and draw back, raise as charge gathers, begin diagonal cut, complete slash with contained crescent trail, low follow-through, recover, settle near ready. No text/banner/extra character or effects crossing cells.",
+  "status": "rejected",
+  "attempt": 1,
+  "retries": 0,
+  "visualReview": "画像の画風と人物は良いが、8セル等分の確認で第4〜6コマの青白い斬撃軌跡が隣セルへ連続し、脚と刀身も境界に接触・流出。生成キャンバスの前景連結成分がx=764〜1715にまたがり、同一縮尺・刀身保持・16px余白を守る分離ができないため見送り。出力PNGなし、納品数に含めない。同一タスクの再生成は行わない。",
+  "qaResult": "見送り",
+  "rejectionEvidence": {
+    "equalCellBounds": [
+      0,
+      272,
+      543,
+      814,
+      1086,
+      1358,
+      1629,
+      1900,
+      2172
+    ],
+    "mainConnectedForegroundBox": [
+      764,
+      169,
+      1715,
+      561
+    ],
+    "reason": "Connected character/effect regions from neighboring action poses span multiple required cells; normalization would crop body or effect and fail required margins."
+  },
+  "notDelivered": true,
+  "sameTaskNotRegenerated": true,
+  "candidateContactSheet": "qa/20261007_uesugi_special_candidate1/source-equal-cells-v2.png"
+}

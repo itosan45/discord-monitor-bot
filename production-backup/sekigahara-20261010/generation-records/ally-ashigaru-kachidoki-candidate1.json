@@ -1,0 +1,9 @@
+{
+  "createdAt": "2026-10-08",
+  "tool": "image_gen",
+  "prompt": "Create a production game sprite sheet for Japanese Sengoku side-scrolling action game. Reference image: existing ashigaru sword soldier idle strip, identity and drawing style reference. Preserve EXACT same man, face, black conical jingasa, blue sleeves/trousers, black lamellar cuirass/skirt, shin guards, sandals, same painterly crisp game art and proportions. New animation: victorious soldier responding to his commander's rally. Canvas exactly 1024x256, four equal 256x256 cells in ONE horizontal row. Pure solid #FF00FF background, NO shadow, text, frame borders, effects. Four complete full-body soldiers facing RIGHT in 3/4 profile. Same grounded feet at y230, same torso size in every frame. Raised fist must fit with at least16px top margin; each entire body and sword with16px side margin. Left hand holds the SAME katana lowered near the left hip, blade pointing diagonally downward toward right within own cell in ALL frames. RIGHT hand is an EMPTY clenched fist: frame1 at chest, frame2 raised directly above head with mouth open shouting, frame3 lowered beside face, frame4 stretched high above head with chest proud shouting. Legs stay planted; no jumping. IMPORTANT same equipment all frames, no switched hands, no weapon in raised fist. Only one character per cell, absolutely no spill across cells.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-590f8689-cee3-4fdb-b89b-c12d4141ab94.png",
+  "status": "git_verified",
+  "gitCommit": "40df4fb8caa21b548cc139d28bc79604cd499c9e",
+  "qaDirectory": "C:/Users/user/Desktop/output/sekigahara-new-20261006/qa/ally-victory-20261008"
+}

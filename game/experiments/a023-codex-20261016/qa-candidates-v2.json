@@ -1,0 +1,104 @@
+[
+  {
+    "file": "cannon-strip-candidate-v2.png",
+    "size": [
+      2048,
+      384
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bbox": [
+          12,
+          185,
+          395,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 2,
+        "bbox": [
+          5,
+          190,
+          395,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 3,
+        "bbox": [
+          5,
+          163,
+          502,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 4,
+        "bbox": [
+          12,
+          171,
+          471,
+          350
+        ],
+        "edge_contact": false
+      }
+    ],
+    "pure_magenta_bg": true,
+    "sha256": "16eaa4199ea29d725fdc1df387e11feaf049bc3fd51c560bb78bf1beb5330c80"
+  },
+  {
+    "file": "commander-strip-candidate-v2.png",
+    "size": [
+      1024,
+      384
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bbox": [
+          29,
+          132,
+          187,
+          350
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 2,
+        "bbox": [
+          23,
+          77,
+          202,
+          349
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 3,
+        "bbox": [
+          13,
+          131,
+          242,
+          349
+        ],
+        "edge_contact": false
+      },
+      {
+        "frame": 4,
+        "bbox": [
+          8,
+          132,
+          215,
+          350
+        ],
+        "edge_contact": false
+      }
+    ],
+    "pure_magenta_bg": true,
+    "sha256": "7211fc2b8dd20c6d77e07d1e9e8e8f4b11201ce2464c9dbe40bd886e2e5d1dde"
+  }
+]

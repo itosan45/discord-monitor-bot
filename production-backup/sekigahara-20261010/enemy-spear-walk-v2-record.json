@@ -1,0 +1,183 @@
+{
+  "name": "敵_足軽槍_歩き_8コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-df6a81c5-ed60-45e7-8340-8de61a16b374.png",
+  "status": "drive_verified",
+  "scale": 0.9111111111111111,
+  "standingHeightSource": 225.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        18,
+        276,
+        259,
+        472
+      ],
+      "destination": [
+        18,
+        52,
+        220,
+        179
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        289,
+        276,
+        532,
+        472
+      ],
+      "destination": [
+        17,
+        52,
+        221,
+        179
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        562,
+        276,
+        802,
+        472
+      ],
+      "destination": [
+        18,
+        52,
+        219,
+        179
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        831,
+        276,
+        1072,
+        472
+      ],
+      "destination": [
+        18,
+        52,
+        220,
+        179
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1103,
+        277,
+        1344,
+        472
+      ],
+      "destination": [
+        18,
+        53,
+        220,
+        178
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1374,
+        278,
+        1615,
+        472
+      ],
+      "destination": [
+        18,
+        54,
+        220,
+        177
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1647,
+        276,
+        1886,
+        472
+      ],
+      "destination": [
+        19,
+        52,
+        218,
+        179
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1916,
+        276,
+        2157,
+        472
+      ],
+      "destination": [
+        18,
+        52,
+        220,
+        179
+      ],
+      "scale": 0.9111111111111111,
+      "ground": 230
+    }
+  ],
+  "sha256": "4c98232ec5fdbcc505691212ad4fe42bd45aca53b43779a4d9ab878e882002d3",
+  "backgroundSource": [
+    243,
+    23,
+    242
+  ],
+  "sourceIndices": null,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの70%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    11818,
+    13338,
+    13495,
+    11864,
+    12283,
+    13549,
+    13513,
+    12243
+  ],
+  "qaResult": "要注意",
+  "motionPass": false,
+  "attempts": 4,
+  "retries": 3,
+  "selectedAttempt": 4,
+  "visualReview": "低い腰、両手の槍構え、全8コマの通過姿勢、全足先右向き、槍先と後端・余白・接地・共通縮尺を確認。自動全項目OK、OCR成功文字なし。3/7に出た余計な円形装飾は最終修正で除去。初回＋修正3上限後の最良候補4。要注意:1/5の解剖学的な近い脚の交換の識別が弱い。槍は水平より約25度上向き。動作完全合格とはしない。",
+  "driveId": "1TS7QC2EXllL6KKY8WEx3uc9k7fblOoDZ",
+  "readbackSha256": "4c98232ec5fdbcc505691212ad4fe42bd45aca53b43779a4d9ab878e882002d3",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

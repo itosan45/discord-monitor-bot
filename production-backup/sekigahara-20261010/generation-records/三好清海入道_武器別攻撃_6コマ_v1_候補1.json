@@ -1,0 +1,24 @@
+{
+  "name": "三好清海入道_武器別攻撃_6コマ_v1.png",
+  "candidate": 1,
+  "status": "rejected_connected_frames",
+  "decision": "Reject and do not deliver. Individual poses touch/overlap across source divisions: foreground connected-component analysis returns four large components for six poses; one component spans source x=1042..1847 and merges poses 4 and 5. Separating these would cut the iron staff or include adjacent-pose pixels. Do not regenerate immediately; move to another task.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-168d4adc-340e-4e6d-a790-a6d404e81ef3.png",
+  "sourceSha256": "4c70e1a0346c0ce66fd18da140f3cb6cc6137b569e9d2d1f8128c49d1093a291",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "promptSummary": "Six-frame Seikai Nyudo Miyoshi heavy two-handed iron-staff overhead strike: ready, load, drive, strike, follow-through, recover; exact setting sheet and idle references; 1536x256 target.",
+  "qaFindings": [
+    "Source 2172x724, pure magenta background but no six independent cells.",
+    "8-connected foreground components: 4 instead of 6; a large shared component spans two poses (x=1042..1847).",
+    "Fixed-cell boundaries show heavy foreground overlap; staff continuity and no-adjacent-cell-bleed cannot both be preserved by simple cell normalization.",
+    "No final PNG, OCR, GIF, or Git delivery performed."
+  ],
+  "reviewedAt": "2026-10-08T07:20:00+09:00",
+  "referenceFiles": [
+    "finished/三好清海入道_設定画_v1.png",
+    "assets/sprites/三好清海入道_待機_4コマ_v1.png"
+  ]
+}

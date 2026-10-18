@@ -1,0 +1,132 @@
+{
+  "name": "武田信玄_通常4_7コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-505e3c2b-e574-42ad-9fbd-e5405c0469dd.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_通常4_7コマ_v2.png",
+  "size": [
+    1792,
+    256
+  ],
+  "mode": "RGB",
+  "n": 7,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.48623853211009177,
+  "sourceBounds": [
+    [
+      46,
+      32,
+      343,
+      449
+    ],
+    [
+      479,
+      25,
+      780,
+      451
+    ],
+    [
+      892,
+      13,
+      1201,
+      449
+    ],
+    [
+      1280,
+      34,
+      1644,
+      451
+    ],
+    [
+      26,
+      489,
+      398,
+      913
+    ],
+    [
+      466,
+      484,
+      778,
+      913
+    ],
+    [
+      877,
+      486,
+      1163,
+      913
+    ]
+  ],
+  "placements": [
+    [
+      56,
+      27,
+      144,
+      203
+    ],
+    [
+      55,
+      23,
+      146,
+      207
+    ],
+    [
+      53,
+      18,
+      150,
+      212
+    ],
+    [
+      39,
+      27,
+      177,
+      203
+    ],
+    [
+      37,
+      24,
+      181,
+      206
+    ],
+    [
+      52,
+      21,
+      152,
+      209
+    ],
+    [
+      58,
+      22,
+      139,
+      208
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 73%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 7,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "fba2fc6724ca5a05b422791e91b5c392c875cd156617e3fe9aeb59e442d8b9b8",
+  "visualApproved": true,
+  "visualReview": "All seven decoded frames inspected with idle comparison. Two hands visibly grip gunbai for windup, overhead lift, downstroke, deep low impact, rebound and recovery. Full character, gold horns, white mane, banner and pole, fan, sheathed sword retained. No effects, no neighboring figure, common ground, one uniform scale. OCR fragments correspond to banner/armor details, no added text. Latest11 two-handed slam motion present. Legacy idle larger; exact scale match unverified.",
+  "motionCaution": "Legacy idle is larger than normalized strip; exact idle scale matching not verified.",
+  "gitVerified": true,
+  "gitCommit": "dec169d5a2097ce96607d4a9927d76f670467983",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "fba2fc6724ca5a05b422791e91b5c392c875cd156617e3fe9aeb59e442d8b9b8",
+  "prompt": "SEVEN chronological RIGHT-facing fullbody animation frames Takeda Shingen HUGE TWO-HANDED GUNBAI SLAM. Identity exact reference1: broad stocky warrior heavybrows beard, goldhornhelmet whiteyakmane crimsonbrown goldarmor tigercoat, blackgold fourdiamond 風林火山 banner with pole, sheathed katana. Reference2 anatomy size. Redblack ovalgunbai MUST be held with BOTH hands on its short goldhandle during windup, strike, followthrough. No extra fan or drawn sword. 1 low guard fan chest right hand left joins handle.2 BOTH hands grip handle fan close aboveface, elbows bent, rearweight.3 deepest windup fan abovehelmet but no higher than horn tips, knees bent, torso leansback, forearms fold to keep compact.4 powerful downstroke fan diagonallyforward justbelow chest, bothhandsconnectedhandle, hip rotates and frontknee sinks.5 heavy groundward impact fan near frontshin about20px aboveground, botharms bent down, torso crouched, NO groundeffects.6 rebound fan back to waist bothhands, kneesstartstraighten.7 returnguard fanchest, lefthandreleases towardhilt. Allfeetgrounded samebaseline, nojump. Strong weightshift, squash by bending joints only. SAME head/armor/torso/bone dimensions allframes; do NOT shrink for raisedweapon. Standing anatomical equivalent205px per256px cell, fullfigure plusbanner/fan within16pxmargins, footline230px. Compact fanarc, close mane/cloth, entirewidth<=standingheight. No flames/shockwave/slash/light/speedlines/shadow/effects/text/UI exceptbannerinscription. Intermediate4x2 atlas7figures rowmajor bottomrightblank, equal squarecells with LARGEgutters no touchingfigures NOgrid. Final horizontal1792x256 seven256cells.",
+  "ocrSuccess": true,
+  "ocrText": "- 風 火 み 風 火 00 番 火 山 ま の , 乞",
+  "updatedAt": "2026-10-07T14:03:28.380117+09:00"
+}

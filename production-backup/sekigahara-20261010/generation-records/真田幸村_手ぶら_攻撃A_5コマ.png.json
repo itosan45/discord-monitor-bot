@@ -1,0 +1,9 @@
+{
+  "name": "真田幸村_手ぶら_攻撃A_5コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-c74ceb95-97b7-4de6-8c04-98cc64c0e362.png",
+  "prompt": "ONLY right-facing profile reference Yukimura, exact crimsonarmor/goldantlers/redscarf/white sash/brownhakama/redgreaves/sandals/back sixcoinbanner. FIVE full-body UNARMED frames, onehorizontalrow, diagonal DOWNWARD two-handed emptygrip strike as holding longpole. NO handheldweapon whatsoever, no rod/spear/sword/gun/fan/ghostweapon. Both fists CLOSED and EMPTY. Anatomical RIGHT near arm/fist forward, LEFT far arm/fist behind, gripspacing constant.1 lowreadybothfists infront atwaist-chest;2 bothfists rise to nearheadheight forwindup (notfarabovehelmet), rightfist slightlyforward ofleft;3 both emptyfists sweep diagonallydown throughchest;4 lowforward followthrough nearfrontthigh withrightfistforward,leftbehind;5 recoverready. Preserve sameface/costume/body dimensions allframes, no shrink duringwideattack. Realisticjointelbows, fistsnotopen palms and no extra hands. Each silhouettewholeincludingantlers/banner/scarf isolatedbygenerouspuremagenta gaps andoutsidemargins, fit256squarecells16pxmargins, standingequivalent205px, ground230px. Strongbattlebentknees/hipshift. Paintedanime-realistic arcadecrispdarkoutline exactref. Pure#FF00FF no shadows/labels/text/numbers/grids/borders/effects. Onecharacteroneemptygripattack.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\真田幸村_設定画.png"
+  ],
+  "status": "candidate_pending_QA"
+}

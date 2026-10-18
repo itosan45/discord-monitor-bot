@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-edd86f1b-fa8c-44ac-9f16-21140513cd5f.png",
+  "prompt": "This is8-frame blue ashigaru archer walk with extra magenta space added on RIGHT to repair clipped last arrow. COMPLETE frame8 arrowtip by extending existingshaft into blankmagenta, draw wholepoint close tobow like other7arrows; leave ample blank margin beyondit. Preserve all8exactbodydimensions and costumes, bowsquivers strings, stablewaistguard, lowknees. Also correct frame5legexchange: NEAR RIGHTthigh/knee/foot BACK, FAR LEFTthigh/knee/foot FRONT; nearrearlegoverlapsfarfrontat hip, oppositeframe1. Frame6weightontofarLEFTfront. BothtoetipsRIGHT all8, nevermirrorwholefigureorboots. 3and7passingkneesclose retained. Eight completefullbodies equalsquarecells horizontalrow, sameanatomicalscale, pure#FF00FF opaque no textshadowgridborder. Keep spare magentamargin on both outeredges; noarrow orbowcutoff.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

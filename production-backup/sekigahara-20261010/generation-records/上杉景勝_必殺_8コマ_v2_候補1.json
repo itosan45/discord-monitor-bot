@@ -1,0 +1,14 @@
+{
+  "name": "上杉景勝_必殺_8コマ_v2.png",
+  "candidate": 1,
+  "status": "hold_no_delivery_due_to_existing_no_regeneration_instruction",
+  "char": "上杉景勝",
+  "action": "必殺",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_待機_4コマ.png",
+  "existingOlderAsset": "上杉景勝_必殺_8コマ.png",
+  "existingOlderReview": "Prior sheet is visibly inconsistent in scale/cropping; it remains untouched.",
+  "prompt": "Using the attached 上杉景勝_待機_4コマ.png as the exact character identity reference, create one game-ready 8-frame special-attack sprite atlas. Preserve his identical face, proportions, navy and black lacquer armor with silver/gold details, gold crescent kabuto, long navy patterned cape, rear banner with its existing white crest, and the same painterly arcade game style. Do not redesign or omit any equipment. Motion: Uesugi Kagekatsu raises his katana as blue-white lightning gathers around the blade, then brings it down in a decisive overhead slam. Show a readable progression: 1 braced low ready stance, katana in hand; 2 bends knees and draws sword upward; 3 sword rising above shoulder, lightning begins; 4 sword held overhead, charge fully gathered; 5 starts forceful downward cut; 6 blade reaches the ground-level strike with contained lightning impact; 7 settles in low follow-through; 8 recovers toward the ready stance. Each panel is one consecutive full-body pose, facing right in the same three-quarter direction. Keep the body at the same standing scale as the attached idle, soles on one shared ground baseline, use natural knee/torso motion without shrinking. Layout as a clean 4-column by 2-row storyboard grid in left-to-right, top-to-bottom order (frames 1-4 top row, 5-8 bottom row); equal square panels, one full character per panel. Leave at least 16px clear magenta margin on every panel edge; do not let the figure, banner, cape, katana or lightning cross panel boundaries. Background flat pure #FF00FF. No text, labels, speech bubbles, shadows, borders, grid lines or extra figures. Lightning is the only effect and must remain within its own panel.",
+  "createdAt": "2026-10-08",
+  "noDuplicateGeneration": true,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c62635d0-6f0f-4688-b6bd-225b3f6fe6bb.png"
+}

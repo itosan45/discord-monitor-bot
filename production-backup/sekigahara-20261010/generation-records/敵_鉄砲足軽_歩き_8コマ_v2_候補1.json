@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-605280f8-5b75-462c-b849-35513e2629a6.png",
+  "prompt": "Create EIGHT-frame trueCOMBAT WALK ofexact SAMEblueashigarumatchlockgunner inacceptedidle. Sameanatomyheadtorsolegsclothgun. LOWhips bentknees forwardweight, gun diagonalchestheldwithbothhandsSTABLEsameangleall8, avoidbodybob. Distinct COMPLETEalternatinglegcycle:1 NEAR RIGHTlegFRONTcontact/FAR LEFTlegREAR;2weightontoRIGHTfront, LEFTrearheelraises;3LEFTkneepassescloseRIGHTunderhips;4LEFTfoot swingsforward;5 FAR LEFTlegFRONTcontact/NEAR RIGHTlegREAR, REVERSElegocclusionhipsandkneesfrom1;6weightontoLEFTfrontRIGHTrearheelraises;7RIGHTkneepassesLEFTunderhips;8RIGHTswingsforwardto1. Keepnear/farlegs anatomicallyidentified, do notrepeat1as5. BOTHtoetipsRIGHT all16sandalsstrictsideprofile, heelLEFTtoeRIGHT evenliftedfoot, nevermirrorboot. Same exact standinganatomysize205pxper256squarecell, crouchreducesheightnotbodydimensions. Longguncomplete chestdiagonalready stable botharms. Eightisolatedfullfigures equalcells horizontalonerow, pureopaque#FF00FF no textgridshadowborderfloor effects. Outerarrow?NOARROW noquiver onlygunpouches. Amplemuzzleandedge margins16pxequivalent.",
+  "attempt": 1,
+  "status": "candidate_repair_leg_cycle_face"
+}

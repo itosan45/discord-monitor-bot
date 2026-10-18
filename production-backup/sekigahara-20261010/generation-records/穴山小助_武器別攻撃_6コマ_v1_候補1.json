@@ -1,0 +1,17 @@
+{
+  "name": "穴山小助_武器別攻撃_6コマ_v1.png",
+  "candidate": 1,
+  "char": "穴山小助",
+  "action": "武器別攻撃",
+  "weapon": "槍",
+  "n": 6,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\穴山小助_待機_4コマ_v1.png",
+  "designReference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\穴山小助_設定画_v1.png",
+  "prompt": "Using the first attached 穴山小助_待機_4コマ_v1.png as the exact in-game identity/scale reference, and the second 穴山小助_設定画_v1.png for facial/armor/spear details, create exactly six consecutive weapon-attack poses. Keep the same young stern face, red-black Sanada armor, six-coin sashimono, standard-length yari spear and exact painterly style. Facing right in the same three-quarter side view. Action is a realistic forward spear thrust with a clear wind-up and recovery: 1 stable guard, spear angled forward-up; 2 shifts weight to rear foot and draws spear back; 3 pushes off and lowers the center, spear starting forward; 4 strong full extension lunge, both hands on shaft, spear point aimed right, front foot planted; 5 follow-through and recoil, spear remains in both hands; 6 pulls back into guard. Every frame differs clearly; no standing-pose repeats. Keep head, torso and limbs at the same scale as the waiting sprite; do not shrink for the thrust. Spear remains the same length and visually continuous across all six frames, never cropped; point and butt stay inside each cell. Banner, armor, headband and crest remain consistent; cloth moves naturally but does not disappear. Layout as a clean 3-column by 2-row storyboard, ordered 1-3 top, 4-6 bottom, six equal square panels. Every full-body pose and entire spear must fit inside a central 224x214px safe area when normalized to a 256x256 cell; soles at y=230. Pure flat #FF00FF background. No opponent, effects, slash trails, text, letters, captions, shadows, borders, grid lines, or neighboring pose fragments.",
+  "createdAt": "2026-10-08",
+  "noPriorCandidate": true,
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4486e9a8-19a3-4c1e-b6e1-1f0e4f9228c4.png",
+  "sourceDimensions": "1536x1024",
+  "status": "rejected_cell_overflow_corrected_in_candidate3",
+  "rejectionReason": "Weapon/pose width reaches panel edge in frames 2-6; global same-scale fit would shrink character. One correction changes thrust angle while preserving full spear length and character scale."
+}

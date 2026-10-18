@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_被弾_2コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-fd33d46a-ab88-4dff-9285-83f7fb66e484.png",
+  "prompt": "Create TWO animation frames of SAME blue-armored ashigaru archer taking a hit. Refer to attached accepted idle for exact physique, face, black conical helmet, rolled blue sleeves, chest armor, black shin guards and straw sandals, bow and back quiver. Frame1 sudden hit: shoulders recoil, torso leans backward, face winces, knees buckle, left bow hand keeps bow tilted close tobody, right hand opens defensively near chest. Frame2 recover balance with front foot firmly planted and back heel lifted, waist contracts forward, right hand returns toward arrow grip. Distinct weight shift and reactive shoulders, no injury gore. No arrow firing. Both toe tips RIGHT, full body facing RIGHT. Same anatomy dimensions in both frames, standing equivalent205 pixels in256pixelcell. Bow top and bottom stayinside owncell with16px equivalentmargin; cant bow diagonally close to body if necessary, do not shrink person. Equal square cells horizontal one row2. Pure opaque#FF00FF background, no text, grid, borders, shadows, scenery or effects.",
+  "attempt": 1,
+  "status": "candidate_repair_feet"
+}

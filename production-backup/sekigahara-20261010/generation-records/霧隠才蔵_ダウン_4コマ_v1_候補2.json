@@ -1,0 +1,22 @@
+{
+  "name": "霧隠才蔵_ダウン_4コマ_v1.png",
+  "candidateCount": 2,
+  "status": "git_verified",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-17f785e9-c33a-4b7d-ad3d-b8350c21dea8.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\霧隠才蔵_設定画_v1.png",
+  "parentCandidate": "霧隠才蔵_ダウン_4コマ_v1_候補1.json",
+  "prompt": "Repair candidate1 layout only while preserving Saizo design and the same four-frame fall sequence. Keep katana close to body in frames 3/4, sword turned diagonally alongside legs or tucked safely at side so entire figure+weapon fits each 256px cell with at least 16px margins at the same uniform scale. Do not lengthen or shorten sword; do not cut it off or alter outfit/face/body. Exactly four distinct frames: ready stance, recoil, fall onto side/back with bent knees and bracing hand, lying still. Strict right-facing profile; flat pure magenta, no effects/text/shadow.",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_ダウン_4コマ_v1.png",
+  "candidateCopy": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\霧隠才蔵_ダウン_4コマ_v1_候補2.png",
+  "sha256": "cbdd48b7189f487e8c0465b75e50c78ef8fbb705cc1818f75dd05b304ed4715c",
+  "gitCommit": "1c07946e2576ad5c570dd68e9696496fa6f7cc06",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "qaResult": "OK",
+  "qaCheck": "30_check_strip PASS (air); 1024x256 RGB; magenta background 84%; median figure height 60%.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "gif": "4 frames, 256x256, 80ms each; decoded and visually reviewed.",
+  "visualReview": "Right-facing Saizo costume preserved. Four distinct phases: braced stance, recoil with lifted feet, supported fall to side/back, prone still pose. Body and full-length katana stay in each cell. Uniform scale; minimum cell margin at least 16px.",
+  "rejectionCandidate1": "Late-frame body+katana width could not fit one 256px cell at consistent scale with 16px margins."
+}

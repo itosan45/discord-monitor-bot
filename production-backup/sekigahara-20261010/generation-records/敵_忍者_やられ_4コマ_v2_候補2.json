@@ -1,0 +1,7 @@
+{
+  "name": "敵_忍者_やられ_4コマ_v2.png",
+  "attempt": 2,
+  "prompt": "Repair SAME4ninjadeathstrip. DROPPEDSWORD2/3/4currentlybelowbody createsfloatingbodyifgroundedusingweapon. MoveONLYdroppedshortbladeUP tosamehorizontalGROUND ASLOWESTBODY: frame2 bladealignedbottomknees/palm line,3bottomforearms/bootsline,4bottomforearms/bootsline. Swordonbodygroundevenifpartiallyoverlapsnearhand, leavecompletebladevisible consistentlengthallframesaround200raw. Don'tmovebodyup don'tshrink. Frame3forearmraisesTORSOaround45degreesabovefloor beforecollapse4, pelviskneesremainfloor. Face3/4eyeclosedstrictRIGHTPROFILE nosepointsRIGHT towardfeet notLEFT/downfloor, headremainsleftofbody. KeepcollapsedSIDErolledtorso3/4 differentiatesSUPINEknockdown. BootsALLtoeRIGHT heelLEFT, sideprofilesno fronts. Only2arms2legsandONEdroppedblade. Fullbodysameheadlimblengthcostumegraywrapsblackhoodall4, scarfshort. Onehorizontalrow4equalcells16marginpureopaque#FF00FF no textgridfloorborder/shadow.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-6e3f1b71-e612-4ede-8313-e7983559e477.png",
+  "status": "generated"
+}

@@ -1,0 +1,170 @@
+{
+  "name": "敵_足軽刀_攻撃_6コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_攻撃_6コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-5fd48088-cb22-452e-88f3-395fc42cbaec.png",
+  "status": "drive_verified",
+  "scale": 0.4880952380952381,
+  "standingHeightSource": 420.0,
+  "standingHeightTarget": 205,
+  "n": 6,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        26,
+        231,
+        370,
+        586
+      ],
+      "destination": [
+        44,
+        58,
+        168,
+        173
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        386,
+        171,
+        667,
+        586
+      ],
+      "destination": [
+        59,
+        28,
+        137,
+        203
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        721,
+        229,
+        1104,
+        586
+      ],
+      "destination": [
+        34,
+        57,
+        187,
+        174
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1121,
+        248,
+        1341,
+        586
+      ],
+      "destination": [
+        74,
+        66,
+        107,
+        165
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1409,
+        256,
+        1737,
+        588
+      ],
+      "destination": [
+        48,
+        69,
+        160,
+        162
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1811,
+        229,
+        2154,
+        588
+      ],
+      "destination": [
+        44,
+        56,
+        167,
+        175
+      ],
+      "scale": 0.4880952380952381,
+      "ground": 230,
+      "verticalOffset": 0
+    }
+  ],
+  "sha256": "3e6ed01632e24d225e038739b6f4306df5fd6acd1ca3f22fb31c64409d133335",
+  "backgroundSource": [
+    241,
+    22,
+    242
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの67%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    16410,
+    17404,
+    14183,
+    11881,
+    14540,
+    10961
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_攻撃_6コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 6,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_攻撃_6コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 3,
+  "retries": 2,
+  "selectedCandidate": 3,
+  "ocrReview": "成功・文字なし",
+  "visualReview": "GIF6コマ目視。構え→頭上振りかぶり→胸前から斜め下→足を追わせ前膝に体重→低い振り抜き→回収。足運び・腰・腕・刃筋に変化、全実刃保持、規格全項目OK。",
+  "driveId": "1XipPoEQRUhwBKcWpxRN0xkCrNoip07a-",
+  "readbackSha256": "3e6ed01632e24d225e038739b6f4306df5fd6acd1ca3f22fb31c64409d133335",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

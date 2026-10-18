@@ -1,0 +1,141 @@
+{
+  "name": "石田三成_ジャンプ_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_ジャンプ_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-db3a7203-375c-4f07-b2e5-4220dbe137d0.png",
+  "status": "qa_passed",
+  "scale": 0.33171521035598706,
+  "standingHeightSource": 618.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        45,
+        213,
+        548,
+        668
+      ],
+      "destination": [
+        44,
+        80,
+        167,
+        151
+      ],
+      "scale": 0.33171521035598706,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        575,
+        85,
+        1095,
+        678
+      ],
+      "destination": [
+        42,
+        34,
+        172,
+        197
+      ],
+      "scale": 0.33171521035598706,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1124,
+        24,
+        1614,
+        509
+      ],
+      "destination": [
+        46,
+        20,
+        163,
+        161
+      ],
+      "scale": 0.33171521035598706,
+      "ground": 180,
+      "verticalOffset": -50,
+      "estimatedBodyGround": 179
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1642,
+        62,
+        2128,
+        688
+      ],
+      "destination": [
+        47,
+        23,
+        161,
+        208
+      ],
+      "scale": 0.33171521035598706,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    }
+  ],
+  "sha256": "8b2e1860642d52abc20b5363a3d0c70e919cc3ac4c22f2504185bfc6b40c2545",
+  "backgroundSource": [
+    241,
+    21,
+    240
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの70%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    21212,
+    18473,
+    18556,
+    21868
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_ジャンプ_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_ジャンプ_4コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "rawSourceSha256": "f90c5ffccfab42ab83139ae51955ac2ffa76ad3e6ec96a8105c17eba95d00906",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "action": "通常ジャンプ4コマ",
+  "promptSummary": "Reference-faithful game sprite strip; one candidate, separated full-body poses and pure magenta background.",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "ishida-jump-v2-record.json",
+  "qaNote": "三成の通常ジャンプ4段階。しゃがみ→踏み切り→頂点の膝たたみ→脚を伸ばした下降。頂点だけ50px持ち上げ、動きが出る配置。右手火縄銃・左手鉄扇・衣装を維持。30規格PASS、GIF復号4枚を目視。",
+  "visualReview": "三成の通常ジャンプ4段階。しゃがみ→踏み切り→頂点の膝たたみ→脚を伸ばした下降。頂点だけ50px持ち上げ、動きが出る配置。右手火縄銃・左手鉄扇・衣装を維持。30規格PASS、GIF復号4枚を目視。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e0adef1c-bec6-4137-8c05-98daaf682f1d.png",
+  "sourceSha256": "0b768ee28b3b4bacccf25fcf9ee6979b6831fd1252376649dada66f153fd363f",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "sourceCellEdges": [
+    0,
+    543,
+    1086,
+    1629,
+    2172
+  ],
+  "prompt": "One candidate only. Preserve identity, armor, colors, face, right-facing orientation and two swords using the three references. Exact 4-frame left-to-right animation: ready crouch, shift weight and lean back, hop backward left while facing right, land in low stable guard. Same character scale and visual finish in every equal 256px cell. Keep the entire body and weapon inside each cell. Exact flat magenta background. No additional characters, attacker, projectiles, text, watermark or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/宮本武蔵_設定画.png",
+    "assets/sprites/宮本武蔵_ガード構え_2コマ_v2.png",
+    "assets/sprites/宮本武蔵_ガード解除_2コマ_v2.png"
+  ],
+  "requestedName": "宮本武蔵_後退回避_4コマ_v2.png",
+  "actualName": "宮本武蔵_後退回避_4コマ_v2_candidate1-final-componentclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_後退回避_4コマ_v2_candidate1-final-componentclean.png",
+  "sha256": "9c9f004a7585cb4af916ea494e1dd4b2bd396f0e4cbf660f77644515c3116ade",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellEdges": [
+      0,
+      543,
+      1086,
+      1629,
+      2172
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.4132841328413284,
+    "placement": "Common uniform scale; separate source cells by magenta key; remove disconnected components smaller than 10% of main figure; center each figure in its cell. Grounded frames baseline y=229; airborne frames raised to y=204; exact RGB(255,0,255) key background."
+  },
+  "sourceFrameBboxes": [
+    [
+      26,
+      151,
+      543,
+      639
+    ],
+    [
+      6,
+      176,
+      543,
+      639
+    ],
+    [
+      1,
+      94,
+      543,
+      524
+    ],
+    [
+      0,
+      214,
+      524,
+      641
+    ]
+  ],
+  "removedSmallComponents": [
+    [],
+    [
+      {
+        "pixels": 128,
+        "fractionOfMain": 0.0014,
+        "bbox": [
+          0,
+          194,
+          7,
+          220
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          117,
+          277,
+          118,
+          278
+        ],
+        "touchesCellEdge": false
+      }
+    ],
+    [
+      {
+        "pixels": 4,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          33,
+          351,
+          36,
+          353
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 301,
+        "fractionOfMain": 0.0035,
+        "bbox": [
+          528,
+          504,
+          543,
+          544
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 3436,
+        "fractionOfMain": 0.0395,
+        "bbox": [
+          480,
+          557,
+          543,
+          645
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 126,
+        "fractionOfMain": 0.0014,
+        "bbox": [
+          0,
+          619,
+          10,
+          638
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 4,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          0,
+          623,
+          1,
+          627
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 55,
+        "fractionOfMain": 0.0006,
+        "bbox": [
+          0,
+          628,
+          5,
+          643
+        ],
+        "touchesCellEdge": true
+      }
+    ]
+  ],
+  "airborneFrames": [
+    3
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        21,
+        28,
+        235,
+        229
+      ],
+      "heightPx": 202,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 21,
+        "right": 21,
+        "top": 28
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        17,
+        39,
+        239,
+        229
+      ],
+      "heightPx": 191,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 17,
+        "right": 17,
+        "top": 39
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        16,
+        27,
+        240,
+        204
+      ],
+      "heightPx": 178,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 27
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        19,
+        54,
+        236,
+        229
+      ],
+      "heightPx": 176,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 19,
+        "right": 20,
+        "top": 54
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    23277,
+    21949,
+    20986
+  ],
+  "qaResult": "OK",
+  "checkerMode": "air",
+  "checker": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの72%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.7597,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\宮本武蔵_後退回避_4コマ_v2_candidate1-final-componentclean.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\decoded-contact.png"
+  },
+  "visualReview": "全コマ目視。後退または前方回避の姿勢連続性、右向き、武器・手持ち、接地/浮き、16px余白、セル間の他ポーズの断片がないこと、純マゼンタ背景を確認。",
+  "gitCommit": "83ad4822a95f476b99817cb516e78f1c3ba40bcf",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "1058ae07c04385de4c17d0de384b9330d5c77e77",
+  "gitSha256": "9c9f004a7585cb4af916ea494e1dd4b2bd396f0e4cbf660f77644515c3116ade",
+  "remoteSha256Matches": true,
+  "gitBytes": 182523,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:33:07+09:00"
+}

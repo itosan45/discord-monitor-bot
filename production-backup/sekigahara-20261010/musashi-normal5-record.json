@@ -1,0 +1,143 @@
+{
+  "name": "宮本武蔵_通常5_7コマ_縮尺修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常5_7コマ_縮尺修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-0891a3ee-7efb-47e4-8eaf-5aa2f55b8b25.png",
+  "status": "drive_verified",
+  "scale": 0.5873925501432665,
+  "standingHeightSource": 349.0,
+  "standingHeightTarget": 205,
+  "n": 7,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        44,
+        188,
+        251,
+        537
+      ],
+      "destination": [
+        67,
+        26,
+        122,
+        205
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        265,
+        203,
+        559,
+        535
+      ],
+      "destination": [
+        41,
+        36,
+        173,
+        195
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        612,
+        226,
+        935,
+        536
+      ],
+      "destination": [
+        33,
+        49,
+        190,
+        182
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        898,
+        224,
+        1279,
+        536
+      ],
+      "destination": [
+        16,
+        48,
+        224,
+        183
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1248,
+        197,
+        1537,
+        535
+      ],
+      "destination": [
+        43,
+        32,
+        170,
+        199
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1573,
+        226,
+        1881,
+        536
+      ],
+      "destination": [
+        37,
+        49,
+        181,
+        182
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1919,
+        188,
+        2126,
+        537
+      ],
+      "destination": [
+        67,
+        26,
+        122,
+        205
+      ],
+      "scale": 0.5873925501432665,
+      "ground": 230
+    }
+  ],
+  "sha256": "df6d092b5d2b68dd0e0a0d2a20e01955e7d128683913cfddb9e9e48dc28a9cad",
+  "backgroundSource": [
+    242,
+    24,
+    241
+  ],
+  "sourceIndices": null,
+  "visualReview": "OCR成功・文字なし。全7コマに二刀、右向き、刃先完全、縮尺205px相当、セル余白・接地230pxを目視確認。",
+  "driveId": "16bqiyhmupNQ7kBKY7so6jv3OV-24EiNl",
+  "readbackSha256": "df6d092b5d2b68dd0e0a0d2a20e01955e7d128683913cfddb9e9e48dc28a9cad"
+}

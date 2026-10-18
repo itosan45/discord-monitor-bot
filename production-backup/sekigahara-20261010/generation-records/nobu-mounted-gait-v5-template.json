@@ -1,0 +1,52 @@
+{
+  "hero": "nobu",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a2800c25-fe7e-4528-bf62-e063651c9b45.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\mounted-gait-v5-nobu\\織田信長_馬上歩行_4コマ_v5.png",
+  "sourceBounds": [
+    [
+      44,
+      97,
+      498,
+      576
+    ],
+    [
+      47,
+      97,
+      496,
+      576
+    ],
+    [
+      46,
+      97,
+      495,
+      575
+    ],
+    [
+      46,
+      97,
+      496,
+      576
+    ]
+  ],
+  "scale": 0.44676409185803756,
+  "checks": [
+    "OK 純マゼンタの割合 70%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "status": "git_delivered",
+  "gitVerified": true,
+  "motionFullApproved": false,
+  "sha256": "9db0e212db67ebc9da04f8c18d491c120ead85b38541681cf08c61e3c2d0a36f",
+  "name": "織田信長_馬上歩行_4コマ_v5.png",
+  "gitCommit": "dc6512c7d2e4d49785e0456399f1b7c50da60913",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "scope": "Four alternating fore/hind support poses and equipment continuity reviewed in decoded GIF and actual mounted scene. Temporal smoothness and idle/attack body continuity remain under review.",
+  "updatedAt": "2026-10-09T08:37:23.256935+09:00"
+}

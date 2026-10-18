@@ -1,0 +1,9 @@
+{
+  "name": "宮本武蔵_ダッシュ_5コマ_縮尺修正版_候補2",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-142c6f81-2116-4930-8f42-36f05e8bf926.png",
+  "prompt": "EDIT motion only, keep EXACT this Musashi head/torso/limb sizes, face, clothes, proportions, colors, outlines. FIVE right-facing strict profile full bodies, one row. Frame1 COPY the standing ready of reference firstframe, to anchor character scale;2 crouch and push off backfoot bringing both swords near ribs;3 fast forward charge with torso leaning only20degrees and BOTH blades aimed RIGHT, ELBOWS slightly BENT;4 driving two-sword thrust with a COMPACT staggered stance, front knee bent and backfoot directly beneath rearhip rather than farbehind;5 COPY standingready referencefirstframe again. Long katana bare RIGHT hand and short katana sleeved LEFT hand in all5. Important: keep head and body dimensions CONSTANT; crouch and modest lean create height change naturally, never smaller character. Avoid extreme horizontal torso bend or splits/wide stride. Whole swords pointed and fully visible, preserve reference blade lengths. All full silhouettes isolated with generous magenta gaps; extra margins outside row. Standing height205px in256squarecells,footground230px,16px inside margins. No effects/no contactwithneighbors. Pure flat#FF00FF no shadow/text/numbers/grid/borders.",
+  "referencePaths": [
+    "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常1_5コマ_縮尺修正版.png"
+  ],
+  "status": "candidate_pending_QA"
+}

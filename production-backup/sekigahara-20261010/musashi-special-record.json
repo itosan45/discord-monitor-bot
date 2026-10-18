@@ -1,0 +1,157 @@
+{
+  "name": "宮本武蔵_必殺_8コマ_縮尺修正版.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\宮本武蔵_必殺_8コマ_縮尺修正版.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-3a7cb7d4-1200-40d5-bd10-26b3fba3f003.png",
+  "status": "candidate",
+  "scale": 0.6327160493827161,
+  "standingHeightSource": 324.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        31,
+        229,
+        275,
+        516
+      ],
+      "destination": [
+        51,
+        49,
+        154,
+        182
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        298,
+        192,
+        577,
+        514
+      ],
+      "destination": [
+        39,
+        27,
+        177,
+        204
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        571,
+        234,
+        839,
+        516
+      ],
+      "destination": [
+        43,
+        53,
+        170,
+        178
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        832,
+        193,
+        1083,
+        514
+      ],
+      "destination": [
+        48,
+        28,
+        159,
+        203
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1075,
+        245,
+        1361,
+        514
+      ],
+      "destination": [
+        37,
+        61,
+        181,
+        170
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1329,
+        269,
+        1659,
+        513
+      ],
+      "destination": [
+        23,
+        77,
+        209,
+        154
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1574,
+        176,
+        1886,
+        514
+      ],
+      "destination": [
+        29,
+        17,
+        197,
+        214
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        31,
+        229,
+        275,
+        516
+      ],
+      "destination": [
+        51,
+        49,
+        154,
+        182
+      ],
+      "scale": 0.6327160493827161,
+      "ground": 230
+    }
+  ],
+  "sha256": "fbadefaec190dba14e4d0c238d093e126aefd20efb86271c3ef8461a7e510c70",
+  "backgroundSource": [
+    243,
+    22,
+    242
+  ],
+  "sourceIndices": "0,1,2,3,4,5,6,0"
+}

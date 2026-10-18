@@ -1,0 +1,72 @@
+{
+  "name": "井伊直政_バストアップ.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8da57ab7-2d24-4391-a584-47e991e0ec81.png",
+  "sourceSha256": "077b73e4ca19263334f3edf5d7b89d7df9165e4fcc4fa98150cdb57037f47ed1",
+  "referencePath": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\井伊直政_設定画.png",
+  "prompt": "Use case: stylized-concept\nAsset type: 512x512 in-game boss bust portrait for Sekigahara Ranbu.\nPrimary request: Draw one fierce, slightly-right-facing head-and-shoulders portrait of Ii Naomasa, matching the attached character sheet exactly.\nSubject: Preserve his stern mature face, very tall paired golden horn crest, vivid red lacquer armor, red cloak, and red-and-gold palette. Frame the entire crest, face, shoulders, and upper chest.\nStyle/medium: Painted anime-realistic Japanese action-game portrait, crisp dark outlines, refined armor detail, dramatic but readable lighting.\nComposition/framing: One person, centered bust, fills most of the square while leaving visible magenta margin on every edge.\nScene/backdrop: Exactly flat pure RGB(255,0,255) / #FF00FF.\nConstraints: Keep the same identity, armor shapes, crest, and colors as the reference. Fierce expression, clear face, no weapon needed.\nAvoid: Text, letters, numbers, labels, UI, border, scenery, extra people, cropped crest, cropped shoulders, gradients, shadows on background, watermark.",
+  "status": "git_verified",
+  "candidateStatus": "git_verified",
+  "createdAt": "2026-10-07",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\井伊直政_バストアップ.png",
+  "normalizedSha256": "f18d516d4bf5e79026ff3cd2bc47e9e983fc0cc8c8bf8b3ae3ba288976c3f063",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "pureMagentaRatio": 0.4985,
+  "visibleBBox": [
+    0,
+    0,
+    512,
+    512
+  ],
+  "visibleMargins": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "automaticCheck": {
+    "dimension": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "exactMagentaRatio": 0.4999,
+    "visibleBBox": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "visibleMargins": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "result": "PASS for base UI bust portrait; bust crop intentionally fills canvas."
+  },
+  "note": "One candidate only. No regeneration; preserve this source and record any QA caution.",
+  "normalizedPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_base_boss_portraits_candidate1_bgclean\\井伊直政_バストアップ.png",
+  "backgroundNormalization": "Flood-filled only border-connected near-magenta background to exact #FF00FF, then uniform 512x512 Lanczos resize; no subject-component edits and no recrop.",
+  "qaResult": "要注意",
+  "visualReview": "赤備え・金の長立物・顔の判読性を確認。両立物の先端が上端に接近するため要注意。 6枚の512x512一覧で衣装・顔・向き・背景・フレーム境界を目視。追加候補なし。",
+  "ocrReview": "Windows PowerShell 5.1 native OCR succeeded; no text detected.",
+  "attempts": 1,
+  "gitVerified": true,
+  "sha256": "f18d516d4bf5e79026ff3cd2bc47e9e983fc0cc8c8bf8b3ae3ba288976c3f063",
+  "gitSha256": "f18d516d4bf5e79026ff3cd2bc47e9e983fc0cc8c8bf8b3ae3ba288976c3f063",
+  "gitVerifiedAt": "2026-10-07T12:00:36+09:00",
+  "gitCommit": "6399176643864b97c1a7e297eda78f5eeebe6fb8",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "4a4f7f6761038bae902bafc529cf92d9ba253f19",
+  "gitBytes": 314635,
+  "remoteSha256Matches": true,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T12:00:36+09:00",
+  "qaRepairPending": false
+}

@@ -1,0 +1,164 @@
+{
+  "name": "石田三成_ダッシュ_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-805f327f-f538-431c-853f-3e27d1d54f85.png",
+  "status": "git_verified",
+  "scale": 0.3349673202614379,
+  "standingHeightSource": 612.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        16,
+        155,
+        376,
+        602
+      ],
+      "destination": [
+        67,
+        81,
+        121,
+        150
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        324,
+        150,
+        759,
+        600
+      ],
+      "destination": [
+        55,
+        80,
+        146,
+        151
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        673,
+        155,
+        1199,
+        603
+      ],
+      "destination": [
+        40,
+        81,
+        176,
+        150
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1102,
+        153,
+        1711,
+        610
+      ],
+      "destination": [
+        26,
+        78,
+        204,
+        153
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1593,
+        152,
+        2162,
+        614
+      ],
+      "destination": [
+        32,
+        76,
+        191,
+        155
+      ],
+      "scale": 0.3349673202614379,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "40aa5ac915beca95c69801f7b0817affa7f3f11d71a3a8b53ff0d19b59335ac0",
+  "backgroundSource": [
+    233,
+    24,
+    237
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 85%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの59%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    11473,
+    13217,
+    13877,
+    14051,
+    13855
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_ダッシュ_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_ダッシュ_5コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "rawSourceSha256": "daacda381a1d81c72b1fe24cda3268b7ce96badbc1b89f8350626fe10a37a61f",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "action": "低姿勢で火縄銃を前方に向けて走る5コマ",
+  "promptSummary": "Reference-faithful, one candidate; low gun-level dash, separated full-body poses, exact chroma magenta.",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "ishida-dash-v2-record.json",
+  "qaNote": "低姿勢の三成ダッシュ5段階。30規格PASS、人物中央値59%、OCR文字なし、GIF 5コマ復号80ms、復号後目視OK。",
+  "visualReview": "低姿勢の三成ダッシュ5段階。火縄銃を水平前方に保ち、鉄扇・紫金装束・金扇形前立を維持。既存の三成立ち姿体格に合わせた同一縮尺で、全身・旗・銃が5セルに収まる。人物中央値59%は走行姿勢による低さ。30規格PASS、OCR文字なし、GIF復号5枚・80msを目視確認。",
+  "ocrReview": "OCR成功、文字列なし",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

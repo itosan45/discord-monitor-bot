@@ -1,0 +1,38 @@
+{
+  "name": "真田昌幸_会話肖像_右_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-04eebc6e-d17e-434d-b978-d393f2da87bc.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田昌幸_会話肖像_右_v1.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sourceBounds": [
+    0,
+    5,
+    1254,
+    1236
+  ],
+  "placement": [
+    64,
+    85
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "a1e080b52a7b1e17a723156e206f87c1335ae4cd4fee748a3983535dd1e8f09c",
+  "updatedAt": "2026-10-07T12:55:39.550931+09:00",
+  "kind": "dialogue_portrait",
+  "char": "真田昌幸",
+  "direction": "右向き",
+  "prompt": "Edit reference into the RIGHT-facing three-quarter dialogue bust of the EXACT SAME Sanada Masayuki. Preserve face identity, age, long gray-streaked beard, topknot, crimson black lamellar armor, gold six coins in two rows of three, thick shaggy BROWN fur sleeveless vest over armor. No helmet. Change viewing direction only to RIGHT, nose pointing right, both eyes visible with rightward gaze. Re-render opposite view with physically correct armor closures, no reversed text. Same gritty painted game finish, chest-up framing, full hair/beard/shoulders inside generous margins. One character, square1254x1254 PNG, real transparency. No text, weapons, effects, scene or UI.",
+  "reference": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田昌幸_会話肖像.png",
+  "gitVerified": true,
+  "gitCommit": "6a4f1f44a36b6dcd2b3f19e74495d6f647574064",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "a1e080b52a7b1e17a723156e206f87c1335ae4cd4fee748a3983535dd1e8f09c",
+  "qaResult": "OK",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualReview": "Helmet-free veteran, long gray-streaked beard, shaggy brown fur sleeveless vest over crimson armor, six-coins emblem. Right-facing chest-up, full hair/beard/shoulders, alpha/margins and OCR reviewed."
+}

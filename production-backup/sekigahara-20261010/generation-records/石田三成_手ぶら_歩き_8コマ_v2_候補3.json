@@ -1,0 +1,144 @@
+{
+  "name": "石田三成_手ぶら_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-a51cbb42-a9af-43f4-8d3a-9b6596472a2d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_手ぶら_歩き_8コマ_v2.png",
+  "size": [
+    2048,
+    256
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.5120772946859904,
+  "sourceBounds": [
+    [
+      30,
+      167,
+      286,
+      573
+    ],
+    [
+      289,
+      168,
+      538,
+      573
+    ],
+    [
+      565,
+      167,
+      790,
+      573
+    ],
+    [
+      828,
+      166,
+      1057,
+      575
+    ],
+    [
+      1118,
+      166,
+      1379,
+      573
+    ],
+    [
+      1381,
+      166,
+      1613,
+      574
+    ],
+    [
+      1649,
+      166,
+      1895,
+      573
+    ],
+    [
+      1912,
+      159,
+      2141,
+      573
+    ]
+  ],
+  "placements": [
+    [
+      62,
+      22,
+      131,
+      208
+    ],
+    [
+      64,
+      23,
+      128,
+      207
+    ],
+    [
+      70,
+      22,
+      115,
+      208
+    ],
+    [
+      69,
+      21,
+      117,
+      209
+    ],
+    [
+      61,
+      22,
+      134,
+      208
+    ],
+    [
+      68,
+      21,
+      119,
+      209
+    ],
+    [
+      65,
+      22,
+      126,
+      208
+    ],
+    [
+      69,
+      18,
+      117,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "c09187a6f42bd264a7853b92b134edb308928a0a8b448f9d4a1fc614ae848267",
+  "visualApproved": true,
+  "visualReview": "全8コマGIF復号目視。空手、右向き、甲冑と兜・布の同一性、全身枠内、地面230、待機高さ約210との比較を確認。注意: 1/5で踏み出す脚の明確な反転が不十分で歩行周期は改善対象。ユーザーpush依頼により要注意納品。",
+  "gitVerified": true,
+  "gitCommit": "6be1fd3196ec31497338af1e11fe705bba9162db",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c09187a6f42bd264a7853b92b134edb308928a0a8b448f9d4a1fc614ae848267",
+  "prompt": "Eight-frame unarmed right-facing Mitsunari walk preserving idle design; second-half leg cycle remains a documented caution.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T20:57:01.946851+09:00"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "三好伊三入道_設定画_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-87bff68f-1d03-408a-a49a-886784fc9475.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好伊三入道_設定画_v1.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    63,
+    72,
+    1472,
+    957
+  ],
+  "placement": [
+    64,
+    76
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "b24b41f46ce125b40e5bde17cc7b789d82a7ab05af69e6e55332dce89742b822",
+  "updatedAt": "2026-10-07T15:07:27.834716+09:00",
+  "prompt": "Original Miyoshi Isa Nyudo THREE-view game character reference. Input image is ONLY gritty painted style and layout, and older brother resemblance; create a DIFFERENT leaner younger monk, not a clone. Front, RIGHT side, back fullbody same man outfit weapon, feet aligned and equal scale. Japanese warrior monk mid30s, shaved head, clean-shaven angular handsome face, lean athletic muscular build significantly slimmer than Seikai. Worn muted gray-blue sleeveless monk robe over dark charcoal clothes, maroon waist sash, medium wooden prayer beads, simple forearm cloth wraps, shin wraps and straw sandals. Small six red coin badge arranged2rows3 on sash. Weapon practical straight hardwood BO staff about1.6m, warm brown visible wood grain, NO metal shaft or oversized club. Hold upright beside body with butt near ground and top around forehead; identical length/thickness in all views. Relaxed bent-knee balanced ready stance. All heads, hands, staff top/bottom and feet fully inside ample margins, separate non-touching views. Landscape1536x1024 PNG pure flat #FF00FF magenta background, no effects, shadows, scenery, labels, text, UI. Original Sengoku game art physically credible.",
+  "char": "三好伊三入道",
+  "kind": "character_reference",
+  "visualApproved": true,
+  "qaResult": "OK",
+  "visualReview": "Reviewed all three normalized views: younger clean-shaven bald monk, slimmer than Seikai, gray-blue robe and maroon sash, wooden beads and six coins, consistent hardwood staff length/thickness. Full head/staff ends/hands/feet, separated views, no clipping/effects/text. OCR empty. Static reference only; seven motion strips remain pending.",
+  "gitVerified": true,
+  "gitCommit": "9de7147291f7332695cbe744798e1d25e525301e",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "b24b41f46ce125b40e5bde17cc7b789d82a7ab05af69e6e55332dce89742b822",
+  "ocrSuccess": true,
+  "ocrText": ""
+}

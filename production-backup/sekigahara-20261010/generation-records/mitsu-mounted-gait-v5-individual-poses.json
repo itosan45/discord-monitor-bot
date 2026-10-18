@@ -1,0 +1,56 @@
+{
+  "sources": [
+    "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a9971f51-9017-45d9-8498-cac9c80efdfa.png",
+    "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-671b450d-c920-4e32-b683-7fe38b4b85e1.png",
+    "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-46dd742d-e1c3-4804-8bf0-dca4965035b8.png",
+    "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-714badd3-4fee-49e0-b07a-a0f03f9b45f7.png"
+  ],
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\mounted-gait-v5-mitsu\\石田三成_馬上歩行_4コマ_v5.png",
+  "sourceBounds": [
+    [
+      113,
+      88,
+      1138,
+      1123
+    ],
+    [
+      109,
+      88,
+      1138,
+      1122
+    ],
+    [
+      113,
+      89,
+      1137,
+      1121
+    ],
+    [
+      113,
+      89,
+      1137,
+      1122
+    ]
+  ],
+  "scale": 0.20676328502415459,
+  "checks": [
+    "OK 純マゼンタの割合 69%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "status": "git_delivered",
+  "gitVerified": true,
+  "motionFullApproved": false,
+  "sha256": "e8fbf66bc15f19658000d3261588e8cbf6dbebfd67f4a5164584265d5687d85f",
+  "name": "石田三成_馬上歩行_4コマ_v5.png",
+  "gitCommit": "52256183ae95ec65f8c25b3fa547676ef6d6a7a5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "scope": "Four explicit alternating contact/support keys reviewed in decoded GIF and actual mounted walk. Other five heroes remain unresolved; four-key temporal smoothness remains subject to gameplay review.",
+  "updatedAt": "2026-10-09T08:20:00.455508+09:00"
+}

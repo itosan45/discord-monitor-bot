@@ -1,0 +1,12 @@
+{
+  "name": "拾得武器_斧_v1.png",
+  "candidate": 1,
+  "prompt": "Use case: game-asset\nAsset type: one dropped-weapon pickup sprite for a 2D Sengoku beat-'em-up\nInput images: Image 1 is only the game's painted sprite style reference; do not reproduce people.\nComposition/framing: one complete pickup centered in one 256x256 square cell, resting diagonally on the ground and occupying about 70-80% of the canvas. At least 20px clear margin. \nStyle/medium: detailed painted anime-realistic 2D arcade sprite, crisp dark outline, cel-shaded highlights, realistic period materials, consistent with Image 1.\nScene/backdrop: perfectly flat solid RGB(255,0,255) magenta (#FF00FF), no ground plane or cast shadow.\nConstraints: fully visible, physically plausible, one weapon pickup only, no hands/characters, no text/letters/numbers/labels, border, effects, extra items or watermark.\nPrimary request: a compact, realistic Japanese Sengoku hand axe (ono) used as a dropped weapon. A sturdy dark wooden haft with a small iron collar and a clean forged-steel single-bit axe head with a practical curved edge. Rest it diagonally, grip at lower-left and blade at upper-right; modest infantry scale, fully visible.\nMaterials/textures: worn hardwood, dark iron and forged steel, subtle scratches.\nAvoid: Viking double-bit axe, oversized fantasy battle axe, spikes, glow, sparks, blood.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-3ee2e34c-df52-4e9c-813d-445b0a47b980.png",
+  "status": "qa_passed",
+  "qaResult": "OK",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_斧_v1.png",
+  "sha256": "02d499a2406f2bf7e6cef4eaaee8d2af262b751e64b2aee241910600c25f7951"
+}

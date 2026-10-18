@@ -1,0 +1,328 @@
+[
+  {
+    "name": "真田幸村_歩き_8コマ_構え移動.png",
+    "status": "drive_verified",
+    "driveId": "1nmFmlTUKP7i895tg2-E_aeYRZjoG29kg",
+    "sha256": "02c864560af08bdccff96845fd5f74a282442ea446cb8c10e6b7c7cc229ff617",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_歩き_8コマ_構え移動.png",
+    "record": "resume-walk-record.json"
+  },
+  {
+    "name": "宮本武蔵_通常1_5コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "driveId": "1rwwTdCSFCHSvsEynhEPZ3qh-h6DfoBSa",
+    "sha256": "baaf9bcb8407e326c31e1bf7ba643ece28fffb88d0d710c0cddb2060921db65b",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常1_5コマ_縮尺修正版.png",
+    "record": "musashi-normal1-record.json"
+  },
+  {
+    "name": "宮本武蔵_通常3_5コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "driveId": "1ccOKAQhRhtJxQey9sARWcGrH5zUXb6rc",
+    "sha256": "15d78c2c6e4b9d0e056db3d8d50f61b417c95dd751ac813077224087c7359458",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常3_5コマ_縮尺修正版.png",
+    "record": "musashi-normal3-record.json"
+  },
+  {
+    "name": "宮本武蔵_通常4_5コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "driveId": "1Ltt-rRyKjS_FeiJ1_Jkuo2uWdKYv0OB5",
+    "sha256": "2cd462a774e9a41aeefc36177e9ecc8c2d8c0f87570d82f948e0428012aeddd6",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常4_5コマ_縮尺修正版.png",
+    "record": "musashi-normal4-record.json"
+  },
+  {
+    "name": "敵_足軽槍_待機_4コマ.png",
+    "status": "drive_verified",
+    "driveId": "1S9-v6erVw8aG3FfU2JuHgQyW4UF0x-s2",
+    "sha256": "f5c23350ad4888ebcc3034b2bc5a8d440c196ee44ee2a4da5aba99a79e0dad54",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_待機_4コマ.png",
+    "record": "enemy-spear-idle-record.json"
+  },
+  {
+    "name": "宮本武蔵_通常5_7コマ_縮尺修正版.png",
+    "status": "drive_verified",
+    "driveId": "16bqiyhmupNQ7kBKY7so6jv3OV-24EiNl",
+    "sha256": "df6d092b5d2b68dd0e0a0d2a20e01955e7d128683913cfddb9e9e48dc28a9cad",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_通常5_7コマ_縮尺修正版.png",
+    "record": "musashi-normal5-record.json"
+  },
+  {
+    "name": "上杉景勝_歩き_8コマ_v2_再生成版.png",
+    "status": "drive_verified",
+    "driveId": "1UWV5EbBUvpUW1POJpAan_rfv8h84KohY",
+    "sha256": "8390b667d9717e7a681ea0fec8763429c574066c7990bdba2ceba5bc331c884e",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_歩き_8コマ_v2_再生成版.png",
+    "record": "kage-walk-v2-record.json"
+  },
+  {
+    "name": "石田三成_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1J8STK2mPBrHzlcSgvyZAQCgBDr5oKfig",
+    "sha256": "97c1aefd8856115bfcd24a6e43f23208dee7c40094bb5409d417939cd08a8272",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_歩き_8コマ_v2.png",
+    "record": "mitsu-walk-v2-record.json"
+  },
+  {
+    "name": "織田信長_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "16mIe0sbUzfmemVc4eiORqWKAF06k7c5a",
+    "sha256": "b82d06c9e05a512717486b6a0392456ad8800d6e218dae4786416c3b3a6af6f5",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_歩き_8コマ_v2.png",
+    "record": "nobu-walk-v2-record.json"
+  },
+  {
+    "name": "宮本武蔵_ダッシュ_5コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1pIk8IpDyY5_gpBb_dz8vgHRkwjMmPXEO",
+    "sha256": "6b1511c40170559bab0438b906b098e7175c3f4557d24e30e34d9cbdd72b2d23",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_ダッシュ_5コマ_v2.png",
+    "record": "musashi-dash-v2-record.json"
+  },
+  {
+    "name": "武田信玄_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "15RIptrro2wLfa_AzFQkULBYcki2yqpub",
+    "sha256": "f45fcff30e4ade879905844d800edc38c7cea7ec50f00e918a532af9ba02244e",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_歩き_8コマ_v2.png",
+    "record": "shingen-walk-v2-record.json"
+  },
+  {
+    "name": "宮本武蔵_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1rT23uoRUL3W0gjc4jwsFpItbM0npbbfj",
+    "sha256": "3d156ad8a6214c539e1ea8b18030fb67a3d5c387f5518ea79d2dfad53311cb4f",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_歩き_8コマ_v2.png",
+    "record": "musashi-walk-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_待機_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1mgKsstrBT59kXohZNKIbKGMJDQizPZ6x",
+    "sha256": "dc3c85ad09d645edd84f8a1f750c2bed03d06b3c9dcad1aafdebbc065a3443cc",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_待機_4コマ_v2.png",
+    "record": "enemy-spear-idle-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1TS7QC2EXllL6KKY8WEx3uc9k7fblOoDZ",
+    "sha256": "4c98232ec5fdbcc505691212ad4fe42bd45aca53b43779a4d9ab878e882002d3",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_歩き_8コマ_v2.png",
+    "record": "enemy-spear-walk-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_攻撃_6コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1tecAP7B7JpQtB0QrrX8GkwVt6Lg7aGXw",
+    "sha256": "784ffdd80f37fa7e2623bf5d57084e765d4919bd7b07be8690469afe15cfb04e",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_攻撃_6コマ_v2.png",
+    "record": "enemy-spear-attack-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_被弾_2コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1u2KQXNaczVkRDK8g73GqYh4fyYBlARfS",
+    "sha256": "f716b9e4f31fdd2043dd8a6eec0b21c1f338be2c853a8c7f030ad7e0d776388e",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_被弾_2コマ_v2.png",
+    "record": "enemy-spear-hurt-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_やられ_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1Bf--My7G3kjh9Ex4kjy_HSHErfaBhzRX",
+    "sha256": "c12450ee1f407e18e5c881e0275db2570ab1484d8aa30b84427d1ab1e7721757",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_やられ_4コマ_v2.png",
+    "record": "enemy-spear-death-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_起き上がり_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "16foL7am3Q1Tr1JX7njRPP9XcJ332sBbp",
+    "sha256": "cd514eaba0f1ec847e3f70db6de32d1cae1b2576e2d15b6b7622d12b68bd7ba3",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_起き上がり_4コマ_v2.png",
+    "record": "enemy-spear-getup-v2-record.json"
+  },
+  {
+    "name": "敵_足軽槍_ダウン_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1RUJg7B-11j8Vd9It-6EY6QXtKEZlwgTp",
+    "sha256": "3dcf62be506a26b597623c9c6dfbcae9e34c8d0cf0673e991ef6a198ee3b15d0",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽槍_ダウン_4コマ_v2.png",
+    "record": "enemy-spear-down-v2-record.json"
+  },
+  {
+    "name": "敵_足軽刀_待機_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1H7D1pt4Hb8AY6C0aX0Ui2LeImIHAl3jN",
+    "sha256": "9a3b55f03c4b03acf9e99fd1d0dfa6e891e182694f302b5ab4e0097ffe96e61f",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_待機_4コマ_v2.png",
+    "record": "enemy-sword-idle-v2-record.json"
+  },
+  {
+    "name": "敵_足軽刀_攻撃_6コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1XipPoEQRUhwBKcWpxRN0xkCrNoip07a-",
+    "sha256": "3e6ed01632e24d225e038739b6f4306df5fd6acd1ca3f22fb31c64409d133335",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_攻撃_6コマ_v2.png",
+    "record": "enemy-sword-attack-v2-record.json"
+  },
+  {
+    "name": "敵_足軽刀_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1nx1c2o7SnK89Z-r_d_fOcr_-wZMa3VoB",
+    "sha256": "7f625266bbc8b9371f9676a2bb5ab9a188f8961c7da01aad5e3742c1ee30328d",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_歩き_8コマ_v2.png",
+    "record": "enemy-sword-walk-v2-record.json"
+  },
+  {
+    "name": "敵_足軽刀_被弾_2コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1GiMw8T0WCLmKeb01OaBmNzQ3SpPW-1FR",
+    "sha256": "5b12752e1b4d0c8ed2c6b537de4ff1941b33ba5762fa154c8167daf83c576a54",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_被弾_2コマ_v2.png",
+    "record": "enemy-sword-hurt-v2-record.json"
+  },
+  {
+    "name": "敵_足軽刀_ダウン_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1Z52LrXXQzlwim0EXIbB6AsU4gNCB2LiY",
+    "sha256": "2401e1c3dd59441cf6da3d19acff7167d9698ea75c78b3236e633d184e2a2cde",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_ダウン_4コマ_v2.png",
+    "record": "enemy-sword-down-v2-record.json",
+    "deliveryRole": "superseded_reference",
+    "supersededByDriveId": "1sZdeEftIO9fJvV-C1i5dsYJS0BZ9--vE"
+  },
+  {
+    "name": "敵_足軽刀_やられ_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "13_kh3NYjD2_6IjjiG6XZWwrot3B9IXk0",
+    "sha256": "f71196f456310b08b03f869e1935ffcd8410d76a6610db0a005cadcf5d736b56",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_やられ_4コマ_v2.png",
+    "record": "enemy-sword-death-v2-record.json",
+    "deliveryRole": "superseded_reference",
+    "supersededByDriveId": "1jhfVedlq4DBSz-x0I0nenTXWzU3opva0"
+  },
+  {
+    "name": "敵_足軽刀_起き上がり_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1p6AorGJIuaK1L8kClUewYYD_28gHBtX9",
+    "sha256": "57c018fc272ce41b1d226d5ddc4d75e7f65cc9c1ca4bd7b8b708c0348440c700",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_起き上がり_4コマ_v2.png",
+    "record": "enemy-sword-getup-v2-record.json"
+  },
+  {
+    "name": "敵_足軽刀_ダウン_4コマ_v2_再生成版.png",
+    "status": "drive_verified",
+    "driveId": "1sZdeEftIO9fJvV-C1i5dsYJS0BZ9--vE",
+    "sha256": "311a1f6d2c6dfe01c1edab9515284de2706584b95584002ca2899691c6d87a60",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_ダウン_4コマ_v2_再生成版.png",
+    "record": "enemy-sword-down-v2-final-record.json",
+    "deliveryRole": "canonical_current_requirement"
+  },
+  {
+    "name": "敵_足軽刀_やられ_4コマ_v2_再生成版.png",
+    "status": "drive_verified",
+    "driveId": "1jhfVedlq4DBSz-x0I0nenTXWzU3opva0",
+    "sha256": "d78f0cf2cf997b7d741c22641c2ce1ac189e8077e2edfdcc402be1c24700bc16",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_やられ_4コマ_v2_再生成版.png",
+    "record": "enemy-sword-death-v2-final-record.json",
+    "deliveryRole": "canonical_current_requirement"
+  },
+  {
+    "name": "敵_弓足軽_待機_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1pUm3kQktdgI9k-4fS-GW1oaRqYIHwXJU",
+    "sha256": "4f35192fa1c1890fab460a8848825e37270816ba931d8e824ee8d29e2b2716e3",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_待機_4コマ_v2.png",
+    "record": "enemy-archer-idle-v2-record.json"
+  },
+  {
+    "name": "敵_弓足軽_攻撃_6コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1c9N2PSEGd9x6LkbLJcuC36mTCsW7ZAQf",
+    "sha256": "72a013606d0ecf5fcbf43362309f0ff920431ddd9c9cea78033407795b17ac71",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_攻撃_6コマ_v2.png",
+    "record": "enemy-archer-attack-v2-record.json"
+  },
+  {
+    "name": "敵_弓足軽_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1BzXojvByPRABGbKyOhj4-1GSko2zBXlB",
+    "sha256": "b28a237c58d7db28b53c5320a30776b45108937a6dc5fc870cc2c21aa74f615b",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_歩き_8コマ_v2.png",
+    "record": "enemy-archer-walk-v2-record.json"
+  },
+  {
+    "name": "敵_弓足軽_被弾_2コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1C-by7N3dj7M77UIeuDmYOjQbMuGczMu3",
+    "sha256": "56afaded639daa99aaf694982b18bdc4ce0ed297da7c1c42696022a3677447f1",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_被弾_2コマ_v2.png",
+    "record": "enemy-archer-hurt-v2-record.json"
+  },
+  {
+    "name": "敵_弓足軽_ダウン_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1rY4f8ElILOx4R-eDHQOPpJB-FO9rU-tI",
+    "sha256": "f8ba261d2fdaf2e41748606ab31ecf9a0f7538a2a535d1bf2ba39490e172356d",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_ダウン_4コマ_v2.png",
+    "record": "enemy-archer-down-v2-record.json"
+  },
+  {
+    "name": "敵_弓足軽_起き上がり_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "14ynVoExzaF1W4WytZjXwStPPu2mIHl3p",
+    "sha256": "afac4032ec7ebecfdb7d219e9dfa2ced75a6120c1acbc648975569f7567c028a",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_起き上がり_4コマ_v2.png",
+    "record": "enemy-archer-getup-v2-record.json"
+  },
+  {
+    "name": "敵_鉄砲足軽_待機_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1IfzeRYpN6Bzcdrr_t0sK7JkQs7WIAOYN",
+    "sha256": "612c3d761997837fd9425f3777437f6eb0739705f5b3f1417c013f495f82ec93",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_待機_4コマ_v2.png",
+    "record": "enemy-gunner-idle-v2-record.json"
+  },
+  {
+    "name": "敵_弓足軽_やられ_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1iu1H-rvoyoqD1gX9GzscXkkoc-WwroEp",
+    "sha256": "15801773dd45aa363445bb0ac10621ac812eb66a15a053fd9fc58e7a39ec4f1e",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_弓足軽_やられ_4コマ_v2.png",
+    "record": "enemy-archer-death-v2-record.json"
+  },
+  {
+    "name": "敵_鉄砲足軽_攻撃_6コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1fCWoqDISnzPM_scU0DrSiqJBZCZYZRoC",
+    "sha256": "cb4cc3ab4fe29d9f5701ccc41a98abd098c4a682095719b5aa1c7ff8d4f922b5",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_攻撃_6コマ_v2.png",
+    "record": "enemy-gunner-attack-v2-record.json"
+  },
+  {
+    "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1mzstK-yow0eSGAhRx0hauQ7KIw4JKKMX",
+    "sha256": "2d0416aa1e94a5a4f54f6397b2d8fd6b481f2db99d8133c7f4f3b562c6eaf88c",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_歩き_8コマ_v2.png",
+    "record": "enemy-gunner-walk-v2-record.json"
+  },
+  {
+    "name": "敵_鉄砲足軽_被弾_2コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1_-QCxDS-sSWjti7gPnHt-m5CJxY2ipcV",
+    "sha256": "f386887923e79855f5bc74f6548544b2dd3a76ca14a2fa1ed9b4823d624ae353",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_被弾_2コマ_v2.png",
+    "record": "enemy-gunner-hurt-v2-record.json"
+  },
+  {
+    "name": "敵_鉄砲足軽_ダウン_4コマ_v2.png",
+    "status": "drive_verified",
+    "driveId": "1Uc56ntbTxfRWq8CBOrIZw2mQANx4qBpG",
+    "sha256": "f666284066b479820711f542e21683ae8563f7fae483d958be11b926cdb283bb",
+    "local": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_鉄砲足軽_ダウン_4コマ_v2.png",
+    "record": "enemy-gunner-down-v2-record.json"
+  }
+]

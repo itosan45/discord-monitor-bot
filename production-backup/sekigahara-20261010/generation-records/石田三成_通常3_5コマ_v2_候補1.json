@@ -1,0 +1,162 @@
+{
+  "name": "石田三成_通常3_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_通常3_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f7d7982b-e890-4791-a691-0f7f6603e751.png",
+  "status": "qa_passed",
+  "scale": 0.3394039735099338,
+  "standingHeightSource": 604.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        23,
+        79,
+        431,
+        668
+      ],
+      "destination": [
+        59,
+        31,
+        138,
+        200
+      ],
+      "scale": 0.3394039735099338,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        421,
+        47,
+        809,
+        672
+      ],
+      "destination": [
+        62,
+        19,
+        132,
+        212
+      ],
+      "scale": 0.3394039735099338,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        800,
+        59,
+        1346,
+        672
+      ],
+      "destination": [
+        35,
+        23,
+        185,
+        208
+      ],
+      "scale": 0.3394039735099338,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1354,
+        59,
+        1701,
+        665
+      ],
+      "destination": [
+        69,
+        25,
+        118,
+        206
+      ],
+      "scale": 0.3394039735099338,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1732,
+        75,
+        2148,
+        669
+      ],
+      "destination": [
+        57,
+        29,
+        141,
+        202
+      ],
+      "scale": 0.3394039735099338,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "0df4d1e4cb8d7e0132528498a5f6ec49f98bc747a78cfe2e15bde8f1d46cfd53",
+  "backgroundSource": [
+    238,
+    25,
+    238
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 80%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    19145,
+    20883,
+    19948,
+    17774,
+    15875
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_通常3_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_通常3_5コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "rawSourceSha256": "38376cedeb570a187ed92549428a23b7fdcd038d19ec5a2ce7d38b8eefa21502",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "action": "右足前蹴り・5コマ",
+  "promptSummary": "Reference-faithful profile sprite strip, five separated poses, pure magenta background, about 205px standing height; one candidate only.",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "ishida-normal3-v2-record.json",
+  "qaNote": "通常3・右足前蹴り5段階。膝上げ→蹴り伸ばし→引き戻し→構えへ戻る動きが明確。紫金装束、火縄銃と鉄扇を保持。規格と足元、GIF復号後の5フレームを目視確認。",
+  "visualReview": "通常3・右足前蹴り5段階。膝上げ→蹴り伸ばし→引き戻し→構えへ戻る動きが明確。紫金装束、火縄銃と鉄扇を保持。規格と足元、GIF復号後の5フレームを目視確認。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  }
+}

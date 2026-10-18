@@ -1,0 +1,31 @@
+{
+  "name": "霧隠才蔵_起き上がり_4コマ_v1.png",
+  "candidate": 1,
+  "status": "rejected_scale_check",
+  "decision": "Keep as local non-deliverable candidate; do not regenerate the same task immediately. Normalized to 1024x256 at a uniform 0.392 scale from four independent full-character components. 30_check_strip.py failed only the minimum median silhouette height (54% of cell against the 55% floor); raising the common scale enough to pass would push the upright frame above the 16px top margin or move its ground line beyond allowed tolerance.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-5c6fd51d-7a3d-416c-93ca-443d17506d19.png",
+  "sourceSha256": "5cac54f3792cd52612b1852e1872938b86922cc2523ab53a6ad469b7032ea7a1",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "normalizedCandidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\霧隠才蔵_起き上がり_4コマ_v1.png",
+  "normalizedSha256": "0ad67658a6c774bb4b5ac284250b9118ce16018325459f698cdcc9d6cec4d1b6",
+  "normalizedDimensions": [
+    1024,
+    256
+  ],
+  "promptSummary": "Four-frame Kirigakure Saizo get-up: back, roll to elbow, one knee, low ready; exact model sheet and idle references; short katana stays in hand; intended 1024x256.",
+  "qaFindings": [
+    "Six? no: 4 poses are independent, one main connected full-body component per frame.",
+    "Pure magenta output and exact 1024x256 dimensions; no adjacent pose leakage in source crops.",
+    "30_check_strip.py: median silhouette height 54%, below required 55%; not delivered.",
+    "Raised common scale would violate either 16px upper margin or ground alignment.",
+    "OCR/GIF/Git steps not run because automatic QA failed."
+  ],
+  "reviewedAt": "2026-10-08T07:29:00+09:00",
+  "referenceFiles": [
+    "finished/霧隠才蔵_設定画_v1.png",
+    "assets/sprites/霧隠才蔵_待機_4コマ_v1.png"
+  ]
+}

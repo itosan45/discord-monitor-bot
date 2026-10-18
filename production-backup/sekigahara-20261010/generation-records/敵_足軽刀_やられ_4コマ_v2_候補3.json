@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-fa64e5f2-6b07-43e3-8c15-1d891bcb3c86.png",
+  "prompt": "Edit ONLY dropped katana placement in cells2,3,4 of this4frame blue ashigaru defeat strip. Keep all soldier poses/anatomy/clothing and sword length unchanged. Dropped swords currently sit BELOW soldier bottom and cause floating body when aligned: move each whole dropped katana UP so its lowest blade/hilt pixel is aligned with the lowest knee/forearm/foot of that cell's body. Sword rests horizontally beside or overlapping foreground forearm/knees, never separated below body by magenta gap. Cell2 hilt aligned with kneeling toes;3 hilt and blade along forearm bottom;4 whole sword just alongside curled knees and elbow at same groundline. Preserve1stagger→2kneesdropweapon→3forwardontoarms→4curledside motionless. Same body scale allcells; fullbladehiltvisible. Four squarecells horizontal, pure#FF00FF opaque no text shadows grid borders. No body parts resized or moved.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

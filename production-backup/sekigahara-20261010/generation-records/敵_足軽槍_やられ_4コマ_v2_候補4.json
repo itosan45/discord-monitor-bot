@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-fc725fa8-c96c-4cf4-bfc6-5674d3036930.png",
+  "prompt": "Repair only spear placement and final leg curl in this FOUR-frame blue ashigaru death strip. Keep all four exact soldier anatomy, clothing, facial poses and fall phases. Frame1 lower entire held spear along its length through hands by about one head height so the point is just above helmet top, butt beside rear foot. Frame2 released spear remains beside kneeling soldier with point lowered beneath original top, complete. Frame3 and4 draw both knees closer to chest, heels beneath knees, making body horizontally compact. Place complete dropped spear diagonally from beside helmet to beside feet, its point within body horizontal bounds; spear length identical to current, same standing character scale across all cells. Preserve staggering→weapon release/knees buckle→fall onto back→motionless bent knees. Four equally spaced SQUARE cells horizontal, wholebody per cell, pure #FF00FF background,16px-equivalent margins, no shadows/grid/text. Do not make character smaller or shorten spear.",
+  "attempt": 4,
+  "status": "candidate_pending_QA"
+}

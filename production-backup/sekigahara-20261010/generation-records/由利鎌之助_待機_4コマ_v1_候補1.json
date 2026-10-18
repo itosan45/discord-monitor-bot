@@ -1,0 +1,94 @@
+{
+  "name": "由利鎌之助_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-9912e68f-892c-4dd7-b29b-2ac84fb560f0.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\由利鎌之助_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.31784107946026985,
+  "sourceBounds": [
+    [
+      152,
+      49,
+      402,
+      695
+    ],
+    [
+      695,
+      41,
+      946,
+      696
+    ],
+    [
+      1237,
+      29,
+      1486,
+      696
+    ],
+    [
+      1780,
+      48,
+      2029,
+      695
+    ]
+  ],
+  "placements": [
+    [
+      88,
+      25,
+      79,
+      205
+    ],
+    [
+      88,
+      22,
+      80,
+      208
+    ],
+    [
+      88,
+      18,
+      79,
+      212
+    ],
+    [
+      88,
+      24,
+      79,
+      206
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 87%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "354c36827d2e4f3464efa2b4e6c4f92c02d9f330e721645deaa4be6079bd633d",
+  "prompt": "Yuri Kamanosuke IDLE breathing sprite FOUR chronological frames SINGLE HORIZONTAL ROW. EXACT same muscular agile man costume weapons as attached middle RIGHT-facing view: olive sleeveless jacket black chestarmor, headwrap tiedhair stubble, maroon sash sixcoins badge guards darkpants shinwraps sandals. Right hand holds same woodenhandled curved sickle low beside thigh. Chain MUST connect to metal eyelet at BUTT end of handle behind right fist, opposite blade; continuous short slack U from that butt to LEFT hand gatheredloops then samechain ends small hanging ironweight belowleftfist. NOchainattached blade or belt; clear connectedweapon everyframe. Keep sickle chain weight same design dimensions allframes. Feet planted same positions ground, balanced bentknees, fixedcamera/anatomicalscale. 1 exhale torso low,2 inhale chestexpands,3 peak inhale shoulders/headrise2%height,4 settlesnear1. Hands remainstable, no chainswing/attack/walk. Four equalcells separatedmagenta, fullhead/sickleblade/chainweight/feet insideamplemargins, nooverlap. Wholebodyabout80%cellheight, widehorizontalPNG grittypainted originalgameart pureflat#FF00FF, noeffects/shadows/text/grid/scenery.",
+  "char": "由利鎌之助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames compared to reference: same headwrap olive sleeveless jacket black chest armor sash guards, complete sickle chain and weight, right-facing. Chain visibly starts at handle butt and reaches left loops/weight; overlaps blade joint visually as reference, readability caution. Uniform scale/fixed ground, small breathing2-3/return4. No OCR text/effects/clipping. Knee flex shallow, sixcoins obscured in sideview. Own idle scale established; five-phase attack still pending.",
+  "gitVerified": true,
+  "gitCommit": "29413463e8d62e1288f697b1f9a2e82bee11c320",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "354c36827d2e4f3464efa2b4e6c4f92c02d9f330e721645deaa4be6079bd633d",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:58:57.125458+09:00"
+}

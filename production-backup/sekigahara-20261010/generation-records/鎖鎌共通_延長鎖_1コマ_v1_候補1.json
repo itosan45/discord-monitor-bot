@@ -1,0 +1,48 @@
+{
+  "name": "鎖鎌共通_延長鎖_1コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\鎖鎌共通_延長鎖_1コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ea689025-4149-4697-9ad9-db68d24ad105.png",
+  "size": [
+    256,
+    256
+  ],
+  "mode": "RGB",
+  "char": "共通",
+  "kind": "weapon_projectile",
+  "candidateCount": 1,
+  "n": 1,
+  "cell": 256,
+  "status": "git_verified",
+  "sourceBounds": [
+    47,
+    579,
+    1214,
+    673
+  ],
+  "placement": [
+    80,
+    124
+  ],
+  "contentSize": [
+    96,
+    8
+  ],
+  "gifDecodedFrames": 1,
+  "checkResults": [
+    "OK 純マゼンタの割合 99%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "NG コマ1: 空、または小さすぎる"
+  ],
+  "sha256": "cb7b0c11ec00b804dae31a1e133eef392a0de2e79b5b81a006eeb8e3b681c988",
+  "prompt": "Straight horizontal interlocking dark iron chain segment matching projectile chain, magenta, no effects.",
+  "visualApproved": true,
+  "qaResult": "OK",
+  "visualReview": "独立延長鎖部品96x約7px、256RGB純マゼンタ、全体枠内、OCRなし、1フレーム復号目視。人物用最小寸法NGは部品に適用外。82px刻み重ね配置で連続を確認、共通分銅へ接続。幸村幅148pxの7体分1036px射程をオフライン合成目視。ゲーム実装・移動合成は未完。",
+  "gitVerified": true,
+  "gitCommit": "0e93fdc63dcceb625552f91fd0c6f270bc1184b2",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "cb7b0c11ec00b804dae31a1e133eef392a0de2e79b5b81a006eeb8e3b681c988",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:30:08.977858+09:00"
+}

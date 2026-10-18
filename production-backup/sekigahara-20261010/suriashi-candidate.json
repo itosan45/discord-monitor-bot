@@ -1,0 +1,189 @@
+{
+  "name": "真田幸村_歩き_8コマ_構え移動.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\suriashi-candidate\\真田幸村_歩き_8コマ_構え移動.png",
+  "status": "candidate",
+  "n": 8,
+  "cell": 256,
+  "margin": 16,
+  "faceX": 144,
+  "baseline": 236,
+  "scale": 0.3276148312119535,
+  "backHalfNormalization": 0.9819218677610959,
+  "sourceParts": [
+    {
+      "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\originals\\幸村_すり足_0_原本.png",
+      "sha256": "d96482b9c3484db775d6ce858d5ea267bbb52bfe5349fc0d56b6e89036ab6cc0",
+      "background": [
+        237,
+        23,
+        236
+      ],
+      "fringeBridges": [
+        [
+          1,
+          [
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\originals\\幸村_すり足_1_原本.png",
+      "sha256": "5b95c7996cec92b570be40f7152c275884fd538d5428dd5f37bacd64ea35924b",
+      "background": [
+        238,
+        23,
+        237
+      ],
+      "fringeBridges": []
+    }
+  ],
+  "placements": [
+    {
+      "frame": 1,
+      "bounds": [
+        16,
+        35,
+        217,
+        201
+      ],
+      "face": [
+        144.0,
+        91.93
+      ],
+      "ground": 236,
+      "sourceFace": [
+        390.7027027027027,
+        173.7631160572337
+      ]
+    },
+    {
+      "frame": 2,
+      "bounds": [
+        20,
+        35,
+        206,
+        201
+      ],
+      "face": [
+        143.86,
+        92.13
+      ],
+      "ground": 236,
+      "sourceFace": [
+        378.07597173144876,
+        174.37632508833923
+      ]
+    },
+    {
+      "frame": 3,
+      "bounds": [
+        22,
+        35,
+        206,
+        201
+      ],
+      "face": [
+        144.27,
+        92.13
+      ],
+      "ground": 236,
+      "sourceFace": [
+        373.2105263157895,
+        174.38200339558574
+      ]
+    },
+    {
+      "frame": 4,
+      "bounds": [
+        25,
+        35,
+        180,
+        201
+      ],
+      "face": [
+        144.11,
+        92.19
+      ],
+      "ground": 236,
+      "sourceFace": [
+        363.5534709193246,
+        174.57410881801127
+      ]
+    },
+    {
+      "frame": 5,
+      "bounds": [
+        18,
+        37,
+        213,
+        200
+      ],
+      "face": [
+        143.8,
+        93.04
+      ],
+      "ground": 236,
+      "sourceFace": [
+        383.99752641401534,
+        171.05263334871108
+      ]
+    },
+    {
+      "frame": 6,
+      "bounds": [
+        22,
+        37,
+        203,
+        200
+      ],
+      "face": [
+        143.88,
+        93.12
+      ],
+      "ground": 236,
+      "sourceFace": [
+        372.0270820079757,
+        171.28881115897275
+      ]
+    },
+    {
+      "frame": 7,
+      "bounds": [
+        23,
+        37,
+        204,
+        200
+      ],
+      "face": [
+        143.98,
+        92.97
+      ],
+      "ground": 236,
+      "sourceFace": [
+        369.2636015024438,
+        170.84815071101818
+      ]
+    },
+    {
+      "frame": 8,
+      "bounds": [
+        27,
+        37,
+        177,
+        200
+      ],
+      "face": [
+        143.81,
+        93.34
+      ],
+      "ground": 236,
+      "sourceFace": [
+        356.53413721531643,
+        171.96329951350572
+      ]
+    }
+  ],
+  "sha256": "009f73490e420d6401c3bc6c51b636201c0c9abfd7c640821e8e20d002693040"
+}

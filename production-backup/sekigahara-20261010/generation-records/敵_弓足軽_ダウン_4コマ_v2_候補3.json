@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-f3689ee0-a96a-4740-82de-2f02c4d9ae19.png",
+  "prompt": "Repair ONLY pose footprint of this fourframe archer knockdown while preserving EXACT same head torso and bone dimensions. For frame1 bow currently reaches too high: cant the bow FORWARD towardright, lower its top to near helmet-top height; left elbowfolds to keep bownearbody. Frame2 same bendelbow and bowcantedforward, top no more than80rawpixelsabovehelmet. Frames3and4 lyingonback, fold kneesclosertohips and keep bowoverknees bentleftelbow so entirefigure width less than480rawpixels rather thancurrent525; do NOT reduceheadbodylimbscale. Frame3shouldersbackhipsgrounded solesright;4smallbounceonback. All4sameanatomysizeasattached, headtorso unchanged, no smallerfigures. Onecontinuousfullbowstringperfigure, quiverintact. Alltoesright side-view. Pureopaque#FF00FF onehorizontalrow4 isolatedfullfigures equal squarecells no textshadowgrid.",
+  "attempt": 3,
+  "status": "candidate_pending_QA"
+}

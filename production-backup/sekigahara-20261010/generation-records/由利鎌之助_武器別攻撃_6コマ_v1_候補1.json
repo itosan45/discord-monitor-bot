@@ -1,0 +1,74 @@
+{
+  "name": "由利鎌之助_武器別攻撃_6コマ_v1.png",
+  "kind": "ten_braves_sprite_motion",
+  "reference": "由利鎌之助_設定画_v1.png",
+  "idleReference": "由利鎌之助_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-682435da-37f7-4687-8053-9d0d05e6f754.png",
+  "sourceSha256": "fa6c33e1fbb94e39dde6c4ccc7bccbbb0e5ea179134d5865cc04eb9ce0e07f36",
+  "rawSize": [
+    2172,
+    724
+  ],
+  "mode": "RGB",
+  "prompt": "Create exactly six clearly different sequential game-sprite poses of the same Yari Kamano-suke shown in the references. Preserve his lean muscular build, black hair and brown headband, dark olive sleeveless armor and trousers, red waist sash, brown bracers, shin wraps, sandals, red six-coin chest mark, and paired kusarigama: one short hooked kama and one iron weighted ball connected by a real chain. Right-facing three-quarter view, full body, consistent scale and same ground line. Show a readable attack sequence with continuous weapon handling: 1 low guarded ready stance, kama forward and weighted ball drawn back; 2 steps forward and starts a compact circular swing of the weighted ball, actual chain links clearly attached; 3 releases the ball in a strong forward diagonal throw with the real chain visibly taut from his hand; 4 braces on the rear foot, leans back, and hand-over-hand reels the connected chain in; 5 closes distance and makes a distinct short kama slash while the ball chain is gathered; 6 recovers to guarded stance with kama and weighted ball both retained. Keep all chain and weapon parts attached and fully visible inside that pose own cell; no crossing into neighboring cells. Six isolated poses in one horizontal strip, evenly spaced, each complete and centered in equal-width cell regions. Pure flat #FF00FF background, no shadows, no slash trails, no glow, no motion effects, no text, no borders, no extra characters or weapons.",
+  "attempts": 1,
+  "status": "rejected_overlapping_poses",
+  "connectedComponents": [
+    {
+      "center": 172.8,
+      "bounds": [
+        20,
+        208,
+        387,
+        604
+      ]
+    },
+    {
+      "center": 514.3,
+      "bounds": [
+        359,
+        126,
+        706,
+        613
+      ]
+    },
+    {
+      "center": 877.3,
+      "bounds": [
+        666,
+        165,
+        1438,
+        603
+      ]
+    },
+    {
+      "center": 1269.2,
+      "bounds": [
+        1107,
+        228,
+        1519,
+        608
+      ]
+    },
+    {
+      "center": 1659.2,
+      "bounds": [
+        1488,
+        215,
+        1850,
+        613
+      ]
+    },
+    {
+      "center": 1987.2,
+      "bounds": [
+        1826,
+        202,
+        2150,
+        611
+      ]
+    }
+  ],
+  "visualReview": "Six action poses are readable in the raw image, but chain/weapon components bridge adjacent pose regions. Thresholded connected-component inspection found a wide merged component spanning the third and fourth poses, and a bridge between earlier neighboring groups. Safe six-cell cropping would split the kusarigama or introduce neighboring pose pixels; reject.",
+  "qaResult": "Not delivered. Source retained, no normalization or Git. Do not regenerate this task immediately."
+}

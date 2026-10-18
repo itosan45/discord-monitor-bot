@@ -1,0 +1,143 @@
+{
+  "name": "上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4800015b-cb2a-40d3-8154-ddfb33f18656.png",
+  "status": "git_verified",
+  "scale": 0.30476473649000224,
+  "standingHeightSource": 672.65,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        12,
+        164,
+        541,
+        686
+      ],
+      "destination": [
+        47,
+        72,
+        161,
+        159
+      ],
+      "scale": 0.30476473649000224,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        546,
+        30,
+        988,
+        658
+      ],
+      "destination": [
+        60,
+        22,
+        135,
+        191
+      ],
+      "scale": 0.30476473649000224,
+      "ground": 212,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 212
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1061,
+        63,
+        1667,
+        625
+      ],
+      "destination": [
+        35,
+        42,
+        185,
+        171
+      ],
+      "scale": 0.30476473649000224,
+      "ground": 212,
+      "verticalOffset": -18,
+      "estimatedBodyGround": 211
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1635,
+        194,
+        2160,
+        685
+      ],
+      "destination": [
+        48,
+        81,
+        160,
+        150
+      ],
+      "scale": 0.30476473649000224,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "eceb58e37c18f9e68bf96f48af0de89fe642e6f991f2b30f54da0c23a5634a2a",
+  "backgroundSource": [
+    233,
+    24,
+    236
+  ],
+  "sourceIndices": null,
+  "groupCenters": "260,800,1350,1910",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの64%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    19593,
+    18653,
+    20127,
+    16382
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\上杉景勝_ジャンプ攻撃_4コマ_追加v1_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\上杉景勝_ジャンプ攻撃_4コマ_追加v1_GIF復号確認.png"
+  },
+  "actualName": "上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+  "qaResult": "OK",
+  "visualReview": "目視確認: 上杉景勝の濃紺甲冑・三日月前立・太刀を維持。溜め→跳躍→太刀の斬り下ろし→着地。全4コマ内、武器と全身を確認。",
+  "ocrReview": {
+    "name": "上杉景勝_ジャンプ攻撃_4コマ_追加v1.png",
+    "text": "",
+    "success": true
+  },
+  "reviewDate": "2026-10-07",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4800015b-cb2a-40d3-8154-ddfb33f18656.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_設定画.png",
+  "weaponAction": "single katana airborne downward slash",
+  "firstGenerationOnly": true,
+  "manualVisualException": false,
+  "gitVerified": true,
+  "gitCommit": "4deb950470ec44bfd0b8b6490ab70ed2a0baa303",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

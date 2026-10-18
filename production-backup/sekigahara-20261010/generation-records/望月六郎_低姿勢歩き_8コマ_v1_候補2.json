@@ -1,0 +1,17 @@
+{
+  "name": "望月六郎_低姿勢歩き_8コマ_v1.png",
+  "char": "望月六郎",
+  "kind": "ten_braves_sprite_motion",
+  "candidateNumber": 2,
+  "candidateCount": 2,
+  "attempts": 2,
+  "status": "rejected_overlapping_poses",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-08c2a13f-9c07-43d4-ac44-639769ddd1c2.png",
+  "sourceDimensions": [
+    1774,
+    887
+  ],
+  "rejection": "The corrected gait is clearly lower and preserves the eight alternating stance phases, but two neighboring poses touch and form a single connected component. The component grouping detects only seven independent pose groups, so a clean per-cell crop would cut or mix body parts. No normalized strip, OCR, GIF, or delivery.",
+  "prompt": "Targeted low combat-walk correction: retain the exact eight alternating foot phases from candidate 1, lower hips and bend knees visibly, keep torso/weapon steady, strict right-facing, preserve exact Mochizuki Rokuro outfit and small tanto, same idle scale. Flat magenta.",
+  "updatedAt": "2026-10-08T10:46:57.5429175+09:00"
+}

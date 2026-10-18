@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽槍_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-b6e13fa4-835a-4ff1-ac3f-74ea409fce40.png",
+  "prompt": "Create a FOUR-frame KNOCKDOWN animation of the exact blue ashigaru spear soldier in attached idle reference. Same face, small head proportions, anatomy, cone hat, black armor, blue clothes, straw sandals, same long spear, right-facing profile. Frame1 impact recoils torso backward with knees bent;2 physically knocked backward airborne, hips lifted, knees tucked, arms startled, still holding spear diagonally alongside body;3 lands on back knees bent with complete spear falling diagonally beside torso;4 small rebound of shoulders/legs after impact, still on back, not motionless death. All four distinct whole-body poses driven by weight/hips, no rotating same standing drawing. One soldier per equally sized square cell, horizontal strip of4cells. Standing equivalent height80%cellheight; SAME anatomical dimensions every frame, lying/crouching never shrunk. Compact bent legs and spear orientation so all foreground fits central86% width,16px equivalent margins. Lowest bodypoints ground90% except airborne2 visibly lifted. Opaque pure solid #FF00FF, no shadow/text/grid/borders, no gore.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

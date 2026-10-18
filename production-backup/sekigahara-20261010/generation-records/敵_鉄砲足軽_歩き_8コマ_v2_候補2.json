@@ -1,0 +1,7 @@
+{
+  "name": "敵_鉄砲足軽_歩き_8コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-c0bae432-a1ca-4c66-b2e3-63813045aa95.png",
+  "prompt": "Repair eight-framebluegunnerwalk, keep EXACTphysiqueclothesgunstable. Fixframe5/6near/farlegs: in5 NEARRIGHTthigh/knee/footREAR LEFTside, FARLEFTthigh/knee/footFRONT RIGHTside. NEARREARthighoverlapsFARFRONT atHIP, farfront knee partlybehindnearrearleg atcrossing. Oppositeframe1NEARRIGHTfront. Frame6weightonFARLEFTfront, NEARRIGHTheelbackraised. Frames3/7PASSING: bothkneesCLOSEunderHIPS, swingfootclosetoplantedankle ratherthanhighknee. In3FARLEFTpassinginfrontofNEARRIGHTplanted;7NEARRIGHTpassingFARLEFTplanted, differentanatomicalocclusion. BOTHtoesRIGHTallboots notmirror. RestoregunnerFACEwithsameSHORTBLACKMOUSTACHEandCHINSTUBBLEasacceptedidle reference, notclean-facedarcher. Samefaceall8. Stablelowkneesandchestdiagonalgunangleall8, fullgunandbodycompletewithoutermargins. Onehorizontalrow8equalcells pureopaque#FF00FF no textgridshadow.",
+  "attempt": 2,
+  "status": "candidate_repair_frame5_identity"
+}

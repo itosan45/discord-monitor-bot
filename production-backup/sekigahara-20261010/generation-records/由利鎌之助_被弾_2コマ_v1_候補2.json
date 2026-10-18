@@ -1,0 +1,70 @@
+{
+  "name": "由利鎌之助_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-c97e1e0b-d7e6-4a8a-8203-3b277bb86fd4.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\由利鎌之助_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.29608938547486036,
+  "sourceBounds": [
+    [
+      326,
+      88,
+      693,
+      804
+    ],
+    [
+      1040,
+      139,
+      1486,
+      804
+    ]
+  ],
+  "placements": [
+    [
+      73,
+      18,
+      109,
+      212
+    ],
+    [
+      62,
+      33,
+      132,
+      197
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "600aaf0667d69e91f7c1378898a8f389f14116b8aba754b0ae99c767801272f1",
+  "prompt": "Canonical Yuri Kamanosuke sleeveless olive clothing, sickle nearhand chainweight farhand, two grounded damage recoil frames. Candidate2 connects slack chain handlebutt to farhand and weight.",
+  "char": "由利鎌之助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "待機より胴回りが広く、鎌刃・分銅・鎖の太さと腰道具に細部差。2腕、鎖鎌保持、接地、被弾動作、鎖接続を確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "a7b37dd3940a82e03e73aa6a538e2ca4a06155b5",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "600aaf0667d69e91f7c1378898a8f389f14116b8aba754b0ae99c767801272f1",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:56:22.080244+09:00"
+}

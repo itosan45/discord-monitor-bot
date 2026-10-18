@@ -1,0 +1,105 @@
+{
+  "name": "宮本武蔵_手ぶら_攻撃C_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e9a59b08-adc8-4c26-8ae7-3ddc43edfabb.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_攻撃C_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.5623342175066313,
+  "sourceBounds": [
+    [
+      141,
+      18,
+      402,
+      386
+    ],
+    [
+      808,
+      42,
+      1065,
+      387
+    ],
+    [
+      1486,
+      18,
+      1759,
+      389
+    ],
+    [
+      150,
+      408,
+      446,
+      785
+    ],
+    [
+      825,
+      421,
+      1094,
+      785
+    ]
+  ],
+  "placements": [
+    [
+      54,
+      23,
+      147,
+      207
+    ],
+    [
+      55,
+      36,
+      145,
+      194
+    ],
+    [
+      51,
+      21,
+      154,
+      209
+    ],
+    [
+      45,
+      18,
+      166,
+      212
+    ],
+    [
+      52,
+      25,
+      151,
+      205
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "9de36bab6d606caac883e80ca1d4859d11fe8920938db68720ade4352e11d0c1",
+  "visualApproved": true,
+  "visualReview": "Viewed all5 decoded80ms GIF frames and idle comparison: low rear windup, diagonal rising swing, high finish and recoil guard. Same rough topknot, white headband/tails, lean muscular anatomy, torn charcoal brown robe, wrist/shin wraps and sandals. EMPTY hands, no swords/helmet/banner, all right-facing, soles230px, anatomical scale matches idle, no effects/clipping/neighbor contamination. OCR empty. Source contact zoom reviewed for A; no toes removed.",
+  "gitVerified": true,
+  "gitCommit": "939234a0fc726008ab46162bc5a21bd247688f16",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "9de36bab6d606caac883e80ca1d4859d11fe8920938db68720ade4352e11d0c1",
+  "prompt": "FIVE-frame game animation: Miyamoto Musashi UNARMED diagonal upward TWO-HAND swing. Image1 exact character authority: lean muscular weathered Japanese swordsman, rough topknot, white headband with two cloth tails, short beard, torn charcoal-brown robe with exposed near arm, rope belt, white wrist/shin wraps, straw sandals. Image2 existing idle anatomy and scale. Musashi has NO helmet/armor/back banner; do not add them. NO sword/scabbard/stick/weapon, both hands EMPTY clenched close together in imaginary two-hand sword grip.1 low ready fists waist;2 crouch, both fists LOW near rear hip;3 rise knees rotate hips swing paired fists diagonally UP across chest toward RIGHT;4 finish HIGH with both fists above FRONT shoulder upper-right, BOTH feet grounded;5 recoil waist guard. All RIGHT-facing, real weight transfer, same head/torso/limb sizes. Compact moderate stance and headband tails close to back, no huge flaring robe or split-leg stance. Total width inclfists/tails<=head-to-sole height to retain idle scale. Full hair/tails/hands/sandals inside each isolated frame. Pure solid #FF00FF, no effects/light/slash/flames/shadow/UI/labels/numbers. Intermediate3columns x2rows atlas,5 full figures row-major, bottom-right blank. Square cells, generous gutters, NO grid. Head-to-sole80%cellheight, soles90%. Pack1280x256 later.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:32:19.867816+09:00"
+}

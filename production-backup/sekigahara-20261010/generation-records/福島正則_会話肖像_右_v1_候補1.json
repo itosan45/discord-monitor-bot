@@ -1,0 +1,39 @@
+{
+  "name": "福島正則_会話肖像_右_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d1bad77c-03d0-46b5-be0b-09599b208529.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\福島正則_会話肖像_右_v1.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "sourceBounds": [
+    8,
+    18,
+    1254,
+    1244
+  ],
+  "placement": [
+    64,
+    82
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "c44f96e4b7c37e5b3352bf01dc47645d109f852d32fa39cb9a4de0869d9d2eb9",
+  "updatedAt": "2026-10-07T14:26:42.405448+09:00",
+  "prompt": "Change viewing direction ONLY: RIGHT-facing three-quarter chest-up dialogue portrait of EXACT SAME Fukushima Masanori as reference. Preserve fierce broad face thickdarkbeard openmouth shout, longdarkhair, bronze gold giant twohornhelmet with roundgold fivepetalcrest, redblack goldarmor matching fivepetalcrests, wornredgold shouldercloak and redcords. Same gritty painted Sengokugame style and chestup composition. Nose/gaze RIGHT, both eyesvisible. Re-render oppositeview anatomically, no reversed lettering. Full TWO horns helmethair beard BOTHshoulders chest silhouette entirelyinsidegenerous transparentmargins. Square1254x1254 PNG realtransparentbackground. No weapons/banner/effects/light/text/UI/scenery.",
+  "kind": "dialogue_portrait",
+  "char": "福島正則",
+  "direction": "右向き",
+  "visualApproved": true,
+  "ocrReview": "OCR fragments are armor/cord detail misrecognition; no lettering visible.",
+  "gitVerified": true,
+  "gitCommit": "1b75a8572afea58e4a2a8660251c12db7859439b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c44f96e4b7c37e5b3352bf01dc47645d109f852d32fa39cb9a4de0869d9d2eb9",
+  "qaResult": "OK",
+  "ocrSuccess": true,
+  "ocrText": "朝 し ノ ′",
+  "visualReview": "Fierce bearded warrior, giant gold horn helmet, five-petal crests, bronze gold red black armor and worn red cloak. Right-facing chest-up, full hair/beard/shoulders, alpha/margins and OCR reviewed."
+}

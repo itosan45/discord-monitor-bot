@@ -1,0 +1,52 @@
+{
+  "hero": "kage",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f96d77fd-9364-4887-b315-1aa6454d87f7.png",
+  "candidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\mounted-gait-v5-kage\\上杉景勝_馬上歩行_4コマ_v5.png",
+  "sourceBounds": [
+    [
+      45,
+      71,
+      497,
+      573
+    ],
+    [
+      48,
+      71,
+      496,
+      574
+    ],
+    [
+      46,
+      71,
+      494,
+      573
+    ],
+    [
+      47,
+      71,
+      497,
+      573
+    ]
+  ],
+  "scale": 0.4254473161033797,
+  "checks": [
+    "OK 純マゼンタの割合 72%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの83%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "status": "git_delivered",
+  "gitVerified": true,
+  "motionFullApproved": false,
+  "sha256": "7bc88e08b161cfc68ea181340bdc1e553cbaac205041907af12414a2b423db77",
+  "name": "上杉景勝_馬上歩行_4コマ_v5.png",
+  "gitCommit": "dc6512c7d2e4d49785e0456399f1b7c50da60913",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualApproved": true,
+  "qaResult": "要注意",
+  "scope": "Four alternating fore/hind support poses and equipment continuity reviewed in decoded GIF and actual mounted scene. Temporal smoothness and idle/attack body continuity remain under review.",
+  "updatedAt": "2026-10-09T08:37:23.256935+09:00"
+}

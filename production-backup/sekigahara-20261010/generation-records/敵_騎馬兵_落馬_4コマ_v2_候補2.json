@@ -1,0 +1,10 @@
+{
+  "name": "敵_騎馬兵_落馬_4コマ_v2.png",
+  "candidate": 2,
+  "prompt": "REMAKE fourframe mounted LANCER fall with FOUR equally spaced squarecells on ONE ROW, canvas4:1. Each complete group occupies at most80% cellwidth. Crucial previous groups overlap neighboringcells! Frame2 airborne rider overlaps own horse vertically above saddle (rider thrown just behindhorse notwholebodyfullleft). Frames3/4 rider in VERYCOMPACT backfall with BOTHknees tucked overabdomen, feet nearhip, HEADatRIGHT curledbody aboutonehorseheadlength wide, positioned justLEFT ofhorsehindhooves. Horse same anatomy length/head/size all4, fullRIGHTprofile and fullbody visible, no shrink. ONEhorseONEriderpercell. Keep large emptyMAGENTAgaps between groups, no touching neighbors. Horsehooves andgroundedrider3/4 SAMEfloor. Frame1 recoilhorse rear;2backwardair curledknees;3backlanding compact;4bounce shouldersandknees raise briefly. Full LONGspearheldsteepdiagonal SAMElength allframes, allendsinsidecell. Same conehelmet bluegrayarmor brown horse NOwhite socks bluefringe. Exactly2hands4horselegs fullanatomy physicalscale. Pure#FF00FF no borders lines text groundshadows effects.",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-d7412b98-1c0d-49a8-a86f-c12cad07fbb7.png",
+  "status": "repair_applied_as_alternate",
+  "correctionOutput": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬兵_落馬_4コマ_v2_候補2槍長連続修正版.png",
+  "correctionRecord": "horsefall-correction-record.json",
+  "repairNote": "槍全長の連続性を一度だけ修正。既存v2は維持。"
+}

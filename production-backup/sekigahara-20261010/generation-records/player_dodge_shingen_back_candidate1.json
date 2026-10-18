@@ -1,0 +1,468 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c63c7237-2613-4f5f-afa5-87d02b0b7204.png",
+  "sourceSha256": "c851bf12807c6c24fd65acb06e852216fb4692144ea6510c3af662360744b0b7",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "sourceCellEdges": [
+    0,
+    543,
+    1086,
+    1629,
+    2172
+  ],
+  "prompt": "One candidate only. Preserve identity, armor, colors, face, right-facing orientation and war fan using the three references. Exact 4-frame left-to-right animation: ready crouch, shift weight and lean back, hop backward left while facing right, land in low stable guard. Same character scale and visual finish in every equal 256px cell. Keep the entire body and weapon inside each cell. Exact flat magenta background. No additional characters, attacker, projectiles, text, watermark or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/武田信玄_設定画.png",
+    "assets/sprites/武田信玄_ガード構え_2コマ_v2.png",
+    "assets/sprites/武田信玄_ガード解除_2コマ_v2.png"
+  ],
+  "requestedName": "武田信玄_後退回避_4コマ_v2.png",
+  "actualName": "武田信玄_後退回避_4コマ_v2_candidate1-final-componentclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_後退回避_4コマ_v2_candidate1-final-componentclean.png",
+  "sha256": "42a708d7481e2fd95ce2ba813de15bd97100dc64dd9e8c5117e16722b82f60ee",
+  "n": 4,
+  "cell": 256,
+  "outputDimensions": [
+    1024,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellEdges": [
+      0,
+      543,
+      1086,
+      1629,
+      2172
+    ],
+    "finalSize": [
+      1024,
+      256
+    ],
+    "commonScale": 0.41629955947136565,
+    "placement": "Common uniform scale; separate source cells by magenta key; remove disconnected components smaller than 10% of main figure; center each figure in its cell. Grounded frames baseline y=229; airborne frames raised to y=204; exact RGB(255,0,255) key background."
+  },
+  "sourceFrameBboxes": [
+    [
+      29,
+      169,
+      542,
+      651
+    ],
+    [
+      39,
+      178,
+      543,
+      644
+    ],
+    [
+      0,
+      95,
+      492,
+      549
+    ],
+    [
+      0,
+      193,
+      512,
+      651
+    ]
+  ],
+  "removedSmallComponents": [
+    [
+      {
+        "pixels": 13,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          239,
+          219,
+          244,
+          222
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 11,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          61,
+          456,
+          65,
+          461
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          66,
+          458,
+          69,
+          462
+        ],
+        "touchesCellEdge": false
+      }
+    ],
+    [
+      {
+        "pixels": 10,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          156,
+          220,
+          160,
+          223
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 13,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          65,
+          307,
+          70,
+          311
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 4,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          50,
+          448,
+          52,
+          451
+        ],
+        "touchesCellEdge": false
+      }
+    ],
+    [
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          288,
+          136,
+          291,
+          139
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 6,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          59,
+          217,
+          62,
+          219
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 12,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          21,
+          266,
+          26,
+          270
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 11,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          13,
+          309,
+          18,
+          313
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          36,
+          334,
+          37,
+          335
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          35,
+          339,
+          39,
+          344
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 9,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          19,
+          341,
+          22,
+          346
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          31,
+          344,
+          34,
+          347
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          48,
+          354,
+          49,
+          355
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          541,
+          452,
+          543,
+          457
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 806,
+        "fractionOfMain": 0.0076,
+        "bbox": [
+          516,
+          598,
+          543,
+          651
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 220,
+        "fractionOfMain": 0.0021,
+        "bbox": [
+          0,
+          617,
+          12,
+          640
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          224,
+          233,
+          228,
+          236
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          140,
+          289,
+          141,
+          290
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 16,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          127,
+          290,
+          132,
+          295
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 12,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          110,
+          291,
+          114,
+          295
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 11,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          85,
+          310,
+          89,
+          313
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          41,
+          343,
+          45,
+          346
+        ],
+        "touchesCellEdge": false
+      }
+    ]
+  ],
+  "airborneFrames": [
+    3
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        21,
+        29,
+        235,
+        229
+      ],
+      "heightPx": 201,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 21,
+        "right": 21,
+        "top": 29
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        23,
+        36,
+        233,
+        229
+      ],
+      "heightPx": 194,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 23,
+        "right": 23,
+        "top": 36
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        25,
+        16,
+        230,
+        204
+      ],
+      "heightPx": 189,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 25,
+        "right": 26,
+        "top": 16
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        21,
+        39,
+        234,
+        229
+      ],
+      "heightPx": 191,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 21,
+        "right": 22,
+        "top": 39
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    26546,
+    25968,
+    27074
+  ],
+  "qaResult": "OK",
+  "checkerMode": "air",
+  "checker": [
+    "OK 純マゼンタの割合 69%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.6894,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\武田信玄_後退回避_4コマ_v2_candidate1-final-componentclean.gif",
+    "frameCount": 4,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\decoded-contact.png"
+  },
+  "visualReview": "全コマ目視。後退または前方回避の姿勢連続性、右向き、武器・手持ち、接地/浮き、16px余白、セル間の他ポーズの断片がないこと、純マゼンタ背景を確認。",
+  "gitCommit": "83ad4822a95f476b99817cb516e78f1c3ba40bcf",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "d4cc88e13222c30a736dd9b6b48f80808647fb8b",
+  "gitSha256": "42a708d7481e2fd95ce2ba813de15bd97100dc64dd9e8c5117e16722b82f60ee",
+  "remoteSha256Matches": true,
+  "gitBytes": 222343,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:33:07+09:00"
+}

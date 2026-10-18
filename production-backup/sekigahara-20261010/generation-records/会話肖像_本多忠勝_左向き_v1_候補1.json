@@ -1,0 +1,68 @@
+﻿{
+  "name": "会話肖像_本多忠勝_左向き_v1.png",
+  "source": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_本多忠勝_左向き_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_本多忠勝_左向き_v1.png",
+  "kind": "dialogue_portrait",
+  "status": "git_verified",
+  "attempts": 1,
+  "cellSpecificationApplicable": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    19,
+    19,
+    1212,
+    1235
+  ],
+  "margins": [
+    19,
+    19,
+    42,
+    19
+  ],
+  "alphaZeroPixels": 876776,
+  "automaticPass": true,
+  "visibleBBox": [
+    67,
+    26,
+    1191,
+    1219
+  ],
+  "visibleMargins": [
+    67,
+    26,
+    63,
+    35
+  ],
+  "alphaOnePixels": 12336,
+  "alphaReview": "Raw bounds and alpha > 1 silhouette bounds both recorded. Alpha 1 residue is 1/255 opacity; do not erase or change generated pixels.",
+  "sha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c",
+  "candidateCount": 1,
+  "selectedCandidate": 1,
+  "firstGenerationOnly": true,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-fc5b0afa-19b6-48e1-bc07-f9c7eb22c406.png",
+  "generatedSourceSha256": "af881ef71edcff9747b90b06b33afa2dacef366dffa0cbd12f5058f5e6f156c3",
+  "placementTransform": "Uniform 97% premultiplied-alpha rescale centered on transparent 1254x1254 canvas to meet visible 16px margins; raw generated source preserved unchanged.",
+  "actualName": "会話肖像_本多忠勝_左向き_v1.png",
+  "qaResult": "要注意",
+  "prompt": "Create ONE square 1:1 transparent-background chest-up dialogue portrait for Sekigahara Ranbu. Character: Honda Tadakatsu, the same stern, battle-hardened Japanese commander shown in the approved setting design: mature strong face, heavy brows, neat mustache and short dark goatee, long black hair partly tucked under an imposing black kabuto with exceptionally large branching gold antler ornaments. He wears massive black lacquered samurai armor with rich antique-gold edging, engraved gold plates, round gold Buddhist prayer beads over the chest, and a heavy black cloak with a clear circular gold three-leaf family crest. Preserve these specific face, armor, beads, helmet and crest details; no spear or handheld item. Dramatic but controlled expression, dignified and intimidating. Three-quarter bust, shoulders turned to the LEFT and eyes toward the LEFT. Premium painterly Japanese historical game portrait with expressive ink contours, layered brush shading, charcoal shadows and warm gold highlights; match an illustrated 2D historical action game, never photorealistic or 3D. Center a compact bust occupying at most 62% canvas width and 76% height. Keep the full antler helmet, hair, both shoulders and chest edge entirely inside the canvas with broad transparent margins on every side, at least 16% left/right. Real transparent alpha background. One person only. No scenery, banner, text, calligraphy, seal, frame, glow, weapon, extra person, clipped antlers, or cropped armor.",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\u672c\\u591a\\u5fe0\\u52dd_\\u8a2d\\u5b9a\\u753b.png",
+  "ocrResult": {
+    "name": "会話肖像_本多忠勝_左向き_v1.png",
+    "text": "ぐ　当",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded. OCR fragments were visually confirmed as gold three-leaf crest and engraved armor decoration; no text.",
+  "visualReview": "胸上左右向きの全輪郭・大型鹿角兜・黒金甲冑・金色数珠・三つ葉紋を目視。右版は右向き、左版は左向き。alpha1/255微弱残留は記録し消去せず。97%均等縮小と透明余白配置で可視余白16px以上を確保。",
+  "gitVerified": true,
+  "reviewDate": "2026-10-07",
+  "gitCommit": "dcc1894ae66edf3c5724da2099199bb4cf301d80",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "dcc1894ae66edf3c5724da2099199bb4cf301d80",
+  "gitVerifiedAt": "2026-10-07T07:52:58+09:00",
+  "gitSha256Verified": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c"
+}

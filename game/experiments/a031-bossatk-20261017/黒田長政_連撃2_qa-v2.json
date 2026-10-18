@@ -1,0 +1,148 @@
+{
+  "character": "黒田長政",
+  "action": "連撃2",
+  "frames": 12,
+  "source": "黒田長政_連撃2_source-v1.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "source_grid": "4x3 equal cells",
+  "output": "黒田長政_連撃2_12コマ_v2.png",
+  "output_size": [
+    6144,
+    384
+  ],
+  "sha256": "2d817359b69271453547343f82a9155ed9d0c6accbb1176051a31d12ca2a8541",
+  "preview_gif": "黒田長政_連撃2_preview-v2.gif",
+  "review_grid": "黒田長政_連撃2_review-grid-v2.png",
+  "frame_sha256": [
+    "1976a595cfda18563b140aa28a7e4c2f729d4e2cf9b4a612e59209dfd522ac73",
+    "2407c24c08561550bf15e0b35a214e1f6c51ea8d7ca4fafbc24ac5fec1885b90",
+    "4c6df16f0b5f3ff2bba7cf4f2d1b734f0c29ad612cefb32cdd3dc0cce1b3f396",
+    "15db405bc26c42505a55d7f3cbaac6b29869ef9b0217bfe2c2513f3ec4b88074",
+    "b53633620b8d10655f4f56da24496530e5855d60112361ad77bd7200a4f49178",
+    "1e0fe73ba4b120fe034e2f68ad678ff6bc2a5dbd7523af52836ce243db15d52b",
+    "860d271fa8a6abcf76a0ca194706bb512d96fcd106c46531c0a6b01e0b0f1e77",
+    "91181e6a73588d19284e36361abbf2e3578dbcf60775c3dc81601adffc99210d",
+    "c5228a5cc5530b827027eb82207c050cbf6b139f2c6168e777bee0976c8a9342",
+    "5b7d4624187425ef92cd93c403868889a4767d23edf58d08706852d9e06686af",
+    "756b45d84c5fae361d62b103c3feab3284de5052c3e9afb8eab7fb1ce30a30fc",
+    "0a608457f21cdcc775d322efd0d284f90277fa7c03742c41b99dfce5f9e6dae0"
+  ],
+  "adjacent_pixel_difference_sum": [
+    5661860.0,
+    5597234.0,
+    4223545.0,
+    6645711.0,
+    6173642.0,
+    4454595.0,
+    6040138.0,
+    6144155.0,
+    4900695.0,
+    5216528.0,
+    5198532.0
+  ],
+  "source_edge_contact_pixels": [
+    {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 2
+    },
+    {
+      "top": 0,
+      "bottom": 8,
+      "left": 1,
+      "right": 0
+    },
+    {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "top": 0,
+      "bottom": 2,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "top": 8,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "top": 2,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "top": 2,
+      "bottom": 11,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "top": 2,
+      "bottom": 0,
+      "left": 0,
+      "right": 3
+    },
+    {
+      "top": 0,
+      "bottom": 0,
+      "left": 2,
+      "right": 5
+    },
+    {
+      "top": 1,
+      "bottom": 0,
+      "left": 6,
+      "right": 0
+    },
+    {
+      "top": 12,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    }
+  ],
+  "ground_anchor_y": 363,
+  "estimated_hit_frames": [
+    6,
+    9
+  ],
+  "forward_step_frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "sequence": [
+    "low crossed-sword carry-over",
+    "open crossed blades",
+    "compress and draw lead sword low",
+    "step into rising cut",
+    "rotate into diagonal upward slash",
+    "rising slash peak",
+    "bring second sword forward",
+    "sweep both blades into wide X",
+    "crossing attack peak",
+    "follow through",
+    "draw blades inward",
+    "high crossed guard bridge pose"
+  ],
+  "notes": "AI-generated pose sheet cropped, background-keyed, uniformly scaled and composited. Disconnected output components below 500px removed. Not hand-drawn. Hit frames are visual estimates, not game hitboxes. Frame 1 continues combo 1's low crossed-sword ending; frame 12 is the intended start pose for combo 3."
+}

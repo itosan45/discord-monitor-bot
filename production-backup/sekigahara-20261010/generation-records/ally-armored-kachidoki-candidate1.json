@@ -1,0 +1,9 @@
+{
+  "createdAt": "2026-10-08",
+  "tool": "image_gen",
+  "prompt": "Create a production sprite sheet for Japanese Sengoku belt-scroll action game. Image1 is identity/style reference: blue-gold armored horse samurai. Depict this SAME samurai DISMOUNTED STANDING ON FOOT, NO HORSE. Preserve identical gold crescent/horn kabuto, face moustache, dark navy black lamellar cuirass, gold trim, blue cloth and blue cape, realistic proportions and crisp painted game-sprite art. Canvas1024x256 four equal square cells256x256 in ONE row, pure solid #FF00FF background, no shadows/text/borders/effects. Complete full body in every cell facing RIGHT 3/4, armored boots planted at same y230. Left hand holds lowered katana diagonally down toward right all frames, identical same sword, blade entirely inside own cell. Right hand EMPTY clenched fist in ALL frames. 1: proud chest with right fist before chest. 2: fist high above head, open mouth shout. 3: fist lowered beside face. 4: fist highest above helmet, proudly shouting, blue cape slightly waves. Same helmet/cape/armor/equipment and body scale in every frame. Pose actual arm articulation, not moving whole cutout. Helmet and raised fist have16px top clearance, sword and cape16px side clearance. No body or weapon clipped, no neighboring parts, no raised weapon, no magic, no jumping. Make all four silhouettes fit comfortably within their independent cells, accurate same torso scale as reference rider torso.",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-fd939197-10d5-48fd-ab7e-1fba2dca16ac.png",
+  "status": "git_verified",
+  "gitCommit": "40df4fb8caa21b548cc139d28bc79604cd499c9e",
+  "qaDirectory": "C:/Users/user/Desktop/output/sekigahara-new-20261006/qa/ally-victory-20261008"
+}

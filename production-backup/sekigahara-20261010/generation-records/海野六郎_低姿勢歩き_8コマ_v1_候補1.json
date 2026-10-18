@@ -1,0 +1,17 @@
+{
+  "name": "海野六郎_低姿勢歩き_8コマ_v1.png",
+  "candidate": 1,
+  "char": "海野六郎",
+  "action": "低姿勢歩き",
+  "n": 8,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_待機_4コマ_v1.png",
+  "designReference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\海野六郎_設定画_v1.png",
+  "prompt": "Use the first attached 海野六郎_待機_4コマ_v1.png as exact game identity and scale, and second 海野六郎_設定画_v1.png for armor/flag details. Draw 8 distinct frames of a low combat-advance walk cycle, moving right, same older stern face, red-black armor, six-coin headband and red six-coin sashimono, katana, exact painterly game style. Weapon stays ready and nearly still throughout; no normal arm-swinging. Knees bent and hips low, upper body/head steady, same anatomy and character scale as waiting reference. Leg sequence: 1 right foot forward contact, left leg back; 2 weight settles on right; 3 left foot passes close by the right leg, body slightly higher; 4 left foot swings forward; 5 left foot forward contact, right leg behind (clear mirror/exchange of frame1); 6 weight settles on left; 7 right foot passes close by left; 8 right foot swings forward to lead into frame1. Make leg exchange obvious in frames1 and5, with clear distinct silhouettes; no repeated pose copies. Flat pure #FF00FF. Layout as 4 columns x 2 rows, frames1-4 top,5-8 bottom. Each square panel contains one full-body character; all armor, weapon, flag, hair and feet at least16px inside its own cell, no crossing or adjacent pose fragments. Soles line y=230 at grounded phases. No effects, shadow, text, letters, captions, borders, grid lines or extra people.",
+  "createdAt": "2026-10-08",
+  "noPriorCandidate": true,
+  "latestMotionSpec": "11_新プロンプト.txt [M-歩き] frames1/5 opposite contact feet, 2/6 weight shifts, 3/7 passing,4/8 swing",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-ef3742d6-7272-49b2-9dfc-6cb33a1b7bc7.png",
+  "sourceDimensions": "1536x1024",
+  "status": "rejected_repeated_half_cycle",
+  "rejectionReason": "Frames5-8 repeat frames1-4 rather than exchanging the lead leg; required 1/5 contact pose mirror missing. One edit will replace bottom row only."
+}

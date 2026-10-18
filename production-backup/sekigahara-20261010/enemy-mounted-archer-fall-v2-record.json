@@ -1,0 +1,135 @@
+{
+  "name": "敵_騎馬弓兵_落馬_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_騎馬弓兵_落馬_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8c8a2dc4-f497-484d-b04d-95880f1e6403.png",
+  "status": "git_verified",
+  "scale": 0.614,
+  "standingHeightSource": 500.0,
+  "standingHeightTarget": 307,
+  "n": 4,
+  "cell": 384,
+  "ground": 346,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        29,
+        172,
+        453,
+        609
+      ],
+      "destination": [
+        62,
+        79,
+        260,
+        268
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        476,
+        214,
+        1039,
+        609
+      ],
+      "destination": [
+        19,
+        104,
+        346,
+        243
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 345
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1041,
+        239,
+        1581,
+        609
+      ],
+      "destination": [
+        26,
+        120,
+        332,
+        227
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1602,
+        238,
+        2134,
+        609
+      ],
+      "destination": [
+        28,
+        119,
+        327,
+        228
+      ],
+      "scale": 0.614,
+      "ground": 346,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 346
+    }
+  ],
+  "sha256": "69530ac49b175ba865d24917fddc886cd1aa0608883cb1e5b462dc1289280e7e",
+  "backgroundSource": [
+    237,
+    25,
+    239
+  ],
+  "sourceIndices": null,
+  "groupCenters": "240,765,1330,1860",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 79%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの61%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    47559,
+    46576,
+    37262,
+    48677
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_落馬_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_騎馬弓兵_落馬_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "要注意",
+  "attempts": 3,
+  "retries": 2,
+  "selectedCandidate": 3,
+  "ocrReview": "成功・検出文字なし。4コマGIFを復号し、落馬の進行を目視確認。",
+  "qaNote": "人物と馬の立ち姿尺度を同一にして全コマへ配置。姿勢・武器・蹄の欠けなし、背景/セル規格PASS。既存の騎馬弓兵より画面占有が小さめの可能性を記録し要注意採用。",
+  "visualReview": "全4コマ目視OK。Frame2の投げ出しからFrame3/4の落下着地が読める。馬と騎手は分離しており武器・衣装・頭部の破綻なし。縮尺差の可能性を要注意記録。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

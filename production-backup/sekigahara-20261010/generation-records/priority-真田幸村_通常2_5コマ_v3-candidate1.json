@@ -1,0 +1,102 @@
+{
+  "name": "真田幸村_通常2_5コマ_v3.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a7a59fad-a59a-4d9a-869e-6aa2be2c3278.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常2_5コマ_v3.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 4,
+  "status": "git_verified",
+  "uniformScale": 0.5586034912718204,
+  "sourceBounds": [
+    [
+      149,
+      7,
+      495,
+      392
+    ],
+    [
+      797,
+      7,
+      1153,
+      392
+    ],
+    [
+      1486,
+      6,
+      1853,
+      392
+    ],
+    [
+      189,
+      400,
+      590,
+      782
+    ],
+    [
+      804,
+      399,
+      1197,
+      782
+    ]
+  ],
+  "placements": [
+    [
+      31,
+      31,
+      193,
+      215
+    ],
+    [
+      28,
+      31,
+      199,
+      215
+    ],
+    [
+      25,
+      30,
+      205,
+      216
+    ],
+    [
+      16,
+      33,
+      224,
+      213
+    ],
+    [
+      18,
+      32,
+      220,
+      214
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの84%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "d751931a1ac81b192463825f93665259e9639a4d12f85ec014a0e7eaf638e5b8",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "visualReview": "All5 decoded frames at80ms reviewed. Clear right-to-left two-hand spear sweep using perspective, no kicks/effects. Right-facing same redarmor/antlerhelmet/six-coins flag. Uniform whole-character scale; head/torso compared with existing idle and special at256px; same ground245, full intact equipment and no neighbors.",
+  "prompt": "LOCALIZED weapon perspective edit to ONLY the upper-left and lower-left poses in this exact image. Preserve all5 people/anatomy/head sizes, legs, feet, armor, flags, faces, remaining3 poses, pure magenta and current atlas layout. Upper-left pose1: its feet occupy x148..493 in source1983x793. Move its cross-spear TIP from x582 to approximately x470, by pointing the blade more toward camera in depth and foreshortening the shaft. Keep both gripping hands and body unchanged. Lower-left pose4: feet occupy x230..590. Move spear TIP from x118 to approximately x250, again use strong depth perspective while still clearly aiming left; shorten projected pole/blade length by50percent. Keep BOTH hands and body unchanged. The ENTIRE weapon silhouette in each edited pose must stay horizontally BETWEEN that pose's leftmost and rightmost boot. No pole sticking beyond feet. This retains a large leftward sweep with perspective and permits game character body to stay same scale as idle. Do not shrink ANY person. Keep other3 poses pixel composition unchanged. No text, outlines, effects, trail, glow, new objects or background. Exactly5 isolated figures, lastlower-right empty.",
+  "gitCommit": "6f00e5bed4776d17a1297d35226222ca8835e6c3",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "d751931a1ac81b192463825f93665259e9639a4d12f85ec014a0e7eaf638e5b8"
+}

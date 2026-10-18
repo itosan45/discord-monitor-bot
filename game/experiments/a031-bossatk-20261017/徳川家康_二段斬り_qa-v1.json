@@ -1,0 +1,165 @@
+{
+  "character": "徳川家康（影武者）",
+  "asset": "徳川家康_二段斬り_8コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "source_crop_boxes": [
+    [
+      0,
+      0,
+      768,
+      256
+    ],
+    [
+      768,
+      0,
+      1536,
+      256
+    ],
+    [
+      0,
+      256,
+      768,
+      512
+    ],
+    [
+      768,
+      256,
+      1536,
+      512
+    ],
+    [
+      0,
+      512,
+      768,
+      768
+    ],
+    [
+      768,
+      512,
+      1536,
+      768
+    ],
+    [
+      0,
+      768,
+      768,
+      1024
+    ],
+    [
+      768,
+      768,
+      1536,
+      1024
+    ]
+  ],
+  "scale_by_frame": [
+    0.7704918032786885,
+    0.7580645161290323,
+    0.734375,
+    0.734375,
+    0.734375,
+    0.734375,
+    0.7673469387755102,
+    0.7704918032786885
+  ],
+  "frame_foreground_bboxes": [
+    [
+      47,
+      175,
+      464,
+      362
+    ],
+    [
+      119,
+      175,
+      392,
+      362
+    ],
+    [
+      43,
+      175,
+      468,
+      362
+    ],
+    [
+      45,
+      175,
+      465,
+      362
+    ],
+    [
+      41,
+      175,
+      470,
+      362
+    ],
+    [
+      71,
+      175,
+      439,
+      362
+    ],
+    [
+      96,
+      175,
+      414,
+      362
+    ],
+    [
+      65,
+      175,
+      445,
+      362
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    168735,
+    170036,
+    164872,
+    166393,
+    166414,
+    167225,
+    163137,
+    168266
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.2116,
+    0.2217,
+    0.1834,
+    0.1876,
+    0.2035,
+    0.224,
+    0.2208
+  ],
+  "sha256": "272b2bb14db5f1cdd482adccb34d142901ffc017f2432b2a5dc422d9146bf66d",
+  "generation": "OpenAI built-in imagegen using Ieyasu shadow setting sheet; AI generated and composed into cells, not hand-drawn.",
+  "notes": "Two-part double slash: low ready, overhead load, first diagonal cut and follow-through, reverse-side load, opposite return cut, full extension, recovery guard. Slash marks are secondary to changing torso, foot and katana positions. Candidate; gameplay review pending."
+}

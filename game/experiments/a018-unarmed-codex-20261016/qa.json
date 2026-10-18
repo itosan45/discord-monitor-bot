@@ -1,0 +1,112 @@
+{
+  "file": "真田幸村_手ぶら_歩き_16コマ_等速版_v1.png",
+  "size": [
+    4096,
+    256
+  ],
+  "frames": 16,
+  "cell": [
+    256,
+    256
+  ],
+  "sha256": "743c6cf7101fed530ca0a057058c8d3bae07c15132c4454119e835cff2100804",
+  "exact_duplicate_frames": 0,
+  "frame_checks": [
+    {
+      "frame": 1,
+      "occupied_pixels": 12138,
+      "pure_magenta_pixels": 53398,
+      "edge_contact": false
+    },
+    {
+      "frame": 2,
+      "occupied_pixels": 11945,
+      "pure_magenta_pixels": 53591,
+      "edge_contact": false
+    },
+    {
+      "frame": 3,
+      "occupied_pixels": 11703,
+      "pure_magenta_pixels": 53833,
+      "edge_contact": false
+    },
+    {
+      "frame": 4,
+      "occupied_pixels": 11347,
+      "pure_magenta_pixels": 54189,
+      "edge_contact": false
+    },
+    {
+      "frame": 5,
+      "occupied_pixels": 11117,
+      "pure_magenta_pixels": 54419,
+      "edge_contact": false
+    },
+    {
+      "frame": 6,
+      "occupied_pixels": 11096,
+      "pure_magenta_pixels": 54440,
+      "edge_contact": false
+    },
+    {
+      "frame": 7,
+      "occupied_pixels": 11302,
+      "pure_magenta_pixels": 54234,
+      "edge_contact": false
+    },
+    {
+      "frame": 8,
+      "occupied_pixels": 11605,
+      "pure_magenta_pixels": 53931,
+      "edge_contact": false
+    },
+    {
+      "frame": 9,
+      "occupied_pixels": 12125,
+      "pure_magenta_pixels": 53411,
+      "edge_contact": false
+    },
+    {
+      "frame": 10,
+      "occupied_pixels": 12015,
+      "pure_magenta_pixels": 53521,
+      "edge_contact": false
+    },
+    {
+      "frame": 11,
+      "occupied_pixels": 11705,
+      "pure_magenta_pixels": 53831,
+      "edge_contact": false
+    },
+    {
+      "frame": 12,
+      "occupied_pixels": 11392,
+      "pure_magenta_pixels": 54144,
+      "edge_contact": false
+    },
+    {
+      "frame": 13,
+      "occupied_pixels": 11083,
+      "pure_magenta_pixels": 54453,
+      "edge_contact": false
+    },
+    {
+      "frame": 14,
+      "occupied_pixels": 11204,
+      "pure_magenta_pixels": 54332,
+      "edge_contact": false
+    },
+    {
+      "frame": 15,
+      "occupied_pixels": 11527,
+      "pure_magenta_pixels": 54009,
+      "edge_contact": false
+    },
+    {
+      "frame": 16,
+      "occupied_pixels": 11967,
+      "pure_magenta_pixels": 53569,
+      "edge_contact": false
+    }
+  ]
+}

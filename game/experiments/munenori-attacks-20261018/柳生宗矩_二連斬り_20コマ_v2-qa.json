@@ -1,0 +1,353 @@
+{
+  "status": "candidate_not_integrated",
+  "dimensions": [
+    10240,
+    384
+  ],
+  "cell": [
+    512,
+    384
+  ],
+  "frames": 20,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "edge_contact_any_frame": false,
+  "body_height_estimate_px": {
+    "min": 178,
+    "median": 187.0,
+    "max": 221
+  },
+  "impact_frame": [
+    6,
+    14
+  ],
+  "suggested_forward_travel_px": 30,
+  "sha256": "424abbb98304f80409e7503c78bbe42821277ba2ef0b1a90a272950e22ced734",
+  "preview_gif": "柳生宗矩_二連斬り_20コマ_v2.gif",
+  "contact_sheet": "柳生宗矩_二連斬り_20コマ_v2-contact.png",
+  "frames_detail": [
+    {
+      "frame": 1,
+      "body_height_estimate_px": 183,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        73,
+        39,
+        223,
+        272
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        199,
+        180
+      ]
+    },
+    {
+      "frame": 2,
+      "body_height_estimate_px": 179,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        64,
+        44,
+        227,
+        272
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        193,
+        184
+      ]
+    },
+    {
+      "frame": 3,
+      "body_height_estimate_px": 179,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        59,
+        45,
+        227,
+        272
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        188,
+        185
+      ]
+    },
+    {
+      "frame": 4,
+      "body_height_estimate_px": 194,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        42,
+        26,
+        228,
+        272
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        175,
+        170
+      ]
+    },
+    {
+      "frame": 5,
+      "body_height_estimate_px": 190,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        53,
+        31,
+        226,
+        272
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        184,
+        174
+      ]
+    },
+    {
+      "frame": 6,
+      "body_height_estimate_px": 184,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        179,
+        106,
+        596,
+        456
+      ],
+      "scale": 0.5263,
+      "offset_in_cell": [
+        160,
+        179
+      ]
+    },
+    {
+      "frame": 7,
+      "body_height_estimate_px": 178,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        106,
+        117,
+        614,
+        456
+      ],
+      "scale": 0.5263,
+      "offset_in_cell": [
+        121,
+        185
+      ]
+    },
+    {
+      "frame": 8,
+      "body_height_estimate_px": 195,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        172,
+        50,
+        638,
+        420
+      ],
+      "scale": 0.5263,
+      "offset_in_cell": [
+        156,
+        169
+      ]
+    },
+    {
+      "frame": 9,
+      "body_height_estimate_px": 195,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        150,
+        50,
+        589,
+        420
+      ],
+      "scale": 0.5263,
+      "offset_in_cell": [
+        144,
+        169
+      ]
+    },
+    {
+      "frame": 10,
+      "body_height_estimate_px": 207,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        54,
+        0,
+        227,
+        263
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        184,
+        157
+      ]
+    },
+    {
+      "frame": 11,
+      "body_height_estimate_px": 181,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        58,
+        27,
+        246,
+        257
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        188,
+        183
+      ]
+    },
+    {
+      "frame": 12,
+      "body_height_estimate_px": 185,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        42,
+        22,
+        234,
+        257
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        175,
+        179
+      ]
+    },
+    {
+      "frame": 13,
+      "body_height_estimate_px": 187,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        17,
+        19,
+        221,
+        257
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        155,
+        176
+      ]
+    },
+    {
+      "frame": 14,
+      "body_height_estimate_px": 187,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        13,
+        20,
+        273,
+        257
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        152,
+        177
+      ]
+    },
+    {
+      "frame": 15,
+      "body_height_estimate_px": 194,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        8,
+        12,
+        265,
+        258
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        148,
+        170
+      ]
+    },
+    {
+      "frame": 16,
+      "body_height_estimate_px": 221,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        165,
+        29,
+        614,
+        481
+      ],
+      "scale": 0.4898,
+      "offset_in_cell": [
+        160,
+        142
+      ]
+    },
+    {
+      "frame": 17,
+      "body_height_estimate_px": 207,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        125,
+        59,
+        606,
+        481
+      ],
+      "scale": 0.4898,
+      "offset_in_cell": [
+        140,
+        157
+      ]
+    },
+    {
+      "frame": 18,
+      "body_height_estimate_px": 179,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        171,
+        83,
+        655,
+        449
+      ],
+      "scale": 0.4898,
+      "offset_in_cell": [
+        162,
+        184
+      ]
+    },
+    {
+      "frame": 19,
+      "body_height_estimate_px": 198,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        192,
+        50,
+        599,
+        454
+      ],
+      "scale": 0.4898,
+      "offset_in_cell": [
+        173,
+        166
+      ]
+    },
+    {
+      "frame": 20,
+      "body_height_estimate_px": 186,
+      "edge_contact_2px": false,
+      "source_bbox": [
+        52,
+        13,
+        205,
+        249
+      ],
+      "scale": 0.7873,
+      "offset_in_cell": [
+        183,
+        178
+      ]
+    }
+  ]
+}

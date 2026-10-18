@@ -1,0 +1,22 @@
+﻿{
+  "verifiedAt": "2026-10-07T07:22:14+09:00",
+  "branch": "ccr-851ab851-t271uq",
+  "assetCommit": "7821fead41fe809907f92c9b510605e56c63e24c",
+  "head": "5a33f13c134a4f18b6679cfd23eb7381ded99b80",
+  "remoteTip": "5a33f13c134a4f18b6679cfd23eb7381ded99b80",
+  "assets": [
+    {
+      "name": "会話肖像_石田三成_右向き_v1.png",
+      "sha256": "112c76e5cdec76f4c84711a0c592eb60f26be0a0a1ebc1ef464e36c8544d7b3f",
+      "bytes": 2190327,
+      "remoteSha256": "112c76e5cdec76f4c84711a0c592eb60f26be0a0a1ebc1ef464e36c8544d7b3f"
+    },
+    {
+      "name": "会話肖像_石田三成_左向き_v1.png",
+      "sha256": "360cea89055588f698699bb3d7056c7eafd65940c2a63fa25472533c9392af3e",
+      "bytes": 2104374,
+      "remoteSha256": "360cea89055588f698699bb3d7056c7eafd65940c2a63fa25472533c9392af3e"
+    }
+  ],
+  "method": "current remote-matched HEAD git show bytes compared exactly with finished files; SHA-256 recorded"
+}

@@ -1,0 +1,130 @@
+{
+  "name": "敵_足軽刀_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_足軽刀_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-844fdbec-0457-487d-9184-55e15c1443e1.png",
+  "status": "drive_verified",
+  "scale": 0.3416666666666667,
+  "standingHeightSource": 600.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        19,
+        102,
+        550,
+        646
+      ],
+      "destination": [
+        37,
+        45,
+        181,
+        186
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        552,
+        97,
+        1088,
+        646
+      ],
+      "destination": [
+        36,
+        43,
+        183,
+        188
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1089,
+        107,
+        1625,
+        646
+      ],
+      "destination": [
+        36,
+        47,
+        183,
+        184
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1627,
+        102,
+        2161,
+        646
+      ],
+      "destination": [
+        37,
+        45,
+        182,
+        186
+      ],
+      "scale": 0.3416666666666667,
+      "ground": 230,
+      "verticalOffset": 0
+    }
+  ],
+  "sha256": "9a3b55f03c4b03acf9e99fd1d0dfa6e891e182694f302b5ab4e0097ffe96e61f",
+  "backgroundSource": [
+    241,
+    25,
+    239
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 84%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの72%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    12756,
+    12487,
+    12322,
+    12281
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_足軽刀_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "成功・文字なし",
+  "visualReview": "GIF4コマ復号目視。低い両手刀構えを維持、肩と胸の呼吸微差、4→1の連続を確認。設定2番の肩鎧なし・巻き袖・髭、刀と鞘を保持。共通倍率、右向き、規格全項目OK。",
+  "driveId": "1H7D1pt4Hb8AY6C0aX0Ui2LeImIHAl3jN",
+  "readbackSha256": "9a3b55f03c4b03acf9e99fd1d0dfa6e891e182694f302b5ab4e0097ffe96e61f",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

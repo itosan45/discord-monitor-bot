@@ -1,0 +1,388 @@
+{
+  "candidate_only": true,
+  "file": "井伊直政_石突き打ち上げ_16コマ_v2.png",
+  "source_grid": "source_石突き打ち上げ_grid-v2.png",
+  "source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_cell_dimensions": [
+    384,
+    256
+  ],
+  "dimensions": [
+    8192,
+    384
+  ],
+  "frame_count": 16,
+  "cell_dimensions": [
+    512,
+    384
+  ],
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "facing": "right",
+  "root_anchor_x": 256,
+  "ground_y": 363,
+  "target_body_height_px": 188,
+  "body_roi_median_source_px": 211.5,
+  "uniform_frame_scale": 0.8888888888888888,
+  "suggested_hit_frames_1based": [
+    7,
+    11
+  ],
+  "suggested_forward_travel_px": 28,
+  "whole_body_airborne": false,
+  "weapon_length_strict_measurement": "not verified; review and integration check required",
+  "gif_frames": 16,
+  "gif_duration_ms_per_frame": 80,
+  "gif_fps": 12.5,
+  "edge_contact_pixels_within_2px_per_frame": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_artifact_pixels_removed_per_frame": [
+    0,
+    1,
+    0,
+    90,
+    0,
+    0,
+    99,
+    0,
+    516,
+    0,
+    0,
+    28,
+    0,
+    12,
+    14,
+    9
+  ],
+  "adjacent_changed_pixel_fraction": [
+    0.11982218424479167,
+    0.10991414388020833,
+    0.11844889322916667,
+    0.1157073974609375,
+    0.11730448404947917,
+    0.10353597005208333,
+    0.16688028971354166,
+    0.11956787109375,
+    0.11325581868489583,
+    0.11279805501302083,
+    0.12168375651041667,
+    0.11775716145833333,
+    0.17661539713541666,
+    0.11153157552083333,
+    0.10553995768229167
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "body_roi_height_source_px": 225,
+      "support_anchor_source_xy": [
+        172,
+        239
+      ],
+      "final_foreground_bbox_xyxy": [
+        149,
+        164,
+        424,
+        366
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 2,
+      "body_roi_height_source_px": 204,
+      "support_anchor_source_xy": [
+        221,
+        231
+      ],
+      "final_foreground_bbox_xyxy": [
+        89,
+        183,
+        395,
+        371
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 1,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 3,
+      "body_roi_height_source_px": 178,
+      "support_anchor_source_xy": [
+        224,
+        230
+      ],
+      "final_foreground_bbox_xyxy": [
+        106,
+        206,
+        398,
+        370
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 4,
+      "body_roi_height_source_px": 138,
+      "support_anchor_source_xy": [
+        182,
+        237
+      ],
+      "final_foreground_bbox_xyxy": [
+        140,
+        242,
+        420,
+        367
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 90,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 5,
+      "body_roi_height_source_px": 176,
+      "support_anchor_source_xy": [
+        218,
+        230
+      ],
+      "final_foreground_bbox_xyxy": [
+        108,
+        207,
+        404,
+        370
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 6,
+      "body_roi_height_source_px": 204,
+      "support_anchor_source_xy": [
+        234,
+        232
+      ],
+      "final_foreground_bbox_xyxy": [
+        77,
+        184,
+        385,
+        369
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 7,
+      "body_roi_height_source_px": 212,
+      "support_anchor_source_xy": [
+        243,
+        232
+      ],
+      "final_foreground_bbox_xyxy": [
+        76,
+        175,
+        280,
+        368
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 99,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 8,
+      "body_roi_height_source_px": 219,
+      "support_anchor_source_xy": [
+        146,
+        237
+      ],
+      "final_foreground_bbox_xyxy": [
+        160,
+        169,
+        414,
+        364
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 9,
+      "body_roi_height_source_px": 212,
+      "support_anchor_source_xy": [
+        127,
+        226
+      ],
+      "final_foreground_bbox_xyxy": [
+        157,
+        176,
+        438,
+        363
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 516,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 10,
+      "body_roi_height_source_px": 201,
+      "support_anchor_source_xy": [
+        130,
+        226
+      ],
+      "final_foreground_bbox_xyxy": [
+        155,
+        185,
+        445,
+        364
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 11,
+      "body_roi_height_source_px": 211,
+      "support_anchor_source_xy": [
+        146,
+        226
+      ],
+      "final_foreground_bbox_xyxy": [
+        144,
+        162,
+        444,
+        364
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 12,
+      "body_roi_height_source_px": 217,
+      "support_anchor_source_xy": [
+        178,
+        226
+      ],
+      "final_foreground_bbox_xyxy": [
+        136,
+        171,
+        415,
+        364
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 28,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 13,
+      "body_roi_height_source_px": 227,
+      "support_anchor_source_xy": [
+        125,
+        226
+      ],
+      "final_foreground_bbox_xyxy": [
+        179,
+        162,
+        425,
+        364
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 0,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 14,
+      "body_roi_height_source_px": 217,
+      "support_anchor_source_xy": [
+        236,
+        221
+      ],
+      "final_foreground_bbox_xyxy": [
+        78,
+        171,
+        376,
+        368
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 12,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 15,
+      "body_roi_height_source_px": 206,
+      "support_anchor_source_xy": [
+        202,
+        221
+      ],
+      "final_foreground_bbox_xyxy": [
+        93,
+        181,
+        403,
+        369
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 14,
+      "ground_y": 363,
+      "root_x": 256
+    },
+    {
+      "frame": 16,
+      "body_roi_height_source_px": 222,
+      "support_anchor_source_xy": [
+        212,
+        221
+      ],
+      "final_foreground_bbox_xyxy": [
+        93,
+        167,
+        384,
+        369
+      ],
+      "edge_pixels_within_2px": 0,
+      "source_artifact_pixels_removed": 9,
+      "ground_y": 363,
+      "root_x": 256
+    }
+  ],
+  "sha256": "d7f83e7fdf8cb3c47d9483e0d57ada114dbaae2c6c66462d89b2f3f54fc6bac9",
+  "visual_motion_review": "static contact sheet reviewed; full gameplay motion not verified"
+}

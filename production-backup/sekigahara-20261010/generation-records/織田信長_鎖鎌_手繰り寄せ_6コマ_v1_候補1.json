@@ -1,0 +1,125 @@
+{
+  "name": "織田信長_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-8fd306fb-be0c-4e4b-aa42-67a7b704c056.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_鎖鎌_手繰り寄せ_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 2,
+  "status": "git_verified",
+  "uniformScale": 0.5277044854881267,
+  "sourceBounds": [
+    [
+      33,
+      175,
+      369,
+      553
+    ],
+    [
+      400,
+      175,
+      719,
+      554
+    ],
+    [
+      767,
+      175,
+      1075,
+      554
+    ],
+    [
+      1115,
+      181,
+      1447,
+      553
+    ],
+    [
+      1479,
+      175,
+      1808,
+      554
+    ],
+    [
+      1850,
+      175,
+      2156,
+      554
+    ]
+  ],
+  "placements": [
+    [
+      39,
+      31,
+      177,
+      199
+    ],
+    [
+      44,
+      30,
+      168,
+      200
+    ],
+    [
+      46,
+      30,
+      163,
+      200
+    ],
+    [
+      40,
+      34,
+      175,
+      196
+    ],
+    [
+      41,
+      30,
+      174,
+      200
+    ],
+    [
+      47,
+      30,
+      161,
+      200
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 78%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの78%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "e2ebc70a3700855be18e8ea111e6d2ec5e87ab32c1610439602425e4a8b3580b",
+  "prompt": "Canonical Nobunaga six compact chain hauling phases, left hand sickle right hand pulls chain. Same helmet face armor crest cape, grounded feet, pure magenta. Candidate2 targeted edit connects chain between handle and fist.",
+  "char": "織田信長",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "warnings": [
+    "胸の円紋内部が待機の意匠と異なる。",
+    "最強引きの後ろ膝の曲げと腰の後退が弱い。",
+    "1・5コマの鎖接続が柄の刃側寄りに見える。",
+    "ゲーム内連動は未検証。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "a097ea35fbcc18884614737cfb33b8d7892dbaad",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "e2ebc70a3700855be18e8ea111e6d2ec5e87ab32c1610439602425e4a8b3580b",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T22:08:03.659443+09:00"
+}

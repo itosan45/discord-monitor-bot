@@ -1,0 +1,94 @@
+{
+  "name": "根津甚八_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-05adfea8-f250-4faa-8814-013c1902589b.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3164179104477612,
+  "sourceBounds": [
+    [
+      178,
+      30,
+      358,
+      700
+    ],
+    [
+      720,
+      30,
+      900,
+      700
+    ],
+    [
+      1261,
+      30,
+      1443,
+      700
+    ],
+    [
+      1806,
+      30,
+      1986,
+      700
+    ]
+  ],
+  "placements": [
+    [
+      99,
+      18,
+      57,
+      212
+    ],
+    [
+      99,
+      18,
+      57,
+      212
+    ],
+    [
+      99,
+      18,
+      58,
+      212
+    ],
+    [
+      99,
+      18,
+      57,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 89%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "fed219a5edcdcfcacefcd6d1e15939851db67037012edacad97d59ce65fbdc8f",
+  "prompt": "Nezu Jinpachi idle breathing sprite FOUR chronological frames SINGLE HORIZONTAL ROW. Exact same weathered former-pirate samurai as reference middle RIGHT-facing side view: mature bearded face blacktopknot nohelmet, indigojacket worn blackbrown lamellararmor smallshoulderplates red6coins chest maroon sash guards shinwraps sandals. SAME adult katana and scabbard lefthip. Right hand holds sword UPRIGHT as reference hiltnear chest, steelblade tipabovehead, alltip/hilt visible, exactsameblade length allframes. Fixedcamera same anatomicalsize footpositionsground, balanced gentlybentknees. 1 exhale shoulderslow,2 inhale chestexpands shouldersrise slightly,3 peak inhale headup2%bodyheight feetfixed,4 settlesnear1. Sword staysupright and stable, no attack/walk. Fourequalcells separatedmagenta fullhair/swordtip/scabbard/feet amplemargins eachcell, no overlap/clipping. Whole swordtip-tofeet ~82%cellheight, samebody-to-sword proportions reference. WidehorizontalPNG grittypaintedgameart pureflat#FF00FF no effects/shadows/text/grid/scenery.",
+  "char": "根津甚八",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All decoded frames compared to reference: weathered bearded face/topknot, brown-black armor indigo clothes sash guards, complete upright katana and sheath; right-facing, full feet, no clipping/effects/text. Fixed ground and uniform scale, small peak-inhale head lift in3. Sword held farther behind shoulder and chest coins obscured, knees shallow; cautions. Own idle scale established.",
+  "gitVerified": true,
+  "gitCommit": "5d80b819482456acf58319d3ba96bb28583c9c2b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "fed219a5edcdcfcacefcd6d1e15939851db67037012edacad97d59ce65fbdc8f",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:54:41.085174+09:00"
+}

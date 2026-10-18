@@ -1,0 +1,64 @@
+{
+  "name": "織田信長_HUD顔アイコン.png",
+  "char": "織田信長",
+  "group": "ui",
+  "kind": "hud_face_icon",
+  "priority": 5,
+  "status": "git_verified",
+  "attemptCount": 1,
+  "candidateCount": 1,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_HUD顔アイコン.png",
+  "actualName": "織田信長_HUD顔アイコン.png",
+  "sha256": "91e3ff36298c8c55cefb1da2d1e1b87172f8f1975a81e3591b6ae10c212c4fd9",
+  "generationSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-566fd378-fadb-4e57-9c22-9caf39a14209.png",
+  "generatedSourceSha256": "4ad8c2fe7d28f915603f2865e3d64b102bf6741c4b8a1d882c4238e886fee6fd",
+  "sourceReference": "assets/sprites/織田信長_設定画.png",
+  "referenceAsset": "assets/sprites/織田信長_設定画.png",
+  "prompt": "Use the attached approved Oda Nobunaga setting sheet only as identity and costume reference; ignore its three-view layout and all banner lettering. Create ONE square 256px-style HUD face icon, chest-up, painterly Japanese historical action-game illustration. Nobunaga is a lean, confident Japanese commander with long black hair and a narrow mustache/goatee, black kabuto with his distinctive antique-gold upward crescent crest and small circular gilt emblem, black lacquered lamellar armor with restrained gold family-flower details, vivid deep-crimson mantle. Three-quarter view facing right, sharp calculating gaze, stern charismatic expression. Face, complete crest, hair and shoulders readable at tiny HUD size with 8% breathing room. Flat uniform pure magenta #FF00FF background edge to edge. No banner, swords, weapons, text, kanji, calligraphy, scenery, frame, effects, watermark, or other people. Match the graphic painterly treatment of existing game HUD portraits; not photorealistic.",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceMode": "RGB",
+  "size": [
+    256,
+    256
+  ],
+  "mode": "RGB",
+  "background": "#FF00FF exact pure magenta; outer16 pixels verified",
+  "placementTransform": "Keyed generated near-magenta background by per-pixel deviation max(255-R,G,255-B): transparent at <=18, opaque at >=55, linear antialias between; uniformly resized to 82% of 256x256 canvas and centered on exact #FF00FF RGB background. Original generated source preserved unchanged.",
+  "visibleBBox": [
+    23,
+    23,
+    233,
+    233
+  ],
+  "visibleMargins": [
+    23,
+    23,
+    23,
+    23
+  ],
+  "outer16PureMagenta": true,
+  "automaticCheck": [
+    "PASS: 256x256 RGB",
+    "PASS: exact #FF00FF outer 16px",
+    "PASS: visible silhouette margins >=8px on each edge"
+  ],
+  "qaResult": "OK",
+  "visualReview": "At native 256x256 size, face and character-specific identifying features are clearly legible. Three-quarter right-facing view and costume palette/crest match the approved setting art; shoulders remain inside the frame. Exact pure-magenta background and visible margins of at least 23px on all edges. No weapons or lettering.",
+  "ocrResult": {
+    "name": "織田信長_HUD顔アイコン.png",
+    "text": "",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded with no text detected; post-OCR visual inspection completed.",
+  "gitVerified": true,
+  "gitSha256Verified": true,
+  "gitCommit": "6a2632e5125d527bbb599dd4c6c8668a5202258a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "6a2632e5125d527bbb599dd4c6c8668a5202258a",
+  "gitVerifiedAt": "2026-10-07T08:26:43+09:00",
+  "reviewDate": "2026-10-07"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "会話肖像_真田幸村_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-c35c660e-3bf6-409e-8062-7e0018d8944d.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_真田幸村_v1.png",
+  "kind": "dialogue_portrait",
+  "status": "git_verified",
+  "attempts": 4,
+  "cellSpecificationApplicable": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alphaZeroPixels": 907661,
+  "bbox": [
+    43,
+    21,
+    1158,
+    1221
+  ],
+  "sha256": "5aa010b8f51451ef206116425de226bd45116ecafcdee02523026f1780744d3f",
+  "visualReview": "既存設定の顔、赤備え、金六文銭、角兜、赤襟巻を確認。胸上右向き3/4、渋い絵画調、全兜と肩の輪郭・透過余白あり。会話用別規格。",
+  "qaResult": "OK",
+  "ocrReview": "勹 00 い , は六文銭・甲冑模様の誤認。目視で文字なし。",
+  "gitVerified": true,
+  "gitCommit": "0cc65557eb004109fe23ae8f4666f85dd9b23319"
+}

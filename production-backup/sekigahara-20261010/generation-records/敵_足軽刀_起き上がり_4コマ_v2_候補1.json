@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_起き上がり_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-bb10971f-e5d7-4811-a175-5e2e1519d943.png",
+  "prompt": "Create FOUR-frame get-up animation of exact blue katana ashigaru in reference1 idle; reference2 knockdown gives starting back-lying pose (lastcell). Same conical hat, stubble, rolled sleeves/no shoulderplates, blackarmorbluehakama, greaves/sandals, waistscabbard, katana. 1liesonback kneesbent, RIGHT hand retains katana upright diagonal, LEFT arm preparing groundsupport;2roll hips onto rear side and props torso with LEFT hand onground, RIGHT hand keeps katana safe outofbody;3brings front foot under knee, one rear knee onground, pushes hips up, bothhands return katana low;4LOW combat ready matches idle with bothhands katana low ahead. Show distinct arm support, hiproll, legplant and standing recovery, no rotationofportrait. Same anatomical scale across4, standing equivalent80%cellheight, ground90%; body/sword/scabbardallcompletewithinown square16pxmargins, all faceandtoesright. FOUR equalsquarecells one horizontal row, one whole soldier/action percell, opaque pure#FF00FF background no textshadowgridborders.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

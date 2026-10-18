@@ -1,0 +1,106 @@
+{
+  "name": "上杉景勝_手ぶら_攻撃A_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-484d08c2-47ae-4c3f-8321-544fc304bac5.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_手ぶら_攻撃A_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.49074074074074076,
+  "sourceBounds": [
+    [
+      86,
+      23,
+      429,
+      452
+    ],
+    [
+      577,
+      20,
+      933,
+      452
+    ],
+    [
+      1045,
+      31,
+      1443,
+      452
+    ],
+    [
+      52,
+      529,
+      496,
+      954
+    ],
+    [
+      604,
+      526,
+      947,
+      954
+    ]
+  ],
+  "placements": [
+    [
+      44,
+      19,
+      168,
+      211
+    ],
+    [
+      40,
+      18,
+      175,
+      212
+    ],
+    [
+      30,
+      23,
+      195,
+      207
+    ],
+    [
+      19,
+      21,
+      218,
+      209
+    ],
+    [
+      44,
+      20,
+      168,
+      210
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 74%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "OK",
+  "sha256": "713735a773e1cea090254a14f13b9dccc1718763eb644891c76e2687bc490543",
+  "visualApproved": true,
+  "visualReview": "Viewed all five decoded GIF frames and idle comparison: ready, overhead windup, diagonal downward swing, low follow-through, recovery. Same navy silver armor, crescent helmet, cape, Bishamonten banner, empty hands; no effects, clipping or neighboring frame. Both soles grounded at230px. Common scale, pose-related knee flexion and foreshortening. OCR empty.",
+  "normalizationReview": "Whole connected character components retained and uniformly resized; source cell boundary bands contained empty magenta only, no character pixels intersected. Body and flag inside16px margins.",
+  "gitVerified": true,
+  "gitCommit": "9ecd9cfcae946290e1ca387aafb0cf889e9aaac7",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "713735a773e1cea090254a14f13b9dccc1718763eb644891c76e2687bc490543",
+  "prompt": "Create FIVE animation frames of Uesugi Kagekatsu UNARMED downward diagonal two-hand swing. Reference1 exact established character and proportions; reference2 exact identity/navy-silver armor, crescent helmet, dark cape, navy Bishamonten back banner. Retain every helmet/armor/banner/body design. EMPTY clenched hands together as imaginary two-handed sword grip, NO actual sword, weapon or stick. Chronological frames:1 low combat ready facing right, fists near waist;2 both EMPTY fists raised above right shoulder, elbows bent, torso winds back;3 heavy diagonal downward swing across chest toward RIGHT while front foot steps, hips rotate;4 fists finish LOW in front of right knee, deep grounded front lunge, rear leg supports;5 both fists recover waist guard. All five face RIGHT and keep both feet on ground, no jumping. Clearly different arm heights, weight shift, anticipation/impact/follow-through/recovery. Identical anatomical sizes throughout, no shrinking during swing. Full helmet crescent, hands, cape, boots and entire flag pole/cloth within each frame. No effects, light, slash arcs, flames, shadows, numbers, labels, text except the existing banner emblem. Solid #FF00FF background. Layout intermediate ATLAS3columns x2rows, FIVE isolated full-body characters in row-major order, last bottom-right cell blank. Equal square cells, large blank gutters, NO grid lines. Body helmet-to-sole around80% cellheight, soles at90%. Will pack into1280x256 strip.",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T13:04:14.097671+09:00"
+}

@@ -1,0 +1,70 @@
+{
+  "name": "猿飛佐助_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-8ac5ccf1-6908-4bd5-bb4a-a63c3ad93191.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\猿飛佐助_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3281733746130031,
+  "sourceBounds": [
+    [
+      302,
+      109,
+      648,
+      755
+    ],
+    [
+      1103,
+      165,
+      1505,
+      755
+    ]
+  ],
+  "placements": [
+    [
+      71,
+      18,
+      114,
+      212
+    ],
+    [
+      62,
+      36,
+      132,
+      194
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "c8bf651575800216d9c540486ce580c1dc438843874fcd3a6212f4b82ace6604",
+  "prompt": "Two damage reactions from canonical Sasuke idle. Same ninja design, grounded, blade retained.",
+  "char": "猿飛佐助",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "待機絵に比べ胴回りと腕の太さ、腰道具の細部に差がある。被弾動作と接地は確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "5330343318077f372c0a9a9acf5b38ebb47ad250",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "c8bf651575800216d9c540486ce580c1dc438843874fcd3a6212f4b82ace6604",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:32:14.769548+09:00"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "敵_弓足軽_ダウン_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-7c41a805-4a95-421d-b17d-30ffc162fae1.png",
+  "prompt": "Correct this SAME fourframe archer knockdown to exactsequence:1hit,2thrownbackward AIRBORNE,3LYING ON BACK,4SMALL BOUNCE ON BACK. Current3and4seatedarewrong. REDRAW3 lying supine torso nearlyhorizontal faceup/right, shoulders/backgrounded, hipsgrounded, kneesfolded up, compactfeet toRIGHT; left handkeepsbow diagonal closeoverknees. Frame4 same supinepose small recoilbounce headandknees slightlylifted, backstilllow, bowstillheld. Frame2 compactkneesforward/right and two sandalprofileswithtoespointingRIGHT rather than downward viewer. Sameexactheadtorso and limb lengths all4 asstandingframe1, no smallerlyingfigure. Fit byfoldingknees/elbows and cantingbow, notbodyshrink. Bowcurvecomplete, stringtwoends, quiverconsistent. Allwholefigures horizontalrow4 equalsquarecells, pureopaque#FF00FF no text shadows grids borders.",
+  "attempt": 2,
+  "status": "candidate_pending_QA"
+}

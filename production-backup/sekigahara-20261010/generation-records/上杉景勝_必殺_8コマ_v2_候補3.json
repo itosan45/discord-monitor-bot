@@ -1,0 +1,169 @@
+{
+  "name": "上杉景勝_必殺_8コマ_v2.png",
+  "candidate": 3,
+  "status": "hold_no_delivery_due_to_existing_no_regeneration_instruction",
+  "char": "上杉景勝",
+  "action": "必殺",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-8339e2d8-27e7-401a-b459-fac9bc4918aa.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\上杉景勝_待機_4コマ.png",
+  "prompt": "Make one final targeted edit of the attached 4x2 storyboard atlas. Preserve the same Kagekatsu design, all eight poses, uniform character anatomy and the precise same full-body scale as the idle reference. Critical: keep the helmet-to-sandal character height about 210-220 px in each final 256x256 cell, and keep the soles on y=230. Do not shrink the person. Redraw the lightning as compact short blue-white sparks close to the katana and a small ground-contact flash only; no tall arcs, large halos, wide beams or long trails. Keep every non-magenta pixel (including effects, banner, cape and blade) within x=16..239 and y=16..229 in its own frame. Four columns by two rows, frames 1-4 then 5-8. The motion remains: ready, raise, charge, overhead, start cut, impact, low follow-through, recover. Keep all gear unchanged. Flat pure #FF00FF, no text, borders, grid lines, shadows or other characters. This is the final correction attempt; prioritize the size and cell margins over elaborate effects.",
+  "createdAt": "2026-10-08",
+  "correctionReason": "candidate2 still undersized at safe uniform fit",
+  "noFurtherRegenerationPlanned": true,
+  "sourceDimensions": "1774x887",
+  "sourceSha256": "e7cd5180089c055b8abd827ef16d965c2c7327ecf932d68999fc84061302b361",
+  "normalizedCandidate": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\candidate\\上杉景勝_必殺_8コマ_v2_候補3.png",
+  "normalizedSha256": "c672d5083f5ef6d8290bd9b50631f912ed98334c2ba1023b32011bd5e447c2fa",
+  "normalization": {
+    "scale": 0.55,
+    "groundY": 230,
+    "method": "uniform whole-frame scale; per-frame crop and center; no part redrawn"
+  },
+  "metrics": [
+    {
+      "frame": 1,
+      "source_bbox": [
+        45,
+        85,
+        404,
+        439
+      ],
+      "size": [
+        197,
+        195
+      ],
+      "position": [
+        29,
+        35
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 2,
+      "source_bbox": [
+        37,
+        84,
+        385,
+        439
+      ],
+      "size": [
+        191,
+        195
+      ],
+      "position": [
+        288,
+        35
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 3,
+      "source_bbox": [
+        57,
+        85,
+        342,
+        439
+      ],
+      "size": [
+        157,
+        195
+      ],
+      "position": [
+        561,
+        35
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 4,
+      "source_bbox": [
+        83,
+        52,
+        373,
+        439
+      ],
+      "size": [
+        160,
+        213
+      ],
+      "position": [
+        816,
+        17
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 5,
+      "source_bbox": [
+        41,
+        70,
+        404,
+        408
+      ],
+      "size": [
+        200,
+        186
+      ],
+      "position": [
+        1052,
+        44
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 6,
+      "source_bbox": [
+        38,
+        74,
+        378,
+        410
+      ],
+      "size": [
+        187,
+        185
+      ],
+      "position": [
+        1314,
+        45
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 7,
+      "source_bbox": [
+        44,
+        72,
+        410,
+        409
+      ],
+      "size": [
+        201,
+        185
+      ],
+      "position": [
+        1563,
+        45
+      ],
+      "feet_y": 230
+    },
+    {
+      "frame": 8,
+      "source_bbox": [
+        51,
+        70,
+        397,
+        409
+      ],
+      "size": [
+        190,
+        186
+      ],
+      "position": [
+        1825,
+        44
+      ],
+      "feet_y": 230
+    }
+  ],
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-19546dcd-eb05-471d-8460-d93fbcfcb4fe.png"
+}

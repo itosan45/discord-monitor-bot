@@ -1,0 +1,141 @@
+{
+  "name": "石田三成_起き上がり_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_起き上がり_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4e7c1255-3883-4028-90f2-648c3afde407.png",
+  "status": "git_verified",
+  "scale": 0.3867924528301887,
+  "standingHeightSource": 530.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        6,
+        315,
+        549,
+        631
+      ],
+      "destination": [
+        23,
+        109,
+        210,
+        122
+      ],
+      "scale": 0.3867924528301887,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        558,
+        273,
+        1095,
+        631
+      ],
+      "destination": [
+        24,
+        93,
+        208,
+        138
+      ],
+      "scale": 0.3867924528301887,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1120,
+        118,
+        1596,
+        622
+      ],
+      "destination": [
+        36,
+        36,
+        184,
+        195
+      ],
+      "scale": 0.3867924528301887,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1647,
+        94,
+        2166,
+        627
+      ],
+      "destination": [
+        27,
+        25,
+        201,
+        206
+      ],
+      "scale": 0.3867924528301887,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "c6151c5440a36a59b59c760a5a8865738b385f866f2af84451eec782429024f9",
+  "backgroundSource": [
+    235,
+    24,
+    237
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 74%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの65%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    19519,
+    24862,
+    25012,
+    27320
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_起き上がり_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\石田三成_起き上がり_4コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "action": "起き上がり4コマ: 仰向け → 横向き → 片膝 → 低い構え",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "ishida-getup-v2-record.json",
+  "qaNote": "仰向け→横向き→片膝→低い構えの4段階を確認。規格OK、人物65%、OCR成功で文字なし、GIF 4コマ復号80ms、復号後目視OK。",
+  "visualReview": "三成の紫金装束・金扇形前立・火縄銃と鉄扇を維持。仰向け→横向き→片膝→低い戦闘姿勢の4段階が明確。セル間の接触なし。GIF復号後も確認。",
+  "ocrReview": "OCR成功、文字列なし",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

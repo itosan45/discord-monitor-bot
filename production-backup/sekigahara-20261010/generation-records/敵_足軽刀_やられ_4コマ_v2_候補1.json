@@ -1,0 +1,7 @@
+{
+  "name": "敵_足軽刀_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-61627345-744b-416b-bfc0-7f2f457bf89b.png",
+  "prompt": "Create FOUR-frame defeated/death animation for EXACT blue katana ashigaru in attached idle: no shoulderplates, rolled sleeves, stubble, conical hat, black armor, blue trousers, straw sandals, waist scabbard, curvedkatana. His distinct defeat:1staggers, frontknee buckles, upperbody folds in pain, swordgriploosens;2drops katana onto ground in front and sinks onto bothknees, shouldersdroop;3tips FORWARD onto forearms from kneeling, hips lowering, headstillright;4lies motionless on rightside/stomach with legs curled, face right, sword onground nearby. Not spear soldier's backward fall. Show weight transfer and collapse, no gore. Complete sword/hilt/scabbard, same anatomical dimensions allframes, standing equiv80%cellheight, no shrinking lyingbody, lowestpoint90%height, allartcentral86%widthwith16pxmargins. FOUR equally sized squarecells single horizontal strip, one whole soldier/action percell, pure opaque solid #FF00FF no shadows/text/grid/borders.",
+  "attempt": 1,
+  "status": "candidate_pending_QA"
+}

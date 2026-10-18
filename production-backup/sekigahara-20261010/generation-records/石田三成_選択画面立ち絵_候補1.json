@@ -1,0 +1,64 @@
+{
+  "name": "石田三成_選択画面立ち絵.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "prompt": "Create ONE vertical 2:3 full-body character illustration for the Sekigahara Ranbu player selection screen: Ishida Mitsunari. Follow this established character design: a lean, stern Japanese commander, long black hair beneath a tall helmet bearing a broad gold folding-fan crest, dark iron and muted gold armor, ivory sleeves, richly patterned purple over-robe, restrained fan-and-flower motifs, narrow calculating eyes, fine moustache and short pointed goatee. Keep the fan-shaped crest recognizable and avoid invented writing. He stands in a composed battle-ready three-quarter pose facing right, full helmet to both sandals visible, a closed black-and-gold war fan held low in his left hand. Strong dignified silhouette, sober and elegant. Render as polished 2D Japanese historical action-game key art: expressive inked contour lines, painterly cel shading, controlled textured brush highlights, clear color blocks, deliberate graphic shapes; match a classic illustrated sprite sheet, not a photo, 3D render, or realistic photograph. Place the whole figure centered and entirely inside the frame with at least 6 percent plain background around helmet, sleeves, robe and feet. Flat uniform pure magenta #FF00FF background, no cast shadow. One figure only, no text, labels, calligraphy, seal, frame, scenery, glow, extra weapons, or extra characters. Readable when reduced to a 512x768 game portrait.",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-853052b4-4eec-4fe7-b8bc-4c8b28587bbe.png",
+  "sourceSha256": "b980cf646cd35ebc18d2b2a89cb6e0ba39cf0ef566a234caa5e61d8c10f18ea0",
+  "referenceAsset": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "status": "git_verified",
+  "kind": "selection_art",
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "sourceForegroundBounds": [
+    140,
+    15,
+    937,
+    1512
+  ],
+  "matteBackground": [
+    242,
+    22,
+    239
+  ],
+  "outputSize": [
+    512,
+    768
+  ],
+  "outputForegroundBounds": [
+    62,
+    20,
+    450,
+    748
+  ],
+  "margins": [
+    62,
+    20,
+    62,
+    20
+  ],
+  "contentSize": [
+    388,
+    728
+  ],
+  "pureMagentaRatio": 0.617828369140625,
+  "sha256": "52ed0b55308ac8ff32f97703e217ed6c01a707e3ef4769e1d4d32e452ac71c79",
+  "method": "finish_sprites.py selection crop/thumbnail logic; only this new candidate processed",
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_選択画面立ち絵.png",
+  "dimensions": [
+    512,
+    768
+  ],
+  "qaResult": "OK",
+  "ocrResult": {
+    "success": true,
+    "text": ""
+  },
+  "ocrReview": "Windows OCR success, no text; post-OCR visual review completed.",
+  "visualReview": "全身絵。黒髪・扇形前立て・紫金衣装を確認。扇・頭・両脚先まで全身が收まる。規定512x768、全周20px以上、背景純マゼンタ、OCR空、設定画と一致する2D絵柄を目視。",
+  "gitVerified": true,
+  "gitCommit": "c7d4eb091629648bfcb0b62237ddd8f82a90bd64"
+}

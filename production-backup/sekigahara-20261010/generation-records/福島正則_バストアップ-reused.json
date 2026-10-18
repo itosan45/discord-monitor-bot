@@ -1,0 +1,37 @@
+{
+  "name": "福島正則_バストアップ.png",
+  "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\福島正則_会話肖像.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\福島正則_バストアップ.png",
+  "size": [
+    512,
+    512
+  ],
+  "mode": "RGB",
+  "sourceBounds": [
+    64,
+    74,
+    1190,
+    1190
+  ],
+  "placement": [
+    64,
+    67
+  ],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sha256": "860dd53c75d4f7d83f9cd56bb2e0a6f310c272525b92bf5176f01be498484d1e",
+  "updatedAt": "2026-10-07T12:54:40.064758+09:00",
+  "kind": "ui",
+  "char": "福島正則",
+  "derivedFromApprovedPortrait": true,
+  "generationCalls": 0,
+  "prompt": "Reuse approved dialogue portrait; uniform resize and composite on pure magenta, no design changes.",
+  "gitVerified": true,
+  "gitCommit": "f06ec611457288847d08e25081f1068e692495ee",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "qaResult": "OK",
+  "visualReview": "Approved identical character, full helmet and shoulders within margins, pure magenta and native OCR reviewed.",
+  "ocrSuccess": true,
+  "ocrText": "0"
+}

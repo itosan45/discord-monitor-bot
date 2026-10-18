@@ -1,0 +1,150 @@
+{
+  "name": "筧十蔵_やられ_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\筧十蔵_やられ_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-df7b8d02-69f5-4453-bd54-24b725140456.png",
+  "status": "git_verified_caution",
+  "scale": 0.37683823529411764,
+  "standingHeightSource": 544.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        76,
+        118,
+        484,
+        636
+      ],
+      "destination": [
+        51,
+        36,
+        154,
+        195
+      ],
+      "scale": 0.37683823529411764,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        579,
+        142,
+        1022,
+        636
+      ],
+      "destination": [
+        44,
+        45,
+        167,
+        186
+      ],
+      "scale": 0.37683823529411764,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1058,
+        223,
+        1506,
+        630
+      ],
+      "destination": [
+        43,
+        78,
+        169,
+        153
+      ],
+      "scale": 0.37683823529411764,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1547,
+        455,
+        2141,
+        644
+      ],
+      "destination": [
+        16,
+        160,
+        224,
+        71
+      ],
+      "scale": 0.37683823529411764,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "845ae85ab3f50b0454b1aa9bac5e97ef2a93050b7b9b96870b3369442b6d4842",
+  "backgroundSource": [
+    238,
+    23,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "255,760,1240,1750",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの66%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    17263,
+    17381,
+    16294,
+    21162
+  ],
+  "deliveryCandidatePath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\筧十蔵_やられ_4コマ_v1_retry_scale.png",
+  "finalPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\筧十蔵_やられ_4コマ_v1.png",
+  "attempts": 1,
+  "scaleNormalizationAttempts": [
+    {
+      "note": "long rifle in frame4 leaves only 8px; rejected",
+      "minimumMargin": 8,
+      "scale": 0.4019607843,
+      "automaticPass": false
+    },
+    {
+      "note": "all frames fit; slight size caution vs idle",
+      "minimumMargin": 16,
+      "scale": 0.3768382353,
+      "automaticPass": true
+    }
+  ],
+  "sourceSha256": "bfe3cc3f00d61362642e945a2f16dba2157be5f00ae09b4c92942610ab6a24da",
+  "visualApproved": true,
+  "visualReview": "Four distinct defeat stages: upright recoil, knees bending while holding matchlock, one-knee collapse, supine fall. Kakei Tenzo design, red headband, brown-red armor, six-coin chest mark, powder pouches and single matchlock consistent; no clipped weapon or neighboring-cell pixels. Uniform body scale. Caution: standing frame about 76% cell height versus idle 81% (slightly smaller to maintain 16px safe margin for long matchlock).",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "ocrManifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa-ocr\\20261008_kakei_defeat_v1\\manifest.json",
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "gitVerified": true,
+  "gitCommit": "7bd0857d65991797f9d12387caa53d12276d1d53",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "845ae85ab3f50b0454b1aa9bac5e97ef2a93050b7b9b96870b3369442b6d4842",
+  "qaResult": "30 checker PASS (air); Windows OCR success, blank; GIF4/80ms decoded and visually inspected; remote SHA and Git blob match. Caution: standing frame is slightly smaller than idle to fit long matchlock with 16px margin.",
+  "completedAt": "2026-10-08T10:53:24+09:00"
+}

@@ -1,0 +1,42 @@
+{
+  "commit": "536bdf4548c6609ba4c24243c8a06217b4950be9",
+  "remote": "536bdf4548c6609ba4c24243c8a06217b4950be9",
+  "verifiedAt": "2026-10-06T15:32:02.512974+00:00",
+  "assets": [
+    {
+      "taskName": "拾得武器_薙刀_v1.png",
+      "name": "拾得武器_薙刀_v1.png",
+      "sha256": "7ddf3eb7f81f05269d4e6713b18f7a53290c69f01b6b1db10ae0bed28b03f193",
+      "qaResult": "要注意",
+      "record": "pickup-naginata-record.json"
+    },
+    {
+      "taskName": "拾得武器_鎖鎌_v1.png",
+      "name": "拾得武器_鎖鎌_v1.png",
+      "sha256": "200c0f2303cc9beba21ede21f96a607d417494136668f57d4399f6da4b5181f6",
+      "qaResult": "OK",
+      "record": "pickup-kusarigama-record.json"
+    },
+    {
+      "taskName": "回復アイテム_おにぎり_v1.png",
+      "name": "回復アイテム_おにぎり_v1.png",
+      "sha256": "66b7ba8c03c9d8b154256da7a94c85aed90621b8abf6dae72280f3608dacba30",
+      "qaResult": "OK",
+      "record": "pickup-onigiri-record.json"
+    },
+    {
+      "taskName": "回復アイテム_兵糧_v1.png",
+      "name": "回復アイテム_兵糧_v1.png",
+      "sha256": "c2c782dd2b519fe15243dd7a420a9e34ef276c4ad8acf88a5c7813f15edde600",
+      "qaResult": "OK",
+      "record": "pickup-ration-record.json"
+    },
+    {
+      "taskName": "回復アイテム_酒_v1.png",
+      "name": "回復アイテム_酒_v1.png",
+      "sha256": "e8c3f6e964279b8eb6233c8c83737fa6eeefe8461b73172db4ed54a9231fb817",
+      "qaResult": "OK",
+      "record": "pickup-sake-record.json"
+    }
+  ]
+}

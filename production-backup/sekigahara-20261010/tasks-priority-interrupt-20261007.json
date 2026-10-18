@@ -1,0 +1,703 @@
+[
+  {
+    "name": "上杉景勝_選択画面立ち絵.png",
+    "priority": 1,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a5df1cc2-9300-44db-a5b4-209640aeaedf.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_選択画面立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      63,
+      16,
+      984,
+      1462
+    ],
+    "placement": [
+      26,
+      24
+    ],
+    "candidateCount": 1,
+    "sha256": "f20a3d35288357540880dded53955f39d1bdedf0d99a4c6def092d0265099bff",
+    "updatedAt": "2026-10-07T12:07:41.007260+09:00",
+    "gitCommit": "989df23f1e96b60ffd9a6f0f9b7023483ca9abd5",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "f20a3d35288357540880dded53955f39d1bdedf0d99a4c6def092d0265099bff",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive."
+  },
+  {
+    "name": "真田幸村_必殺_8コマ_v3.png",
+    "priority": 2,
+    "size": [
+      2048,
+      256
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-de60deb8-f90c-4723-928b-6fde9390b108.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_必殺_8コマ_v3.png",
+    "mode": "RGB",
+    "n": 8,
+    "cell": 256,
+    "candidateCount": 3,
+    "uniformScale": 0.5871794871794872,
+    "sourceBounds": [
+      [
+        107,
+        31,
+        321,
+        420
+      ],
+      [
+        493,
+        32,
+        855,
+        420
+      ],
+      [
+        916,
+        36,
+        1287,
+        420
+      ],
+      [
+        1411,
+        33,
+        1709,
+        420
+      ],
+      [
+        46,
+        462,
+        395,
+        838
+      ],
+      [
+        463,
+        456,
+        825,
+        839
+      ],
+      [
+        945,
+        456,
+        1283,
+        838
+      ],
+      [
+        1481,
+        456,
+        1691,
+        846
+      ]
+    ],
+    "placements": [
+      [
+        65,
+        18,
+        126,
+        228
+      ],
+      [
+        21,
+        18,
+        213,
+        228
+      ],
+      [
+        19,
+        21,
+        218,
+        225
+      ],
+      [
+        40,
+        19,
+        175,
+        227
+      ],
+      [
+        25,
+        25,
+        205,
+        221
+      ],
+      [
+        21,
+        21,
+        213,
+        225
+      ],
+      [
+        29,
+        22,
+        198,
+        224
+      ],
+      [
+        66,
+        17,
+        123,
+        229
+      ]
+    ],
+    "checkResults": [
+      "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+      "OK 人物の高さ（中央値）はセルの88%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+      "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+    ],
+    "gifDecodedFrames": 8,
+    "gifDurationsMs": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "qaResult": "OK",
+    "sha256": "8113d544175507e8c5ba38a8d6280e5d121f94498ac91e24ca8d37338058d4d5",
+    "ocrSuccess": true,
+    "ocrText": "物 .1 一",
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "visualReview": "Decoded all8 frames at80ms. Right-facing, same uniform scale, both feet grounded; full six-coins flag and cross spear retained; thrust/sweep/finish, no effects/cropping/neighbors. Ground245 matches existing idle reference soles.",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "8113d544175507e8c5ba38a8d6280e5d121f94498ac91e24ca8d37338058d4d5"
+  },
+  {
+    "name": "真田幸村_通常2_5コマ_v3.png",
+    "priority": 3,
+    "size": [
+      1280,
+      256
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-a7a59fad-a59a-4d9a-869e-6aa2be2c3278.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_通常2_5コマ_v3.png",
+    "mode": "RGB",
+    "n": 5,
+    "cell": 256,
+    "candidateCount": 4,
+    "uniformScale": 0.5586034912718204,
+    "sourceBounds": [
+      [
+        149,
+        7,
+        495,
+        392
+      ],
+      [
+        797,
+        7,
+        1153,
+        392
+      ],
+      [
+        1486,
+        6,
+        1853,
+        392
+      ],
+      [
+        189,
+        400,
+        590,
+        782
+      ],
+      [
+        804,
+        399,
+        1197,
+        782
+      ]
+    ],
+    "placements": [
+      [
+        31,
+        31,
+        193,
+        215
+      ],
+      [
+        28,
+        31,
+        199,
+        215
+      ],
+      [
+        25,
+        30,
+        205,
+        216
+      ],
+      [
+        16,
+        33,
+        224,
+        213
+      ],
+      [
+        18,
+        32,
+        220,
+        214
+      ]
+    ],
+    "checkResults": [
+      "OK 純マゼンタの割合 75%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+      "OK 人物の高さ（中央値）はセルの84%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+      "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+    ],
+    "gifDecodedFrames": 5,
+    "gifDurationsMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "qaResult": "OK",
+    "sha256": "d751931a1ac81b192463825f93665259e9639a4d12f85ec014a0e7eaf638e5b8",
+    "ocrSuccess": true,
+    "ocrText": "",
+    "visualReview": "All5 decoded frames at80ms reviewed. Clear right-to-left two-hand spear sweep using perspective, no kicks/effects. Right-facing same redarmor/antlerhelmet/six-coins flag. Uniform whole-character scale; head/torso compared with existing idle and special at256px; same ground245, full intact equipment and no neighbors.",
+    "prompt": "LOCALIZED weapon perspective edit to ONLY the upper-left and lower-left poses in this exact image. Preserve all5 people/anatomy/head sizes, legs, feet, armor, flags, faces, remaining3 poses, pure magenta and current atlas layout. Upper-left pose1: its feet occupy x148..493 in source1983x793. Move its cross-spear TIP from x582 to approximately x470, by pointing the blade more toward camera in depth and foreshortening the shaft. Keep both gripping hands and body unchanged. Lower-left pose4: feet occupy x230..590. Move spear TIP from x118 to approximately x250, again use strong depth perspective while still clearly aiming left; shorten projected pole/blade length by50percent. Keep BOTH hands and body unchanged. The ENTIRE weapon silhouette in each edited pose must stay horizontally BETWEEN that pose's leftmost and rightmost boot. No pole sticking beyond feet. This retains a large leftward sweep with perspective and permits game character body to stay same scale as idle. Do not shrink ANY person. Keep other3 poses pixel composition unchanged. No text, outlines, effects, trail, glow, new objects or background. Exactly5 isolated figures, lastlower-right empty.",
+    "gitCommit": "6f00e5bed4776d17a1297d35226222ca8835e6c3",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "d751931a1ac81b192463825f93665259e9639a4d12f85ec014a0e7eaf638e5b8"
+  },
+  {
+    "name": "真田幸村_討死立ち絵.png",
+    "priority": 4,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-08436bc1-e292-4580-b3a1-c1ccfaa561a8.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\真田幸村_討死立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      36,
+      29,
+      981,
+      1485
+    ],
+    "placement": [
+      24,
+      29
+    ],
+    "candidateCount": 1,
+    "sha256": "c61c6cae4e1192c3e5afef364bcd2241df829ead638295b254e14d589cefc148",
+    "updatedAt": "2026-10-07T12:18:53.460420+09:00",
+    "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 真田幸村. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing jumonji cross spear is held upright, its butt planted firmly on ground; preserve six-coins back flag and antler helmet. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+    "ocrText": "00",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "c61c6cae4e1192c3e5afef364bcd2241df829ead638295b254e14d589cefc148"
+  },
+  {
+    "name": "上杉景勝_討死立ち絵.png",
+    "priority": 4,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-32d0f155-7181-486a-9c1c-3680fed8fcad.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\上杉景勝_討死立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      52,
+      16,
+      975,
+      1466
+    ],
+    "placement": [
+      27,
+      24
+    ],
+    "candidateCount": 1,
+    "sha256": "be7961af35802efba199bcad8fa9416f07651a227bfd3e51c05d90f2ca9c7113",
+    "updatedAt": "2026-10-07T12:18:53.667018+09:00",
+    "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 上杉景勝. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing katana is drawn and held point-down with its tip planted into ground. Preserve navy flag and exact white emblem. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "be7961af35802efba199bcad8fa9416f07651a227bfd3e51c05d90f2ca9c7113"
+  },
+  {
+    "name": "石田三成_討死立ち絵.png",
+    "priority": 4,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-2da8e1e4-6916-4354-aa84-10fee46f9f67.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\石田三成_討死立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      111,
+      31,
+      938,
+      1504
+    ],
+    "placement": [
+      54,
+      24
+    ],
+    "candidateCount": 1,
+    "sha256": "a027c02c7712a169e1e0ac9cc2aa1cf288b85a1d3609063f07b3cfc53218ea16",
+    "updatedAt": "2026-10-07T12:18:53.865196+09:00",
+    "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 石田三成. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing katana is drawn and held point-down with tip planted into ground; preserve the fan in the other hand, gold fan helmet crest and purple/ivory patterned garments. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "a027c02c7712a169e1e0ac9cc2aa1cf288b85a1d3609063f07b3cfc53218ea16"
+  },
+  {
+    "name": "織田信長_討死立ち絵.png",
+    "priority": 4,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-df5346ef-736d-4ff1-a7f9-14033c51c33a.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\織田信長_討死立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      116,
+      47,
+      957,
+      1489
+    ],
+    "placement": [
+      46,
+      24
+    ],
+    "candidateCount": 1,
+    "sha256": "a402e7d6f213552bbc8605e43d79effa2207a0fb19ba7347e0ab3c06f67c778c",
+    "updatedAt": "2026-10-07T12:18:54.065273+09:00",
+    "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 織田信長. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing katana is drawn and held point-down, tip planted into ground. Preserve red cape, black/red/gold armor and crescent helmet. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "a402e7d6f213552bbc8605e43d79effa2207a0fb19ba7347e0ab3c06f67c778c"
+  },
+  {
+    "name": "武田信玄_討死立ち絵.png",
+    "priority": 4,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-e7f83c5b-9913-470b-93e0-7a1a6b6cd691.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_討死立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      78,
+      31,
+      948,
+      1483
+    ],
+    "placement": [
+      40,
+      24
+    ],
+    "candidateCount": 1,
+    "sha256": "a480cad7e16f5ece4ec3a7a29726c8d4526a9c726e64fb197c3b72f68ebd188f",
+    "updatedAt": "2026-10-07T12:18:54.267955+09:00",
+    "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 武田信玄. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His existing waist katana is drawn and held point-down with tip planted into ground; preserve gunbai fan in other hand, white fur mane, helmet, red/gold armor. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "a480cad7e16f5ece4ec3a7a29726c8d4526a9c726e64fb197c3b72f68ebd188f"
+  },
+  {
+    "name": "宮本武蔵_討死立ち絵.png",
+    "priority": 4,
+    "size": [
+      512,
+      768
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d8abf511-7d32-4720-889d-4f564e9d0aa0.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_討死立ち絵.png",
+    "mode": "RGB",
+    "sourceBounds": [
+      156,
+      47,
+      869,
+      1490
+    ],
+    "placement": [
+      78,
+      24
+    ],
+    "candidateCount": 1,
+    "sha256": "fbaa40c94017f2a4dd340b0e57a4b996f893b9f9d4b57fb6a26ad1e5c5b13a92",
+    "updatedAt": "2026-10-07T12:18:54.473776+09:00",
+    "prompt": "Edit the referenced character-selection illustration into ONE heroic last-stand full-body illustration of 宮本武蔵. STRICT preserve same exact individual, face, body build, helmet/headgear, armor colors, crests, clothing, back flag if present, painterly game style, near-front three-quarter composition, camera and figure scale. 512x768 portrait, uniform pure #FF00FF background, all hair/helmet/flag/weapon/feet fully inside image with at least24px margins. Standing upright firmly on both feet, calm serene dignified expression, resolved final moment. Armor or clothing has visible battle scratches and tears, dark red blood stains and mud on surfaces; no graphic wounds or gore. His long katana is held point-down with tip planted into ground, his short sword remains in other hand at side. Preserve unarmored muscular build, ragged brown robes, headband and wraps; do NOT add armor or helmet. Keep original equipment physically credible, retain face visible. No effects, flames, light, glow, dust, background scenery, shadows, captions or UI. Exactly one character, no separate panels.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "qaResult": "OK",
+    "visualReview": "Full figure/helmet/equipment visible with24px border; reference design, blood/mud/scratches and calm resolved expression reviewed.",
+    "gitCommit": "3d3b3bdc2eb6a0052682fb0452cbe5045ead81c9",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "fbaa40c94017f2a4dd340b0e57a4b996f893b9f9d4b57fb6a26ad1e5c5b13a92"
+  },
+  {
+    "name": "福島正則_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-dca4e7e2-1897-4e41-9dad-90ef2681ad13.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\福島正則_会話肖像.png",
+    "mode": "RGBA",
+    "sourceBounds": [
+      0,
+      11,
+      1254,
+      1254
+    ],
+    "placement": [
+      64,
+      74
+    ],
+    "candidateCount": 2,
+    "sha256": "63f8f796d5529bee650981273e2379caad6bf89f6d4b9107fbde59a29b45f33e",
+    "updatedAt": "2026-10-07T12:27:27.123763+09:00",
+    "prompt": "Make a localized crest correction ONLY to reference1 dialogue portrait of 福島正則. Reference2 is the original exact character design. Preserve every aspect of reference1: left-facing face, helmet shape, armor colors, hair, shoulders, lighting, square chest-up composition and transparent alpha. The generated portrait incorrectly copied Tokugawa three-leaf aoi crests from a style reference. Replace ALL three-leaf aoi emblems on helmet/chest/shoulders with gold five-petal plum blossom crests EXACTLY matching the same emblem in original character reference2. Five rounded petals around small round center, not three leaves. Match original emblem metal colors. Do not change face, expression, armor shape, pose, crop or dimensions.1254x1254 transparent PNG, no text, effects or background.",
+    "ocrSuccess": true,
+    "ocrText": "",
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "qaResult": "OK",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "63f8f796d5529bee650981273e2379caad6bf89f6d4b9107fbde59a29b45f33e"
+  },
+  {
+    "name": "小早川秀秋_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-f873d3f7-e89e-4ba3-851d-b8dacd77d7c6.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\小早川秀秋_会話肖像.png",
+    "mode": "RGBA",
+    "sourceBounds": [
+      31,
+      12,
+      1231,
+      1237
+    ],
+    "placement": [
+      75,
+      64
+    ],
+    "candidateCount": 1,
+    "sha256": "6b40c693ca7db9464ae7c5cfb1cd0e18861c9e80651ae10777edf8d3853d2fa4",
+    "updatedAt": "2026-10-07T12:22:23.520812+09:00",
+    "prompt": "Create ONE dialogue bust portrait of 小早川秀秋, facing LEFT, chest and shoulders up. Reference1 is STRICT character identity: exactly same face, age, build, hairstyle/helmet silhouette, armor colors and crests. Reference2 is ONLY visual style, square canvas and composition: detailed gritty dramatic Japanese samurai game illustration, strong lifelike facial anatomy, rich shaded armor, full shoulders and entire helmet/hair visible. Match the existing Ieyasu dialogue portrait's1254x1254 canvas, left-facing three-quarter view, bust composition and transparent background. Character 小早川秀秋 must retain his OWN design from reference1, no Ieyasu face, white hair or purple armor. One character, no text/labels/UI, no weapons across face, no effects, no background. Preserve helmet entire inside frame with generous transparent margins around crests and shoulders. Lower chest ends naturally as a bust silhouette. Fully transparent alpha background.",
+    "ocrSuccess": true,
+    "ocrText": "を ッ し 一",
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "qaResult": "OK",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "6b40c693ca7db9464ae7c5cfb1cd0e18861c9e80651ae10777edf8d3853d2fa4"
+  },
+  {
+    "name": "黒田長政_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\会話肖像_黒田長政_左向き_v1.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\黒田長政_会話肖像.png",
+    "mode": "RGBA",
+    "candidateCount": 0,
+    "reusedVerifiedCandidate": true,
+    "sha256": "d3b46a249f3f74c8bb197f88ec85927c2e556c709194fcb2889eb25e40ec4590",
+    "qaResult": "OK",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "ocrText": "メ 第 レ 4 ツ ー",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "d3b46a249f3f74c8bb197f88ec85927c2e556c709194fcb2889eb25e40ec4590"
+  },
+  {
+    "name": "徳川秀忠_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-67cc126c-bef6-4922-af59-1437cdedfbac.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\徳川秀忠_会話肖像.png",
+    "mode": "RGBA",
+    "sourceBounds": [
+      8,
+      15,
+      1254,
+      1236
+    ],
+    "placement": [
+      64,
+      87
+    ],
+    "candidateCount": 1,
+    "sha256": "ae14ad20d660b83ac13d8af33fefea54bf842d3f97c543b7588497a30e1e6070",
+    "updatedAt": "2026-10-07T12:22:23.774116+09:00",
+    "prompt": "Create ONE dialogue bust portrait of 徳川秀忠, facing LEFT, chest and shoulders up. Reference1 is STRICT character identity: exactly same face, age, build, hairstyle/helmet silhouette, armor colors and crests. Reference2 is ONLY visual style, square canvas and composition: detailed gritty dramatic Japanese samurai game illustration, strong lifelike facial anatomy, rich shaded armor, full shoulders and entire helmet/hair visible. Match the existing Ieyasu dialogue portrait's1254x1254 canvas, left-facing three-quarter view, bust composition and transparent background. Character 徳川秀忠 must retain his OWN design from reference1, no Ieyasu face, white hair or purple armor. One character, no text/labels/UI, no weapons across face, no effects, no background. Preserve helmet entire inside frame with generous transparent margins around crests and shoulders. Lower chest ends naturally as a bust silhouette. Fully transparent alpha background.",
+    "ocrSuccess": true,
+    "ocrText": "",
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "qaResult": "OK",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "ae14ad20d660b83ac13d8af33fefea54bf842d3f97c543b7588497a30e1e6070"
+  },
+  {
+    "name": "最上義光_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-d8f63453-d15a-4bd4-81cd-ee4251ab7962.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\最上義光_会話肖像.png",
+    "mode": "RGBA",
+    "sourceBounds": [
+      0,
+      86,
+      1254,
+      1193
+    ],
+    "placement": [
+      64,
+      196
+    ],
+    "candidateCount": 2,
+    "sha256": "330a31c3e2549901e9fe80dc2dc3c94cb8b98061b5c5b6b90185cf3d4b56cc79",
+    "updatedAt": "2026-10-07T12:27:27.373878+09:00",
+    "prompt": "Make a localized crest correction ONLY to reference1 dialogue portrait of 最上義光. Reference2 is the original exact character design. Preserve every aspect of reference1: left-facing face, helmet shape, armor colors, hair, shoulders, lighting, square chest-up composition and transparent alpha. The generated portrait incorrectly copied Tokugawa three-leaf aoi crests from a style reference. Replace ALL three-leaf aoi emblems on helmet/chest/shoulders with silver-white five-petal flower crests EXACTLY matching the same emblem in original character reference2. Five rounded petals around small round center, not three leaves. Match original emblem metal colors. Do not change face, expression, armor shape, pose, crop or dimensions.1254x1254 transparent PNG, no text, effects or background.",
+    "ocrSuccess": true,
+    "ocrText": "",
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "qaResult": "OK",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "330a31c3e2549901e9fe80dc2dc3c94cb8b98061b5c5b6b90185cf3d4b56cc79"
+  },
+  {
+    "name": "井伊直政_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\会話肖像_井伊直政_左向き_v1.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\井伊直政_会話肖像.png",
+    "mode": "RGBA",
+    "candidateCount": 0,
+    "reusedVerifiedCandidate": true,
+    "sha256": "e790f5e882de345eaca8dbdf7d650a7b5e68eea7b329cd1a66d100af32906934",
+    "qaResult": "OK",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "ocrText": "",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "e790f5e882de345eaca8dbdf7d650a7b5e68eea7b329cd1a66d100af32906934"
+  },
+  {
+    "name": "本多忠勝_会話肖像.png",
+    "priority": 5,
+    "size": [
+      1254,
+      1254
+    ],
+    "status": "git_verified",
+    "source": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\会話肖像_本多忠勝_左向き_v1.png",
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\本多忠勝_会話肖像.png",
+    "mode": "RGBA",
+    "candidateCount": 0,
+    "reusedVerifiedCandidate": true,
+    "sha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c",
+    "qaResult": "OK",
+    "visualReview": "Left-facing chest-up bust; original helmet/armor colors and family crests, complete helmet/shoulders and1254px RGBA format reviewed. Existing3 reused, Fukushima/Mogami corrected to own five-petal crests.",
+    "ocrText": "ぐ 当",
+    "ocrSuccess": true,
+    "ocrReview": "Visible review: no captions, detected text is existing heraldry/armor pattern false positive.",
+    "gitCommit": "942c6cecd18bd856df651cc73c941c97f3dbfa80",
+    "gitBranch": "ccr-851ab851-t271uq",
+    "remoteByteEqual": true,
+    "remoteSha256": "7e55b57e7c3afa0c07df7b5ce5e5175353075972d9b3843bcf74e8599495676c"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-df6a81c5-ed60-45e7-8340-8de61a16b374.png",
+  "prompt": "Final precise correction of the same eight-frame spear combat walk (image1), character clothing reference image2. KEEP same upper bodies, hats, spear grips, continuous shafts and steel blades, same positions and body size. Remove the round coin/medallion that appeared on the trousers/crotch in frames3 and7: reference spearman has NO circular trouser ornament. Plain BLUE cloth trousers and simple black shin/knee guards only, same costume in every frame. Make leg identity readable WITHOUT adding ornaments: foreground near RIGHT thigh must overlap the far left thigh at crotch and connect continuously to the FRONT/RIGHT knee/foot in frame1, then connect to BACK/LEFT knee/foot in frame5. The far left leg does opposite. Knees remain deeply bent, upperbody steady. Frame3 far LEFT knee crosses and passes planted nearRIGHT, frame7 nearRIGHT knee crosses in foreground passes farLEFT. Do not rotate standing figures, this is weight-bearing low walk. ALL16 sandal toes RIGHT, heels LEFT, especially5-7; do NOT mirror sandals. No forward foot left-facing. All fullbody and blade tips fit own region, no cropping or neighboring fragments. Exactly8 one horizontal row, blank pure magenta background, no labels numbers shadow grid borders. Preserve same scale as image1, not new character design.",
+  "status": "candidate_pending_QA",
+  "attempt": 4,
+  "retries": 3,
+  "visualReview": "3/7の余計な円形装飾を除去。全足先右向き・穂先余白を保持。脚の前後姿勢と通過はあるが近い脚の連続性は最終目視判定。"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "上杉景勝_ダウン_4コマ_v2.png",
+  "candidate": 1,
+  "status": "rejected_scale_bounds",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-5b80b081-a92c-46ef-a975-274b10e42d57.png",
+  "reference": "上杉景勝_設定画.png; finished/上杉景勝_歩き_8コマ_v2_再生成版.png",
+  "action": "ダウン",
+  "candidateCount": 1,
+  "createdAt": "2026-10-07T01:38:24.6531653+09:00",
+  "noDuplicateGeneration": true,
+  "note": "Single candidate reserved before generation; inspect existing records and outputs first.",
+  "rejectionReason": "候補1は立ち姿高429pxを205px相当に正規化すると、伏せ姿勢の全身と刀の横幅が258px/247pxとなり256pxセルの可視幅224pxを超える。縮小すると立ち姿規格を外れるため不採用。",
+  "visualReview": "候補1は立ち姿高429pxを205px相当に正規化すると、伏せ姿勢の全身と刀の横幅が258px/247pxとなり256pxセルの可視幅224pxを超える。縮小すると立ち姿規格を外れるため不採用。"
+}

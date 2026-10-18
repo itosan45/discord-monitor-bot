@@ -1,0 +1,19 @@
+{
+  "name": "穴山小助_ダウン_4コマ_v1.png",
+  "char": "穴山小助",
+  "kind": "ten_braves_sprite_motion",
+  "candidate": 1,
+  "status": "rejected_top_margin",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-203c6e0d-27c5-43e7-b304-138616a1fdad.png",
+  "sourceDimensions": [
+    2170,
+    725
+  ],
+  "attemptedScale": 0.3868,
+  "rejection": "30 normalizer could not retain 16px top margin because the first frame held the yari vertically; at idle-matching body scale, weapon tip crossed the top safe area. No normalized sprite created and no delivery. Targeted correction: keep full yari but change its angle to fit within cells at the same body scale.",
+  "visualReview": "Right-facing Sanada red armor, six-coin flag, kabuto, sheath and long yari consistent across four poses. Sequence readable, but frame 3 and 4 are close and frame 1 yari orientation makes top margin impossible at same character scale.",
+  "attempts": 1,
+  "updatedAt": "2026-10-08T10:31:22.3009503+09:00",
+  "prompt": "Initial four-frame down reaction. Recoil, airborne fall, landing on back, bounce; retain Anayama design and complete yari, sashimono and sheath in flat magenta.",
+  "candidateCount": 4
+}

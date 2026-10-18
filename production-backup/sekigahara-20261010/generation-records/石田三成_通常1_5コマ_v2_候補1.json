@@ -1,0 +1,16 @@
+{
+  "name": "石田三成_通常1_5コマ_v2.png",
+  "candidate": 1,
+  "status": "qa_passed",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-774eda2b-8874-4441-be30-1bb657d8f954.png",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\石田三成_設定画.png",
+  "action": "通常1・左手鉄扇の斜め下打ち5コマ",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "rawSourceSha256": "50f81905295ccc1804708c1b4c69af40f067304904a8c23747fae9585cc74407",
+  "outputSha256": "1ec70ed0e665258b3d00f433e1def7abab2cc3a044b272abf363f170521d1161",
+  "prompt": "Create exactly ONE game-ready horizontal sprite strip for Ishida Mitsunari, using the attached setting sheet strictly as design reference. Canvas exactly 1280x256 pixels: five equal 256x256 square cells in one row, no gutters and no borders. Exactly one full-body character in each cell, facing RIGHT in strict side view. Preserve the same slim strategist in his 40s, sharp serious face and thin mustache, light sage-gray lamellar armor, rich purple haori with gold trim, black-gold folding-fan kabuto crest, purple helmet cloth tails, cream sashimono with its vertical heraldic calligraphy, same colors and linework. Keep BOTH weapons throughout: the MATCHLOCK GUN remains in his RIGHT hand as the main weapon, held diagonally across his chest and never fired; the IRON WAR FAN stays in his LEFT hand and performs the attack. Motion is a single diagonal downward tessen strike, distinct from a backhand: frame 1 stable low ready with gun close to chest and fan near hip; frame 2 shift weight and draw left elbow/fan back beside shoulder for wind-up; frame 3 step forward and bring fan diagonally down across the front; frame 4 clear impact/follow-through at enemy-side lower torso height, fan arm extended down-forward, gun still retained; frame 5 retract fan and return naturally to opening guard. One continuous attack, one visible hit only, no gunshot, no projectile, no extra sword. Keep head, torso and legs same size in every frame; feet on ground line y=230, standing-equivalent character height about205 pixels. Center each pose in its cell and keep entire silhouette, all gun/fan ends, helmet crest, cloth tails and banner inside with at least16 pixels top/left/right clearance; nothing may cross a cell boundary. Painted anime-realistic 2D Sengoku beat-em-up art with crisp dark outline matching the attached reference. Background flat pure RGB(255,0,255) / #FF00FF, no shadow, floor, gradient, vignette, extra characters or props, effects, labels, text, borders, or grid. Only calligraphy permitted is the heraldic writing on the attached-reference banner.",
+  "qaRecord": "ishida-normal1-v2-record.json",
+  "qaResult": "OK",
+  "visualReview": "通常2の裏打ちと違い、左手の扇を高く引いてから斜め下へ振り、低い位置で余韻の後に回収。右手火縄銃・旗・衣装は全コマ保持。"
+}

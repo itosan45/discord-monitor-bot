@@ -1,0 +1,205 @@
+{
+  "name": "織田信長_鎖鎌_移動旋回_8コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\織田信長_鎖鎌_移動旋回_8コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-527e8038-104d-40bb-9612-b873c032d34a.png",
+  "status": "git_verified",
+  "scale": 0.5540540540540541,
+  "standingHeightSource": 370.0,
+  "standingHeightTarget": 205,
+  "n": 8,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        27,
+        202,
+        288,
+        563
+      ],
+      "destination": [
+        55,
+        31,
+        145,
+        200
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        290,
+        177,
+        546,
+        564
+      ],
+      "destination": [
+        57,
+        17,
+        142,
+        214
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        562,
+        201,
+        852,
+        564
+      ],
+      "destination": [
+        47,
+        30,
+        161,
+        201
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        838,
+        202,
+        1085,
+        564
+      ],
+      "destination": [
+        59,
+        30,
+        137,
+        201
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 229
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1093,
+        201,
+        1360,
+        564
+      ],
+      "destination": [
+        54,
+        30,
+        148,
+        201
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 6,
+      "sourceBounds": [
+        1371,
+        205,
+        1635,
+        563
+      ],
+      "destination": [
+        55,
+        33,
+        146,
+        198
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 7,
+      "sourceBounds": [
+        1661,
+        201,
+        1913,
+        564
+      ],
+      "destination": [
+        58,
+        30,
+        140,
+        201
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 8,
+      "sourceBounds": [
+        1938,
+        181,
+        2166,
+        563
+      ],
+      "destination": [
+        65,
+        19,
+        126,
+        212
+      ],
+      "scale": 0.5540540540540541,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "71a42f749c15fd925560032423f0632c3feaf1c8f036d26f4734f4f88e4cf712",
+  "backgroundSource": [
+    238,
+    22,
+    241
+  ],
+  "sourceIndices": null,
+  "groupCenters": "135,407,679,951,1223,1495,1767,2039",
+  "wholeComponentGrouping": true,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "visualApproved": true,
+  "gitVerified": true,
+  "gitCommit": "675a6be92aaa9135ca759082996e8db273586a20",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "71a42f749c15fd925560032423f0632c3feaf1c8f036d26f4734f4f88e4cf712",
+  "candidateCount": 1,
+  "qaResult": "PASS with expected banner text OCR",
+  "checkResults": [
+    "30_check_strip.py: 2048x256, 8 cells, pure magenta 82%, median height 78%, no clipping/ground failure.",
+    "Native OCR successful; recognized fragments correspond to intended 天下布武 banner.",
+    "GIF decoded: 8 frames at 80ms; all frames reviewed visually."
+  ],
+  "ocrSuccess": true,
+  "ocrText": "◎ 叉 下 市 犬 . ・ 天 下 市 武 0 天 下 第 .",
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "visualReview": "右向き。黒赤金鎧、金の三日月弧前立、赤外套、天下布武旗、鎖鎌を維持。分銅一周と歩行支持脚の変化。全フレーム16px以上の端余白（最小17px）。文字認識は旗の意匠由来で、他の可読文字なし。",
+  "updatedAt": "2026-10-08T07:53:04+09:00"
+}

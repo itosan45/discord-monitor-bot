@@ -1,0 +1,96 @@
+{
+  "name": "宮本武蔵_手ぶら_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-4e9635b0-9c1c-4481-be5d-89998f1d0f62.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "qa_pending",
+  "uniformScale": 0.45901639344262296,
+  "sourceBounds": [
+    [
+      89,
+      13,
+      411,
+      379
+    ],
+    [
+      720,
+      13,
+      1125,
+      379
+    ],
+    [
+      1367,
+      13,
+      1791,
+      390
+    ],
+    [
+      48,
+      405,
+      536,
+      762
+    ],
+    [
+      749,
+      405,
+      1094,
+      760
+    ]
+  ],
+  "placements": [
+    [
+      54,
+      62,
+      148,
+      168
+    ],
+    [
+      35,
+      62,
+      186,
+      168
+    ],
+    [
+      30,
+      57,
+      195,
+      173
+    ],
+    [
+      16,
+      66,
+      224,
+      164
+    ],
+    [
+      49,
+      67,
+      158,
+      163
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 81%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの65%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "ec9620a0efc7577364dc1880292a260293f6b13d90289939beac624f3030253b",
+  "visualApproved": false,
+  "visualReview": "Held: normalized body appears smaller than idle due broad lunge width. Leg exchange also weak. Preserve candidate; do not deliver."
+}

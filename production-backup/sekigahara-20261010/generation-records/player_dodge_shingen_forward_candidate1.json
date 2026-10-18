@@ -1,0 +1,608 @@
+{
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-dc8afc18-68f0-43e3-a3f5-51492fb5a581.png",
+  "sourceSha256": "c60e5c7bdd3a52f413838a3ccb34f7ec7377a29a90adab053649d965f2c6003c",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "sourceCellEdges": [
+    0,
+    434,
+    869,
+    1303,
+    1738,
+    2172
+  ],
+  "prompt": "One candidate only. Preserve identity, armor, colors, face, right-facing orientation and war fan using the three references. Exact 5-frame left-to-right animation: ready crouch, duck and tuck weapon, drive forward right, pass through low airborne phase, land and recover. Same character scale and visual finish in every equal 256px cell. Keep the entire body and weapon inside each cell. Exact flat magenta background. No additional characters, attacker, projectiles, text, watermark or alternate candidates.",
+  "status": "git_verified",
+  "attempt": 1,
+  "retries": 0,
+  "references": [
+    "assets/sprites/武田信玄_設定画.png",
+    "assets/sprites/武田信玄_ガード構え_2コマ_v2.png",
+    "assets/sprites/武田信玄_ガード解除_2コマ_v2.png"
+  ],
+  "requestedName": "武田信玄_前方回避_5コマ_v2.png",
+  "actualName": "武田信玄_前方回避_5コマ_v2_candidate1-final-componentclean.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_前方回避_5コマ_v2_candidate1-final-componentclean.png",
+  "sha256": "398a24f9c4f4efe648b75d594302f1893939ed8158461cade49350f36166fc30",
+  "n": 5,
+  "cell": 256,
+  "outputDimensions": [
+    1280,
+    256
+  ],
+  "colorMode": "RGB",
+  "normalization": {
+    "sourceSize": [
+      2172,
+      724
+    ],
+    "sourceCellEdges": [
+      0,
+      434,
+      869,
+      1303,
+      1738,
+      2172
+    ],
+    "finalSize": [
+      1280,
+      256
+    ],
+    "commonScale": 0.5233644859813084,
+    "placement": "Common uniform scale; separate source cells by magenta key; remove disconnected components smaller than 10% of main figure; center each figure in its cell. Grounded frames baseline y=229; airborne frames raised to y=204; exact RGB(255,0,255) key background."
+  },
+  "sourceFrameBboxes": [
+    [
+      8,
+      196,
+      426,
+      587
+    ],
+    [
+      0,
+      256,
+      361,
+      586
+    ],
+    [
+      0,
+      213,
+      363,
+      547
+    ],
+    [
+      0,
+      247,
+      414,
+      548
+    ],
+    [
+      0,
+      195,
+      428,
+      587
+    ]
+  ],
+  "removedSmallComponents": [
+    [
+      {
+        "pixels": 5,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          30,
+          341,
+          33,
+          343
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 5,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          16,
+          388,
+          19,
+          391
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 131,
+        "fractionOfMain": 0.0016,
+        "bbox": [
+          427,
+          556,
+          434,
+          583
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          172,
+          295,
+          177,
+          297
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          160,
+          305,
+          161,
+          306
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 93,
+        "fractionOfMain": 0.0013,
+        "bbox": [
+          418,
+          305,
+          435,
+          317
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 6,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          122,
+          307,
+          125,
+          309
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 426,
+        "fractionOfMain": 0.0058,
+        "bbox": [
+          408,
+          323,
+          435,
+          359
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          430,
+          357,
+          431,
+          358
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 166,
+        "fractionOfMain": 0.0022,
+        "bbox": [
+          415,
+          360,
+          435,
+          388
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 9,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          46,
+          372,
+          50,
+          375
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 884,
+        "fractionOfMain": 0.0119,
+        "bbox": [
+          409,
+          379,
+          435,
+          432
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 6,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          16,
+          407,
+          19,
+          410
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 9,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          25,
+          457,
+          29,
+          460
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          20,
+          466,
+          23,
+          469
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 3321,
+        "fractionOfMain": 0.0449,
+        "bbox": [
+          380,
+          504,
+          435,
+          586
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          197,
+          243,
+          200,
+          246
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 9,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          171,
+          246,
+          175,
+          249
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          98,
+          247,
+          102,
+          249
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 5,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          71,
+          257,
+          73,
+          260
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          2,
+          297,
+          5,
+          300
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 678,
+        "fractionOfMain": 0.0085,
+        "bbox": [
+          402,
+          327,
+          434,
+          383
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          0,
+          355,
+          1,
+          356
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          412,
+          355,
+          415,
+          358
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 119,
+        "fractionOfMain": 0.0015,
+        "bbox": [
+          415,
+          385,
+          434,
+          403
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 1,
+        "fractionOfMain": 0.0,
+        "bbox": [
+          419,
+          387,
+          420,
+          388
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          15,
+          435,
+          17,
+          439
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 3353,
+        "fractionOfMain": 0.042,
+        "bbox": [
+          355,
+          451,
+          434,
+          525
+        ],
+        "touchesCellEdge": true
+      },
+      {
+        "pixels": 85,
+        "fractionOfMain": 0.0011,
+        "bbox": [
+          0,
+          567,
+          7,
+          585
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 7,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          241,
+          283,
+          244,
+          286
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 8,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          1,
+          319,
+          4,
+          322
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 108,
+        "fractionOfMain": 0.0013,
+        "bbox": [
+          427,
+          562,
+          435,
+          585
+        ],
+        "touchesCellEdge": true
+      }
+    ],
+    [
+      {
+        "pixels": 10,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          126,
+          260,
+          130,
+          263
+        ],
+        "touchesCellEdge": false
+      },
+      {
+        "pixels": 11,
+        "fractionOfMain": 0.0001,
+        "bbox": [
+          19,
+          397,
+          23,
+          401
+        ],
+        "touchesCellEdge": false
+      }
+    ]
+  ],
+  "airborneFrames": [
+    3,
+    4
+  ],
+  "frameMetrics": [
+    {
+      "frame": 1,
+      "bbox": [
+        18,
+        25,
+        237,
+        229
+      ],
+      "heightPx": 205,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 18,
+        "right": 19,
+        "top": 25
+      }
+    },
+    {
+      "frame": 2,
+      "bbox": [
+        33,
+        57,
+        222,
+        229
+      ],
+      "heightPx": 173,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 33,
+        "right": 34,
+        "top": 57
+      }
+    },
+    {
+      "frame": 3,
+      "bbox": [
+        33,
+        30,
+        223,
+        204
+      ],
+      "heightPx": 175,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 33,
+        "right": 33,
+        "top": 30
+      }
+    },
+    {
+      "frame": 4,
+      "bbox": [
+        19,
+        47,
+        236,
+        204
+      ],
+      "heightPx": 158,
+      "bottomY": 204,
+      "airborne": true,
+      "marginsPx": {
+        "left": 19,
+        "right": 20,
+        "top": 47
+      }
+    },
+    {
+      "frame": 5,
+      "bbox": [
+        16,
+        25,
+        240,
+        229
+      ],
+      "heightPx": 205,
+      "bottomY": 229,
+      "airborne": false,
+      "marginsPx": {
+        "left": 16,
+        "right": 16,
+        "top": 25
+      }
+    }
+  ],
+  "consecutiveDifferentPixels": [
+    28640,
+    27273,
+    26471,
+    28900
+  ],
+  "qaResult": "OK",
+  "checkerMode": "air",
+  "checker": [
+    "OK 純マゼンタの割合 66%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "pureMagentaRatio": 0.662,
+  "ocr": {
+    "manifest": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ocr-manifest.json",
+    "resultFile": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\ishida-batch-ocr-results.json",
+    "success": true,
+    "recognizedText": "",
+    "postReview": "OCR文字なし。"
+  },
+  "gifDecode": {
+    "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\武田信玄_前方回避_5コマ_v2_candidate1-final-componentclean.gif",
+    "frameCount": 5,
+    "durationsMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "decodedSuccessfully": true,
+    "contactSheet": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\qa\\20261007_player_dodge_candidate1_componentclean\\decoded-contact.png"
+  },
+  "visualReview": "全コマ目視。後退または前方回避の姿勢連続性、右向き、武器・手持ち、接地/浮き、16px余白、セル間の他ポーズの断片がないこと、純マゼンタ背景を確認。",
+  "gitCommit": "83ad4822a95f476b99817cb516e78f1c3ba40bcf",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitBlob": "2e1834c8b200ae68695f459871bcabde69f32761",
+  "gitSha256": "398a24f9c4f4efe648b75d594302f1893939ed8158461cade49350f36166fc30",
+  "remoteSha256Matches": true,
+  "gitBytes": 295930,
+  "gitOnlyNewPngCommit": true,
+  "completedAt": "2026-10-07T11:33:07+09:00"
+}

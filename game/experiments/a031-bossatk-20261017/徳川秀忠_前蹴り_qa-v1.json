@@ -1,0 +1,134 @@
+{
+  "character": "徳川秀忠",
+  "asset": "徳川秀忠_前蹴り_6コマ_v1.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    3072,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 6,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "target_height_px": 188,
+  "source_crop_boxes": [
+    [
+      0,
+      0,
+      360,
+      512
+    ],
+    [
+      360,
+      0,
+      690,
+      512
+    ],
+    [
+      690,
+      0,
+      1110,
+      512
+    ],
+    [
+      1110,
+      0,
+      1536,
+      512
+    ],
+    [
+      320,
+      512,
+      780,
+      1024
+    ],
+    [
+      780,
+      512,
+      1230,
+      1024
+    ]
+  ],
+  "scale_by_frame": [
+    0.42247191011235957,
+    0.42342342342342343,
+    0.4392523364485981,
+    0.4351851851851852,
+    0.4253393665158371,
+    0.41685144124168516
+  ],
+  "frame_foreground_bboxes": [
+    [
+      188,
+      175,
+      323,
+      362
+    ],
+    [
+      193,
+      175,
+      318,
+      362
+    ],
+    [
+      165,
+      175,
+      347,
+      362
+    ],
+    [
+      167,
+      175,
+      344,
+      362
+    ],
+    [
+      178,
+      175,
+      334,
+      362
+    ],
+    [
+      183,
+      175,
+      328,
+      362
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    183484,
+    183181,
+    182093,
+    181946,
+    182304,
+    182934
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 6,
+  "unique_frame_count": 6,
+  "adjacent_changed_pixel_fraction": [
+    0.085,
+    0.0991,
+    0.0919,
+    0.1027,
+    0.09
+  ],
+  "sha256": "1af9d2965b55f7dca63683914dfbeaa1a4d43a2f0555b32c60f0a8177c240c3d",
+  "generation": "OpenAI built-in imagegen using Hidetada setting sheet; AI generated and cropped/composed into cells, not hand-drawn.",
+  "notes": "Front kick sequence: guard, weight shift/knee lift, torso lean and forward extension, heel-first impact, leg retract/recoil, foot plant/recovery. The matchlock stays safely across the body. Motion, not hit sparks, differentiates frames. Candidate; game assignment/review pending."
+}

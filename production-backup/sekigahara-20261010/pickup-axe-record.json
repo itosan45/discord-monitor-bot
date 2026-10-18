@@ -1,0 +1,55 @@
+{
+  "name": "拾得武器_斧_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\拾得武器_斧_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-3ee2e34c-df52-4e9c-813d-445b0a47b980.png",
+  "status": "git_verified",
+  "size": [
+    256,
+    256
+  ],
+  "cell": 256,
+  "n": 1,
+  "scale": 0.17962003454231434,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": [
+    48,
+    81,
+    1206,
+    1158
+  ],
+  "destination": [
+    24,
+    37,
+    208,
+    193
+  ],
+  "backgroundSource": [
+    240,
+    23,
+    241
+  ],
+  "foregroundPixels": 204615,
+  "sha256": "02d499a2406f2bf7e6cef4eaaee8d2af262b751e64b2aee241910600c25f7951",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 90%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの75%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    0
+  ],
+  "kind": "pickup_weapon",
+  "attempts": 1,
+  "selectedCandidate": 1,
+  "qaResult": "OK",
+  "visualReview": "斧の拾得物を目視し、向き・寸法・全体表示を確認。",
+  "ocrReview": "Windows OCR成功・検出文字なし。",
+  "sourceCandidateRecord": "generation-records/拾得武器_斧_v1_候補1.json",
+  "gitVerified": true,
+  "gitCommit": "858b57927107361310e5c23134302aa57eb8a324",
+  "gitBranch": "ccr-851ab851-t271uq"
+}

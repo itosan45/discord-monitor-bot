@@ -1,0 +1,12 @@
+{
+  "name": "宮本武蔵_手ぶら_攻撃A_5コマ_v2.png",
+  "candidate": 1,
+  "candidateCount": 1,
+  "status": "rejected_connected_frames",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-7fdb7766-80f4-47ae-bd7d-9bd83496e212.png",
+  "sourceSha256": "ba6ccce0bbe93cdad41b2e86036ab8c62fe663e44820c451ef4ed197d1a9e40d",
+  "promptSummary": "宮本武蔵の設定を保持し、純粋な素手で斩り下ろし攻撃を5コマで表現。純マゼンタ背景、武器なし。",
+  "normalizationAttempt": "standingHeight=614, n=5; standard full-body isolation",
+  "failure": "Unable to identify requested full-body count; two adjacent middle poses merge into one strong foreground component. No final candidate produced.",
+  "visualReview": "候補画は高品質だがコマ分離の客観条件を満たせない。同一動作の再生成は行わない。"
+}

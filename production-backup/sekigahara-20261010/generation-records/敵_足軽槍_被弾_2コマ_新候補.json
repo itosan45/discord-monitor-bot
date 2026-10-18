@@ -1,0 +1,6 @@
+{
+  "name": "敵_足軽槍_被弾_2コマ.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10b00-b95a-7762-b391-4dd20e0b917a\\exec-7adfbc69-2aea-4246-a51f-be48e80063ea.png",
+  "prompt": "Use attached four-frame idle as exact enemy character model, ONE identical blue cloth black-lacquer-armored ashigaru with iron cone hat, shoulders armor, darkgreaves,strawsandals. Strict right-facing side profile, painted anime-realistic detailed arcade sprite. Generate ONLY ONE horizontal strip of 2 equally spaced SQUARE cells; each cell ONE full character, no contact sheet. Motion: 1 torso flinches backward in pain, bent knees, spear tilts with hands;2 recover to low ready guard. Full spear point and butt visible. First frame gives standing scale anchor: helmettop-to-sole205px of256height; same anatomical head/torso/limbs across all frames, crouches and lying bodies NOT smaller. Weapons/effects must fit by compact posing not character shrink. Feet/lowestbodypoint ground230px. Full hat, weapon, clothes, body inside owncell with generous margins and gaps, no neighboring overlap. EXACT solid flat pure#FF00FF background, no groundshadow/gradient/text/captions/grid/borders. No other enemy.",
+  "status": "candidate_pending_QA"
+}

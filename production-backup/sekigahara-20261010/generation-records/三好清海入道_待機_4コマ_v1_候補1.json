@@ -1,0 +1,94 @@
+{
+  "name": "三好清海入道_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-9ffd1353-f5fc-4173-8c6f-43321c0b359c.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好清海入道_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3236641221374046,
+  "sourceBounds": [
+    [
+      122,
+      65,
+      416,
+      695
+    ],
+    [
+      665,
+      59,
+      960,
+      695
+    ],
+    [
+      1213,
+      40,
+      1504,
+      695
+    ],
+    [
+      1750,
+      63,
+      2045,
+      695
+    ]
+  ],
+  "placements": [
+    [
+      80,
+      26,
+      95,
+      204
+    ],
+    [
+      80,
+      24,
+      95,
+      206
+    ],
+    [
+      81,
+      18,
+      94,
+      212
+    ],
+    [
+      80,
+      25,
+      95,
+      205
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 83%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "fd812960368ea6cd7f8b7686303af22eede1cb064787d62208baecc5bc12dcc2",
+  "prompt": "Miyoshi Seikai Nyudo IDLE breathing sprite FOUR frames SINGLE HORIZONTAL ROW. Exact same large muscular bald bearded monk from reference, RIGHT-facing side view everyframe: worn ochre sleeveless robe charcoal pants red sash sixcoins badge, wooden prayerbeads, leatherguards shinwraps sandals, SAME practical dark ironstaff belowheadheight. Hold ironstaff upright beside body right hand waist, full top/butt insidecell, same length thickness allframes. Fixedcamera body scale and footpositions ground; feet planted wide balanced stance knees visibly flexed. 1 exhale shoulders low kneesflexed,2 inhale chestexpands shouldersrise slightly,3 peak inhale torso straightens/headrises about2%height feetunchanged,4 settlesnear1. Heavy controlled breathing not walking or attack. Fourequalcells separatedmagenta no touching; fullhead/beads/staff/feet with generousmargins, body~80%cellheight. Grittypainted originalgameart matchingreference, wide horizontalPNG, pureflat#FF00FF background noeffects/shadows/text/grid/scenery.",
+  "char": "三好清海入道",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames reviewed against reference: same bald bearded muscular monk ochre robe/red sash/beads, full consistent iron staff and feet, right-facing, no clipping/effects/text. Planted ground and uniform scale, third-frame torso rise visible and fourth returns. Knee flex shallow and side view obscures six-coin badge, caution. Own idle scale established.",
+  "gitVerified": true,
+  "gitCommit": "30f2c9c00726abcf9dda6e94319af71d33a51178",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "fd812960368ea6cd7f8b7686303af22eede1cb064787d62208baecc5bc12dcc2",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:43:09.234855+09:00"
+}

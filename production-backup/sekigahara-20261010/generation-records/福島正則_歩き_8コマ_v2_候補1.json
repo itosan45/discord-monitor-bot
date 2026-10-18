@@ -1,0 +1,145 @@
+{
+  "name": "福島正則_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-14c929fa-473c-4276-9bd9-afa901459172.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\福島正則_歩き_8コマ_v2.png",
+  "size": [
+    3072,
+    384
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 384,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.7772151898734178,
+  "sourceBounds": [
+    [
+      18,
+      35,
+      470,
+      425
+    ],
+    [
+      475,
+      32,
+      896,
+      427
+    ],
+    [
+      908,
+      33,
+      1337,
+      425
+    ],
+    [
+      1346,
+      38,
+      1765,
+      425
+    ],
+    [
+      24,
+      455,
+      458,
+      845
+    ],
+    [
+      470,
+      459,
+      889,
+      845
+    ],
+    [
+      900,
+      459,
+      1326,
+      846
+    ],
+    [
+      1342,
+      454,
+      1764,
+      847
+    ]
+  ],
+  "placements": [
+    [
+      16,
+      43,
+      351,
+      303
+    ],
+    [
+      28,
+      39,
+      327,
+      307
+    ],
+    [
+      25,
+      41,
+      333,
+      305
+    ],
+    [
+      29,
+      45,
+      326,
+      301
+    ],
+    [
+      23,
+      43,
+      337,
+      303
+    ],
+    [
+      29,
+      46,
+      326,
+      300
+    ],
+    [
+      26,
+      45,
+      331,
+      301
+    ],
+    [
+      28,
+      41,
+      328,
+      305
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 72%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの79%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "4bfc62c349b031ab23b7ba4a412dcc19769455dc928cd167b7b886cf4130bd63",
+  "visualApproved": true,
+  "visualReview": "GIF復号後に8コマを目視。右向き、赤褐色金鎧・角前立・黒髪・赤外套・長柄薙刀を保持。1/5の支持脚が交替し、移動相も変化。長柄・身体の欠けやセル越境なし。OCRの「宿 夭 第」は甲冑模様の誤検出で、可読文字/ラベルなし。既存待機絵の人物尺度は現行ボス規格の約307px高より小さく見えるため、尺度互換は要注意。",
+  "cautionSummary": "旧待機絵の人物尺度と現行ボス歩き規格に差がある。",
+  "ocrSuccess": true,
+  "ocrText": "宿 夭 第",
+  "gitVerified": true,
+  "gitCommit": "d82e41a5d2c10c7e323490b20935cdf9817804f3",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "4bfc62c349b031ab23b7ba4a412dcc19769455dc928cd167b7b886cf4130bd63",
+  "prompt": "Create an 8-pose right-facing combat-walk sprite atlas for Fukushima Masanori, matching the references. Preserve the exact muscular build, reddish brown/gold armor, horned helmet, fierce face, ragged red cape and long curved naginata. Reference 1 defines character and polearm; reference 2 defines existing sprite style and ready carry. Exactly eight full-body poses in a 4-column by 2-row invisible grid, pure flat #FF00FF magenta. Carry the naginata horizontally in a steady two-handed ready guard as in the idle reference. No attack swing, no blade effects, no light, smoke, sparks, text, border, grid, shadow or scenery. Show a clearly readable grounded combat-walk cycle: frame 1 right-foot-forward contact; frame 2 weight transfer; frame 3 left foot passing; frame 4 left foot swings forward; frame 5 opposite contact, left foot forward/right foot behind; frame 6 weight transfer; frame 7 right foot passing; frame 8 right foot swings into frame 1. Support legs visibly alternate between frames 1 and 5. Keep torso and weapon guard stable. Preserve identical anatomy and body scale, and keep all horns, cape, both hands, the entire polearm and feet inside their own cell without overlap.",
+  "updatedAt": "2026-10-08T06:03:22.631740+09:00"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "敵_弓足軽_やられ_4コマ_v2.png",
+  "source": "C:/Users/user/.codex/generated_images/01a10e94-cd98-74c3-a11d-55d3ead57d79/exec-fda95290-c49f-4491-97fb-75ce8ab03c77.png",
+  "prompt": "FINAL repair samefourframearcherdeath. Keep EXACTheadtorsoandlimb sizes andposesfromthisstrip. Frame1cantlongbowFORWARD30degrees andfoldleftelbow tolowerbowtop closerhelmet so totalheightunder420rawpixels instead459; samebowlengthnotshortening. Frames3/4side-lying foldkneesclosertohips toreducefootprint, androtatefallenbowdiagonallyinfrontbodywithlowerpoint SAMEbodyground; entirebody+bowwidth under440rawpixels instead493, WITHOUT shrinking anatomy. Keepbody3sidefallwithchestup4side-lyingheadgrounded. ALLFEETstrictsideprofileTOESRIGHT heelLEFT; current3/4feetpointcamera, redrawsideprofile withbothtoesright andnofrontrowtoes. Frame2rearfoottoeRIGHT aswell. Onebowperframe fullcurveandstring, brownquiversecure. Sameexactcharacterandscaleall4 horizontalrowequalcells pureopaque#FF00FF no textshadowgridlabelsborder.",
+  "attempt": 4,
+  "status": "candidate_bow_ground_gap",
+  "reason": "候補4の寝姿で弓が胴より低く、全身を下端揃えにすると胴が浮く。部位を動かさず全コマ単位の選択で比較。"
+}

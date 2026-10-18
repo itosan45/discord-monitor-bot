@@ -1,0 +1,78 @@
+{
+  "asset": "黒田長政_斬り上げ_6コマ_v5.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    3072,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 6,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "frame_foreground_bboxes": [
+    [
+      180,
+      175,
+      330,
+      362
+    ],
+    [
+      147,
+      175,
+      363,
+      343
+    ],
+    [
+      170,
+      175,
+      340,
+      362
+    ],
+    [
+      182,
+      175,
+      328,
+      362
+    ],
+    [
+      130,
+      175,
+      380,
+      362
+    ],
+    [
+      95,
+      175,
+      415,
+      362
+    ]
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 6,
+  "unique_frame_count": 6,
+  "adjacent_changed_pixel_fraction": [
+    0.1161,
+    0.1195,
+    0.0909,
+    0.0954,
+    0.1298
+  ],
+  "sha256": "fee06d1959888a12cb726803d5ecbc7942462d9a44f68cf5c987dc27557173c7",
+  "generation": "AI generated/composed into cells, not hand-drawn.",
+  "notes": "v5 masks a manually reviewed 130x39px ROI below the second-frame boot to remove a remaining detached speck. No boot pixels above y344, armor, legs or weapons are changed. Candidate only."
+}

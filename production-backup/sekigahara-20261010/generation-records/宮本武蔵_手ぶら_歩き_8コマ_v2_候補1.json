@@ -1,0 +1,135 @@
+{
+  "name": "宮本武蔵_手ぶら_歩き_8コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-66ec2da1-f837-4a06-9627-ec41b35686cb.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\宮本武蔵_手ぶら_歩き_8コマ_v2.png",
+  "size": [
+    2048,
+    256
+  ],
+  "mode": "RGB",
+  "n": 8,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "rejected_motion",
+  "uniformScale": 0.5872576177285319,
+  "sourceBounds": [
+    [
+      85,
+      14,
+      388,
+      375
+    ],
+    [
+      601,
+      16,
+      874,
+      372
+    ],
+    [
+      1133,
+      16,
+      1358,
+      375
+    ],
+    [
+      1596,
+      11,
+      1900,
+      371
+    ],
+    [
+      93,
+      410,
+      388,
+      769
+    ],
+    [
+      601,
+      410,
+      873,
+      765
+    ],
+    [
+      1133,
+      409,
+      1362,
+      766
+    ],
+    [
+      1576,
+      408,
+      1885,
+      769
+    ]
+  ],
+  "placements": [
+    [
+      39,
+      18,
+      178,
+      212
+    ],
+    [
+      48,
+      21,
+      160,
+      209
+    ],
+    [
+      62,
+      19,
+      132,
+      211
+    ],
+    [
+      38,
+      19,
+      179,
+      211
+    ],
+    [
+      41,
+      19,
+      173,
+      211
+    ],
+    [
+      48,
+      22,
+      160,
+      208
+    ],
+    [
+      61,
+      20,
+      134,
+      210
+    ],
+    [
+      37,
+      18,
+      181,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 77%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 8,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "NG",
+  "sha256": "70e1b9778b273eb4436a10cd74f040861e5d917d6102697dce7d2624a05a9add",
+  "visualApproved": false,
+  "visualReview": "All8 decodedframes and idle compared. Frames1/5 and4/8 repeat same leadingleg; no near/far reversal, therefore requested alternating combatwalk unproven. Body also broader than idle. Preserve source/normalized/QA, no delivery and no duplicate generation."
+}

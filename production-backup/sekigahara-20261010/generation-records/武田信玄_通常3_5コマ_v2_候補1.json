@@ -1,0 +1,162 @@
+{
+  "name": "武田信玄_通常3_5コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_通常3_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-708c3592-022c-4d0e-bba7-261119078419.png",
+  "status": "qa_passed",
+  "scale": 0.3673835125448029,
+  "standingHeightSource": 558.0,
+  "standingHeightTarget": 205,
+  "n": 5,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        14,
+        120,
+        351,
+        704
+      ],
+      "destination": [
+        66,
+        16,
+        124,
+        215
+      ],
+      "scale": 0.3673835125448029,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        356,
+        173,
+        706,
+        704
+      ],
+      "destination": [
+        63,
+        36,
+        129,
+        195
+      ],
+      "scale": 0.3673835125448029,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        722,
+        163,
+        1174,
+        704
+      ],
+      "destination": [
+        45,
+        32,
+        166,
+        199
+      ],
+      "scale": 0.3673835125448029,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1158,
+        143,
+        1612,
+        701
+      ],
+      "destination": [
+        44,
+        26,
+        167,
+        205
+      ],
+      "scale": 0.3673835125448029,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 5,
+      "sourceBounds": [
+        1621,
+        128,
+        1976,
+        704
+      ],
+      "destination": [
+        63,
+        19,
+        130,
+        212
+      ],
+      "scale": 0.3673835125448029,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 230
+    }
+  ],
+  "sha256": "372aff490994f0824432f167d0f1e3b0d7298591158561ff9933c8549492a584",
+  "backgroundSource": [
+    233,
+    24,
+    236
+  ],
+  "sourceIndices": null,
+  "groupCenters": null,
+  "wholeComponentGrouping": false,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 74%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの80%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    20218,
+    20307,
+    22331,
+    23511,
+    18954
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\武田信玄_通常3_5コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 5,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\武田信玄_通常3_5コマ_v2_GIF復号確認.png"
+  },
+  "candidate": 1,
+  "rawSourceSha256": "0667e6cdbd9c8f4e36d7b156f321d7a89c96aa74c682a2edc963d9e0f5eb0a18",
+  "reference": "C:\\Users\\user\\Desktop\\work\\sekigahara-drive-import-20261005\\assets\\sprites\\武田信玄_設定画.png",
+  "action": "shoulder tackle, 5 frames",
+  "promptSummary": "Reference-faithful single-candidate game sprite strip; separated poses, pure magenta background and 205px standing-height target.",
+  "candidateCount": 1,
+  "noDuplicateGeneration": true,
+  "qaResult": "OK",
+  "qaRecord": "shingen-normal3-v2-record.json",
+  "qaNote": "白毛の諏訪法性兜、赤褐色甲冑、虎柄、軍配を維持。沈み込み→肩を入れる前進→踏み込み→余韻→構えの5段階。規格PASS、OCR文字なし、GIF復号5枚を目視。",
+  "visualReview": "白毛の諏訪法性兜、赤褐色甲冑、虎柄、軍配を維持。沈み込み→肩を入れる前進→踏み込み→余韻→構えの5段階。規格PASS、OCR文字なし、GIF復号5枚を目視。",
+  "ocrReview": {
+    "success": true,
+    "text": ""
+  }
+}

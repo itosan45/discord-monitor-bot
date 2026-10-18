@@ -1,0 +1,39 @@
+{
+  "cannon": {
+    "baseline": 350,
+    "muzzle_xy_by_frame": [
+      [
+        392,
+        243
+      ],
+      [
+        392,
+        243
+      ],
+      [
+        384,
+        243
+      ],
+      [
+        392,
+        243
+      ]
+    ],
+    "duration_ms": [
+      400,
+      180,
+      120,
+      600
+    ]
+  },
+  "commander": {
+    "baseline": 350,
+    "duration_ms": [
+      400,
+      300,
+      180,
+      600
+    ]
+  },
+  "status": "material delivery; integration and in-game demo QA pending"
+}

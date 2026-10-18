@@ -1,0 +1,53 @@
+{
+  "name": "根津甚八_ダウン_4コマ_v1.png",
+  "requestedName": "根津甚八_ダウン_4コマ_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_ダウン_4コマ_v1.png",
+  "source": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\根津甚八_起き上がり_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "kind": "sprite_motion",
+  "char": "根津甚八",
+  "motion": "upright ready stance descends to crouch, one-knee collapse, side-lying recovery pose",
+  "placements": [],
+  "candidateCount": 1,
+  "status": "git_verified",
+  "sourceNormalization": "Derived by reversing the four approved get-up cells; no scaling or repainting. Each 256x256 cell retains the exact approved scale, magenta background, and cell boundaries. The down motion is the physical reverse of the get-up motion.",
+  "sha256": "3784bd6f277b04eefab6275724339438b57ba7aa1ac690280ff0f632e13c23bc",
+  "visualApproved": true,
+  "visualReview": "Four distinct poses read in reverse order as standing → low crouch → one knee → side-lying. Same exact Nezu design and sword continuity as the accepted get-up sprite. Pure magenta, no effects, no clipping or cell bleed.",
+  "generationPrompt": "No additional generation: reuse the exact four accepted Nezu get-up frames in reverse order for the corresponding down animation, maintaining all cell pixels, scale, design and background.",
+  "automaticCheck": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの57%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14128,
+    15504,
+    14587,
+    15304
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "gitVerified": true,
+  "gitCommit": "852263c6884535324fcdec69ce961636b4ec820d",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "3784bd6f277b04eefab6275724339438b57ba7aa1ac690280ff0f632e13c23bc",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "qaResult": "OK",
+  "completedAt": "2026-10-08T07:06:15+09:00",
+  "actualName": "根津甚八_ダウン_4コマ_v1.png"
+}

@@ -1,0 +1,70 @@
+{
+  "name": "海野六郎_被弾_2コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-56815c5c-9699-4221-951b-2fd4ba20ff40.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\海野六郎_被弾_2コマ_v1.png",
+  "size": [
+    512,
+    256
+  ],
+  "mode": "RGB",
+  "n": 2,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3236641221374046,
+  "sourceBounds": [
+    [
+      260,
+      101,
+      702,
+      756
+    ],
+    [
+      1061,
+      110,
+      1547,
+      757
+    ]
+  ],
+  "placements": [
+    [
+      56,
+      18,
+      143,
+      212
+    ],
+    [
+      49,
+      21,
+      157,
+      209
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの82%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 2,
+  "gifDurationsMs": [
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "88a848f9ca89d9096a7cac02833e5746f96c1d30f965ba7502429bbe2a50156f",
+  "prompt": "Canonical Umino Rokuro red-black samurai armor, six black coins red banner, grounded two-stage damage recoil, sword retained, rightfacing, pure magenta.",
+  "char": "海野六郎",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualWarnings": [
+    "待機絵と比べ甲冑模様・顔・刀の輪郭に細部差。六文銭旗、被弾動作、接地、武器保持は確認済み。"
+  ],
+  "gitVerified": true,
+  "gitCommit": "735c5b415d2d07e0dd11b44bebf52ae96380a29b",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "88a848f9ca89d9096a7cac02833e5746f96c1d30f965ba7502429bbe2a50156f",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T23:36:56.779884+09:00"
+}

@@ -1,0 +1,106 @@
+{
+  "character": "黒田長政",
+  "asset": "黒田長政_跳び込み攻撃_8コマ_v3.png",
+  "status": "candidate, not game-integrated",
+  "sheet_size": [
+    4096,
+    384
+  ],
+  "cell_size": [
+    512,
+    384
+  ],
+  "frames": 8,
+  "background_rgb": [
+    255,
+    0,
+    255
+  ],
+  "groundline_y": 363,
+  "foot_anchor_x": 256,
+  "scale": 0.55,
+  "frame_foreground_bboxes": [
+    [
+      128,
+      203,
+      396,
+      365
+    ],
+    [
+      139,
+      93,
+      349,
+      289
+    ],
+    [
+      146,
+      86,
+      366,
+      295
+    ],
+    [
+      143,
+      95,
+      388,
+      295
+    ],
+    [
+      124,
+      175,
+      396,
+      379
+    ],
+    [
+      115,
+      192,
+      395,
+      366
+    ],
+    [
+      131,
+      175,
+      388,
+      363
+    ],
+    [
+      116,
+      181,
+      394,
+      363
+    ]
+  ],
+  "exact_magenta_pixels_per_cell": [
+    174700,
+    176580,
+    172760,
+    174222,
+    168994,
+    173950,
+    175083,
+    172977
+  ],
+  "nonmagenta_outer_edge_pixels_per_cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "decoded_gif_frames": 8,
+  "unique_frame_count": 8,
+  "adjacent_changed_pixel_fraction": [
+    0.1982,
+    0.1343,
+    0.1452,
+    0.2115,
+    0.1623,
+    0.1507,
+    0.1475
+  ],
+  "sha256": "d72c2394759237f7ef7170396b5d5d65a652de1c3224cfe7d85413d0f6963199",
+  "generation": "OpenAI built-in imagegen; references: Kobayakawa setting and existing jump 4-frame v2; AI generated and composed into cells, not hand-drawn.",
+  "notes": "Right-facing long-haired dual-sword warrior with blue-and-gold armor and torn patterned cloak. Sequence: launch, ascent, crossed dual swords apex wind-up, crossed blades down-forward during descent, rotating dual-sword ground impact, aftershock, recovery, guard. v1 retained with detached specks and high recovery/guard feet; v2 retained with lower-edge fragments; v3 removes isolated lower-edge marks and aligns grounded feet. Visual and runtime approval pending."
+}

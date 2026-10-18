@@ -1,0 +1,106 @@
+{
+  "name": "武田信玄_ダッシュ_5コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-c3f66b3d-221a-4bc6-9f99-ec1a96f1af50.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_ダッシュ_5コマ_v2.png",
+  "size": [
+    1280,
+    256
+  ],
+  "mode": "RGB",
+  "n": 5,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.36869565217391304,
+  "sourceBounds": [
+    [
+      5,
+      120,
+      330,
+      685
+    ],
+    [
+      348,
+      122,
+      743,
+      685
+    ],
+    [
+      755,
+      117,
+      1133,
+      685
+    ],
+    [
+      1164,
+      162,
+      1622,
+      683
+    ],
+    [
+      1666,
+      110,
+      1958,
+      685
+    ]
+  ],
+  "placements": [
+    [
+      68,
+      22,
+      120,
+      208
+    ],
+    [
+      55,
+      22,
+      146,
+      208
+    ],
+    [
+      58,
+      21,
+      139,
+      209
+    ],
+    [
+      43,
+      38,
+      169,
+      192
+    ],
+    [
+      74,
+      18,
+      108,
+      212
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 5,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "df69e67d6cb4bf8c9156570367def2614f5a53510650fd2df5ebb849005920e8",
+  "visualApproved": true,
+  "visualReview": "Five GIF decoded frames and idle comparison inspected. Exact character equipment retained, no source clipping or neighboring figure bleed. Forward lean and tucked arm/shoulder charge visible, gunbai retained instead of punching. Leg passage does not clearly exchange near/far knee in frame2/3. Older idle larger than normalized strip. OCR fragments visually correspond to banner inscription, no added UI/text.",
+  "motionCaution": "Alternating run leg exchange weak; older idle scale differs. Do not claim full gait or exact idle match verified.",
+  "gitVerified": true,
+  "gitCommit": "5038d94bacc479824b6958c8e2c2239c8e7287f3",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "df69e67d6cb4bf8c9156570367def2614f5a53510650fd2df5ebb849005920e8",
+  "prompt": "FIVE chronological fullbody frames of Takeda Shingen RUNNING SHOULDER CHARGE, all faceRIGHT. Exact reference identity heavy stocky warrior, goldhornhelmet, white mane, crimson gold lamellararmor, tiger surcoat, blackgold fourdiamond 風林火山 backbanner, redblack oval gunbai in right hand and sheathed shortkatana. Keep ALL items everyframe, completepole. Actual shoulder tackle, NO fist punch or fan swing. 1 low coil, knees bent,rearweight, fan tucked close chest.2 first running step: left leg ahead with knee bent, right rear foot pushes, torso leans forward30degrees, leading right shoulder drawsforward, elbow tucks.3 second step: RIGHT leg now ahead, left knee bentbehind, near/far knee overlap CLEARLY REVERSES, shoulder drivesfront, fan tucked against abdomen below shoulder.4 impact: right front foot firmly planted, backheelraised, torso low leaning45degrees, RIGHT shoulder leads furthest into invisible opponent, rightarm folded against chest, fan tucked belowhead; head follows shoulder, no fist extension.5 brake and returnguard, rearfoot gathersforward, torso rises, fan chest. Atleastonefoot supportingground, no jump. SAME anatomical size and bone lengths everyframe. Standing equivalent205px of256. Lean lowers head but NEVER shrinkbody. COMPACT footstride and mane/cloth huggingback: silhouettewidth<=standingheight. Fullhorns/flag/fan/feet inside margins. Pureflat #FF00FF, noeffects/flames/slashtrail/speedlines/shadows/UI/text except banner. Intermediate3x2 atlas5separatefigures rowmajor bottomrightblank, generousgutters, NOgrid. Final5cells1280x256.",
+  "ocrSuccess": true,
+  "ocrText": "孛 風 火",
+  "updatedAt": "2026-10-07T14:00:31.133938+09:00"
+}

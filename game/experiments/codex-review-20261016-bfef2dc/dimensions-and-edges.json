@@ -1,0 +1,200 @@
+[
+  {
+    "file": "assets/sprites/南光坊天海_やられ_7コマ_AI仮_v1.png",
+    "size": [
+      3136,
+      430
+    ],
+    "frames": 7,
+    "cell_width": 448,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_大技_8コマ_AI仮_v1.png",
+    "size": [
+      4064,
+      430
+    ],
+    "frames": 8,
+    "cell_width": 508,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_待機_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_歩き_5コマ_AI仮_v1.png",
+    "size": [
+      1500,
+      430
+    ],
+    "frames": 5,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_突進_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_被弾_2コマ_AI仮_v1.png",
+    "size": [
+      772,
+      430
+    ],
+    "frames": 2,
+    "cell_width": 386,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_跳躍叩きつけ_5コマ_AI仮_v1.png",
+    "size": [
+      1500,
+      430
+    ],
+    "frames": 5,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/南光坊天海_通常攻撃_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_やられ_8コマ_AI仮_v1.png",
+    "size": [
+      2928,
+      430
+    ],
+    "frames": 8,
+    "cell_width": 366,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_大技_7コマ_AI仮_v1.png",
+    "size": [
+      2100,
+      430
+    ],
+    "frames": 7,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_待機_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_指差し_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_歩き_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_突進_8コマ_AI仮_v1.png",
+    "size": [
+      4304,
+      430
+    ],
+    "frames": 8,
+    "cell_width": 538,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_腰抜かし_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_被弾_4コマ_AI仮_v1.png",
+    "size": [
+      1200,
+      430
+    ],
+    "frames": 4,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_軍配号令_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  },
+  {
+    "file": "assets/sprites/本物の徳川家康_通常攻撃_6コマ_AI仮_v1.png",
+    "size": [
+      1800,
+      430
+    ],
+    "frames": 6,
+    "cell_width": 300,
+    "divisible": true,
+    "edge_contact_frames": []
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "name": "武田信玄_鎖鎌_分銅投擲_6コマ_v1.png",
+  "source": "C:/Users/user/.codex/generated_images/01a11184-7c9d-7e11-8c85-0d8f75587699/exec-fdd03c6a-8323-454e-8dd6-fe22a86d2b26.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\武田信玄_鎖鎌_分銅投擲_6コマ_v1.png",
+  "size": [
+    1536,
+    256
+  ],
+  "mode": "RGB",
+  "n": 6,
+  "cell": 256,
+  "candidateCount": 3,
+  "status": "git_verified",
+  "uniformScale": 0.5602240896358543,
+  "sourceBounds": [
+    [
+      34,
+      182,
+      332,
+      536
+    ],
+    [
+      353,
+      181,
+      682,
+      538
+    ],
+    [
+      690,
+      185,
+      1028,
+      539
+    ],
+    [
+      1058,
+      187,
+      1430,
+      540
+    ],
+    [
+      1438,
+      189,
+      1791,
+      541
+    ],
+    [
+      1852,
+      184,
+      2150,
+      537
+    ]
+  ],
+  "placements": [
+    [
+      44,
+      32,
+      167,
+      198
+    ],
+    [
+      36,
+      30,
+      184,
+      200
+    ],
+    [
+      33,
+      32,
+      189,
+      198
+    ],
+    [
+      24,
+      32,
+      208,
+      198
+    ],
+    [
+      29,
+      33,
+      198,
+      197
+    ],
+    [
+      44,
+      32,
+      167,
+      198
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 76%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの77%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 6,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "5795fcc54aea58d83407cc91d89aa37a425acc6bcef0861a81958d000ba1b78b",
+  "prompt": "Exact Shingen broad body red gold armor white mane horn helmet six grounded throw phases. Left sickle retained, right throws separate projectile. Correct fifth missing left sickle hand then restore near right followthrough arm. No effects.",
+  "char": "武田信玄",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "全6復号フレームと待機縮尺を目視。白毛・角兜・赤金甲冑・体格保持、右向き接地枠内、左手鎌保持と右投擲腕修正を確認。振りかぶり→伸展→放出→振り抜き→戻り。注意: 4/5の投げ腕姿勢差が小さく、鎌刃は参照より小さめ。共通射出部品の動的接続未検証。",
+  "gitVerified": true,
+  "gitCommit": "84d4c113bb4e3df1641551031f98640df184828a",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "5795fcc54aea58d83407cc91d89aa37a425acc6bcef0861a81958d000ba1b78b",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T21:47:14.695627+09:00"
+}

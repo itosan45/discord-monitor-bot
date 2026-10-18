@@ -1,0 +1,133 @@
+{
+  "name": "敵_忍者_待機_4コマ_v2.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\敵_忍者_待機_4コマ_v2.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a10e94-cd98-74c3-a11d-55d3ead57d79\\exec-d9f50927-3954-40c3-b554-361f6352ed87.png",
+  "status": "git_verified",
+  "scale": 0.35964912280701755,
+  "standingHeightSource": 570.0,
+  "standingHeightTarget": 205,
+  "n": 4,
+  "cell": 256,
+  "ground": 230,
+  "placements": [
+    {
+      "frame": 1,
+      "sourceBounds": [
+        39,
+        195,
+        437,
+        679
+      ],
+      "destination": [
+        56,
+        57,
+        143,
+        174
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 2,
+      "sourceBounds": [
+        535,
+        166,
+        933,
+        679
+      ],
+      "destination": [
+        56,
+        47,
+        143,
+        184
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 3,
+      "sourceBounds": [
+        1031,
+        195,
+        1428,
+        679
+      ],
+      "destination": [
+        56,
+        57,
+        143,
+        174
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    },
+    {
+      "frame": 4,
+      "sourceBounds": [
+        1526,
+        195,
+        1924,
+        679
+      ],
+      "destination": [
+        56,
+        57,
+        143,
+        174
+      ],
+      "scale": 0.35964912280701755,
+      "ground": 230,
+      "verticalOffset": 0,
+      "estimatedBodyGround": 231
+    }
+  ],
+  "sha256": "30d3a08d15696a45721a963d3bb125591c3173b7317d6852537e662051d3b89d",
+  "backgroundSource": [
+    242,
+    24,
+    240
+  ],
+  "sourceIndices": null,
+  "minimumMarginRequested": 16,
+  "layoutException": false,
+  "automaticCheck": [
+    "OK 純マゼンタの割合 82%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの68%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "automaticPass": true,
+  "adjacentChangedPixels": [
+    14214,
+    14449,
+    13417,
+    12882
+  ],
+  "gifPath": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_待機_4コマ_v2_確認.gif",
+  "gifReviewMetadata": {
+    "decodedFrames": 4,
+    "durationMs": [
+      80,
+      80,
+      80,
+      80
+    ],
+    "fps": 12.5,
+    "loop": 0,
+    "contact": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\scale-candidates\\敵_忍者_待機_4コマ_v2_GIF復号確認.png"
+  },
+  "qaResult": "OK",
+  "attempts": 1,
+  "retries": 0,
+  "selectedCandidate": 1,
+  "ocrReview": "OCR文字なし",
+  "qaNote": "低い逆手短刀構え、両足先右向き、呼吸と布の差分、体格衣装設定一致。",
+  "visualReview": "規格合格・OCR空・GIF4コマ確認。低い腰、逆手短刀、灰色手足巻布と黒覆面、右向きの靴、布の呼吸差分を目視。",
+  "gitVerified": true,
+  "gitCommit": "30c0e3f582cfd0744d843353a753840628220d34"
+}

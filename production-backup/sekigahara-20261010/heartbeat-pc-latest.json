@@ -1,0 +1,50 @@
+{
+  "samples": [
+    {
+      "time": "2026-10-06T12:45:50.6497235+09:00",
+      "totalGB": 15.93,
+      "freeGB": 2.91,
+      "freePercent": 18.2,
+      "cpu": 11,
+      "diskBusy": 0
+    },
+    {
+      "time": "2026-10-06T12:45:53.3497762+09:00",
+      "totalGB": 15.93,
+      "freeGB": 2.64,
+      "freePercent": 16.6,
+      "cpu": 6,
+      "diskBusy": 0
+    },
+    {
+      "time": "2026-10-06T12:45:56.0319019+09:00",
+      "totalGB": 15.93,
+      "freeGB": 2.85,
+      "freePercent": 17.9,
+      "cpu": 15,
+      "diskBusy": 0
+    },
+    {
+      "time": "2026-10-06T12:45:58.7311834+09:00",
+      "totalGB": 15.93,
+      "freeGB": 2.84,
+      "freePercent": 17.9,
+      "cpu": 2,
+      "diskBusy": 0
+    }
+  ],
+  "drives": [
+    {
+      "Name": "C",
+      "freeGB": 38.06
+    },
+    {
+      "Name": "D",
+      "freeGB": 19.51
+    },
+    {
+      "Name": "G",
+      "freeGB": 36.16
+    }
+  ]
+}

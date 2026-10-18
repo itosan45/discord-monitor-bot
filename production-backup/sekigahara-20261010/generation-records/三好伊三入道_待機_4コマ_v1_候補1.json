@@ -1,0 +1,94 @@
+{
+  "name": "三好伊三入道_待機_4コマ_v1.png",
+  "source": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-0f6840f8-c54c-44e8-af19-f6c9d957766b.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\三好伊三入道_待機_4コマ_v1.png",
+  "size": [
+    1024,
+    256
+  ],
+  "mode": "RGB",
+  "n": 4,
+  "cell": 256,
+  "candidateCount": 1,
+  "status": "git_verified",
+  "uniformScale": 0.3231707317073171,
+  "sourceBounds": [
+    [
+      155,
+      38,
+      408,
+      680
+    ],
+    [
+      706,
+      31,
+      951,
+      681
+    ],
+    [
+      1246,
+      24,
+      1493,
+      680
+    ],
+    [
+      1784,
+      38,
+      2036,
+      680
+    ]
+  ],
+  "placements": [
+    [
+      87,
+      23,
+      82,
+      207
+    ],
+    [
+      88,
+      20,
+      79,
+      210
+    ],
+    [
+      88,
+      18,
+      80,
+      212
+    ],
+    [
+      87,
+      23,
+      81,
+      207
+    ]
+  ],
+  "checkResults": [
+    "OK 純マゼンタの割合 86%（50%未満はNG: 背景に色むらがある、または絵が広がりすぎ）",
+    "OK 人物の高さ（中央値）はセルの81%（立ち姿の目標は約80%。しゃがむ動きは低くてよいが、極端に小さい/大きいのはNG）",
+    "OK すべて合格（文字が入っていないか、顔や服が設定画と違わないかは、目視で確認してください）"
+  ],
+  "gifDecodedFrames": 4,
+  "gifDurationsMs": [
+    80,
+    80,
+    80,
+    80
+  ],
+  "qaResult": "要注意",
+  "sha256": "00b8a84cfabc5a46f048dbcceefb8e27893c034ab56ff73592237c8b023867ca",
+  "prompt": "Miyoshi Isa Nyudo IDLE breathing FOUR frames SINGLE HORIZONTAL ROW. EXACT same lean bald clean-shaven younger monk as reference, RIGHT-facing side view allframes. Worn muted grayblue sleeveless monkrobe charcoal pants maroon sash sixredcoins badge woodenprayerbeads, cloth/leatherwristguards shinwraps straw sandals. SAME straight brown HARDWOOD staff visiblewoodgrain, no metal ends; upright beside body right hand waist, fulltop/butt inside eachcell, equal length/thickness. Fixedcamera same anatomicalsize and footpositions/ground, balanced bentknees. 1 relaxed exhale,2 inhale chestexpands shouldersrise,3 peak inhale torso/headup2%height feetfixed,4 settlesnear1. Clearly gentle torso/knee breathing not walking or attack. Fourequalcells no touching, fullhead/beads/staff/feet insideamplemargins. Bodyabout80%cellheight, widehorizontalPNG, pureflat#FF00FF background, grittypaintedgameart matchingreference, noeffects/shadow/text/grid/scenery.",
+  "char": "三好伊三入道",
+  "kind": "sprite_motion",
+  "visualApproved": true,
+  "visualReview": "All four decoded frames compared to reference: same lean bald clean-shaven monk gray-blue robe maroon sash beads and wooden staff, full head/staff ends/feet, right-facing, no effects/clipping/text. Same ground and uniform scale, inhale rise2-3/exhale4. Knees nearly straight rather than requested bent guard; caution recorded, not exact stance acceptance. Own idle scale established.",
+  "gitVerified": true,
+  "gitCommit": "6412ca1c0382b0667c335128eac11adb7220afa2",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "remoteByteEqual": true,
+  "remoteSha256": "00b8a84cfabc5a46f048dbcceefb8e27893c034ab56ff73592237c8b023867ca",
+  "ocrSuccess": true,
+  "ocrText": "",
+  "updatedAt": "2026-10-07T15:46:23.319248+09:00"
+}

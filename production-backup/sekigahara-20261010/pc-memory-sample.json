@@ -1,0 +1,211 @@
+﻿{
+    "Collected":  "2026-10-06T07:24:07.4122868+09:00",
+    "OS":  {
+               "TotalRAMGB":  15.93,
+               "FreeRAMGB":  5.83,
+               "FreeRAMPercent":  36.6,
+               "LastBoot":  "\/Date(1790944446292)\/",
+               "Uptime":  "3.09:50:01.1350173"
+           },
+    "Drives":  [
+                   {
+                       "Name":  "C",
+                       "Root":  "C:\\",
+                       "FreeGB":  44.24,
+                       "UsedGB":  193.23
+                   },
+                   {
+                       "Name":  "D",
+                       "Root":  "D:\\",
+                       "FreeGB":  19.51,
+                       "UsedGB":  9.97
+                   },
+                   {
+                       "Name":  "G",
+                       "Root":  "G:\\",
+                       "FreeGB":  42.03,
+                       "UsedGB":  195.44
+                   }
+               ],
+    "CountersFound":  [
+                          "\\Memory\\Available MBytes"
+                      ],
+    "Samples":  [
+                    {
+                        "Time":  "\/Date(1791239042360)\/",
+                        "Path":  "\\\\desktop-kbrhpir\\memory\\available mbytes",
+                        "Value":  5935
+                    },
+                    {
+                        "Time":  "\/Date(1791239043376)\/",
+                        "Path":  "\\\\desktop-kbrhpir\\memory\\available mbytes",
+                        "Value":  5936
+                    },
+                    {
+                        "Time":  "\/Date(1791239044378)\/",
+                        "Path":  "\\\\desktop-kbrhpir\\memory\\available mbytes",
+                        "Value":  5937
+                    },
+                    {
+                        "Time":  "\/Date(1791239045393)\/",
+                        "Path":  "\\\\desktop-kbrhpir\\memory\\available mbytes",
+                        "Value":  5937
+                    },
+                    {
+                        "Time":  "\/Date(1791239046401)\/",
+                        "Path":  "\\\\desktop-kbrhpir\\memory\\available mbytes",
+                        "Value":  5937
+                    },
+                    {
+                        "Time":  "\/Date(1791239047412)\/",
+                        "Path":  "\\\\desktop-kbrhpir\\memory\\available mbytes",
+                        "Value":  5936
+                    }
+                ],
+    "TopProcesses":  [
+                         {
+                             "Name":  "ChatGPT",
+                             "Count":  12,
+                             "WorkingSetGB":  3.04,
+                             "PrivateGB":  4.12,
+                             "CpuSeconds":  16823.3,
+                             "Pids":  "3244,4540,8120,10476,12964,14248,15012,16832,16836,17892,18064,19376"
+                         },
+                         {
+                             "Name":  "claude",
+                             "Count":  11,
+                             "WorkingSetGB":  1.89,
+                             "PrivateGB":  1.28,
+                             "CpuSeconds":  776.7,
+                             "Pids":  "3688,4064,12440,13076,13488,15604,18252,19212,19812,19980,20464"
+                         },
+                         {
+                             "Name":  "chrome",
+                             "Count":  15,
+                             "WorkingSetGB":  1.29,
+                             "PrivateGB":  1.19,
+                             "CpuSeconds":  3963.3,
+                             "Pids":  "1556,5332,6564,8944,9764,9840,13720,14564,14692,16440,16552,16868,17180,17184,17368"
+                         },
+                         {
+                             "Name":  "node",
+                             "Count":  10,
+                             "WorkingSetGB":  0.48,
+                             "PrivateGB":  0.54,
+                             "CpuSeconds":  5,
+                             "Pids":  "2332,2420,3652,5844,8492,12788,14332,18188,18900,20348"
+                         },
+                         {
+                             "Name":  "svchost",
+                             "Count":  90,
+                             "WorkingSetGB":  1.47,
+                             "PrivateGB":  0.49,
+                             "CpuSeconds":  98.4,
+                             "Pids":  "776,808,1064,1216,1360,1412,1536,1624,1692,1736,1900,1936,1968,2208,2216,2224,2232,2240,2248,2256,2340,2412,2440,2448,2496,2596,2720,2788,2796,3016,3048,3124,3152,3236,3332,3340,3412,3536,3552,3608,3620,3740,3748,3788,3800,3880,3944,4056,4072,4084,4092,4140,4156,4164,4184,4188,4616,4704,5356,5480,5988,6092,6156,6332,6480,6632,6640,6724,6872,6884,7368,7404,7428,8096,8512,8556,8684,9768,10860,10988,11120,11532,12176,12360,12376,14044,14612,14876,15124,15448"
+                         },
+                         {
+                             "Name":  "codex",
+                             "Count":  2,
+                             "WorkingSetGB":  0.53,
+                             "PrivateGB":  0.49,
+                             "CpuSeconds":  1106.4,
+                             "Pids":  "10116,18848"
+                         },
+                         {
+                             "Name":  "msedgewebview2",
+                             "Count":  12,
+                             "WorkingSetGB":  0.62,
+                             "PrivateGB":  0.39,
+                             "CpuSeconds":  399.4,
+                             "Pids":  "6468,9144,9468,9520,10168,10176,10360,10428,11460,12084,12216,13156"
+                         },
+                         {
+                             "Name":  "MsMpEng",
+                             "Count":  1,
+                             "WorkingSetGB":  0.32,
+                             "PrivateGB":  0.38,
+                             "CpuSeconds":  0,
+                             "Pids":  "4364"
+                         },
+                         {
+                             "Name":  "explorer",
+                             "Count":  1,
+                             "WorkingSetGB":  0.37,
+                             "PrivateGB":  0.29,
+                             "CpuSeconds":  2957.5,
+                             "Pids":  "7596"
+                         },
+                         {
+                             "Name":  "dwm",
+                             "Count":  1,
+                             "WorkingSetGB":  0.13,
+                             "PrivateGB":  0.14,
+                             "CpuSeconds":  0,
+                             "Pids":  "1484"
+                         },
+                         {
+                             "Name":  "ctfmon",
+                             "Count":  1,
+                             "WorkingSetGB":  0.17,
+                             "PrivateGB":  0.11,
+                             "CpuSeconds":  830.7,
+                             "Pids":  "10048"
+                         },
+                         {
+                             "Name":  "codex-code-mode-host",
+                             "Count":  1,
+                             "WorkingSetGB":  0.1,
+                             "PrivateGB":  0.08,
+                             "CpuSeconds":  18.8,
+                             "Pids":  "3560"
+                         },
+                         {
+                             "Name":  "StartMenuExperienceHost",
+                             "Count":  1,
+                             "WorkingSetGB":  0.13,
+                             "PrivateGB":  0.08,
+                             "CpuSeconds":  42,
+                             "Pids":  "8264"
+                         },
+                         {
+                             "Name":  "powershell",
+                             "Count":  1,
+                             "WorkingSetGB":  0.09,
+                             "PrivateGB":  0.07,
+                             "CpuSeconds":  0.9,
+                             "Pids":  "13600"
+                         },
+                         {
+                             "Name":  "GoogleDriveFS",
+                             "Count":  2,
+                             "WorkingSetGB":  0.13,
+                             "PrivateGB":  0.07,
+                             "CpuSeconds":  3199,
+                             "Pids":  "4888,8532"
+                         },
+                         {
+                             "Name":  "SystemSettings",
+                             "Count":  1,
+                             "WorkingSetGB":  0.01,
+                             "PrivateGB":  0.06,
+                             "CpuSeconds":  7.2,
+                             "Pids":  "12988"
+                         },
+                         {
+                             "Name":  "SearchHost",
+                             "Count":  1,
+                             "WorkingSetGB":  0.11,
+                             "PrivateGB":  0.05,
+                             "CpuSeconds":  45,
+                             "Pids":  "8224"
+                         },
+                         {
+                             "Name":  "CrossDeviceService",
+                             "Count":  1,
+                             "WorkingSetGB":  0.12,
+                             "PrivateGB":  0.04,
+                             "CpuSeconds":  1582.7,
+                             "Pids":  "7996"
+                         }
+                     ]
+}

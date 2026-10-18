@@ -1,0 +1,68 @@
+{
+  "name": "会話肖像_黒田長政_左向き_v1.png",
+  "source": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_黒田長政_左向き_v1.png",
+  "path": "C:\\Users\\user\\Desktop\\output\\sekigahara-new-20261006\\finished\\会話肖像_黒田長政_左向き_v1.png",
+  "kind": "dialogue_portrait",
+  "status": "candidate",
+  "attempts": 1,
+  "cellSpecificationApplicable": false,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "bbox": [
+    19,
+    28,
+    1235,
+    1235
+  ],
+  "margins": [
+    19,
+    28,
+    19,
+    19
+  ],
+  "alphaZeroPixels": 725317,
+  "automaticPass": true,
+  "visibleBBox": [
+    19,
+    29,
+    1230,
+    1235
+  ],
+  "visibleMargins": [
+    19,
+    29,
+    24,
+    19
+  ],
+  "alphaOnePixels": 11529,
+  "alphaReview": "Raw bounds and alpha > 1 silhouette bounds both recorded. Alpha 1 residue is 1/255 opacity; do not erase or change generated pixels.",
+  "sha256": "d3b46a249f3f74c8bb197f88ec85927c2e556c709194fcb2889eb25e40ec4590",
+  "candidateCount": 1,
+  "selectedCandidate": 1,
+  "firstGenerationOnly": true,
+  "regenerationPolicy": "do_not_regenerate_same_task",
+  "generatedSource": "C:\\Users\\user\\.codex\\generated_images\\01a11184-7c9d-7e11-8c85-0d8f75587699\\exec-79c8e3b9-eb9f-46b1-b7a4-e62edb4025fd.png",
+  "generatedSourceSha256": "f2a7911b1a3cc0c2df815470e4a74998268e1a20e5f649c55921a97d6ef1ec1a",
+  "referenceAsset": "assets/sprites/黒田長政_設定画.png",
+  "placementTransform": "Uniform 97% premultiplied-alpha rescale centered on transparent 1254x1254 canvas; original generated source preserved unchanged.",
+  "actualName": "会話肖像_黒田長政_左向き_v1.png",
+  "qaResult": "要注意",
+  "prompt": "Create a single square 2D game dialogue portrait, transparent background, premium painterly Japanese historical action-game key art. Depict Kuroda Nagamasa, a stern mature Sengoku daimyo, chest-up only, shoulders and upper chest fully visible. Follow this established game design: long black hair tied into a ponytail; dark navy-black lacquered armor with restrained antique-gold bands and fittings; a deep indigo cloak with cream-and-gold floral motifs and one clear floral mon on the shoulder; a black helmet crowned by two large, elegant upward-curving gold crescent horns. Mature composed face, fine mustache and short beard, strong dignified expression, realistic Japanese features, dramatic restrained chiaroscuro, rich but muted indigo, charcoal, old gold, and cream palette. The full horn tips, hair, shoulders, and chest silhouette must remain inside the canvas with generous transparent padding on every edge. No text, letters, symbols resembling writing, watermark, frame, scenery, weapon, sword, scabbard, banner, or extra character. Keep the portrait readable at small dialogue-window size.\nOrientation: the head, nose, and gaze clearly face toward the LEFT edge of the image in a three-quarter view. This is the left-facing counterpart of the same character; mirror the direction while retaining the same costume, facial identity, palette, and painterly treatment.",
+  "ocrResult": {
+    "name": "会話肖像_黒田長政_左向き_v1.png",
+    "text": "メ 第 レ 4 ツ ー",
+    "success": true
+  },
+  "ocrReview": "Windows OCR succeeded. Recognized fragments were visually confirmed as floral crest and engraved armor decoration, not text.",
+  "visualReview": "Chest-up Kuroda Nagamasa; correct right/left three-quarter facing direction; full twin crescent horn tips, ponytail, both shoulders and upper chest contour visible with at least 16px transparent visible margins. Navy-black and antique-gold armor with indigo cloak and cream floral motifs matches assets/sprites/黒田長政_設定画.png. OCR-like fragments on the left portrait were visually confirmed as floral crest and engraved armor ornament; no lettering. alpha1/255 edge residue is retained and recorded as caution. Original generated source is preserved unchanged.",
+  "gitVerified": true,
+  "reviewDate": "2026-10-07",
+  "gitCommit": "017c8884635da8739fcdbf028e2cbcbca06c94fd",
+  "gitBranch": "ccr-851ab851-t271uq",
+  "gitVerifiedHead": "017c8884635da8739fcdbf028e2cbcbca06c94fd",
+  "gitVerifiedAt": "2026-10-07T08:11:14+09:00",
+  "gitSha256Verified": true
+}
