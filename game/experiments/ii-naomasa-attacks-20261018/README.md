@@ -28,3 +28,9 @@
 
 - [SNK Samurai Shodown Ver.2.10 patch notes](https://www.snk-corp.co.jp/kr/games/samuraishodown/ss_patch_2.10_eng.pdf)
 - [SNK Samurai Shodown Ver.1.11 patch notes](https://www.snk-corp.co.jp/kr/games/samuraishodown/ss_patch_1.11_eng.pdf)
+
+## Claude側の組み込み確認(2026-10-18)
+
+- 組み込み: `btri_boss1` として取り込み、`TY.boss1.atk[4]`(石突き・16コマ・7/11コマ目)と`[5]`(蹴り込み・14コマ・5/11コマ目)に配備。最後の当たりで打ち上げ。
+- 一体デバッグで20枚ずつ再生を確認。石突きは低い薙ぎ→握り替え→頭上への振り上げ→回収、蹴り込みは膝上げ→蹴り→踏み込み突き→回収の順に読めた。大きさは待機比0.74〜1.28で、打ち上げの構えでだけ高い。
+- 未確認: 柄尻の厳密な接触点・武器寸法のピクセル一致、全編デモ・本編での見え方、左右向き、実機。

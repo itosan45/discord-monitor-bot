@@ -497,6 +497,11 @@ TY.munenori=Object.assign(JSON.parse(JSON.stringify(TY.boss1)),{type:'munenori',
   TY.munenori.atk.push({pz:'thrust',k:'tri',atlas:'btri',row:'iai',ft:ft(12,52),hits:[Math.round(6*52/12)],dur:52,hs:Math.round(6*52/12),he:Math.round(6*52/12)+1,rng:250,dmg:13,kb:6,dep:44,lunge:5.5,sfx:'slash'});
   TY.munenori.atk.push({pz:'swing',k:'tri',atlas:'btri',row:'nire',ft:ft(20,76),hits:[Math.round(5*76/20),Math.round(13*76/20)],dur:76,hs:Math.round(5*76/20),he:Math.round(5*76/20)+1,rng:175,dmg:8,kb:3,dep:46,lunge:7.5,sfx:'slash'});
   TY.munenori.near=[0,2,0,1,4];TY.munenori.far=[1,2,3];}
+/* 2026-10-18 井伊直政の追加攻撃(A-031 追記5、画像担当の候補を取り込み): 石突き打ち上げ(16コマ・7/11コマ目)と蹴り込み突き(14コマ・5/11コマ目)。最後の当たりで打ち上げる */
+{const ft=(n,dur)=>Array.from({length:n},(_,i)=>Math.round(i*dur/n));
+ TY.boss1.atk.push({pz:'swing',k:'tri',atlas:'btri',row:'ishi',ft:ft(16,72),hits:[Math.round(6*72/16),Math.round(10*72/16)],dur:72,hs:Math.round(6*72/16),he:Math.round(6*72/16)+1,rng:185,dmg:10,kb:4,dep:44,lunge:4,sfx:'heavy'});
+ TY.boss1.atk.push({pz:'thrust',k:'tri',atlas:'btri',row:'keri',ft:ft(14,62),hits:[Math.round(4*62/14),Math.round(10*62/14)],dur:62,hs:Math.round(4*62/14),he:Math.round(4*62/14)+1,rng:175,dmg:9,kb:4,dep:42,lunge:5,sfx:'thrust'});
+ TY.boss1.near=[0,1,0,4,5];TY.boss1.far=[1,2,3,1,5];}
  /* 第七幕の本物の家康(老武者・専用の絵 ieyasu2): 斬り=a1 / 軍配で家来を呼ぶ=call / 踏み込み突き=dash / 回転大斬り=big */
  TY.ieyasu2={spr:'ieyasu2',atk:[Object.assign(J(TY.boss3.atk[0]),{anim:'a1'}),Object.assign(J(TY.boss3.atk[1]),{anim:'call'}),Object.assign(J(TY.boss3.atk[2]),{anim:'dash'}),Object.assign(J(rnd9),{anim:'big'})],near:[0,3,0,2],far:[2,1,3]};}
 /* 2026-10-16 オーナー「幸村が小さく見える。ボスが大きすぎる。大柄のキャラなら自然」: 武将ボスの倍率を見直す(主人公=1.0)。大柄の設定(本多忠勝・福島正則)だけ大きめ、他は1.1〜1.15。
