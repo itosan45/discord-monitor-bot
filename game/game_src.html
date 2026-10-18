@@ -2334,7 +2334,7 @@ function sprPos(f,S){const T=f.T,A=S.a,P=(n,pos,loop,hard)=>{const arr=A[n]||A.i
  const prog=(d,n)=>clamp(f.st/Math.max(1,d.dur),0,0.999)*n;
  if(A.big){const c=f.cur;if(f.mutoT>G.t&&A.muto)return P('muto',(36-(f.mutoT-G.t))/6);/* 無刀取り(宗矩)の専用モーション */switch(f.state){
   case'ult':{const arr=A[f.ultAn]||A.idle;return {arr,pos:clamp(Math.floor(f.ultPos||0),0,arr.length-1),loop:false};}/* 政宗の奥義: 構え(big)→走り(dash)→斬り抜け(jslash)→納刀(a1) */
-  case'walk':return P('walk',f.t/6,true);
+  case'walk':return P('walk',(f.wp||0)*((A.walk&&A.walk.length)||8)/8,true);/* 歩きは時間でなく進んだ距離で送る(2026-10-18 オーナー「政宗や柳生の歩きが滑らかじゃない」: 6コマ/5コマを6tickごとに送ると足が地面より速く動いて滑って見えた。8コマの歩きと同じ歩幅になるよう、コマ数で割り戻す) */
   case'held':case'hurt':return P('hit',f.state==='held'||f.st<7?0:1);
   case'koshi':return A.koshi?P('koshi',f.st/8):P('dead',2);/* 腰を抜かす(本物の家康。絵 A-022 が届くまではやられの途中のコマ) */
   case'point':return A.point?P('point',f.st/8):P('hit',0);/* 指差しで攻撃命令(絵が届くまでは被弾の1コマ目) */
